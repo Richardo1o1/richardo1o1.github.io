@@ -43,6 +43,23 @@
 ]]></content>
   </entry>
   <entry>
+    <title>first-post</title>
+    <url>/2023/02/02/first-post/</url>
+    <content><![CDATA[<h2 id="本博客的内容"><a href="#本博客的内容" class="headerlink" title="本博客的内容"></a>本博客的内容</h2><p>可能包括以下几类：</p>
+<ul>
+<li>当日所学：学习的总结，包括技术&#x2F;设计&#x2F;产品等</li>
+<li>项目进展：正在进行的项目</li>
+<li>有趣资源：发现的有趣资源分享</li>
+<li>杂项：包括一些心得体会及其他日常</li>
+</ul>
+<h2 id="更新频率"><a href="#更新频率" class="headerlink" title="更新频率"></a>更新频率</h2><p>目前希望是日更，看看是否能坚持</p>
+<h2 id="博客目的"><a href="#博客目的" class="headerlink" title="博客目的"></a>博客目的</h2><p>作为知识管理的最后一环，需要对知识进行输出，目前我先用博客来实现</p>
+]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/02/01/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
