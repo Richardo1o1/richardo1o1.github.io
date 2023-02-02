@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Sample file</title>
+    <url>/2023/02/02/Hello/</url>
+    <content><![CDATA[<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>We provide a sample app using Hexo that you can deploy on App Platform. These steps will get this sample application running for you using App Platform.</p>
+<p><strong>Note: Following these steps may result in charges for the use of DigitalOcean services.</strong></p>
+<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><ul>
+<li>You need a DigitalOcean account. If you don’t already have one, you can sign up at <a href="https://cloud.digitalocean.com/registrations/new">https://cloud.digitalocean.com/registrations/new</a>.</li>
+</ul>
+<h2 id="Deploying-the-App"><a href="#Deploying-the-App" class="headerlink" title="Deploying the App"></a>Deploying the App</h2><p>Click this button to deploy the app to the DigitalOcean App Platform. If you are not logged in, you will be prompted to log in with your DigitalOcean account.</p>
+<p><a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/digitalocean/sample-hexo/tree/main"><img src="https://www.deploytodo.com/do-btn-blue.svg" alt="Deploy to DigitalOcean"></a></p>
+<p>Using this button disables the ability to automatically re-deploy your app when pushing to a branch or tag in your repository as you are using this repo directly.</p>
+<p>If you want to automatically re-deploy your app, <a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">fork</a> the GitHub repository to your account so that you have a copy of it stored to the cloud. Click the <strong>Fork</strong> button in the GitHub repository and follow the on-screen instructions.</p>
+<p>After forking the repo, you should now be viewing this README in your own GitHub org (e.g. <code>https://github.com/&lt;your-org&gt;/sample-hexo</code>). To deploy the new repo, visit <a href="https://cloud.digitalocean.com/apps">https://cloud.digitalocean.com/apps</a> and click <strong>Create App</strong>. Then, click <strong>GitHub</strong>, select the repository you created and select the <code>main</code> branch. App Platform will inspect the code, automatically detect the kind of component to create, and use the correct buildpack to create and deploy a container.</p>
+<p>After clicking the <strong>Deploy to DigitalOcean</strong> button or completing the instructions above to fork the repo, follow these steps:</p>
+<ol>
+<li>Configure the app such as specifying HTTP routes, environment variables or adding a database.</li>
+<li>Provide a name for your app and select which region you want to deploy your app to and click <strong>Next</strong>. The closest region to you should be selected by default. All App Platform apps are routed through a global CDN. So this will not affect your app performance, unless it needs to talk to external services.</li>
+<li>On the following screen, leave all the fields as they are and click <strong>Next</strong>.</li>
+<li>Confirm your <strong>Plan</strong> settings and how many containers you want to launch and click <strong>Launch Basic&#x2F;Pro App</strong>.</li>
+<li>You should see a “Building…” progress indicator. You can click <strong>View Logs</strong> to see more details of the build.</li>
+<li>It can take a few minutes for the build to finish, but you can follow the progress in the <strong>Deployments</strong> tab.</li>
+<li>Once the build completes successfully, click the <strong>Live App</strong> link in the header and you should see your running application in a new tab, displaying the home page.</li>
+</ol>
+<h3 id="Making-Changes-to-Your-App"><a href="#Making-Changes-to-Your-App" class="headerlink" title="Making Changes to Your App"></a>Making Changes to Your App</h3><p>If you followed the steps to fork the repo and used your own copy when deploying the app, you can push changes to your fork and see App Platform automatically re-deploy the update to your app. During these automatic deployments, your application will never pause or stop serving request because App Platform offers zero-downtime deployments.</p>
+<p>Here’s an example code change you can make for this app:</p>
+<ol>
+<li>Edit <code>source/_posts/hello-world.md</code> and edit the content of the post</li>
+<li>Commit the change to the <code>main</code> branch. Normally it’s a better practice to create a new branch for your change and then merge that branch to <code>main</code> after review, but for this demo you can commit to the <code>main</code> branch directly.</li>
+<li>Visit <a href="https://cloud.digitalocean.com/apps">https://cloud.digitalocean.com/apps</a> and navigate to your sample app.</li>
+<li>You should see a “Building…” progress indicator, just like when you first created the app.</li>
+<li>Once the build completes successfully, click the <strong>Live App</strong> link in the header and you should see your updated application running. You may need to force refresh the page in your browser (e.g. using <strong>Shift+Reload</strong>).</li>
+</ol>
+<h3 id="Learn-More"><a href="#Learn-More" class="headerlink" title="Learn More"></a>Learn More</h3><p>You can learn more about the App Platform and how to manage and update your application at <a href="https://www.digitalocean.com/docs/app-platform/">https://www.digitalocean.com/docs/app-platform/</a>.</p>
+<h2 id="Deleting-the-App"><a href="#Deleting-the-App" class="headerlink" title="Deleting the App"></a>Deleting the App</h2><p>When you no longer need this sample application running live, you can delete it by following these steps:</p>
+<ol>
+<li>Visit the Apps control panel at <a href="https://cloud.digitalocean.com/apps">https://cloud.digitalocean.com/apps</a>.</li>
+<li>Navigate to the sample app.</li>
+<li>In the <strong>Settings</strong> tab, click <strong>Destroy</strong>.</li>
+</ol>
+<p><strong>Note: If you do not delete your app, charges for using DigitalOcean services will continue to accrue.</strong></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/02/01/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
