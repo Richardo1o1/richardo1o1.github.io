@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-02T15:26:22.454Z</updated>
+  <updated>2023-02-02T15:32:06.662Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yunminitools.cn/2023/02/02/hello-world/"/>
+    <id>http://yunminitools.cn/2023/02/02/hello-world/</id>
+    <published>2023-02-02T15:32:06.662Z</published>
+    <updated>2023-02-02T15:32:06.662Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>first-post</title>
@@ -44,37 +65,12 @@
     <link href="http://yunminitools.cn/2023/02/02/Hello/"/>
     <id>http://yunminitools.cn/2023/02/02/Hello/</id>
     <published>2023-02-02T07:33:53.000Z</published>
-    <updated>2023-02-02T07:41:53.989Z</updated>
+    <updated>2023-02-02T15:31:45.778Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Getting-Started&quot;&gt;&lt;a href=&quot;#Getting-Started&quot; class=&quot;headerlink&quot; title=&quot;Getting Started&quot;&gt;&lt;/a&gt;Getting Started&lt;/h2&gt;&lt;p&gt;We provide a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yunminitools.cn/2023/02/01/hello-world/"/>
-    <id>http://yunminitools.cn/2023/02/01/hello-world/</id>
-    <published>2023-02-01T03:40:11.650Z</published>
-    <updated>2023-02-01T03:40:11.650Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;Getting-Started&quot;&gt;&lt;a href=&quot;#Getting-Started&quot; class=&quot;headerlink&quot; title=&quot;Getting Started&quot;&gt;&lt;/a&gt;Getting Started&lt;/h2&gt;&lt;p&gt;We provide a sample app using Hexo that you can deploy on App Platform. These steps will get this sample application running for you using App Platform.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note: Following these steps may result in charges for the use of DigitalOcean services.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Requirements&quot;&gt;&lt;a href=&quot;#Requirements&quot; class=&quot;headerlink&quot; title=&quot;Requirements&quot;&gt;&lt;/a&gt;Requirements&lt;/h3&gt;</summary>
     
     
     
