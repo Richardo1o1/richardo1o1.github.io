@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-05T15:03:05.082Z</updated>
+  <updated>2023-02-06T08:21:50.006Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用ChatGPT来学习英文(2)</title>
+    <link href="http://yunminitools.cn/2023/02/06/Using-ChatGPT-English-Learning-2/"/>
+    <id>http://yunminitools.cn/2023/02/06/Using-ChatGPT-English-Learning-2/</id>
+    <published>2023-02-06T08:20:49.000Z</published>
+    <updated>2023-02-06T08:21:50.006Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;学习场景&quot;&gt;&lt;a href=&quot;#学习场景&quot; class=&quot;headerlink&quot; title=&quot;学习场景&quot;&gt;&lt;/a&gt;学习场景&lt;/h2&gt;&lt;p&gt;继续昨天的话题：&lt;/p&gt;
+&lt;h3 id=&quot;4、利用ChatGPT提升讲演能力&quot;&gt;&lt;a href=&quot;#4、利用ChatGPT提升讲演能力&quot; class=&quot;headerlink&quot; title=&quot;4、利用ChatGPT提升讲演能力&quot;&gt;&lt;/a&gt;4、利用ChatGPT提升讲演能力&lt;/h3&gt;&lt;p&gt;可以用以下提示词让Chatgpt提供话题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Suggest 10 controversial topics to discuss &lt;/li&gt;
+&lt;li&gt;Write 5 inspiring ideas for conversation&lt;/li&gt;
+&lt;li&gt;Write 10 questions to reflect on &lt;/li&gt;
+&lt;li&gt;Write 10 ideas for a TED talk&lt;/li&gt;
+&lt;li&gt;Suggest different conversation topics to speak with friends&amp;#x2F;students&amp;#x2F;colleagues&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：&lt;br&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/ChatGPT0206-1.png&quot; alt=&quot;ChatGPT例子5&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+  </entry>
   
   <entry>
     <title>使用ChatGPT来学习英文(1)</title>
