@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-07T08:59:45.102Z</updated>
+  <updated>2023-02-08T15:08:57.746Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用ChatGPT来学习英文(3)</title>
+    <link href="http://yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/"/>
+    <id>http://yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/</id>
+    <published>2023-02-08T15:07:11.000Z</published>
+    <updated>2023-02-08T15:08:57.746Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;学习场景&quot;&gt;&lt;a href=&quot;#学习场景&quot; class=&quot;headerlink&quot; title=&quot;学习场景&quot;&gt;&lt;/a&gt;学习场景&lt;/h2&gt;&lt;p&gt;继续使用ChatGPT来学习英文的话题：&lt;/p&gt;
+&lt;h3 id=&quot;7、利用ChatGPT学习单词&quot;&gt;&lt;a href=&quot;#7、利用ChatGPT学习单词&quot; class=&quot;headerlink&quot; title=&quot;7、利用ChatGPT学习单词&quot;&gt;&lt;/a&gt;7、利用ChatGPT学习单词&lt;/h3&gt;&lt;p&gt;可以用以下提示词让Chatgpt给出单词含义和例子,或者直接要求列出特定场景可能使用的词汇：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the meaning of [word]?  （给出含义）&lt;/li&gt;
+&lt;li&gt;Give 5 example using this word. （给出例子）&lt;/li&gt;
+&lt;li&gt;What is a synonym for [word].   （给出同义词）&lt;/li&gt;
+&lt;li&gt;What is a antonym for [word].   （给出反义词）&lt;/li&gt;
+&lt;li&gt;Please provide me with [scenario] vocabulary. （给出特定场景单词）&lt;/li&gt;
+&lt;li&gt;Make a list of idioms and expressions related to [topic]（给出特定场景习惯用语）&lt;br&gt;例如：&lt;br&gt;要求给出含义解释：&lt;br&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/ChatGPT0208-1.png&quot; alt=&quot;ChatGPT例子10&quot;&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+  </entry>
   
   <entry>
     <title>知识管理相关-知识管理误区</title>

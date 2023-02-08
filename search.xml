@@ -165,6 +165,39 @@
       </tags>
   </entry>
   <entry>
+    <title>使用ChatGPT来学习英文(3)</title>
+    <url>/2023/02/08/Using-ChatGPT-English-Learning-3/</url>
+    <content><![CDATA[<h2 id="学习场景"><a href="#学习场景" class="headerlink" title="学习场景"></a>学习场景</h2><p>继续使用ChatGPT来学习英文的话题：</p>
+<h3 id="7、利用ChatGPT学习单词"><a href="#7、利用ChatGPT学习单词" class="headerlink" title="7、利用ChatGPT学习单词"></a>7、利用ChatGPT学习单词</h3><p>可以用以下提示词让Chatgpt给出单词含义和例子,或者直接要求列出特定场景可能使用的词汇：</p>
+<ul>
+<li>What is the meaning of [word]?  （给出含义）</li>
+<li>Give 5 example using this word. （给出例子）</li>
+<li>What is a synonym for [word].   （给出同义词）</li>
+<li>What is a antonym for [word].   （给出反义词）</li>
+<li>Please provide me with [scenario] vocabulary. （给出特定场景单词）</li>
+<li>Make a list of idioms and expressions related to [topic]（给出特定场景习惯用语）<br>例如：<br>要求给出含义解释：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-1.png" alt="ChatGPT例子10"><span id="more"></span></li>
+</ul>
+<p>要求给出5个例子：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-2.png" alt="ChatGPT例子11"></p>
+<p>要求给出同义词<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-3.png" alt="ChatGPT例子12"></p>
+<p>要求给出反义词<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-4.png" alt="ChatGPT例子13"></p>
+<p>要求提供单词清单<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-5.png" alt="ChatGPT例子14"></p>
+<p>要求提供习惯用法：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-6.png" alt="ChatGPT例子15"></p>
+<h3 id="8、利用ChatGPT提示你的写作能力"><a href="#8、利用ChatGPT提示你的写作能力" class="headerlink" title="8、利用ChatGPT提示你的写作能力"></a>8、利用ChatGPT提示你的写作能力</h3><p>比如，你需要给同事写一封邮件，但你不确定如何让它听起来更有礼貌。你可以简单地要求ChatGPT用更正式的语气或友好的语气重写它。</p>
+<p>这样当你写完后，你花时间比较你的和ChatGPT的不同版本，并尝试看看你能从有差异的地方学到什么，并且，你可以要求它指出用了那些新的词汇，并要求它解释。</p>
+<p>例如：使用以下提升词要求它写一个邮件：<br>Can you write an email to a client requesting them to reschedule a meeting? Make it friendly but polite.<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-7.png" alt="ChatGPT例子16"></p>
+<p>如果不满意，还可以要求它修改：<br>Can you make it more informal?<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-8.png" alt="ChatGPT例子17"></p>
+<p>还有一些提升词可以参考：<br>Write an email about [topic]<br>Correct my mistakes in the following text<br>Please rewrite this text and explain your changes [add text]<br>Can you suggest a better vocabulary to be used in this text?<br>Rewrite in a more informal way<br>Rewrite this text in a more polite way</p>
+<p>(完)</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>英语学习</tag>
+        <tag>AIGC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>first-post</title>
     <url>/2023/02/02/first-post/</url>
     <content><![CDATA[<h2 id="本博客的内容"><a href="#本博客的内容" class="headerlink" title="本博客的内容"></a>本博客的内容</h2><p>可能包括以下几类：</p>
