@@ -85,6 +85,71 @@
     
     
     <article
+  id="post-Hexo-Backup"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/02/11/Hexo-Backup/"
+    >一个备份Hexo文件的简单办法</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/02/11/Hexo-Backup/" class="article-date">
+  <time datetime="2023-02-11T07:56:34.000Z" itemprop="datePublished">2023-02-11</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>由于我是通过服务器发布日志文件，再同步给github，md文件本身是没有备份的。网上有很多方法备份文件，包括copy到网盘&#x2F;另外开一个git上传等。我看了一下，有点麻烦，我自己摸索了一个简单的办法，适合于我的环境。</p>
+<h2 id="通过iCloud网盘备份"><a href="#通过iCloud网盘备份" class="headerlink" title="通过iCloud网盘备份"></a>通过iCloud网盘备份</h2><p>思路是：由于我开通了iCloud，我只要用scp将文件备份到iCloud的文件夹就可以了，这样iCloud就会帮我自动备份md文件。</p>
+<p>这个方法需要用到两个知识点：</p>
+<ol>
+<li><p>iCloud目录在Mac如何表示<br>目录表示为：  <strong><del>&#x2F;Library&#x2F;Mobile\ Documents&#x2F;com</del>apple~CloudDocs</strong></p>
+</li>
+<li><p>scp如何下载文件<br>scp -r user:xxx.xxx.xxx.xxx:yyy&#x2F;yyyy  zzz&#x2F;zzz&#x2F;zzz<br>  其中 user:xxx.xxx.xxx.xxx user为服务器用户名，xxx.xxx.xxx.xxx 为服务器地址<br>yyy&#x2F;yyyy 为服务器需要备份md文件的地址<br>zzz&#x2F;zzz&#x2F;zzz 为本地iCloud的地址</p>
+</li>
+</ol>
+<p>这样我就写出了一个备份地址的命令：<br>‘’’scp -r <a href="mailto:&#x72;&#111;&#111;&#x74;&#x40;&#48;&#x2e;&#x30;&#46;&#48;&#46;&#x30;">&#x72;&#111;&#111;&#x74;&#x40;&#48;&#x2e;&#x30;&#46;&#48;&#46;&#x30;</a>:<del>&#x2F;blog&#x2F;source&#x2F;_posts ~&#x2F;Library&#x2F;Mobile\ Documents&#x2F;com\</del>apple~CloudDocs&#x2F;Documents&#x2F;Backup&#x2F;blog<br>‘’’</p>
+<p>考虑到这个地址比较长，我把它存到本地的一个脚本文件：Blog.sh,并给这个文件加上可执行属性：<br>‘’’chmod 777 Blog.sh<br>‘’’</p>
+<p>这样，我们定时执行命令Blog.sh就可以了。<br>‘’‘.&#x2F;Blog.sh<br>‘’’</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Collaboration-Approach"
   class="article article-type-post"
   itemscope
@@ -701,66 +766,6 @@
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li></ul>
 
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-first-post"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/02/first-post/"
-    >first-post</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/02/first-post/" class="article-date">
-  <time datetime="2023-02-02T15:14:40.000Z" itemprop="datePublished">2023-02-02</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="本博客的内容"><a href="#本博客的内容" class="headerlink" title="本博客的内容"></a>本博客的内容</h2><p>可能包括以下几类：</p>
-<ul>
-<li>当日所学：学习的总结，包括技术&#x2F;设计&#x2F;产品等</li>
-<li>日常练习：根据学习中的心得进行的练习过程分享</li>
-<li>有趣资源：发现的有趣资源分享</li>
-<li>杂项：包括一些心得体会及其他日常</li>
-</ul>
-<h2 id="更新频率"><a href="#更新频率" class="headerlink" title="更新频率"></a>更新频率</h2><p>目前希望是日更，看看是否能坚持</p>
-<h2 id="博客目的"><a href="#博客目的" class="headerlink" title="博客目的"></a>博客目的</h2><p>作为知识管理的最后一环，需要对知识进行输出，目前我先用博客来实现</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
     </footer>
   </div>
 
