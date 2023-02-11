@@ -125,9 +125,16 @@
 <li><p>scp如何下载文件<br>scp -r user:xxx.xxx.xxx.xxx:yyy&#x2F;yyyy  zzz&#x2F;zzz&#x2F;zzz<br>  其中 user:xxx.xxx.xxx.xxx user为服务器用户名，xxx.xxx.xxx.xxx 为服务器地址<br>yyy&#x2F;yyyy 为服务器需要备份md文件的地址<br>zzz&#x2F;zzz&#x2F;zzz 为本地iCloud的地址</p>
 </li>
 </ol>
-<p>这样我就写出了一个备份地址的命令：<br><code>scp -r root@0.0.0.0:~/blog/source/_posts ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Documents/Backup/blog</code></p>
-<p>考虑到这个地址比较长，我把它存到本地的一个脚本文件：Blog.sh,并给这个文件加上可执行属性：<br><code>chmod 777 Blog.sh</code></p>
-<p>这样，我们定时执行命令Blog.sh就可以了。<br><code>./Blog.sh</code></p>
+<p>这样我就写出了一个备份地址的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root@0.0.0.0:~/blog/source/_posts ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Documents/Backup/blog</span><br></pre></td></tr></table></figure>
+
+
+<p>考虑到这个命令比较长，我把它存到本地的一个脚本文件：Blog.sh,并给这个文件加上可执行属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 Blog.sh</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们定时执行命令Blog.sh就可以了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Blog.sh</span><br></pre></td></tr></table></figure>
+
  
       <!-- reward -->
       
