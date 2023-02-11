@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Collaboration Approach of Elite Organizations</title>
+    <url>/2023/02/11/Collaboration-Approach/</url>
+    <content><![CDATA[<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>I read a <a href="https://presence.feishu.cn/docs/doccn6VdWfAzbXe4gICEb3oj8CF">note</a> from Max,CEO of Precence, which about collabration. There were a lot of great points that resonated with me. I wanted to highlight that stood out to me.</p>
+<h2 id="Outline："><a href="#Outline：" class="headerlink" title="Outline："></a>Outline：</h2><p><strong>Who makes the decisions?</strong><br><strong>How is it done?</strong><br><strong>How are they communicated?</strong></p>
+<ul>
+<li>What are the prerequisites for making decisions?<br>Highly Aligned, Loosely Coupled </li>
+<li>Who makes the decisions?<br>Informed Captains</li>
+<li>How is it done?<br>Context not Control</li>
+<li>Who is responsible for the results？<br>Freedom and Responsibility</li>
+</ul>
+<span id="more"></span>
+<h3 id="Highly-Aligned-Loosely-Coupled"><a href="#Highly-Aligned-Loosely-Coupled" class="headerlink" title="Highly Aligned, Loosely Coupled"></a>Highly Aligned, Loosely Coupled</h3><p>As companies grow, they often become highly centralized and inflexible. Symptoms include:</p>
+<ul>
+<li>Senior management is involved in many small decisions</li>
+<li>There are numerous cross-departmental buy-in meetings to socialize tactics</li>
+<li>Pleasing other internal groups takes precedence over pleasing customers</li>
+<li>The organization is <strong>highly coordinated and less prone to error</strong>, but slow and frustrating<br>How to Avoid it？</li>
+</ul>
+<ol>
+<li>Spend lots of time debating strategy together, and then trust each other to execute on tactics without <strong>prior approvals</strong></li>
+<li>If, later, the activities don’t seem right, we have a <strong>candid discussion</strong>.</li>
+<li>We discuss generally how we can <strong>do better</strong> in the future.</li>
+</ol>
+<p>Ultimately, the end goal is to grow the business for bigger impact while increasing flexibility and agility.</p>
+<h3 id="Informed-Captains"><a href="#Informed-Captains" class="headerlink" title="Informed Captains"></a>Informed Captains</h3><p>For every significant decision there is a <strong>responsible captain of the ship</strong> who makes a judgment call after sharing and digesting others’ views.</p>
+<ul>
+<li>We <strong>avoid committees</strong> making decisions because that would slow us down, and diffuse responsibility and accountability.</li>
+<li>We <strong>farm for dissent</strong>; dissent is not natural or easy, which is why we make a concerted effort to stimulate it.</li>
+<li>Small decisions may be shared just by email, larger ones will merit a memo, usually in an <strong>open shared document</strong>.</li>
+<li>We don’t <strong>wait for consensus</strong>, nor do we drive to rapid, uninformed decision making.</li>
+<li>As the impact becomes clearer, we reflect on the decision, and see if we could do even better in the future.</li>
+</ul>
+<h3 id="Context-not-Control"><a href="#Context-not-Control" class="headerlink" title="Context not Control"></a>Context not Control</h3><ul>
+<li>We want employees to be great <strong>independent decision makers</strong>, and to only consult their manager when they are unsure of the right decision.</li>
+<li>Each leader’s role is to teach, to <strong>set context</strong>, and to be highly informed of what is actually happening.</li>
+<li>The goal of knowing those details is not to change certain small decisions, but to learn how to <strong>adjust context</strong> so more decisions are made well.</li>
+<li>We tell people not to seek to please their boss. Instead, seek to serve the business.</li>
+</ul>
+<h3 id="Freedom-and-Responsibility"><a href="#Freedom-and-Responsibility" class="headerlink" title="Freedom and Responsibility"></a>Freedom and Responsibility</h3><ul>
+<li>Our goal is to inspire people more than manage them.</li>
+<li>We believe that people thrive on being <strong>trusted</strong>, on <strong>freedom</strong>, and on being able to <strong>make a difference</strong>. So we foster freedom and empowerment wherever we can.</li>
+<li>We work to have a company of self-disciplined people who discover and fix issues without being told to do so.</li>
+<li>In general, freedom and rapid recovery is better than trying to prevent error.</li>
+<li>Our big threat over time is lack of innovation, so we should be relatively error tolerant. </li>
+<li>The seduction is that error prevention just sounds so good, even if it is often ineffective.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Company Culture</tag>
+        <tag>Collaboration</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Sample file</title>
     <url>/2023/02/01/Hello/</url>
     <content><![CDATA[<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>We provide a sample app using Hexo that you can deploy on App Platform. These steps will get this sample application running for you using App Platform.</p>
