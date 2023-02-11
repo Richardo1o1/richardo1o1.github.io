@@ -107,14 +107,14 @@
 <h2 id="通过iCloud网盘备份"><a href="#通过iCloud网盘备份" class="headerlink" title="通过iCloud网盘备份"></a>通过iCloud网盘备份</h2><p>思路是：由于我开通了iCloud，我只要用scp将文件备份到iCloud的文件夹就可以了，这样iCloud就会帮我自动备份md文件。</p>
 <p>这个方法需要用到两个知识点：</p>
 <ol>
-<li><p>iCloud目录在Mac如何表示<br>目录表示为：  <strong><del>&#x2F;Library&#x2F;Mobile\ Documents&#x2F;com</del>apple~CloudDocs</strong></p>
+<li><p>iCloud目录在Mac如何表示<br>目录表示为: <code>~/Library/Mobile\ Documents/com~apple~CloudDocs</code></p>
 </li>
 <li><p>scp如何下载文件<br>scp -r user:xxx.xxx.xxx.xxx:yyy&#x2F;yyyy  zzz&#x2F;zzz&#x2F;zzz<br>  其中 user:xxx.xxx.xxx.xxx user为服务器用户名，xxx.xxx.xxx.xxx 为服务器地址<br>yyy&#x2F;yyyy 为服务器需要备份md文件的地址<br>zzz&#x2F;zzz&#x2F;zzz 为本地iCloud的地址</p>
 </li>
 </ol>
-<p>这样我就写出了一个备份地址的命令：<br>‘’’scp -r <a href="mailto:&#x72;&#111;&#111;&#x74;&#x40;&#48;&#x2e;&#x30;&#46;&#48;&#46;&#x30;">&#x72;&#111;&#111;&#x74;&#x40;&#48;&#x2e;&#x30;&#46;&#48;&#46;&#x30;</a>:<del>&#x2F;blog&#x2F;source&#x2F;_posts ~&#x2F;Library&#x2F;Mobile\ Documents&#x2F;com\</del>apple~CloudDocs&#x2F;Documents&#x2F;Backup&#x2F;blog<br>‘’’</p>
-<p>考虑到这个地址比较长，我把它存到本地的一个脚本文件：Blog.sh,并给这个文件加上可执行属性：<br>‘’’chmod 777 Blog.sh<br>‘’’</p>
-<p>这样，我们定时执行命令Blog.sh就可以了。<br>‘’‘.&#x2F;Blog.sh<br>‘’’</p>
+<p>这样我就写出了一个备份地址的命令：<br><code>scp -r root@0.0.0.0:~/blog/source/_posts ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Documents/Backup/blog</code></p>
+<p>考虑到这个地址比较长，我把它存到本地的一个脚本文件：Blog.sh,并给这个文件加上可执行属性：<br><code>chmod 777 Blog.sh</code></p>
+<p>这样，我们定时执行命令Blog.sh就可以了。<br><code>./Blog.sh</code></p>
 ]]></content>
       <categories>
         <category>日常练习</category>
