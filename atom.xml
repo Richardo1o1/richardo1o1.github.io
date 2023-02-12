@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-11T08:36:51.610Z</updated>
+  <updated>2023-02-12T13:29:34.136Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实现自定义域名Github Page网站Https访问</title>
+    <link href="http://yunminitools.cn/2023/02/12/Add-Https/"/>
+    <id>http://yunminitools.cn/2023/02/12/Add-Https/</id>
+    <published>2023-02-12T13:28:13.000Z</published>
+    <updated>2023-02-12T13:29:34.136Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;博客搭建好了以后，发现通过自定义域名访问自己的github page时，浏览器提示该网址不安全，没有合格的安全证书，不能通过https(密文传输)访问。有些手机会强制使用https协议访问网站，会导致一些错误，今天尝试解决一下。&lt;br&gt;参考了 CSDN博主「yucicheung」的&lt;a href=&quot;https://blog.csdn.net/yucicheung/article/details/79560027&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;h3 id=&quot;HTTP与HTTPS&quot;&gt;&lt;a href=&quot;#HTTP与HTTPS&quot; class=&quot;headerlink&quot; title=&quot;HTTP与HTTPS&quot;&gt;&lt;/a&gt;HTTP与HTTPS&lt;/h3&gt;&lt;p&gt;HTTP是明文传输协议，传输内容容易被嗅探和篡改。&lt;br&gt;而HTTPS，即HTTP over SSL&amp;#x2F;TLS,是添加了一层SSL(Secure Sockets Layer，安全套接层)，或者是TLS(Transport Layer Security,传输层安全协议)，所以HTTPS就可以视为HTTP和SSL&amp;#x2F;TLS协议的组合。&lt;br&gt;HTTPS能做到良好的保密性(防嗅探)，真实性(防篡改)，完整性(防域名劫持和域名欺骗)。&lt;/p&gt;
+&lt;h3 id=&quot;SSL证书&quot;&gt;&lt;a href=&quot;#SSL证书&quot; class=&quot;headerlink&quot; title=&quot;SSL证书&quot;&gt;&lt;/a&gt;SSL证书&lt;/h3&gt;&lt;p&gt;SSL是TLS的前身，但TLS通常也被标志为SSL。&lt;br&gt;SSL&amp;#x2F;TLS协议的基本思路是采用公钥加密法，也就是说，客户端先向服务器端索要公钥，然后用公钥加密信息(会话秘钥)，服务器收到密文后，用自己的私钥解密。&lt;br&gt;这个公钥就放在数字证书中。只要证书是可信的，公钥就是可信的。&lt;/p&gt;
+&lt;p&gt;SSL证书由你的NS(Name Server，域名服务商)颁发，从速度和操作性考虑，我选择了Cloudflare，免费，操作也比较方便。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常所学" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>一个备份Hexo文件的简单办法</title>
