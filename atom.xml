@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-12T13:29:34.136Z</updated>
+  <updated>2023-02-13T15:20:07.189Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习用PARA来进行知识管理（1）</title>
+    <link href="http://yunminitools.cn/2023/02/13/PARA-Practic-1/"/>
+    <id>http://yunminitools.cn/2023/02/13/PARA-Practic-1/</id>
+    <published>2023-02-13T15:19:29.000Z</published>
+    <updated>2023-02-13T15:20:07.189Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在《&lt;a href=&quot;https://www.yunminitools.cn/2023/02/07/Knowledge-Management-1/&quot;&gt;知识管理相关-知识管理误区&lt;/a&gt;》里，提到知识不成体系会影响知识的吸收和掌握，那如何建立一个体系来管理每天我们接触的海量信息呢？&lt;br&gt;我尝试使用P.A.R.A方法。&lt;/p&gt;
+&lt;h2 id=&quot;P-A-R-A-方法介绍&quot;&gt;&lt;a href=&quot;#P-A-R-A-方法介绍&quot; class=&quot;headerlink&quot; title=&quot;P.A.R.A 方法介绍&quot;&gt;&lt;/a&gt;P.A.R.A 方法介绍&lt;/h2&gt;&lt;p&gt;P.A.R.A 的作者是 Tiago Forte ，是世界上最著名的生产力专家之一。 他撰写和演讲技术如何帮助知识工作者彻底改变他们的个人效率。在&lt;a href=&quot;https://fortelabs.com/blog/para&quot;&gt;这篇文章&lt;/a&gt;里，他分享了如何用P.A.R.A 来管理知识。&lt;/p&gt;
+&lt;p&gt;想象一下完美的信息组织系统，它应该能有效的支持你的当下和未来的工作，告诉你信息都被放在了哪里，以及当你需要的时候就能快速找到，并且不会被工具所束缚。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所以这个系统必须满足以下条件&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;通用的（universal）：&lt;/strong&gt;包含来自任何来源的任何种类的信息，并且能跨平台兼容不同时代的信息管理工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;灵活的（flexible）：&lt;/strong&gt;能够与你之前的任何项目或活动所兼容，并且能兼顾未来的拓展性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简单的（simple）：&lt;/strong&gt; 不需要任何耗时的维护、编目、标记或重组，只需最低限度的维护、编目、标记或重组即可&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可操作（actionable）：&lt;/strong&gt;与任务管理和项目管理方法的无缝集成&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果导向（outcome-oriented）：&lt;/strong&gt;构建信息的结构，以便能交付有价值工作&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模块化（modular）：&lt;/strong&gt;根据当前任务的需要，允许隐藏或显示不同级别的细节&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机动性强（opportunistic）：&lt;/strong&gt;从好的方面来说，是利用已经完成的工作，而不是需要专门的管理时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;P-A-R-A-的含义和定义&quot;&gt;&lt;a href=&quot;#P-A-R-A-的含义和定义&quot; class=&quot;headerlink&quot; title=&quot;P.A.R.A 的含义和定义&quot;&gt;&lt;/a&gt;P.A.R.A 的含义和定义&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="知识管理" scheme="http://yunminitools.cn/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="PARA" scheme="http://yunminitools.cn/tags/PARA/"/>
+    
+  </entry>
   
   <entry>
     <title>实现自定义域名Github Page网站Https访问</title>
