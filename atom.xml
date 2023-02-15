@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-15T02:40:34.508Z</updated>
+  <updated>2023-02-15T03:09:44.716Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yunminitools.cn/2023/02/15/The-Six-Counterintuitive-Rules-2/"/>
     <id>http://yunminitools.cn/2023/02/15/The-Six-Counterintuitive-Rules-2/</id>
     <published>2023-02-15T02:22:14.000Z</published>
-    <updated>2023-02-15T02:40:34.508Z</updated>
+    <updated>2023-02-15T03:09:44.716Z</updated>
     
     
       
@@ -36,8 +36,8 @@
     
     <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
     
+    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
     
-    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
     
     <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
     
@@ -109,7 +109,7 @@
     <link href="http://yunminitools.cn/2023/02/12/Add-Https/"/>
     <id>http://yunminitools.cn/2023/02/12/Add-Https/</id>
     <published>2023-02-12T13:28:13.000Z</published>
-    <updated>2023-02-12T13:29:34.136Z</updated>
+    <updated>2023-02-15T03:05:17.412Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;博客搭建好了以后，发现通过自定义域名访问自己的github page时，浏览器提示该网址不安全，没有合格的安全证书，不能通过https(密文传输)访问。有些手机会强制使用https协议访问网站，会导致一些错误，今天尝试解决一下。&lt;br&gt;参考了 CSDN博主「yucicheung」的&lt;a href=&quot;https://blog.csdn.net/yucicheung/article/details/79560027&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
@@ -119,7 +119,7 @@
     
     
     
-    <category term="日常所学" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E6%89%80%E5%AD%A6/"/>
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
     <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
