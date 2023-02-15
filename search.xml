@@ -263,6 +263,30 @@
       </tags>
   </entry>
   <entry>
+    <title>解决目录和标签页无内容问题（使用Hexo - Ayer模版）</title>
+    <url>/2023/02/15/No-Content-In-Tags-Page/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>写了一段时间博客，我发现我的 目录 和 标签页的内容是空的，但点到每个文章的单个标签或目录，显示又是正常的。有点奇怪，不知道是 Hexo的问题还是模版的问题。</p>
+<h2 id="解决方法：修改Page页的文件"><a href="#解决方法：修改Page页的文件" class="headerlink" title="解决方法：修改Page页的文件"></a>解决方法：修改Page页的文件</h2><p>研究了一段时间，发现问题还是出在categories和Tags页面配置上。<br>解决方法如下：</p>
+<ol>
+<li><p>修改blog目录下的 <code>/source/categories/index.md</code> 文件，改成下面的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改blog目录下的 <code>/source/tags/index.md</code> 文件，改成下面的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: &quot;tags&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将Hexo重新发布一下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这样，等待发布完成后再检查一下，目录和标签页的内容就回来了。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>学习用PARA来进行知识管理（1）</title>
     <url>/2023/02/13/PARA-Practic-1/</url>
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在《<a href="https://www.yunminitools.cn/2023/02/07/Knowledge-Management-1/">知识管理相关-知识管理误区</a>》里，提到知识不成体系会影响知识的吸收和掌握，那如何建立一个体系来管理每天我们接触的海量信息呢？<br>我尝试使用P.A.R.A方法。</p>
