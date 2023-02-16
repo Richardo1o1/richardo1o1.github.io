@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-16T13:53:55.557Z</updated>
+  <updated>2023-02-16T14:53:34.889Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Midjourney 提示词(prompt)分析（1）</title>
+    <link href="http://yunminitools.cn/2023/02/16/Midjourney-prompt-1/"/>
+    <id>http://yunminitools.cn/2023/02/16/Midjourney-prompt-1/</id>
+    <published>2023-02-16T14:53:01.000Z</published>
+    <updated>2023-02-16T14:53:34.889Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;画好一个AI画，从分析一个成功的图片提示词(prompt), 今天看到一个还不错的图片:&lt;br&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/Midjourney0216-1&quot; alt=&quot;AI画图1&quot;&gt;&lt;br&gt;提示词(prompt)：&lt;br&gt;A hypsolebias fish jumping out of a pond, trying to catch a bug in the air. The pond is surrounded by tall grass and a few trees, with the sun setting in the background. The fish is caught mid-jump, with its mouth wide open and eyes focused on the bug. The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth. –ar 16:9 –niji&lt;/p&gt;
+&lt;h2 id=&quot;分析&quot;&gt;&lt;a href=&quot;#分析&quot; class=&quot;headerlink&quot; title=&quot;分析&quot;&gt;&lt;/a&gt;分析&lt;/h2&gt;&lt;p&gt;翻译和归类：&lt;br&gt;一条 Hypsolebias鱼（画面主体） 跳出池塘（主体动作），试图在空中捉住一只虫子（主体动作），池塘周围是高高的草丛和几棵树（环境描写），夕阳在背景中落下（环境描写），这只鱼在跳跃时被捕捉到（细节描写），嘴巴张得很大（细节描写），眼睛专注于虫子（细节描写），整幅画的氛围是欢快和平静的（氛围描写），卡通风格绘制的数字艺术作品（艺术风格），使用温暖和柔和的色彩来唤起日落的温暖感（光线描写）&lt;/p&gt;
+&lt;p&gt;可以看到，一个好的提升词还是有规律可循的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+    <category term="绘画" scheme="http://yunminitools.cn/tags/%E7%BB%98%E7%94%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 3</title>
