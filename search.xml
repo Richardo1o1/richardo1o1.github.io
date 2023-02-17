@@ -228,6 +228,24 @@
       </tags>
   </entry>
   <entry>
+    <title>有了这个网站，Linux命令就不需要到处搜索了</title>
+    <url>/2023/02/17/Linux-Command-1/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>与服务器打交道，免不了和Linux命令打交道，虽然常用的都会，但遇上一些特殊情况，就需要查手册，在系统里查太麻烦，网上搜索效率比较低，今天看到一个<a href="https://github.com/jaywcjlove/linux-command">github项目</a>解决了这个问题，分享纪录一下。</p>
+<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p>可以用短地址：<a href="https://git.io/linux">https://git.io/linux</a> 访问网站：<br><img src="http://cdn.yunminitools.cn/blog/Linux0217-1.png" alt="演示1"></p>
+<span id="more"></span>
+
+<p>输入命令，查询：<br><img src="http://cdn.yunminitools.cn/blog/Linux0217-2.png" alt="演示2"></p>
+<p>选择需要查询命令：<br><img src="http://cdn.yunminitools.cn/blog/Linux0217-3.png" alt="演示3"></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Midjourney 极简入门（1）</title>
     <url>/2023/02/09/Midjourney-Getting-Started-1/</url>
     <content><![CDATA[<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>Midjourney可以算是一款AI绘图工具，只要輸入你想到的文字，就通过AI生成图片，化抽象为具体，成品很美，感觉可以替代插画师的部分工作了。</p>
@@ -395,6 +413,51 @@
     <content><![CDATA[<h2 id="RULE-3-GOOD-MANAGERS-NEVER-CREATE-A-SECOND-PATIENT"><a href="#RULE-3-GOOD-MANAGERS-NEVER-CREATE-A-SECOND-PATIENT" class="headerlink" title="RULE #3: GOOD MANAGERS NEVER CREATE A SECOND PATIENT."></a>RULE #3: GOOD MANAGERS NEVER CREATE A SECOND PATIENT.</h2><p>As managers, we often think we come second, that we have to make sure the team is okay first, And so we postpone our vacation or we work longer hours because we ‘have to be there for the team.’ But in doing so, you only end up <strong>draining</strong> your own energy, <strong>hurting</strong> your well-being and <strong>becoming</strong> a mess, not realizing that you’re doing a <strong>disservice</strong> to your team members by <strong>making yourself into a patient</strong>. You need to be your best self for them.</p>
 <p>As a manager, one of the hardest management skills is learning to <strong>take care of yourself first</strong>. It can feel selfish, especially if you’re a giving person. But trust me when I say that unless you are your best self, there’s no way you can make other people into their best selves.</p>
 <h3 id="Inspiration-3-Take-care-of-myself-first"><a href="#Inspiration-3-Take-care-of-myself-first" class="headerlink" title="Inspiration 3: Take care of myself first"></a>Inspiration 3: Take care of myself first</h3><p>I also have this bad habit of burning myself out by always being the first to handle problems as they arise. While this may seem responsible, it prevents other team members from growing because I am always there to take care of things for them. Additionally, as the business becomes more complex, I tend to get bogged down in the details of various issues and have less time to plan for the future or consider the team’s growth. As a result, it is having a negative impact on the team. To improve, I need to start delegating tasks to my colleagues and trusting them to handle issues themselves. This will not only help them grow but also free up my time to <strong>take care of myself</strong>.</p>
+<hr>
+<p>To Be Continue…</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+        <category>English_Article</category>
+      </categories>
+      <tags>
+        <tag>团队管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 4</title>
+    <url>/2023/02/17/The-Six-Counterintuitive-Rules-4/</url>
+    <content><![CDATA[<h2 id="RULE-4-SPEND-MORE-TIME-THAN-YOU-THINK-YOU-NEED-TO-WITH-YOUR-HIGH-PERFORMERS"><a href="#RULE-4-SPEND-MORE-TIME-THAN-YOU-THINK-YOU-NEED-TO-WITH-YOUR-HIGH-PERFORMERS" class="headerlink" title="RULE #4: SPEND MORE TIME THAN YOU THINK YOU NEED TO WITH YOUR HIGH PERFORMERS."></a>RULE #4: SPEND MORE TIME THAN YOU THINK YOU NEED TO WITH YOUR HIGH PERFORMERS.</h2><p>As managers, we often forget that we should be spending most of our time with the <strong>highest performers</strong> on our team. When you have someone who’s doing really well, the question should be, ‘How can they do even better? How can you make their growth explode?’” , Here are the two tools:</p>
+<h3 id="Look-back-look-forward"><a href="#Look-back-look-forward" class="headerlink" title="Look back, look forward"></a>Look back, look forward</h3><p>Whatever milestone that makes the most sense for that person’s role. I ask them to look back on a project that they just finished and run through these questions:<br><strong>Look back:</strong></p>
+<ul>
+<li><p>What did you like about that? What felt good?</p>
+</li>
+<li><p>What did you hate about it? What didn’t feel good?</p>
+</li>
+<li><p>What’s the most important thing you learned?</p>
+</li>
+<li><p>Do you want to do more of that type of work, or less?</p>
+</li>
+<li><p>What do you want to do differently next time?</p>
+</li>
+</ul>
+<p><strong>Look forward:</strong></p>
+<ul>
+<li><p>What’s the next challenge?</p>
+</li>
+<li><p>What’s the next big step or career goal you want to reach for?</p>
+</li>
+<li><p>What type of work do you want to take on, whether it’s a current project in the company or something that might potentially show up in the future?</p>
+</li>
+</ul>
+<p>In essence, it’s about carving out the time to help an individual <strong>reflect</strong> on their learning, <strong>unpack</strong> what didn’t work so that they know what to <strong>change</strong> next time, and then <strong>look toward</strong> the next challenge on the horizon.</p>
+<h3 id="Use-the-performance-review-as-an-opportunity-to-push-for-more"><a href="#Use-the-performance-review-as-an-opportunity-to-push-for-more" class="headerlink" title="Use the performance review as an opportunity to push for more."></a>Use the performance review as an opportunity to push for more.</h3><p>We don’t want them to be too important because we want you to have these conversations all year long. However, the review was a powerful summary moment to both reflect on the last half and how things had gone, but also to push me on what she wanted to see next.</p>
+<h3 id="Inspiration-4-Spend-more-time-amp-Listen"><a href="#Inspiration-4-Spend-more-time-amp-Listen" class="headerlink" title="Inspiration 4: Spend more time &amp; Listen"></a>Inspiration 4: Spend more time &amp; Listen</h3><ul>
+<li><p>In the past, I used to devote a lot of energy to the latter half of team management and neglect the development of high-potential talent. This is certainly a <strong>counterproductive approach</strong>, as it does not leverage the full potential of the team.</p>
+</li>
+<li><p>The way we communicate is essential, and it’s important to be <strong>well-prepared</strong> before engaging in communication. This involves actively <strong>listening</strong> to others, engaging in discussions, and then presenting the goals to be achieved.</p>
+</li>
+</ul>
 <hr>
 <p>To Be Continue…</p>
 ]]></content>
