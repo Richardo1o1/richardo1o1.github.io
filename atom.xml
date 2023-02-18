@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-17T16:01:52.778Z</updated>
+  <updated>2023-02-18T08:33:04.877Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub Pages 强制使用HTTPS协议访问</title>
+    <link href="http://yunminitools.cn/2023/02/18/Add-Https-1/"/>
+    <id>http://yunminitools.cn/2023/02/18/Add-Https-1/</id>
+    <published>2023-02-18T08:32:25.000Z</published>
+    <updated>2023-02-18T08:33:04.877Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在上一篇文章《&lt;a href=&quot;&quot;&gt;实现自定义域名Github</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 5</title>
+    <link href="http://yunminitools.cn/2023/02/18/The-Six-Counterintuitive-Rules-5/"/>
+    <id>http://yunminitools.cn/2023/02/18/The-Six-Counterintuitive-Rules-5/</id>
+    <published>2023-02-18T08:02:06.000Z</published>
+    <updated>2023-02-18T08:02:38.269Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;RULE-5-SET-EXPECTATIONS-BUT-KNOW-THAT-YOU’RE-NOT-ALWAYS-THE-ONE-WHO-NEEDS-TO-BRING-THE-CLARITY&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
+    
+    
+    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>有了这个网站，Linux命令就不需要到处搜索了</title>
@@ -502,55 +554,6 @@
     
     
     <category term="用户调研" scheme="http://yunminitools.cn/tags/%E7%94%A8%E6%88%B7%E8%B0%83%E7%A0%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>知识管理相关-来自范冰的分享</title>
-    <link href="http://yunminitools.cn/2023/02/03/souKPM01/"/>
-    <id>http://yunminitools.cn/2023/02/03/souKPM01/</id>
-    <published>2023-02-03T09:14:40.000Z</published>
-    <updated>2023-02-03T09:14:42.594Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h2&gt;&lt;p&gt;最近在听 范冰 的播客（EP01 - from 量贩冰糖），讲到了知识管理相关内容，有一些比较有意思的观点，记录下来。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="知识管理" scheme="http://yunminitools.cn/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>first-post</title>
-    <link href="http://yunminitools.cn/2023/02/02/first-post/"/>
-    <id>http://yunminitools.cn/2023/02/02/first-post/</id>
-    <published>2023-02-02T15:14:40.000Z</published>
-    <updated>2023-02-03T09:11:59.142Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;本博客的内容&quot;&gt;&lt;a href=&quot;#本博客的内容&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="杂项" scheme="http://yunminitools.cn/categories/%E6%9D%82%E9%A1%B9/"/>
-    
     
   </entry>
   

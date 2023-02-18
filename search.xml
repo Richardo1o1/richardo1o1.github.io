@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GitHub Pages 强制使用HTTPS协议访问</title>
+    <url>/2023/02/18/Add-Https-1/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在上一篇文章《<a href="">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
+<h2 id="设置步骤"><a href="#设置步骤" class="headerlink" title="设置步骤"></a>设置步骤</h2><p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
+<ol>
+<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br><img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
+<li>在边栏的“Code and automation”部分，单击“Pages”。<br><img src="http://cdn.yunminitools.cn/blog/Https0218-2.png" alt="HTTPS访问2"></li>
+<li>在 GitHub Pages 下，选择“Enforce HTTPS”。<br><img src="http://cdn.yunminitools.cn/blog/Https0218-3.png" alt="HTTPS访问3"></li>
+</ol>
+<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实现自定义域名Github Page网站Https访问</title>
     <url>/2023/02/12/Add-Https/</url>
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>博客搭建好了以后，发现通过自定义域名访问自己的github page时，浏览器提示该网址不安全，没有合格的安全证书，不能通过https(密文传输)访问。有些手机会强制使用https协议访问网站，会导致一些错误，今天尝试解决一下。<br>参考了 CSDN博主「yucicheung」的<a href="https://blog.csdn.net/yucicheung/article/details/79560027">文章</a></p>
@@ -458,6 +477,31 @@
 <li><p>The way we communicate is essential, and it’s important to be <strong>well-prepared</strong> before engaging in communication. This involves actively <strong>listening</strong> to others, engaging in discussions, and then presenting the goals to be achieved.</p>
 </li>
 </ul>
+<hr>
+<p>To Be Continue…</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+        <category>English_Article</category>
+      </categories>
+      <tags>
+        <tag>团队管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 5</title>
+    <url>/2023/02/18/The-Six-Counterintuitive-Rules-5/</url>
+    <content><![CDATA[<h2 id="RULE-5-SET-EXPECTATIONS-BUT-KNOW-THAT-YOU’RE-NOT-ALWAYS-THE-ONE-WHO-NEEDS-TO-BRING-THE-CLARITY"><a href="#RULE-5-SET-EXPECTATIONS-BUT-KNOW-THAT-YOU’RE-NOT-ALWAYS-THE-ONE-WHO-NEEDS-TO-BRING-THE-CLARITY" class="headerlink" title="RULE #5: SET EXPECTATIONS, BUT KNOW THAT YOU’RE NOT ALWAYS THE ONE WHO NEEDS TO BRING THE CLARITY."></a>RULE #5: SET EXPECTATIONS, BUT KNOW THAT YOU’RE NOT ALWAYS THE ONE WHO NEEDS TO BRING THE CLARITY.</h2><p>If there’s a new role that’s been <strong>poorly defined</strong>, providing clarification is the first step. Once you define it, you’ll usually find that someone who’s in that role isn’t actually a fit for what the business needs. </p>
+<ul>
+<li>Do people’s roles make sense? </li>
+<li>Do they know how they fit in? </li>
+<li>How they align to the business? </li>
+<li>Do they know what’s expected of them? </li>
+<li>Do they know what success looks like?<br>80% of the time when I go into a team that’s struggling, the answers to those questions is no.</li>
+</ul>
+<p>Be realistic about what you can offer, but remember that it’s BYOC (Bring Your Own Clarity). I actually need people who bring their own clarity and structure. And that’s because I don’t have a lot of the answers right now. To be a better manager, you have to be really realistic about what you can control and what you can offer — and what you can’t.</p>
+<p>Often a low performer isn’t someone who is inherently low performing. It is someone who has the wrong set of circumstances around them — they’re in the wrong job or in the wrong organization. A lot of times when people are struggling it’s not because they’re bad at stuff, but because they don’t know what’s expected of them. Give them the chance to see the gap and say, ‘I know I can do it,’ or ‘This really isn’t for me actually.’</p>
+<h3 id="Inspiration-5-Set-expectations-is-important"><a href="#Inspiration-5-Set-expectations-is-important" class="headerlink" title="Inspiration 5: Set expectations is important"></a>Inspiration 5: Set expectations is important</h3><p>Setting clear expectations is essential for both high-performing and low-performing employees. In the past, I did not do a good job of setting clear expectations, which impacted high-performing employees’ motivation to achieve even greater goals and low-performing employees’ direction in making an effort to improve.</p>
 <hr>
 <p>To Be Continue…</p>
 ]]></content>
