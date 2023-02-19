@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-19T03:08:36.612Z</updated>
+  <updated>2023-02-19T03:32:20.052Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - Summary</title>
+    <link href="http://yunminitools.cn/2023/02/19/The-Six-Counterintuitive-Rules-Summary/"/>
+    <id>http://yunminitools.cn/2023/02/19/The-Six-Counterintuitive-Rules-Summary/</id>
+    <published>2023-02-19T03:31:14.000Z</published>
+    <updated>2023-02-19T03:32:20.052Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h2&gt;&lt;p&gt;The Six Counterintuitive Rules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
+    
+    
+    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 6</title>
@@ -522,30 +551,6 @@
 &lt;li&gt;Suggest different conversation topics to speak with friends&amp;#x2F;students&amp;#x2F;colleagues&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;例如：&lt;br&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/ChatGPT0206-1.png&quot; alt=&quot;ChatGPT例子5&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用ChatGPT来学习英文(1)</title>
-    <link href="http://yunminitools.cn/2023/02/05/Using-ChatGPT-English-Learning-1/"/>
-    <id>http://yunminitools.cn/2023/02/05/Using-ChatGPT-English-Learning-1/</id>
-    <published>2023-02-05T14:33:27.000Z</published>
-    <updated>2023-02-08T16:07:07.418Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h2&gt;&lt;p&gt;最近在Youtube看到了一个&lt;a href=&quot;https://hadarshemesh.com/magazine/chatgpt-for-learning-english/&quot;&gt;使用ChatGPT学习英语的方法&lt;/a&gt;，总结一下，后续可以自用。&lt;/p&gt;
-&lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;p&gt;可以把ChatGPT看成是一个人工智能的机器人，因此可以用它来帮助我们构造学习英语的参加资料，并且帮助我们简化文本或纠正一些错误。&lt;/p&gt;
-&lt;p&gt;可以使用的场景如下：&lt;/p&gt;
-&lt;h3 id=&quot;1、和ChatGpT开展一个对话&quot;&gt;&lt;a href=&quot;#1、和ChatGpT开展一个对话&quot; class=&quot;headerlink&quot; title=&quot;1、和ChatGpT开展一个对话&quot;&gt;&lt;/a&gt;1、和ChatGpT开展一个对话&lt;/h3&gt;&lt;p&gt;可以用以下提示词开展对话：&lt;br&gt;Can we have a conversation about [Topic]&lt;br&gt;例如：&lt;br&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/ChatGPT0205-1.png&quot; alt=&quot;ChatGPT例子1&quot;&gt;&lt;/p&gt;</summary>
     
     
     
