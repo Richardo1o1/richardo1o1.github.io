@@ -112,77 +112,25 @@
       </tags>
   </entry>
   <entry>
-    <title>Sample file</title>
-    <url>/2023/02/01/Hello/</url>
-    <content><![CDATA[<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p>We provide a sample app using Hexo that you can deploy on App Platform. These steps will get this sample application running for you using App Platform.</p>
-<p><strong>Note: Following these steps may result in charges for the use of DigitalOcean services.</strong></p>
-<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><span id="more"></span>
-
-<ul>
-<li>You need a DigitalOcean account. If you don’t already have one, you can sign up at <a href="https://cloud.digitalocean.com/registrations/new">https://cloud.digitalocean.com/registrations/new</a>.</li>
-</ul>
-<h2 id="Deploying-the-App"><a href="#Deploying-the-App" class="headerlink" title="Deploying the App"></a>Deploying the App</h2><p>Click this button to deploy the app to the DigitalOcean App Platform. If you are not logged in, you will be prompted to log in with your DigitalOcean account.</p>
-<p><a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/digitalocean/sample-hexo/tree/main"><img src="https://www.deploytodo.com/do-btn-blue.svg" alt="Deploy to DigitalOcean"></a></p>
-<p>Using this button disables the ability to automatically re-deploy your app when pushing to a branch or tag in your repository as you are using this repo directly.</p>
-<p>If you want to automatically re-deploy your app, <a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">fork</a> the GitHub repository to your account so that you have a copy of it stored to the cloud. Click the <strong>Fork</strong> button in the GitHub repository and follow the on-screen instructions.</p>
-<p>After forking the repo, you should now be viewing this README in your own GitHub org (e.g. <code>https://github.com/&lt;your-org&gt;/sample-hexo</code>). To deploy the new repo, visit <a href="https://cloud.digitalocean.com/apps">https://cloud.digitalocean.com/apps</a> and click <strong>Create App</strong>. Then, click <strong>GitHub</strong>, select the repository you created and select the <code>main</code> branch. App Platform will inspect the code, automatically detect the kind of component to create, and use the correct buildpack to create and deploy a container.</p>
-<p>After clicking the <strong>Deploy to DigitalOcean</strong> button or completing the instructions above to fork the repo, follow these steps:</p>
+    <title>Hexo博客插入图片后如何控制图片大小和样式</title>
+    <url>/2023/02/19/Hexo-image-1/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在用Hexo写博客时，发现有时原始图片过大，直接引用不太美观，需要缩小一下，研究了一下，Hexo md语法并不支持这样的功能，我在网上找到了方法，纪录一下。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>有两个方法：</p>
 <ol>
-<li>Configure the app such as specifying HTTP routes, environment variables or adding a database.</li>
-<li>Provide a name for your app and select which region you want to deploy your app to and click <strong>Next</strong>. The closest region to you should be selected by default. All App Platform apps are routed through a global CDN. So this will not affect your app performance, unless it needs to talk to external services.</li>
-<li>On the following screen, leave all the fields as they are and click <strong>Next</strong>.</li>
-<li>Confirm your <strong>Plan</strong> settings and how many containers you want to launch and click <strong>Launch Basic&#x2F;Pro App</strong>.</li>
-<li>You should see a “Building…” progress indicator. You can click <strong>View Logs</strong> to see more details of the build.</li>
-<li>It can take a few minutes for the build to finish, but you can follow the progress in the <strong>Deployments</strong> tab.</li>
-<li>Once the build completes successfully, click the <strong>Live App</strong> link in the header and you should see your running application in a new tab, displaying the home page.</li>
-</ol>
-<h3 id="Making-Changes-to-Your-App"><a href="#Making-Changes-to-Your-App" class="headerlink" title="Making Changes to Your App"></a>Making Changes to Your App</h3><p>If you followed the steps to fork the repo and used your own copy when deploying the app, you can push changes to your fork and see App Platform automatically re-deploy the update to your app. During these automatic deployments, your application will never pause or stop serving request because App Platform offers zero-downtime deployments.</p>
-<p>Here’s an example code change you can make for this app:</p>
-<ol>
-<li>Edit <code>source/_posts/hello-world.md</code> and edit the content of the post</li>
-<li>Commit the change to the <code>main</code> branch. Normally it’s a better practice to create a new branch for your change and then merge that branch to <code>main</code> after review, but for this demo you can commit to the <code>main</code> branch directly.</li>
-<li>Visit <a href="https://cloud.digitalocean.com/apps">https://cloud.digitalocean.com/apps</a> and navigate to your sample app.</li>
-<li>You should see a “Building…” progress indicator, just like when you first created the app.</li>
-<li>Once the build completes successfully, click the <strong>Live App</strong> link in the header and you should see your updated application running. You may need to force refresh the page in your browser (e.g. using <strong>Shift+Reload</strong>).</li>
-</ol>
-<h3 id="Learn-More"><a href="#Learn-More" class="headerlink" title="Learn More"></a>Learn More</h3><p>You can learn more about the App Platform and how to manage and update your application at <a href="https://www.digitalocean.com/docs/app-platform/">https://www.digitalocean.com/docs/app-platform/</a>.</p>
-<h2 id="Deleting-the-App"><a href="#Deleting-the-App" class="headerlink" title="Deleting the App"></a>Deleting the App</h2><p>When you no longer need this sample application running live, you can delete it by following these steps:</p>
-<ol>
-<li>Visit the Apps control panel at <a href="https://cloud.digitalocean.com/apps">https://cloud.digitalocean.com/apps</a>.</li>
-<li>Navigate to the sample app.</li>
-<li>In the <strong>Settings</strong> tab, click <strong>Destroy</strong>.</li>
-</ol>
-<p><strong>Note: If you do not delete your app, charges for using DigitalOcean services will continue to accrue.</strong></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>一个备份Hexo文件的简单办法</title>
-    <url>/2023/02/11/Hexo-Backup/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>由于我是通过服务器发布日志文件，再同步给github，md文件本身是没有备份的。网上有很多方法备份文件，包括copy到网盘&#x2F;另外开一个git上传等。我看了一下，有点麻烦，我自己摸索了一个简单的办法，适合于我的环境。</p>
-<h2 id="通过iCloud网盘备份"><a href="#通过iCloud网盘备份" class="headerlink" title="通过iCloud网盘备份"></a>通过iCloud网盘备份</h2><p>思路是：由于我开通了iCloud，我只要用scp将文件备份到iCloud的文件夹就可以了，这样iCloud就会帮我自动备份md文件。</p>
-<p>这个方法需要用到两个知识点：</p>
-<ol>
-<li><p>iCloud目录在Mac如何表示<br>目录表示为: <code>~/Library/Mobile\ Documents/com~apple~CloudDocs</code></p>
+<li><p>使用img 标记来控制图片显示大小：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;/images/xxx.png&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>scp如何下载文件<br>scp -r user:xxx.xxx.xxx.xxx:yyy&#x2F;yyyy  zzz&#x2F;zzz&#x2F;zzz<br>  其中 user:xxx.xxx.xxx.xxx user为服务器用户名，xxx.xxx.xxx.xxx 为服务器地址<br>yyy&#x2F;yyyy 为服务器需要备份md文件的地址<br>zzz&#x2F;zzz&#x2F;zzz 为本地iCloud的地址</p>
-</li>
+<li><p>使用div 加上css 来控制图片的显示和大小：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div style=&quot;width: 40%; margin: 10px&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;/images/xxx.png“&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>这样我就写出了一个备份地址的命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scp -r root@0.0.0.0:~/blog/source/_posts ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Documents/Backup/blog</span><br></pre></td></tr></table></figure>
-
-
-<p>考虑到这个命令比较长，我把它存到本地的一个脚本文件：Blog.sh,并给这个文件加上可执行属性：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 777 Blog.sh</span><br></pre></td></tr></table></figure>
-
-<p>这样，我们定时执行命令Blog.sh就可以了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./Blog.sh</span><br></pre></td></tr></table></figure>
-
+<p>其中<code>/images/xxx.png</code>为图片实际地址。经过试用，我选择了方法2，原因是用css可以控制的属性更多，后续也可以做统一的美化修改。关于CSS样式的说明，可以参考<a href="https://www.w3school.com.cn/css/css3_images.asp">这篇文章</a></p>
 ]]></content>
       <categories>
         <category>日常练习</category>
       </categories>
       <tags>
         <tag>博客管理</tag>
+        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
