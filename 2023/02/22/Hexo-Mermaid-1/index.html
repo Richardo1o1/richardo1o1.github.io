@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>使用ChatGPT来学习英文(1) |  New structure for utility</title>
+      <title>在Hexo中插入Mermaid图表 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -66,7 +66,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Using-ChatGPT-English-Learning-1"
+  id="post-Hexo-Mermaid-1"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  使用ChatGPT来学习英文(1)
+  在Hexo中插入Mermaid图表
 </h1>
  
 
@@ -85,11 +85,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2023/02/05/Using-ChatGPT-English-Learning-1/" class="article-date">
-  <time datetime="2023-02-05T14:33:27.000Z" itemprop="datePublished">2023-02-05</time>
+      <a href="/2023/02/22/Hexo-Mermaid-1/" class="article-date">
+  <time datetime="2023-02-22T09:15:34.000Z" itemprop="datePublished">2023-02-22</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
   </div>
   
 <div class="word_count">
@@ -97,7 +97,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">303</span>
+            <span class="post-count">446</span>
         </span>
     </span>
 
@@ -121,18 +121,29 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>最近在Youtube看到了一个<a target="_blank" rel="noopener" href="https://hadarshemesh.com/magazine/chatgpt-for-learning-english/">使用ChatGPT学习英语的方法</a>，总结一下，后续可以自用。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>可以把ChatGPT看成是一个人工智能的机器人，因此可以用它来帮助我们构造学习英语的参加资料，并且帮助我们简化文本或纠正一些错误。</p>
-<p>可以使用的场景如下：</p>
-<h3 id="1、和ChatGpT开展一个对话"><a href="#1、和ChatGpT开展一个对话" class="headerlink" title="1、和ChatGpT开展一个对话"></a>1、和ChatGpT开展一个对话</h3><p>可以用以下提示词开展对话：<br>Can we have a conversation about [Topic]<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-1.png" alt="ChatGPT例子1"></p>
-<span id="more"></span>
+  <h2 id="Mermaid是什么？"><a href="#Mermaid是什么？" class="headerlink" title="Mermaid是什么？"></a>Mermaid是什么？</h2><p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
+<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
+<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
+<h2 id="如何在Hexo中插入Mermaid图表"><a href="#如何在Hexo中插入Mermaid图表" class="headerlink" title="如何在Hexo中插入Mermaid图表"></a>如何在Hexo中插入Mermaid图表</h2><h3 id="安装Mermaid插件"><a href="#安装Mermaid插件" class="headerlink" title="安装Mermaid插件"></a>安装Mermaid插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
 
-<p>你也可以用它来纠正你的语法错误,用以下提示词：<br>Please point out my mistakes in the following sentences:<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-2.png" alt="ChatGPT例子2"></p>
-<p>用以下提示词来要求它给出一些词汇用法：<br>Please suggest certain vocabulary to use in this conversation:</p>
-<h3 id="2、准备工作面试"><a href="#2、准备工作面试" class="headerlink" title="2、准备工作面试"></a>2、准备工作面试</h3><p>用以下提示词：<br>Let’s conduct a mock job interview where you will be asking my questions as if I were interviewing for a [job role]. Please provide feedback on my answers.<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-3.png" alt="ChatGPT例子3"></p>
-<h3 id="3、准备自然对话的一些脚本"><a href="#3、准备自然对话的一些脚本" class="headerlink" title="3、准备自然对话的一些脚本"></a>3、准备自然对话的一些脚本</h3><p>用以下提示词：<br>Write a chat between a teacher and the mother of a student who is having a hard time in school<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-4.png" alt="ChatGPT例子4"></p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><a target="_blank" rel="noopener" href="http://www.yunminitools.cn/2023/02/05/Using-ChatGPT-English-Learning-1/">使用ChatGPT来学习英文(1)</a><br><a target="_blank" rel="noopener" href="http://www.yunminitools.cn/2023/02/06/Using-ChatGPT-English-Learning-2/">使用ChatGPT来学习英文(2)</a><br><a target="_blank" rel="noopener" href="http://www.yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/">使用ChatGPT来学习英文(3)</a></p>
-<p>(未完待续…)</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<h2 id="Mermaid图表演示"><a href="#Mermaid图表演示" class="headerlink" title="Mermaid图表演示"></a>Mermaid图表演示</h2><p>下面是mermaid的图表描述：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
+
+<p>会生成以下图表：</p>
+<pre class="mermaid">graph LR
+A(面试)-->B(笔试)
+A-->C(面试)
+C-->C1(数据结构与算法*)
+C-->C2(计算机网络)
+C-->C3(操作系统Linux)
+B-->B1(数据结构与算法*)</pre>
  
       <!-- reward -->
       
@@ -185,12 +196,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/02/05/Using-ChatGPT-English-Learning-1/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/02/22/Hexo-Mermaid-1/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mermaid/" rel="tag">Mermaid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
 
     </footer>
   </div>
@@ -198,19 +209,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2023/02/06/Using-ChatGPT-English-Learning-2/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            使用ChatGPT来学习英文(2)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/02/04/userresearch01/" class="article-nav-link">
+      <a href="/2023/02/21/Simple-made-easy/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">用户调研的一种方法</div>
+        <div class="article-nav-title">简单而后容易</div>
       </a>
     
   </nav>

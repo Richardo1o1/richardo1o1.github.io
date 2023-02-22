@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-21T15:47:40.098Z</updated>
+  <updated>2023-02-22T09:16:22.249Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Hexo中插入Mermaid图表</title>
+    <link href="http://yunminitools.cn/2023/02/22/Hexo-Mermaid-1/"/>
+    <id>http://yunminitools.cn/2023/02/22/Hexo-Mermaid-1/</id>
+    <published>2023-02-22T09:15:34.000Z</published>
+    <updated>2023-02-22T09:16:22.249Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Mermaid是什么？&quot;&gt;&lt;a href=&quot;#Mermaid是什么？&quot; class=&quot;headerlink&quot; title=&quot;Mermaid是什么？&quot;&gt;&lt;/a&gt;Mermaid是什么？&lt;/h2&gt;&lt;p&gt;Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。&lt;/p&gt;
+&lt;p&gt;Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。&lt;/p&gt;
+&lt;p&gt;Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。&lt;/p&gt;
+&lt;h2 id=&quot;如何在Hexo中插入Mermaid图表&quot;&gt;&lt;a href=&quot;#如何在Hexo中插入Mermaid图表&quot; class=&quot;headerlink&quot; title=&quot;如何在Hexo中插入Mermaid图表&quot;&gt;&lt;/a&gt;如何在Hexo中插入Mermaid图表&lt;/h2&gt;&lt;h3 id=&quot;安装Mermaid插件&quot;&gt;&lt;a href=&quot;#安装Mermaid插件&quot; class=&quot;headerlink&quot; title=&quot;安装Mermaid插件&quot;&gt;&lt;/a&gt;安装Mermaid插件&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-filter-mermaid-diagrams&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;修改配置文件&quot;&gt;&lt;a href=&quot;#修改配置文件&quot; class=&quot;headerlink&quot; title=&quot;修改配置文件&quot;&gt;&lt;/a&gt;修改配置文件&lt;/h3&gt;&lt;p&gt;在hexo的&lt;code&gt;_config.yml&lt;/code&gt;文件（根目录的并非主题的）中，添加以下内容：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# mermaid chart&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mermaid: ## mermaid url https://github.com/knsv/mermaid&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  enable: true  # default true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  version: &amp;quot;7.1.2&amp;quot; # default v7.1.2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    #startOnload: true  // default true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;修改主题&quot;&gt;&lt;a href=&quot;#修改主题&quot; class=&quot;headerlink&quot; title=&quot;修改主题&quot;&gt;&lt;/a&gt;修改主题&lt;/h3&gt;&lt;p&gt;根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录&lt;code&gt;themes/ayer&lt;/code&gt;下的&lt;code&gt;_config.yml&lt;/code&gt;文件，将Enable选项改为&lt;strong&gt;true&lt;/strong&gt;即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mermaid:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  enable: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  theme: forest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="Mermaid" scheme="http://yunminitools.cn/tags/Mermaid/"/>
+    
+  </entry>
   
   <entry>
     <title>简单而后容易</title>
@@ -528,35 +558,6 @@
     <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
     
     <category term="绘画" scheme="http://yunminitools.cn/tags/%E7%BB%98%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用ChatGPT来学习英文(3)</title>
-    <link href="http://yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/"/>
-    <id>http://yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/</id>
-    <published>2023-02-08T15:07:11.000Z</published>
-    <updated>2023-02-08T15:08:57.746Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;学习场景&quot;&gt;&lt;a href=&quot;#学习场景&quot; class=&quot;headerlink&quot; title=&quot;学习场景&quot;&gt;&lt;/a&gt;学习场景&lt;/h2&gt;&lt;p&gt;继续使用ChatGPT来学习英文的话题：&lt;/p&gt;
-&lt;h3 id=&quot;7、利用ChatGPT学习单词&quot;&gt;&lt;a href=&quot;#7、利用ChatGPT学习单词&quot; class=&quot;headerlink&quot; title=&quot;7、利用ChatGPT学习单词&quot;&gt;&lt;/a&gt;7、利用ChatGPT学习单词&lt;/h3&gt;&lt;p&gt;可以用以下提示词让Chatgpt给出单词含义和例子,或者直接要求列出特定场景可能使用的词汇：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;What is the meaning of [word]?  （给出含义）&lt;/li&gt;
-&lt;li&gt;Give 5 example using this word. （给出例子）&lt;/li&gt;
-&lt;li&gt;What is a synonym for [word].   （给出同义词）&lt;/li&gt;
-&lt;li&gt;What is a antonym for [word].   （给出反义词）&lt;/li&gt;
-&lt;li&gt;Please provide me with [scenario] vocabulary. （给出特定场景单词）&lt;/li&gt;
-&lt;li&gt;Make a list of idioms and expressions related to [topic]（给出特定场景习惯用语）&lt;br&gt;例如：&lt;br&gt;要求给出含义解释：&lt;br&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/ChatGPT0208-1.png&quot; alt=&quot;ChatGPT例子10&quot;&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
