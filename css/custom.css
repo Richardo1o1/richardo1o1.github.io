@@ -14,9 +14,6 @@
 .search-form-wrap {
   right: 8rem;
 }
-.mermaid {
-  background: transparent;
-}
 @media (min-width: 768px) {
   .outer,
   .wrap {
