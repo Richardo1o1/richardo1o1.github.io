@@ -112,6 +112,41 @@
       </tags>
   </entry>
   <entry>
+    <title>在Hexo中插入Mermaid图表</title>
+    <url>/2023/02/22/Hexo-Mermaid-1/</url>
+    <content><![CDATA[<h2 id="Mermaid是什么？"><a href="#Mermaid是什么？" class="headerlink" title="Mermaid是什么？"></a>Mermaid是什么？</h2><p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
+<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
+<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
+<h2 id="如何在Hexo中插入Mermaid图表"><a href="#如何在Hexo中插入Mermaid图表" class="headerlink" title="如何在Hexo中插入Mermaid图表"></a>如何在Hexo中插入Mermaid图表</h2><h3 id="安装Mermaid插件"><a href="#安装Mermaid插件" class="headerlink" title="安装Mermaid插件"></a>安装Mermaid插件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<h2 id="Mermaid图表演示"><a href="#Mermaid图表演示" class="headerlink" title="Mermaid图表演示"></a>Mermaid图表演示</h2><p>下面是mermaid的图表描述：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
+
+<p>会生成以下图表：</p>
+<pre class="mermaid">graph LR
+A(面试)-->B(笔试)
+A-->C(面试)
+C-->C1(数据结构与算法*)
+C-->C2(计算机网络)
+C-->C3(操作系统Linux)
+B-->B1(数据结构与算法*)</pre>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+        <tag>Mermaid</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客插入图片后如何控制图片大小和样式</title>
     <url>/2023/02/19/Hexo-image-1/</url>
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在用Hexo写博客时，发现有时原始图片过大，直接引用不太美观，需要缩小一下，研究了一下，Hexo md语法并不支持这样的功能，我在网上找到了方法，纪录一下。</p>
@@ -738,41 +773,6 @@
       </categories>
       <tags>
         <tag>用户调研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Hexo中插入Mermaid图表</title>
-    <url>/2023/02/22/Hexo-Mermaid-1/</url>
-    <content><![CDATA[<h2 id="Mermaid是什么？"><a href="#Mermaid是什么？" class="headerlink" title="Mermaid是什么？"></a>Mermaid是什么？</h2><p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
-<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
-<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
-<h2 id="如何在Hexo中插入Mermaid图表"><a href="#如何在Hexo中插入Mermaid图表" class="headerlink" title="如何在Hexo中插入Mermaid图表"></a>如何在Hexo中插入Mermaid图表</h2><h3 id="安装Mermaid插件"><a href="#安装Mermaid插件" class="headerlink" title="安装Mermaid插件"></a>安装Mermaid插件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-<h2 id="Mermaid图表演示"><a href="#Mermaid图表演示" class="headerlink" title="Mermaid图表演示"></a>Mermaid图表演示</h2><p>下面是mermaid的图表描述：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
-
-<p>会生成以下图表：</p>
-<pre class="mermaid">graph LR
-A(面试)-->B(笔试)
-A-->C(面试)
-C-->C1(数据结构与算法*)
-C-->C2(计算机网络)
-C-->C3(操作系统Linux)
-B-->B1(数据结构与算法*)</pre>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>博客管理</tag>
-        <tag>Mermaid</tag>
       </tags>
   </entry>
 </search>
