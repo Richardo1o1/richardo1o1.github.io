@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-22T15:36:20.342Z</updated>
+  <updated>2023-02-23T01:28:42.598Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>知识管理之收集灵感</title>
+    <link href="http://yunminitools.cn/2023/02/23/KM-gather-ideas/"/>
+    <id>http://yunminitools.cn/2023/02/23/KM-gather-ideas/</id>
+    <published>2023-02-23T01:28:18.000Z</published>
+    <updated>2023-02-23T01:28:42.598Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h2&gt;&lt;p&gt;来自于小报童的&lt;a href=&quot;https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06&quot;&gt;知识资产专栏&lt;/a&gt;&lt;br&gt;，做一些整理。&lt;/p&gt;
+&lt;h2 id=&quot;知识管理循环&quot;&gt;&lt;a href=&quot;#知识管理循环&quot; class=&quot;headerlink&quot; title=&quot;知识管理循环&quot;&gt;&lt;/a&gt;知识管理循环&lt;/h2&gt;&lt;p&gt;知识管理应该是一个循环：&lt;/p&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;graph LR
+A(卡片收集)--&gt;B(卡片组织)
+B--&gt;C(应用卡片)
+C--&gt;D(维护卡片)
+D--&gt;A&lt;/pre&gt;
+
+&lt;p&gt;这一篇主要讲一下收集。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="知识管理" scheme="http://yunminitools.cn/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>To Be More Confident</title>
@@ -538,33 +565,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     <category term="公司文化" scheme="http://yunminitools.cn/tags/%E5%85%AC%E5%8F%B8%E6%96%87%E5%8C%96/"/>
     
     <category term="团队协作" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Z-library 现阶段可行的访问方法</title>
-    <link href="http://yunminitools.cn/2023/02/10/ZLibrary-Access/"/>
-    <id>http://yunminitools.cn/2023/02/10/ZLibrary-Access/</id>
-    <published>2023-02-10T13:17:46.000Z</published>
-    <updated>2023-02-10T13:18:42.250Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Z-Library 官方网站近期被美国执法机构查封，无法直接访问。网上研究了一下，找到另一个方法可以继续访问。&lt;/p&gt;
-&lt;h2 id=&quot;访问方法&quot;&gt;&lt;a href=&quot;#访问方法&quot; class=&quot;headerlink&quot; title=&quot;访问方法&quot;&gt;&lt;/a&gt;访问方法&lt;/h2&gt;&lt;p&gt;可以访问 &lt;a href=&quot;https://singlelogin.me/&quot;&gt;singlelogin.me&lt;/a&gt;,用Z-Library账号登陆后，可获得私人域名，亲测访问速度很快。请将你的私人域名保密，外泄有禁封的风险。&lt;/p&gt;
-&lt;h2 id=&quot;访问步骤&quot;&gt;&lt;a href=&quot;#访问步骤&quot; class=&quot;headerlink&quot; title=&quot;访问步骤&quot;&gt;&lt;/a&gt;访问步骤&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;登陆网站：&lt;br&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/Zlibrary0210-1.png&quot; alt=&quot;步骤1&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;顺利登陆后，可以看到以下画面，Z-Library又回来了：&lt;br&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/Zlibrary0210-2.png&quot; alt=&quot;步骤2&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 浏览器中的网址为专属私人域名，请收藏到收藏夹，下次可以直接通过这个网址来访问网站。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
-    
-    
-    <category term="电子阅读" scheme="http://yunminitools.cn/tags/%E7%94%B5%E5%AD%90%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
