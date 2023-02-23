@@ -130,15 +130,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
 
 <p>会生成以下图表：</p>
-<pre class="mermaid">%%{
-  init: {
-    'theme': 'base',
-    'themeVariables': {
-      'background': '#E6E6E6',
-    }
-  }
-}%%
-graph LR
+<pre class="mermaid">graph LR
 A(面试)-->B(笔试)
 A-->C(面试)
 C-->C1(数据结构与算法*)
