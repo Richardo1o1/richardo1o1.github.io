@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-23T01:28:42.598Z</updated>
+  <updated>2023-02-23T01:38:25.390Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,10 +21,10 @@
     <link href="http://yunminitools.cn/2023/02/23/KM-gather-ideas/"/>
     <id>http://yunminitools.cn/2023/02/23/KM-gather-ideas/</id>
     <published>2023-02-23T01:28:18.000Z</published>
-    <updated>2023-02-23T01:28:42.598Z</updated>
+    <updated>2023-02-23T01:38:25.390Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h2&gt;&lt;p&gt;来自于小报童的&lt;a href=&quot;https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06&quot;&gt;知识资产专栏&lt;/a&gt;&lt;br&gt;，做一些整理。&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h2&gt;&lt;p&gt;来自于小报童的&lt;a href=&quot;https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06&quot;&gt;知识资产专栏&lt;/a&gt;，做一些整理。&lt;/p&gt;
 &lt;h2 id=&quot;知识管理循环&quot;&gt;&lt;a href=&quot;#知识管理循环&quot; class=&quot;headerlink&quot; title=&quot;知识管理循环&quot;&gt;&lt;/a&gt;知识管理循环&lt;/h2&gt;&lt;p&gt;知识管理应该是一个循环：&lt;/p&gt;
 &lt;pre class=&quot;mermaid&quot;&gt;graph LR
 A(卡片收集)--&gt;B(卡片组织)

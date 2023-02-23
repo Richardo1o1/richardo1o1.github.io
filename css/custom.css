@@ -37,3 +37,7 @@
     transform: translateX(0);
   }
 }
+.article-entry pre {
+  background: rgba(221,238,221,0.933) d !important;
+  color: #0c0b0b !important;
+}
