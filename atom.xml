@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-23T01:38:25.390Z</updated>
+  <updated>2023-02-23T05:42:17.977Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决ayer主题下Mermaid图表背景太暗的问题</title>
+    <link href="http://yunminitools.cn/2023/02/23/Hexo-Mermaid-2/"/>
+    <id>http://yunminitools.cn/2023/02/23/Hexo-Mermaid-2/</id>
+    <published>2023-02-23T05:41:42.000Z</published>
+    <updated>2023-02-23T05:42:17.977Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="Theme_ayer" scheme="http://yunminitools.cn/tags/Theme-ayer/"/>
+    
+  </entry>
   
   <entry>
     <title>知识管理之收集灵感</title>
@@ -94,7 +121,7 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     <link href="http://yunminitools.cn/2023/02/22/Hexo-Mermaid-1/"/>
     <id>http://yunminitools.cn/2023/02/22/Hexo-Mermaid-1/</id>
     <published>2023-02-22T09:15:34.000Z</published>
-    <updated>2023-02-23T05:22:53.449Z</updated>
+    <updated>2023-02-23T05:43:19.741Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Mermaid是什么？&quot;&gt;&lt;a href=&quot;#Mermaid是什么？&quot; class=&quot;headerlink&quot; title=&quot;Mermaid是什么？&quot;&gt;&lt;/a&gt;Mermaid是什么？&lt;/h2&gt;&lt;p&gt;Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。&lt;/p&gt;
@@ -116,6 +143,8 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
     <category term="Mermaid" scheme="http://yunminitools.cn/tags/Mermaid/"/>
+    
+    <category term="Theme_ayer" scheme="http://yunminitools.cn/tags/Theme-ayer/"/>
     
   </entry>
   
@@ -535,36 +564,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     
     
     <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Collaboration Approach of Elite Organizations</title>
-    <link href="http://yunminitools.cn/2023/02/11/Collaboration-Approach/"/>
-    <id>http://yunminitools.cn/2023/02/11/Collaboration-Approach/</id>
-    <published>2023-02-11T04:23:57.000Z</published>
-    <updated>2023-02-15T03:13:38.560Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;I read a &lt;a href=&quot;https://presence.feishu.cn/docs/doccn6VdWfAzbXe4gICEb3oj8CF&quot;&gt;note&lt;/a&gt; from Max,CEO of Precence, which about collabration. There were a lot of great points that resonated with me. I wanted to highlight that stood out to me.&lt;/p&gt;
-&lt;h2 id=&quot;Outline：&quot;&gt;&lt;a href=&quot;#Outline：&quot; class=&quot;headerlink&quot; title=&quot;Outline：&quot;&gt;&lt;/a&gt;Outline：&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Who makes the decisions?&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;How is it done?&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;How are they communicated?&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;What are the prerequisites for making decisions?&lt;br&gt;Highly Aligned, Loosely Coupled &lt;/li&gt;
-&lt;li&gt;Who makes the decisions?&lt;br&gt;Informed Captains&lt;/li&gt;
-&lt;li&gt;How is it done?&lt;br&gt;Context not Control&lt;/li&gt;
-&lt;li&gt;Who is responsible for the results？&lt;br&gt;Freedom and Responsibility&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
-    
-    
-    <category term="公司文化" scheme="http://yunminitools.cn/tags/%E5%85%AC%E5%8F%B8%E6%96%87%E5%8C%96/"/>
-    
-    <category term="团队协作" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C/"/>
     
   </entry>
   
