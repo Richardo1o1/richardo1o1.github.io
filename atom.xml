@@ -26,7 +26,11 @@
     
     <summary type="html">&lt;h2 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h2&gt;&lt;p&gt;来自于小报童的&lt;a href=&quot;https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06&quot;&gt;知识资产专栏&lt;/a&gt;，做一些整理。&lt;/p&gt;
 &lt;h2 id=&quot;知识管理循环&quot;&gt;&lt;a href=&quot;#知识管理循环&quot; class=&quot;headerlink&quot; title=&quot;知识管理循环&quot;&gt;&lt;/a&gt;知识管理循环&lt;/h2&gt;&lt;p&gt;知识管理应该是一个循环：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;graph LR&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;A(卡片收集)--&amp;gt;B(卡片组织)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B--&amp;gt;C(应用卡片)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;C--&amp;gt;D(维护卡片)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;D--&amp;gt;A&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;graph LR
+A(卡片收集)--&gt;B(卡片组织)
+B--&gt;C(应用卡片)
+C--&gt;D(维护卡片)
+D--&gt;A&lt;/pre&gt;
 
 &lt;p&gt;这一篇主要讲一下收集。&lt;/p&gt;</summary>
     
@@ -48,7 +52,27 @@
     
     
     <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;When I was listening to the “English with Lucy” channel on YouTube, I heard an episode about boosting self-confidence, which was very inspiring. I tried to use a mind map to record the main points.&lt;/p&gt;
-&lt;h2 id=&quot;Mind-Map&quot;&gt;&lt;a href=&quot;#Mind-Map&quot; class=&quot;headerlink&quot; title=&quot;Mind Map&quot;&gt;&lt;/a&gt;Mind Map&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;graph LR&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;A(To Be More Confident)--&amp;gt;B1(At parties)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;A--&amp;gt;B2(On dates)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;A--&amp;gt;B3(In persentations)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;A--&amp;gt;B4(In job interviews)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;A--&amp;gt;B5(On the telephon)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B1--&amp;gt;C11(Stay relaxed, relax your shoulders, centre your voice)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B1--&amp;gt;C12(Imagine everybody he meets is an old friend)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B1--&amp;gt;C13(I&amp;#x27;ve only got to be there for five minutes)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B2--&amp;gt;C21(Think I&amp;#x27;m beautiful, someone loves me, I have a secret)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B2--&amp;gt;C22(Keep yourself positive and only thinking about all the positive parts)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B2--&amp;gt;C23(Ask questions and show you&amp;#x27;re engaged)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B3--&amp;gt;C31(Practise twice with voice notes)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B3--&amp;gt;C32(Get the body relaxed and prepared)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B3--&amp;gt;C33(See the audience as old friends)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B4--&amp;gt;C41(Get yourself nice and calm and centred)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B4--&amp;gt;C42(Remember to breathe)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B4--&amp;gt;C43(Say it in ordered manner)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B5--&amp;gt;C51(Picture them sitting on the sofa)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B5--&amp;gt;C52(Punch the words as you&amp;#x27;re talking)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;B5--&amp;gt;C53(Stand up)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+&lt;h2 id=&quot;Mind-Map&quot;&gt;&lt;a href=&quot;#Mind-Map&quot; class=&quot;headerlink&quot; title=&quot;Mind Map&quot;&gt;&lt;/a&gt;Mind Map&lt;/h2&gt;&lt;pre class=&quot;mermaid&quot;&gt;graph LR
+A(To Be More Confident)--&gt;B1(At parties)
+A--&gt;B2(On dates)
+A--&gt;B3(In persentations)
+A--&gt;B4(In job interviews)
+A--&gt;B5(On the telephon)
+B1--&gt;C11(Stay relaxed, relax your shoulders, centre your voice)
+B1--&gt;C12(Imagine everybody he meets is an old friend)
+B1--&gt;C13(I&#39;ve only got to be there for five minutes)
+B2--&gt;C21(Think I&#39;m beautiful, someone loves me, I have a secret)
+B2--&gt;C22(Keep yourself positive and only thinking about all the positive parts)
+B2--&gt;C23(Ask questions and show you&#39;re engaged)
+B3--&gt;C31(Practise twice with voice notes)
+B3--&gt;C32(Get the body relaxed and prepared)
+B3--&gt;C33(See the audience as old friends)
+B4--&gt;C41(Get yourself nice and calm and centred)
+B4--&gt;C42(Remember to breathe)
+B4--&gt;C43(Say it in ordered manner)
+B5--&gt;C51(Picture them sitting on the sofa)
+B5--&gt;C52(Punch the words as you&#39;re talking)
+B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     
     
     

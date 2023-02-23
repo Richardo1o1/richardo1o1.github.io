@@ -53,7 +53,37 @@ var _hmt = _hmt || [];
           font-size: 1.6rem;
         }
         .mermaid {
-          background-color:#FFFFFF;
+	  background: transparent;
+	  // 为了显示更少空白、显示更多内容
+	  padding: 0 !important;
+	  margin: 0 !important;
+ 	  // 图标居中显示
+ 	  display: flex;
+  	  justify-content: center;
+
+ 	  .label { // 解决行尾文字显示不全
+   	  font-weight: normal;
+    	  font-size: .88rem;
+  	  }
+
+ 	  .edgePath .path { // 链接的颜色
+  	    stroke: #02d7f2 !important;
+  	  }
+
+ 	  .arrowheadPath { // 链接的箭头颜色
+   	    fill: white !important;
+  	  }	
+
+  	  .edgeLabel { // 链接上文字的样式
+    	    background-color: #0d1117 !important;
+   	    color: white !important;
+  	  }
+
+  	  .edgeLabel rect { // 链接上的文字的上下边框
+  	    opacity: 0.5;
+  	    background-color: transparent !important;
+  	    fill: transparent !important;
+ 	  }
 	}	
       </style>
     <link rel="alternate" href="/atom.xml" title="New structure for utility" type="application/atom+xml">

@@ -53,7 +53,37 @@ var _hmt = _hmt || [];
           font-size: 1.6rem;
         }
         .mermaid {
-          background-color:#FFFFFF;
+	  background: transparent;
+	  // 为了显示更少空白、显示更多内容
+	  padding: 0 !important;
+	  margin: 0 !important;
+ 	  // 图标居中显示
+ 	  display: flex;
+  	  justify-content: center;
+
+ 	  .label { // 解决行尾文字显示不全
+   	  font-weight: normal;
+    	  font-size: .88rem;
+  	  }
+
+ 	  .edgePath .path { // 链接的颜色
+  	    stroke: #02d7f2 !important;
+  	  }
+
+ 	  .arrowheadPath { // 链接的箭头颜色
+   	    fill: white !important;
+  	  }	
+
+  	  .edgeLabel { // 链接上文字的样式
+    	    background-color: #0d1117 !important;
+   	    color: white !important;
+  	  }
+
+  	  .edgeLabel rect { // 链接上的文字的上下边框
+  	    opacity: 0.5;
+  	    background-color: transparent !important;
+  	    fill: transparent !important;
+ 	  }
 	}	
       </style>
     <link rel="alternate" href="/atom.xml" title="New structure for utility" type="application/atom+xml">
@@ -100,7 +130,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">474</span>
+            <span class="post-count">452</span>
         </span>
     </span>
 
@@ -109,7 +139,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -140,7 +170,21 @@ var _hmt = _hmt || [];
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
 
 <p>会生成以下图表：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">%%&#123;</span><br><span class="line">  init: &#123;</span><br><span class="line">    &#x27;theme&#x27;: &#x27;base&#x27;,</span><br><span class="line">    &#x27;themeVariables&#x27;: &#123;</span><br><span class="line">      &#x27;background&#x27;: &#x27;#E6E6E6&#x27;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;%%</span><br><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'background': '#E6E6E6',
+    }
+  }
+}%%
+graph LR
+A(面试)-->B(笔试)
+A-->C(面试)
+C-->C1(数据结构与算法*)
+C-->C2(计算机网络)
+C-->C3(操作系统Linux)
+B-->B1(数据结构与算法*)</pre>
  
       <!-- reward -->
       

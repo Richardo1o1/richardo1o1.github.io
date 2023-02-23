@@ -53,7 +53,37 @@ var _hmt = _hmt || [];
           font-size: 1.6rem;
         }
         .mermaid {
-          background-color:#FFFFFF;
+	  background: transparent;
+	  // 为了显示更少空白、显示更多内容
+	  padding: 0 !important;
+	  margin: 0 !important;
+ 	  // 图标居中显示
+ 	  display: flex;
+  	  justify-content: center;
+
+ 	  .label { // 解决行尾文字显示不全
+   	  font-weight: normal;
+    	  font-size: .88rem;
+  	  }
+
+ 	  .edgePath .path { // 链接的颜色
+  	    stroke: #02d7f2 !important;
+  	  }
+
+ 	  .arrowheadPath { // 链接的箭头颜色
+   	    fill: white !important;
+  	  }	
+
+  	  .edgeLabel { // 链接上文字的样式
+    	    background-color: #0d1117 !important;
+   	    color: white !important;
+  	  }
+
+  	  .edgeLabel rect { // 链接上的文字的上下边框
+  	    opacity: 0.5;
+  	    background-color: transparent !important;
+  	    fill: transparent !important;
+ 	  }
 	}	
       </style>
     <link rel="alternate" href="/atom.xml" title="New structure for utility" type="application/atom+xml">
@@ -100,7 +130,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">416</span>
+            <span class="post-count">393</span>
         </span>
     </span>
 
@@ -125,7 +155,27 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>When I was listening to the “English with Lucy” channel on YouTube, I heard an episode about boosting self-confidence, which was very inspiring. I tried to use a mind map to record the main points.</p>
-<h2 id="Mind-Map"><a href="#Mind-Map" class="headerlink" title="Mind Map"></a>Mind Map</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(To Be More Confident)--&gt;B1(At parties)</span><br><span class="line">A--&gt;B2(On dates)</span><br><span class="line">A--&gt;B3(In persentations)</span><br><span class="line">A--&gt;B4(In job interviews)</span><br><span class="line">A--&gt;B5(On the telephon)</span><br><span class="line">B1--&gt;C11(Stay relaxed, relax your shoulders, centre your voice)</span><br><span class="line">B1--&gt;C12(Imagine everybody he meets is an old friend)</span><br><span class="line">B1--&gt;C13(I&#x27;ve only got to be there for five minutes)</span><br><span class="line">B2--&gt;C21(Think I&#x27;m beautiful, someone loves me, I have a secret)</span><br><span class="line">B2--&gt;C22(Keep yourself positive and only thinking about all the positive parts)</span><br><span class="line">B2--&gt;C23(Ask questions and show you&#x27;re engaged)</span><br><span class="line">B3--&gt;C31(Practise twice with voice notes)</span><br><span class="line">B3--&gt;C32(Get the body relaxed and prepared)</span><br><span class="line">B3--&gt;C33(See the audience as old friends)</span><br><span class="line">B4--&gt;C41(Get yourself nice and calm and centred)</span><br><span class="line">B4--&gt;C42(Remember to breathe)</span><br><span class="line">B4--&gt;C43(Say it in ordered manner)</span><br><span class="line">B5--&gt;C51(Picture them sitting on the sofa)</span><br><span class="line">B5--&gt;C52(Punch the words as you&#x27;re talking)</span><br><span class="line">B5--&gt;C53(Stand up)</span><br></pre></td></tr></table></figure>
+<h2 id="Mind-Map"><a href="#Mind-Map" class="headerlink" title="Mind Map"></a>Mind Map</h2><pre class="mermaid">graph LR
+A(To Be More Confident)-->B1(At parties)
+A-->B2(On dates)
+A-->B3(In persentations)
+A-->B4(In job interviews)
+A-->B5(On the telephon)
+B1-->C11(Stay relaxed, relax your shoulders, centre your voice)
+B1-->C12(Imagine everybody he meets is an old friend)
+B1-->C13(I've only got to be there for five minutes)
+B2-->C21(Think I'm beautiful, someone loves me, I have a secret)
+B2-->C22(Keep yourself positive and only thinking about all the positive parts)
+B2-->C23(Ask questions and show you're engaged)
+B3-->C31(Practise twice with voice notes)
+B3-->C32(Get the body relaxed and prepared)
+B3-->C33(See the audience as old friends)
+B4-->C41(Get yourself nice and calm and centred)
+B4-->C42(Remember to breathe)
+B4-->C43(Say it in ordered manner)
+B5-->C51(Picture them sitting on the sofa)
+B5-->C52(Punch the words as you're talking)
+B5-->C53(Stand up)</pre>
 
 <span id="more"></span>
 

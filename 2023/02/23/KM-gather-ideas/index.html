@@ -53,7 +53,37 @@ var _hmt = _hmt || [];
           font-size: 1.6rem;
         }
         .mermaid {
-          background-color:#FFFFFF;
+	  background: transparent;
+	  // 为了显示更少空白、显示更多内容
+	  padding: 0 !important;
+	  margin: 0 !important;
+ 	  // 图标居中显示
+ 	  display: flex;
+  	  justify-content: center;
+
+ 	  .label { // 解决行尾文字显示不全
+   	  font-weight: normal;
+    	  font-size: .88rem;
+  	  }
+
+ 	  .edgePath .path { // 链接的颜色
+  	    stroke: #02d7f2 !important;
+  	  }
+
+ 	  .arrowheadPath { // 链接的箭头颜色
+   	    fill: white !important;
+  	  }	
+
+  	  .edgeLabel { // 链接上文字的样式
+    	    background-color: #0d1117 !important;
+   	    color: white !important;
+  	  }
+
+  	  .edgeLabel rect { // 链接上的文字的上下边框
+  	    opacity: 0.5;
+  	    background-color: transparent !important;
+  	    fill: transparent !important;
+ 	  }
 	}	
       </style>
     <link rel="alternate" href="/atom.xml" title="New structure for utility" type="application/atom+xml">
@@ -100,7 +130,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">515</span>
+            <span class="post-count">512</span>
         </span>
     </span>
 
@@ -126,7 +156,11 @@ var _hmt = _hmt || [];
        
   <h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>来自于小报童的<a target="_blank" rel="noopener" href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
 <h2 id="知识管理循环"><a href="#知识管理循环" class="headerlink" title="知识管理循环"></a>知识管理循环</h2><p>知识管理应该是一个循环：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(卡片收集)--&gt;B(卡片组织)</span><br><span class="line">B--&gt;C(应用卡片)</span><br><span class="line">C--&gt;D(维护卡片)</span><br><span class="line">D--&gt;A</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR
+A(卡片收集)-->B(卡片组织)
+B-->C(应用卡片)
+C-->D(维护卡片)
+D-->A</pre>
 
 <p>这一篇主要讲一下收集。</p>
 <span id="more"></span>
