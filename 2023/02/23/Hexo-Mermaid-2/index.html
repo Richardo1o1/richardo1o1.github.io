@@ -124,10 +124,13 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
+  <h2 id="背景">背景</h2>
+<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>清缓存，重新发布，搞定。</p>
+<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
+清缓存，重新发布，搞定。</p>
  
       <!-- reward -->
       

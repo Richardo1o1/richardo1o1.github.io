@@ -124,15 +124,18 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在用Hexo写博客时，发现有时原始图片过大，直接引用不太美观，需要缩小一下，研究了一下，Hexo md语法并不支持这样的功能，我在网上找到了方法，纪录一下。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>有两个方法：</p>
+  <h2 id="背景">背景</h2>
+<p>在用Hexo写博客时，发现有时原始图片过大，直接引用不太美观，需要缩小一下，研究了一下，Hexo md语法并不支持这样的功能，我在网上找到了方法，纪录一下。</p>
+<h2 id="方法">方法</h2>
+<p>有两个方法：</p>
 <ol>
-<li><p>使用img 标记来控制图片显示大小：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;/images/xxx.png&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用div 加上css 来控制图片的显示和大小：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;width: 40%; margin: 10px&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;/images/xxx.png“&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>使用img 标记来控制图片显示大小：</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;/images/xxx.png&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用div 加上css 来控制图片的显示和大小：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;width: 40%; margin: 10px&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;/images/xxx.png“&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>其中<code>/images/xxx.png</code>为图片实际地址。经过试用，我选择了方法2，原因是用css可以控制的属性更多，后续也可以做统一的美化修改。关于CSS样式的说明，可以参考<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/css/css3_images.asp">这篇文章</a></p>
  
       <!-- reward -->

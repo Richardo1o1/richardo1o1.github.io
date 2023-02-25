@@ -3,15 +3,20 @@
   <entry>
     <title>GitHub Pages 强制使用HTTPS协议访问</title>
     <url>/2023/02/18/Add-Https-1/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
-<h2 id="设置步骤"><a href="#设置步骤" class="headerlink" title="设置步骤"></a>设置步骤</h2><p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
+<h2 id="设置步骤">设置步骤</h2>
+<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
 <ol>
-<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br><img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
-<li>在边栏的“Code and automation”部分，单击“Pages”。<div style="width: 40%; margin: 10px">
-<img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
-</div></li>
-<li>在 GitHub Pages 下，选择“Enforce HTTPS”。<br><img src="http://cdn.yunminitools.cn/blog/Https0218-3.png" alt="HTTPS访问3"></li>
+<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
+<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
+<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
 </ol>
+<div style="width: 40%; margin: 10px">
+   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
+</div>
+3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
+![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
 <p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
 ]]></content>
       <categories>
@@ -24,28 +29,42 @@
   <entry>
     <title>实现自定义域名Github Page网站Https访问</title>
     <url>/2023/02/12/Add-Https/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>博客搭建好了以后，发现通过自定义域名访问自己的github page时，浏览器提示该网址不安全，没有合格的安全证书，不能通过https(密文传输)访问。有些手机会强制使用https协议访问网站，会导致一些错误，今天尝试解决一下。<br>参考了 CSDN博主「yucicheung」的<a href="https://blog.csdn.net/yucicheung/article/details/79560027">文章</a></p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="HTTP与HTTPS"><a href="#HTTP与HTTPS" class="headerlink" title="HTTP与HTTPS"></a>HTTP与HTTPS</h3><p>HTTP是明文传输协议，传输内容容易被嗅探和篡改。<br>而HTTPS，即HTTP over SSL&#x2F;TLS,是添加了一层SSL(Secure Sockets Layer，安全套接层)，或者是TLS(Transport Layer Security,传输层安全协议)，所以HTTPS就可以视为HTTP和SSL&#x2F;TLS协议的组合。<br>HTTPS能做到良好的保密性(防嗅探)，真实性(防篡改)，完整性(防域名劫持和域名欺骗)。</p>
-<h3 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h3><p>SSL是TLS的前身，但TLS通常也被标志为SSL。<br>SSL&#x2F;TLS协议的基本思路是采用公钥加密法，也就是说，客户端先向服务器端索要公钥，然后用公钥加密信息(会话秘钥)，服务器收到密文后，用自己的私钥解密。<br>这个公钥就放在数字证书中。只要证书是可信的，公钥就是可信的。</p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>博客搭建好了以后，发现通过自定义域名访问自己的github page时，浏览器提示该网址不安全，没有合格的安全证书，不能通过https(密文传输)访问。有些手机会强制使用https协议访问网站，会导致一些错误，今天尝试解决一下。<br>
+参考了 CSDN博主「yucicheung」的<a href="https://blog.csdn.net/yucicheung/article/details/79560027">文章</a></p>
+<h2 id="原理">原理</h2>
+<h3 id="HTTP与HTTPS">HTTP与HTTPS</h3>
+<p>HTTP是明文传输协议，传输内容容易被嗅探和篡改。<br>
+而HTTPS，即HTTP over SSL/TLS,是添加了一层SSL(Secure Sockets Layer，安全套接层)，或者是TLS(Transport Layer Security,传输层安全协议)，所以HTTPS就可以视为HTTP和SSL/TLS协议的组合。<br>
+HTTPS能做到良好的保密性(防嗅探)，真实性(防篡改)，完整性(防域名劫持和域名欺骗)。</p>
+<h3 id="SSL证书">SSL证书</h3>
+<p>SSL是TLS的前身，但TLS通常也被标志为SSL。<br>
+SSL/TLS协议的基本思路是采用公钥加密法，也就是说，客户端先向服务器端索要公钥，然后用公钥加密信息(会话秘钥)，服务器收到密文后，用自己的私钥解密。<br>
+这个公钥就放在数字证书中。只要证书是可信的，公钥就是可信的。</p>
 <p>SSL证书由你的NS(Name Server，域名服务商)颁发，从速度和操作性考虑，我选择了Cloudflare，免费，操作也比较方便。</p>
 <span id="more"></span>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p>进行以下3步操作，就可以让网站支持https访问。</p>
-<h3 id="1-申请SSL证书"><a href="#1-申请SSL证书" class="headerlink" title="1.申请SSL证书"></a>1.申请SSL证书</h3><ul>
-<li>到<a href="https://www.cloudflare.com/">Cloudflare官网</a>注册,用邮箱就可以注册成功。</li>
+<h2 id="操作">操作</h2>
+<p>进行以下3步操作，就可以让网站支持https访问。</p>
+<h3 id="1-申请SSL证书">1.申请SSL证书</h3>
+<ul>
+<li>到<a href="https://www.cloudflare.com">Cloudflare官网</a>注册,用邮箱就可以注册成功。</li>
 <li>选择免费计划</li>
 <li>根据指引点击Add Site，添加你的网站自定义域名，会自动开始扫描DNS解析记录</li>
 <li>Cloudflare会选择给我们分配两个NS地址，复制这两个地址，供下一个步骤使用。</li>
 </ul>
-<h3 id="2-在域名操作后台修改NS地址"><a href="#2-在域名操作后台修改NS地址" class="headerlink" title="2.在域名操作后台修改NS地址"></a>2.在域名操作后台修改NS地址</h3><ul>
+<h3 id="2-在域名操作后台修改NS地址">2.在域名操作后台修改NS地址</h3>
+<ul>
 <li>登陆你的域名注册服务商网站，修改域名解析，将NS对应的地址（一般有两个），改为Cloudflare 分配的新地址。</li>
 <li>我使用是腾讯云的服务，NS不能直接改，研究了一下，要在选项 “更多” 里选择 “修改DNS服务器“，才能修改。</li>
 <li>等待1个小时左右，需要同步新的DNS服务器</li>
 </ul>
-<h3 id="3-在Cloudflare修改SSL状态"><a href="#3-在Cloudflare修改SSL状态" class="headerlink" title="3.在Cloudflare修改SSL状态"></a>3.在Cloudflare修改SSL状态</h3><ul>
+<h3 id="3-在Cloudflare修改SSL状态">3.在Cloudflare修改SSL状态</h3>
+<ul>
 <li>回到Cloudflare的管理后台，在Cloudflare上检查自己网站的状态，显示为Active时表示NS更改成功；</li>
 <li>在Cloudflare将自己网站的SSL状态改变为Full状态，等待Status变为Active Certificate，通常生效需要十几分钟。</li>
 </ul>
-<p>以上操作全部完成后，用https访问网站，浏览器就会出现小锁，说明配置成功：<br><img src="http://cdn.yunminitools.cn/blog/Https0212.png" alt="HTTPS网站"></p>
+<p>以上操作全部完成后，用https访问网站，浏览器就会出现小锁，说明配置成功：<br>
+<img src="http://cdn.yunminitools.cn/blog/Https0212.png" alt="HTTPS网站"></p>
 ]]></content>
       <categories>
         <category>日常练习</category>
@@ -57,21 +76,31 @@
   <entry>
     <title>Collaboration Approach of Elite Organizations</title>
     <url>/2023/02/11/Collaboration-Approach/</url>
-    <content><![CDATA[<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>I read a <a href="https://presence.feishu.cn/docs/doccn6VdWfAzbXe4gICEb3oj8CF">note</a> from Max,CEO of Precence, which about collabration. There were a lot of great points that resonated with me. I wanted to highlight that stood out to me.</p>
-<h2 id="Outline："><a href="#Outline：" class="headerlink" title="Outline："></a>Outline：</h2><p><strong>Who makes the decisions?</strong><br><strong>How is it done?</strong><br><strong>How are they communicated?</strong></p>
+    <content><![CDATA[<h2 id="Background">Background</h2>
+<p>I read a <a href="https://presence.feishu.cn/docs/doccn6VdWfAzbXe4gICEb3oj8CF">note</a> from Max,CEO of Precence, which about collabration. There were a lot of great points that resonated with me. I wanted to highlight that stood out to me.</p>
+<h2 id="Outline：">Outline：</h2>
+<p><strong>Who makes the decisions?</strong><br>
+<strong>How is it done?</strong><br>
+<strong>How are they communicated?</strong></p>
 <ul>
-<li>What are the prerequisites for making decisions?<br>Highly Aligned, Loosely Coupled </li>
-<li>Who makes the decisions?<br>Informed Captains</li>
-<li>How is it done?<br>Context not Control</li>
-<li>Who is responsible for the results？<br>Freedom and Responsibility</li>
+<li>What are the prerequisites for making decisions?<br>
+Highly Aligned, Loosely Coupled</li>
+<li>Who makes the decisions?<br>
+Informed Captains</li>
+<li>How is it done?<br>
+Context not Control</li>
+<li>Who is responsible for the results？<br>
+Freedom and Responsibility</li>
 </ul>
 <span id="more"></span>
-<h3 id="Highly-Aligned-Loosely-Coupled"><a href="#Highly-Aligned-Loosely-Coupled" class="headerlink" title="Highly Aligned, Loosely Coupled"></a>Highly Aligned, Loosely Coupled</h3><p>As companies grow, they often become highly centralized and inflexible. Symptoms include:</p>
+<h3 id="Highly-Aligned-Loosely-Coupled">Highly Aligned, Loosely Coupled</h3>
+<p>As companies grow, they often become highly centralized and inflexible. Symptoms include:</p>
 <ul>
 <li>Senior management is involved in many small decisions</li>
 <li>There are numerous cross-departmental buy-in meetings to socialize tactics</li>
 <li>Pleasing other internal groups takes precedence over pleasing customers</li>
-<li>The organization is <strong>highly coordinated and less prone to error</strong>, but slow and frustrating<br>How to Avoid it？</li>
+<li>The organization is <strong>highly coordinated and less prone to error</strong>, but slow and frustrating<br>
+How to Avoid it？</li>
 </ul>
 <ol>
 <li>Spend lots of time debating strategy together, and then trust each other to execute on tactics without <strong>prior approvals</strong></li>
@@ -79,7 +108,8 @@
 <li>We discuss generally how we can <strong>do better</strong> in the future.</li>
 </ol>
 <p>Ultimately, the end goal is to grow the business for bigger impact while increasing flexibility and agility.</p>
-<h3 id="Informed-Captains"><a href="#Informed-Captains" class="headerlink" title="Informed Captains"></a>Informed Captains</h3><p>For every significant decision there is a <strong>responsible captain of the ship</strong> who makes a judgment call after sharing and digesting others’ views.</p>
+<h3 id="Informed-Captains">Informed Captains</h3>
+<p>For every significant decision there is a <strong>responsible captain of the ship</strong> who makes a judgment call after sharing and digesting others’ views.</p>
 <ul>
 <li>We <strong>avoid committees</strong> making decisions because that would slow us down, and diffuse responsibility and accountability.</li>
 <li>We <strong>farm for dissent</strong>; dissent is not natural or easy, which is why we make a concerted effort to stimulate it.</li>
@@ -87,18 +117,20 @@
 <li>We don’t <strong>wait for consensus</strong>, nor do we drive to rapid, uninformed decision making.</li>
 <li>As the impact becomes clearer, we reflect on the decision, and see if we could do even better in the future.</li>
 </ul>
-<h3 id="Context-not-Control"><a href="#Context-not-Control" class="headerlink" title="Context not Control"></a>Context not Control</h3><ul>
+<h3 id="Context-not-Control">Context not Control</h3>
+<ul>
 <li>We want employees to be great <strong>independent decision makers</strong>, and to only consult their manager when they are unsure of the right decision.</li>
 <li>Each leader’s role is to teach, to <strong>set context</strong>, and to be highly informed of what is actually happening.</li>
 <li>The goal of knowing those details is not to change certain small decisions, but to learn how to <strong>adjust context</strong> so more decisions are made well.</li>
 <li>We tell people not to seek to please their boss. Instead, seek to serve the business.</li>
 </ul>
-<h3 id="Freedom-and-Responsibility"><a href="#Freedom-and-Responsibility" class="headerlink" title="Freedom and Responsibility"></a>Freedom and Responsibility</h3><ul>
+<h3 id="Freedom-and-Responsibility">Freedom and Responsibility</h3>
+<ul>
 <li>Our goal is to inspire people more than manage them.</li>
 <li>We believe that people thrive on being <strong>trusted</strong>, on <strong>freedom</strong>, and on being able to <strong>make a difference</strong>. So we foster freedom and empowerment wherever we can.</li>
 <li>We work to have a company of self-disciplined people who discover and fix issues without being told to do so.</li>
 <li>In general, freedom and rapid recovery is better than trying to prevent error.</li>
-<li>Our big threat over time is lack of innovation, so we should be relatively error tolerant. </li>
+<li>Our big threat over time is lack of innovation, so we should be relatively error tolerant.</li>
 <li>The seduction is that error prevention just sounds so good, even if it is often ineffective.</li>
 </ul>
 ]]></content>
@@ -114,21 +146,23 @@
   <entry>
     <title>在Hexo中插入Mermaid图表</title>
     <url>/2023/02/22/Hexo-Mermaid-1/</url>
-    <content><![CDATA[<h2 id="Mermaid是什么？"><a href="#Mermaid是什么？" class="headerlink" title="Mermaid是什么？"></a>Mermaid是什么？</h2><p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
+    <content><![CDATA[<h2 id="Mermaid是什么？">Mermaid是什么？</h2>
+<p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
 <p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
 <p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
-<h2 id="如何在Hexo中插入Mermaid图表"><a href="#如何在Hexo中插入Mermaid图表" class="headerlink" title="如何在Hexo中插入Mermaid图表"></a>如何在Hexo中插入Mermaid图表</h2><h3 id="安装Mermaid插件"><a href="#安装Mermaid插件" class="headerlink" title="安装Mermaid插件"></a>安装Mermaid插件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
+<h2 id="如何在Hexo中插入Mermaid图表">如何在Hexo中插入Mermaid图表</h2>
+<h3 id="安装Mermaid插件">安装Mermaid插件</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置文件">修改配置文件</h3>
+<p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
+<h3 id="修改主题">修改主题</h3>
+<p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-<h2 id="Mermaid图表演示"><a href="#Mermaid图表演示" class="headerlink" title="Mermaid图表演示"></a>Mermaid图表演示</h2><p>下面是mermaid的图表描述：</p>
+<h2 id="Mermaid图表演示">Mermaid图表演示</h2>
+<p>下面是mermaid的图表描述：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
-
 <p>会生成以下图表：</p>
 <pre class="mermaid">graph LR
 A(面试)-->B(笔试)
@@ -150,10 +184,13 @@ B-->B1(数据结构与算法*)</pre>
   <entry>
     <title>解决ayer主题下Mermaid图表背景太暗的问题</title>
     <url>/2023/02/23/Hexo-Mermaid-2/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>清缓存，重新发布，搞定。</p>
+<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
+清缓存，重新发布，搞定。</p>
 ]]></content>
       <categories>
         <category>日常练习</category>
@@ -166,15 +203,18 @@ B-->B1(数据结构与算法*)</pre>
   <entry>
     <title>Hexo博客插入图片后如何控制图片大小和样式</title>
     <url>/2023/02/19/Hexo-image-1/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在用Hexo写博客时，发现有时原始图片过大，直接引用不太美观，需要缩小一下，研究了一下，Hexo md语法并不支持这样的功能，我在网上找到了方法，纪录一下。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>有两个方法：</p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在用Hexo写博客时，发现有时原始图片过大，直接引用不太美观，需要缩小一下，研究了一下，Hexo md语法并不支持这样的功能，我在网上找到了方法，纪录一下。</p>
+<h2 id="方法">方法</h2>
+<p>有两个方法：</p>
 <ol>
-<li><p>使用img 标记来控制图片显示大小：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;/images/xxx.png&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用div 加上css 来控制图片的显示和大小：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div style=&quot;width: 40%; margin: 10px&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;/images/xxx.png“&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>使用img 标记来控制图片显示大小：</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;/images/xxx.png&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用div 加上css 来控制图片的显示和大小：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div style=&quot;width: 40%; margin: 10px&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;/images/xxx.png“&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>其中<code>/images/xxx.png</code>为图片实际地址。经过试用，我选择了方法2，原因是用css可以控制的属性更多，后续也可以做统一的美化修改。关于CSS样式的说明，可以参考<a href="https://www.w3school.com.cn/css/css3_images.asp">这篇文章</a></p>
 ]]></content>
       <categories>
@@ -188,40 +228,51 @@ B-->B1(数据结构与算法*)</pre>
   <entry>
     <title>知识管理之收集灵感</title>
     <url>/2023/02/23/KM-gather-ideas/</url>
-    <content><![CDATA[<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
-<h2 id="知识管理循环"><a href="#知识管理循环" class="headerlink" title="知识管理循环"></a>知识管理循环</h2><p>知识管理应该是一个循环：</p>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
+<h2 id="知识管理循环">知识管理循环</h2>
+<p>知识管理应该是一个循环：</p>
 <pre class="mermaid">graph LR
 A(卡片收集)-->B(卡片组织)
 B-->C(应用卡片)
 C-->D(维护卡片)
 D-->A</pre>
-
 <p>这一篇主要讲一下收集。</p>
 <span id="more"></span>
-<h2 id="如何收集灵感"><a href="#如何收集灵感" class="headerlink" title="如何收集灵感"></a>如何收集灵感</h2><p>做到以下3个方面：</p>
-<h3 id="1-留出富裕时间"><a href="#1-留出富裕时间" class="headerlink" title="1.留出富裕时间"></a>1.留出富裕时间</h3><p>在繁忙的工作生活中，留出时间来做这个事情，而不是想起来再做，以下是一些技巧，此外，还可以参考时间管理的一些书籍：</p>
-<h4 id="学会说不，保护时间"><a href="#学会说不，保护时间" class="headerlink" title="学会说不，保护时间"></a>学会说不，保护时间</h4><p>尝试思考「立即说是」后马上就去执行，如果感觉到痛苦，那么这个选项就应该选「不」。</p>
-<h4 id="固定时间，持续投资"><a href="#固定时间，持续投资" class="headerlink" title="固定时间，持续投资"></a>固定时间，持续投资</h4><p>我们想积累自己的知识资产时，应该划出一块固定的时间来做知识的积累。</p>
-<h4 id="好奇驱动，乐在其中"><a href="#好奇驱动，乐在其中" class="headerlink" title="好奇驱动，乐在其中"></a>好奇驱动，乐在其中</h4><p>想要捕捉到自己的灵感和想法，一个关键的技巧在于，由问题来驱动，但不着急立即获得答案。在找到答案的过程中积累知识。</p>
-<h3 id="2-用不同角度观察"><a href="#2-用不同角度观察" class="headerlink" title="2.用不同角度观察"></a>2.用不同角度观察</h3><ul>
+<h2 id="如何收集灵感">如何收集灵感</h2>
+<p>做到以下3个方面：</p>
+<h3 id="1-留出富裕时间">1.留出富裕时间</h3>
+<p>在繁忙的工作生活中，留出时间来做这个事情，而不是想起来再做，以下是一些技巧，此外，还可以参考时间管理的一些书籍：</p>
+<h4 id="学会说不，保护时间">学会说不，保护时间</h4>
+<p>尝试思考「立即说是」后马上就去执行，如果感觉到痛苦，那么这个选项就应该选「不」。</p>
+<h4 id="固定时间，持续投资">固定时间，持续投资</h4>
+<p>我们想积累自己的知识资产时，应该划出一块固定的时间来做知识的积累。</p>
+<h4 id="好奇驱动，乐在其中">好奇驱动，乐在其中</h4>
+<p>想要捕捉到自己的灵感和想法，一个关键的技巧在于，由问题来驱动，但不着急立即获得答案。在找到答案的过程中积累知识。</p>
+<h3 id="2-用不同角度观察">2.用不同角度观察</h3>
+<ul>
 <li>跳出问题本身，看看周边和上下游，往往能得到不同的思考</li>
 <li>看看其他地方行业或领域中的事物，尝试将其和自己在思考的事情进行结合，或许就会有了新的灵感值得记录</li>
 <li>许多时候我们对一些事物过于熟悉，就会忽略掉其中的细节。当我们跃入其中仔细观察时，往往就能发现许多不合理的地方，也就有了值得记录的思考</li>
 </ul>
-<h3 id="3-在日常生活中捕捉"><a href="#3-在日常生活中捕捉" class="headerlink" title="3.在日常生活中捕捉"></a>3.在日常生活中捕捉</h3><h4 id="自己做事时"><a href="#自己做事时" class="headerlink" title="自己做事时"></a>自己做事时</h4><p>记录：</p>
+<h3 id="3-在日常生活中捕捉">3.在日常生活中捕捉</h3>
+<h4 id="自己做事时">自己做事时</h4>
+<p>记录：</p>
 <ul>
 <li>解决问题的步骤</li>
 <li>事实结果</li>
 <li>自身状态和情绪</li>
 <li>决策过程和结论</li>
 </ul>
-<h4 id="和他人交流时"><a href="#和他人交流时" class="headerlink" title="和他人交流时"></a>和他人交流时</h4><p>记录：</p>
+<h4 id="和他人交流时">和他人交流时</h4>
+<p>记录：</p>
 <ul>
 <li>他在关注什么问题</li>
 <li>他在做什么尝试</li>
 <li>他的学习方向</li>
 </ul>
-<h4 id="自己学习时"><a href="#自己学习时" class="headerlink" title="自己学习时"></a>自己学习时</h4><p>记录：</p>
+<h4 id="自己学习时">自己学习时</h4>
+<p>记录：</p>
 <ul>
 <li>全新视角</li>
 <li>具体建议</li>
@@ -238,7 +289,8 @@ D-->A</pre>
   <entry>
     <title>知识管理之记录知识</title>
     <url>/2023/02/24/KM-write-down/</url>
-    <content><![CDATA[<h2 id="记录原则"><a href="#记录原则" class="headerlink" title="记录原则"></a>记录原则</h2><p>记录知识有很多目的，但在知识管理里，记录的原则是，把今天的知识传递给未来的自己，让他可以快速掌握你今天学到的东西。</p>
+    <content><![CDATA[<h2 id="记录原则">记录原则</h2>
+<p>记录知识有很多目的，但在知识管理里，记录的原则是，把今天的知识传递给未来的自己，让他可以快速掌握你今天学到的东西。</p>
 <p>为什么这么说呢？因为原来我们记笔记，往往没想清楚自己是为什么记笔记。就会出现以下一些现象：</p>
 <ul>
 <li>笔记比较零散，没有体系，记了再也没看过</li>
@@ -246,7 +298,9 @@ D-->A</pre>
 <li>随着时间的积累，很可能已经忘了当时对这篇文章的理解以及收藏它的初衷</li>
 </ul>
 <p>未来我做的笔记，有着一个明确的读者，甚至是唯一读者，即未来的我。我写的每一条笔记，都是为了「未来的我」在需要时能更方便地查阅和调用。这样，写的笔记的好坏也很容易判断，即是否对未来的自己有帮助。</p>
-<h2 id="记录方法"><a href="#记录方法" class="headerlink" title="记录方法"></a>记录方法</h2><h3 id="记录打破思维惯性的想法"><a href="#记录打破思维惯性的想法" class="headerlink" title="记录打破思维惯性的想法"></a>记录打破思维惯性的想法</h3><p>也就是说，当你听到这个想法，和你通常认为的完全不同，这个时候，需要尽快记录下来，然后仔细思考这个想法的来源，合理性及如何与自己认知进行整合。在这个过程中，不要被 <strong>自尊心，懒惰，安全感</strong> 等天然的反应支配，接纳新知识。以下这些场景都可能会有可能得到这样的想法：</p>
+<h2 id="记录方法">记录方法</h2>
+<h3 id="记录打破思维惯性的想法">记录打破思维惯性的想法</h3>
+<p>也就是说，当你听到这个想法，和你通常认为的完全不同，这个时候，需要尽快记录下来，然后仔细思考这个想法的来源，合理性及如何与自己认知进行整合。在这个过程中，不要被 <strong>自尊心，懒惰，安全感</strong> 等天然的反应支配，接纳新知识。以下这些场景都可能会有可能得到这样的想法：</p>
 <ul>
 <li><strong>反直觉的观点或事实</strong></li>
 <li><strong>负面的观点</strong></li>
@@ -254,17 +308,20 @@ D-->A</pre>
 <li><strong>能把复杂东西简化的视角</strong></li>
 <li><strong>意料之外但情理之中的视角</strong></li>
 </ul>
-<h3 id="用自己的话写"><a href="#用自己的话写" class="headerlink" title="用自己的话写"></a>用自己的话写</h3><p>只有用自己的话来写，才能在写的过程中引起思考，然后将知识内化为自己的。大量复制别人的观点，并不能使自己得到提高，时间一长，就完全忘记了。</p>
+<h3 id="用自己的话写">用自己的话写</h3>
+<p>只有用自己的话来写，才能在写的过程中引起思考，然后将知识内化为自己的。大量复制别人的观点，并不能使自己得到提高，时间一长，就完全忘记了。</p>
 <p>但我们刚开始接触到一个新的领域时，可能没有办法一下子有自己的想法，我的实际是，先试图用自己的话重复同样的意思，然后加上一些自己想到的案例，再想想是否有反面的例子，试着做一些推理。</p>
 <p>不用担心做不好，记住是为自己来记录，只要坚持做，在过程中反复推敲，会让理解加深，最终掌握知识。</p>
-<h3 id="精炼知识点"><a href="#精炼知识点" class="headerlink" title="精炼知识点"></a>精炼知识点</h3><p>为了未来的自己能快速得到知识的要点，我们需要在理解内容的基础中做精炼。方法是：</p>
+<h3 id="精炼知识点">精炼知识点</h3>
+<p>为了未来的自己能快速得到知识的要点，我们需要在理解内容的基础中做精炼。方法是：</p>
 <ul>
 <li>先理解知识的结构，从结构中提取要点</li>
 <li>反复删除，减少冗余</li>
 <li>隐藏细节，保留出处</li>
 <li>将大的内容拆成原子化内容</li>
 </ul>
-<h3 id="定期整理和归纳"><a href="#定期整理和归纳" class="headerlink" title="定期整理和归纳"></a>定期整理和归纳</h3><p>定期整理知识，继续做知识的归纳&#x2F;精炼，同时找到知识点之间的关系，建立网状知识，同时提炼关键字和标签，方便未来的自己查。</p>
+<h3 id="定期整理和归纳">定期整理和归纳</h3>
+<p>定期整理知识，继续做知识的归纳/精炼，同时找到知识点之间的关系，建立网状知识，同时提炼关键字和标签，方便未来的自己查。</p>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -276,14 +333,18 @@ D-->A</pre>
   <entry>
     <title>知识管理相关-知识管理误区</title>
     <url>/2023/02/07/Knowledge-Management-1/</url>
-    <content><![CDATA[<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理：</p>
-<h2 id="知识管理概念"><a href="#知识管理概念" class="headerlink" title="知识管理概念"></a>知识管理概念</h2><p>管理的本质是“提高效率和效益”， 知识管理可以简单的理解为帮助我们更高效的获取&#x2F;组织&#x2F;有效利用知识的一套流程。<br>我的理解应该包括以下几个方面：</p>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理：</p>
+<h2 id="知识管理概念">知识管理概念</h2>
+<p>管理的本质是“提高效率和效益”， 知识管理可以简单的理解为帮助我们更高效的获取/组织/有效利用知识的一套流程。<br>
+我的理解应该包括以下几个方面：</p>
 <ul>
 <li>收集（从有效途径收集知识）</li>
 <li>处理（将零散的知识连接起来）</li>
 <li>输出（从知识网络中提取知识，写作或行动）</li>
 </ul>
-<h2 id="主要误区"><a href="#主要误区" class="headerlink" title="主要误区"></a>主要误区</h2><ol>
+<h2 id="主要误区">主要误区</h2>
+<ol>
 <li>信息成瘾</li>
 <li>收集癖</li>
 <li>知识不成体系</li>
@@ -291,37 +352,50 @@ D-->A</pre>
 <li>迷信工具</li>
 <li>输出不只是写文章</li>
 </ol>
-<h2 id="1-信息成瘾"><a href="#1-信息成瘾" class="headerlink" title="1.信息成瘾"></a>1.信息成瘾</h2><p>简单来说，获取新信息可以让我们大脑产生多巴胺，形成一种类似于抽烟喝酒一样的成瘾行为。成瘾一样不断获取信息而不去消化，对我们的大脑并无益处。</p>
-<p>因此，理解了这个误区，我们在获取信息的时候就要对获取的信息的时间&#x2F;质量和数量进行控制，控制总消耗量。</p>
+<h2 id="1-信息成瘾">1.信息成瘾</h2>
+<p>简单来说，获取新信息可以让我们大脑产生多巴胺，形成一种类似于抽烟喝酒一样的成瘾行为。成瘾一样不断获取信息而不去消化，对我们的大脑并无益处。</p>
+<p>因此，理解了这个误区，我们在获取信息的时候就要对获取的信息的时间/质量和数量进行控制，控制总消耗量。</p>
 <p>总之，需要我们把自己<strong>从被动获取信息中解放出来，主动寻找自己需要的信息</strong>，避免FOMO。</p>
-<h2 id="2-收集癖"><a href="#2-收集癖" class="headerlink" title="2.收集癖"></a>2.收集癖</h2><p>我们喜欢囤积信息，还在低速网络时代，我就经常挂机下载各种学习资料。后来网速快了，我也是Verycd的常客，我囤积过光盘&#x2F;课程&#x2F;网盘，资料一大堆。潜意识里认为我收集了它，以后就可以看，但往往大部分时间这些资源都是积灰的，N年也不会去看。</p>
-<p>因为收藏行为<strong>门槛低，可衡量，虚假进步</strong>，给人带来愉悦感，但也要清醒的意识到，收藏信息并不代表知道信息&#x2F;理解信息，并不能让我们得到更多知识，而是成为了<strong>信息的备份者</strong>。</p>
+<h2 id="2-收集癖">2.收集癖</h2>
+<p>我们喜欢囤积信息，还在低速网络时代，我就经常挂机下载各种学习资料。后来网速快了，我也是Verycd的常客，我囤积过光盘/课程/网盘，资料一大堆。潜意识里认为我收集了它，以后就可以看，但往往大部分时间这些资源都是积灰的，N年也不会去看。</p>
+<p>因为收藏行为<strong>门槛低，可衡量，虚假进步</strong>，给人带来愉悦感，但也要清醒的意识到，收藏信息并不代表知道信息/理解信息，并不能让我们得到更多知识，而是成为了<strong>信息的备份者</strong>。</p>
 <p>所以，在面对海量信息时，正确的做法是：</p>
 <ul>
 <li>用自己的话记录，留下原文链接。（<strong>存储与提取负相关</strong>）</li>
 <li>为消化信息留出时间，在学习更多知识前，先确保已经收藏的知识已经掌握。</li>
 </ul>
-<h2 id="3-知识不成体系"><a href="#3-知识不成体系" class="headerlink" title="3.知识不成体系"></a>3.知识不成体系</h2><p>在误区1我们知道，不能海量的收集信息，那样基本就会被信息淹没。必须主动收集对自己有用的信息。<br>那什么是对自己有用的信息呢？<br>总的来说，应该有两类信息是有用的：</p>
+<h2 id="3-知识不成体系">3.知识不成体系</h2>
+<p>在误区1我们知道，不能海量的收集信息，那样基本就会被信息淹没。必须主动收集对自己有用的信息。<br>
+那什么是对自己有用的信息呢？<br>
+总的来说，应该有两类信息是有用的：</p>
 <ol>
-<li><p>专业领域，主要是指对日常工作学习有帮助，做错了自己要承担责任的事情，比如本职工作，或者投资等。在这些领域，我们需要持续不断的精进，持续积累，才能有所收获。比如我的专业领域有 产品设计&#x2F;需求风险&#x2F;数据分析&#x2F;营销与推广&#x2F;行为经济学… </p>
+<li>
+<p>专业领域，主要是指对日常工作学习有帮助，做错了自己要承担责任的事情，比如本职工作，或者投资等。在这些领域，我们需要持续不断的精进，持续积累，才能有所收获。比如我的专业领域有 产品设计/需求风险/数据分析/营销与推广/行为经济学…</p>
 </li>
-<li><p>兴趣，自己持续感兴趣，但对别人没影响,别人也不在乎的事情。比如说对我来说，历史&#x2F;博弈论&#x2F;智能硬件等，都是我持续感心情的东西，但及时一段时间没有关注学习，也没有什么问题，积累这些知识可以令人愉悦，但并非是最高优先级的。</p>
+<li>
+<p>兴趣，自己持续感兴趣，但对别人没影响,别人也不在乎的事情。比如说对我来说，历史/博弈论/智能硬件等，都是我持续感心情的东西，但及时一段时间没有关注学习，也没有什么问题，积累这些知识可以令人愉悦，但并非是最高优先级的。</p>
 </li>
 </ol>
-<p>当然，专业领域和兴趣可以有交集，但大多数人往往是分裂的，我们需要：<br><strong>面对内心需要，寻找自己的北极星，构筑独特知识体系</strong></p>
-<h2 id="4-只追新，不回顾"><a href="#4-只追新，不回顾" class="headerlink" title="4.只追新，不回顾"></a>4.只追新，不回顾</h2><p>岁月是最大的小偷。缺少回顾会让我们的知识资产价值，会随着时间流逝而消逝。并且，当我们从记忆中回顾并使用某些信息时，可能会出现新的信息：它可能是一个问题的答案、附加信息，甚至仅仅是确认我们所检索的信息是正确的。</p>
+<p>当然，专业领域和兴趣可以有交集，但大多数人往往是分裂的，我们需要：<br>
+<strong>面对内心需要，寻找自己的北极星，构筑独特知识体系</strong></p>
+<h2 id="4-只追新，不回顾">4.只追新，不回顾</h2>
+<p>岁月是最大的小偷。缺少回顾会让我们的知识资产价值，会随着时间流逝而消逝。并且，当我们从记忆中回顾并使用某些信息时，可能会出现新的信息：它可能是一个问题的答案、附加信息，甚至仅仅是确认我们所检索的信息是正确的。</p>
 <p>我理解回顾有两个作用：</p>
 <ol>
 <li>通过对知识的反复调用和使用，加深对知识的理解和记忆</li>
 <li>通过回顾建立知识点的关联，通过知识网络来形成牢固的概念并有可能的产生新信息</li>
 </ol>
 <p><strong>为回顾留出专门时间</strong></p>
-<h2 id="5-迷信工具"><a href="#5-迷信工具" class="headerlink" title="5.迷信工具"></a>5.迷信工具</h2><p>我们都会迷信使用了一个超级牛的工具后，就可以得到完整的知识管理体验。事实证明这是根本不可能的，随着技术发展，永远有新的工具产生，但我们好像依然没有很好的管理知识。</p>
+<h2 id="5-迷信工具">5.迷信工具</h2>
+<p>我们都会迷信使用了一个超级牛的工具后，就可以得到完整的知识管理体验。事实证明这是根本不可能的，随着技术发展，永远有新的工具产生，但我们好像依然没有很好的管理知识。</p>
 <p>那是因为，<strong>我们可能没有想清楚我们需要什么样的工具</strong>。 我们希望通过研究工具来逃避现实，因为学习了最新的知识管理工具，我们似乎变为了“更好的自己”，但真是这样的吗？</p>
-<p>在建立真正的知识管理流程前，工具都是无用的。<br><strong>先建立自己的流程，再关注工具本身是否匹配</strong></p>
-<h2 id="6-输出不只是写文章"><a href="#6-输出不只是写文章" class="headerlink" title="6.输出不只是写文章"></a>6.输出不只是写文章</h2><p>将输出简单的理解为写文章或整理好资料，因为有了“输出”作为明确的目标，输入会有选择性，吸收会更有效，<strong>以输入倒逼输出</strong></p>
+<p>在建立真正的知识管理流程前，工具都是无用的。<br>
+<strong>先建立自己的流程，再关注工具本身是否匹配</strong></p>
+<h2 id="6-输出不只是写文章">6.输出不只是写文章</h2>
+<p>将输出简单的理解为写文章或整理好资料，因为有了“输出”作为明确的目标，输入会有选择性，吸收会更有效，<strong>以输入倒逼输出</strong></p>
 <p>但这样的理解是片面的，我们做知识管理不应该只是为了做写手，做自媒体。但这样的做法回避了一个问题：如何有效的吸收知识并实践使用。如果只是说，时间长了并没有说服力，自己总结的知识由于缺乏实践，很有可能也是错的。</p>
-<p>所以，<strong>输出不仅仅是写文章，而是影响现实世界</strong><br>比如：</p>
+<p>所以，<strong>输出不仅仅是写文章，而是影响现实世界</strong><br>
+比如：</p>
 <ul>
 <li>用来作为工作中决策思考的演练</li>
 <li>用来作为未来决策复盘的依据</li>
@@ -339,12 +413,16 @@ D-->A</pre>
   <entry>
     <title>有了这个网站，Linux命令就不需要到处搜索了</title>
     <url>/2023/02/17/Linux-Command-1/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>与服务器打交道，免不了和Linux命令打交道，虽然常用的都会，但遇上一些特殊情况，就需要查手册，在系统里查太麻烦，网上搜索效率比较低，今天看到一个<a href="https://github.com/jaywcjlove/linux-command">github项目</a>解决了这个问题，分享纪录一下。</p>
-<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p>可以用短地址：<a href="https://git.io/linux">https://git.io/linux</a> 访问网站：<br><img src="http://cdn.yunminitools.cn/blog/Linux0217-1.png" alt="演示1"></p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>与服务器打交道，免不了和Linux命令打交道，虽然常用的都会，但遇上一些特殊情况，就需要查手册，在系统里查太麻烦，网上搜索效率比较低，今天看到一个<a href="https://github.com/jaywcjlove/linux-command">github项目</a>解决了这个问题，分享纪录一下。</p>
+<h2 id="演示">演示</h2>
+<p>可以用短地址：<a href="https://git.io/linux">https://git.io/linux</a> 访问网站：<br>
+<img src="http://cdn.yunminitools.cn/blog/Linux0217-1.png" alt="演示1"></p>
 <span id="more"></span>
-
-<p>输入命令，查询：<br><img src="http://cdn.yunminitools.cn/blog/Linux0217-2.png" alt="演示2"></p>
-<p>选择需要查询命令：<br><img src="http://cdn.yunminitools.cn/blog/Linux0217-3.png" alt="演示3"></p>
+<p>输入命令，查询：<br>
+<img src="http://cdn.yunminitools.cn/blog/Linux0217-2.png" alt="演示2"></p>
+<p>选择需要查询命令：<br>
+<img src="http://cdn.yunminitools.cn/blog/Linux0217-3.png" alt="演示3"></p>
 ]]></content>
       <categories>
         <category>有趣资源</category>
@@ -357,29 +435,46 @@ D-->A</pre>
   <entry>
     <title>Midjourney 极简入门（1）</title>
     <url>/2023/02/09/Midjourney-Getting-Started-1/</url>
-    <content><![CDATA[<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>Midjourney可以算是一款AI绘图工具，只要輸入你想到的文字，就通过AI生成图片，化抽象为具体，成品很美，感觉可以替代插画师的部分工作了。</p>
-<h2 id="使用心得"><a href="#使用心得" class="headerlink" title="使用心得"></a>使用心得</h2><p>Midjourney 注册比较简单，这里就略过了，重点讲一下它的prompt，也就是提升词。<br>Midjourney 的 prompt 的结构可以拆分成三个基础组成部分：</p>
+    <content><![CDATA[<h2 id="背景介绍">背景介绍</h2>
+<p>Midjourney可以算是一款AI绘图工具，只要輸入你想到的文字，就通过AI生成图片，化抽象为具体，成品很美，感觉可以替代插画师的部分工作了。</p>
+<h2 id="使用心得">使用心得</h2>
+<p>Midjourney 注册比较简单，这里就略过了，重点讲一下它的prompt，也就是提升词。<br>
+Midjourney 的 prompt 的结构可以拆分成三个基础组成部分：</p>
 <ol>
-<li><p>内容描述：就是主体内容，表达我们到底想画什么。是骡子是马，是猴子是兔。他们是什么形象、穿着什么衣服、在干什么，等等。</p>
+<li>
+<p>内容描述：就是主体内容，表达我们到底想画什么。是骡子是马，是猴子是兔。他们是什么形象、穿着什么衣服、在干什么，等等。</p>
 </li>
-<li><p>风格描述：包括曾经讲过的艺术家、画笔风格、艺术风格等等，甚至包括打光、视角、拍照相机的牌子等等。</p>
+<li>
+<p>风格描述：包括曾经讲过的艺术家、画笔风格、艺术风格等等，甚至包括打光、视角、拍照相机的牌子等等。</p>
 </li>
-<li><p>属性描述：最基本的图片属性，比如尺寸、使用的 Midjourney 版本。</p>
+<li>
+<p>属性描述：最基本的图片属性，比如尺寸、使用的 Midjourney 版本。</p>
 </li>
 </ol>
 <p>这次重点讲一下 属性相关：</p>
-<h3 id="版本号-–v-1-x2F-2-x2F-3-x2F-4"><a href="#版本号-–v-1-x2F-2-x2F-3-x2F-4" class="headerlink" title="版本号 –v 1&#x2F;2&#x2F;3&#x2F;4"></a>版本号 –v 1&#x2F;2&#x2F;3&#x2F;4</h3><p>默认都用 v4 即可，效果是最好，也比较写实。但在画不同艺术风格的图片时，用一下 v2、v3 画抽象的风格，可能会有帮助。</p>
-<h3 id="扩幅相关-–upscale"><a href="#扩幅相关-–upscale" class="headerlink" title="扩幅相关 –upscale"></a>扩幅相关 –upscale</h3><p>upscale 是把 4 in 1 的 demo 图片扩大篇幅成为更高清的图片。默认的扩幅一般就能用了。<br>还有一个特殊的指令：<br>–upbeta 增加更多额外的细节，图像像素大小也会翻一倍</p>
-<h3 id="负面提示词-–no"><a href="#负面提示词-–no" class="headerlink" title="负面提示词 –no"></a>负面提示词 –no</h3><p>不要出现什么， 比如 no people，不要出现人。</p>
-<h3 id="质量-–q-25-x2F-5-x2F-1-x2F-2"><a href="#质量-–q-25-x2F-5-x2F-1-x2F-2" class="headerlink" title="质量 –q .25&#x2F;.5&#x2F;1&#x2F;2"></a>质量 –q .25&#x2F;.5&#x2F;1&#x2F;2</h3><p>图片渲染时间，默认是 1。如果用更短的时间，消耗的额度更少，图片效果可能略差；反之亦然。</p>
-<h3 id="图片比例-–ar-2-3-x2F-3-2"><a href="#图片比例-–ar-2-3-x2F-3-2" class="headerlink" title="图片比例 –ar 2:3&#x2F;3:2"></a>图片比例 –ar 2:3&#x2F;3:2</h3><p>v4 版本只支持三种比例：<br>默认的 1:1，2:3 和 3:2 需要指定： –ar 2:3  –ar 3:2</p>
-<h3 id="动漫风格-–niji"><a href="#动漫风格-–niji" class="headerlink" title="动漫风格 –niji"></a>动漫风格 –niji</h3><p>动漫风格</p>
-<h3 id="更多相关的属性描述词"><a href="#更多相关的属性描述词" class="headerlink" title="更多相关的属性描述词"></a>更多相关的属性描述词</h3><p>可以参考<a href="https://docs.midjourney.com/docs/parameter-list">官方手册</a></p>
+<h3 id="版本号-v-1-2-3-4">版本号 --v 1/2/3/4</h3>
+<p>默认都用 v4 即可，效果是最好，也比较写实。但在画不同艺术风格的图片时，用一下 v2、v3 画抽象的风格，可能会有帮助。</p>
+<h3 id="扩幅相关-upscale">扩幅相关 --upscale</h3>
+<p>upscale 是把 4 in 1 的 demo 图片扩大篇幅成为更高清的图片。默认的扩幅一般就能用了。<br>
+还有一个特殊的指令：<br>
+–upbeta 增加更多额外的细节，图像像素大小也会翻一倍</p>
+<h3 id="负面提示词-no">负面提示词 --no</h3>
+<p>不要出现什么， 比如 no people，不要出现人。</p>
+<h3 id="质量-q-25-5-1-2">质量 --q .25/.5/1/2</h3>
+<p>图片渲染时间，默认是 1。如果用更短的时间，消耗的额度更少，图片效果可能略差；反之亦然。</p>
+<h3 id="图片比例-ar-2-3-3-2">图片比例 --ar 2:3/3:2</h3>
+<p>v4 版本只支持三种比例：<br>
+默认的 1:1，2:3 和 3:2 需要指定： --ar 2:3  --ar 3:2</p>
+<h3 id="动漫风格-niji">动漫风格 --niji</h3>
+<p>动漫风格</p>
+<h3 id="更多相关的属性描述词">更多相关的属性描述词</h3>
+<p>可以参考<a href="https://docs.midjourney.com/docs/parameter-list">官方手册</a></p>
 <p>下面是几个例子：</p>
 <span id="more"></span>
-
-<p>bear –niji<br><img src="http://cdn.yunminitools.cn/blog/Midjourney0209_bear_niji.png" alt="Midjourney例子1"></p>
-<p>cyberpunk david –niji<br><img src="http://cdn.yunminitools.cn/blog/Midjourney0209_cyberpunk_david.png" alt="Midjourney例子2"></p>
+<p>bear --niji<br>
+<img src="http://cdn.yunminitools.cn/blog/Midjourney0209_bear_niji.png" alt="Midjourney例子1"></p>
+<p>cyberpunk david --niji<br>
+<img src="http://cdn.yunminitools.cn/blog/Midjourney0209_cyberpunk_david.png" alt="Midjourney例子2"></p>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -392,13 +487,22 @@ D-->A</pre>
   <entry>
     <title>Midjourney 提示词(prompt)分析（1）</title>
     <url>/2023/02/16/Midjourney-prompt-1/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>画好一个AI画，从分析一个成功的图片提示词(prompt), 今天看到一个还不错的图片:<br><img src="http://cdn.yunminitools.cn/blog/Midjourney0216-1.png" alt="AI画图1"><br>提示词(prompt)：<br>A hypsolebias fish jumping out of a pond, trying to catch a bug in the air. The pond is surrounded by tall grass and a few trees, with the sun setting in the background. The fish is caught mid-jump, with its mouth wide open and eyes focused on the bug. The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth. –ar 16:9 –niji</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>翻译和归类：<br>一条 Hypsolebias鱼（画面主体） 跳出池塘（主体动作），试图在空中捉住一只虫子（主体动作），池塘周围是高高的草丛和几棵树（环境描写），夕阳在背景中落下（环境描写），这只鱼在跳跃时被捕捉到（细节描写），嘴巴张得很大（细节描写），眼睛专注于虫子（细节描写），整幅画的氛围是欢快和平静的（氛围描写），卡通风格绘制的数字艺术作品（艺术风格），使用温暖和柔和的色彩来唤起日落的温暖感（光线描写）</p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>画好一个AI画，从分析一个成功的图片提示词(prompt), 今天看到一个还不错的图片:<br>
+<img src="http://cdn.yunminitools.cn/blog/Midjourney0216-1.png" alt="AI画图1"><br>
+提示词(prompt)：<br>
+A hypsolebias fish jumping out of a pond, trying to catch a bug in the air. The pond is surrounded by tall grass and a few trees, with the sun setting in the background. The fish is caught mid-jump, with its mouth wide open and eyes focused on the bug. The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth. --ar 16:9 --niji</p>
+<h2 id="分析">分析</h2>
+<p>翻译和归类：<br>
+一条 Hypsolebias鱼（画面主体） 跳出池塘（主体动作），试图在空中捉住一只虫子（主体动作），池塘周围是高高的草丛和几棵树（环境描写），夕阳在背景中落下（环境描写），这只鱼在跳跃时被捕捉到（细节描写），嘴巴张得很大（细节描写），眼睛专注于虫子（细节描写），整幅画的氛围是欢快和平静的（氛围描写），卡通风格绘制的数字艺术作品（艺术风格），使用温暖和柔和的色彩来唤起日落的温暖感（光线描写）</p>
 <p>可以看到，一个好的提升词还是有规律可循的。</p>
 <span id="more"></span>
-
-<h2 id="依葫芦画瓢"><a href="#依葫芦画瓢" class="headerlink" title="依葫芦画瓢"></a>依葫芦画瓢</h2><p>我修改了一下，去掉了一些细节描写，看看结果如何。<br>提示词(prompt)：<br>a hypsolebias fish jumping out of sea. The pond is surrounded by tall grass and a few trees, with the sun setting in the background，The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth   –ar 16:9 –niji</p>
-<p>结果还不错：<br><img src="http://cdn.yunminitools.cn/blog/Midjourney0216-2.png" alt="AI画图2"></p>
+<h2 id="依葫芦画瓢">依葫芦画瓢</h2>
+<p>我修改了一下，去掉了一些细节描写，看看结果如何。<br>
+提示词(prompt)：<br>
+a hypsolebias fish jumping out of sea. The pond is surrounded by tall grass and a few trees, with the sun setting in the background，The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth   --ar 16:9 --niji</p>
+<p>结果还不错：<br>
+<img src="http://cdn.yunminitools.cn/blog/Midjourney0216-2.png" alt="AI画图2"></p>
 <p>但好像没有原图好看，看来还是要多试试才行。</p>
 ]]></content>
       <categories>
@@ -412,18 +516,23 @@ D-->A</pre>
   <entry>
     <title>解决目录和标签页无内容问题（使用Hexo - Ayer模版）</title>
     <url>/2023/02/15/No-Content-In-Tags-Page/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>写了一段时间博客，我发现我的 目录 和 标签页的内容是空的，但点到每个文章的单个标签或目录，显示又是正常的。有点奇怪，不知道是 Hexo的问题还是模版的问题。</p>
-<h2 id="解决方法：修改Page页的文件"><a href="#解决方法：修改Page页的文件" class="headerlink" title="解决方法：修改Page页的文件"></a>解决方法：修改Page页的文件</h2><p>研究了一段时间，发现问题还是出在categories和Tags页面配置上。<br>解决方法如下：</p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>写了一段时间博客，我发现我的 目录 和 标签页的内容是空的，但点到每个文章的单个标签或目录，显示又是正常的。有点奇怪，不知道是 Hexo的问题还是模版的问题。</p>
+<h2 id="解决方法：修改Page页的文件">解决方法：修改Page页的文件</h2>
+<p>研究了一段时间，发现问题还是出在categories和Tags页面配置上。<br>
+解决方法如下：</p>
 <ol>
-<li><p>修改blog目录下的 <code>/source/categories/index.md</code> 文件，改成下面的内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改blog目录下的 <code>/source/tags/index.md</code> 文件，改成下面的内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: &quot;tags&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将Hexo重新发布一下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>修改blog目录下的 <code>/source/categories/index.md</code> 文件，改成下面的内容：</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>修改blog目录下的 <code>/source/tags/index.md</code> 文件，改成下面的内容：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: &quot;tags&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>将Hexo重新发布一下：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>这样，等待发布完成后再检查一下，目录和标签页的内容就回来了。</p>
 ]]></content>
       <categories>
@@ -436,32 +545,51 @@ D-->A</pre>
   <entry>
     <title>学习用PARA来进行知识管理（1）</title>
     <url>/2023/02/13/PARA-Practic-1/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在《<a href="https://www.yunminitools.cn/2023/02/07/Knowledge-Management-1/">知识管理相关-知识管理误区</a>》里，提到知识不成体系会影响知识的吸收和掌握，那如何建立一个体系来管理每天我们接触的海量信息呢？<br>我尝试使用P.A.R.A方法。</p>
-<h2 id="P-A-R-A-方法介绍"><a href="#P-A-R-A-方法介绍" class="headerlink" title="P.A.R.A 方法介绍"></a>P.A.R.A 方法介绍</h2><p>P.A.R.A 的作者是 Tiago Forte ，是世界上最著名的生产力专家之一。 他撰写和演讲技术如何帮助知识工作者彻底改变他们的个人效率。在<a href="https://fortelabs.com/blog/para">这篇文章</a>里，他分享了如何用P.A.R.A 来管理知识。</p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在《<a href="https://www.yunminitools.cn/2023/02/07/Knowledge-Management-1/">知识管理相关-知识管理误区</a>》里，提到知识不成体系会影响知识的吸收和掌握，那如何建立一个体系来管理每天我们接触的海量信息呢？<br>
+我尝试使用P.A.R.A方法。</p>
+<h2 id="P-A-R-A-方法介绍">P.A.R.A 方法介绍</h2>
+<p>P.A.R.A 的作者是 Tiago Forte ，是世界上最著名的生产力专家之一。 他撰写和演讲技术如何帮助知识工作者彻底改变他们的个人效率。在<a href="https://fortelabs.com/blog/para">这篇文章</a>里，他分享了如何用P.A.R.A 来管理知识。</p>
 <p>想象一下完美的信息组织系统，它应该能有效的支持你的当下和未来的工作，告诉你信息都被放在了哪里，以及当你需要的时候就能快速找到，并且不会被工具所束缚。</p>
 <p><strong>所以这个系统必须满足以下条件</strong></p>
 <ul>
-<li><strong>通用的（universal）：</strong>包含来自任何来源的任何种类的信息，并且能跨平台兼容不同时代的信息管理工具。</li>
-<li><strong>灵活的（flexible）：</strong>能够与你之前的任何项目或活动所兼容，并且能兼顾未来的拓展性</li>
+<li>**通用的（universal）：**包含来自任何来源的任何种类的信息，并且能跨平台兼容不同时代的信息管理工具。</li>
+<li>**灵活的（flexible）：**能够与你之前的任何项目或活动所兼容，并且能兼顾未来的拓展性</li>
 <li><strong>简单的（simple）：</strong> 不需要任何耗时的维护、编目、标记或重组，只需最低限度的维护、编目、标记或重组即可</li>
-<li><strong>可操作（actionable）：</strong>与任务管理和项目管理方法的无缝集成</li>
-<li><strong>结果导向（outcome-oriented）：</strong>构建信息的结构，以便能交付有价值工作</li>
-<li><strong>模块化（modular）：</strong>根据当前任务的需要，允许隐藏或显示不同级别的细节</li>
-<li><strong>机动性强（opportunistic）：</strong>从好的方面来说，是利用已经完成的工作，而不是需要专门的管理时间</li>
+<li>**可操作（actionable）：**与任务管理和项目管理方法的无缝集成</li>
+<li>**结果导向（outcome-oriented）：**构建信息的结构，以便能交付有价值工作</li>
+<li>**模块化（modular）：**根据当前任务的需要，允许隐藏或显示不同级别的细节</li>
+<li>**机动性强（opportunistic）：**从好的方面来说，是利用已经完成的工作，而不是需要专门的管理时间</li>
 </ul>
-<h2 id="P-A-R-A-的含义和定义"><a href="#P-A-R-A-的含义和定义" class="headerlink" title="P.A.R.A 的含义和定义"></a>P.A.R.A 的含义和定义</h2><span id="more"></span>
-
+<h2 id="P-A-R-A-的含义和定义">P.A.R.A 的含义和定义</h2>
+<span id="more"></span>
 <p>P.A.R.A. 是 项目（Project）、领域（Area）、资源（Resource）、 档案（Archive）的简称。</p>
-<h3 id="项目（Project）"><a href="#项目（Project）" class="headerlink" title="项目（Project）"></a>项目（Project）</h3><p><strong>定义：</strong>有明确目标时间的一系列动作集合。<br>我的理解是短期自己设定的一个小目标：读一本书，看一个电影，写一个专题，研究一个技术专题。 ⚠️ 聚焦于较小的短期承诺，避免周期太长缺乏成就感，成为僵尸项目</p>
-<h3 id="领域（Area）"><a href="#领域（Area）" class="headerlink" title="领域（Area）"></a>领域（Area）</h3><p><strong>定义：</strong>日常需要精进的领域。<br>我的理解是 一个需要不断提升的领域，领域知识不足会对现实生活产生负面影响。 一般没有结束的日期或最终的结果。 你在这方面的表现可能会随着时间的推移而起起伏伏，但是这个标准会无限期地持续下去，并且在任何时候都需要一定程度的关注。比如：我的本职工作是产品经理，我会持续关注 产品&#x2F;设计&#x2F;架构 相关知识，并不断提高认知。生活上，需要关注小孩学习，子女教育 就是一个需要持续关注的领域。另外，理财领域，也需要补充知识，保证家庭资产保值增值。<br>但这并不代表领域没有终点。当小孩高中毕业，短期就不需要关注 子女教育 问题，这些领域就会转移到归档中保存；又或者某些领域因为你的环境变化，比如从产品开发变成了投资人，那么之前产品相关的领域很可能就成为了你的资源。</p>
-<h3 id="资源（Resource）"><a href="#资源（Resource）" class="headerlink" title="资源（Resource）"></a>资源（Resource）</h3><p><strong>定义：</strong>持续感兴趣的事情。<br>我理解，就是本人在领域外持续感兴趣的事情或领域相关的知识，与领域知识不同，资源的学习，短时间对当下的生活没有影响，不掌握这些知识，别人也不在乎。另外，资源 也是支撑<strong>领域（Area）</strong>的外部知识储备，未来资源也可能转化为领域。<br>一般来说是 兴趣（例如：网页设计、市场、增长黑客等）、主题（例如：心理学、政治、历史）、资产（例如：股票分析、博客文章、产品推荐、图片、代码片段）。<br>但基于精力分配和知识的形成，不推荐跨太多领域收集资源，这样要么会造成精力分散，要么造成资源坟场。更好地方法是，基于人生的规划，把<strong>领域（Area）</strong>作为精进的方向，然后把资源当做<strong>领域（Area）</strong>的基石和养分，不断地为未来的可能性做准备。<br>资源和领域还有一个区别是，领域知识的整理需要更结构化，更注意完整性。而资源的知识则不需要，可以集中在一些具体的点上进行知识的理解就可以了，可以比较零散。</p>
-<h3 id="档案（Archive）"><a href="#档案（Archive）" class="headerlink" title="档案（Archive）"></a>档案（Archive）</h3><p><strong>定义：</strong>短期不再使用的知识<br>我理解，可以定期整理以下项目：</p>
+<h3 id="项目（Project）">项目（Project）</h3>
+<p>**定义：**有明确目标时间的一系列动作集合。<br>
+我的理解是短期自己设定的一个小目标：读一本书，看一个电影，写一个专题，研究一个技术专题。 ⚠️ 聚焦于较小的短期承诺，避免周期太长缺乏成就感，成为僵尸项目</p>
+<h3 id="领域（Area）">领域（Area）</h3>
+<p>**定义：**日常需要精进的领域。<br>
+我的理解是 一个需要不断提升的领域，领域知识不足会对现实生活产生负面影响。 一般没有结束的日期或最终的结果。 你在这方面的表现可能会随着时间的推移而起起伏伏，但是这个标准会无限期地持续下去，并且在任何时候都需要一定程度的关注。比如：我的本职工作是产品经理，我会持续关注 产品/设计/架构 相关知识，并不断提高认知。生活上，需要关注小孩学习，子女教育 就是一个需要持续关注的领域。另外，理财领域，也需要补充知识，保证家庭资产保值增值。<br>
+但这并不代表领域没有终点。当小孩高中毕业，短期就不需要关注 子女教育 问题，这些领域就会转移到归档中保存；又或者某些领域因为你的环境变化，比如从产品开发变成了投资人，那么之前产品相关的领域很可能就成为了你的资源。</p>
+<h3 id="资源（Resource）">资源（Resource）</h3>
+<p>**定义：<strong>持续感兴趣的事情。<br>
+我理解，就是本人在领域外持续感兴趣的事情或领域相关的知识，与领域知识不同，资源的学习，短时间对当下的生活没有影响，不掌握这些知识，别人也不在乎。另外，资源 也是支撑</strong>领域（Area）<strong>的外部知识储备，未来资源也可能转化为领域。<br>
+一般来说是 兴趣（例如：网页设计、市场、增长黑客等）、主题（例如：心理学、政治、历史）、资产（例如：股票分析、博客文章、产品推荐、图片、代码片段）。<br>
+但基于精力分配和知识的形成，不推荐跨太多领域收集资源，这样要么会造成精力分散，要么造成资源坟场。更好地方法是，基于人生的规划，把</strong>领域（Area）<strong>作为精进的方向，然后把资源当做</strong>领域（Area）**的基石和养分，不断地为未来的可能性做准备。<br>
+资源和领域还有一个区别是，领域知识的整理需要更结构化，更注意完整性。而资源的知识则不需要，可以集中在一些具体的点上进行知识的理解就可以了，可以比较零散。</p>
+<h3 id="档案（Archive）">档案（Archive）</h3>
+<p>**定义：**短期不再使用的知识<br>
+我理解，可以定期整理以下项目：</p>
 <ul>
 <li>完成回顾的项目</li>
 <li>短期不关注的领域</li>
-<li>长期不再使用的资源<br>把这些项目转移到档案目录下，减少对日常知识管理的干扰。以后需要了，也可以再恢复到相应位置。</li>
+<li>长期不再使用的资源<br>
+把这些项目转移到档案目录下，减少对日常知识管理的干扰。以后需要了，也可以再恢复到相应位置。</li>
 </ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>另外，我还加了一个类别：<strong>收集箱（Inbox）</strong><br><strong>定义：</strong>日常一些暂时无法归类的想法&#x2F;收集的知识&#x2F;需要研究的方向<br>这样，这些想法也不会无处安放。我会定期清理这个收集箱，进一步花时间研究，放到合适的PAR分类里；或者研究后发现没有太大价值，那么就丢弃它。</p>
+<h3 id="其他">其他</h3>
+<p>另外，我还加了一个类别：<strong>收集箱（Inbox）</strong><br>
+**定义：**日常一些暂时无法归类的想法/收集的知识/需要研究的方向<br>
+这样，这些想法也不会无处安放。我会定期清理这个收集箱，进一步花时间研究，放到合适的PAR分类里；或者研究后发现没有太大价值，那么就丢弃它。</p>
 <p>（未完待续）</p>
 ]]></content>
       <categories>
@@ -475,13 +603,18 @@ D-->A</pre>
   <entry>
     <title>如何查找英文Podcast的文字稿</title>
     <url>/2023/02/20/Podcast-transcript/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近比较喜欢听一些科技方面的英文Podcast，比如《This American Life》，《How I Built This with Guy Raz》 等。 当然，我英文比较菜，并不能完全脱离文本，当听了一个大概后，还是希望能结合文字稿再精听一下。这时我发现，每个Podcast的风格时不一样的，有些会搭建一个网站，放上历史的音频和文字稿，方便听众；例如《This American Life》就有一个很好用的<a href="https://www.thisamericanlife.org/">网站</a>。但有一些就没有。</p>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>最近比较喜欢听一些科技方面的英文Podcast，比如《This American Life》，《How I Built This with Guy Raz》 等。 当然，我英文比较菜，并不能完全脱离文本，当听了一个大概后，还是希望能结合文字稿再精听一下。这时我发现，每个Podcast的风格时不一样的，有些会搭建一个网站，放上历史的音频和文字稿，方便听众；例如《This American Life》就有一个很好用的<a href="https://www.thisamericanlife.org/">网站</a>。但有一些就没有。</p>
 <p>当我在听没有官方提供文字稿的Podcast时，就比较痛苦，需要到处找文字稿。搜索了全网，我发现一个网站还不错，可以解决问题。</p>
-<h2 id="非官方文字稿查询网站"><a href="#非官方文字稿查询网站" class="headerlink" title="非官方文字稿查询网站"></a>非官方文字稿查询网站</h2><p>这个网站就是 <a href="https://app.podscribe.ai/search?t=1&genre=1">https://app.podscribe.ai</a></p>
-<p>进入网址，就可以看到这神奇的网站：<br><img src="http://cdn.yunminitools.cn/blog/Podcast0220-1.png" alt="podscribe page1"></p>
+<h2 id="非官方文字稿查询网站">非官方文字稿查询网站</h2>
+<p>这个网站就是 <a href="https://app.podscribe.ai/search?t=1&amp;genre=1">https://app.podscribe.ai</a></p>
+<p>进入网址，就可以看到这神奇的网站：<br>
+<img src="http://cdn.yunminitools.cn/blog/Podcast0220-1.png" alt="podscribe page1"></p>
 <span id="more"></span>
-<p>比如，我想查询《How I Built This with Guy Raz》的文字稿，我就输入How I Bu，很快就发现了这个Podcast：<br><img src="http://cdn.yunminitools.cn/blog/Podcast0220-2.png" alt="podscribe page1"></p>
-<p>点击这个Podcast，就可以看到近期的节目，注意，标“CC”的节目是有文字稿的，如果没有CC，说明文字稿还没整理好。<br><img src="http://cdn.yunminitools.cn/blog/Podcast0220-3.png" alt="podscribe page1"></p>
+<p>比如，我想查询《How I Built This with Guy Raz》的文字稿，我就输入How I Bu，很快就发现了这个Podcast：<br>
+<img src="http://cdn.yunminitools.cn/blog/Podcast0220-2.png" alt="podscribe page1"></p>
+<p>点击这个Podcast，就可以看到近期的节目，注意，标“CC”的节目是有文字稿的，如果没有CC，说明文字稿还没整理好。<br>
+<img src="http://cdn.yunminitools.cn/blog/Podcast0220-3.png" alt="podscribe page1"></p>
 <p>我试了几个我常听的，基本都有，满足了我的需要，在这里记录一下。</p>
 ]]></content>
       <categories>
@@ -495,21 +628,31 @@ D-->A</pre>
   <entry>
     <title>Seven Levels of Delegation</title>
     <url>/2023/02/25/Seven-Levels-Delegation/</url>
-    <content><![CDATA[<p>When we are doing management work, it is inevitable that we will delegate tasks to team members. At this point, how to delegate tasks is quite important. Just like most things in the world, delegation is not black and white, but exists in shades of gray.<br>Jurgen Appelo, author of books such as “How to Change the World” and <a href="https://book.douban.com/subject/10484469/">“Management 3.0”</a>, proposes that we think of delegation as something that is not binary, and that part of the art of management has to do with finding the right balance in it. Jurgen proposes seven different levels of delegation in management:</p>
+    <content><![CDATA[<p>When we are doing management work, it is inevitable that we will delegate tasks to team members. At this point, how to delegate tasks is quite important. Just like most things in the world, delegation is not black and white, but exists in shades of gray.<br>
+Jurgen Appelo, author of books such as “How to Change the World” and <a href="https://book.douban.com/subject/10484469/">“Management 3.0”</a>, proposes that we think of delegation as something that is not binary, and that part of the art of management has to do with finding the right balance in it. Jurgen proposes seven different levels of delegation in management:</p>
 <ul>
-<li><p><strong>Say</strong>: The traditional. It’s telling someone what to do. The manager makes the decision and then tells the others what it is. There is little room for debate or negotiation.<br><strong>I say, you do</strong></p>
+<li>
+<p><strong>Say</strong>: The traditional. It’s telling someone what to do. The manager makes the decision and then tells the others what it is. There is little room for debate or negotiation.<br>
+1️⃣<strong>I say, you do</strong></p>
 </li>
-<li><p><strong>Sell</strong>: When the manager tries to convince others that the decision he or she is making is a good one and they should therefore accept it.(<strong>I persuade you to do</strong>)</p>
+<li>
+<p><strong>Sell</strong>: When the manager tries to convince others that the decision he or she is making is a good one and they should therefore accept it.<br>
+2️⃣<strong>I persuade you to do</strong></p>
 </li>
-<li><p><strong>Consult</strong>: When the manager gathers information from the team before making a decision.(<strong>After the decision,I make the decision</strong>)</p>
+<li>
+<p><strong>Consult</strong>: When the manager gathers information from the team before making a decision.(<strong>After the decision,I make the decision</strong>)</p>
 </li>
-<li><p><strong>Agree</strong>: Implies that there is consensus about the decision between the manager and the team, or the decision is made jointly. It is the most difficult because it requires more time.(<strong>After the decision,we reached a consensus</strong>)</p>
+<li>
+<p><strong>Agree</strong>: Implies that there is consensus about the decision between the manager and the team, or the decision is made jointly. It is the most difficult because it requires more time.(<strong>After the decision,we reached a consensus</strong>)</p>
 </li>
-<li><p><strong>Advice</strong>: When the manager influences the decision made by the team.（<strong>I advice，team make the decision</strong>）</p>
+<li>
+<p><strong>Advice</strong>: When the manager influences the decision made by the team.（<strong>I advice，team make the decision</strong>）</p>
 </li>
-<li><p><strong>Ask</strong>: Once the team has made the decision, the manager asks for information about the decision.(<strong>Team make the decision, I ask for information</strong>)</p>
+<li>
+<p><strong>Ask</strong>: Once the team has made the decision, the manager asks for information about the decision.(<strong>Team make the decision, I ask for information</strong>)</p>
 </li>
-<li><p><strong>Delegate</strong>: The manager has zero influence on the decision. It is made entirely by the team.(<strong>Team make the decision</strong>)</p>
+<li>
+<p><strong>Delegate</strong>: The manager has zero influence on the decision. It is made entirely by the team.(<strong>Team make the decision</strong>)</p>
 </li>
 </ul>
 ]]></content>
@@ -525,16 +668,22 @@ D-->A</pre>
     <title>简单而后容易</title>
     <url>/2023/02/21/Simple-made-easy/</url>
     <content><![CDATA[<p>读到<a href="https://paulrcook.com/blog/simple-made-easy">这篇文章</a>，介绍我们如何处理复杂性，其中几个观点都挺有意思，我记录一下。</p>
-<h2 id="容易不等于简单"><a href="#容易不等于简单" class="headerlink" title="容易不等于简单"></a>容易不等于简单</h2><ul>
-<li>容易 对应 困难 &#x2F; 简单 对应 复杂</li>
-<li>容易是主观判断 &#x2F; 简单可以是客观评价</li>
+<h2 id="容易不等于简单">容易不等于简单</h2>
+<ul>
+<li>容易 对应 困难 / 简单 对应 复杂</li>
+<li>容易是主观判断 / 简单可以是客观评价</li>
 </ul>
-<h2 id="大脑的记忆是有上限的"><a href="#大脑的记忆是有上限的" class="headerlink" title="大脑的记忆是有上限的"></a>大脑的记忆是有上限的</h2><p>大脑在同一时间，可以记住的事情是有限的。当我们的代码库变得越来越复杂和相互连接，就越难以理解它的全部。当事物相互交织在一起时，我们不能再孤立地思考不同的部分，而必须一起考虑它们。</p>
+<h2 id="大脑的记忆是有上限的">大脑的记忆是有上限的</h2>
+<p>大脑在同一时间，可以记住的事情是有限的。当我们的代码库变得越来越复杂和相互连接，就越难以理解它的全部。当事物相互交织在一起时，我们不能再孤立地思考不同的部分，而必须一起考虑它们。</p>
 <p>每次我认为我需要理解软件的新部分，并且它与另一件事情相关联，我就必须把那个其他的东西也放入我的脑海中，因为我无法单独思考一个而不考虑另一个。这就是它们交织在一起的本质。因此，每个交织都增加了这种负担，而这种负担在考虑事物的数量方面是组合的。因此，从根本上讲，这种复杂性，我指的是事物的编织，将限制我们理解系统的能力。</p>
-<h2 id="“复杂”意味着交织、纠缠、编织"><a href="#“复杂”意味着交织、纠缠、编织" class="headerlink" title="“复杂”意味着交织、纠缠、编织"></a>“复杂”意味着交织、纠缠、编织</h2><p>“复杂”意味着程序的交织、纠缠、编织，要尽量避免。</p>
-<h2 id="如何使困难的东西变简单？"><a href="#如何使困难的东西变简单？" class="headerlink" title="如何使困难的东西变简单？"></a>如何使困难的东西变简单？</h2><p>主动学习、实验、尝试。</p>
-<h2 id="如何使复杂的东西变简单？"><a href="#如何使复杂的东西变简单？" class="headerlink" title="如何使复杂的东西变简单？"></a>如何使复杂的东西变简单？</h2><p>将扭曲和交织的部分分离开来，让每个个部分对其他部分的依赖最小化。</p>
-<h2 id="简单的好处"><a href="#简单的好处" class="headerlink" title="简单的好处"></a>简单的好处</h2><p>易于理解，易于更改，易于调试。</p>
+<h2 id="“复杂”意味着交织、纠缠、编织">“复杂”意味着交织、纠缠、编织</h2>
+<p>“复杂”意味着程序的交织、纠缠、编织，要尽量避免。</p>
+<h2 id="如何使困难的东西变简单？">如何使困难的东西变简单？</h2>
+<p>主动学习、实验、尝试。</p>
+<h2 id="如何使复杂的东西变简单？">如何使复杂的东西变简单？</h2>
+<p>将扭曲和交织的部分分离开来，让每个个部分对其他部分的依赖最小化。</p>
+<h2 id="简单的好处">简单的好处</h2>
+<p>易于理解，易于更改，易于调试。</p>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -546,18 +695,23 @@ D-->A</pre>
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 1</title>
     <url>/2023/02/14/The-Six-Counterintuitive-Rules-1/</url>
-    <content><![CDATA[<h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>I don’t consider myself a qualified manager, and this is probably a weakness for a product manager transitioning into a people manager. Because I focus too much on the product itself, I often neglect team building and personnel management.<br>After reading this <a href="https://review.firstround.com/6-counterintuitive-rules-for-being-a-better-manager-advice-from-lambda-school-quip-and-facebook">article</a>, I realized that some of the management issues mentioned were things that I wasn’t aware of before (actually, it was only recently that I became aware of them, how belated!)</p>
-<h2 id="RULE-1-MANAGEMENT-IS-NOT-LEADERSHIP"><a href="#RULE-1-MANAGEMENT-IS-NOT-LEADERSHIP" class="headerlink" title="RULE #1: MANAGEMENT IS NOT LEADERSHIP"></a>RULE #1: MANAGEMENT IS NOT LEADERSHIP</h2><p>One of the big mistakes I see people make is conflating management and leadership. I strongly believe you can be a leader without being a manager.<br>Management isn’t telling people what to do. It isn’t setting a vision and aligning the work around it. That’s leadership. True management is the act of <strong>making the people around you better</strong>.</p>
+    <content><![CDATA[<h2 id="BACKGROUND">BACKGROUND</h2>
+<p>I don’t consider myself a qualified manager, and this is probably a weakness for a product manager transitioning into a people manager. Because I focus too much on the product itself, I often neglect team building and personnel management.<br>
+After reading this <a href="https://review.firstround.com/6-counterintuitive-rules-for-being-a-better-manager-advice-from-lambda-school-quip-and-facebook">article</a>, I realized that some of the management issues mentioned were things that I wasn’t aware of before (actually, it was only recently that I became aware of them, how belated!)</p>
+<h2 id="RULE-1-MANAGEMENT-IS-NOT-LEADERSHIP">RULE #1: MANAGEMENT IS NOT LEADERSHIP</h2>
+<p>One of the big mistakes I see people make is conflating management and leadership. I strongly believe you can be a leader without being a manager.<br>
+Management isn’t telling people what to do. It isn’t setting a vision and aligning the work around it. That’s leadership. True management is the act of <strong>making the people around you better</strong>.</p>
 <p>Only people who have certain characteristics and certain ‘loves’ should be managers.‘What do you love doing?’ a great answer is ‘I love <strong>investing in people</strong> and I love making them better, into <strong>the best versions of themselves</strong>.’ If that really brings you joy, great — being a manager is one of the most powerful and high-leverage jobs inside of organizations.</p>
 <p>The easiest way to see if you’re a good manager is by running through these questions:</p>
 <ul>
-<li>Are the people around you growing? </li>
-<li>Are they taking on more in scope? </li>
-<li>Are you seeing them change in terms of things they weren’t good at six months ago? </li>
-<li>Are you pushing your highest performers and watching them explode? </li>
+<li>Are the people around you growing?</li>
+<li>Are they taking on more in scope?</li>
+<li>Are you seeing them change in terms of things they weren’t good at six months ago?</li>
+<li>Are you pushing your highest performers and watching them explode?</li>
 <li>Are you helping your lower performers figure out what’s not working?”</li>
 </ul>
-<h3 id="Inspiration-1：Investing-in-people"><a href="#Inspiration-1：Investing-in-people" class="headerlink" title="Inspiration 1：Investing in people"></a>Inspiration 1：Investing in people</h3><p>The article I read recently highlighted an important realization I’ve had in my own career. I’ve often focused on telling people what to do, but I’ve overlooked the importance of <strong>helping them become better</strong>. While I possess leadership skills, I recognize that I lack some of the management skills necessary to truly make a positive impact on my team.</p>
+<h3 id="Inspiration-1：Investing-in-people">Inspiration 1：Investing in people</h3>
+<p>The article I read recently highlighted an important realization I’ve had in my own career. I’ve often focused on telling people what to do, but I’ve overlooked the importance of <strong>helping them become better</strong>. While I possess leadership skills, I recognize that I lack some of the management skills necessary to truly make a positive impact on my team.</p>
 <p>I’ve come to understand that to be a good manager, I need to love <strong>investing in people and helping them grow</strong>. This investment not only benefits the individuals themselves, but it also brings me joy and helps me grow as a leader. For me, investing in people means devoting my own time, energy, and thoughts to help my subordinates develop and reach their full potential.</p>
 <hr>
 <p>To Be Continue…</p>
@@ -573,8 +727,12 @@ D-->A</pre>
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 2</title>
     <url>/2023/02/15/The-Six-Counterintuitive-Rules-2/</url>
-    <content><![CDATA[<h2 id="RULE-2-DON’T-TRY-TO-CREATE-ROBOTS-FOCUS-ON-MANAGING-THE-WHAT-NOT-THE-HOW"><a href="#RULE-2-DON’T-TRY-TO-CREATE-ROBOTS-FOCUS-ON-MANAGING-THE-WHAT-NOT-THE-HOW" class="headerlink" title="RULE #2: DON’T TRY TO CREATE ROBOTS. FOCUS ON MANAGING THE WHAT, NOT THE HOW."></a>RULE #2: DON’T TRY TO CREATE ROBOTS. FOCUS ON MANAGING THE WHAT, NOT THE HOW.</h2><p>Generally speaking, high-performing teams are not made up of robots. They’re made up of humans who are able to <strong>independently meet a goal</strong>. It’s just a huge amount of wasted energy to try to create robots out of humans.<br>You often see people trying to direct their team in terms of exactly how they would have done it. I see so many managers getting really bogged down in the literal process that someone is going through in order to achieve a goal. But at the end of the day, there’s only one thing that matters: <strong>Did they achieve the goal?</strong><br>The best managers set expectations at the “what” level, not the “how” level.</p>
-<h3 id="Inspiration-2：Set-expectation-at-the-“What”-and-Avoid-“Micromanager”"><a href="#Inspiration-2：Set-expectation-at-the-“What”-and-Avoid-“Micromanager”" class="headerlink" title="Inspiration 2：Set expectation at the “What” and Avoid “Micromanager”"></a>Inspiration 2：Set expectation at the “What” and Avoid “Micromanager”</h3><p>When it comes to selecting and hiring people, I used to prefer individuals who have similar personalities or work methods to my own. However, in doing so, I overlooked the types of people needed to achieve our goals. Subconsciously, I tend to resist people whose ideas differ greatly from my own. One reason for this is that I lack confidence in working with such individuals and am unsure whether they can complete tasks effectively. Another reason is that I worry about managing such individuals and lack confidence in my own management abilities.</p>
+    <content><![CDATA[<h2 id="RULE-2-DON’T-TRY-TO-CREATE-ROBOTS-FOCUS-ON-MANAGING-THE-WHAT-NOT-THE-HOW">RULE #2: DON’T TRY TO CREATE ROBOTS. FOCUS ON MANAGING THE WHAT, NOT THE HOW.</h2>
+<p>Generally speaking, high-performing teams are not made up of robots. They’re made up of humans who are able to <strong>independently meet a goal</strong>. It’s just a huge amount of wasted energy to try to create robots out of humans.<br>
+You often see people trying to direct their team in terms of exactly how they would have done it. I see so many managers getting really bogged down in the literal process that someone is going through in order to achieve a goal. But at the end of the day, there’s only one thing that matters: <strong>Did they achieve the goal?</strong><br>
+The best managers set expectations at the “what” level, not the “how” level.</p>
+<h3 id="Inspiration-2：Set-expectation-at-the-“What”-and-Avoid-“Micromanager”">Inspiration 2：Set expectation at the “What” and Avoid “Micromanager”</h3>
+<p>When it comes to selecting and hiring people, I used to prefer individuals who have similar personalities or work methods to my own. However, in doing so, I overlooked the types of people needed to achieve our goals. Subconsciously, I tend to resist people whose ideas differ greatly from my own. One reason for this is that I lack confidence in working with such individuals and am unsure whether they can complete tasks effectively. Another reason is that I worry about managing such individuals and lack confidence in my own management abilities.</p>
 <p>I have a tendency to micromanage, especially when it comes to product design. I can’t tolerate colleagues who have significantly different ideas from my own, which causes everyone to feel apprehensive and indecisive when it comes to proposing design solutions. Looking back, I realize that my own growth came from learning from my mistakes, and I thought I was doing my colleagues a favor by being overly controlling, but in reality, I was depriving them of the opportunity to grow. By focusing too much on “how to do things,” it’s challenging to cultivate their ability to identify “what should be done.” Essentially, I am creating robots rather than encouraging creativity and independent thinking among my team. I need to trust my colleagues more and give them the freedom to propose new ideas and make mistakes.</p>
 <hr>
 <p>To Be Continue…</p>
@@ -590,9 +748,11 @@ D-->A</pre>
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 3</title>
     <url>/2023/02/16/The-Six-Counterintuitive-Rules-3/</url>
-    <content><![CDATA[<h2 id="RULE-3-GOOD-MANAGERS-NEVER-CREATE-A-SECOND-PATIENT"><a href="#RULE-3-GOOD-MANAGERS-NEVER-CREATE-A-SECOND-PATIENT" class="headerlink" title="RULE #3: GOOD MANAGERS NEVER CREATE A SECOND PATIENT."></a>RULE #3: GOOD MANAGERS NEVER CREATE A SECOND PATIENT.</h2><p>As managers, we often think we come second, that we have to make sure the team is okay first, And so we postpone our vacation or we work longer hours because we ‘have to be there for the team.’ But in doing so, you only end up <strong>draining</strong> your own energy, <strong>hurting</strong> your well-being and <strong>becoming</strong> a mess, not realizing that you’re doing a <strong>disservice</strong> to your team members by <strong>making yourself into a patient</strong>. You need to be your best self for them.</p>
+    <content><![CDATA[<h2 id="RULE-3-GOOD-MANAGERS-NEVER-CREATE-A-SECOND-PATIENT">RULE #3: GOOD MANAGERS NEVER CREATE A SECOND PATIENT.</h2>
+<p>As managers, we often think we come second, that we have to make sure the team is okay first, And so we postpone our vacation or we work longer hours because we ‘have to be there for the team.’ But in doing so, you only end up <strong>draining</strong> your own energy, <strong>hurting</strong> your well-being and <strong>becoming</strong> a mess, not realizing that you’re doing a <strong>disservice</strong> to your team members by <strong>making yourself into a patient</strong>. You need to be your best self for them.</p>
 <p>As a manager, one of the hardest management skills is learning to <strong>take care of yourself first</strong>. It can feel selfish, especially if you’re a giving person. But trust me when I say that unless you are your best self, there’s no way you can make other people into their best selves.</p>
-<h3 id="Inspiration-3-Take-care-of-myself-first"><a href="#Inspiration-3-Take-care-of-myself-first" class="headerlink" title="Inspiration 3: Take care of myself first"></a>Inspiration 3: Take care of myself first</h3><p>I also have this bad habit of burning myself out by always being the first to handle problems as they arise. While this may seem responsible, it prevents other team members from growing because I am always there to take care of things for them. Additionally, as the business becomes more complex, I tend to get bogged down in the details of various issues and have less time to plan for the future or consider the team’s growth. As a result, it is having a negative impact on the team. To improve, I need to start delegating tasks to my colleagues and trusting them to handle issues themselves. This will not only help them grow but also free up my time to <strong>take care of myself</strong>.</p>
+<h3 id="Inspiration-3-Take-care-of-myself-first">Inspiration 3: Take care of myself first</h3>
+<p>I also have this bad habit of burning myself out by always being the first to handle problems as they arise. While this may seem responsible, it prevents other team members from growing because I am always there to take care of things for them. Additionally, as the business becomes more complex, I tend to get bogged down in the details of various issues and have less time to plan for the future or consider the team’s growth. As a result, it is having a negative impact on the team. To improve, I need to start delegating tasks to my colleagues and trusting them to handle issues themselves. This will not only help them grow but also free up my time to <strong>take care of myself</strong>.</p>
 <hr>
 <p>To Be Continue…</p>
 ]]></content>
@@ -607,35 +767,50 @@ D-->A</pre>
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 4</title>
     <url>/2023/02/17/The-Six-Counterintuitive-Rules-4/</url>
-    <content><![CDATA[<h2 id="RULE-4-SPEND-MORE-TIME-THAN-YOU-THINK-YOU-NEED-TO-WITH-YOUR-HIGH-PERFORMERS"><a href="#RULE-4-SPEND-MORE-TIME-THAN-YOU-THINK-YOU-NEED-TO-WITH-YOUR-HIGH-PERFORMERS" class="headerlink" title="RULE #4: SPEND MORE TIME THAN YOU THINK YOU NEED TO WITH YOUR HIGH PERFORMERS."></a>RULE #4: SPEND MORE TIME THAN YOU THINK YOU NEED TO WITH YOUR HIGH PERFORMERS.</h2><p>As managers, we often forget that we should be spending most of our time with the <strong>highest performers</strong> on our team. When you have someone who’s doing really well, the question should be, ‘How can they do even better? How can you make their growth explode?’” , Here are the two tools:</p>
-<h3 id="Look-back-look-forward"><a href="#Look-back-look-forward" class="headerlink" title="Look back, look forward"></a>Look back, look forward</h3><p>Whatever milestone that makes the most sense for that person’s role. I ask them to look back on a project that they just finished and run through these questions:<br><strong>Look back:</strong></p>
+    <content><![CDATA[<h2 id="RULE-4-SPEND-MORE-TIME-THAN-YOU-THINK-YOU-NEED-TO-WITH-YOUR-HIGH-PERFORMERS">RULE #4: SPEND MORE TIME THAN YOU THINK YOU NEED TO WITH YOUR HIGH PERFORMERS.</h2>
+<p>As managers, we often forget that we should be spending most of our time with the <strong>highest performers</strong> on our team. When you have someone who’s doing really well, the question should be, ‘How can they do even better? How can you make their growth explode?’” , Here are the two tools:</p>
+<h3 id="Look-back-look-forward">Look back, look forward</h3>
+<p>Whatever milestone that makes the most sense for that person’s role. I ask them to look back on a project that they just finished and run through these questions:<br>
+<strong>Look back:</strong></p>
 <ul>
-<li><p>What did you like about that? What felt good?</p>
+<li>
+<p>What did you like about that? What felt good?</p>
 </li>
-<li><p>What did you hate about it? What didn’t feel good?</p>
+<li>
+<p>What did you hate about it? What didn’t feel good?</p>
 </li>
-<li><p>What’s the most important thing you learned?</p>
+<li>
+<p>What’s the most important thing you learned?</p>
 </li>
-<li><p>Do you want to do more of that type of work, or less?</p>
+<li>
+<p>Do you want to do more of that type of work, or less?</p>
 </li>
-<li><p>What do you want to do differently next time?</p>
+<li>
+<p>What do you want to do differently next time?</p>
 </li>
 </ul>
 <p><strong>Look forward:</strong></p>
 <ul>
-<li><p>What’s the next challenge?</p>
+<li>
+<p>What’s the next challenge?</p>
 </li>
-<li><p>What’s the next big step or career goal you want to reach for?</p>
+<li>
+<p>What’s the next big step or career goal you want to reach for?</p>
 </li>
-<li><p>What type of work do you want to take on, whether it’s a current project in the company or something that might potentially show up in the future?</p>
+<li>
+<p>What type of work do you want to take on, whether it’s a current project in the company or something that might potentially show up in the future?</p>
 </li>
 </ul>
 <p>In essence, it’s about carving out the time to help an individual <strong>reflect</strong> on their learning, <strong>unpack</strong> what didn’t work so that they know what to <strong>change</strong> next time, and then <strong>look toward</strong> the next challenge on the horizon.</p>
-<h3 id="Use-the-performance-review-as-an-opportunity-to-push-for-more"><a href="#Use-the-performance-review-as-an-opportunity-to-push-for-more" class="headerlink" title="Use the performance review as an opportunity to push for more."></a>Use the performance review as an opportunity to push for more.</h3><p>We don’t want them to be too important because we want you to have these conversations all year long. However, the review was a powerful summary moment to both reflect on the last half and how things had gone, but also to push me on what she wanted to see next.</p>
-<h3 id="Inspiration-4-Spend-more-time-amp-Listen"><a href="#Inspiration-4-Spend-more-time-amp-Listen" class="headerlink" title="Inspiration 4: Spend more time &amp; Listen"></a>Inspiration 4: Spend more time &amp; Listen</h3><ul>
-<li><p>In the past, I used to devote a lot of energy to the latter half of team management and neglect the development of high-potential talent. This is certainly a <strong>counterproductive approach</strong>, as it does not leverage the full potential of the team.</p>
+<h3 id="Use-the-performance-review-as-an-opportunity-to-push-for-more">Use the performance review as an opportunity to push for more.</h3>
+<p>We don’t want them to be too important because we want you to have these conversations all year long. However, the review was a powerful summary moment to both reflect on the last half and how things had gone, but also to push me on what she wanted to see next.</p>
+<h3 id="Inspiration-4-Spend-more-time-Listen">Inspiration 4: Spend more time &amp; Listen</h3>
+<ul>
+<li>
+<p>In the past, I used to devote a lot of energy to the latter half of team management and neglect the development of high-potential talent. This is certainly a <strong>counterproductive approach</strong>, as it does not leverage the full potential of the team.</p>
 </li>
-<li><p>The way we communicate is essential, and it’s important to be <strong>well-prepared</strong> before engaging in communication. This involves actively <strong>listening</strong> to others, engaging in discussions, and then presenting the goals to be achieved.</p>
+<li>
+<p>The way we communicate is essential, and it’s important to be <strong>well-prepared</strong> before engaging in communication. This involves actively <strong>listening</strong> to others, engaging in discussions, and then presenting the goals to be achieved.</p>
 </li>
 </ul>
 <hr>
@@ -652,17 +827,20 @@ D-->A</pre>
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 5</title>
     <url>/2023/02/18/The-Six-Counterintuitive-Rules-5/</url>
-    <content><![CDATA[<h2 id="RULE-5-SET-EXPECTATIONS-BUT-KNOW-THAT-YOU’RE-NOT-ALWAYS-THE-ONE-WHO-NEEDS-TO-BRING-THE-CLARITY"><a href="#RULE-5-SET-EXPECTATIONS-BUT-KNOW-THAT-YOU’RE-NOT-ALWAYS-THE-ONE-WHO-NEEDS-TO-BRING-THE-CLARITY" class="headerlink" title="RULE #5: SET EXPECTATIONS, BUT KNOW THAT YOU’RE NOT ALWAYS THE ONE WHO NEEDS TO BRING THE CLARITY."></a>RULE #5: SET EXPECTATIONS, BUT KNOW THAT YOU’RE NOT ALWAYS THE ONE WHO NEEDS TO BRING THE CLARITY.</h2><p>If there’s a new role that’s been <strong>poorly defined</strong>, providing clarification is the first step. Once you define it, you’ll usually find that someone who’s in that role isn’t actually a fit for what the business needs. </p>
+    <content><![CDATA[<h2 id="RULE-5-SET-EXPECTATIONS-BUT-KNOW-THAT-YOU’RE-NOT-ALWAYS-THE-ONE-WHO-NEEDS-TO-BRING-THE-CLARITY">RULE #5: SET EXPECTATIONS, BUT KNOW THAT YOU’RE NOT ALWAYS THE ONE WHO NEEDS TO BRING THE CLARITY.</h2>
+<p>If there’s a new role that’s been <strong>poorly defined</strong>, providing clarification is the first step. Once you define it, you’ll usually find that someone who’s in that role isn’t actually a fit for what the business needs.</p>
 <ul>
-<li>Do people’s roles make sense? </li>
-<li>Do they know how they fit in? </li>
-<li>How they align to the business? </li>
-<li>Do they know what’s expected of them? </li>
-<li>Do they know what success looks like?<br>80% of the time when I go into a team that’s struggling, the answers to those questions is no.</li>
+<li>Do people’s roles make sense?</li>
+<li>Do they know how they fit in?</li>
+<li>How they align to the business?</li>
+<li>Do they know what’s expected of them?</li>
+<li>Do they know what success looks like?<br>
+80% of the time when I go into a team that’s struggling, the answers to those questions is no.</li>
 </ul>
 <p>Be realistic about what you can offer, but remember that it’s BYOC (Bring Your Own Clarity). I actually need people who bring their own clarity and structure. And that’s because I don’t have a lot of the answers right now. To be a better manager, you have to be really realistic about what you can control and what you can offer — and what you can’t.</p>
 <p>Often a low performer isn’t someone who is inherently low performing. It is someone who has the wrong set of circumstances around them — they’re in the wrong job or in the wrong organization. A lot of times when people are struggling it’s not because they’re bad at stuff, but because they don’t know what’s expected of them. Give them the chance to see the gap and say, ‘I know I can do it,’ or ‘This really isn’t for me actually.’</p>
-<h3 id="Inspiration-5-Set-expectations-is-important"><a href="#Inspiration-5-Set-expectations-is-important" class="headerlink" title="Inspiration 5: Set expectations is important"></a>Inspiration 5: Set expectations is important</h3><p>Setting clear expectations is essential for both high-performing and low-performing employees. In the past, I did not do a good job of setting clear expectations, which impacted high-performing employees’ motivation to achieve even greater goals and low-performing employees’ direction in making an effort to improve.</p>
+<h3 id="Inspiration-5-Set-expectations-is-important">Inspiration 5: Set expectations is important</h3>
+<p>Setting clear expectations is essential for both high-performing and low-performing employees. In the past, I did not do a good job of setting clear expectations, which impacted high-performing employees’ motivation to achieve even greater goals and low-performing employees’ direction in making an effort to improve.</p>
 <hr>
 <p>To Be Continue…</p>
 ]]></content>
@@ -677,10 +855,12 @@ D-->A</pre>
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 6</title>
     <url>/2023/02/19/The-Six-Counterintuitive-Rules-6/</url>
-    <content><![CDATA[<h2 id="RULE-6-DIRECT-IS-KIND-HAVE-THE-HARD-CONVERSATION-—-EARLIER-THAN-YOU-THINK-YOU-NEED-TO"><a href="#RULE-6-DIRECT-IS-KIND-HAVE-THE-HARD-CONVERSATION-—-EARLIER-THAN-YOU-THINK-YOU-NEED-TO" class="headerlink" title="RULE #6: DIRECT IS KIND. HAVE THE HARD CONVERSATION — EARLIER THAN YOU THINK YOU NEED TO."></a>RULE #6: DIRECT IS KIND. HAVE THE HARD CONVERSATION — EARLIER THAN YOU THINK YOU NEED TO.</h2><p>People can <strong>grow and change</strong> at any point in their career. But I believe most people haven’t been given the chance to do so because they haven’t gotten <strong>honest feedback</strong>. No one’s held up a mirror to them about their work, how they impact others, and the things standing in the way.</p>
+    <content><![CDATA[<h2 id="RULE-6-DIRECT-IS-KIND-HAVE-THE-HARD-CONVERSATION-—-EARLIER-THAN-YOU-THINK-YOU-NEED-TO">RULE #6: DIRECT IS KIND. HAVE THE HARD CONVERSATION — EARLIER THAN YOU THINK YOU NEED TO.</h2>
+<p>People can <strong>grow and change</strong> at any point in their career. But I believe most people haven’t been given the chance to do so because they haven’t gotten <strong>honest feedback</strong>. No one’s held up a mirror to them about their work, how they impact others, and the things standing in the way.</p>
 <p>Humans don’t like having hard conversations. We build them up in our heads, and then we try to couch them in a lot of useless language that makes it hard for everybody to understand what’s going on. One of the biggest management skills to work on is being <strong>direct with people</strong>.If you start that habit early, it gets a lot easier to have direct conversations with people. But if you wait until something’s really not working, then you end up surprising your direct reports and having worse conversations that are much more stressful.</p>
 <p>I always write down the number one message that a person needs to hear and understand. Then I try to make sure I say it a couple times in the conversation. The following week, I’ll actually have that person repeat it back to me to make sure we’re on the same page. If you can hear back the same messages that you were trying to send, then you know you’re <strong>on the same page</strong>. That’s when you can start to focus on what you’re both going to do about it.</p>
-<h3 id="Inspiration-6-Being-direct-with-people"><a href="#Inspiration-6-Being-direct-with-people" class="headerlink" title="Inspiration 6: Being direct with people"></a>Inspiration 6: Being direct with people</h3><p>If a team member has a problem, it’s essential to have an honest conversation with them, even if it’s not something one is inclined to do. Candid communication is not only beneficial to the organization but also an opportunity for personal improvement. Avoiding communication and attempting to solve problems independently may work for a short time, but it is not a sustainable approach and may result in bigger losses in the long run.</p>
+<h3 id="Inspiration-6-Being-direct-with-people">Inspiration 6: Being direct with people</h3>
+<p>If a team member has a problem, it’s essential to have an honest conversation with them, even if it’s not something one is inclined to do. Candid communication is not only beneficial to the organization but also an opportunity for personal improvement. Avoiding communication and attempting to solve problems independently may work for a short time, but it is not a sustainable approach and may result in bigger losses in the long run.</p>
 <hr>
 <p>Done</p>
 ]]></content>
@@ -695,7 +875,8 @@ D-->A</pre>
   <entry>
     <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - Summary</title>
     <url>/2023/02/19/The-Six-Counterintuitive-Rules-Summary/</url>
-    <content><![CDATA[<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>The Six Counterintuitive Rules:</p>
+    <content><![CDATA[<h2 id="Summary">Summary</h2>
+<p>The Six Counterintuitive Rules:</p>
 <ol>
 <li><a href="https://www.yunminitools.cn/2023/02/14/The-Six-Counterintuitive-Rules-1/">Managment is not leadership</a></li>
 <li><a href="https://www.yunminitools.cn/2023/02/15/The-Six-Counterintuitive-Rules-2/">Don’t Try to create robots, Focus on managing the what not how.</a></li>
@@ -704,7 +885,8 @@ D-->A</pre>
 <li><a href="https://www.yunminitools.cn/2023/02/18/The-Six-Counterintuitive-Rules-5/">Set expectaton, but know that you’re not always the one who needs to bring the clarity</a></li>
 <li><a href="https://www.yunminitools.cn/2023/02/19/The-Six-Counterintuitive-Rules-6/">Direct is kine. Have the hard conversation - earlier than you think you need to</a></li>
 </ol>
-<h3 id="Inspiration-Summary"><a href="#Inspiration-Summary" class="headerlink" title="Inspiration Summary"></a>Inspiration Summary</h3><p>I used to overlook the types of people needed to achieve our goals and micromanage product design, depriving colleagues of the opportunity to grow. I need to trust my colleagues more, delegate tasks, and set clear expectations to help them develop and free up my time. Communication is essential for success and avoiding it can lead to bigger losses in the long run.</p>
+<h3 id="Inspiration-Summary">Inspiration Summary</h3>
+<p>I used to overlook the types of people needed to achieve our goals and micromanage product design, depriving colleagues of the opportunity to grow. I need to trust my colleagues more, delegate tasks, and set clear expectations to help them develop and free up my time. Communication is essential for success and avoiding it can lead to bigger losses in the long run.</p>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -717,8 +899,10 @@ D-->A</pre>
   <entry>
     <title>To Be More Confident</title>
     <url>/2023/02/22/To-Be-More-Confident/</url>
-    <content><![CDATA[<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>When I was listening to the “English with Lucy” channel on YouTube, I heard an episode about boosting self-confidence, which was very inspiring. I tried to use a mind map to record the main points.</p>
-<h2 id="Mind-Map"><a href="#Mind-Map" class="headerlink" title="Mind Map"></a>Mind Map</h2><pre class="mermaid">graph LR
+    <content><![CDATA[<h2 id="Background">Background</h2>
+<p>When I was listening to the “English with Lucy” channel on YouTube, I heard an episode about boosting self-confidence, which was very inspiring. I tried to use a mind map to record the main points.</p>
+<h2 id="Mind-Map">Mind Map</h2>
+<pre class="mermaid">graph LR
 A(To Be More Confident)-->B1(At parties)
 A-->B2(On dates)
 A-->B3(In persentations)
@@ -739,13 +923,9 @@ B4-->C43(Say it in ordered manner)
 B5-->C51(Picture them sitting on the sofa)
 B5-->C52(Punch the words as you're talking)
 B5-->C53(Stand up)</pre>
-
 <span id="more"></span>
-
 <p>The mind map was generated by Mermaid, here is the script for reference:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(To Be More Confident)--&gt;B1(At parties)</span><br><span class="line">A--&gt;B2(On dates)</span><br><span class="line">A--&gt;B3(In persentations)</span><br><span class="line">A--&gt;B4(In job interviews)</span><br><span class="line">A--&gt;B5(On the telephon)</span><br><span class="line">B1--&gt;C11(Stay relaxed, relax your shoulders, centre your voice)</span><br><span class="line">B1--&gt;C12(Imagine everybody he meets is an old friend)</span><br><span class="line">B1--&gt;C13(I&#x27;ve only got to be there for five minutes)</span><br><span class="line">B2--&gt;C21(Think I&#x27;m beautiful, someone loves me, I have a secret)</span><br><span class="line">B2--&gt;C22(Keep yourself positive and only thinking about all the positive parts)</span><br><span class="line">B2--&gt;C23(Ask questions and show you&#x27;re engaged)</span><br><span class="line">B3--&gt;C31(Practise twice with voice notes)</span><br><span class="line">B3--&gt;C32(Get the body relaxed and prepared)</span><br><span class="line">B3--&gt;C33(See the audience as old friends)</span><br><span class="line">B4--&gt;C41(Get yourself nice and calm and centred)</span><br><span class="line">B4--&gt;C42(Remember to breathe)</span><br><span class="line">B4--&gt;C43(Say it in ordered manner)</span><br><span class="line">B5--&gt;C51(Picture them sitting on the sofa)</span><br><span class="line">B5--&gt;C52(Punch the words as you&#x27;re talking)</span><br><span class="line">B5--&gt;C53(Stand up)</span><br></pre></td></tr></table></figure>
-
-
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -760,17 +940,37 @@ B5-->C53(Stand up)</pre>
   <entry>
     <title>使用ChatGPT来学习英文(1)</title>
     <url>/2023/02/05/Using-ChatGPT-English-Learning-1/</url>
-    <content><![CDATA[<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>最近在Youtube看到了一个<a href="https://hadarshemesh.com/magazine/chatgpt-for-learning-english/">使用ChatGPT学习英语的方法</a>，总结一下，后续可以自用。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>可以把ChatGPT看成是一个人工智能的机器人，因此可以用它来帮助我们构造学习英语的参加资料，并且帮助我们简化文本或纠正一些错误。</p>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>最近在Youtube看到了一个<a href="https://hadarshemesh.com/magazine/chatgpt-for-learning-english/">使用ChatGPT学习英语的方法</a>，总结一下，后续可以自用。</p>
+<h2 id="原理">原理</h2>
+<p>可以把ChatGPT看成是一个人工智能的机器人，因此可以用它来帮助我们构造学习英语的参加资料，并且帮助我们简化文本或纠正一些错误。</p>
 <p>可以使用的场景如下：</p>
-<h3 id="1、和ChatGpT开展一个对话"><a href="#1、和ChatGpT开展一个对话" class="headerlink" title="1、和ChatGpT开展一个对话"></a>1、和ChatGpT开展一个对话</h3><p>可以用以下提示词开展对话：<br>Can we have a conversation about [Topic]<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-1.png" alt="ChatGPT例子1"></p>
+<h3 id="1、和ChatGpT开展一个对话">1、和ChatGpT开展一个对话</h3>
+<p>可以用以下提示词开展对话：<br>
+Can we have a conversation about [Topic]<br>
+例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-1.png" alt="ChatGPT例子1"></p>
 <span id="more"></span>
-
-<p>你也可以用它来纠正你的语法错误,用以下提示词：<br>Please point out my mistakes in the following sentences:<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-2.png" alt="ChatGPT例子2"></p>
-<p>用以下提示词来要求它给出一些词汇用法：<br>Please suggest certain vocabulary to use in this conversation:</p>
-<h3 id="2、准备工作面试"><a href="#2、准备工作面试" class="headerlink" title="2、准备工作面试"></a>2、准备工作面试</h3><p>用以下提示词：<br>Let’s conduct a mock job interview where you will be asking my questions as if I were interviewing for a [job role]. Please provide feedback on my answers.<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-3.png" alt="ChatGPT例子3"></p>
-<h3 id="3、准备自然对话的一些脚本"><a href="#3、准备自然对话的一些脚本" class="headerlink" title="3、准备自然对话的一些脚本"></a>3、准备自然对话的一些脚本</h3><p>用以下提示词：<br>Write a chat between a teacher and the mother of a student who is having a hard time in school<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-4.png" alt="ChatGPT例子4"></p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><a href="http://www.yunminitools.cn/2023/02/05/Using-ChatGPT-English-Learning-1/">使用ChatGPT来学习英文(1)</a><br><a href="http://www.yunminitools.cn/2023/02/06/Using-ChatGPT-English-Learning-2/">使用ChatGPT来学习英文(2)</a><br><a href="http://www.yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/">使用ChatGPT来学习英文(3)</a></p>
+<p>你也可以用它来纠正你的语法错误,用以下提示词：<br>
+Please point out my mistakes in the following sentences:<br>
+例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-2.png" alt="ChatGPT例子2"></p>
+<p>用以下提示词来要求它给出一些词汇用法：<br>
+Please suggest certain vocabulary to use in this conversation:</p>
+<h3 id="2、准备工作面试">2、准备工作面试</h3>
+<p>用以下提示词：<br>
+Let’s conduct a mock job interview where you will be asking my questions as if I were interviewing for a [job role]. Please provide feedback on my answers.<br>
+例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-3.png" alt="ChatGPT例子3"></p>
+<h3 id="3、准备自然对话的一些脚本">3、准备自然对话的一些脚本</h3>
+<p>用以下提示词：<br>
+Write a chat between a teacher and the mother of a student who is having a hard time in school<br>
+例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0205-4.png" alt="ChatGPT例子4"></p>
+<h3 id="目录">目录</h3>
+<p><a href="http://www.yunminitools.cn/2023/02/05/Using-ChatGPT-English-Learning-1/">使用ChatGPT来学习英文(1)</a><br>
+<a href="http://www.yunminitools.cn/2023/02/06/Using-ChatGPT-English-Learning-2/">使用ChatGPT来学习英文(2)</a><br>
+<a href="http://www.yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/">使用ChatGPT来学习英文(3)</a></p>
 <p>(未完待续…)</p>
 ]]></content>
       <categories>
@@ -784,28 +984,62 @@ B5-->C53(Stand up)</pre>
   <entry>
     <title>使用ChatGPT来学习英文(2)</title>
     <url>/2023/02/06/Using-ChatGPT-English-Learning-2/</url>
-    <content><![CDATA[<h2 id="学习场景"><a href="#学习场景" class="headerlink" title="学习场景"></a>学习场景</h2><p>继续昨天的话题：</p>
-<h3 id="4、利用ChatGPT提升讲演能力"><a href="#4、利用ChatGPT提升讲演能力" class="headerlink" title="4、利用ChatGPT提升讲演能力"></a>4、利用ChatGPT提升讲演能力</h3><p>可以用以下提示词让Chatgpt提供话题：</p>
+    <content><![CDATA[<h2 id="学习场景">学习场景</h2>
+<p>继续昨天的话题：</p>
+<h3 id="4、利用ChatGPT提升讲演能力">4、利用ChatGPT提升讲演能力</h3>
+<p>可以用以下提示词让Chatgpt提供话题：</p>
 <ul>
-<li>Suggest 10 controversial topics to discuss </li>
+<li>Suggest 10 controversial topics to discuss</li>
 <li>Write 5 inspiring ideas for conversation</li>
-<li>Write 10 questions to reflect on </li>
+<li>Write 10 questions to reflect on</li>
 <li>Write 10 ideas for a TED talk</li>
-<li>Suggest different conversation topics to speak with friends&#x2F;students&#x2F;colleagues</li>
+<li>Suggest different conversation topics to speak with friends/students/colleagues</li>
 </ul>
-<p>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-1.png" alt="ChatGPT例子5"></p>
+<p>例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-1.png" alt="ChatGPT例子5"></p>
 <span id="more"></span>
-
 <p>当你有了讲演稿后，也可以让它帮忙修改。</p>
-<h3 id="5、利用ChatGPT训练独白和对话"><a href="#5、利用ChatGPT训练独白和对话" class="headerlink" title="5、利用ChatGPT训练独白和对话"></a>5、利用ChatGPT训练独白和对话</h3><p>独白、对话和戏剧脚本是练习音调、语气、发音、语法、句子结构和词汇的绝佳工具。<br>对于英语学习者，你可以大声朗读这些脚本，并设定你的意图，专注于你想改善的事情，如特定声音的发音、语调、节奏和压力，或其他语言元素。</p>
-<p>用以下提示词生成脚本：<br>Write a comedic monologue about someone who lost all his money</p>
-<p>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-2.png" alt="ChatGPT例子6"></p>
-<p>下面还有一些可以使用的提示词共参考：<br>Write a dramatic scene between two lovers<br>Write a dialogue between two women that is similar in style to the TV show “Law and Order”<br>Write a monologue about a broken heart<br>Write a mystery scene between two characters<br>Write a scene between two characters like a scene from the TV show Friends.<br>Write a short TED talk about [topic]</p>
-<h3 id="6、利用ChatGPT学习语法"><a href="#6、利用ChatGPT学习语法" class="headerlink" title="6、利用ChatGPT学习语法"></a>6、利用ChatGPT学习语法</h3><p><strong>要求ChatGPT用指定的时态或语法生成文本</strong><br>用以下提示词：<br>Can you write a short story using the past perfect tense?<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-3.png" alt="ChatGPT例子7"></p>
-<p><strong>要求ChatGPT解释语法规则</strong><br>用以下提示词：<br>Can you explain when to use the future perfect tense?<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-4.png" alt="ChatGPT例子8"></p>
-<p><strong>要求ChatGPT帮忙修改语法错误</strong><br>用以下提示词：<br>Correct my grammar mistakes in the following text：<br>yesterday I had gone to my friend’s house in Washington st.<br>can you explain your correction?<br>例如：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-5.png" alt="ChatGPT例子9"></p>
-<p>还有一些提示词可以参考：<br>Write a short conversation in [tense] （学习时态）<br>Write a short story using as many gerunds as possible （学习动名词）<br>Rewrite this text in the passive voice [add text]  （学习被动语气）<br>Write 10 example sentences using [tense&#x2F;grammar form]。</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><a href="http://www.yunminitools.cn/2023/02/05/Using-ChatGPT-English-Learning-1/">使用ChatGPT来学习英文(1)</a><br><a href="http://www.yunminitools.cn/2023/02/06/Using-ChatGPT-English-Learning-2/">使用ChatGPT来学习英文(2)</a><br><a href="http://www.yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/">使用ChatGPT来学习英文(3)</a></p>
+<h3 id="5、利用ChatGPT训练独白和对话">5、利用ChatGPT训练独白和对话</h3>
+<p>独白、对话和戏剧脚本是练习音调、语气、发音、语法、句子结构和词汇的绝佳工具。<br>
+对于英语学习者，你可以大声朗读这些脚本，并设定你的意图，专注于你想改善的事情，如特定声音的发音、语调、节奏和压力，或其他语言元素。</p>
+<p>用以下提示词生成脚本：<br>
+Write a comedic monologue about someone who lost all his money</p>
+<p>例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-2.png" alt="ChatGPT例子6"></p>
+<p>下面还有一些可以使用的提示词共参考：<br>
+Write a dramatic scene between two lovers<br>
+Write a dialogue between two women that is similar in style to the TV show “Law and Order”<br>
+Write a monologue about a broken heart<br>
+Write a mystery scene between two characters<br>
+Write a scene between two characters like a scene from the TV show Friends.<br>
+Write a short TED talk about [topic]</p>
+<h3 id="6、利用ChatGPT学习语法">6、利用ChatGPT学习语法</h3>
+<p><strong>要求ChatGPT用指定的时态或语法生成文本</strong><br>
+用以下提示词：<br>
+Can you write a short story using the past perfect tense?<br>
+例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-3.png" alt="ChatGPT例子7"></p>
+<p><strong>要求ChatGPT解释语法规则</strong><br>
+用以下提示词：<br>
+Can you explain when to use the future perfect tense?<br>
+例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-4.png" alt="ChatGPT例子8"></p>
+<p><strong>要求ChatGPT帮忙修改语法错误</strong><br>
+用以下提示词：<br>
+Correct my grammar mistakes in the following text：<br>
+yesterday I had gone to my friend’s house in Washington st.<br>
+can you explain your correction?<br>
+例如：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0206-5.png" alt="ChatGPT例子9"></p>
+<p>还有一些提示词可以参考：<br>
+Write a short conversation in [tense] （学习时态）<br>
+Write a short story using as many gerunds as possible （学习动名词）<br>
+Rewrite this text in the passive voice [add text]  （学习被动语气）<br>
+Write 10 example sentences using [tense/grammar form]。</p>
+<h3 id="目录">目录</h3>
+<p><a href="http://www.yunminitools.cn/2023/02/05/Using-ChatGPT-English-Learning-1/">使用ChatGPT来学习英文(1)</a><br>
+<a href="http://www.yunminitools.cn/2023/02/06/Using-ChatGPT-English-Learning-2/">使用ChatGPT来学习英文(2)</a><br>
+<a href="http://www.yunminitools.cn/2023/02/08/Using-ChatGPT-English-Learning-3/">使用ChatGPT来学习英文(3)</a></p>
 <p>(未完待续…)</p>
 ]]></content>
       <categories>
@@ -819,26 +1053,48 @@ B5-->C53(Stand up)</pre>
   <entry>
     <title>使用ChatGPT来学习英文(3)</title>
     <url>/2023/02/08/Using-ChatGPT-English-Learning-3/</url>
-    <content><![CDATA[<h2 id="学习场景"><a href="#学习场景" class="headerlink" title="学习场景"></a>学习场景</h2><p>继续使用ChatGPT来学习英文的话题：</p>
-<h3 id="7、利用ChatGPT学习单词"><a href="#7、利用ChatGPT学习单词" class="headerlink" title="7、利用ChatGPT学习单词"></a>7、利用ChatGPT学习单词</h3><p>可以用以下提示词让Chatgpt给出单词含义和例子,或者直接要求列出特定场景可能使用的词汇：</p>
+    <content><![CDATA[<h2 id="学习场景">学习场景</h2>
+<p>继续使用ChatGPT来学习英文的话题：</p>
+<h3 id="7、利用ChatGPT学习单词">7、利用ChatGPT学习单词</h3>
+<p>可以用以下提示词让Chatgpt给出单词含义和例子,或者直接要求列出特定场景可能使用的词汇：</p>
 <ul>
 <li>What is the meaning of [word]?  （给出含义）</li>
 <li>Give 5 example using this word. （给出例子）</li>
 <li>What is a synonym for [word].   （给出同义词）</li>
 <li>What is a antonym for [word].   （给出反义词）</li>
 <li>Please provide me with [scenario] vocabulary. （给出特定场景单词）</li>
-<li>Make a list of idioms and expressions related to [topic]（给出特定场景习惯用语）<br>例如：<br>要求给出含义解释：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-1.png" alt="ChatGPT例子10"><span id="more"></span></li>
+<li>Make a list of idioms and expressions related to [topic]（给出特定场景习惯用语）<br>
+例如：<br>
+要求给出含义解释：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-1.png" alt="ChatGPT例子10"></li>
 </ul>
-<p>要求给出5个例子：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-2.png" alt="ChatGPT例子11"></p>
-<p>要求给出同义词<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-3.png" alt="ChatGPT例子12"></p>
-<p>要求给出反义词<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-4.png" alt="ChatGPT例子13"></p>
-<p>要求提供单词清单<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-5.png" alt="ChatGPT例子14"></p>
-<p>要求提供习惯用法：<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-6.png" alt="ChatGPT例子15"></p>
-<h3 id="8、利用ChatGPT提示你的写作能力"><a href="#8、利用ChatGPT提示你的写作能力" class="headerlink" title="8、利用ChatGPT提示你的写作能力"></a>8、利用ChatGPT提示你的写作能力</h3><p>比如，你需要给同事写一封邮件，但你不确定如何让它听起来更有礼貌。你可以简单地要求ChatGPT用更正式的语气或友好的语气重写它。</p>
+<span id="more"></span>
+<p>要求给出5个例子：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-2.png" alt="ChatGPT例子11"></p>
+<p>要求给出同义词<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-3.png" alt="ChatGPT例子12"></p>
+<p>要求给出反义词<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-4.png" alt="ChatGPT例子13"></p>
+<p>要求提供单词清单<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-5.png" alt="ChatGPT例子14"></p>
+<p>要求提供习惯用法：<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-6.png" alt="ChatGPT例子15"></p>
+<h3 id="8、利用ChatGPT提示你的写作能力">8、利用ChatGPT提示你的写作能力</h3>
+<p>比如，你需要给同事写一封邮件，但你不确定如何让它听起来更有礼貌。你可以简单地要求ChatGPT用更正式的语气或友好的语气重写它。</p>
 <p>这样当你写完后，你花时间比较你的和ChatGPT的不同版本，并尝试看看你能从有差异的地方学到什么，并且，你可以要求它指出用了那些新的词汇，并要求它解释。</p>
-<p>例如：使用以下提升词要求它写一个邮件：<br>Can you write an email to a client requesting them to reschedule a meeting? Make it friendly but polite.<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-7.png" alt="ChatGPT例子16"></p>
-<p>如果不满意，还可以要求它修改：<br>Can you make it more informal?<br><img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-8.png" alt="ChatGPT例子17"></p>
-<p>还有一些提升词可以参考：<br>Write an email about [topic]<br>Correct my mistakes in the following text<br>Please rewrite this text and explain your changes [add text]<br>Can you suggest a better vocabulary to be used in this text?<br>Rewrite in a more informal way<br>Rewrite this text in a more polite way</p>
+<p>例如：使用以下提升词要求它写一个邮件：<br>
+Can you write an email to a client requesting them to reschedule a meeting? Make it friendly but polite.<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-7.png" alt="ChatGPT例子16"></p>
+<p>如果不满意，还可以要求它修改：<br>
+Can you make it more informal?<br>
+<img src="http://cdn.yunminitools.cn/blog/ChatGPT0208-8.png" alt="ChatGPT例子17"></p>
+<p>还有一些提升词可以参考：<br>
+Write an email about [topic]<br>
+Correct my mistakes in the following text<br>
+Please rewrite this text and explain your changes [add text]<br>
+Can you suggest a better vocabulary to be used in this text?<br>
+Rewrite in a more informal way<br>
+Rewrite this text in a more polite way</p>
 <p>(完)</p>
 ]]></content>
       <categories>
@@ -853,17 +1109,25 @@ B5-->C53(Stand up)</pre>
     <title>Z-library 现阶段可行的访问方法</title>
     <url>/2023/02/10/ZLibrary-Access/</url>
     <content><![CDATA[<p>Z-Library 官方网站近期被美国执法机构查封，无法直接访问。网上研究了一下，找到另一个方法可以继续访问。</p>
-<h2 id="访问方法"><a href="#访问方法" class="headerlink" title="访问方法"></a>访问方法</h2><p>可以访问 <a href="https://singlelogin.me/">singlelogin.me</a>,用Z-Library账号登陆后，可获得私人域名，亲测访问速度很快。请将你的私人域名保密，外泄有禁封的风险。</p>
-<h2 id="访问步骤"><a href="#访问步骤" class="headerlink" title="访问步骤"></a>访问步骤</h2><ol>
-<li><p>登陆网站：<br><img src="http://cdn.yunminitools.cn/blog/Zlibrary0210-1.png" alt="步骤1"></p>
+<h2 id="访问方法">访问方法</h2>
+<p>可以访问 <a href="https://singlelogin.me">singlelogin.me</a>,用Z-Library账号登陆后，可获得私人域名，亲测访问速度很快。请将你的私人域名保密，外泄有禁封的风险。</p>
+<h2 id="访问步骤">访问步骤</h2>
+<ol>
+<li>
+<p>登陆网站：<br>
+<img src="http://cdn.yunminitools.cn/blog/Zlibrary0210-1.png" alt="步骤1"></p>
 </li>
-<li><p>顺利登陆后，可以看到以下画面，Z-Library又回来了：<br><img src="http://cdn.yunminitools.cn/blog/Zlibrary0210-2.png" alt="步骤2"></p>
+<li>
+<p>顺利登陆后，可以看到以下画面，Z-Library又回来了：<br>
+<img src="http://cdn.yunminitools.cn/blog/Zlibrary0210-2.png" alt="步骤2"></p>
 </li>
 </ol>
 <p><strong>注意：</strong> 浏览器中的网址为专属私人域名，请收藏到收藏夹，下次可以直接通过这个网址来访问网站。</p>
 <span id="more"></span>
 <ol start="3">
-<li>后面的步骤就和原来使用方法一样，可以愉快的下载图书了。<br><img src="http://cdn.yunminitools.cn/blog/Zlibrary0210-3.png" alt="步骤3"><br><img src="http://cdn.yunminitools.cn/blog/Zlibrary0210-4.png" alt="步骤4"></li>
+<li>后面的步骤就和原来使用方法一样，可以愉快的下载图书了。<br>
+<img src="http://cdn.yunminitools.cn/blog/Zlibrary0210-3.png" alt="步骤3"><br>
+<img src="http://cdn.yunminitools.cn/blog/Zlibrary0210-4.png" alt="步骤4"></li>
 </ol>
 ]]></content>
       <categories>
@@ -876,15 +1140,18 @@ B5-->C53(Stand up)</pre>
   <entry>
     <title>first-post</title>
     <url>/2023/02/02/first-post/</url>
-    <content><![CDATA[<h2 id="本博客的内容"><a href="#本博客的内容" class="headerlink" title="本博客的内容"></a>本博客的内容</h2><p>可能包括以下几类：</p>
+    <content><![CDATA[<h2 id="本博客的内容">本博客的内容</h2>
+<p>可能包括以下几类：</p>
 <ul>
-<li>当日所学：学习的总结，包括技术&#x2F;设计&#x2F;产品等</li>
+<li>当日所学：学习的总结，包括技术/设计/产品等</li>
 <li>日常练习：根据学习中的心得进行的练习过程分享</li>
 <li>有趣资源：发现的有趣资源分享</li>
 <li>杂项：包括一些心得体会及其他日常</li>
 </ul>
-<h2 id="更新频率"><a href="#更新频率" class="headerlink" title="更新频率"></a>更新频率</h2><p>目前希望是日更，看看是否能坚持</p>
-<h2 id="博客目的"><a href="#博客目的" class="headerlink" title="博客目的"></a>博客目的</h2><p>作为知识管理的最后一环，需要对知识进行输出，目前我先用博客来实现</p>
+<h2 id="更新频率">更新频率</h2>
+<p>目前希望是日更，看看是否能坚持</p>
+<h2 id="博客目的">博客目的</h2>
+<p>作为知识管理的最后一环，需要对知识进行输出，目前我先用博客来实现</p>
 ]]></content>
       <categories>
         <category>杂项</category>
@@ -894,28 +1161,36 @@ B5-->C53(Stand up)</pre>
     <title>Hello World</title>
     <url>/2023/01/30/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
 <span id="more"></span>
-
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
     <title>知识管理相关-来自范冰的分享</title>
     <url>/2023/02/03/souKPM01/</url>
-    <content><![CDATA[<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>最近在听 范冰 的播客（EP01 - from 量贩冰糖），讲到了知识管理相关内容，有一些比较有意思的观点，记录下来。</p>
-<h2 id="避免FOMO"><a href="#避免FOMO" class="headerlink" title="避免FOMO"></a>避免FOMO</h2><p>FOMO 全称“Fear of missing out”，意思是害怕错过。简单的说，就是在信息爆炸的时代，我们总是不可避免的被过量的信息包围，没有重点的吸收。<br>避免FOMO的办法有：<br>对策1：建立一个心理预期，这些信息之后对我还重要吗？对我重要的时间有多久？如果只在很短的时间里有效，那就抛弃。<br>对策2：用针对性的工具，去有目的性地关注特定信息，删去无用的渠道和频道 。<br>对策3：带着komo的心态，knowing of missing out：知道我错过了什么事情，但是我对它心安理得。<br>对策4：知道自己不想什么信息，那就建立一个手段把自己需要的信息过滤出来</p>
-<h2 id="一些原则"><a href="#一些原则" class="headerlink" title="一些原则"></a>一些原则</h2><ul>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>最近在听 范冰 的播客（EP01 - from 量贩冰糖），讲到了知识管理相关内容，有一些比较有意思的观点，记录下来。</p>
+<h2 id="避免FOMO">避免FOMO</h2>
+<p>FOMO 全称“Fear of missing out”，意思是害怕错过。简单的说，就是在信息爆炸的时代，我们总是不可避免的被过量的信息包围，没有重点的吸收。<br>
+避免FOMO的办法有：<br>
+对策1：建立一个心理预期，这些信息之后对我还重要吗？对我重要的时间有多久？如果只在很短的时间里有效，那就抛弃。<br>
+对策2：用针对性的工具，去有目的性地关注特定信息，删去无用的渠道和频道 。<br>
+对策3：带着komo的心态，knowing of missing out：知道我错过了什么事情，但是我对它心安理得。<br>
+对策4：知道自己不想什么信息，那就建立一个手段把自己需要的信息过滤出来</p>
+<h2 id="一些原则">一些原则</h2>
+<ul>
 <li>不要让自己陷入不同切换的过程中，一定要把做事情的门槛降低，降低到你觉得不需要占用额外的思考 ；一件事你需要多做的话，就要让这件事变得越容易。</li>
 <li>除了输入，还要做输出，最简单最低成本的输出就是写笔记，即便是再简单的影响方式， 都可能会对世界产生一些积极的影响，带来一些好的价值交换。</li>
 <li>笔记的管理不要追求all-in-one。 不要觉得整理是一件很烦人的事情，整理能够加深印象，并帮你过滤掉一些信息。</li>
@@ -931,18 +1206,34 @@ B5-->C53(Stand up)</pre>
   <entry>
     <title>用户调研的一种方法</title>
     <url>/2023/02/04/userresearch01/</url>
-    <content><![CDATA[<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>最近在即刻看到一个帖子，总结的用户调研方法可以参考一下。</p>
-<h2 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h2><p>一个完整的用户调研步骤，一共有6大步骤：定目标、定渠道、选方法、定纬度、挖需求、验真假。<br>可以用一个仪表盘来帮助记忆：</p>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>最近在即刻看到一个帖子，总结的用户调研方法可以参考一下。</p>
+<h2 id="方法论">方法论</h2>
+<p>一个完整的用户调研步骤，一共有6大步骤：定目标、定渠道、选方法、定纬度、挖需求、验真假。<br>
+可以用一个仪表盘来帮助记忆：</p>
 <p><img src="http://cdn.yunminitools.cn/blog/20230204-2.png" alt="仪表盘"></p>
-<h3 id="1、用户定位"><a href="#1、用户定位" class="headerlink" title="1、用户定位"></a>1、用户定位</h3><p>哪些用户是我的目标，哪些是潜在用户，用户有没有需求，平时有哪些痛点或者不满<br>例如：减肥人群，药物减肥还是健身、还是断食</p>
-<h3 id="2、品牌认知"><a href="#2、品牌认知" class="headerlink" title="2、品牌认知"></a>2、品牌认知</h3><p>用户对品牌的了解有多少，对产品的认知是什么<br>例如：大家都了解可口可乐</p>
-<h3 id="3、用户触点"><a href="#3、用户触点" class="headerlink" title="3、用户触点"></a>3、用户触点</h3><p>哪些地方可以接触到用户，平时用户会聚集地在哪里<br>例如：学习英语的人通常在哪里？在平台，在美剧</p>
-<h3 id="4、解决方案（旧的）"><a href="#4、解决方案（旧的）" class="headerlink" title="4、解决方案（旧的）"></a>4、解决方案（旧的）</h3><p>市面上卖蛋黄派的商家都是用什么方法卖这个产品？他们包装都是主打什么？这个产品给用户解决了什么问题？解嘴馋？还是当做早餐？还是健康？还是口味？</p>
-<h3 id="5、机会点"><a href="#5、机会点" class="headerlink" title="5、机会点"></a>5、机会点</h3><p>现有的这个产品里面，用户还有什么不满的点，从这些不满的点，挖掘新的机会点。</p>
-<h3 id="6、核心壁垒"><a href="#6、核心壁垒" class="headerlink" title="6、核心壁垒"></a>6、核心壁垒</h3><p>你的产品和别人家有什么不同点？你的新在哪里？你的独特的卖点是什么？核心壁垒是什么？你有，别人没有的</p>
-<h3 id="7、决策过程／决策要素"><a href="#7、决策过程／决策要素" class="headerlink" title="7、决策过程／决策要素"></a>7、决策过程／决策要素</h3><p>我想要买这个产品，我的决策过程是什么？先考虑品牌？还是对比价格？还是产品口味？还是外部包装？还是数量大小等等，把用户这个决策要素，按照先后顺序排列出来，重点强调用户最关心的点</p>
-<h3 id="8、付出成本／我要做什么"><a href="#8、付出成本／我要做什么" class="headerlink" title="8、付出成本／我要做什么"></a>8、付出成本／我要做什么</h3><p>对应用户愿意要付出多少成本去购买这个产品，用户心理预期价位是多少，用户要做什么动作才能获取到这个产品，需要投入多少精力？</p>
-<h3 id="9、收获／好处"><a href="#9、收获／好处" class="headerlink" title="9、收获／好处"></a>9、收获／好处</h3><p>对用户而言，我买这个产品，可以帮我解决什么问题，对我有什么好处？<br>例如蛋黄酥，可以解决我饥饿问题，可以解决我嘴馋问题，可以保证我的健康和体验，这里我们经常会和用户产生一个链接，和用户强相关，人只有看到足够多的好处，他们才愿意付出相应的成本去交换，所以前提要激发大家的获得感。</p>
+<h3 id="1、用户定位">1、用户定位</h3>
+<p>哪些用户是我的目标，哪些是潜在用户，用户有没有需求，平时有哪些痛点或者不满<br>
+例如：减肥人群，药物减肥还是健身、还是断食</p>
+<h3 id="2、品牌认知">2、品牌认知</h3>
+<p>用户对品牌的了解有多少，对产品的认知是什么<br>
+例如：大家都了解可口可乐</p>
+<h3 id="3、用户触点">3、用户触点</h3>
+<p>哪些地方可以接触到用户，平时用户会聚集地在哪里<br>
+例如：学习英语的人通常在哪里？在平台，在美剧</p>
+<h3 id="4、解决方案（旧的）">4、解决方案（旧的）</h3>
+<p>市面上卖蛋黄派的商家都是用什么方法卖这个产品？他们包装都是主打什么？这个产品给用户解决了什么问题？解嘴馋？还是当做早餐？还是健康？还是口味？</p>
+<h3 id="5、机会点">5、机会点</h3>
+<p>现有的这个产品里面，用户还有什么不满的点，从这些不满的点，挖掘新的机会点。</p>
+<h3 id="6、核心壁垒">6、核心壁垒</h3>
+<p>你的产品和别人家有什么不同点？你的新在哪里？你的独特的卖点是什么？核心壁垒是什么？你有，别人没有的</p>
+<h3 id="7、决策过程／决策要素">7、决策过程／决策要素</h3>
+<p>我想要买这个产品，我的决策过程是什么？先考虑品牌？还是对比价格？还是产品口味？还是外部包装？还是数量大小等等，把用户这个决策要素，按照先后顺序排列出来，重点强调用户最关心的点</p>
+<h3 id="8、付出成本／我要做什么">8、付出成本／我要做什么</h3>
+<p>对应用户愿意要付出多少成本去购买这个产品，用户心理预期价位是多少，用户要做什么动作才能获取到这个产品，需要投入多少精力？</p>
+<h3 id="9、收获／好处">9、收获／好处</h3>
+<p>对用户而言，我买这个产品，可以帮我解决什么问题，对我有什么好处？<br>
+例如蛋黄酥，可以解决我饥饿问题，可以解决我嘴馋问题，可以保证我的健康和体验，这里我们经常会和用户产生一个链接，和用户强相关，人只有看到足够多的好处，他们才愿意付出相应的成本去交换，所以前提要激发大家的获得感。</p>
 <p>只有弄清楚，用户需求是什么，产品能解决好什么，在这个过程中，用户的决策心里是怎样，能够得到怎样的好处，那么你调研的问题，也就变得清晰了~</p>
 ]]></content>
       <categories>
