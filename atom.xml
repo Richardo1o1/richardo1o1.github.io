@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-25T02:34:28.081Z</updated>
+  <updated>2023-02-26T03:18:01.717Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo中使用emoji表情</title>
+    <link href="http://yunminitools.cn/2023/02/26/Hexo-Use-emoji/"/>
+    <id>http://yunminitools.cn/2023/02/26/Hexo-Use-emoji/</id>
+    <published>2023-02-26T03:17:27.000Z</published>
+    <updated>2023-02-26T03:18:01.717Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;上一篇文章我想在文章中使用emoj来丰富页面，发现Hexo默认的markdown渲染引擎不支持将Github emoji渲染到静态的html页面。我们需要换一个支持emoji的引擎，再增加一个emoji插件即可。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Seven Levels of Delegation</title>
@@ -547,34 +574,6 @@ A hypsolebias fish jumping out of a pond, trying to catch a bug in the air. The 
         
         
     <summary type="html">&lt;h2 id=&quot;RULE-2-DON’T-TRY-TO-CREATE-ROBOTS-FOCUS-ON-MANAGING-THE-WHAT-NOT-THE-HOW&quot;&gt;RULE #2: DON’T TRY TO CREATE ROBOTS. FOCUS ON MANAGING</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
-    
-    
-    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 1</title>
-    <link href="http://yunminitools.cn/2023/02/14/The-Six-Counterintuitive-Rules-1/"/>
-    <id>http://yunminitools.cn/2023/02/14/The-Six-Counterintuitive-Rules-1/</id>
-    <published>2023-02-14T15:31:34.000Z</published>
-    <updated>2023-02-15T03:13:05.188Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;BACKGROUND&quot;&gt;BACKGROUND&lt;/h2&gt;
-&lt;p&gt;I don’t consider myself a qualified manager, and this is probably a weakness for a product manager</summary>
         
       
     
