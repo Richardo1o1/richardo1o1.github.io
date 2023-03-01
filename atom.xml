@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-02-28T15:11:43.034Z</updated>
+  <updated>2023-03-01T15:01:15.738Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何做好需求评审？</title>
+    <link href="http://yunminitools.cn/2023/03/01/How-to-Requirements-Review/"/>
+    <id>http://yunminitools.cn/2023/03/01/How-to-Requirements-Review/</id>
+    <published>2023-03-01T15:00:41.000Z</published>
+    <updated>2023-03-01T15:01:15.738Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;作为一个产品经理，准备需求评审是产品设计开发的一个重要环节。那么如何做好需求评审呢？&lt;/p&gt;
+&lt;h2 id=&quot;一、原型准备阶段&quot;&gt;&lt;strong&gt;一、原型准备阶段&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;1-需求细节尽量描述详细&quot;&gt;(1) 需求细节尽量描述详细&lt;/h3&gt;
+&lt;p&gt;详细即逻辑清晰、无遗漏、页面整洁、表达清晰等。最好能做到不清楚需求的人，通过文档也能理解要完成的任务。&lt;/p&gt;
+&lt;h3 id=&quot;2-对以前有的功能的修改要说明功能差异&quot;&gt;(2) 对以前有的功能的修改要说明功能差异&lt;/h3&gt;
+&lt;p&gt;如果是该功能迭代优化，那涉及其相关的需求要在会上说明：原先功能整套流程是怎么样的，现在针对哪个环节进行升级迭代。&lt;/p&gt;
+&lt;h3 id=&quot;3-设计功能或者逻辑一定要有根据有思考&quot;&gt;(3) 设计功能或者逻辑一定要有根据有思考&lt;/h3&gt;
+&lt;p&gt;记住我们设计的每个功能都要有理有据，不能想当然，不能做需求的搬运工。&lt;/p&gt;
+&lt;h3 id=&quot;4-设计过程中遇到技术难点、技术知识盲区，一定要和技术去沟通&quot;&gt;(4) 设计过程中遇到技术难点、技术知识盲区，一定要和技术去沟通&lt;/h3&gt;
+&lt;p&gt;当你遇到把握不准自家技术能不能实现自己功能，可以找到技术负责人把自己的想法提前说给他听，提前一起讨论实现过程，或许让他们评估且及时制定方案。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="投资管理" scheme="http://yunminitools.cn/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>什么是网络效应？</title>
@@ -565,35 +593,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     
     
     <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Midjourney 提示词(prompt)分析（1）</title>
-    <link href="http://yunminitools.cn/2023/02/16/Midjourney-prompt-1/"/>
-    <id>http://yunminitools.cn/2023/02/16/Midjourney-prompt-1/</id>
-    <published>2023-02-16T14:53:01.000Z</published>
-    <updated>2023-02-16T15:02:21.745Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;画好一个AI画，从分析一个成功的图片提示词(prompt), 今天看到一个还不错的图片:&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/Midjourney0216-1.png&quot; alt=&quot;AI画图1&quot;&gt;&lt;br&gt;
-提示词(prompt)：&lt;br&gt;
-A hypsolebias fish jumping out of a pond, trying to catch a bug in the air. The pond is surrounded by tall grass and a few trees, with the sun setting in the background. The fish is caught mid-jump, with its mouth wide open and eyes focused on the bug. The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth. --ar 16:9 --niji&lt;/p&gt;
-&lt;h2 id=&quot;分析&quot;&gt;分析&lt;/h2&gt;
-&lt;p&gt;翻译和归类：&lt;br&gt;
-一条 Hypsolebias鱼（画面主体） 跳出池塘（主体动作），试图在空中捉住一只虫子（主体动作），池塘周围是高高的草丛和几棵树（环境描写），夕阳在背景中落下（环境描写），这只鱼在跳跃时被捕捉到（细节描写），嘴巴张得很大（细节描写），眼睛专注于虫子（细节描写），整幅画的氛围是欢快和平静的（氛围描写），卡通风格绘制的数字艺术作品（艺术风格），使用温暖和柔和的色彩来唤起日落的温暖感（光线描写）&lt;/p&gt;
-&lt;p&gt;可以看到，一个好的提升词还是有规律可循的。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-    <category term="绘画" scheme="http://yunminitools.cn/tags/%E7%BB%98%E7%94%BB/"/>
     
   </entry>
   
