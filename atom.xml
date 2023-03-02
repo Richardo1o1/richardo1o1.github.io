@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-01T15:01:15.738Z</updated>
+  <updated>2023-03-02T15:45:05.045Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何做可用性测试？-1</title>
+    <link href="http://yunminitools.cn/2023/03/02/How-to-do-usability-test-1/"/>
+    <id>http://yunminitools.cn/2023/03/02/How-to-do-usability-test-1/</id>
+    <published>2023-03-02T15:44:35.000Z</published>
+    <updated>2023-03-02T15:45:05.045Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;什么是可用性？&quot;&gt;&lt;strong&gt;&lt;strong&gt;什么是可用性？&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;一个产品可以被特定的用户在特定的场景中，有效、高效并且满意得达成特定目标的程度。&lt;br&gt;
+包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;可学习性&lt;/strong&gt;：初次接触这个设计时，用户完成基本任务的难易程度？&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效率&lt;/strong&gt;：用户了解了设计之后，能多快地完成任务？&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可记忆性&lt;/strong&gt;：当用户一段时间没有使用产品后，是否能轻松地恢复到之前的熟练程度？&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;错误&lt;/strong&gt;：用户犯了多少错误，错误严重程度如何？用户能否从错误中轻易地复原？&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;满意度&lt;/strong&gt;：用户对产品的主观满意度，这个设计让用户感觉如何？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;什么是可用性测试？&quot;&gt;&lt;strong&gt;&lt;strong&gt;什么是可用性测试？&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;可用性测试就是通过观察用户使用产品完成典型任务，发现产品中存在的效率与满意度相关问题的方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="投资管理" scheme="http://yunminitools.cn/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>如何做好需求评审？</title>
@@ -566,33 +596,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 4</title>
-    <link href="http://yunminitools.cn/2023/02/17/The-Six-Counterintuitive-Rules-4/"/>
-    <id>http://yunminitools.cn/2023/02/17/The-Six-Counterintuitive-Rules-4/</id>
-    <published>2023-02-17T15:38:23.000Z</published>
-    <updated>2023-02-17T15:38:52.250Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;RULE-4-SPEND-MORE-TIME-THAN-YOU-THINK-YOU-NEED-TO-WITH-YOUR-HIGH-PERFORMERS&quot;&gt;RULE #4: SPEND MORE TIME THAN YOU THINK YOU NEED TO</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
-    
-    
-    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
