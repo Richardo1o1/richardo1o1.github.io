@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-02T15:45:05.045Z</updated>
+  <updated>2023-03-03T15:07:04.330Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>创新型垄断企业的特点</title>
+    <link href="http://yunminitools.cn/2023/03/03/Creative-Monopolies/"/>
+    <id>http://yunminitools.cn/2023/03/03/Creative-Monopolies/</id>
+    <published>2023-03-03T15:06:08.000Z</published>
+    <updated>2023-03-03T15:07:04.330Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;创新型垄断的特点是什么呢？&quot;&gt;创新型垄断的特点是什么呢？&lt;/h2&gt;
+&lt;p&gt;在 Peter Thiel &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="投资管理" scheme="http://yunminitools.cn/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>如何做可用性测试？-1</title>
@@ -571,31 +597,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     
     
     <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>有了这个网站，Linux命令就不需要到处搜索了</title>
-    <link href="http://yunminitools.cn/2023/02/17/Linux-Command-1/"/>
-    <id>http://yunminitools.cn/2023/02/17/Linux-Command-1/</id>
-    <published>2023-02-17T15:48:23.000Z</published>
-    <updated>2023-02-17T16:01:52.778Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;与服务器打交道，免不了和Linux命令打交道，虽然常用的都会，但遇上一些特殊情况，就需要查手册，在系统里查太麻烦，网上搜索效率比较低，今天看到一个&lt;a href=&quot;https://github.com/jaywcjlove/linux-command&quot;&gt;github项目&lt;/a&gt;解决了这个问题，分享纪录一下。&lt;/p&gt;
-&lt;h2 id=&quot;演示&quot;&gt;演示&lt;/h2&gt;
-&lt;p&gt;可以用短地址：&lt;a href=&quot;https://git.io/linux&quot;&gt;https://git.io/linux&lt;/a&gt; 访问网站：&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/Linux0217-1.png&quot; alt=&quot;演示1&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
-    
-    
-    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
