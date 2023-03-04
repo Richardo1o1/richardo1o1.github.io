@@ -100,6 +100,73 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-User-Profile-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/04/User-Profile-1/"
+    >如何搭建用户画像？</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/04/User-Profile-1/" class="article-date">
+  <time datetime="2023-03-04T15:24:10.000Z" itemprop="datePublished">2023-03-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="什么是用户画像？">什么是用户画像？</h2>
+<p>用户画像系统是一个以用户为分析对象，通过各种方法将用户信息进行展示，提供给分析人员全面、准确并具有指导意义的信息，从而优化运营的策略，提高服务效率，最终提高用户满意度。<br>
+画像系统最为核心的三个能力，分别是：</p>
+<ul>
+<li><strong>信息的加工生产能力</strong></li>
+<li><strong>信息的分析展示能力</strong></li>
+<li><strong>信息的传递能力</strong></li>
+</ul>
+<h2 id="如何搭建画像系统？"><strong><strong>如何搭建画像系统？</strong></strong></h2>
+<h3 id="内容产生">内容产生</h3>
+<p>通过埋点及与业务系统数据集成的方式，我们需要将用户在产品中的行为进行记录上报。尽可能准确、全面的采集核心链路的数据。</p> 
+      <a class="article-more-link" href="/2023/03/04/User-Profile-1/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" rel="tag">用户画像</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Creative-Monopolies"
   class="article article-type-post"
   itemscope
@@ -768,73 +835,13 @@ Jurgen Appelo, author of books such as “How to Change the World” and <a targ
 </article>
 
     
-    <article
-  id="post-Hexo-Mermaid-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/23/Hexo-Mermaid-2/"
-    >解决ayer主题下Mermaid图表背景太暗的问题</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/23/Hexo-Mermaid-2/" class="article-date">
-  <time datetime="2023-02-23T05:51:42.000Z" itemprop="datePublished">2023-02-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
-清缓存，重新发布，搞定。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Theme-ayer/" rel="tag">Theme_ayer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>

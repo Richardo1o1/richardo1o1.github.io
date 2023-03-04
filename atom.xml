@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-03T15:07:04.330Z</updated>
+  <updated>2023-03-04T15:25:24.314Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何搭建用户画像？</title>
+    <link href="http://yunminitools.cn/2023/03/04/User-Profile-1/"/>
+    <id>http://yunminitools.cn/2023/03/04/User-Profile-1/</id>
+    <published>2023-03-04T15:24:10.000Z</published>
+    <updated>2023-03-04T15:25:24.314Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;什么是用户画像？&quot;&gt;什么是用户画像？&lt;/h2&gt;
+&lt;p&gt;用户画像系统是一个以用户为分析对象，通过各种方法将用户信息进行展示，提供给分析人员全面、准确并具有指导意义的信息，从而优化运营的策略，提高服务效率，最终提高用户满意度。&lt;br&gt;
+画像系统最为核心的三个能力，分别是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;信息的加工生产能力&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信息的分析展示能力&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信息的传递能力&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;如何搭建画像系统？&quot;&gt;&lt;strong&gt;&lt;strong&gt;如何搭建画像系统？&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;内容产生&quot;&gt;内容产生&lt;/h3&gt;
+&lt;p&gt;通过埋点及与业务系统数据集成的方式，我们需要将用户在产品中的行为进行记录上报。尽可能准确、全面的采集核心链路的数据。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="用户画像" scheme="http://yunminitools.cn/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>创新型垄断企业的特点</title>
@@ -570,33 +599,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     
     
     <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 5</title>
-    <link href="http://yunminitools.cn/2023/02/18/The-Six-Counterintuitive-Rules-5/"/>
-    <id>http://yunminitools.cn/2023/02/18/The-Six-Counterintuitive-Rules-5/</id>
-    <published>2023-02-18T08:02:06.000Z</published>
-    <updated>2023-02-18T08:02:38.269Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;RULE-5-SET-EXPECTATIONS-BUT-KNOW-THAT-YOU’RE-NOT-ALWAYS-THE-ONE-WHO-NEEDS-TO-BRING-THE-CLARITY&quot;&gt;RULE #5: SET EXPECTATIONS, BUT KNOW</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
-    
-    
-    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
