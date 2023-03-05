@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-05T12:33:18.901Z</updated>
+  <updated>2023-03-05T12:35:19.313Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yunminitools.cn/2023/03/05/User-Profile-2/"/>
     <id>http://yunminitools.cn/2023/03/05/User-Profile-2/</id>
     <published>2023-03-05T12:32:50.000Z</published>
-    <updated>2023-03-05T12:33:18.901Z</updated>
+    <updated>2023-03-05T12:35:19.313Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;SIKT模型原理&quot;&gt;&lt;strong&gt;&lt;strong&gt;SIKT模型原理&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
@@ -67,7 +67,7 @@
 &lt;h2 id=&quot;如何进行关键行动&quot;&gt;如何进行关键行动&lt;/h2&gt;
 &lt;p&gt;可以从以下行动入手：&lt;/p&gt;
 &lt;pre class=&quot;mermaid&quot;&gt;graph LR
-A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D--&gt;E&lt;/pre&gt;</summary>
+A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--&gt;E(复盘效果)&lt;/pre&gt;</summary>
     
     
     
