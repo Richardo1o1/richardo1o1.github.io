@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-04T15:25:24.314Z</updated>
+  <updated>2023-03-05T12:33:18.901Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SIKT模型构建的用户画像</title>
+    <link href="http://yunminitools.cn/2023/03/05/User-Profile-2/"/>
+    <id>http://yunminitools.cn/2023/03/05/User-Profile-2/</id>
+    <published>2023-03-05T12:32:50.000Z</published>
+    <updated>2023-03-05T12:33:18.901Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;SIKT模型原理&quot;&gt;&lt;strong&gt;&lt;strong&gt;SIKT模型原理&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;SIKT模型是一套梳理标签的方法。标签是用户画像的基础，是构建画像体系的砖石。想让用户画像系统有用，标签本身得是有价值的。这就要求，在做标签的时候，不能凭着数据人员的直觉，像说贯口一样把“性别、年龄”胡乱怼进系统，而是从业务场景出发，层层递进。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;模型&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;角色&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Scene 场景&lt;/td&gt;
+&lt;td&gt;具体的业务场景&lt;/td&gt;
+&lt;td&gt;业务主导&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Index 指标&lt;/td&gt;
+&lt;td&gt;该场景要达成的目标&lt;/td&gt;
+&lt;td&gt;业务主导&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Key Behavior 关键行为&lt;/td&gt;
+&lt;td&gt;达成目标要做的行动&lt;/td&gt;
+&lt;td&gt;业务主导&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Tag 标签&lt;/td&gt;
+&lt;td&gt;为了提升效率所需标签&lt;/td&gt;
+&lt;td&gt;数据主导&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;步骤&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;梳理业务场景。使用方先思考：我要解决什么问题？&lt;/li&gt;
+&lt;li&gt;梳理关键指标。使用方再思考：用什么指标衡量问题解决？&lt;/li&gt;
+&lt;li&gt;梳理关键行动。使用方再思考：我做什么事能解决问题？&lt;/li&gt;
+&lt;li&gt;筛选有用标签。数据协助思考：用什么标签能提升行动效率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;如何进行关键行动&quot;&gt;如何进行关键行动&lt;/h2&gt;
+&lt;p&gt;可以从以下行动入手：&lt;/p&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;graph LR
+A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D--&gt;E&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="用户画像" scheme="http://yunminitools.cn/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>如何搭建用户画像？</title>
@@ -573,32 +635,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     
     
     <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub Pages 强制使用HTTPS协议访问</title>
-    <link href="http://yunminitools.cn/2023/02/18/Add-Https-1/"/>
-    <id>http://yunminitools.cn/2023/02/18/Add-Https-1/</id>
-    <published>2023-02-18T08:32:25.000Z</published>
-    <updated>2023-02-18T14:13:07.385Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;在上一篇文章《&lt;a href=&quot;https://www.yunminitools.cn/2023/02/12/Add-Https/&quot;&gt;实现自定义域名Github</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   

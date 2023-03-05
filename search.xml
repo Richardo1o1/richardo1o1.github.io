@@ -1317,6 +1317,77 @@ B3-->B32(目标倒推:智能预测)</pre>
       </tags>
   </entry>
   <entry>
+    <title>SIKT模型构建的用户画像</title>
+    <url>/2023/03/05/User-Profile-2/</url>
+    <content><![CDATA[<h2 id="SIKT模型原理"><strong><strong>SIKT模型原理</strong></strong></h2>
+<p>SIKT模型是一套梳理标签的方法。标签是用户画像的基础，是构建画像体系的砖石。想让用户画像系统有用，标签本身得是有价值的。这就要求，在做标签的时候，不能凭着数据人员的直觉，像说贯口一样把“性别、年龄”胡乱怼进系统，而是从业务场景出发，层层递进。</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>说明</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scene 场景</td>
+<td>具体的业务场景</td>
+<td>业务主导</td>
+</tr>
+<tr>
+<td>Index 指标</td>
+<td>该场景要达成的目标</td>
+<td>业务主导</td>
+</tr>
+<tr>
+<td>Key Behavior 关键行为</td>
+<td>达成目标要做的行动</td>
+<td>业务主导</td>
+</tr>
+<tr>
+<td>Tag 标签</td>
+<td>为了提升效率所需标签</td>
+<td>数据主导</td>
+</tr>
+</tbody>
+</table>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>梳理业务场景。使用方先思考：我要解决什么问题？</li>
+<li>梳理关键指标。使用方再思考：用什么指标衡量问题解决？</li>
+<li>梳理关键行动。使用方再思考：我做什么事能解决问题？</li>
+<li>筛选有用标签。数据协助思考：用什么标签能提升行动效率。</li>
+</ol>
+<h2 id="如何进行关键行动">如何进行关键行动</h2>
+<p>可以从以下行动入手：</p>
+<pre class="mermaid">graph LR
+A(认知现状)-->B(制定策略)-->C(选择方法)-->D-->E</pre>
+<span id="more"></span>
+<h3 id="认知现状">认知现状</h3>
+<p>目前状态如何？是否有众多子类需要分别观察？<br>
+如果有，可以通过标签来进行分类。</p>
+<h3 id="制定策略">制定策略</h3>
+<p>是否需要做分群/差异化策略？<br>
+如果需要，可以通过标签细分群体。</p>
+<h3 id="选择方法">选择方法</h3>
+<p>是否有多种方法？每种方法是否有差异化效果？<br>
+如果有，可以通过标签筛选方案。</p>
+<h3 id="监控执行">监控执行</h3>
+<p>每个子类/方法效果如何？<br>
+通过标签监控进度。</p>
+<h3 id="复盘效果">复盘效果</h3>
+<p>是否达成最初预期<br>
+复盘标签分类是否达成效果</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>用户画像</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用ChatGPT来学习英文(1)</title>
     <url>/2023/02/05/Using-ChatGPT-English-Learning-1/</url>
     <content><![CDATA[<h2 id="来源">来源</h2>
