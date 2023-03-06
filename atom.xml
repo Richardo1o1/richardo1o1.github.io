@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-05T12:35:19.313Z</updated>
+  <updated>2023-03-06T15:58:55.693Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>反思：那些你不该做的事情</title>
+    <link href="http://yunminitools.cn/2023/03/06/Things-you-should-never-do-1/"/>
+    <id>http://yunminitools.cn/2023/03/06/Things-you-should-never-do-1/</id>
+    <published>2023-03-06T15:58:15.000Z</published>
+    <updated>2023-03-06T15:58:55.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近在重新看 &lt;strong&gt;Joel on Software&lt;/strong&gt; 的blog，时隔二十年，很多错误还在重复发生，很有感触，比如&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="复盘反思" scheme="http://yunminitools.cn/tags/%E5%A4%8D%E7%9B%98%E5%8F%8D%E6%80%9D/"/>
+    
+  </entry>
   
   <entry>
     <title>SIKT模型构建的用户画像</title>
@@ -168,7 +193,7 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     <link href="http://yunminitools.cn/2023/03/01/How-to-Requirements-Review/"/>
     <id>http://yunminitools.cn/2023/03/01/How-to-Requirements-Review/</id>
     <published>2023-03-01T15:00:41.000Z</published>
-    <updated>2023-03-01T15:01:15.738Z</updated>
+    <updated>2023-03-05T12:54:54.949Z</updated>
     
     
     <summary type="html">&lt;p&gt;作为一个产品经理，准备需求评审是产品设计开发的一个重要环节。那么如何做好需求评审呢？&lt;/p&gt;
@@ -187,7 +212,7 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
     
     
-    <category term="投资管理" scheme="http://yunminitools.cn/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/"/>
+    <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
@@ -597,33 +622,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
 &lt;p&gt;The Six Counterintuitive Rules:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
-    
-    
-    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - 6</title>
-    <link href="http://yunminitools.cn/2023/02/19/The-Six-Counterintuitive-Rules-6/"/>
-    <id>http://yunminitools.cn/2023/02/19/The-Six-Counterintuitive-Rules-6/</id>
-    <published>2023-02-19T03:07:48.000Z</published>
-    <updated>2023-02-19T03:08:36.612Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;RULE-6-DIRECT-IS-KIND-HAVE-THE-HARD-CONVERSATION-—-EARLIER-THAN-YOU-THINK-YOU-NEED-TO&quot;&gt;RULE #6: DIRECT IS KIND. HAVE THE HARD</summary>
         
       
     
