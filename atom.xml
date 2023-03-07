@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-06T15:58:55.693Z</updated>
+  <updated>2023-03-07T15:26:13.205Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>业务数据治理实施流程-1</title>
+    <link href="http://yunminitools.cn/2023/03/07/business-data-governance-1/"/>
+    <id>http://yunminitools.cn/2023/03/07/business-data-governance-1/</id>
+    <published>2023-03-07T15:23:54.000Z</published>
+    <updated>2023-03-07T15:26:13.205Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;数据治理实施流程，是我们依据业务数据治理标准化框架在实施解决具体数据问题时，总结抽象出来的一套适用于大多数治理场景解决问题的通用标准流程。标准流程的好处在于更加规范化数据治理工程师的操作流程，来保证实施的质量。流程一共包含5个步骤：&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>反思：那些你不该做的事情</title>
@@ -603,36 +629,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
     <category term="CSS" scheme="http://yunminitools.cn/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reflections on &#39;The Six Counterintuitive Rules&#39; - Summary</title>
-    <link href="http://yunminitools.cn/2023/02/19/The-Six-Counterintuitive-Rules-Summary/"/>
-    <id>http://yunminitools.cn/2023/02/19/The-Six-Counterintuitive-Rules-Summary/</id>
-    <published>2023-02-19T03:31:14.000Z</published>
-    <updated>2023-02-19T03:32:20.052Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Summary&quot;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;The Six Counterintuitive Rules:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
-    
-    
-    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
