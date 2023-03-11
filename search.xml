@@ -1889,4 +1889,26 @@ end</pre>
         <tag>用户调研</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo-plantuml-1</title>
+    <url>/2023/03/11/Hexo-plantuml-1/</url>
+    <content><![CDATA[<p>Hexo 静态 blog 支持 markdown 绘制 plantuml。</p>
+<h2 id="安装步骤">安装步骤</h2>
+<ul>
+<li>进入hexo 目录</li>
+<li>安装 <code>npm install --save hexo-tag-plantuml</code></li>
+</ul>
+<h2 id="使用示例">使用示例</h2>
+<p>简单时序图：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% plantuml %&#125;</span><br><span class="line">Alice -&gt; &quot;Bob()&quot; : Hello</span><br><span class="line">&quot;Bob()&quot; -&gt; &quot;This is very\nlong&quot; as Long</span><br><span class="line">&#x27; You can also declare:</span><br><span class="line">&#x27; &quot;Bob()&quot; -&gt; Long as &quot;This is very\nlong&quot;</span><br><span class="line">Long --&gt; &quot;Bob()&quot; : ok</span><br><span class="line">&#123;% endplantuml %&#125;</span><br></pre></td></tr></table></figure>
+<p>实现效果：</p>
+<img  src=http://www.plantuml.com/plantuml/svg/Syp9J4vLqBLJK7BAJzBGL5AmKl18pSd9vuBnGL8X6Pd52a1KbbfK6PENav-NhgIGMApW0sHmgIj4vfSg92VcAIJc5EShfAGcvoGMfLe1nP5C0Aa4wS1c4XTOKXV52VdP0000>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+      </tags>
+  </entry>
 </search>

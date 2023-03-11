@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-09T03:32:06.588Z</updated>
+  <updated>2023-03-11T08:57:37.069Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo-plantuml-1</title>
+    <link href="http://yunminitools.cn/2023/03/11/Hexo-plantuml-1/"/>
+    <id>http://yunminitools.cn/2023/03/11/Hexo-plantuml-1/</id>
+    <published>2023-03-11T08:54:13.000Z</published>
+    <updated>2023-03-11T08:57:37.069Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Hexo 静态 blog 支持 markdown 绘制 plantuml。&lt;/p&gt;
+&lt;h2 id=&quot;安装步骤&quot;&gt;安装步骤&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;进入hexo 目录&lt;/li&gt;
+&lt;li&gt;安装 &lt;code&gt;npm install --save</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>事实表设计注意事项</title>
@@ -602,32 +631,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     <category term="Mermaid" scheme="http://yunminitools.cn/tags/Mermaid/"/>
     
     <category term="Theme_ayer" scheme="http://yunminitools.cn/tags/Theme-ayer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简单而后容易</title>
-    <link href="http://yunminitools.cn/2023/02/21/Simple-made-easy/"/>
-    <id>http://yunminitools.cn/2023/02/21/Simple-made-easy/</id>
-    <published>2023-02-21T15:47:13.000Z</published>
-    <updated>2023-02-21T15:47:40.098Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;读到&lt;a href=&quot;https://paulrcook.com/blog/simple-made-easy&quot;&gt;这篇文章&lt;/a&gt;，介绍我们如何处理复杂性，其中几个观点都挺有意思，我记录一下。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="知识管理" scheme="http://yunminitools.cn/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
