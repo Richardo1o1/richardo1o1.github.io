@@ -1890,7 +1890,7 @@ end</pre>
       </tags>
   </entry>
   <entry>
-    <title>Hexo-plantuml-1</title>
+    <title>Hexo博客安装PlantUML</title>
     <url>/2023/03/11/Hexo-plantuml-1/</url>
     <content><![CDATA[<p>Hexo 静态 blog 支持 markdown 绘制 plantuml。</p>
 <h2 id="安装步骤">安装步骤</h2>
