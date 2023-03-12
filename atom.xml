@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-11T08:59:29.361Z</updated>
+  <updated>2023-03-12T09:23:47.396Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于需求分析和客户沟通</title>
+    <link href="http://yunminitools.cn/2023/03/12/The-iceberg-secret-revealed/"/>
+    <id>http://yunminitools.cn/2023/03/12/The-iceberg-secret-revealed/</id>
+    <published>2023-03-12T09:23:18.000Z</published>
+    <updated>2023-03-12T09:23:47.396Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;关于需求分析和工期预估一直是老大难问题，Joel 的&lt;a href=&quot;https://www.joelonsoftware.com/2002/02/13/the-iceberg-secret-revealed/&quot;&gt;这篇文章&lt;/a&gt;谈到了这个问题，我挑一些记录下来。&lt;/p&gt;
+&lt;h2 id=&quot;客户不知道他们想要什么是问题吗？&quot;&gt;客户不知道他们想要什么是问题吗？&lt;/h2&gt;
+&lt;p&gt;通常，在定制项目中，最常见的超支、失败和悲剧的原因总是归结为，基本上，&amp;quot;客户不知道他们想要什么？”&lt;br&gt;
+事实上，有一件事是每个初级BA都需要在开展工作前要知道的，那就是：&lt;strong&gt;客户其实不知道他们想要什么&lt;/strong&gt;。不要再期望客户知道他们想要什么。这是不可能发生的。忘掉它吧。&lt;br&gt;
+相反，你要假设你将不得不制造一些东西，而客户将不得不喜欢它，但他们将有一点惊喜。你必须做研究，想出一个设计，以一种愉悦的方式解决客户的问题。&lt;br&gt;
+设身处地为客户想想。想象一下，你决定装修你的厨房，因此，你聘请了一位专业的设计师，指示要把它弄得高大上一些。你不知道如何完成这个任务，你不知道那些事厨房中必须要装的，哪些事提升体验的，这些都不是你擅长的，你想让设计师帮你完成这个事情，这就是你雇用他的原因。&lt;br&gt;
+有一种办法是让客户进入房间，让他们作为开发团队的成员参与到设计过程的每一步。我认为，这有点太 &amp;quot;极端 &amp;quot;了。这就好像我的设计师在设计厨房时让我出现，并要求我对每一个小细节提供意见。这对我来说很无聊，我会觉得这个设计师对我毫无价值。&lt;br&gt;
+假设你的客户不知道他们想要什么。根据你对这个领域的理解，你自己设计它。如果你需要花一些时间来学习这个领域，或者你需要一个领域专家来帮助你，这很好，但软件的设计是你的工作。如果你做了领域方面的功课并创造了一个好的用户界面，客户会很高兴。&lt;/p&gt;
+&lt;h2 id=&quot;冰山理论&quot;&gt;冰山理论&lt;/h2&gt;
+&lt;p&gt;现在，我答应告诉你一个关于在你的软件的客户（或非技术经理）的语言和程序员的语言之间进行翻译的秘密。&lt;br&gt;
+你知道一座冰山有90%在水下吗？那么，大多数软件也是这样的–有一个漂亮的用户界面，需要大约10%的工作，然后90%的编程工作是在盖子下面。如果你考虑到你大约一半的时间是用来修复bug的，那么用户界面只占5%的工作。如果你把自己限制在用户界面的视觉部分，即像素，也就是你在PowerPoint中看到的东西，现在我们说的是不到1%。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="需求分析" scheme="http://yunminitools.cn/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客安装PlantUML</title>
@@ -596,41 +626,6 @@ B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
     <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="沟通技巧" scheme="http://yunminitools.cn/tags/%E6%B2%9F%E9%80%9A%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Hexo中插入Mermaid图表</title>
-    <link href="http://yunminitools.cn/2023/02/22/Hexo-Mermaid-1/"/>
-    <id>http://yunminitools.cn/2023/02/22/Hexo-Mermaid-1/</id>
-    <published>2023-02-22T09:15:34.000Z</published>
-    <updated>2023-02-23T05:43:19.741Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Mermaid是什么？&quot;&gt;Mermaid是什么？&lt;/h2&gt;
-&lt;p&gt;Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。&lt;/p&gt;
-&lt;p&gt;Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。&lt;/p&gt;
-&lt;p&gt;Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。&lt;/p&gt;
-&lt;h2 id=&quot;如何在Hexo中插入Mermaid图表&quot;&gt;如何在Hexo中插入Mermaid图表&lt;/h2&gt;
-&lt;h3 id=&quot;安装Mermaid插件&quot;&gt;安装Mermaid插件&lt;/h3&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-filter-mermaid-diagrams&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;修改配置文件&quot;&gt;修改配置文件&lt;/h3&gt;
-&lt;p&gt;在hexo的&lt;code&gt;_config.yml&lt;/code&gt;文件（根目录的并非主题的）中，添加以下内容：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# mermaid chart&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mermaid: ## mermaid url https://github.com/knsv/mermaid&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  enable: true  # default true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  version: &amp;quot;7.1.2&amp;quot; # default v7.1.2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    #startOnload: true  // default true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;修改主题&quot;&gt;修改主题&lt;/h3&gt;
-&lt;p&gt;根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录&lt;code&gt;themes/ayer&lt;/code&gt;下的&lt;code&gt;_config.yml&lt;/code&gt;文件，将Enable选项改为&lt;strong&gt;true&lt;/strong&gt;即可：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mermaid:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  enable: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  theme: forest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="Mermaid" scheme="http://yunminitools.cn/tags/Mermaid/"/>
-    
-    <category term="Theme_ayer" scheme="http://yunminitools.cn/tags/Theme-ayer/"/>
     
   </entry>
   
