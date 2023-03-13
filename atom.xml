@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-12T09:23:47.396Z</updated>
+  <updated>2023-03-13T08:12:25.819Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>维度表设计注意事项</title>
+    <link href="http://yunminitools.cn/2023/03/13/Dimension-Table-Design-1/"/>
+    <id>http://yunminitools.cn/2023/03/13/Dimension-Table-Design-1/</id>
+    <published>2023-03-13T08:08:23.000Z</published>
+    <updated>2023-03-13T08:12:25.819Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-、什么是维度表？&quot;&gt;1****、什么是维度表？****&lt;/h2&gt;
+&lt;p&gt;维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ，</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>关于需求分析和客户沟通</title>
@@ -578,54 +604,6 @@ D--&gt;A&lt;/pre&gt;
     
     
     <category term="知识管理" scheme="http://yunminitools.cn/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>To Be More Confident</title>
-    <link href="http://yunminitools.cn/2023/02/22/To-Be-More-Confident/"/>
-    <id>http://yunminitools.cn/2023/02/22/To-Be-More-Confident/</id>
-    <published>2023-02-22T15:35:35.000Z</published>
-    <updated>2023-02-22T15:36:20.342Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;Background&lt;/h2&gt;
-&lt;p&gt;When I was listening to the “English with Lucy” channel on YouTube, I heard an episode about boosting self-confidence, which was very inspiring. I tried to use a mind map to record the main points.&lt;/p&gt;
-&lt;h2 id=&quot;Mind-Map&quot;&gt;Mind Map&lt;/h2&gt;
-&lt;pre class=&quot;mermaid&quot;&gt;graph LR
-A(To Be More Confident)--&gt;B1(At parties)
-A--&gt;B2(On dates)
-A--&gt;B3(In persentations)
-A--&gt;B4(In job interviews)
-A--&gt;B5(On the telephon)
-B1--&gt;C11(Stay relaxed, relax your shoulders, centre your voice)
-B1--&gt;C12(Imagine everybody he meets is an old friend)
-B1--&gt;C13(I&#39;ve only got to be there for five minutes)
-B2--&gt;C21(Think I&#39;m beautiful, someone loves me, I have a secret)
-B2--&gt;C22(Keep yourself positive and only thinking about all the positive parts)
-B2--&gt;C23(Ask questions and show you&#39;re engaged)
-B3--&gt;C31(Practise twice with voice notes)
-B3--&gt;C32(Get the body relaxed and prepared)
-B3--&gt;C33(See the audience as old friends)
-B4--&gt;C41(Get yourself nice and calm and centred)
-B4--&gt;C42(Remember to breathe)
-B4--&gt;C43(Say it in ordered manner)
-B5--&gt;C51(Picture them sitting on the sofa)
-B5--&gt;C52(Punch the words as you&#39;re talking)
-B5--&gt;C53(Stand up)&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
-    
-    
-    <category term="Mermaid" scheme="http://yunminitools.cn/tags/Mermaid/"/>
-    
-    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="沟通技巧" scheme="http://yunminitools.cn/tags/%E6%B2%9F%E9%80%9A%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
