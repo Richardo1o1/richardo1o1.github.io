@@ -2104,4 +2104,81 @@ end</pre>
         <tag>数据管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>什么是维度退化</title>
+    <url>/2023/03/14/Degenerate-Dimension/</url>
+    <content><![CDATA[<h1>概念：</h1>
+<p>维度退化（Degenerate-Dimension,DD）：将维度退化到事实表中，减少事实表和维度表的关联，在维度建模的数据仓库中，有一种维度叫Degenerate Dimension，中文一般翻译为“退化维度”。这种退化维度一般都是事务的编号，如订单编号、发票编号等。这类编号需要保存到事实表中，但是不需要对应的维度表，所以称为退化维度。</p>
+<h2 id="特点-举例：">特点/举例：</h2>
+<p>退化维度是维度建模领域中的一个非常重要的概念，它对理解维度建模有着非常重要的作用，尤其是对维度建模的入门者。</p>
+<p><strong>特点：</strong></p>
+<ol>
+<li>没有对应的维度表的维度。</li>
+<li>存储在事实表中</li>
+</ol>
+<span id="more"></span>
+<p>退化维度经常会和其他一些维度一起组合成事实表的主键。在Kimball提出的维度建模中，事实表应该保存最细粒度的数据。所以对于象销售单这样的事实表来说，需要销售单编号和产品来共同作为主键，而不能用销售日期、商场、产品等用来分析的维度共同作为主键。</p>
+<p>退化维度在分析中可以用来做分组使用。它可以将同一个事务中销售的产品集中在一起。因为事实表主键的成员一般都是维度值所组成,但退化维度虽然也属于主键值,但没有单独的维度表,所以叫退化维度。</p>
+<p><strong>例子：</strong><br>
+维度退化是指对于简单的维度来说，不创建自己的维表，例如，下面的事实表：</p>
+<table>
+<thead>
+<tr>
+<th>product_id</th>
+<th>time_id</th>
+<th>payment_method</th>
+<th>customer_id</th>
+<th>store_id</th>
+<th>item_count</th>
+<th>dollars</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>55</td>
+<td>20040106</td>
+<td>Credit</td>
+<td>123</td>
+<td>22</td>
+<td>3</td>
+<td>$3.54</td>
+</tr>
+<tr>
+<td>78</td>
+<td>20040106</td>
+<td>Cash</td>
+<td>89</td>
+<td>22</td>
+<td>1</td>
+<td>$20.00</td>
+</tr>
+<tr>
+<td>199</td>
+<td>20040107</td>
+<td>ATM</td>
+<td>3</td>
+<td>22</td>
+<td>2</td>
+<td>$2.99</td>
+</tr>
+<tr>
+<td>55</td>
+<td>20040106</td>
+<td>Cash</td>
+<td>122</td>
+<td>22</td>
+<td>1</td>
+<td>$1.18</td>
+</tr>
+</tbody>
+</table>
+<p>对于其中的维度支付方式，假设我们创建了一个维表，这个维表几乎是没有意义的。如果单独增加了这样一个维表，那么可能会导致一定的连接成本。</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>数据管理</tag>
+      </tags>
+  </entry>
 </search>

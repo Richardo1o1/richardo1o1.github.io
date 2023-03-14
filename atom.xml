@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-13T08:16:53.263Z</updated>
+  <updated>2023-03-14T02:08:01.022Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>什么是维度退化</title>
+    <link href="http://yunminitools.cn/2023/03/14/Degenerate-Dimension/"/>
+    <id>http://yunminitools.cn/2023/03/14/Degenerate-Dimension/</id>
+    <published>2023-03-14T01:46:41.000Z</published>
+    <updated>2023-03-14T02:08:01.022Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;概念：&lt;/h1&gt;
+&lt;p&gt;维度退化（Degenerate-Dimension,DD）：将维度退化到事实表中，减少事实表和维度表的关联，在维度建模的数据仓库中，有一种维度叫Degenerate Dimension，中文一般翻译为“退化维度”。这种退化维度一般都是事务的编号，如订单编号、发票编号等。这类编号需要保存到事实表中，但是不需要对应的维度表，所以称为退化维度。&lt;/p&gt;
+&lt;h2 id=&quot;特点-举例：&quot;&gt;特点/举例：&lt;/h2&gt;
+&lt;p&gt;退化维度是维度建模领域中的一个非常重要的概念，它对理解维度建模有着非常重要的作用，尤其是对维度建模的入门者。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;没有对应的维度表的维度。&lt;/li&gt;
+&lt;li&gt;存储在事实表中&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>维度表设计注意事项</title>
@@ -576,34 +603,6 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
     <category term="Theme_ayer" scheme="http://yunminitools.cn/tags/Theme-ayer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>知识管理之收集灵感</title>
-    <link href="http://yunminitools.cn/2023/02/23/KM-gather-ideas/"/>
-    <id>http://yunminitools.cn/2023/02/23/KM-gather-ideas/</id>
-    <published>2023-02-23T01:28:18.000Z</published>
-    <updated>2023-02-23T01:38:25.390Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;来源&quot;&gt;来源&lt;/h2&gt;
-&lt;p&gt;来自于小报童的&lt;a href=&quot;https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06&quot;&gt;知识资产专栏&lt;/a&gt;，做一些整理。&lt;/p&gt;
-&lt;h2 id=&quot;知识管理循环&quot;&gt;知识管理循环&lt;/h2&gt;
-&lt;p&gt;知识管理应该是一个循环：&lt;/p&gt;
-&lt;pre class=&quot;mermaid&quot;&gt;graph LR
-A(卡片收集)--&gt;B(卡片组织)
-B--&gt;C(应用卡片)
-C--&gt;D(维护卡片)
-D--&gt;A&lt;/pre&gt;
-&lt;p&gt;这一篇主要讲一下收集。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="知识管理" scheme="http://yunminitools.cn/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
