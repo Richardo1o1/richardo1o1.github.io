@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>什么是维度退化 |  New structure for utility</title>
+      <title>DDD中的上下文映射 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Degenerate-Dimension"
+  id="post-DDD-ContextMap"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  什么是维度退化
+  DDD中的上下文映射
 </h1>
  
 
@@ -88,8 +88,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2023/03/14/Degenerate-Dimension/" class="article-date">
-  <time datetime="2023-03-14T01:46:41.000Z" itemprop="datePublished">2023-03-14</time>
+      <a href="/2023/03/15/DDD-ContextMap/" class="article-date">
+  <time datetime="2023-03-15T14:28:30.000Z" itemprop="datePublished">2023-03-15</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">520</span>
+            <span class="post-count">2.5k</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">8 min</span>
         </span>
     </span>
 </div>
@@ -124,72 +124,63 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1>概念：</h1>
-<p>维度退化（Degenerate-Dimension,DD）：将维度退化到事实表中，减少事实表和维度表的关联，在维度建模的数据仓库中，有一种维度叫Degenerate Dimension，中文一般翻译为“退化维度”。这种退化维度一般都是事务的编号，如订单编号、发票编号等。这类编号需要保存到事实表中，但是不需要对应的维度表，所以称为退化维度。</p>
-<h2 id="特点-举例：">特点/举例：</h2>
-<p>退化维度是维度建模领域中的一个非常重要的概念，它对理解维度建模有着非常重要的作用，尤其是对维度建模的入门者。</p>
-<p><strong>特点：</strong></p>
-<ol>
-<li>没有对应的维度表的维度。</li>
-<li>存储在事实表中</li>
-</ol>
+  <h2 id="什么是上下文映射">什么是上下文映射</h2>
+<p>上下文映射，对应的英文单词是Context Map，代表的是领域驱动设计中，多个限界上下文之前的关系。方便设计者和开发者能够一目了然地看到每个限界上下文和其它限界上下文之间的关系，最终的产出可能是一张映射图，或者映射卡片。实际上的限界上下文映射的设计，不只是跟设计决策和技术实现有关，还跟企业文化、组织架构有关。</p>
+<h2 id="有哪些上下文映射">有哪些上下文映射</h2>
+<h3 id="分离方式">分离方式</h3>
+<p>分离方式（separate way），分离方式指的是两个限界上下文没有任何关系，没有关系其实就是一种非常好的设计，因为它们可以独立变化，互相影响。<br>
+但在实际的开发过程中，可能两个限界上下文会有一些耦合。如果设计者认为这两个限界上下文解耦的价值远远大于复用的价值（比如分属于两个差异很大的团队），那可以通过引入少量的重复来彻底解耦开来。<br>
+<strong>比如</strong>：在电商场景中，支付上下文，就和库存上下文没有任何关系。</p>
+<h3 id="客户-供应">客户-供应</h3>
+<p>客户-供应（customer/supplier）是我们最中间的一种上下文映射方式。一方提供服务，另一方去调用服务。我们类比水流，上游发生变化可能会影响下游，所以我们把提供服务的一方称为“上游”，使用服务的一方称为“下游”。这与调用关系刚好是相反的。<br>
+<strong>比如</strong>：在电商场景中，订单上下文依赖库存上下文，所以库存上下文就是订单上下文的上游。</p>
+<h3 id="发布-订阅">发布-订阅</h3>
+<p>发布-订阅（publisher/subscriber）也是一种很常见的上下文映射方式，在实际的开发过程中往往是通过消息中间件来实现。<br>
+发布-订阅模式源自于设计模式中的“观察者模式”，上下游通过消息去通信，下游注册观察者，上游作为发布者，如果上游发生了变化，会发布一个业务事件，下游收到这个事件后进行后续的操作。<br>
+发布-订阅模式与客户-供应模式最大的不同，在于发布-订阅模式，是上游主动发起业务的变化，而不是被动等下游去调用上游。它相较于客户-供应模式而言，耦合程度会低一些。<br>
+<strong>比如</strong>：在电商场景中，订单上下文和物流上下文，就可以通过发布-订阅模式来做。订单完成后，发生订单完成事件，物流上下文监听事件开始物流配送。</p>
 <span id="more"></span>
-<p>退化维度经常会和其他一些维度一起组合成事实表的主键。在Kimball提出的维度建模中，事实表应该保存最细粒度的数据。所以对于象销售单这样的事实表来说，需要销售单编号和产品来共同作为主键，而不能用销售日期、商场、产品等用来分析的维度共同作为主键。</p>
-<p>退化维度在分析中可以用来做分组使用。它可以将同一个事务中销售的产品集中在一起。因为事实表主键的成员一般都是维度值所组成,但退化维度虽然也属于主键值,但没有单独的维度表,所以叫退化维度。</p>
-<p><strong>例子：</strong><br>
-维度退化是指对于简单的维度来说，不创建自己的维表，例如，下面的事实表：</p>
-<table>
-<thead>
-<tr>
-<th>product_id</th>
-<th>time_id</th>
-<th>payment_method</th>
-<th>customer_id</th>
-<th>store_id</th>
-<th>item_count</th>
-<th>dollars</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>55</td>
-<td>20040106</td>
-<td>Credit</td>
-<td>123</td>
-<td>22</td>
-<td>3</td>
-<td>$3.54</td>
-</tr>
-<tr>
-<td>78</td>
-<td>20040106</td>
-<td>Cash</td>
-<td>89</td>
-<td>22</td>
-<td>1</td>
-<td>$20.00</td>
-</tr>
-<tr>
-<td>199</td>
-<td>20040107</td>
-<td>ATM</td>
-<td>3</td>
-<td>22</td>
-<td>2</td>
-<td>$2.99</td>
-</tr>
-<tr>
-<td>55</td>
-<td>20040106</td>
-<td>Cash</td>
-<td>122</td>
-<td>22</td>
-<td>1</td>
-<td>$1.18</td>
-</tr>
-</tbody>
-</table>
-<p>对于其中的维度支付方式，假设我们创建了一个维表，这个维表几乎是没有意义的。如果单独增加了这样一个维表，那么可能会导致一定的连接成本。</p>
+<h3 id="开放主机服务和发布语言">开放主机服务和发布语言</h3>
+<p>开放主机服务（open host service, OHS），指的是上游提供一些公开的服务，包括它们的通信方式、数据格式等，并且<strong>承诺这些服务不会轻易做出变化</strong>。<br>
+发布语言（published language）通常和开放主机服务一起配合使用，主要用于两个限界上下文之间的模型转换。<br>
+开放主机服务和客户-供应最大的区别在于，它承诺了服务不会轻易变化。那下游服务就可以不用做专门的防御措施来抵抗上游的变化（也就是下面会介绍的防腐层）。<br>
+而发布语言在开放主机服务上，本质上就是开放主机服务定义的协议、request、response、服务名唯一名字等。因为开放服务不可能将上下文内部的领域模型暴露出去，所以会需要对外定义一些数据传输模型（DTO）来提供服务。<br>
+<strong>比如</strong>：在电商业务中，财务系统就是一个相对稳定的业务，可以高度抽象为几个原子的财务操作，比如：资金的申请，占用，扣减，核销等。</p>
+<h3 id="防腐层">防腐层</h3>
+<p>防腐层（anti corruption layer, ACL）是应对上游服务变化的利器。尤其是当下游限界上下文有多个地方依赖某一个上游时，一旦上游服务发生变化，下游服务如果不做防腐措施，就会面临大面积的修改。<br>
+如果上游限界上下文存在多个下游时，倘若都需要隔离变化，每个下游都做防腐层成本比较大，可以考虑单独抽一个只有防腐功能的限界上下文，避免代码重复。<br>
+<strong>比如</strong>：在电商业务中，可能订单上下文、售后上下文都会涉及到支付功能，如果支付功能是对接了大量的第三方支付，每个上下文自己去做防腐层就会有一些代码重复。那可以把支付上下文单独抽出来做为一个上游的防腐层。在面对“大泥球”一样错综复杂调用关系的老系统中，防腐层就是可以才帮助遗留系统迁移的利器。</p>
+<h3 id="遵奉者">遵奉者</h3>
+<p>前面也提到了，有时候限界上下文之间关系的设计，还会受到企业文化和团队协作的影响。当上游服务不积极响应下游服务的需求时，会有三种方式来解决：</p>
+<ul>
+<li>分离方式：下游服务切断上游服务的依赖，自己来实现</li>
+<li>防腐层：复用上游的服务，但领域模型由下游团队自己来开发，然后用防腐层实现上下游领域模型之间的转换。</li>
+<li>遵奉者：严格遵从上游团队的模型，以消除复杂的模型转换逻辑<br>
+遵奉者（conformist）就是一种妥协，当下游团队选择遵奉上游团队设计的模型时，意味着它对上游产生了模型上的强依赖。<br>
+<strong>比如</strong>：在电商场景中，财务上下文是一个比较稳定的业务，在电商活动立项的时候，可能需要申请一笔预算，但这笔预算应该是有一个有效期的，也就是活动的起止时间，活动结束后是不能使用预算的。但财务团队拒绝为了活动这个特殊的场景，在他们的上下文内部的领域模型增加“预算有效期”这个字段。<br>
+活动上下文可以选择上面的三种方式之一来解决这个问题：</li>
+<li>可以自己实现一套财务模型，</li>
+<li>复用财务上下文的占用、扣减等服务，防腐层转换为活动上下文内部的带有预算有效期的内部模型；</li>
+<li>遵循财务上下文的模型。在其它上下文（比如流量投放上下文）使用预算的时候，再通过通过调用活动上下文去校验活动时间。</li>
+</ul>
+<h3 id="共享内核">共享内核</h3>
+<p>共享内核（Shared Kernel），指的是将一个限界上下文将自己的领域模型暴露出去，给其它的限界上下文使用。共享内核不能像其它的限界上下文那样，自由地更改，但共享内核也会造成耦合。因此我们只可能把那些非常稳定且具有复用价值的领域模型封装到共享内核上下文中。<br>
+共享内核通常以库的形式（比如Java的jar包）被其它限界上下文复用，它本身不提供远程服务。所以可以理解为它是一种特殊的进程内通信。<br>
+耦合的代价是巨大的，笔者个人不是建议使用共享内核这种模式，除非真的重复的代价远远大于耦合。</p>
+<h3 id="合作者">合作者</h3>
+<p>合作者（partnership），指的是两个或多个限界上下文彼此依赖，联系紧密。具体表现出来的可能就是循环依赖，两个限界上下文形成了强耦合关系。团队之间的良好协作是好事，但强耦合会带来一系列的问题。要解决这种强耦合，通常有三种方式：</p>
+<ul>
+<li>合并：既然分不开，说明当时拆分得可能不合理，他们本质上也许可以合并为一个限界上下文。</li>
+<li>重新分配：理清楚为什么相互依赖，尝试把一些功能或服务重新分配，尽量减少上下文之间的依赖。</li>
+<li>抽取：如果实在不能合又分配不清楚，那可以考虑重新抽取为一个新的限界上下文，然后之前的两个限界上下文去依赖这个新的限界上下文。<br>
+如果上述几种方法都不使用当前的团队和场景，那就只能允许合作者模式存在了。需要在限界上下文中特别标识出来，这里存在高耦合，变动会比较容易引发风险。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>如果说我们在上下文映射设计时，要尽量做到低耦合，那分离方式、发布-订阅、客户-供应防腐层是比较推荐的模式。<br>
+而遵奉者、共享内核、合作者是需要尽量去避免的。避免的方式大多都是重复或者冗余，这个时候就要去衡量是否值得了。<br>
+软件设计就是这样，可能没有完美的方案，总是在各方面权衡利弊得失，有所取舍，最终力求得到一个最优的解决方案，这就是软件设计很难的原因，也是它的魅力所在。<br>
+任何决策都应该考虑收益和成本，只有收益大于成本，决策才有可能是合理的。<br>
+虽然是限界上下文之间的映射，但其实落地下来，咱们不使用领域驱动设计的微服务拆分也可以参考这几种模型，尽量使微服务做到“高内聚，低耦合”。</p>
  
       <!-- reward -->
       
@@ -242,12 +233,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/03/14/Degenerate-Dimension/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/03/15/DDD-ContextMap/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/" rel="tag">领域驱动</a></li></ul>
 
     </footer>
   </div>
@@ -255,19 +246,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2023/03/15/DDD-ContextMap/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            DDD中的上下文映射
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/03/13/Dimension-Table-Design-1/" class="article-nav-link">
+      <a href="/2023/03/14/Degenerate-Dimension/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">维度表设计注意事项</div>
+        <div class="article-nav-title">什么是维度退化</div>
       </a>
     
   </nav>
