@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-15T14:30:59.334Z</updated>
+  <updated>2023-03-16T05:20:16.757Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图标设计素材网址收集</title>
+    <link href="http://yunminitools.cn/2023/03/16/Icon-design-materials/"/>
+    <id>http://yunminitools.cn/2023/03/16/Icon-design-materials/</id>
+    <published>2023-03-16T05:18:48.000Z</published>
+    <updated>2023-03-16T05:20:16.757Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;图标素材网站&quot;&gt;图标素材网站&lt;/h2&gt;
+&lt;h3 id=&quot;Bootstrap-官方图标库&quot;&gt;&lt;strong&gt;&lt;strong&gt;Bootstrap 官方图标库&lt;/strong&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;网址：&lt;a href=&quot;https://icons.bootcss.com/&quot;&gt;icons.bootcss.com&lt;/a&gt;&lt;br&gt;
+&lt;img src=&quot;http://cdn.yunminitools.cn/blog/icons.bootcss.com-%E6%88%AA%E5%9B%BE.png&quot; alt=&quot;http://cdn.yunminitools.cn/blog/icons.bootcss.com-截图.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="UI设计" scheme="http://yunminitools.cn/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>DDD中的上下文映射</title>
@@ -584,31 +606,6 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     
     
     <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>知识管理之记录知识</title>
-    <link href="http://yunminitools.cn/2023/02/24/KM-write-down/"/>
-    <id>http://yunminitools.cn/2023/02/24/KM-write-down/</id>
-    <published>2023-02-24T08:28:49.000Z</published>
-    <updated>2023-02-25T01:55:01.141Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="知识管理" scheme="http://yunminitools.cn/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
