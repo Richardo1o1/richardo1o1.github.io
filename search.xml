@@ -2299,7 +2299,7 @@ end</pre>
 <span id="more"></span>
 <h2 id="上下游思维定义">上下游思维定义</h2>
 <p>关于服务的上下游的定义，在DDD建模方法中，在确定了限界上下文（bounded context）后通过在上下文映射（context mapping）中使用上下游来表示上下文依赖的方向，其确定的依据是下游需要了解上游的领域知识实现业务，反之则不会。引申的含义就是上游的业务能力可以不用关心下游业务的存在，下游业务的开展依赖于上游提供的业务能力。下图是限界上下文映射的一个例子：</p>
-<p><img src="https://insights.thoughtworks.cn/wp-content/uploads/2022/08/Picture1-3.png" alt="https://insights.thoughtworks.cn/wp-content/uploads/2022/08/Picture1-3.png"></p>
+<p><img src="https://insights.thoughtworks.cn/wp-content/uploads/2022/08/Picture1-3.png" alt="例子"></p>
 <p>当我们基于以上的限界上下文设计领域模型并落地时，理想的情况是一个限界上下文对应一个应用服务。参考限界上下文的上下游关系，我把上下游思维定义为：<strong>上游服务不受下游服务的业务能力和可用性影响，反之则相反</strong>。我们会发现服务间的上下游关系比限界上下文中领域知识的上下游关系更复杂，而且上下游关系也会随着集成方式的不同而变化。</p>
 <h2 id="基于上下游思维的耦合级别">基于上下游思维的耦合级别</h2>
 <p>基于服务上下游的思维，我把服务间依赖按以下维度进行耦合度分级：</p>
