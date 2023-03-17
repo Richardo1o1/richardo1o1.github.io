@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-16T05:20:16.757Z</updated>
+  <updated>2023-03-17T14:15:44.930Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何实现系统解耦</title>
+    <link href="http://yunminitools.cn/2023/03/17/How-to-system-decoupling/"/>
+    <id>http://yunminitools.cn/2023/03/17/How-to-system-decoupling/</id>
+    <published>2023-03-17T14:14:15.000Z</published>
+    <updated>2023-03-17T14:15:44.930Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;为什么要解耦&quot;&gt;为什么要解耦&lt;/h2&gt;
+&lt;p&gt;在软件开发领域，&lt;strong&gt;解耦&lt;/strong&gt;这个词相信大家都不陌生。在面向对象的语境下，我们会应用&lt;a href=&quot;https://insights.thoughtworks.cn/understand-solid-principles/&quot;&gt;SOLID原则&lt;/a&gt;来构建高内聚低耦合的应用，实现模块间的解耦；在复杂业务系统分析和建模时，会通过DDD的战略和战术设计帮助划分领域并实现分布式系统中服务的解耦；当我们在组织大型敏捷开发团队协同工作时，通过组建自治团队来减少摩擦，从而实现团队级别的解耦。&lt;/p&gt;
+&lt;p&gt;可以看到解耦无处不在，并且以此为目的投入，大家都会觉得是无比的政治正确，因为实现了解耦，我们的系统和应用就能更快速的扩展和演进，我们的团队就能更顺畅的合作并能更加快速的实现业务价值。&lt;/p&gt;
+&lt;p&gt;但是，当我们暂时抛开将得到的种种好处，思考要如何去实现它时，却发现解耦这个词表达的意义过于抽象和模糊，它既没有描述最终的状态也没有提供实现的方法。那当我们谈解耦的时候，具体内容是什么呢？&lt;/p&gt;
+&lt;p&gt;从字面上理解的所谓耦合，通常是指&lt;strong&gt;两个或两个以上的物体或者体系之间相互作用彼此影响&lt;/strong&gt;，对应到软件研发的以上场景，我们可以转换成是指&lt;strong&gt;两个或两个以上的模块/系统/团队之间相互作用彼此影响&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在软件需要解决的业务问题越来复杂的今天，单个的系统或者团队很难在不依赖外部的情况下去实现业务目标，所以我理解的&lt;strong&gt;解耦&lt;/strong&gt;并不是要消除耦合(彼此的作用和影响/依赖)，而是指我们应该如何通过一定的方式和规则，来设计和管理以上提到的多个元素之间的依赖，降低耦合程度来使整个系统有序顺畅的运转。&lt;/p&gt;
+&lt;p&gt;本文将从服务间上下游的思维来讨论如何在系统架构演进过程中，持续的保持服务间的松耦合，实现解耦的目标。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="领域驱动" scheme="http://yunminitools.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>图标设计素材网址收集</title>
@@ -579,33 +604,6 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     
     
     <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Seven Levels of Delegation</title>
-    <link href="http://yunminitools.cn/2023/02/25/Seven-Levels-Delegation/"/>
-    <id>http://yunminitools.cn/2023/02/25/Seven-Levels-Delegation/</id>
-    <published>2023-02-25T01:51:45.000Z</published>
-    <updated>2023-02-25T02:34:28.081Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;When we are doing management work, it is inevitable that we will delegate tasks to team members. At this point, how to delegate tasks is</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/"/>
-    
-    
-    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
