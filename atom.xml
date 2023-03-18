@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-18T14:05:55.561Z</updated>
+  <updated>2023-03-18T14:07:25.329Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,18 +21,14 @@
     <link href="http://yunminitools.cn/2023/03/18/DDD-domain-model-1/"/>
     <id>http://yunminitools.cn/2023/03/18/DDD-domain-model-1/</id>
     <published>2023-03-18T14:05:23.000Z</published>
-    <updated>2023-03-18T14:05:55.561Z</updated>
+    <updated>2023-03-18T14:07:25.329Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
 &lt;p&gt;领域驱动设计DDD在战术建模（后文简称建模，除非特别说明）上提供了一个元模型体系（如下图），通过这个元模型我们会对战略建模过程中识别出来的问题子域进行抽象，而通过抽象来指导最后的落地实现。&lt;br&gt;
-&lt;img</summary>
-        
-      
+&lt;img src=&quot;http://cdn.yunminitools.cn/blog/DDD-model.png&quot; alt=&quot;DDD构建的元模型元素脑图&quot;&gt;&lt;br&gt;
+这里我们谈的战术阶段实际就是这样一个抽象过程。这个抽象过程由于元模型的存在实际是一定程度模式化的。这样的好处是并非只能技术人员参与建模，业务人员经过一定的培训也是完全可以理解的。在带领不少团队实践建模的过程中，业务人员参与战术设计也是我要求的。&lt;br&gt;
+由于已经有不少书籍介绍DDD的元模型，这里我们就不再赘述，转而谈谈这个抽象过程中大家经常遇到的一些困惑。这些比较常见的问题可能是DDD元模型未来演进需要解决的，但我们仍然要注意业务问题和架构设计的多样性，不要过度规范，以至于过犹不及。&lt;/p&gt;</summary>
     
     
     
