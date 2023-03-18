@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-17T14:18:07.506Z</updated>
+  <updated>2023-03-18T14:05:55.561Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>领域模型的应用</title>
+    <link href="http://yunminitools.cn/2023/03/18/DDD-domain-model-1/"/>
+    <id>http://yunminitools.cn/2023/03/18/DDD-domain-model-1/</id>
+    <published>2023-03-18T14:05:23.000Z</published>
+    <updated>2023-03-18T14:05:55.561Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+&lt;p&gt;领域驱动设计DDD在战术建模（后文简称建模，除非特别说明）上提供了一个元模型体系（如下图），通过这个元模型我们会对战略建模过程中识别出来的问题子域进行抽象，而通过抽象来指导最后的落地实现。&lt;br&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="领域驱动" scheme="http://yunminitools.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>如何实现系统解耦</title>
@@ -577,33 +604,6 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     
     
     <category term="投资管理" scheme="http://yunminitools.cn/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo中使用emoji表情</title>
-    <link href="http://yunminitools.cn/2023/02/26/Hexo-Use-emoji/"/>
-    <id>http://yunminitools.cn/2023/02/26/Hexo-Use-emoji/</id>
-    <published>2023-02-26T03:17:27.000Z</published>
-    <updated>2023-02-26T03:18:01.717Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;上一篇文章我想在文章中使用emoj来丰富页面，发现Hexo默认的markdown渲染引擎不支持将Github emoji渲染到静态的html页面。我们需要换一个支持emoji的引擎，再增加一个emoji插件即可。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
