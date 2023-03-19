@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>领域模型的应用 |  New structure for utility</title>
+      <title>推荐网站资源：B端观止 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-DDD-domain-model-1"
+  id="post-B-design-resource"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  领域模型的应用
+  推荐网站资源：B端观止
 </h1>
  
 
@@ -88,11 +88,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2023/03/18/DDD-domain-model-1/" class="article-date">
-  <time datetime="2023-03-18T14:05:23.000Z" itemprop="datePublished">2023-03-18</time>
+      <a href="/2023/03/19/B-design-resource/" class="article-date">
+  <time datetime="2023-03-19T15:19:16.000Z" itemprop="datePublished">2023-03-19</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
   </div>
   
 <div class="word_count">
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">3.5k</span>
+            <span class="post-count">102</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">11 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -124,44 +124,14 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="概述">概述</h2>
-<p>领域驱动设计DDD在战术建模（后文简称建模，除非特别说明）上提供了一个元模型体系（如下图），通过这个元模型我们会对战略建模过程中识别出来的问题子域进行抽象，而通过抽象来指导最后的落地实现。<br>
-<img src="http://cdn.yunminitools.cn/blog/DDD-model.png" alt="DDD构建的元模型元素脑图"><br>
-这里我们谈的战术阶段实际就是这样一个抽象过程。这个抽象过程由于元模型的存在实际是一定程度模式化的。这样的好处是并非只能技术人员参与建模，业务人员经过一定的培训也是完全可以理解的。在带领不少团队实践建模的过程中，业务人员参与战术设计也是我要求的。<br>
-由于已经有不少书籍介绍DDD的元模型，这里我们就不再赘述，转而谈谈这个抽象过程中大家经常遇到的一些困惑。这些比较常见的问题可能是DDD元模型未来演进需要解决的，但我们仍然要注意业务问题和架构设计的多样性，不要过度规范，以至于过犹不及。</p>
-<span id="more"></span>
-<h2 id="业务对象的抽象">业务对象的抽象</h2>
-<p>通过对业务问题的子域划分，我们找到了一些关键的业务对象。在开始进行抽象前一个必须的步骤就是“<strong>讲故事</strong>”！<br>
-讲什么故事呢？关于这个子域解决的业务问题或者提供的业务能力的故事。既然是故事，就必须有清晰的业务场景和业务对象之间的交互。这件事情看起来是如此自然和简单，然则一个团队里能够站起来有条不紊陈述清楚的却没有几人。读到这里的读者不妨停下来试试，你是否能够把现在你所做的业务在两三分钟内场景化地描述出来？<br>
-这么做显然目的是让我们能够比较完整地思考我们所要提炼和抽象的业务对象有哪些。只有当我们能够“讲”清楚业务场景的时候，才应该开始抽象的步骤。对于一个业务对象，我们常见的抽象可以是“实体”（Entity）和“值对象”（Value Object）。<br>
-这两个抽象方式在定义上的区别是，实体需要给予一个<strong>唯一标识</strong>，而值对象不需要（可以通过属性集合标识）。当然另外一个经常引用的区别是，实体应该是有一个连续的生命周期的，比如我们在一个订单跟踪领域里抽象订单为一个实体，那么每个订单应该有一个唯一识别号，订单也应该有从下单创建到最后交货完成的生命周期。<br>
-显然，如果不增加其它约束条件，值对象的抽象是没有意义的，都用实体不就行了？但如果我们稍微思考一下一个实体的管理成本，比如需要保证生命周期中实体状态的一致性，那么我们就会发现值对象变得很简单很可爱。当一个对象在我们（抽象）的世界里不能改变的时候，一切都变得简单了，这个对象<strong>被创建后只能被引用</strong>，当没有引用时我们可以把它交给垃圾回收自动处理。<br>
-随着高并发、分布式系统的普及，实际上我们在对业务对象抽象的<strong>第一步思考是能否用值对象</strong>。如果大家实现的技术架构采用函数范式的语言（类似Closure），那么首先考虑值对象抽象可能就是一个建模原则了。<br>
-对象抽象初步完成后，一定要再重复一次之前的故事来审视一下我们的建模。经历这个抽象过程后，参与讨论的每个人都应该发现自己更清晰业务的需求和需要提供的能力了。</p>
-<h2 id="聚合的封装">聚合的封装</h2>
-<p>DDD元模型中一个核心概念叫“聚合”（Aggregate）。这个从建筑学来的名词非常形象，建筑学上我们翻译为“骨料”，是形成混凝土的重要元素，也是为什么混凝土如此坚固的基础。同理，在DDD建模中，聚合也是我们构建领域模型的基础，并且每个聚合都是内聚性很高的组合。聚合本身完成了我们对骨干业务规则的封装，减小了我们实现过程中出错的可能。<br>
-以上面那个订单跟踪领域为例，假设我们允许一个订单下存在多个子订单，而每个子订单也是可以独立配送的，这种情况下我们抽象出“子订单”这个实体。显然订单和子订单存在业务逻辑上的一致性，没有订单的时候不应该创建子订单，更新子订单的时候应该同时“通知”所属的订单。这个时候如果采用把订单和子订单聚合起来的封装就很有必要了。<br>
-采用聚合抽象的结果就是访问每个子订单都需要从相关的订单入口（i.e., 订单为聚合根），存取时我们都是以这个聚合为基本单位，即包含了订单和订单下面的所有子订单。显然这样的好处是在订单跟踪这个领域模型里，订单作为一个聚合存在，我们只需要一次性梳理清楚订单和子订单的逻辑关系，就不需要在未来每次引用时都考虑这里面的业务规则了。<br>
-<img src="http://cdn.yunminitools.cn/blog/DDD-Aggregate.png" alt="（订单跟踪领域的订单聚合）"><br>
-在建模过程中，很多团队并没有努力思考聚合的存在。封装这个在技术实现领域的基本原则在建模时却很少被重视起来。开篇提到在战术建模过程中强调业务领域人员的参与也是为了解决这个问题，聚合的识别实际是针对业务规则的封装，当我们不理解业务规则的时候是无法做出是否封装的判断的。<br>
-一言以蔽之，识别聚合是认知潜在核心业务规则的过程，而定义出来的聚合是在大家共识基础上对核心业务规则的封装。</p>
-<h2 id="领域服务的定义">领域服务的定义</h2>
-<p>在最初的元模型定义里，领域服务让不少人纠结，一个经典的例子是在账户管理领域里对“转账”这个业务行为的抽象。由于转账本身是作用在至少两个账户上的，所以把转账作为一个账户的行为显然是不合适的。那么如果我们把转账名词化抽象成一个实体呢？感觉也是比较别扭，毕竟转账是依附于账户存在的。<br>
-这个时候DDD在元模型里提出了服务（Service）这个抽象，转账被抽象为一个服务感觉就顺畅多了。同样道理，在我们上面的订单跟踪领域里，如果跟踪的过程中需要进行短信的通知，一个比较好的建模就是抽象出一个“通知”服务来完成。<br>
-我经常会用静态方法来帮助技术人员理解服务的抽象（虽然服务并不一定用静态方法来实现）。服务本身就像一个<strong>静态方法</strong>一样，拥有一定的逻辑但不持有任何的信息，从整个领域来看也不存在不同“版本”的同一个服务。<br>
-一个经常困扰大家的问题是对Service这个词语的限定，有的分层架构设计里会出现领域服务（Domain Service）和应用服务（Applicaiton Service）。大多数时候应用服务在领域服务的上层，直接对外部提供接口。如果存在这样的分层，那么领域服务就不应该直接对外，而应该通过应用服务。<br>
-举个例子，前面的订单消息通知如果是一个领域服务，在完成订单状态变化时创建通知消息，而最后的通知以短信的方式发给设定的人群，这样就应该有一个相应的应用服务，包含了具体的业务场景处理逻辑。之后也可能有一个邮件通知的应用服务，同样调用了这个通知领域服务，但通过邮件渠道来完成最终的业务场景。<br>
-由于微服务架构的流行，每个子领域的粒度已经相当细了，很多时候已经没有这样的领域服务和应用服务的区分了。当然从简单性角度出发这是好事情。在整个建模过程中，服务的抽象往往是最不确定的，也是最值得大家反复斟酌的地方。</p>
-<h2 id="Repositories的使用">Repositories的使用</h2>
-<p>Repositories这个抽象概念实际可以追溯到Martin Fowler的<a target="_blank" rel="noopener" href="https://martinfowler.com/eaaCatalog/queryObject.html">Object Query</a>模式。另外一个相关概念是DAO（<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Data_access_object">Data Access Object</a>），都是用来简化需要存储的数据和对应的业务对象之间的映射关系。不同的是Repositories针对更加粗颗粒度的抽象，在DDD这个方法里我们可以认为映射对象是我们的聚合。针对每个实体在实现时候也可能创造出对应的DAO（比如采用Hibernate这样的ORM框架），但显然在建模过程中不是我们需要关注的。<br>
-那么Repositories的抽象为什么是必要的呢？让我们再回到订单跟踪这个例子，通知订单状态发生变化的服务在发出通知前，需要定位到订单的信息（可能包括订单的相关干系人和子订单的信息）。通知作为一个服务是不应该持有具体订单信息的，这个时候我们就需要通过Repositories的抽象来建立对订单这个聚合的查询，即有一个订单的repo，而具体的查询逻辑应该在这个repo中。<br>
-这样的抽象在需要存储和查询值对象的时候也是必要的。假设我们分析订单查询这个领域，在这个领域里订单记录显然已经不允许修改了，自然的抽象方式就是值对象。同时一个查询的服务来持有具体的查询逻辑（比如按时间或用户）是合理的。外部应用直接调取了查询服务（接口）并给出规定的参数，我们就需要一个订单记录的repo来持有跟存储相关的查询逻辑。当然这并不是说有一个查询就一定有一个repo与之对应，如果查询的逻辑非常简单，未尝不可以让服务直接针对数据存储实现。记住我们抽象的目标是让建模更简单，抽象过程中应该保持灵活。</p>
-<h2 id="限界上下文的意义">限界上下文的意义</h2>
-<p>经过最近10多年的演进，我们在如何支撑一个组织的规模化上达成了一些基本的共识。我们知道微服务架构（Microservices）能够帮助我们把成百上千的工程师们组织起来，而小团队的自组织性是至关重要的。我们也逐步就如何能够在技术和业务团队之间明确沟通“架构”这个难题上找到了DDD。那么DDD和微服务架构的关系是什么呢？很多人会提到限界上下文（Bounded Context）。<br>
-一个限界上下文封装了一个相对<strong>独立子领域的领域模型和服务</strong>。限界上下文地图描述了各个子领域之间的集成调用关系。这个定义某种意义上和我们的微服务划分不谋而合：以提供业务能力为导向的、自治的、独立部署单元。所以虽然我们不能百分百依据限界上下文划分服务，但限界上下文，或者说是DDD，绝对是我们设计微服务架构的重要方法之一。<br>
-如果我们再追溯到DDD的战略设计，我们会发现在问题域上，DDD通过子问题域（subdomain）的划分就已经进行了针对业务能力的分解，而限界上下文在解决方案域中完成了进一步分解。当然我们不能完全认为子问题域和限界上下文有严格意义上的一对一关系，但大多数情况下一个子问题域是会被设计成一个或多个限界上下文的。子域subdomain和限界上下文某种意义上是互相印证的，重点在区分问题域和解决方案域，这是落地DDD最困难的地方，也是判断一个架构师能力进阶的分水岭。</p>
-<h2 id="小结">小结</h2>
-<p>DDD的建模元素比较简洁，本文中叙述的元模型应该是满足了大多数场景下的建模。在领域驱动的架构设计方面，咱们需要的是“战略上要重视朋友，战术上要简化建模”。希望这句话能够帮助正在实践DDD的团队重新思考自己在战略问题域的投入和重视程度，不要挥舞着战术模型的大锤到处寻找实际不存在的钉子。</p>
+  <h2 id="介绍">介绍</h2>
+<p>很久以前就注意到了这个网站：<a target="_blank" rel="noopener" href="https://www.yuque.com/u1003394/fn574a">B端观止</a>,有很多有关于B端设计的文章，对于产品设计也很有借鉴意义。最近又看了一下，比较可贵的是，一直在更新。推荐查看。</p>
+<h2 id="推荐文章">推荐文章</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/u1003394/fn574a/21f9947a-55da-498d-b6c1-d56ea5f399ab">权限设计指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/u1003394/fn574a/72a18cdb-2b55-4c35-aeaf-18a5f840700a">低代码开发平台设计初探索</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/u1003394/fn574a/8af44d16-241e-40f0-a034-25f1ae5d3887">场景理解模糊？看完这篇就够了！</a></li>
+</ul>
  
       <!-- reward -->
       
@@ -214,12 +184,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/03/18/DDD-domain-model-1/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/03/19/B-design-resource/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/" rel="tag">领域驱动</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI%E8%AE%BE%E8%AE%A1/" rel="tag">UI设计</a></li></ul>
 
     </footer>
   </div>
@@ -227,19 +197,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2023/03/19/B-design-resource/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            推荐网站资源：B端观止
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/03/17/How-to-system-decoupling/" class="article-nav-link">
+      <a href="/2023/03/18/DDD-domain-model-1/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">如何实现系统解耦</div>
+        <div class="article-nav-title">领域模型的应用</div>
       </a>
     
   </nav>
