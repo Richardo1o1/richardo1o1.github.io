@@ -2452,4 +2452,25 @@ end</pre>
         <tag>企业服务</tag>
       </tags>
   </entry>
+  <entry>
+    <title>关于linux vim命令替换的使用</title>
+    <url>/2023/03/21/VIM-Replace-Command/</url>
+    <content><![CDATA[<p>vim 中可以使用 ：s 命令来替换字符串。以前只会使用一种格式来全文替换，今天发现该命令有很多种写法（linux vi命令真是强大啊，还有很多需要学习），记录几种在此，方便以后查询。</p>
+<p>：s/vivian/sky/ 替换当前行第一个 vivian 为 sky<br>
+：s/vivian/sky/g 替换当前行所有 vivian 为 sky</p>
+<p>：n，$s/vivian/sky/ 替换第 n 行开始到最后一行中每一行的第一个 vivian 为 sky<br>
+：n，$s/vivian/sky/g 替换第 n 行开始到最后一行中每一行所有 vivian 为 sky<br>
+n 为数字，若 n 为 .，表示从当前行开始到最后一行</p>
+<p>：%s/vivian/sky/（等同于 ：g/vivian/s//sky/） 替换每一行的第一个 vivian 为 sky<br>
+：%s/vivian/sky/g（等同于 ：g/vivian/s//sky/g） 替换每一行中所有 vivian 为 sky</p>
+<p>可以使用 # 作为分隔符，此时中间出现的 / 不会作为分隔符：s#vivian/#sky/# 替换当前行第一个 vivian/ 为 sky/<br>
+：%s+/oradata/apras/+/user01/apras1+ （使用+ 来 替换 / ）： /oradata/apras/替换成/user01/apras1/</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>

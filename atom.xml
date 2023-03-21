@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-20T15:12:21.009Z</updated>
+  <updated>2023-03-21T15:36:21.910Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于linux vim命令替换的使用</title>
+    <link href="http://yunminitools.cn/2023/03/21/VIM-Replace-Command/"/>
+    <id>http://yunminitools.cn/2023/03/21/VIM-Replace-Command/</id>
+    <published>2023-03-21T15:35:49.000Z</published>
+    <updated>2023-03-21T15:36:21.910Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;vim 中可以使用 ：s 命令来替换字符串。以前只会使用一种格式来全文替换，今天发现该命令有很多种写法（linux vi命令真是强大啊，还有很多需要学习），记录几种在此，方便以后查询。&lt;/p&gt;
+&lt;p&gt;：s/vivian/sky/ 替换当前行第一个 vivian 为</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>聊聊企业服务产品</title>
@@ -569,47 +595,6 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     
     
     <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>什么是网络效应？</title>
-    <link href="http://yunminitools.cn/2023/02/28/Network-Effects/"/>
-    <id>http://yunminitools.cn/2023/02/28/Network-Effects/</id>
-    <published>2023-02-28T15:11:08.000Z</published>
-    <updated>2023-02-28T15:11:43.034Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;网络效应的特点&quot;&gt;网络效应的特点&lt;/h2&gt;
-&lt;p&gt;有网络效应的伟大产品有什么共同之处？&lt;br&gt;
-网络效应的最大价值在于&lt;strong&gt;获客&lt;/strong&gt;。任何公司最重要的任务之一都是获客。没有用户和收入，公司就会倒闭。而网络效应和“病毒传播”是用户增长的两个关键战略。&lt;br&gt;
-对于一般公司，随着市场饱和，&lt;strong&gt;CAC&lt;/strong&gt; （用户获取成本）会进一步上升。而对于拥有网络效应的公司来说，情况刚好相反，随着网络的不断延展，所有参与者都能受益，&lt;strong&gt;CAC&lt;/strong&gt; 保持不变，甚至可能会下降。&lt;/p&gt;
-&lt;h2 id=&quot;网络效应的类型&quot;&gt;网络效应的类型&lt;/h2&gt;
-&lt;p&gt;总的来看，网络效应可以分为以下五种（每一种都有长处和短处），它们是：&lt;/p&gt;
-&lt;h3 id=&quot;1-双边网络（平台）&quot;&gt;1.&lt;strong&gt;双边网络（平台）&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;这是一种最明显的网络效应。本质上是&lt;strong&gt;交易平台：&lt;/strong&gt;&lt;br&gt;
-有人想卖东西，有人想买东西，平台围绕人类的需求和欲望而出现。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;优势&lt;/strong&gt;：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;① 达到临界规模之后容易&lt;strong&gt;自行正向增长&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;② 垄断带来了&lt;strong&gt;定价权&lt;/strong&gt;，于是可以抽取更多佣金。&lt;/p&gt;
-&lt;p&gt;③ 一旦建立，&lt;strong&gt;维护和运营成本低&lt;/strong&gt;（除非像 Amazon 一样，做物流）。&lt;/p&gt;
-&lt;p&gt;④ 估值倍数很高。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;劣势&lt;/strong&gt;：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;① 一开始很难获得客户/用户。&lt;/p&gt;
-&lt;p&gt;② 需要实现供求的动态平衡。&lt;/p&gt;
-&lt;p&gt;③ 很烧钱。&lt;/p&gt;
-&lt;p&gt;④ 收入增长往往比较滞后&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="投资管理" scheme="http://yunminitools.cn/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
