@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-21T15:36:21.910Z</updated>
+  <updated>2023-03-22T14:38:10.837Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中台的设计挑战-1</title>
+    <link href="http://yunminitools.cn/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/"/>
+    <id>http://yunminitools.cn/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/</id>
+    <published>2023-03-22T14:37:31.000Z</published>
+    <updated>2023-03-22T14:38:10.837Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在做中台设计的过程中，发现中台体系庞大，链路错综复杂，问题也很多。不过这些页面之间都存有一些共性，通过对页面特征的分析，总结出了三种典型的业务场景类型：信息列表类、规则配置类、场景联动类。&lt;/p&gt;
+&lt;h2 id=&quot;1-信息列表类&quot;&gt;1.信息列表类&lt;/h2&gt;
+&lt;p&gt;列表是中后台最为常见的场景之一，传统的列表无非是字段的堆叠，大量相似信息的重复出现，降低了有效信息的捕获和整合效率，加重了认知负荷。大量列表让我们有种看不清重点的错觉，这种现象统称为“看不清”，为了解决这个问题，我们将列表按照其功能分成两大类：&lt;strong&gt;执行类&lt;/strong&gt;和&lt;strong&gt;看板类&lt;/strong&gt;。执行类列表目的是将所有字段展示完全，方便统一管理和操作；看板类则只要展示关键信息，起到快速查看和监控的作用。&lt;/p&gt;
+&lt;h3 id=&quot;1-1-执行类列表&quot;&gt;&lt;strong&gt;1.1 执行类列表&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0322-Design-01.png&quot; alt=&quot; &quot;&gt;&lt;br&gt;
+这里举一个营销列表的例子，营销列表的作用是对所有的活动进行一个高效的管理。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="UI设计" scheme="http://yunminitools.cn/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>关于linux vim命令替换的使用</title>
@@ -560,34 +586,6 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
 &lt;/ul&gt;
 &lt;h2 id=&quot;什么是可用性测试？&quot;&gt;&lt;strong&gt;&lt;strong&gt;什么是可用性测试？&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;可用性测试就是通过观察用户使用产品完成典型任务，发现产品中存在的效率与满意度相关问题的方法。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何做好需求评审？</title>
-    <link href="http://yunminitools.cn/2023/03/01/How-to-Requirements-Review/"/>
-    <id>http://yunminitools.cn/2023/03/01/How-to-Requirements-Review/</id>
-    <published>2023-03-01T15:00:41.000Z</published>
-    <updated>2023-03-05T12:54:54.949Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;作为一个产品经理，准备需求评审是产品设计开发的一个重要环节。那么如何做好需求评审呢？&lt;/p&gt;
-&lt;h2 id=&quot;一、原型准备阶段&quot;&gt;&lt;strong&gt;一、原型准备阶段&lt;/strong&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;1-需求细节尽量描述详细&quot;&gt;(1) 需求细节尽量描述详细&lt;/h3&gt;
-&lt;p&gt;详细即逻辑清晰、无遗漏、页面整洁、表达清晰等。最好能做到不清楚需求的人，通过文档也能理解要完成的任务。&lt;/p&gt;
-&lt;h3 id=&quot;2-对以前有的功能的修改要说明功能差异&quot;&gt;(2) 对以前有的功能的修改要说明功能差异&lt;/h3&gt;
-&lt;p&gt;如果是该功能迭代优化，那涉及其相关的需求要在会上说明：原先功能整套流程是怎么样的，现在针对哪个环节进行升级迭代。&lt;/p&gt;
-&lt;h3 id=&quot;3-设计功能或者逻辑一定要有根据有思考&quot;&gt;(3) 设计功能或者逻辑一定要有根据有思考&lt;/h3&gt;
-&lt;p&gt;记住我们设计的每个功能都要有理有据，不能想当然，不能做需求的搬运工。&lt;/p&gt;
-&lt;h3 id=&quot;4-设计过程中遇到技术难点、技术知识盲区，一定要和技术去沟通&quot;&gt;(4) 设计过程中遇到技术难点、技术知识盲区，一定要和技术去沟通&lt;/h3&gt;
-&lt;p&gt;当你遇到把握不准自家技术能不能实现自己功能，可以找到技术负责人把自己的想法提前说给他听，提前一起讨论实现过程，或许让他们评估且及时制定方案。&lt;/p&gt;</summary>
     
     
     
