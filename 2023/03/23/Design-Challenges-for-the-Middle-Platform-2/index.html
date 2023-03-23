@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2023 |  New structure for utility</title>
+      <title>中台的设计挑战-2 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,246 +68,165 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-Design-Challenges-for-the-Middle-Platform-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">2023</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  中台的设计挑战-2
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/" class="article-date">
+  <time datetime="2023-03-23T14:53:36.000Z" itemprop="datePublished">2023-03-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">641</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/" class="archive-article-date">
-  <time datetime="2023-03-23T14:53:36.000Z" itemprop="datePublished">03/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/"
-    >中台的设计挑战-2</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/" class="archive-article-date">
-  <time datetime="2023-03-22T14:37:31.000Z" itemprop="datePublished">03/22</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/"
-    >中台的设计挑战-1</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/21/VIM-Replace-Command/" class="archive-article-date">
-  <time datetime="2023-03-21T15:35:49.000Z" itemprop="datePublished">03/21</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/21/VIM-Replace-Command/"
-    >关于linux vim命令替换的使用</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/20/Talk-about-Enterprise-Services/" class="archive-article-date">
-  <time datetime="2023-03-20T15:11:50.000Z" itemprop="datePublished">03/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/20/Talk-about-Enterprise-Services/"
-    >聊聊企业服务产品</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/19/B-design-resource/" class="archive-article-date">
-  <time datetime="2023-03-19T15:19:16.000Z" itemprop="datePublished">03/19</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/19/B-design-resource/"
-    >推荐网站资源：B端观止</a> 
-</h2>
+  <p>在做中台设计的过程中，发现中台体系庞大，链路错综复杂，问题也很多。不过这些页面之间都存有一些共性，通过对页面特征的分析，总结出了三种典型的业务场景类型：信息列表类、规则配置类、场景联动类。</p>
+<h2 id="2-规则配置类">2. 规则配置类</h2>
+<p>规则配置类页面是中台业务域中另一种常见的场景，其特点是配置项繁多，且逻辑复杂。繁琐的配置加上复杂的逻辑无疑加重了用户的认知负荷，导致操作低效。<br>
+复杂的规则让我们看不懂配置项背后的含义，这类现象统称为“看不懂”。针对该问题，我们意识到可以利用人眼对图形符号更为敏感这一特性，用图形符号代替文本描述，让抽象的概念和复杂的逻辑关系清晰可见，以此来降低理解门槛。<br>
+为了更好的帮助我们理解图形符号映射法则，下面举个案例加以说明。</p>
+<p><strong>案例  选品特征组合可视化</strong></p>
+<span id="more"></span>
+<p>这里是一个关于选品特征关系组合的例子。其背景是选品系统，目的是在大量商品中选择出符合我们要求和条件的商品。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-B1.png" alt=" "></p>
+<p>选品特征组合操作如下：首先选择符合要求的条件，然后再对选中的条件进行规则配置。这些配置当前是“是、否、包含、不包含”等文字的描述呈现条件之间的<strong>交并关系</strong>，然而这种形式会耗费不少脑力资源在解读文字信息上，无疑加重了我们的思维压力。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-B2.png" alt=" "><br>
+为了减轻思维负担，我们采用图形符号映射法则进行设计。围绕特征组合的功能提取关键词，如关系、结构、组合等能够传达组合关系的词语，然后探索合适的载体。这里我们采用了布尔运算的符号来描述条件之间的“且、或”关系，形象的符号降低了语义理解难度。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-B3.png" alt=" "></p>
+<p><strong>规则配置可视化小结：</strong><br>
+综上所述，由于规则配置类场景具有逻辑复杂难以理解的特点，造成看不懂的问题，可以用图形符号映射法则来解决。通过寻找符合场景特征的关键词，匹配合适的载体参考物，做具体的视觉载体设计。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-B5.png" alt=" "></p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/18/DDD-domain-model-1/" class="archive-article-date">
-  <time datetime="2023-03-18T14:05:23.000Z" itemprop="datePublished">03/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/18/DDD-domain-model-1/"
-    >领域模型的应用</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/17/How-to-system-decoupling/" class="archive-article-date">
-  <time datetime="2023-03-17T14:14:15.000Z" itemprop="datePublished">03/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/17/How-to-system-decoupling/"
-    >如何实现系统解耦</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/16/Icon-design-materials/" class="archive-article-date">
-  <time datetime="2023-03-16T05:18:48.000Z" itemprop="datePublished">03/16</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/16/Icon-design-materials/"
-    >图标设计素材网址收集</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/15/DDD-ContextMap/" class="archive-article-date">
-  <time datetime="2023-03-15T14:28:30.000Z" itemprop="datePublished">03/15</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/15/DDD-ContextMap/"
-    >DDD中的上下文映射</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/14/Degenerate-Dimension/" class="archive-article-date">
-  <time datetime="2023-03-14T01:46:41.000Z" itemprop="datePublished">03/14</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/14/Degenerate-Dimension/"
-    >什么是维度退化</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2023/page/2/">2</a><a class="page-number" href="/archives/2023/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2023/page/6/">6</a><a class="extend next" rel="next" href="/archives/2023/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI%E8%AE%BE%E8%AE%A1/" rel="tag">UI设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">中台的设计挑战-1</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -444,6 +363,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

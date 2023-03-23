@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-22T14:38:10.837Z</updated>
+  <updated>2023-03-23T14:54:02.177Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中台的设计挑战-2</title>
+    <link href="http://yunminitools.cn/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/"/>
+    <id>http://yunminitools.cn/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/</id>
+    <published>2023-03-23T14:53:36.000Z</published>
+    <updated>2023-03-23T14:54:02.177Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在做中台设计的过程中，发现中台体系庞大，链路错综复杂，问题也很多。不过这些页面之间都存有一些共性，通过对页面特征的分析，总结出了三种典型的业务场景类型：信息列表类、规则配置类、场景联动类。&lt;/p&gt;
+&lt;h2 id=&quot;2-规则配置类&quot;&gt;2. 规则配置类&lt;/h2&gt;
+&lt;p&gt;规则配置类页面是中台业务域中另一种常见的场景，其特点是配置项繁多，且逻辑复杂。繁琐的配置加上复杂的逻辑无疑加重了用户的认知负荷，导致操作低效。&lt;br&gt;
+复杂的规则让我们看不懂配置项背后的含义，这类现象统称为“看不懂”。针对该问题，我们意识到可以利用人眼对图形符号更为敏感这一特性，用图形符号代替文本描述，让抽象的概念和复杂的逻辑关系清晰可见，以此来降低理解门槛。&lt;br&gt;
+为了更好的帮助我们理解图形符号映射法则，下面举个案例加以说明。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;案例  选品特征组合可视化&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="UI设计" scheme="http://yunminitools.cn/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>中台的设计挑战-1</title>
@@ -563,36 +589,6 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     
     
     <category term="投资管理" scheme="http://yunminitools.cn/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何做可用性测试？-1</title>
-    <link href="http://yunminitools.cn/2023/03/02/How-to-do-usability-test-1/"/>
-    <id>http://yunminitools.cn/2023/03/02/How-to-do-usability-test-1/</id>
-    <published>2023-03-02T15:44:35.000Z</published>
-    <updated>2023-03-05T12:38:11.277Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;什么是可用性？&quot;&gt;&lt;strong&gt;&lt;strong&gt;什么是可用性？&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;一个产品可以被特定的用户在特定的场景中，有效、高效并且满意得达成特定目标的程度。&lt;br&gt;
-包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;可学习性&lt;/strong&gt;：初次接触这个设计时，用户完成基本任务的难易程度？&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;效率&lt;/strong&gt;：用户了解了设计之后，能多快地完成任务？&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;可记忆性&lt;/strong&gt;：当用户一段时间没有使用产品后，是否能轻松地恢复到之前的熟练程度？&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;错误&lt;/strong&gt;：用户犯了多少错误，错误严重程度如何？用户能否从错误中轻易地复原？&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;满意度&lt;/strong&gt;：用户对产品的主观满意度，这个设计让用户感觉如何？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;什么是可用性测试？&quot;&gt;&lt;strong&gt;&lt;strong&gt;什么是可用性测试？&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;可用性测试就是通过观察用户使用产品完成典型任务，发现产品中存在的效率与满意度相关问题的方法。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
