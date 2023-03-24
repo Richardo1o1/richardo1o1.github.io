@@ -2553,4 +2553,40 @@ n 为数字，若 n 为 .，表示从当前行开始到最后一行</p>
         <tag>产品管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>中台的设计挑战-3</title>
+    <url>/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/</url>
+    <content><![CDATA[<p>在做中台设计的过程中，发现中台体系庞大，链路错综复杂，问题也很多。不过这些页面之间都存有一些共性，通过对页面特征的分析，总结出了三种典型的业务场景类型：信息列表类、规则配置类、场景联动类。</p>
+<h2 id="3-场景联动类"><strong>3. 场景联动类</strong></h2>
+<p>在中台业务域中，有许多与C端紧密相关的场景，但我们似乎并未抓住这种适合互动的机会，前中后台之间缺乏沟通与联动。整个系统就像一座冰山，前台只是冰山一角，冰面之下隐藏着庞大的中台系统，这就形成了前后之间虽然关系紧密但彼此看不见的情况。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-C1.png" alt=" "></p>
+<span id="more"></span>
+<p>为了解决看不见的问题，我们可以从加强C端与中台之间的联动入手，通过C端所见即所得法则建立前后台之间可视化的桥梁，把这层联动关系清晰展示。为了更好的帮助我们了场景联动可视化的方法，下面举个常见的案例来介绍下所见即所得映射法则的用法。</p>
+<p><strong>案例  权益卡券可视化</strong><br>
+“权益”在营销业务中经常被提及，优惠券是最常见的权益发放载体。这些看似简单的卡券背后其实有着复杂的配置规则，如下图所示，很多优惠券都需要经过繁琐的字段配置后，才能生成一张可用的卡券。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-C2.png" alt=" "></p>
+<p>上述方式缺乏前后台之间的场景联动，影响卡券创建效率。所以这里可以做<strong>前后联动关系的映射</strong>，最简单的方式就是将C端的卡券样式作为载体参考，将配置中的页面结构、内容等都与券面建立对应关系。这种方法不仅简化了流程，也增强了对卡券创建后效果的体感。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-C3.png" alt=" "><br>
+<strong>场景联动可视化小结：</strong><br>
+综上所述，在场景联动类业务中，因为与C端界面关系紧密但却并未将这层紧密的关系可视化的表达，导致看不见现象的发生，针对这类问题，我们可以采用所见即所得映射法来建立前后台之间的映射关系。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-C4.png" alt=" "></p>
+<h2 id="可视化设计总结">可视化设计总结</h2>
+<p>通过上文的研究和实践，最终总结出了一套适合当前中台可视化设计的方法：首先分析业务场景，根据其特点确定场景类型，思考是否存在该类场景下的典型问题，根据问题定位设计策略，执行匹配的映射法则。做设计时，可以多维度提炼能够描述该类场景的关键词，然后寻找合适的载体参考物，进行相应的视觉载体设计。这就是整个可视化设计的流程。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-D1.png" alt=" "></p>
+<p>进一步来说，可视化其实主要在做两件事：首先围绕场景特点多维度提取关键词，然后将关键词进行具象的表达，最终落地在对视觉载体的设计上。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-D2.png" alt=" "></p>
+<p>更进一步来说，就是建立业务场景与视觉载体之间的映射关系。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-D3.png" alt="http://cdn.yunminitools.cn/blog/0322-Design-D3.png"></p>
+<p>综上所述，可以用一句话来概括可视化设计的本质：通过对<strong>关键词</strong>的可视化表达，建立<strong>抽象业务场景</strong><br>
+与<strong>具象视觉载体</strong>之间的<strong>映射关系。</strong></p>
+<p>来自：<a href="https://mp.weixin.qq.com/s?__biz=Mzg4NjEwOTE1Mw==&amp;mid=2247487008&amp;idx=1&amp;sn=5b3e5f4be15ee857dd4f09a06d8e15ee&amp;scene=21#wechat_redirect">善月</a></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>UI设计</tag>
+        <tag>产品管理</tag>
+      </tags>
+  </entry>
 </search>

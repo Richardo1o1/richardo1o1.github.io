@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-23T14:54:02.177Z</updated>
+  <updated>2023-03-24T15:10:50.441Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中台的设计挑战-3</title>
+    <link href="http://yunminitools.cn/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/"/>
+    <id>http://yunminitools.cn/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/</id>
+    <published>2023-03-24T15:10:15.000Z</published>
+    <updated>2023-03-24T15:10:50.441Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在做中台设计的过程中，发现中台体系庞大，链路错综复杂，问题也很多。不过这些页面之间都存有一些共性，通过对页面特征的分析，总结出了三种典型的业务场景类型：信息列表类、规则配置类、场景联动类。&lt;/p&gt;
+&lt;h2 id=&quot;3-场景联动类&quot;&gt;&lt;strong&gt;3. 场景联动类&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;在中台业务域中，有许多与C端紧密相关的场景，但我们似乎并未抓住这种适合互动的机会，前中后台之间缺乏沟通与联动。整个系统就像一座冰山，前台只是冰山一角，冰面之下隐藏着庞大的中台系统，这就形成了前后之间虽然关系紧密但彼此看不见的情况。&lt;br&gt;
+&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0322-Design-C1.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="UI设计" scheme="http://yunminitools.cn/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>中台的设计挑战-2</title>
@@ -563,32 +587,6 @@ A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--
     
     
     <category term="用户画像" scheme="http://yunminitools.cn/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>创新型垄断企业的特点</title>
-    <link href="http://yunminitools.cn/2023/03/03/Creative-Monopolies/"/>
-    <id>http://yunminitools.cn/2023/03/03/Creative-Monopolies/</id>
-    <published>2023-03-03T15:06:08.000Z</published>
-    <updated>2023-03-03T15:07:04.330Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;创新型垄断的特点是什么呢？&quot;&gt;创新型垄断的特点是什么呢？&lt;/h2&gt;
-&lt;p&gt;在 Peter Thiel &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="投资管理" scheme="http://yunminitools.cn/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   

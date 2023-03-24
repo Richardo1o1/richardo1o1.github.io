@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>当日所学 |  New structure for utility</title>
+      <title>中台的设计挑战-3 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,306 +68,173 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-Design-Challenges-for-the-Middle-Platform-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">当日所学</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  中台的设计挑战-3
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/" class="article-date">
+  <time datetime="2023-03-24T15:10:15.000Z" itemprop="datePublished">2023-03-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">899</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/" class="archive-article-date">
-  <time datetime="2023-03-24T15:10:15.000Z" itemprop="datePublished">03/24</time>
-</a>
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/"
-    >中台的设计挑战-3</a> 
-</h2>
+  <p>在做中台设计的过程中，发现中台体系庞大，链路错综复杂，问题也很多。不过这些页面之间都存有一些共性，通过对页面特征的分析，总结出了三种典型的业务场景类型：信息列表类、规则配置类、场景联动类。</p>
+<h2 id="3-场景联动类"><strong>3. 场景联动类</strong></h2>
+<p>在中台业务域中，有许多与C端紧密相关的场景，但我们似乎并未抓住这种适合互动的机会，前中后台之间缺乏沟通与联动。整个系统就像一座冰山，前台只是冰山一角，冰面之下隐藏着庞大的中台系统，这就形成了前后之间虽然关系紧密但彼此看不见的情况。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-C1.png" alt=" "></p>
+<span id="more"></span>
+<p>为了解决看不见的问题，我们可以从加强C端与中台之间的联动入手，通过C端所见即所得法则建立前后台之间可视化的桥梁，把这层联动关系清晰展示。为了更好的帮助我们了场景联动可视化的方法，下面举个常见的案例来介绍下所见即所得映射法则的用法。</p>
+<p><strong>案例  权益卡券可视化</strong><br>
+“权益”在营销业务中经常被提及，优惠券是最常见的权益发放载体。这些看似简单的卡券背后其实有着复杂的配置规则，如下图所示，很多优惠券都需要经过繁琐的字段配置后，才能生成一张可用的卡券。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-C2.png" alt=" "></p>
+<p>上述方式缺乏前后台之间的场景联动，影响卡券创建效率。所以这里可以做<strong>前后联动关系的映射</strong>，最简单的方式就是将C端的卡券样式作为载体参考，将配置中的页面结构、内容等都与券面建立对应关系。这种方法不仅简化了流程，也增强了对卡券创建后效果的体感。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-C3.png" alt=" "><br>
+<strong>场景联动可视化小结：</strong><br>
+综上所述，在场景联动类业务中，因为与C端界面关系紧密但却并未将这层紧密的关系可视化的表达，导致看不见现象的发生，针对这类问题，我们可以采用所见即所得映射法来建立前后台之间的映射关系。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-C4.png" alt=" "></p>
+<h2 id="可视化设计总结">可视化设计总结</h2>
+<p>通过上文的研究和实践，最终总结出了一套适合当前中台可视化设计的方法：首先分析业务场景，根据其特点确定场景类型，思考是否存在该类场景下的典型问题，根据问题定位设计策略，执行匹配的映射法则。做设计时，可以多维度提炼能够描述该类场景的关键词，然后寻找合适的载体参考物，进行相应的视觉载体设计。这就是整个可视化设计的流程。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-D1.png" alt=" "></p>
+<p>进一步来说，可视化其实主要在做两件事：首先围绕场景特点多维度提取关键词，然后将关键词进行具象的表达，最终落地在对视觉载体的设计上。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-D2.png" alt=" "></p>
+<p>更进一步来说，就是建立业务场景与视觉载体之间的映射关系。<br>
+<img src="http://cdn.yunminitools.cn/blog/0322-Design-D3.png" alt="http://cdn.yunminitools.cn/blog/0322-Design-D3.png"></p>
+<p>综上所述，可以用一句话来概括可视化设计的本质：通过对<strong>关键词</strong>的可视化表达，建立<strong>抽象业务场景</strong><br>
+与<strong>具象视觉载体</strong>之间的<strong>映射关系。</strong></p>
+<p>来自：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg4NjEwOTE1Mw==&amp;mid=2247487008&amp;idx=1&amp;sn=5b3e5f4be15ee857dd4f09a06d8e15ee&amp;scene=21#wechat_redirect">善月</a></p>
  
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/" class="archive-article-date">
-  <time datetime="2023-03-23T14:53:36.000Z" itemprop="datePublished">03/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/"
-    >中台的设计挑战-2</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/" class="archive-article-date">
-  <time datetime="2023-03-22T14:37:31.000Z" itemprop="datePublished">03/22</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/"
-    >中台的设计挑战-1</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/20/Talk-about-Enterprise-Services/" class="archive-article-date">
-  <time datetime="2023-03-20T15:11:50.000Z" itemprop="datePublished">03/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/20/Talk-about-Enterprise-Services/"
-    >聊聊企业服务产品</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/18/DDD-domain-model-1/" class="archive-article-date">
-  <time datetime="2023-03-18T14:05:23.000Z" itemprop="datePublished">03/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/18/DDD-domain-model-1/"
-    >领域模型的应用</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/17/How-to-system-decoupling/" class="archive-article-date">
-  <time datetime="2023-03-17T14:14:15.000Z" itemprop="datePublished">03/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/17/How-to-system-decoupling/"
-    >如何实现系统解耦</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/15/DDD-ContextMap/" class="archive-article-date">
-  <time datetime="2023-03-15T14:28:30.000Z" itemprop="datePublished">03/15</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/15/DDD-ContextMap/"
-    >DDD中的上下文映射</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/14/Degenerate-Dimension/" class="archive-article-date">
-  <time datetime="2023-03-14T01:46:41.000Z" itemprop="datePublished">03/14</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/14/Degenerate-Dimension/"
-    >什么是维度退化</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/13/Dimension-Table-Design-1/" class="archive-article-date">
-  <time datetime="2023-03-13T08:08:23.000Z" itemprop="datePublished">03/13</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/13/Dimension-Table-Design-1/"
-    >维度表设计注意事项</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/12/The-iceberg-secret-revealed/" class="archive-article-date">
-  <time datetime="2023-03-12T09:23:18.000Z" itemprop="datePublished">03/12</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/12/The-iceberg-secret-revealed/"
-    >关于需求分析和客户沟通</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/page/2/">2</a><a class="page-number" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/page/5/">5</a><a class="extend next" rel="next" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI%E8%AE%BE%E8%AE%A1/" rel="tag">UI设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">中台的设计挑战-2</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -504,6 +371,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
