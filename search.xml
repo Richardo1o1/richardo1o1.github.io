@@ -2589,4 +2589,54 @@ n 为数字，若 n 为 .，表示从当前行开始到最后一行</p>
         <tag>产品管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>思考问题的工具和框架</title>
+    <url>/2023/03/25/Tools-for-better-thinking/</url>
+    <content><![CDATA[<h2 id="网站特点">网站特点</h2>
+<p>发现一个帮助更好思考问题的工具「<a href="https://untools.co/">untools</a>」，收集了各种思维工具和框架，可以帮助我们更好地理解问题、分析、决策，包括有常用的金字塔、SWOT分析、因果图、二阶思维等，类似于选择不同的思维模型来解决不同的问题。<br>
+<img src="http://cdn.yunminitools.cn/blog/0325-untools.png" alt="https://untools.co/"></p>
+<h2 id="网站结构">网站结构</h2>
+<h3 id="系统思考">系统思考</h3>
+<ul>
+<li>概念地图（<a href="https://untools.co/concept-map">Concept map</a>）: 形象地理解一个概念或系统，了解其实体之间的关系。</li>
+<li>连接圈（<a href="https://untools.co/connection-circles">Connection circles</a>）:是一种将故事或系统中的关系可视化的工具。它们通过看到系统中的因果关系来帮助你理解复杂性。</li>
+<li>冰山模型(<a href="https://untools.co/iceberg-model">Iceberg Model</a>):通过查看隐藏的抽象级别来发现事件的根本原因。</li>
+<li>平衡反馈回路(<a href="https://untools.co/balancing-feedback-loop">Balancing feedback loop</a>):是一种机制，它抵制在一个方向的进一步变化。它以反方向的变化来对抗一个方向的变化。它试图稳定一个系统。</li>
+<li>强化反馈回路(<a href="https://untools.co/reinforcing-feedback-loop">Reinforcing feedback loop</a>):了解指数（复利）变化背后的力量。</li>
+</ul>
+<span id="more"></span>
+<h3 id="做决策">做决策</h3>
+<ul>
+<li>Cynefin管理决策框架（<a href="https://untools.co/cynefin-framework">Cynefin framework</a>）：对不同的情况作出判断，以选择适当的反应。</li>
+<li>6顶帽子思考法（<a href="https://untools.co/six-thinking-hats">Six Thinking Hats</a>）：从不同的角度来看待一个决定</li>
+<li>二阶思维（<a href="https://untools.co/second-order-thinking">Second-order thinking</a>）： 考虑你的决定的长期后果。</li>
+<li>艾森豪威尔法则（<a href="https://untools.co/eisenhower-matrix">Eisenhower Matrix</a>）： 按照重要性和紧迫性对你的行动和任务进行优先排序</li>
+<li>推论阶梯（<a href="https://untools.co/ladder-of-inference">Ladder of inference</a>）：避免急于下结论。根据现实做出决定。</li>
+<li>决策矩阵（<a href="https://untools.co/decision-matrix">Decision matrix</a>）：通过考虑多种因素选择最佳方案。</li>
+<li>信心决定了速度与质量（<a href="https://untools.co/confidence-determines-speed-vs-quality">Confidence determines speed vs. quality</a>）：在建造产品时确定速度和质量之间的权衡。</li>
+<li>困难选择模型（<a href="https://untools.co/hard-choice-model">Hard choice model</a>）：弄清楚你在做什么样的决定。</li>
+</ul>
+<h3 id="问题解决">问题解决</h3>
+<ul>
+<li>鱼骨图（<a href="https://untools.co/ishikawa-diagram">Ishikawa Diagram</a>）：确定问题的根本原因。</li>
+<li>冲突解决图（<a href="https://untools.co/conflict-resolution-diagram">Conflict Resolution Diagram</a>）：找到解决冲突的双赢办法。</li>
+<li>生产性思维模型（<a href="https://untools.co/productive-thinking-model">Productive Thinking Model</a>）：创造性地、高效地解决问题。</li>
+<li>抽象阶梯（<a href="https://untools.co/abstraction-laddering">Abstraction laddering</a>）：用不同的抽象层次来更好地构建你的问题。</li>
+<li>逆向（<a href="https://untools.co/inversion">Inversion</a>）：从不同的角度来处理问题。</li>
+<li>逻辑树（<a href="https://untools.co/issue-trees">Issue trees</a>）：以系统的方式构造和解决问题。</li>
+<li>第一性原理（<a href="https://untools.co/first-principles">First principles</a>）：将复杂的问题分解成基本元素，并从中创造出创新的解决方案。</li>
+</ul>
+<h3 id="沟通">沟通</h3>
+<ul>
+<li>金字塔原理（<a href="https://untools.co/minto-pyramid">Minto Pyramid</a>）：让你的沟通更加高效和清晰。</li>
+<li>SBI模型（<a href="https://untools.co/situation-behavior-impact">Situation-Behavior-Impact</a>）：给予他人更清晰的反馈，不做评判。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>工具框架</tag>
+      </tags>
+  </entry>
 </search>

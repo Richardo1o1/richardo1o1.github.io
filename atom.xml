@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-24T15:10:50.441Z</updated>
+  <updated>2023-03-25T02:33:39.212Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>思考问题的工具和框架</title>
+    <link href="http://yunminitools.cn/2023/03/25/Tools-for-better-thinking/"/>
+    <id>http://yunminitools.cn/2023/03/25/Tools-for-better-thinking/</id>
+    <published>2023-03-25T02:33:05.000Z</published>
+    <updated>2023-03-25T02:33:39.212Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;网站特点&quot;&gt;网站特点&lt;/h2&gt;
+&lt;p&gt;发现一个帮助更好思考问题的工具「&lt;a href=&quot;https://untools.co/&quot;&gt;untools&lt;/a&gt;」，收集了各种思维工具和框架，可以帮助我们更好地理解问题、分析、决策，包括有常用的金字塔、SWOT分析、因果图、二阶思维等，类似于选择不同的思维模型来解决不同的问题。&lt;br&gt;
+&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0325-untools.png&quot; alt=&quot;https://untools.co/&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;网站结构&quot;&gt;网站结构&lt;/h2&gt;
+&lt;h3 id=&quot;系统思考&quot;&gt;系统思考&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;概念地图（&lt;a href=&quot;https://untools.co/concept-map&quot;&gt;Concept map&lt;/a&gt;）: 形象地理解一个概念或系统，了解其实体之间的关系。&lt;/li&gt;
+&lt;li&gt;连接圈（&lt;a href=&quot;https://untools.co/connection-circles&quot;&gt;Connection circles&lt;/a&gt;）:是一种将故事或系统中的关系可视化的工具。它们通过看到系统中的因果关系来帮助你理解复杂性。&lt;/li&gt;
+&lt;li&gt;冰山模型(&lt;a href=&quot;https://untools.co/iceberg-model&quot;&gt;Iceberg Model&lt;/a&gt;):通过查看隐藏的抽象级别来发现事件的根本原因。&lt;/li&gt;
+&lt;li&gt;平衡反馈回路(&lt;a href=&quot;https://untools.co/balancing-feedback-loop&quot;&gt;Balancing feedback loop&lt;/a&gt;):是一种机制，它抵制在一个方向的进一步变化。它以反方向的变化来对抗一个方向的变化。它试图稳定一个系统。&lt;/li&gt;
+&lt;li&gt;强化反馈回路(&lt;a href=&quot;https://untools.co/reinforcing-feedback-loop&quot;&gt;Reinforcing feedback loop&lt;/a&gt;):了解指数（复利）变化背后的力量。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="工具框架" scheme="http://yunminitools.cn/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>中台的设计挑战-3</title>
@@ -551,35 +581,6 @@ A---I(退化维度)&lt;/pre&gt;</summary>
 &lt;p&gt;可以从以下行动入手：&lt;/p&gt;
 &lt;pre class=&quot;mermaid&quot;&gt;graph LR
 A(认知现状)--&gt;B(制定策略)--&gt;C(选择方法)--&gt;D(监控执行)--&gt;E(复盘效果)&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="用户画像" scheme="http://yunminitools.cn/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何搭建用户画像？</title>
-    <link href="http://yunminitools.cn/2023/03/04/User-Profile-1/"/>
-    <id>http://yunminitools.cn/2023/03/04/User-Profile-1/</id>
-    <published>2023-03-04T15:24:10.000Z</published>
-    <updated>2023-03-04T15:25:24.314Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;什么是用户画像？&quot;&gt;什么是用户画像？&lt;/h2&gt;
-&lt;p&gt;用户画像系统是一个以用户为分析对象，通过各种方法将用户信息进行展示，提供给分析人员全面、准确并具有指导意义的信息，从而优化运营的策略，提高服务效率，最终提高用户满意度。&lt;br&gt;
-画像系统最为核心的三个能力，分别是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;信息的加工生产能力&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信息的分析展示能力&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信息的传递能力&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;如何搭建画像系统？&quot;&gt;&lt;strong&gt;&lt;strong&gt;如何搭建画像系统？&lt;/strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;内容产生&quot;&gt;内容产生&lt;/h3&gt;
-&lt;p&gt;通过埋点及与业务系统数据集成的方式，我们需要将用户在产品中的行为进行记录上报。尽可能准确、全面的采集核心链路的数据。&lt;/p&gt;</summary>
     
     
     

@@ -100,6 +100,77 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-DDD-ContextMap"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/15/DDD-ContextMap/"
+    >DDD中的上下文映射</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/15/DDD-ContextMap/" class="article-date">
+  <time datetime="2023-03-15T14:28:30.000Z" itemprop="datePublished">2023-03-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="什么是上下文映射">什么是上下文映射</h2>
+<p>上下文映射，对应的英文单词是Context Map，代表的是领域驱动设计中，多个限界上下文之前的关系。方便设计者和开发者能够一目了然地看到每个限界上下文和其它限界上下文之间的关系，最终的产出可能是一张映射图，或者映射卡片。实际上的限界上下文映射的设计，不只是跟设计决策和技术实现有关，还跟企业文化、组织架构有关。</p>
+<h2 id="有哪些上下文映射">有哪些上下文映射</h2>
+<h3 id="分离方式">分离方式</h3>
+<p>分离方式（separate way），分离方式指的是两个限界上下文没有任何关系，没有关系其实就是一种非常好的设计，因为它们可以独立变化，互相影响。<br>
+但在实际的开发过程中，可能两个限界上下文会有一些耦合。如果设计者认为这两个限界上下文解耦的价值远远大于复用的价值（比如分属于两个差异很大的团队），那可以通过引入少量的重复来彻底解耦开来。<br>
+<strong>比如</strong>：在电商场景中，支付上下文，就和库存上下文没有任何关系。</p>
+<h3 id="客户-供应">客户-供应</h3>
+<p>客户-供应（customer/supplier）是我们最中间的一种上下文映射方式。一方提供服务，另一方去调用服务。我们类比水流，上游发生变化可能会影响下游，所以我们把提供服务的一方称为“上游”，使用服务的一方称为“下游”。这与调用关系刚好是相反的。<br>
+<strong>比如</strong>：在电商场景中，订单上下文依赖库存上下文，所以库存上下文就是订单上下文的上游。</p>
+<h3 id="发布-订阅">发布-订阅</h3>
+<p>发布-订阅（publisher/subscriber）也是一种很常见的上下文映射方式，在实际的开发过程中往往是通过消息中间件来实现。<br>
+发布-订阅模式源自于设计模式中的“观察者模式”，上下游通过消息去通信，下游注册观察者，上游作为发布者，如果上游发生了变化，会发布一个业务事件，下游收到这个事件后进行后续的操作。<br>
+发布-订阅模式与客户-供应模式最大的不同，在于发布-订阅模式，是上游主动发起业务的变化，而不是被动等下游去调用上游。它相较于客户-供应模式而言，耦合程度会低一些。<br>
+<strong>比如</strong>：在电商场景中，订单上下文和物流上下文，就可以通过发布-订阅模式来做。订单完成后，发生订单完成事件，物流上下文监听事件开始物流配送。</p> 
+      <a class="article-more-link" href="/2023/03/15/DDD-ContextMap/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/" rel="tag">领域驱动</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Degenerate-Dimension"
   class="article article-type-post"
   itemscope
@@ -921,80 +992,13 @@ A(认知现状)-->B(制定策略)-->C(选择方法)-->D(监控执行)-->E(复盘
 </article>
 
     
-    <article
-  id="post-User-Profile-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/04/User-Profile-1/"
-    >如何搭建用户画像？</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/04/User-Profile-1/" class="article-date">
-  <time datetime="2023-03-04T15:24:10.000Z" itemprop="datePublished">2023-03-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="什么是用户画像？">什么是用户画像？</h2>
-<p>用户画像系统是一个以用户为分析对象，通过各种方法将用户信息进行展示，提供给分析人员全面、准确并具有指导意义的信息，从而优化运营的策略，提高服务效率，最终提高用户满意度。<br>
-画像系统最为核心的三个能力，分别是：</p>
-<ul>
-<li><strong>信息的加工生产能力</strong></li>
-<li><strong>信息的分析展示能力</strong></li>
-<li><strong>信息的传递能力</strong></li>
-</ul>
-<h2 id="如何搭建画像系统？"><strong><strong>如何搭建画像系统？</strong></strong></h2>
-<h3 id="内容产生">内容产生</h3>
-<p>通过埋点及与业务系统数据集成的方式，我们需要将用户在产品中的行为进行记录上报。尽可能准确、全面的采集核心链路的数据。</p> 
-      <a class="article-more-link" href="/2023/03/04/User-Profile-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/" rel="tag">用户画像</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>
