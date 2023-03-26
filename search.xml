@@ -2639,4 +2639,34 @@ n 为数字，若 n 为 .，表示从当前行开始到最后一行</p>
         <tag>工具框架</tag>
       </tags>
   </entry>
+  <entry>
+    <title>概念地图介绍</title>
+    <url>/2023/03/26/Concept-map-1/</url>
+    <content><![CDATA[<h2 id="什么是概念地图？">什么是概念地图？</h2>
+<p><a href="https://wiki.mbalib.com/w/index.php?title=%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7D%C2%B7%E8%AF%BA%E7%93%A6%E5%85%8B&amp;action=edit">约瑟夫·D·诺瓦克</a>（<a href="https://wiki.mbalib.com/w/index.php?title=Joseph_D.Novak&amp;action=edit">Joseph D.Novak</a>）于20世纪70年代，在康奈尔大学（Cornell University）发展出概念图绘制技巧。当时，Novak将这种技巧应用在科学教学上，做为一种增进理解的教学技术。Novak的设计是基于<a href="https://wiki.mbalib.com/wiki/%E5%A4%A7%E5%8D%AB%C2%B7%E5%A5%A5%E8%8B%8F%E4%BC%AF%E5%B0%94">大卫·奥苏伯尔</a>（<a href="https://wiki.mbalib.com/wiki/David_Ausubel">David Ausubel</a>）的同化理论（assimilation theory）。<a href="https://wiki.mbalib.com/wiki/%E5%A5%A5%E8%8B%8F%E4%BC%AF%E5%B0%94">奥苏伯尔</a>根据建构式学习（constructivism learning）的观点，强调先前知识（prior knowledge）是学习新知识的基础框架（framework），并有不可取代的重要性。在Novak的著作《习得学习》（Learning to Learn）中，指出“<a href="https://wiki.mbalib.com/wiki/%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%AD%A6%E4%B9%A0">有意义的学习</a>，涉及将新概念与命题的同化于既有的认知架构中。”<br>
+Novak教授认为，概念图是某个主题的概念及其关系的图形化表示，概念图是用来<a href="https://wiki.mbalib.com/wiki/%E7%BB%84%E7%BB%87">组织</a>和表征知识的工具。它通常将某一主题的有关概念置于圆圈或方框之中，然后用连线将相关的概念和命题连接，连线上标明两个概念之间的意义关系。概念图又可称为概念构图（concept mapping）或概念地图（concept maps）。前者注重概念图制作的具体过程，后者注重概念图制作的最后结果。现在一般把概念构图和概念地图统称为概念图而不加于严格的区别。<br>
+在概念图中，由方形表示概念，如“狗”和“动物”等等。概念间的关系则以标名(labelled)的箭头线段连结，箭头的方向表示往下发展的层次。这些线段会像是：“引发”、“导致”、“需要”、“提供”等等。</p>
+<h2 id="概念图的组织结构">概念图的组织结构</h2>
+<p>“概念图”是一种知识以及知识之间的关系的网络图形化表征，也是<a href="https://wiki.mbalib.com/wiki/%E6%80%9D%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96">思维可视化</a>的表征。一幅概念图一般由“节点”、“链接”和“有关文字标注”组成。</p>
+<p><strong>1、节点：</strong> 由几何图形、图案、文字等表示某个概念，每个节点表示一个概念，一般同一层级的概念用同种的符号（图形）标识。概念是可以用于交流的指代明确的符号（词汇、语言等形式）。<br>
+<strong>2、链接：</strong> 表示不同节点间的有意义的关系，常用各种形式的线链接不同节点，这其中表达了构图者对概念的理解程度。<br>
+<strong>3、文字标注：</strong> 可以是表示不同节点上的概念的关系，也可以是对节点上的概念详细阐述，还可以是对整幅图的有关说明。</p>
+<p>举例：<br>
+<img src="http://cdn.yunminitools.cn/blog/0326-WhatIsCmap.jpeg" alt="《什么是概念地图》"></p>
+<h2 id="概念地图的优势">概念地图的优势</h2>
+<ul>
+<li>层次结构明显</li>
+<li>长程连接更容易看到</li>
+<li>维基融合，主动性导航型知识库</li>
+</ul>
+<p>举例：<br>
+<img src="http://cdn.yunminitools.cn/blog/0326-ReadABook.jpeg" alt="《如何阅读一本书》"></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>工具框架</tag>
+      </tags>
+  </entry>
 </search>
