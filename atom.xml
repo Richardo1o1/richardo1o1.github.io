@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-26T12:20:22.329Z</updated>
+  <updated>2023-03-27T15:06:22.713Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>转载：《GPT-4 ，通用人工智能的火花》论文内容精选与翻译</title>
+    <link href="http://yunminitools.cn/2023/03/27/Sparks-of-Artificial-General-Intelligence/"/>
+    <id>http://yunminitools.cn/2023/03/27/Sparks-of-Artificial-General-Intelligence/</id>
+    <published>2023-03-27T15:05:20.000Z</published>
+    <updated>2023-03-27T15:06:22.713Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;引言：&quot;&gt;引言：&lt;/h2&gt;
+&lt;p&gt;《通用人工智能的火花：GPT-4早期实验》是3月最重要的一篇论文，引起了广泛的关注和讨论，但是论文长达 154页，中文版本还无人翻译。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.notion.so/GPT-4-8fc50010291d47efb92cbbd668c8c893&quot;&gt;本文&lt;/a&gt;挑选了论文中的重点结论并进行翻译，虽然已经是精选，但仍然超过万字。但考虑到 GPT5 明年才能面世，这篇文章在今年什么时候看都不晚。&lt;/p&gt;
+&lt;p&gt;微软的研究院在很早期就接触到了 GPT-4 的非多模态版本，并对齐进行了详尽的测试。这篇论文就是整个的测试过程和结论。不管是测试方法还是结论都非常精彩，强烈推荐看一遍，传送门在此 。&lt;a href=&quot;https://arxiv.org/pdf/2303.12712v1.pdf&quot;&gt;https://arxiv.org/pdf/2303.12712v1.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文的翻译没有添加任何夸张的修辞（DeepL和ChatGPT贡献也很大），但文中透露的信息本身已足够震撼。&lt;/p&gt;
+&lt;p&gt;本文目的是和大家分享当前AI最新的进展，欢迎分享转发，如需转载，只需要注明作者信息 &lt;a href=&quot;https://web.okjike.com/u/FCEA29D3-5BB5-4174-B7A9-1DEE77CEDC46&quot;&gt;orange.ai&lt;/a&gt; 和原始链接 &lt;a href=&quot;https://www.notion.so/GPT-4-8fc50010291d47efb92cbbd668c8c893&quot;&gt;https://orangeblog.notion.site/GPT-4-8fc50010291d47efb92cbbd668c8c893&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="论文翻译" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>概念地图介绍</title>
@@ -538,31 +564,6 @@ A---I(退化维度)&lt;/pre&gt;</summary>
     
     
     <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>反思：那些你不该做的事情</title>
-    <link href="http://yunminitools.cn/2023/03/06/Things-you-should-never-do-1/"/>
-    <id>http://yunminitools.cn/2023/03/06/Things-you-should-never-do-1/</id>
-    <published>2023-03-06T15:58:15.000Z</published>
-    <updated>2023-03-06T15:58:55.693Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;最近在重新看 &lt;strong&gt;Joel on Software&lt;/strong&gt; 的blog，时隔二十年，很多错误还在重复发生，很有感触，比如&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="复盘反思" scheme="http://yunminitools.cn/tags/%E5%A4%8D%E7%9B%98%E5%8F%8D%E6%80%9D/"/>
     
   </entry>
   
