@@ -2893,4 +2893,18 @@ GPT4 或其他 LLMs 需要继续改进的方向包括：</p>
         <tag>论文翻译</tag>
       </tags>
   </entry>
+  <entry>
+    <title>推荐：Prompts 收集网站</title>
+    <url>/2023/03/28/Prompts-Resource-1/</url>
+    <content><![CDATA[<p>推荐一个我正在用的 Prompts 网站，<a href="https://prompthero.com/">https://prompthero.com/</a> ，适用于 ChatGPT、Midjourney、Stable Diffusion，最近用 Midjourney 比较多，找见想要风格的图片，直接复制 Prompts 就可以，效果还是不错的。</p>
+<p><img src="http://cdn.yunminitools.cn/blog/2023-03-28Prompts.png" alt=" "></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>AIGC</tag>
+        <tag>绘画</tag>
+      </tags>
+  </entry>
 </search>

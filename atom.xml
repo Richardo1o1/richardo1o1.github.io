@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-27T15:06:22.713Z</updated>
+  <updated>2023-03-28T15:49:53.253Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>推荐：Prompts 收集网站</title>
+    <link href="http://yunminitools.cn/2023/03/28/Prompts-Resource-1/"/>
+    <id>http://yunminitools.cn/2023/03/28/Prompts-Resource-1/</id>
+    <published>2023-03-28T15:47:56.000Z</published>
+    <updated>2023-03-28T15:49:53.253Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;推荐一个我正在用的 Prompts 网站，&lt;a href=&quot;https://prompthero.com/&quot;&gt;https://prompthero.com/&lt;/a&gt; ，适用于 ChatGPT、Midjourney、Stable Diffusion，最近用</summary>
+        
+      
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+    <category term="绘画" scheme="http://yunminitools.cn/tags/%E7%BB%98%E7%94%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>转载：《GPT-4 ，通用人工智能的火花》论文内容精选与翻译</title>
@@ -529,32 +556,6 @@ A---I(退化维度)&lt;/pre&gt;</summary>
         
     <summary type="html">&lt;h2 id=&quot;什么是事实表？&quot;&gt;什么是事实表？&lt;/h2&gt;
 &lt;p&gt;事实表作为数据仓库维度建模的核心，紧紧围绕着业务过程来设计，通过获取描述业务过程的度量来表达业务过程，包含了引用的维度</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>业务数据治理实施流程-1</title>
-    <link href="http://yunminitools.cn/2023/03/07/business-data-governance-1/"/>
-    <id>http://yunminitools.cn/2023/03/07/business-data-governance-1/</id>
-    <published>2023-03-07T15:23:54.000Z</published>
-    <updated>2023-03-07T15:26:13.205Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;数据治理实施流程，是我们依据业务数据治理标准化框架在实施解决具体数据问题时，总结抽象出来的一套适用于大多数治理场景解决问题的通用标准流程。标准流程的好处在于更加规范化数据治理工程师的操作流程，来保证实施的质量。流程一共包含5个步骤：&lt;/p&gt;
-&lt;h2</summary>
         
       
     
