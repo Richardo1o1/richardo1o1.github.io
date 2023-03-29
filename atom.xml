@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-28T15:49:53.253Z</updated>
+  <updated>2023-03-29T14:55:23.521Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI 论文速递</title>
+    <link href="http://yunminitools.cn/2023/03/29/AI-articles/"/>
+    <id>http://yunminitools.cn/2023/03/29/AI-articles/</id>
+    <published>2023-03-29T14:55:00.000Z</published>
+    <updated>2023-03-29T14:55:23.521Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;@RickYU写了个小项目 BriefGPT，抓取 Arxiv AI 领域论文，通过 GPT 生成中文标题和论文概要，高亮顶会论文，方便快速筛选。&lt;br&gt;
+网站：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>推荐：Prompts 收集网站</title>
@@ -532,32 +558,6 @@ A---F(避免不同粒度)
 A---G(保持单位一致)
 A---H(处理null 值)
 A---I(退化维度)&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>三种事实表</title>
-    <link href="http://yunminitools.cn/2023/03/08/Three-Fact-Table/"/>
-    <id>http://yunminitools.cn/2023/03/08/Three-Fact-Table/</id>
-    <published>2023-03-08T07:19:04.000Z</published>
-    <updated>2023-03-08T07:23:35.748Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是事实表？&quot;&gt;什么是事实表？&lt;/h2&gt;
-&lt;p&gt;事实表作为数据仓库维度建模的核心，紧紧围绕着业务过程来设计，通过获取描述业务过程的度量来表达业务过程，包含了引用的维度</summary>
-        
-      
     
     
     
