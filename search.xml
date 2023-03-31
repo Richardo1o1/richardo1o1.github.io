@@ -2979,4 +2979,17 @@ GPT4 或其他 LLMs 需要继续改进的方向包括：</p>
         <tag>复盘反思</tag>
       </tags>
   </entry>
+  <entry>
+    <title>推荐：学正则表达式的网站</title>
+    <url>/2023/03/31/Learn-Regular-expressions/</url>
+    <content><![CDATA[<p>推荐一个从零开始学正则表达式的网站，一步步，交互式，支持中文，方便学。非常不错的网站：<a href="https://regexlearn.com/zh-cn">regexlearn.com</a><br>
+<img src="http://cdn.yunminitools.cn/blog/0331Regexlearn.png" alt="regexlearn.com"></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+      </tags>
+  </entry>
 </search>
