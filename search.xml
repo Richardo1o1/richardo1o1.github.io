@@ -2921,4 +2921,62 @@ GPT4 或其他 LLMs 需要继续改进的方向包括：</p>
         <tag>人工智能</tag>
       </tags>
   </entry>
+  <entry>
+    <title>37signals的决策原则</title>
+    <url>/2023/03/30/37-how-we-make-decisions/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>37signals 是一间芝加哥互联网应用公司，著名产品如 Basecamp，并以开发 Rails 框架著称。下面是他们公司公布的<a href="https://37signals.com/how-we-make-decisions">决策原则</a>。</p>
+<h2 id="决策原则">决策原则</h2>
+<p>以下是我们在37signals做决定时努力牢记的一些一般原则。它们不是要求，这也不是我们在面临选择时的全面清单，但它们可以作为我们在做每天都需要做的一件事时的框架、考虑和共同做法：决定。</p>
+<ol>
+<li>为什么我们要做这个决定，为什么要现在做这个决定? Why are we deciding anything at all? Does a decision actually need to be made here?</li>
+<li>是否是正确的人来做这个决定？谁是拥有正确信息、背景和洞察里的正确人选（不是角色）？谁只是在插嘴？ Is the right person making this decision? Not the right role, but the right person with the right information, context, and insight? Who’s merely chiming in?</li>
+<li>如果忽略眼前利益，我们一年以后还会对这个决定有什么感觉？ If we remove the immediate impact, how do we think we’ll feel about this decision a year from now?</li>
+<li>为什么还没有做出决定？为什么我们之前没有决定？ Why hasn’t this decision been made already? Why didn’t we decide before?</li>
+<li>为什么我们要花这么长时间做这个决定，我们在犹豫什么？这说明什么？ What’s taking so long to make this decision? Why are we hesitating? What does that reveal?</li>
+</ol>
+<span id="more"></span>
+<ol start="6">
+<li>为什么别人会做出不同的决定，他们是怎么想的？ Why would someone else make a different decision? What’s the other side — or two or three — look like?</li>
+<li>我们是否可以把这个决定变小？我们能不能把一个大决定变成三个小决定？ Can we make this decision smaller? Can we take one big decision and turn it into three smaller ones?</li>
+<li>这个决定是可逆的吗？ How easily can we reverse the decision?</li>
+<li>我们对这个决定的第一直觉是什么？我们现在是不是只是在兜圈子，试图用数据来证明本能反应？ What was our first instinct on this decision? Are we now just walking around in circles trying to justify that gut reaction with data?</li>
+<li>我们不做决定会发生什么？ What would happen if we just didn’t make the decision?</li>
+<li>我们上次做类似这样的决定后发生了什么？ What happened the last time we made a decision like this?</li>
+<li>做出决定后，我们期待什么，害怕什么？ What are we looking forward to after the decision is made? What are we afraid of?</li>
+<li>怎样才能让我们更容易的做这个决定？我们可以在考虑中排除哪些因素？ How can we make this decision easier? What parts can we eliminate from consideration?</li>
+<li>这会不会是个错误的决定？ Is there even a wrong decision?</li>
+<li>如果我们等到明天早上，我们会做出不同的决定吗？ Do we anticipate making a different decision if we wait until tomorrow morning to make it?</li>
+<li>是做出任何决定都比不做决定好 还是 不做决定比做出任何决定好？ Is any decision better than no decision, or is no decision better than any decision?</li>
+<li>这个决定会影响哪些其他决定？ What other decisions will be impacted by this decision?</li>
+<li>这个决定会消除做更多决定的可能，还是会增加做更多决定的可能？ Will this decision eliminate the need to make other decisions, or will it create the necessity to make even more decisions?</li>
+<li>哪些信息的缺失会导致我们做出不同的决定？ What missing information would lead to making a different decision?</li>
+<li>这个决定是导致更多的工作还是消除更多的工作？ Will this decision make more work for people that don’t have extra time for that work? Or will it eliminate work?</li>
+<li>这个是让别人练习做决定的好机会吗？ Could this decision be a good one for someone else to practice making?</li>
+<li>我们什么时候要做决定？ When do we have to decide?</li>
+<li>这将是一个一劳永逸的决定，还是一个重复需要做的决定？ Will this be a one-and-done decision, or will this be a repeating decision?</li>
+<li>是否有公司外的人需要参与还是我们可以自己做决定？ Is anyone outside the company depending on this, or is this a decision of our own making?</li>
+<li>这个决定对客户和我们有什么影响？ How does this decision impact customers vs. impact us?</li>
+<li>这个是一个主要基于数据的决定还是一个主要基于直觉的决定？ Is this primarily a data-based decision, or an intuition, gut-based decision?</li>
+<li>另外一个意见会帮助还是阻碍？ Would another opinion help or hinder?</li>
+<li>如果我们被迫在这一秒做出决定，那会是什么？ If we were forced to make a decision right this second, what would it be?</li>
+<li>如果我们在90天前做这个决定，我们认为我们今天会在哪？ Where do we think we’d be today if we made this decision 90 days ago?</li>
+<li>如果我们的决定没有考虑XYZ，这个决定是否有什么我们会后悔的地方？ Is there anything in this decision we’d regret if we didn’t take X, Y, or Z into consideration?</li>
+<li>你是否关心这件事情的走向？ 如果不关心，那你为什么要参与？ Do you even care which way this goes? If not, why are you involved?</li>
+<li>我们何时以及如何会知道这个决定是否正确，甚至是否重要？ When and how will we know whether the decision was the right one, or if it even mattered?</li>
+<li>当结果出现后，它们是否可以用“肉眼”能看到，还是只能用“显微镜”才能看到，如果是后者，那有什么关系？ When the consequences of our decision appear, are they likely to be visible with the naked eye or do they require a microscope to detect? If the latter, does it even matter?</li>
+<li>如果做出这个决定，我们会违反哪些原则？ What principles are we bending if we make this decision?</li>
+<li>我们是否是要求多人来做一个本该由一个人完成的决定？ Are we asking multiple people to make a decision that one person should be making?</li>
+<li>努力的回报是否值得？ Is the return on effort worth it?</li>
+<li>如果我们做出了这个决定，什么变更容易，什么变得更困难？ 从长远看，是更容易了，还是短期容易，长期困难？ What gets easier if we make this decision? What gets harder? Will easier remain easier in the long term, or is it short-term easy but long-term hard? And vice versa.</li>
+<li>归根到底，这个决定是为了钱吗？ In the end, is this about money?</li>
+</ol>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>复盘反思</tag>
+      </tags>
+  </entry>
 </search>
