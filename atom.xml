@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-03-31T15:05:50.401Z</updated>
+  <updated>2023-04-01T14:54:26.214Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识数据埋点（一）</title>
+    <link href="http://yunminitools.cn/2023/04/01/Event-Tracking-1/"/>
+    <id>http://yunminitools.cn/2023/04/01/Event-Tracking-1/</id>
+    <published>2023-04-01T14:53:37.000Z</published>
+    <updated>2023-04-01T14:54:26.214Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;埋点概述&quot;&gt;&lt;strong&gt;埋点概述&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;数据埋点是数据产品经理、数据运营以及数据分析师，基于业务需求（例如：CPC点击付费广告中统计每一个广告位的点击次数），产品需求（例如：推荐系统中推荐商品的曝光次数以及点击的人数）对用户行为的每一个事件对应的位置进行开发埋点，并通过SDK上报埋点的数据结果，记录数据汇总后进行分析，推动产品优化或指导运营。&lt;br&gt;
+埋点分析，是网站分析的一种常用的数据采集方法。数据埋点分为初级、中级、高级三种方式。数据埋点主流部署的方式有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;私有化部署（即部署在自己公司的服务器上，如果期望提高数据安全性，或者定制化的埋点方案较多，则适合私有部署，并开发一套针对自己公司定制化的数据后台查询系统保证数据的安全性和精确性，缺点是成本较高）。&lt;/li&gt;
+&lt;li&gt;接入第三方服务，比如国内的某盟和国外的GA（Google Analytics）统计，在以后的文章中会单独介绍，此处不再展开。（优点是成本较低，部分基础服务免费，缺点是：数据会存在不安全的风险，另外一个就是只能进行通用的简单分析，无法定制化埋点方案）&lt;br&gt;
+此处只展开初级：在产品、服务转化关键点植入统计代码，据其独立ID确保数据采集不重复（如收藏按钮点击率）；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;主要的埋点事件分类：&quot;&gt;&lt;strong&gt;主要的埋点事件分类：&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;点击事件：&quot;&gt;&lt;strong&gt;点击事件：&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;点击事件，用户点击按钮即算点击事件，不管点击后有无结果；&lt;/p&gt;
+&lt;h3 id=&quot;曝光事件：&quot;&gt;&lt;strong&gt;曝光事件：&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;成功打开一次页面记一次，刷新页面一次记一次，加载下一页新页，加载一次记一次。home键切换到后台再进入页面，曝光事件不记；&lt;/p&gt;
+&lt;h3 id=&quot;页面停留时间事件：&quot;&gt;&lt;strong&gt;页面停留时间事件：&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;表示一个用户在X页面的停留时长记为停留时长。例如：小明9:00访问了X网站首页，此时分析工具则开始为小明这个访问者记录1个Session（会话）。接着9:01小明又浏览了另外一个页面列表页，然后离开了网站（离开网站可以是通过关闭浏览器，或在地址栏键入一个不同的网址，或是点击了你网站上链接到其他网站的链接……）为了简单，我们把这个过程当做一个Session。&lt;br&gt;
+则最终小明在首页的页面停留时间：&lt;br&gt;
+&lt;strong&gt;（Time on Page，简称Tp）Tp(首页) = 9:01 – 9:00 = 1 分钟&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>推荐：学正则表达式的网站</title>
@@ -532,36 +567,6 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
     
     
     <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于需求分析和客户沟通</title>
-    <link href="http://yunminitools.cn/2023/03/12/The-iceberg-secret-revealed/"/>
-    <id>http://yunminitools.cn/2023/03/12/The-iceberg-secret-revealed/</id>
-    <published>2023-03-12T09:23:18.000Z</published>
-    <updated>2023-03-12T09:23:47.396Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;关于需求分析和工期预估一直是老大难问题，Joel 的&lt;a href=&quot;https://www.joelonsoftware.com/2002/02/13/the-iceberg-secret-revealed/&quot;&gt;这篇文章&lt;/a&gt;谈到了这个问题，我挑一些记录下来。&lt;/p&gt;
-&lt;h2 id=&quot;客户不知道他们想要什么是问题吗？&quot;&gt;客户不知道他们想要什么是问题吗？&lt;/h2&gt;
-&lt;p&gt;通常，在定制项目中，最常见的超支、失败和悲剧的原因总是归结为，基本上，&amp;quot;客户不知道他们想要什么？”&lt;br&gt;
-事实上，有一件事是每个初级BA都需要在开展工作前要知道的，那就是：&lt;strong&gt;客户其实不知道他们想要什么&lt;/strong&gt;。不要再期望客户知道他们想要什么。这是不可能发生的。忘掉它吧。&lt;br&gt;
-相反，你要假设你将不得不制造一些东西，而客户将不得不喜欢它，但他们将有一点惊喜。你必须做研究，想出一个设计，以一种愉悦的方式解决客户的问题。&lt;br&gt;
-设身处地为客户想想。想象一下，你决定装修你的厨房，因此，你聘请了一位专业的设计师，指示要把它弄得高大上一些。你不知道如何完成这个任务，你不知道那些事厨房中必须要装的，哪些事提升体验的，这些都不是你擅长的，你想让设计师帮你完成这个事情，这就是你雇用他的原因。&lt;br&gt;
-有一种办法是让客户进入房间，让他们作为开发团队的成员参与到设计过程的每一步。我认为，这有点太 &amp;quot;极端 &amp;quot;了。这就好像我的设计师在设计厨房时让我出现，并要求我对每一个小细节提供意见。这对我来说很无聊，我会觉得这个设计师对我毫无价值。&lt;br&gt;
-假设你的客户不知道他们想要什么。根据你对这个领域的理解，你自己设计它。如果你需要花一些时间来学习这个领域，或者你需要一个领域专家来帮助你，这很好，但软件的设计是你的工作。如果你做了领域方面的功课并创造了一个好的用户界面，客户会很高兴。&lt;/p&gt;
-&lt;h2 id=&quot;冰山理论&quot;&gt;冰山理论&lt;/h2&gt;
-&lt;p&gt;现在，我答应告诉你一个关于在你的软件的客户（或非技术经理）的语言和程序员的语言之间进行翻译的秘密。&lt;br&gt;
-你知道一座冰山有90%在水下吗？那么，大多数软件也是这样的–有一个漂亮的用户界面，需要大约10%的工作，然后90%的编程工作是在盖子下面。如果你考虑到你大约一半的时间是用来修复bug的，那么用户界面只占5%的工作。如果你把自己限制在用户界面的视觉部分，即像素，也就是你在PowerPoint中看到的东西，现在我们说的是不到1%。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="需求分析" scheme="http://yunminitools.cn/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/"/>
     
   </entry>
   

@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives |  New structure for utility</title>
+      <title>初识数据埋点（一） |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,246 +68,261 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-Event-Tracking-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  初识数据埋点（一）
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/01/Event-Tracking-1/" class="article-date">
+  <time datetime="2023-04-01T14:53:37.000Z" itemprop="datePublished">2023-04-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">6 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/22/Hexo-Mermaid-1/" class="archive-article-date">
-  <time datetime="2023-02-22T09:15:34.000Z" itemprop="datePublished">02/22</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/22/Hexo-Mermaid-1/"
-    >在Hexo中插入Mermaid图表</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/21/Simple-made-easy/" class="archive-article-date">
-  <time datetime="2023-02-21T15:47:13.000Z" itemprop="datePublished">02/21</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/21/Simple-made-easy/"
-    >简单而后容易</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/20/Podcast-transcript/" class="archive-article-date">
-  <time datetime="2023-02-20T14:48:24.000Z" itemprop="datePublished">02/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/20/Podcast-transcript/"
-    >如何查找英文Podcast的文字稿</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/19/Hexo-image-1/" class="archive-article-date">
-  <time datetime="2023-02-19T03:48:25.000Z" itemprop="datePublished">02/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/19/Hexo-image-1/"
-    >Hexo博客插入图片后如何控制图片大小和样式</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/19/The-Six-Counterintuitive-Rules-Summary/" class="archive-article-date">
-  <time datetime="2023-02-19T03:31:14.000Z" itemprop="datePublished">02/19</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/19/The-Six-Counterintuitive-Rules-Summary/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - Summary</a> 
-</h2>
+  <h2 id="埋点概述"><strong>埋点概述</strong></h2>
+<p>数据埋点是数据产品经理、数据运营以及数据分析师，基于业务需求（例如：CPC点击付费广告中统计每一个广告位的点击次数），产品需求（例如：推荐系统中推荐商品的曝光次数以及点击的人数）对用户行为的每一个事件对应的位置进行开发埋点，并通过SDK上报埋点的数据结果，记录数据汇总后进行分析，推动产品优化或指导运营。<br>
+埋点分析，是网站分析的一种常用的数据采集方法。数据埋点分为初级、中级、高级三种方式。数据埋点主流部署的方式有：</p>
+<ul>
+<li>私有化部署（即部署在自己公司的服务器上，如果期望提高数据安全性，或者定制化的埋点方案较多，则适合私有部署，并开发一套针对自己公司定制化的数据后台查询系统保证数据的安全性和精确性，缺点是成本较高）。</li>
+<li>接入第三方服务，比如国内的某盟和国外的GA（Google Analytics）统计，在以后的文章中会单独介绍，此处不再展开。（优点是成本较低，部分基础服务免费，缺点是：数据会存在不安全的风险，另外一个就是只能进行通用的简单分析，无法定制化埋点方案）<br>
+此处只展开初级：在产品、服务转化关键点植入统计代码，据其独立ID确保数据采集不重复（如收藏按钮点击率）；</li>
+</ul>
+<h2 id="主要的埋点事件分类："><strong>主要的埋点事件分类：</strong></h2>
+<h3 id="点击事件："><strong>点击事件：</strong></h3>
+<p>点击事件，用户点击按钮即算点击事件，不管点击后有无结果；</p>
+<h3 id="曝光事件："><strong>曝光事件：</strong></h3>
+<p>成功打开一次页面记一次，刷新页面一次记一次，加载下一页新页，加载一次记一次。home键切换到后台再进入页面，曝光事件不记；</p>
+<h3 id="页面停留时间事件："><strong>页面停留时间事件：</strong></h3>
+<p>表示一个用户在X页面的停留时长记为停留时长。例如：小明9:00访问了X网站首页，此时分析工具则开始为小明这个访问者记录1个Session（会话）。接着9:01小明又浏览了另外一个页面列表页，然后离开了网站（离开网站可以是通过关闭浏览器，或在地址栏键入一个不同的网址，或是点击了你网站上链接到其他网站的链接……）为了简单，我们把这个过程当做一个Session。<br>
+则最终小明在首页的页面停留时间：<br>
+<strong>（Time on Page，简称Tp）Tp(首页) = 9:01 – 9:00 = 1 分钟</strong></p>
+<span id="more"></span>
+<h2 id="When？什么时间做？"><strong>When？什么时间做？</strong></h2>
+<p>产品经理的需求来源众多，可能来自一线市场人员，可能来自身旁油腻的领导。可能来自用户反馈的一条吐槽…无论需求来自哪里，首先要搞清楚的就是这个需求涉及的问题：</p>
+<ul>
+<li>在什么样的场景下？</li>
+<li>面向哪些目标用户？</li>
+<li>解决了哪些问题？</li>
+<li>带来了什么价值？</li>
+</ul>
+<p>梳理清楚问题后，拆分问题：</p>
+<ul>
+<li>哪些是主要问题？</li>
+<li>哪些是次要问题？</li>
+<li>重不重要？</li>
+<li>紧不紧急？</li>
+</ul>
+<p>将每个问题拆解后下一步就是带着PRD文档找亲爱的数据分析师童鞋与产品经理汪一起沟通，解决以下问题：</p>
+<ul>
+<li>每个问题应该怎么量化？</li>
+<li>量化指标是什么？</li>
+<li>怎么通过数据定义每个问题以及整个需求的成功与否？</li>
+<li>有哪些辅助指标？</li>
+</ul>
+<p>定义好数据指标后，此时则需要数据产品或者数据分析师定义埋点。<br>
+同时为帮助各位看官老爷理解，可参考以下流程图：</p>
+<pre class="mermaid">graph TD
+用户访谈-->B(思维脑图)
+需求调研-->B
+竞品分析-->B
+用户反馈-->B
+B-->PRD需求文档-->数据评估方案-->埋点方案-->需求评审</pre>
+<h2 id="How-怎么定义埋点？"><strong>How?怎么定义埋点？</strong></h2>
+<p>无规则不成方圆，良好的定义规范可以帮助埋点相关人员更好的维护，以及理解，极高的提升工作效率，降低推倒重来的风险，基于此分享一份埋点的定义规范帮助各位看官老爷以后维护自己产品的埋点。<br>
+使用此规范后，一人就可以维护一个APP版本（包含点击事件、曝光事件、停留事件）累计1500多个埋点，井然有序，完全不会乱。</p>
+<h3 id="埋点分类概述："><strong>埋点分类概述：</strong></h3>
+<pre class="mermaid">graph LR
+A(埋点规范)-->B(点击事件集合)
+A-->C(曝光事件集合)
+A-->D(停留事件集合)
+B-->B1(首页)
+B-->B2(列表页)
+B-->B3(详情页)
+C-->C1(首页)
+C-->C2(列表页)
+C-->C3(详情页)
+D-->D1(首页)
+D-->D2(列表页)
+D-->D3(详情页)</pre>
+<ul>
+<li>首先从事件属性这个维度上分为三份Excel（点击事件表、曝光事件表、停留事件表）</li>
+<li>其次每一个事件表中新建三份子表（Sheet）,以点击事件表为例拆分为：首页事件集合、列表页事件集合、详情页事件集合</li>
+<li>每当APP发布新版本时，从上一个版本的埋点中做一份Copy,新版本中新增了哪些埋点，删除了哪些埋点？都用不同的颜色，或者时间标记进行标注说明。</li>
+</ul>
+<h2 id="字段明细："><strong>字段明细：</strong></h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>事件名称</th>
+<th>事件类型</th>
+<th>事件ID</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>收藏功能</td>
+<td>收藏功能-收藏文章</td>
+<td>点击</td>
+<td>Click_App_Xxx_Personal center_Collection_ ArticleCollection</td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="功能字段："><strong>功能字段：</strong></h3>
+<p>用于说明当前埋点是在哪个页面的哪个功能。例如：收藏功能</p>
+<h3 id="事件名称字段：">事件名称字段：</h3>
+<p>用于描述X功能模块内X位置，例如起名叫：收藏功能-文章收藏</p>
+<h3 id="事件类型字段："><strong>事件类型字段：</strong></h3>
+<p>用于说明当前埋点是点击事件还是曝光事件还是其他</p>
+<h3 id="事件ID字段："><strong>事件ID字段：</strong></h3>
+<p>如果是自己公司开发的数据查询系统，则每一个埋点都对应一个事件ID，上线后用于拿着事件ID去后台取数使用。事件ID的命名规范：事件英文简写_哪一端的产品_产品名称简写_页面名称_模块名称_功能名称。</p>
+<blockquote>
+<p>例如：点击事件_APP_产品名称_个人中心_收藏_文章收藏 对应事件ID ==  Click_App_Xxx_Personal center_Collection_ ArticleCollection</p>
+</blockquote>
+<p>如果是用的第三方统计工具：例如某盟，同理定义好事件ID，上线后去X盟后台，输入事件ID查询相应的数据。</p>
+<h3 id="备注："><strong>备注：</strong></h3>
+<p>用于描述当前埋点什么时间新增？什么时间修改过？原因？什么时间被删除？谁删除的？等信息记录，此处好多看官可能以为写不写无所谓，但是为了信息的完整性和可追溯性最好每一次变动都要备注。</p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/19/The-Six-Counterintuitive-Rules-6/" class="archive-article-date">
-  <time datetime="2023-02-19T03:07:48.000Z" itemprop="datePublished">02/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/19/The-Six-Counterintuitive-Rules-6/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 6</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/18/Add-Https-1/" class="archive-article-date">
-  <time datetime="2023-02-18T08:32:25.000Z" itemprop="datePublished">02/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/18/Add-Https-1/"
-    >GitHub Pages 强制使用HTTPS协议访问</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/18/The-Six-Counterintuitive-Rules-5/" class="archive-article-date">
-  <time datetime="2023-02-18T08:02:06.000Z" itemprop="datePublished">02/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/18/The-Six-Counterintuitive-Rules-5/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 5</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/17/Linux-Command-1/" class="archive-article-date">
-  <time datetime="2023-02-17T15:48:23.000Z" itemprop="datePublished">02/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/17/Linux-Command-1/"
-    >有了这个网站，Linux命令就不需要到处搜索了</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/17/The-Six-Counterintuitive-Rules-4/" class="archive-article-date">
-  <time datetime="2023-02-17T15:38:23.000Z" itemprop="datePublished">02/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/17/The-Six-Counterintuitive-Rules-4/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 4</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/page/4/">上一页</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/6/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/04/01/Event-Tracking-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/03/31/Learn-Regular-expressions/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">推荐：学正则表达式的网站</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -444,6 +459,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
