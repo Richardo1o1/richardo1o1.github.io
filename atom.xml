@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-01T14:54:26.214Z</updated>
+  <updated>2023-04-02T15:00:59.722Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件系统解耦：理解依赖关系（一）</title>
+    <link href="http://yunminitools.cn/2023/04/02/Software-system-decoupling-1/"/>
+    <id>http://yunminitools.cn/2023/04/02/Software-system-decoupling-1/</id>
+    <published>2023-04-02T15:00:17.000Z</published>
+    <updated>2023-04-02T15:00:59.722Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在实际工作中，复杂度上来后，各模块之间错综复杂，调用关系网千头万绪。即使有各种设计模式做指导，做出合理的设计也并不容易。程序员天天疲于应对层出不穷的变化，在不断紧逼的deadline压力下，面对巨大的重构工作量往往感到心有余而力不足。&lt;br&gt;
+系统复杂度的根源除了业务本身的</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>初识数据埋点（一）</title>
@@ -534,32 +560,6 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
 &lt;li&gt;没有对应的维度表的维度。&lt;/li&gt;
 &lt;li&gt;存储在事实表中&lt;/li&gt;
 &lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>维度表设计注意事项</title>
-    <link href="http://yunminitools.cn/2023/03/13/Dimension-Table-Design-1/"/>
-    <id>http://yunminitools.cn/2023/03/13/Dimension-Table-Design-1/</id>
-    <published>2023-03-13T08:08:23.000Z</published>
-    <updated>2023-03-13T08:16:53.263Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1、什么是维度表？&quot;&gt;1、什么是维度表？&lt;/h2&gt;
-&lt;p&gt;维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ，</summary>
-        
-      
     
     
     
