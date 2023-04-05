@@ -100,6 +100,91 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-A-Peer-to-Peer-Electronic-Cash-System-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/"
+    >论文学习：Bitcoin - A Peer-to-Peer Electronic Cash System（1）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/" class="article-date">
+  <time datetime="2023-04-05T15:53:35.000Z" itemprop="datePublished">2023-04-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>比特币：一个点对点的电子货币系统</h1>
+<p>Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they’ll generate the longest chain and outpace attackers. The<br>
+network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.</p>
+<p><strong>摘要：</strong>  本文提出了一种完全通过点对点技术实现的电子货币系统，它使得在线支付能够直接由一方发起并支付给另外一方，中间不需要通过任何的金融机构。虽然数字签名部分解决了这个问题，但是如果仍然需要可信任的第三方的支持才能防止重复支付的话，那么这种系统的也会失去价值。我们在此提出一种解决方案，使支付系统在点对点的环境下运行，并防止重复支付问题。<strong>该网络通过随机散列对全部交易加上时间戳，将它们合并入一个不断延伸的基于随机散列的工作量证明（proof-of-work）的链条作为交易记录</strong>，除非重新完成全部的工作量证明，形成的交易记录将不可更改。最长的链条不仅将作为被观察到的事件序列的证明，而且被看做是来自 CPU计算能力最大的池。只要大多数的节点的CPU 计算能力没有被控制用来进行对全网的攻击，那么这些节点将会生成最长的、超过攻击者的链条。这个系统本身需要的基础设施非常少。信息尽最大努力在全网传播即可，节点可以随时离开和重新加入网络，并将接受最长的工作量证明链条作为在该节点离线期间发生的交易的证明。</p>
+<p>【关注点】：</p>
+<ul>
+<li>Cash 的翻译有好几种，我觉得翻译为<strong>货币</strong>最为准确。</li>
+<li>加粗的句子应该是整个论文的核心，全文应该是围绕这个主题展开的。</li>
+<li>我比较关注 <strong>基于随机散列的工作量证明</strong> 如何实现，以及信息如何在全网广播。</li>
+</ul>
+<h2 id="1-介绍">1. 介绍</h2>
+<ol>
+<li>Introduction<br>
+Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments. While the system works well enough for most transactions, it still suffers from the inherent weaknesses of the trust based model.<br>
+Completely non-reversible transactions are not really possible, since financial institutions cannot avoid mediating disputes. The cost of mediation increases transaction costs, limiting the minimum practical transaction size and cutting off the possibility for small casual transactions, and there is a broader cost in the loss of ability to make non-reversible payments for nonreversible services.<br>
+With the possibility of reversal, the need for trust spreads. Merchants must be wary of their customers, hassling them for more information than they would otherwise need. A certain percentage of fraud is accepted as unavoidable. These costs and payment uncertainties can be avoided in person by using physical currency, but no mechanism exists to make payments over a communications channel without a trusted party.<br>
+What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted<br>
+third party. Transactions that are computationally impractical to reverse would protect sellers from fraud, and routine escrow mechanisms could easily be implemented to protect buyers.<br>
+In this paper, we propose a solution to the double-spending problem using a peer-to-peer distributed<br>
+timestamp server to generate computational proof of the chronological order of transactions. The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.</li>
+</ol>
+<p>互联网贸易已经变得几乎完全依赖金融机构作为可信任的第三方来处理电子支付。尽管对于大部分交易这种系统运行得足够好，但仍需忍受<strong>基于信任模型这个固有缺点</strong>。<br>
+由于金融机构不可避免的需要仲裁纠纷，完全不可撤销的交易实际是做不到的。仲裁成本增加了交易成本，限制了最小实际交易额度从而杜绝了日常小额交易的可能性，而且由于不支持不可撤销支付，对不可撤销服务进行支付将需要更大的成本。<br>
+由于存在交易被撤销的可能性，对于信任的需求将扩散。商家必须警惕他们的客户，麻烦他们提供更多他本不需要的信息。一定比例的欺诈被认为是不可避免的。虽可通过当面使用实物货币来避免这些成本及支付的不确定性，但不存在一个无可信任方而能在通信通道上进行支付的机制。<br>
+我们需要的是一个基于密码学原理而不是信任的电子支付系统，该系统允许任何有交易意愿的双方能直接交易而不需要一个可信任的第三方。交易在计算上的不可撤销将保护卖家不被欺诈，用来保护买家的<strong>程序化合约机制</strong>也应该较容易实现。<br>
+在这篇论文中，我们提出一种使用点对点分布式时间戳服务器为基于时间的交易序列生成计算上的证据来解决双重支付问题的方案。只要诚实节点集体控制的 CPU 算力大于任何一个合作攻击节点群的CPU 算力，这个系统就是安全的。</p>
+<p>【关注点】：</p>
+<ul>
+<li><strong>基于信任模型这个固有缺点</strong>  文中并没有展开这个缺点是什么，没有看到合适的解释，后续补充。</li>
+<li>“<em>对不可撤销服务进行支付将需要更大的成本。</em>” 这个有点绕，不大理解，既然做不到那还有什么成本？我理解是指 交易系统将需要更大的成本，和后文呼应。</li>
+<li>routine escrow mechanisms 翻译为 <strong>程序化合约机制</strong>，这个需要再理解一下。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Event-Tracking-2"
   class="article article-type-post"
   itemscope
@@ -667,81 +752,6 @@ SystemChange = f(ReqirementChange)<br>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/" rel="tag">论文翻译</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Concept-map-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/26/Concept-map-1/"
-    >概念地图介绍</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/26/Concept-map-1/" class="article-date">
-  <time datetime="2023-03-26T12:11:58.000Z" itemprop="datePublished">2023-03-26</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="什么是概念地图？">什么是概念地图？</h2>
-<p><a target="_blank" rel="noopener" href="https://wiki.mbalib.com/w/index.php?title=%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7D%C2%B7%E8%AF%BA%E7%93%A6%E5%85%8B&amp;action=edit">约瑟夫·D·诺瓦克</a>（<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/w/index.php?title=Joseph_D.Novak&amp;action=edit">Joseph D.Novak</a>）于20世纪70年代，在康奈尔大学（Cornell University）发展出概念图绘制技巧。当时，Novak将这种技巧应用在科学教学上，做为一种增进理解的教学技术。Novak的设计是基于<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E5%A4%A7%E5%8D%AB%C2%B7%E5%A5%A5%E8%8B%8F%E4%BC%AF%E5%B0%94">大卫·奥苏伯尔</a>（<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/David_Ausubel">David Ausubel</a>）的同化理论（assimilation theory）。<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E5%A5%A5%E8%8B%8F%E4%BC%AF%E5%B0%94">奥苏伯尔</a>根据建构式学习（constructivism learning）的观点，强调先前知识（prior knowledge）是学习新知识的基础框架（framework），并有不可取代的重要性。在Novak的著作《习得学习》（Learning to Learn）中，指出“<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%AD%A6%E4%B9%A0">有意义的学习</a>，涉及将新概念与命题的同化于既有的认知架构中。”<br>
-Novak教授认为，概念图是某个主题的概念及其关系的图形化表示，概念图是用来<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E7%BB%84%E7%BB%87">组织</a>和表征知识的工具。它通常将某一主题的有关概念置于圆圈或方框之中，然后用连线将相关的概念和命题连接，连线上标明两个概念之间的意义关系。概念图又可称为概念构图（concept mapping）或概念地图（concept maps）。前者注重概念图制作的具体过程，后者注重概念图制作的最后结果。现在一般把概念构图和概念地图统称为概念图而不加于严格的区别。<br>
-在概念图中，由方形表示概念，如“狗”和“动物”等等。概念间的关系则以标名(labelled)的箭头线段连结，箭头的方向表示往下发展的层次。这些线段会像是：“引发”、“导致”、“需要”、“提供”等等。</p>
-<h2 id="概念图的组织结构">概念图的组织结构</h2>
-<p>“概念图”是一种知识以及知识之间的关系的网络图形化表征，也是<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E6%80%9D%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96">思维可视化</a>的表征。一幅概念图一般由“节点”、“链接”和“有关文字标注”组成。</p>
-<p><strong>1、节点：</strong> 由几何图形、图案、文字等表示某个概念，每个节点表示一个概念，一般同一层级的概念用同种的符号（图形）标识。概念是可以用于交流的指代明确的符号（词汇、语言等形式）。<br>
-<strong>2、链接：</strong> 表示不同节点间的有意义的关系，常用各种形式的线链接不同节点，这其中表达了构图者对概念的理解程度。<br>
-<strong>3、文字标注：</strong> 可以是表示不同节点上的概念的关系，也可以是对节点上的概念详细阐述，还可以是对整幅图的有关说明。</p>
-<p>举例：<br>
-<img src="http://cdn.yunminitools.cn/blog/0326-WhatIsCmap.jpeg" alt="《什么是概念地图》"></p>
-<h2 id="概念地图的优势">概念地图的优势</h2>
-<ul>
-<li>层次结构明显</li>
-<li>长程连接更容易看到</li>
-<li>维基融合，主动性导航型知识库</li>
-</ul>
-<p>举例：<br>
-<img src="http://cdn.yunminitools.cn/blog/0326-ReadABook.jpeg" alt="《如何阅读一本书》"></p> 
-      <a class="article-more-link" href="/2023/03/26/Concept-map-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/" rel="tag">工具框架</a></li></ul>
 
     </footer>
   </div>
