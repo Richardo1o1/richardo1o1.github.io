@@ -100,6 +100,66 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Hexo-Mermaid-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/02/23/Hexo-Mermaid-2/"
+    >解决ayer主题下Mermaid图表背景太暗的问题</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/02/23/Hexo-Mermaid-2/" class="article-date">
+  <time datetime="2023-02-23T05:51:42.000Z" itemprop="datePublished">2023-02-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
+清缓存，重新发布，搞定。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Theme-ayer/" rel="tag">Theme_ayer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-KM-gather-ideas"
   class="article article-type-post"
   itemscope
@@ -707,82 +767,13 @@ B5-->C53(Stand up)</pre>
 </article>
 
     
-    <article
-  id="post-The-Six-Counterintuitive-Rules-5"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/18/The-Six-Counterintuitive-Rules-5/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 5</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/18/The-Six-Counterintuitive-Rules-5/" class="article-date">
-  <time datetime="2023-02-18T08:02:06.000Z" itemprop="datePublished">2023-02-18</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a> / <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/">English_Article</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="RULE-5-SET-EXPECTATIONS-BUT-KNOW-THAT-YOU’RE-NOT-ALWAYS-THE-ONE-WHO-NEEDS-TO-BRING-THE-CLARITY">RULE #5: SET EXPECTATIONS, BUT KNOW THAT YOU’RE NOT ALWAYS THE ONE WHO NEEDS TO BRING THE CLARITY.</h2>
-<p>If there’s a new role that’s been <strong>poorly defined</strong>, providing clarification is the first step. Once you define it, you’ll usually find that someone who’s in that role isn’t actually a fit for what the business needs.</p>
-<ul>
-<li>Do people’s roles make sense?</li>
-<li>Do they know how they fit in?</li>
-<li>How they align to the business?</li>
-<li>Do they know what’s expected of them?</li>
-<li>Do they know what success looks like?<br>
-80% of the time when I go into a team that’s struggling, the answers to those questions is no.</li>
-</ul>
-<p>Be realistic about what you can offer, but remember that it’s BYOC (Bring Your Own Clarity). I actually need people who bring their own clarity and structure. And that’s because I don’t have a lot of the answers right now. To be a better manager, you have to be really realistic about what you can control and what you can offer — and what you can’t.</p>
-<p>Often a low performer isn’t someone who is inherently low performing. It is someone who has the wrong set of circumstances around them — they’re in the wrong job or in the wrong organization. A lot of times when people are struggling it’s not because they’re bad at stuff, but because they don’t know what’s expected of them. Give them the chance to see the gap and say, ‘I know I can do it,’ or ‘This really isn’t for me actually.’</p>
-<h3 id="Inspiration-5-Set-expectations-is-important">Inspiration 5: Set expectations is important</h3>
-<p>Setting clear expectations is essential for both high-performing and low-performing employees. In the past, I did not do a good job of setting clear expectations, which impacted high-performing employees’ motivation to achieve even greater goals and low-performing employees’ direction in making an effort to improve.</p>
-<hr>
-<p>To Be Continue…</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/" rel="tag">团队管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
   </nav>
   
 </section>

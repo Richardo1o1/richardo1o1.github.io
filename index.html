@@ -100,6 +100,72 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Event-Tracking-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/04/Event-Tracking-2/"
+    >初识数据埋点（二）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/04/Event-Tracking-2/" class="article-date">
+  <time datetime="2023-04-04T14:53:37.000Z" itemprop="datePublished">2023-04-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="实际案例：">实际案例：</h2>
+<p>**实例背景：**某汽车互联网公司，领导对负责新车业务的产品经理X君、负责二手车业务的产品经理Y君提出需求：对新车APP和二手车APP销售线索数据指标进行数据监控，如有超过5%的数据变动，则需要向上级汇报波动数值以及波动原因。<br>
+<strong>名词注释：</strong></p>
+<ul>
+<li>销售线索：通过事件记录到用户有明确的购买意向，记录行为的事件例如：电话咨询、短信询价、加入心愿单、收藏、特别关注等类型事件。记录一个用户即代表一个线索。</li>
+<li>数据波动：即(（当日数据-昨天数据）/昨日数据)*100%=环比数据波动</li>
+</ul>
+<p>根据领导需求，假设定义短信砍价按钮与电话咨询按钮为销售线索指标，销售线索按钮页面的入口来源页面包含：页面A与页面B。<br>
+X君与Y君分别设计了埋点方案，如图所示：<br>
+<img src="http://cdn.yunminitools.cn/blog/0405Tracking.png" alt=" "></p> 
+      <a class="article-more-link" href="/2023/04/04/Event-Tracking-2/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Software-system-decoupling-2"
   class="article article-type-post"
   itemscope
@@ -686,81 +752,13 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
 </article>
 
     
-    <article
-  id="post-Tools-for-better-thinking"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/25/Tools-for-better-thinking/"
-    >思考问题的工具和框架</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/25/Tools-for-better-thinking/" class="article-date">
-  <time datetime="2023-03-25T02:33:05.000Z" itemprop="datePublished">2023-03-25</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="网站特点">网站特点</h2>
-<p>发现一个帮助更好思考问题的工具「<a target="_blank" rel="noopener" href="https://untools.co/">untools</a>」，收集了各种思维工具和框架，可以帮助我们更好地理解问题、分析、决策，包括有常用的金字塔、鱼骨图、二阶思维等，类似于选择不同的思维模型来解决不同的问题。<br>
-<img src="http://cdn.yunminitools.cn/blog/0325-untools.png" alt="https://untools.co/"></p>
-<h2 id="网站结构">网站结构</h2>
-<h3 id="系统思考">系统思考</h3>
-<ul>
-<li>概念地图（<a target="_blank" rel="noopener" href="https://untools.co/concept-map">Concept map</a>）: 形象地理解一个概念或系统，了解其实体之间的关系。</li>
-<li>连接圈（<a target="_blank" rel="noopener" href="https://untools.co/connection-circles">Connection circles</a>）:是一种将故事或系统中的关系可视化的工具。它们通过看到系统中的因果关系来帮助你理解复杂性。</li>
-<li>冰山模型(<a target="_blank" rel="noopener" href="https://untools.co/iceberg-model">Iceberg Model</a>):通过查看隐藏的抽象级别来发现事件的根本原因。</li>
-<li>平衡反馈回路(<a target="_blank" rel="noopener" href="https://untools.co/balancing-feedback-loop">Balancing feedback loop</a>):是一种机制，它抵制在一个方向的进一步变化。它以反方向的变化来对抗一个方向的变化。它试图稳定一个系统。</li>
-<li>强化反馈回路(<a target="_blank" rel="noopener" href="https://untools.co/reinforcing-feedback-loop">Reinforcing feedback loop</a>):了解指数（复利）变化背后的力量。</li>
-</ul> 
-      <a class="article-more-link" href="/2023/03/25/Tools-for-better-thinking/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/" rel="tag">工具框架</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>

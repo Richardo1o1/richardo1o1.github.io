@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>初识数据埋点（二） |  New structure for utility</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/web1.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?6df1890c9854cdf70d1c67b43e743c4d";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+        pre.mermaid {
+	  background: #dedede;
+	}	
+      </style>
+    <link rel="alternate" href="/atom.xml" title="New structure for utility" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Event-Tracking-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  初识数据埋点（二）
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/04/Event-Tracking-2/" class="article-date">
+  <time datetime="2023-04-04T14:53:37.000Z" itemprop="datePublished">2023-04-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">8 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="实际案例：">实际案例：</h2>
+<p>**实例背景：**某汽车互联网公司，领导对负责新车业务的产品经理X君、负责二手车业务的产品经理Y君提出需求：对新车APP和二手车APP销售线索数据指标进行数据监控，如有超过5%的数据变动，则需要向上级汇报波动数值以及波动原因。<br>
+<strong>名词注释：</strong></p>
+<ul>
+<li>销售线索：通过事件记录到用户有明确的购买意向，记录行为的事件例如：电话咨询、短信询价、加入心愿单、收藏、特别关注等类型事件。记录一个用户即代表一个线索。</li>
+<li>数据波动：即(（当日数据-昨天数据）/昨日数据)*100%=环比数据波动</li>
+</ul>
+<p>根据领导需求，假设定义短信砍价按钮与电话咨询按钮为销售线索指标，销售线索按钮页面的入口来源页面包含：页面A与页面B。<br>
+X君与Y君分别设计了埋点方案，如图所示：<br>
+<img src="http://cdn.yunminitools.cn/blog/0405Tracking.png" alt=" "></p>
+<span id="more"></span>
+<h3 id="埋点方案一">埋点方案一</h3>
+<p>X君经梳理得出，在商品详情页共计有两个按钮是销售线索的核心指标分别是按钮一：短信砍价、按钮二：电话咨询。并且有外部入口导流到详情页的有两个页面，分别是：页面A、页面B。根据流量来源的不同与事件类型的不同分为4个埋点事件，每一个埋点事件代表一种情况，如上图所示。<br>
+<strong>方案分析：</strong><br>
+X君对每一种情况都单独设置了一个埋点事件ID，初步看上去还没什么问题，X君只需每天用这四个事件ID去后台搜索即可满足领导的需求：对核心指标进行监控。<br>
+假设随着业务的快速增长，新增更多的外部入口页面，由原来的页面A、页面B的2个入口页面增加至4个、8个、12个，同样随着产品优化需求的上线，新增更多的销售线索事件，由原短信砍价和电话咨询2个销售线索事件增加至4个、8个、12个。<br>
+在极限情况（12个外部页面入口、12个销售线索事件）下X均需要共计维护：<br>
+12*12=144个埋点事件ID。</p>
+<p>假设分析场景：12个流量来源、12个销售线索事件，分析X天共计提交了多少线索？，来自页面A的有多少？<br>
+<strong>问题一：分析X天提交的销售线索中来自页面A的有多少？</strong><br>
+解决以上问题，X君首先需要将流量来源是：页面A的12个不同类型销售线索埋点事件ID找出来求合算出数值。<br>
+<strong>问题二：分析X天用户共计提交了多少线索？</strong><br>
+其次需要将剩下的11个流量来源各维度下12个不同销售线索事件的ID一一取出数据加上流量来源是页面A维度下的所有类型线索取出的数据，并进行最终求合算出X天共计提交线索数…写到这里，各位客官老爷可能会说：X君好累啊~，其实不仅累，并且会带来<strong>严重效率问题</strong>：</p>
+<ul>
+<li>产品经理自身的工作效率会极大的降低，埋点事件ID越多，效率越低，最后极限情况下会无限逼近于零效率、零产出。</li>
+<li>埋点事件无论是普通埋点还是关键核心指标埋点，不仅产品经理需要监控自身产品健康情况，兄弟部门像：数据运营同事、数据分析同事都会基于部门需求对产品进行数据分析与监控，如果像刚才这种情况，数据运营同事每周写数据周报时，单单是一个埋点事件就要计算12个流量来源进行求合，效率极低，会严重拖累运营同事的工作效率。并且对于数据分析师来说，假设在统计整体的销售线索指标时，如通过X君定义的埋点进行分析，在写查询语句SQL时，单是事件ID就要写144个，（大家脑补下数据分析师有节奏的拷贝事件ID 144下时这个画面），数据分析时会毫不犹豫的说：**“来来来，X君我有事找你谈谈~~”**可能有的看官会说：一个按钮用一个埋点事件ID记录就好了，不用区分页面流量来源，那问题来了：当数据产生异常波动时怎么确定是哪个页面的流量入口的流量变动导致最终的结果？</li>
+<li>由于每天产品经理需要大量的埋点事件ID来统计一个指标，导致工作效率低下，可能会让领导对你产生工作能力差，产出效率低下的不好印象…</li>
+</ul>
+<p>那客官老爷会问：那怎么办？稍安勿躁，马上揭晓，请继续向下看。</p>
+<h3 id="埋点方案二">埋点方案二</h3>
+<p>首先Y君对于销售线索有关的内容从各个维度，按照逻辑关系进行拆分，梳理出以下脑图：</p>
+<pre class="mermaid">graph LR
+A(核心指标-销售线索)-->B(指标来源Source)
+A-->C(指标类型Type)
+B-->B1(页面A)
+B-->B2(页面B)
+B-->B3(页面...)
+C-->C1(短信砍价)
+C-->C2(电话咨询)
+C-->C3(其他...)</pre>
+<p>写到这里就不卖关子了，基于思维导图中的逻辑关系，Key-Value闪亮登场！！！<br>
+Y君基于思维导图中的逻辑关系，使用Key字段表示分析的维度，使用Value字段表示不同维度下对应的唯一参数标识，从而将每个维度下众多不同的参数区分开来。通过Key-Value与同属性事件ID的配合，像销售线索这个指标就可以用一个事件ID来表示。在未来即使扩展N个外部入口流量页面，也只需要在当前事件ID在表示流量来源Key维度下在首次开发时新增N个Value参数即可。在未来应用于数据分析时，只需要搜索或写一个事件ID即可对各维度（Key）下不同参数（Value）进行分析，简介、高效。</p>
+<p>例如假设分析场景：12个流量来源、12个销售线索事件，分析X天共计提交了多少线索？，来自页面A的有多少？<br>
+<strong>问题一：分析X天提交的销售线索中来自页面A的有多少？</strong><br>
+Y君只需在后台查一个事件ID，并指定维度Key=指标来源（source）、Value=对应维度下参数为：页面A，最终求出的结果，即代表来自页面A的总数。<br>
+<strong>问题二：分析X天共计提交了多少线索？</strong><br>
+同理，Y君只需要写一个事件ID，并指定维度Key=指标来源（source）,Value=无。最终查询出的结果即代表总的线索数。</p>
+<p><strong>注释：</strong></p>
+<ul>
+<li>当不指定Value时，默认为包含该维度下所有参数（本例中即代表所有来源）。</li>
+<li>各位看官可能会问：当不指定Value参数，且不指定Key维度，Key=无，Value=无 时，对最终总线索数有影响吗？答案是没有。</li>
+<li>同理，一个事件ID，指定Key=其他的维度，例如：Key=指标类别（type）,不指定Value参数，例如Value=无，对最终总线索数统计有影响吗？同理答案是没有。</li>
+</ul>
+<p>Y君通过梳理逻辑关系，将同属性的埋点事件使用一个总事件ID表示，结合Key-Value细分不同维度下的不同参数，方便日后数据分析。通过此方式很好的解决了X君面临的问题，不仅如此，并且具备以下<strong>优点：</strong></p>
+<ul>
+<li><strong>Y君的维护成本低，更加简洁，新增时只需要首次开发时加一个Value参数即可。</strong></li>
+<li><strong>提高Y君自身、数据运营、数据分析师等兄弟部门在数据分析时的工作效率。</strong></li>
+<li><strong>扩展性好，对未来新增业务需求有良好的扩展性。</strong></li>
+</ul>
+<p>相信介绍到这里，大家对埋点事件中Key字段、Value字段配合使用带来的价值已经有了一定的了解。当然如果不同属性的埋点指标还是建议分开，一个属性定义一个事件ID，不能将八竿子打不着两种属性的埋点强行捆绑在一个埋点事件ID上,为了用Key-Value而用Key-Value，生搬硬套，最后只会适得其反，没有实际意义。</p>
+<p>**例如：**在实际业务中，将用户点击“注册账号提交”按钮的行为放在销售线索这个属性事件ID中也通过Key字段、Value字段进行区分标识。结果没有参考价值，更没有实际意义。</p>
+<p>综上所述，得出<strong>结论：</strong><br>
+<strong>设计事件埋点时：</strong></p>
+<ul>
+<li><strong>同种属性的多个事件，建议命名一个事件ID，并通过Key-Value键值对进行区分。</strong></li>
+<li><strong>不同属性的多个事件，建议命名多个事件ID，不建议使用Key-Value键值对进行区分。</strong></li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/04/04/Event-Tracking-2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/04/03/Software-system-decoupling-2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">软件系统解耦：理解依赖关系（二）</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2023
+        <i class="ri-heart-fill heart_icon"></i> Richard Z.
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">沪ICP备15046216号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/desktopicon.png" alt="New structure for utility"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "base" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
