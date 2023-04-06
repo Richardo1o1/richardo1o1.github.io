@@ -72,7 +72,7 @@ X君与Y君分别设计了埋点方案，如图所示：&lt;br&gt;
     <link href="http://yunminitools.cn/2023/04/03/Software-system-decoupling-2/"/>
     <id>http://yunminitools.cn/2023/04/03/Software-system-decoupling-2/</id>
     <published>2023-04-03T14:05:54.000Z</published>
-    <updated>2023-04-03T14:06:27.286Z</updated>
+    <updated>2023-04-06T01:41:57.348Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;单向依赖与单一职责原则-SRP&quot;&gt;单向依赖与单一职责原则(SRP)&lt;/h2&gt;

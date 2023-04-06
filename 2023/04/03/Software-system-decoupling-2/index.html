@@ -146,7 +146,7 @@ var _hmt = _hmt || [];
 <h3 id="1）接口与继承">1）接口与继承</h3>
 <p>我们很自然想到，依赖注入可以使用接口。当Connection依赖的是Logic的接口（假定为ILogic)，虽然Logic变更，只要ILogic不变，就不会影响Connection。但是在实践中根本不是这么回事。</p>
 <p>我们经常听说，只要把接口设计得“正交”“紧凑”，就能保证接口的稳定。但是，在实践中，混乱的继承关系随处可见。大多数程序员都停留在利用继承思维构造业务逻辑关系，并尽快实现功能。极少有能力有时间检视继承关系是否恰当。正确使用继承对程序员的要求太高了。</p>
-<p>当重新审视继承的时候我们发现，继承的父类和子类之间实际形成了一种双向依赖。继承和多态不仅规定了函数的名称、参数、返回类型，还规定了类的继承关系，是一种强耦合（<a href="https://link.zhihu.com/?target=https%3A//cloud.github.com/downloads/chenshuo/documents/CppPractice.pdf">https://cloud.github.com/downloads/chenshuo/documents/CppPractice.pdf</a>, p45）。接口约定了外部调用的规范，继承类必须按照这些规范去实现。只要规范不变，继承类的实现可以调整而不将影响传递出去。糟糕的是，不管是规范还是实现，都基本上不可能一开始就确定好。当变化发生的时候，接口类和继承类都需要做大量的修改，而这些修改也很容易影响到所有使用接口的那些模块。</p>
+<p>当重新审视继承的时候我们发现，继承的父类和子类之间实际形成了一种双向依赖。继承和多态不仅规定了函数的名称、参数、返回类型，还规定了类的继承关系，是一种强耦合（<a target="_blank" rel="noopener" href="https://github.com/downloads/chenshuo/documents/CppPractice.pdf">https://github.com/downloads/chenshuo/documents/CppPractice.pdf</a>, p45）。接口约定了外部调用的规范，继承类必须按照这些规范去实现。只要规范不变，继承类的实现可以调整而不将影响传递出去。糟糕的是，不管是规范还是实现，都基本上不可能一开始就确定好。当变化发生的时候，接口类和继承类都需要做大量的修改，而这些修改也很容易影响到所有使用接口的那些模块。</p>
 <p>稳定的继承关系可以提供良好的扩展性，也可以避免把相同的逻辑写得到处都是（DRY原则）。但是滥用继承也会是灾难性的。在&quot;Is-A&quot;和&quot;Has-A&quot;的取舍中，要谨慎行事。</p>
 <h3 id="2）Delegation">2）Delegation</h3>
 <p>一个对调用者和被调用者约束较小的方式是代理（Delegation）。所谓代理，就是将依赖转移到较稳定的代理类上。通过一个仿函数，调用不同类中有相同签名的方法。一个典型的代理类的例子如下所示(<a href="https://link.zhihu.com/?target=https%3A//www.codeproject.com/Articles/11015/The-Impossibly-Fast-C-Delegates">The Impossibly Fast C++ Delegates</a>)。其最初版本需要对每种参数做不同处理。后来发展出来一种更一般的代理方式(<a href="https://link.zhihu.com/?target=http%3A//blog.coldflake.com/posts/C%2B%2B-delegates-on-steroids/">C++ Delegates On Steroids</a>)，可以接受任意类型和任意数量的参数。</p>
