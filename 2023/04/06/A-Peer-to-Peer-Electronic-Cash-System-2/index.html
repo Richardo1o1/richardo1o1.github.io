@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Is-A 和 Has-A 的取舍 |  New structure for utility</title>
+      <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（2） |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Choose-Is-A-Has-B"
+  id="post-A-Peer-to-Peer-Electronic-Cash-System-2"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Is-A 和 Has-A 的取舍
+  论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（2）
 </h1>
  
 
@@ -88,8 +88,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2023/04/06/Choose-Is-A-Has-B/" class="article-date">
-  <time datetime="2023-04-06T08:09:59.000Z" itemprop="datePublished">2023-04-06</time>
+      <a href="/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/" class="article-date">
+  <time datetime="2023-04-06T14:31:16.000Z" itemprop="datePublished">2023-04-06</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">898</span>
         </span>
     </span>
 
@@ -124,47 +124,24 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="问题">问题</h2>
-<p>组合和继承是允许在新建的类中放入子对象。其中“<strong>Is-A</strong> （是一个）”的关系是用继承来表达的，而“<strong>Has-A</strong>（有一个）”的关系则是用组合来表达的。<br>
-组合是显示的这样做的，而继承是隐式的做。组合一般是将现有的类型作为新类型底层实现的一部分来加以复用，在一个类中引用另一个类，而继承是拥有了父类的非私有方法。<br>
-二者是之间有何区别？或者怎样在二者之间做出选择呢？</p>
-<h2 id="优缺点分析">优缺点分析</h2>
-<p>继承的优点：</p>
-<ol>
-<li>子类可以重写父类的方法来方便地实现对父类的扩展。</li>
-</ol>
-<p>继承的缺点：</p>
-<ol>
-<li>父类的内部细节对子类是可见的。</li>
-<li>子类从父类继承的方法在编译时就确定下来了，所以无法在运行期间改变从父类继承的方法的行为。</li>
-<li>如果对父类的方法做了修改的话（比如增加了一个参数），则子类的方法必须做出相应的修改。所以说子类与父类是一种高耦合，违背了面向对象思想。</li>
-</ol>
-<p>组合的优点：</p>
-<ol>
-<li>当前对象只能通过所包含的那个对象去调用其方法，所以所包含的对象的内部细节对当前对象时不可见的。</li>
-<li>当前对象与包含的对象是一个低耦合关系，如果修改包含对象的类中代码不需要修改当前对象类的代码。</li>
-<li>当前对象可以在运行时动态的绑定所包含的对象。可以通过set方法给所包含对象赋值。</li>
-</ol>
-<p>组合的缺点：</p>
-<ol>
-<li>容易产生过多的对象。</li>
-<li>为了能组合多个对象，必须仔细对接口进行定义。</li>
-</ol>
+  <h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="2-交易">2. 交易</h2>
+<p>II. Transactions<br>
+We define an electronic coin as a chain of digital signatures. Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin. A payee can verify the signatures to verify the chain of ownership.<br>
+<img src="http://cdn.yunminitools.cn/blog/0406Bitcoin1en.png" alt=" "><br>
+The problem of course is the payee can’t verify that one of the owners did not double-spend the coin. A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending. After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent. The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.<br>
+We need a way for the payee to know that the previous owners did not sign any earlier transactions. For our purposes, the earliest transaction is the one that counts, so we don’t care about later attempts to double-spend. The only way to confirm <strong>the absence of a transaction</strong> is to be aware of all transactions. In the mint based model, the mint was aware of all transactions and decided which arrived first. To accomplish this without a trusted party, transactions must be publicly announced [1], and we need a system for participants to agree on a single history of the order in which they were received. The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.</p>
 <span id="more"></span>
-<p>组合关系和继承关系相比，前者的最主要优势是不会破坏封装，在软件开发阶段，组合关系虽然不会比继承关系减少编码量，但是到了软件维护阶段，由于组合关系使系统具有较好的松耦合性，因此使得系统更加容易维护。从软件构架来说，组合，耦合度比继承弱，继承是对父类方法和数据成员的兼收并蓄，而组合，可以有选择的使用某一种方法。</p>
-<p>由此可见，组合比继承更具灵活性和稳定性，所以在设计的时候优先使用组合。只有当下列条件满足时才考虑使用继承：</p>
+<p>我们定义了一个电子货币作为一条数字签名链。每个拥有者都通过将上一次交易和下一个<strong>拥有者的公钥的哈希值的数字签名</strong>添加到此货币末尾的方式将这枚货币转移给下一个拥有者。收款人可以通过验证数字签名来证实其为该链的所有者。<br>
+<img src="http://cdn.yunminitools.cn/blog/0406Bitcoin1zh.png" alt=" "><br>
+这里的问题是收款人不能证实某个拥有者有没有对此货币进行双重支付。通常的做法是引入一个可信任的中央机构或铸币厂来检查每笔交易是否存在双重支付。每笔交易之后，都需要将这枚货币退回铸币厂以换取发行一枚新的货币，只有由铸币厂直接发行的货币才能被确认没有被双重支付。这个方案的问题在于整个货币系统的命运都依赖于运营铸币厂的公司，每笔交易都需要经过它们，就像银行一样。<br>
+我们需要一种能让收款人知道上一个货币拥有者没有对任何更早的交易签名的方法。对我们来说，最早的那次交易是唯一有效的，所以我们不需要关心本次交易后面的双重支付尝试。唯一能确认一笔交易不存在的方法是知晓所有之前的交易。在铸币厂模型中，铸币厂知晓所有交易并能确定哪笔交易最先到达。在不引入一个可信任方的前提下要达到这个目的，所有交易就必须公开发布 [1]，而且需要一个能让所有参与者<strong>对交易收到顺序的单一历史达成共识</strong>的系统。收款人在每笔交易时，都需要多数节点认同此交易是最先收到的证据。</p>
+<p>【关注点】：</p>
 <ul>
-<li>子类是一种特殊的类型，而不只是父类的一个角色</li>
-<li>子类的实例不需要变成另一个类的对象</li>
-<li>子类扩展，而不是覆盖或者使父类的功能失效</li>
+<li><strong>the absence of a transaction</strong> 翻译为 <strong>不存在的交易</strong>。</li>
+<li><em>拥有者的公钥的哈希值的数字签名</em> 如何实现不是很清楚，看起来需要公钥和私钥一起才能签名。</li>
+<li><em>对交易收到顺序的单一历史达成共识</em> 这个我理解是关键，如何实现可能会展开来写。</li>
 </ul>
-<h2 id="举例">举例</h2>
-<p>以前的做法，要么是子类实现继承于父类的抽象方法，要么是子类实现定义的接口。这两种方法都是依赖于“实现”。现在，把易变部分抽离出来后，就由行为类来实现行为接口，而不是依赖子类实现。</p>
-<p><strong>“针对接口编程” 的真正意思是“针对超类型（supertype）编程”</strong>。</p>
-<p>在不涉及Interface 时，“针对接口编程” ，关键就在于<strong>多态</strong>。 针对超类型编程，执行时就可以根据实际情况执行到真正的行为，不会被绑死在超类的行为上。<br>
-“针对超类型编程”，这句话更明确地可以说成：“变量的声明类型应该是超类型的，通常是一个抽象类或者一个接口，因此，只要是这个超类型的子类，都可以作为参数传入。这就意味着声明类时无需关心以后传入什么参数。”</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">makeSound</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">implements</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">makeSound</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;bark.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">implements</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">makeSound</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;meow.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">...</span><br><span class="line"><span class="type">Animal</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">a.makeSound();</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>以上的行为换句话说，就是原先需要父类定义的行为，“委托”给了别处实现。</p>
  
       <!-- reward -->
       
@@ -217,12 +194,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/04/06/Choose-Is-A-Has-B/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
 
     </footer>
   </div>
@@ -230,19 +207,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（2）
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/" class="article-nav-link">
+      <a href="/2023/04/06/Choose-Is-A-Has-B/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">论文学习：Bitcoin - A Peer-to-Peer Electronic Cash System（1）</div>
+        <div class="article-nav-title">Is-A 和 Has-A 的取舍</div>
       </a>
     
   </nav>

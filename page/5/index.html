@@ -100,6 +100,75 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Hexo-Use-emoji"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/02/26/Hexo-Use-emoji/"
+    >Hexo中使用emoji表情</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/02/26/Hexo-Use-emoji/" class="article-date">
+  <time datetime="2023-02-26T03:17:27.000Z" itemprop="datePublished">2023-02-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>上一篇文章我想在文章中使用emoj来丰富页面，发现Hexo默认的markdown渲染引擎不支持将Github emoji渲染到静态的html页面。我们需要换一个支持emoji的引擎，再增加一个emoji插件即可。</p>
+<h2 id="Markdown-引擎安装">Markdown 引擎安装</h2>
+<p>命令行如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-**it** --save</span><br><span class="line">npm install markdown-**it**-emoji --save</span><br></pre></td></tr></table></figure>
+<h2 id="Markdown-引擎配置">Markdown 引擎配置</h2>
+<p>完成插件安装后还需要修改Hexo站点配置文件<code>_config.yml</code>(不是主题配置)</p>
+<p>加入下列代码：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## markdown 渲染引擎配置，默认是hexo-renderer-marked，这个插件渲染速度更快，且有新特性</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">quotes:</span> <span class="string">&#x27;“”‘’&#x27;</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-footnote</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sup</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sub</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-abbr</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-emoji</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&#x27;v&#x27;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">header-anchor</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">¶</span></span><br></pre></td></tr></table></figure>
+<p>这里需要注意<code>render:</code>下的<code>html:</code>配置项，它的作用是控制<code>Markdown</code>渲染引擎是否转移文档中出现的<code>html</code>标签，默认为<code>false</code>，这里要设置为<code>true</code>，否则会导致<code>&lt;!--more--&gt;</code>渲染失败。</p>
+<p><code>plugins:</code>中的最后一项<code>- markdown-it-emoji</code>是手动添加的，官方Github Wiki中给出的配置不包含这一项，其他配置参照的Github Wiki中的默认配置。</p>
+<h2 id="使用方法">使用方法</h2>
+<p>输入对应的emoji编码</p>
+<p>例如：输入笑脸对应的emoji编码<code>:smile:</code>就可以得到😄</p>
+<h2 id="emoji编码合集"><strong><strong>emoji编码合集</strong></strong></h2>
+<p>可以查阅这篇<a target="_blank" rel="noopener" href="https://dognew0126.github.io/2022/05/22/Hexo%E4%B8%AD%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/#emoji%E7%BC%96%E7%A0%81%E5%90%88%E9%9B%86">文章</a>。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Seven-Levels-Delegation"
   class="article article-type-post"
   itemscope
@@ -734,71 +803,6 @@ B5-->C53(Stand up)</pre>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-The-Six-Counterintuitive-Rules-Summary"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/19/The-Six-Counterintuitive-Rules-Summary/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - Summary</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/19/The-Six-Counterintuitive-Rules-Summary/" class="article-date">
-  <time datetime="2023-02-19T03:31:14.000Z" itemprop="datePublished">2023-02-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a> / <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/">English_Article</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Summary">Summary</h2>
-<p>The Six Counterintuitive Rules:</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/02/14/The-Six-Counterintuitive-Rules-1/">Managment is not leadership</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/02/15/The-Six-Counterintuitive-Rules-2/">Don’t Try to create robots, Focus on managing the what not how.</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/02/16/The-Six-Counterintuitive-Rules-3/">Godd managers never create a second patient</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/02/17/The-Six-Counterintuitive-Rules-4/">Spend more time with your high performancers</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/02/18/The-Six-Counterintuitive-Rules-5/">Set expectaton, but know that you’re not always the one who needs to bring the clarity</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/02/19/The-Six-Counterintuitive-Rules-6/">Direct is kine. Have the hard conversation - earlier than you think you need to</a></li>
-</ol>
-<h3 id="Inspiration-Summary">Inspiration Summary</h3>
-<p>I used to overlook the types of people needed to achieve our goals and micromanage product design, depriving colleagues of the opportunity to grow. I need to trust my colleagues more, delegate tasks, and set clear expectations to help them develop and free up my time. Communication is essential for success and avoiding it can lead to bigger losses in the long run.</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/" rel="tag">团队管理</a></li></ul>
 
     </footer>
   </div>

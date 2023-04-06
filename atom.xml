@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-06T08:14:12.981Z</updated>
+  <updated>2023-04-06T14:34:06.984Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（2）</title>
+    <link href="http://yunminitools.cn/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/"/>
+    <id>http://yunminitools.cn/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/</id>
+    <published>2023-04-06T14:31:16.000Z</published>
+    <updated>2023-04-06T14:34:06.984Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
+&lt;h2 id=&quot;2-交易&quot;&gt;2. 交易&lt;/h2&gt;
+&lt;p&gt;II. Transactions&lt;br&gt;
+We define an electronic coin as a chain of digital signatures. Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin. A payee can verify the signatures to verify the chain of ownership.&lt;br&gt;
+&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0406Bitcoin1en.png&quot; alt=&quot; &quot;&gt;&lt;br&gt;
+The problem of course is the payee can’t verify that one of the owners did not double-spend the coin. A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending. After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent. The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.&lt;br&gt;
+We need a way for the payee to know that the previous owners did not sign any earlier transactions. For our purposes, the earliest transaction is the one that counts, so we don’t care about later attempts to double-spend. The only way to confirm &lt;strong&gt;the absence of a transaction&lt;/strong&gt; is to be aware of all transactions. In the mint based model, the mint was aware of all transactions and decided which arrived first. To accomplish this without a trusted party, transactions must be publicly announced [1], and we need a system for participants to agree on a single history of the order in which they were received. The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
+    
+    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Is-A 和 Has-A 的取舍</title>
@@ -560,29 +587,6 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
     
     
     <category term="UI设计" scheme="http://yunminitools.cn/tags/UI%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>领域模型的应用</title>
-    <link href="http://yunminitools.cn/2023/03/18/DDD-domain-model-1/"/>
-    <id>http://yunminitools.cn/2023/03/18/DDD-domain-model-1/</id>
-    <published>2023-03-18T14:05:23.000Z</published>
-    <updated>2023-03-18T14:07:25.329Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
-&lt;p&gt;领域驱动设计DDD在战术建模（后文简称建模，除非特别说明）上提供了一个元模型体系（如下图），通过这个元模型我们会对战略建模过程中识别出来的问题子域进行抽象，而通过抽象来指导最后的落地实现。&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/DDD-model.png&quot; alt=&quot;DDD构建的元模型元素脑图&quot;&gt;&lt;br&gt;
-这里我们谈的战术阶段实际就是这样一个抽象过程。这个抽象过程由于元模型的存在实际是一定程度模式化的。这样的好处是并非只能技术人员参与建模，业务人员经过一定的培训也是完全可以理解的。在带领不少团队实践建模的过程中，业务人员参与战术设计也是我要求的。&lt;br&gt;
-由于已经有不少书籍介绍DDD的元模型，这里我们就不再赘述，转而谈谈这个抽象过程中大家经常遇到的一些困惑。这些比较常见的问题可能是DDD元模型未来演进需要解决的，但我们仍然要注意业务问题和架构设计的多样性，不要过度规范，以至于过犹不及。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="领域驱动" scheme="http://yunminitools.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/"/>
     
   </entry>
   
