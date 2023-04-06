@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-06T01:38:12.541Z</updated>
+  <updated>2023-04-06T08:14:12.981Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Is-A 和 Has-A 的取舍</title>
+    <link href="http://yunminitools.cn/2023/04/06/Choose-Is-A-Has-B/"/>
+    <id>http://yunminitools.cn/2023/04/06/Choose-Is-A-Has-B/</id>
+    <published>2023-04-06T08:09:59.000Z</published>
+    <updated>2023-04-06T08:14:12.981Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;问题&lt;/h2&gt;
+&lt;p&gt;组合和继承是允许在新建的类中放入子对象。其中“&lt;strong&gt;Is-A&lt;/strong&gt; （是一个）”的关系是用继承来表达的，而“&lt;strong&gt;Has-A&lt;/strong&gt;（有一个）”的关系则是用组合来表达的。&lt;br&gt;
+组合是显示的这样做的，而继承是隐式的做。组合一般是将现有的类型作为新类型底层实现的一部分来加以复用，在一个类中引用另一个类，而继承是拥有了父类的非私有方法。&lt;br&gt;
+二者是之间有何区别？或者怎样在二者之间做出选择呢？&lt;/p&gt;
+&lt;h2 id=&quot;优缺点分析&quot;&gt;优缺点分析&lt;/h2&gt;
+&lt;p&gt;继承的优点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;子类可以重写父类的方法来方便地实现对父类的扩展。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;继承的缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;父类的内部细节对子类是可见的。&lt;/li&gt;
+&lt;li&gt;子类从父类继承的方法在编译时就确定下来了，所以无法在运行期间改变从父类继承的方法的行为。&lt;/li&gt;
+&lt;li&gt;如果对父类的方法做了修改的话（比如增加了一个参数），则子类的方法必须做出相应的修改。所以说子类与父类是一种高耦合，违背了面向对象思想。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;组合的优点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当前对象只能通过所包含的那个对象去调用其方法，所以所包含的对象的内部细节对当前对象时不可见的。&lt;/li&gt;
+&lt;li&gt;当前对象与包含的对象是一个低耦合关系，如果修改包含对象的类中代码不需要修改当前对象类的代码。&lt;/li&gt;
+&lt;li&gt;当前对象可以在运行时动态的绑定所包含的对象。可以通过set方法给所包含对象赋值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;组合的缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;容易产生过多的对象。&lt;/li&gt;
+&lt;li&gt;为了能组合多个对象，必须仔细对接口进行定义。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="设计模式" scheme="http://yunminitools.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>论文学习：Bitcoin - A Peer-to-Peer Electronic Cash System（1）</title>
@@ -530,31 +576,6 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
 &lt;img src=&quot;http://cdn.yunminitools.cn/blog/DDD-model.png&quot; alt=&quot;DDD构建的元模型元素脑图&quot;&gt;&lt;br&gt;
 这里我们谈的战术阶段实际就是这样一个抽象过程。这个抽象过程由于元模型的存在实际是一定程度模式化的。这样的好处是并非只能技术人员参与建模，业务人员经过一定的培训也是完全可以理解的。在带领不少团队实践建模的过程中，业务人员参与战术设计也是我要求的。&lt;br&gt;
 由于已经有不少书籍介绍DDD的元模型，这里我们就不再赘述，转而谈谈这个抽象过程中大家经常遇到的一些困惑。这些比较常见的问题可能是DDD元模型未来演进需要解决的，但我们仍然要注意业务问题和架构设计的多样性，不要过度规范，以至于过犹不及。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="领域驱动" scheme="http://yunminitools.cn/tags/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何实现系统解耦</title>
-    <link href="http://yunminitools.cn/2023/03/17/How-to-system-decoupling/"/>
-    <id>http://yunminitools.cn/2023/03/17/How-to-system-decoupling/</id>
-    <published>2023-03-17T14:14:15.000Z</published>
-    <updated>2023-03-17T14:18:07.506Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;为什么要解耦&quot;&gt;为什么要解耦&lt;/h2&gt;
-&lt;p&gt;在软件开发领域，&lt;strong&gt;解耦&lt;/strong&gt;这个词相信大家都不陌生。在面向对象的语境下，我们会应用&lt;a href=&quot;https://insights.thoughtworks.cn/understand-solid-principles/&quot;&gt;SOLID原则&lt;/a&gt;来构建高内聚低耦合的应用，实现模块间的解耦；在复杂业务系统分析和建模时，会通过DDD的战略和战术设计帮助划分领域并实现分布式系统中服务的解耦；当我们在组织大型敏捷开发团队协同工作时，通过组建自治团队来减少摩擦，从而实现团队级别的解耦。&lt;/p&gt;
-&lt;p&gt;可以看到解耦无处不在，并且以此为目的投入，大家都会觉得是无比的政治正确，因为实现了解耦，我们的系统和应用就能更快速的扩展和演进，我们的团队就能更顺畅的合作并能更加快速的实现业务价值。&lt;/p&gt;
-&lt;p&gt;但是，当我们暂时抛开将得到的种种好处，思考要如何去实现它时，却发现解耦这个词表达的意义过于抽象和模糊，它既没有描述最终的状态也没有提供实现的方法。那当我们谈解耦的时候，具体内容是什么呢？&lt;/p&gt;
-&lt;p&gt;从字面上理解的所谓耦合，通常是指&lt;strong&gt;两个或两个以上的物体或者体系之间相互作用彼此影响&lt;/strong&gt;，对应到软件研发的以上场景，我们可以转换成是指&lt;strong&gt;两个或两个以上的模块/系统/团队之间相互作用彼此影响&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;在软件需要解决的业务问题越来复杂的今天，单个的系统或者团队很难在不依赖外部的情况下去实现业务目标，所以我理解的&lt;strong&gt;解耦&lt;/strong&gt;并不是要消除耦合(彼此的作用和影响/依赖)，而是指我们应该如何通过一定的方式和规则，来设计和管理以上提到的多个元素之间的依赖，降低耦合程度来使整个系统有序顺畅的运转。&lt;/p&gt;
-&lt;p&gt;本文将从服务间上下游的思维来讨论如何在系统架构演进过程中，持续的保持服务间的松耦合，实现解耦的目标。&lt;/p&gt;</summary>
     
     
     

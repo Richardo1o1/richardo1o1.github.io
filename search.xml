@@ -3320,4 +3320,57 @@ timestamp server to generate computational proof of the chronological order of t
         <tag>论文学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Is-A 和 Has-A 的取舍</title>
+    <url>/2023/04/06/Choose-Is-A-Has-B/</url>
+    <content><![CDATA[<h2 id="问题">问题</h2>
+<p>组合和继承是允许在新建的类中放入子对象。其中“<strong>Is-A</strong> （是一个）”的关系是用继承来表达的，而“<strong>Has-A</strong>（有一个）”的关系则是用组合来表达的。<br>
+组合是显示的这样做的，而继承是隐式的做。组合一般是将现有的类型作为新类型底层实现的一部分来加以复用，在一个类中引用另一个类，而继承是拥有了父类的非私有方法。<br>
+二者是之间有何区别？或者怎样在二者之间做出选择呢？</p>
+<h2 id="优缺点分析">优缺点分析</h2>
+<p>继承的优点：</p>
+<ol>
+<li>子类可以重写父类的方法来方便地实现对父类的扩展。</li>
+</ol>
+<p>继承的缺点：</p>
+<ol>
+<li>父类的内部细节对子类是可见的。</li>
+<li>子类从父类继承的方法在编译时就确定下来了，所以无法在运行期间改变从父类继承的方法的行为。</li>
+<li>如果对父类的方法做了修改的话（比如增加了一个参数），则子类的方法必须做出相应的修改。所以说子类与父类是一种高耦合，违背了面向对象思想。</li>
+</ol>
+<p>组合的优点：</p>
+<ol>
+<li>当前对象只能通过所包含的那个对象去调用其方法，所以所包含的对象的内部细节对当前对象时不可见的。</li>
+<li>当前对象与包含的对象是一个低耦合关系，如果修改包含对象的类中代码不需要修改当前对象类的代码。</li>
+<li>当前对象可以在运行时动态的绑定所包含的对象。可以通过set方法给所包含对象赋值。</li>
+</ol>
+<p>组合的缺点：</p>
+<ol>
+<li>容易产生过多的对象。</li>
+<li>为了能组合多个对象，必须仔细对接口进行定义。</li>
+</ol>
+<span id="more"></span>
+<p>组合关系和继承关系相比，前者的最主要优势是不会破坏封装，在软件开发阶段，组合关系虽然不会比继承关系减少编码量，但是到了软件维护阶段，由于组合关系使系统具有较好的松耦合性，因此使得系统更加容易维护。从软件构架来说，组合，耦合度比继承弱，继承是对父类方法和数据成员的兼收并蓄，而组合，可以有选择的使用某一种方法。</p>
+<p>由此可见，组合比继承更具灵活性和稳定性，所以在设计的时候优先使用组合。只有当下列条件满足时才考虑使用继承：</p>
+<ul>
+<li>子类是一种特殊的类型，而不只是父类的一个角色</li>
+<li>子类的实例不需要变成另一个类的对象</li>
+<li>子类扩展，而不是覆盖或者使父类的功能失效</li>
+</ul>
+<h2 id="举例">举例</h2>
+<p>以前的做法，要么是子类实现继承于父类的抽象方法，要么是子类实现定义的接口。这两种方法都是依赖于“实现”。现在，把易变部分抽离出来后，就由行为类来实现行为接口，而不是依赖子类实现。</p>
+<p><strong>“针对接口编程” 的真正意思是“针对超类型（supertype）编程”</strong>。</p>
+<p>在不涉及Interface 时，“针对接口编程” ，关键就在于<strong>多态</strong>。 针对超类型编程，执行时就可以根据实际情况执行到真正的行为，不会被绑死在超类的行为上。<br>
+“针对超类型编程”，这句话更明确地可以说成：“变量的声明类型应该是超类型的，通常是一个抽象类或者一个接口，因此，只要是这个超类型的子类，都可以作为参数传入。这就意味着声明类时无需关心以后传入什么参数。”</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">makeSound</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">implements</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">makeSound</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;bark.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">implements</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">makeSound</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;meow.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">...</span><br><span class="line"><span class="type">Animal</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">a.makeSound();</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>以上的行为换句话说，就是原先需要父类定义的行为，“委托”给了别处实现。</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
 </search>
