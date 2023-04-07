@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2023 |  New structure for utility</title>
+      <title>哈希函数和数字签名 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,246 +68,222 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-Hash-Function-Digital-Signature"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">2023</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  哈希函数和数字签名
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/07/Hash-Function-Digital-Signature/" class="article-date">
+  <time datetime="2023-04-07T13:00:49.000Z" itemprop="datePublished">2023-04-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">5 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/19/Hexo-image-1/" class="archive-article-date">
-  <time datetime="2023-02-19T03:48:25.000Z" itemprop="datePublished">02/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/19/Hexo-image-1/"
-    >Hexo博客插入图片后如何控制图片大小和样式</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/19/The-Six-Counterintuitive-Rules-Summary/" class="archive-article-date">
-  <time datetime="2023-02-19T03:31:14.000Z" itemprop="datePublished">02/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/19/The-Six-Counterintuitive-Rules-Summary/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - Summary</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/19/The-Six-Counterintuitive-Rules-6/" class="archive-article-date">
-  <time datetime="2023-02-19T03:07:48.000Z" itemprop="datePublished">02/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/19/The-Six-Counterintuitive-Rules-6/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 6</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/18/Add-Https-1/" class="archive-article-date">
-  <time datetime="2023-02-18T08:32:25.000Z" itemprop="datePublished">02/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/18/Add-Https-1/"
-    >GitHub Pages 强制使用HTTPS协议访问</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/18/The-Six-Counterintuitive-Rules-5/" class="archive-article-date">
-  <time datetime="2023-02-18T08:02:06.000Z" itemprop="datePublished">02/18</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/18/The-Six-Counterintuitive-Rules-5/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 5</a> 
-</h2>
+  <h2 id="1-哈希函数-Hash">1. 哈希函数 Hash</h2>
+<h3 id="1-1-概念">1.1 概念</h3>
+<ul>
+<li>Hash，一般翻译做<strong>散列</strong>，也有直接音译为<strong>哈希</strong>的。就是把任意长度的输入通过散列算法变换成固定长度的输出，该输出就是散列值。</li>
+<li>这种转换是一种压缩映射，也就是散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，所以不可能从散列值来确定唯一的输入值。简单的说，就是一种将任意长度的消息压缩到某一固定长度的消息摘要的函数。</li>
+<li>单向散列函数：又称单向Hash函数、杂凑函数，就是把任意长的输入消息串变化成固定长的输出串且由输出串难以得到输入串的一种函数。这个输出串称为该消息的散列值。一般用于产生消息摘要，密钥加密等.</li>
+</ul>
+<h3 id="1-2-特点">1.2 特点</h3>
+<ul>
+<li>算法是公开的</li>
+<li>对相同数据运算,得到的结果是一样的</li>
+<li>对不同数据运算，如MD5得到的结果默认是128位,32个字符(16进制标识)。</li>
+<li>没法进行逆运算信息摘要。</li>
+<li>信息“指纹”，是用来做数据识别的。</li>
+<li>加密后密文的长度是定长的</li>
+</ul>
+<h3 id="1-3-用途">1.3 用途</h3>
+<ul>
+<li>用户密码的加密</li>
+<li>搜索引擎，关键字识别(搜索多个关键字，先对每个关键字进行散列，然后多个关键字进行或运算，如果值一致则搜索结果一致)</li>
+<li>版权标注 对文件进行散列判断该文件是否是正版或原版的</li>
+<li>数字签名 (文件完整性验证 对整个文件进行散列，比较散列值判断文件是否完整或被篡改)</li>
+</ul>
+<span id="more"></span>
+<h2 id="2-常见的哈希加密算法">2 <strong><strong>常见的哈希加密算法</strong></strong></h2>
+<p><strong>MD5，HMAC，SHA1，SHA256</strong></p>
+<h3 id="2-1-MD5">2.1 MD5</h3>
+<blockquote>
+<p>MD5即Message - Digest Algorithm 5（信息-摘要算法5），用于确保信息传输完整一致。是计算机广泛使用的杂凑算法之一（又译摘要算法、哈希算法），主流编程语言普遍已有MD5实现。将数据（如汉字）运算为另一固定长度值，是杂凑算法的基础原理，MD5的前身有MD2、MD3和MD4。<br>
+-----百度百科</p>
+</blockquote>
+<ul>
+<li>从一段字符串中通过相应特征生成一段32位的数字字母混合码。对输入信息生成唯一的128位散列值（32个16进制的数字)</li>
+<li>所有的数据（视频、音频、文件、只要存在于硬盘或内存中的）都是可以被MD5加密的，得到的都是32个字符。</li>
+</ul>
+<p>特征：</p>
+<ul>
+<li>压缩性：任意长度的数据，算出的MD5值的长度都是固定的。</li>
+<li>容易计算：从原数据计算出MD5值很容易</li>
+<li>抗修改性：对原数据进行任何改动，哪怕只修改一个字节，所得到的MD5值都有很大区别</li>
+<li>弱抗碰撞：已知原数据和其MD5值，想找到一个具有相同MD5值的数据(即伪造数据)是非常困难</li>
+<li>强抗碰撞：想找到两个不同数据，使他们具有相同的MD5值，是非常困难的。</li>
+</ul>
+<h3 id="2-2-HMAC">2.2 HMAC</h3>
+<p>消息认证机制（HMAC）简单说明</p>
+<ol>
+<li>原理
+<ol>
+<li>消息的发送者和接收者有一个共享密钥</li>
+<li>发送者使用共享密钥对消息加密计算得到MAC值（消息认证码）</li>
+<li>消息接收者使用共享密钥对消息加密计算得到MAC值</li>
+<li>比较两个MAC值是否一致</li>
+</ol>
+</li>
+<li>使用
+<ol>
+<li>客户端需要在发送的时候把（消息）+（消息·HMAC）一起发送给服务器</li>
+<li>服务器接收到数据后，对拿到的消息用共享的KEY进行HMAC，比较是否一致，如果一致则信任</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-3-SHA">2.3 SHA</h3>
+<p>安全哈希算法（Secure Hash Algorithm）主要适用于数字签名标准（Digital Signature Standard DSS）里面定义的数字签名算法（Digital Signature Algorithm DSA）。对于长度小于2^64位的消息，SHA1会产生一个160位的消息摘要。该算法经过加密专家多年来的发展和改进已日益完善，并被广泛使用。该算法的思想是接收一段明文，然后以一种不可逆的方式将它转换成一段（通常更小）密文，也可以简单的理解为取一串输入码（称为预映射或信息），并把它们转化为长度较短、位数固定的输出序列即散列值（也称为信息摘要或信息认证代码）的过程。散列函数值可以说是对明文的一种“指纹”或是“摘要”所以对散列值的数字签名就可以视为对此明文的数字签名。</p>
+<p>SHA是美国国家标准技术研究所发布的国家标准FIPS PUB 180，最新的标准已经于2008年更新到FIPS PUB 180-3。其中规定了SHA-1，SHA-224，SHA-256，SHA-384，SHA-512这几种单向散列算法。SHA-1，SHA-224和SHA-256适用于长度不超过2<sup>64二进制位的消息。SHA-384和SHA-512适用于长度不超过2</sup>128二进制位的消息。</p>
+<h2 id="3-数字签名">3. 数字签名</h2>
+<p>数字签名本质上是通过HASH算法和RSA加密来实现的。<br>
+HASH算法专门用来做文件数据的识别.那么在网络数据传递的过程中，我们可以将明文数据,和数据的HASH值一起传递给对方.对方可以拿出HASH值来进行验证。<br>
+但是在这个过程中，如何做到数据的保护呢？明文数据和HASH值如果直接传递就有都被篡改的风险.所以这里我们要对数据进行加密。明文数据有时会比较大,不适合使用RSA非对称加密算法，那么数据的HASH值是比较小的。这个数据是用于校验的，它完全可以使用RSA来加密。所以在数据传递的时候，我们将明文数据加上通过RSA加密的校验数据一并传递给对方。那么这个通过RSA加密的校验数据,我们称之为<strong>签名。</strong><br>
+<img src="http://cdn.yunminitools.cn/blog/0407Digital-Signature1.png" alt=" "></p>
+<h3 id="3-1-验证数字签名">3.1 验证数字签名</h3>
+<p>当对方拿到数据之后,如何进行验证呢?<br>
+首先传递数据时会将原始的数据和数字签名一起发送，对方拿到数据后，先进行校验，拿到原始数据,通过同样的HASH算法得到数据的HASH值。然后通过非对称加密，将数字签名中的校验HASH值解密出来。最后对比两个HASH值是否一致，这样可以很好的判断数据是否被篡改。<br>
+<img src="http://cdn.yunminitools.cn/blog/0407Digital-Signature2.png" alt=" "></p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/17/Linux-Command-1/" class="archive-article-date">
-  <time datetime="2023-02-17T15:48:23.000Z" itemprop="datePublished">02/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/17/Linux-Command-1/"
-    >有了这个网站，Linux命令就不需要到处搜索了</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/17/The-Six-Counterintuitive-Rules-4/" class="archive-article-date">
-  <time datetime="2023-02-17T15:38:23.000Z" itemprop="datePublished">02/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/17/The-Six-Counterintuitive-Rules-4/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 4</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/16/Midjourney-prompt-1/" class="archive-article-date">
-  <time datetime="2023-02-16T14:53:01.000Z" itemprop="datePublished">02/16</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/16/Midjourney-prompt-1/"
-    >Midjourney 提示词(prompt)分析（1）</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/16/The-Six-Counterintuitive-Rules-3/" class="archive-article-date">
-  <time datetime="2023-02-16T13:53:16.000Z" itemprop="datePublished">02/16</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/16/The-Six-Counterintuitive-Rules-3/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 3</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/15/No-Content-In-Tags-Page/" class="archive-article-date">
-  <time datetime="2023-02-15T15:13:26.000Z" itemprop="datePublished">02/15</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/15/No-Content-In-Tags-Page/"
-    >解决目录和标签页无内容问题（使用Hexo - Ayer模版）</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/2023/page/5/">上一页</a><a class="page-number" href="/archives/2023/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2023/page/4/">4</a><a class="page-number" href="/archives/2023/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/2023/page/7/">7</a><a class="page-number" href="/archives/2023/page/8/">8</a><a class="extend next" rel="next" href="/archives/2023/page/7/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/04/07/Hash-Function-Digital-Signature/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" rel="tag">数据安全</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（2）</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -444,6 +420,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
