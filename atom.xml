@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-07T13:01:48.380Z</updated>
+  <updated>2023-04-08T05:59:33.612Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（3）</title>
+    <link href="http://yunminitools.cn/2023/04/08/A-Peer-to-Peer-Electronic-Cash-System-3/"/>
+    <id>http://yunminitools.cn/2023/04/08/A-Peer-to-Peer-Electronic-Cash-System-3/</id>
+    <published>2023-04-08T05:58:57.000Z</published>
+    <updated>2023-04-08T05:59:33.612Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
+&lt;h2 id=&quot;3-时间戳服务器&quot;&gt;3. 时间戳服务器&lt;/h2&gt;
+&lt;p&gt;3  Timestamp Server&lt;br&gt;
+The solution we propose begins with a timestamp server. A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post [2-5]. The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.&lt;br&gt;
+&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0407Timestamp-en.png&quot; alt=&quot; &quot;&gt;&lt;br&gt;
+我们提出的方案从时间戳服务器开始。时间戳服务器计算包含多个需要被打时间戳的数据项的区块的哈希值并广泛地发布这个哈希值，就像在报纸或新闻组帖子里 [2-5]。时间戳能证明要得到这个哈希值，显然这些数据当时一定是存在的。每个时间戳的哈希值都纳入了上一个时间戳，形成一条链，后面的时间戳进一步增强前一个时间戳。&lt;br&gt;
+&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0407Timestamp-zh.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
+    
+    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>哈希函数和数字签名</title>
@@ -568,40 +595,6 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
     
     
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>聊聊企业服务产品</title>
-    <link href="http://yunminitools.cn/2023/03/20/Talk-about-Enterprise-Services/"/>
-    <id>http://yunminitools.cn/2023/03/20/Talk-about-Enterprise-Services/</id>
-    <published>2023-03-20T15:11:50.000Z</published>
-    <updated>2023-03-20T15:12:21.009Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;企业服务在解决什么问题？&quot;&gt;企业服务在解决什么问题？&lt;/h2&gt;
-&lt;p&gt;按照亨利·法约尔的说法，无论哪种类型的企业，经营的过程中都会面临这6种活动：技术活动、财务活动、会计活动、商业活动、安全活动、管理活动。&lt;/p&gt;
-&lt;p&gt;市场上主流的企业服务产品解决的问题分别是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Salesforce、纷享销客解决的是企业的商业活动，帮助企业把产品卖出去，或把产品（资源）买进来。&lt;/li&gt;
-&lt;li&gt;金蝶、用友解决的是企业的会计活动，帮助企业把账记清楚，各项成本是多少、有多少负债与资产。&lt;/li&gt;
-&lt;li&gt;Teambition解决的是企业的管理活动，帮助企业把事（项目）理清楚，提高团队协作效率。同样是解决管理活动，薪人薪事的不同点在于它解决的是人的问题，帮助企业把人员的管理变得更高效。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;即便了解了这个理论，在对市场规模进行预判的时候我们还是会犯错，因为企业发展的不同阶段，每个经营活动的侧重点是不一样的。以互联网公司为例：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;早期，想法要落地首先需要启动资金，于是企业发展的第一步就是准备BP融点钱，然后开始招聘，租办公场地，购买服务器等设备，所有人的精力都扑在产品上，公司最重要的资产就是产品和技术人员，这个阶段企业最关注的是财务活动和技术活动。&lt;/li&gt;
-&lt;li&gt;产品打磨的差不多了，下一步准备开始推向市场了，于是要开始考虑哪些渠道推广更有效，涉及到付费的话还要考虑定价策略，因此这个阶段企业最关注的是商业活动，即把产品更好地『卖出去』&lt;/li&gt;
-&lt;li&gt;一旦产品被市场证明是有效的话，企业会开始考虑规模化复制以便迎来更快的增长。而随着规模的扩大，不可避免会出现组织的『熵增』，于是大家开始关注如何提高企业运转的效率，哪些关键岗位需要更专业的人，哪个环节的效率可以优化。这个阶段企业最关注的是商业活动和管理活动。&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="企业服务" scheme="http://yunminitools.cn/tags/%E4%BC%81%E4%B8%9A%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
