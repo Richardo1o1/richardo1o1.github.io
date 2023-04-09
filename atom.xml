@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-08T05:59:33.612Z</updated>
+  <updated>2023-04-09T06:09:11.077Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（4）</title>
+    <link href="http://yunminitools.cn/2023/04/09/A-Peer-to-Peer-Electronic-Cash-System-4/"/>
+    <id>http://yunminitools.cn/2023/04/09/A-Peer-to-Peer-Electronic-Cash-System-4/</id>
+    <published>2023-04-09T06:08:39.000Z</published>
+    <updated>2023-04-09T06:09:11.077Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
+&lt;h2 id=&quot;5-网络&quot;&gt;5. 网络&lt;/h2&gt;
+&lt;p&gt;5 Network&lt;br&gt;
+The steps to run the network are as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;New</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
+    
+    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（3）</title>
@@ -569,32 +601,6 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
     <category term="UI设计" scheme="http://yunminitools.cn/tags/UI%E8%AE%BE%E8%AE%A1/"/>
     
     <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于linux vim命令替换的使用</title>
-    <link href="http://yunminitools.cn/2023/03/21/VIM-Replace-Command/"/>
-    <id>http://yunminitools.cn/2023/03/21/VIM-Replace-Command/</id>
-    <published>2023-03-21T15:35:49.000Z</published>
-    <updated>2023-03-21T15:36:21.910Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;vim 中可以使用 ：s 命令来替换字符串。以前只会使用一种格式来全文替换，今天发现该命令有很多种写法（linux vi命令真是强大啊，还有很多需要学习），记录几种在此，方便以后查询。&lt;/p&gt;
-&lt;p&gt;：s/vivian/sky/ 替换当前行第一个 vivian 为</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   

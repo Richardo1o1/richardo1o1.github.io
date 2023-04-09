@@ -3537,4 +3537,47 @@ blocks per hour. If they’re generated too fast, the difficulty increases</li>
         <tag>论文学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（4）</title>
+    <url>/2023/04/09/A-Peer-to-Peer-Electronic-Cash-System-4/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="5-网络">5. 网络</h2>
+<p>5 Network<br>
+The steps to run the network are as follows:</p>
+<ol>
+<li>New transactions are broadcast to all nodes.</li>
+<li>Each node collects new transactions into a block.</li>
+<li>Each node works on finding a difficult proof-of-work for its block.</li>
+<li>When a node finds a proof-of-work, it broadcasts the block to all nodes.</li>
+<li>Nodes accept the block only if all transactions in it are valid and not already spent.</li>
+<li>Nodes express their acceptance of the block by working on creating the next block in the<br>
+chain, using the hash of the accepted block as the previous hash.</li>
+</ol>
+<p>Nodes always consider the longest chain to be the correct one and will keep working on extending it. If two nodes broadcast different versions of the next block simultaneously, some nodes may receive one or the other first. In that case, they work on the first one they received, but save the other branch in case it becomes longer. The tie will be broken when the next proof-of-work is found and one branch becomes longer; the nodes that were working on the other branch will then switch to the longer one.</p>
+<p>New transaction broadcasts do not necessarily need to reach all nodes. As long as they reach many nodes, they will get into a block before long. Block broadcasts are also tolerant of dropped messages. If a node does not receive a block, it will request it when it receives the next block and realizes it missed one.</p>
+<p>运行网络的步骤如下：</p>
+<ol>
+<li>新交易向所有节点广播。</li>
+<li>每个节点将新交易收集到一个区块。</li>
+<li>每个节点为它的区块寻找工作量证明（困难）。</li>
+<li>当一个节点找到了工作量证明，就向所有节点广播这个区块。</li>
+<li>节点只有在区块内所有交易都是有效的且之前没有被支付的情况下接收这个区块。</li>
+<li>节点通过使用这个区块的哈希值作为上一个哈希值，在链中创建下一个区块的方式表示对这个区块的接受。</li>
+</ol>
+<p>节点总是认为最长的链为正确的并持续致力于延长它。如果两个节点同时广播了不同的下一个区块，有些节点可能先收到其中一个而其他节点先收到另一个。这种情况，节点基于他们收到的第一个区块工作，但是也保存另一个分支以防它变为更长的链。当下一个工作量证明被找到后僵局就会被打破，从而其中一个分支变得更长；在<strong>另一个分支上工作的节点将切换到更长的链</strong>上来。</p>
+<p>新交易的广播不必到达所有的节点。只要到达一些节点，<strong>不久就会进入到一个区块</strong>。区块广播也是能容忍消息丢失的。如果一个节点没有收到某个区块，它将在收到下一个区块时发现它丢失了一个区块然后去请求这个区块。</p>
+<p>【关注点】：</p>
+<ul>
+<li>另一个分支上工作的节点将切换到更长的链，也就意味着有些交易会失效，对于这些失效的交易如何处理？</li>
+<li>不久就会进入到一个区块，这个是指这笔交易会被保存到区块里。那一个区块会包含多少笔交易呢？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
 </search>
