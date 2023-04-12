@@ -4493,4 +4493,44 @@ A block header with no transactions would be about 80 bytes. If we suppose block
         <tag>论文学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（6）</title>
+    <url>/2023/04/11/A-Peer-to-Peer-Electronic-Cash-System-6/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="8-简化的支付验证">8.简化的支付验证</h2>
+<p>8.Simplified Payment Verification<br>
+It is possible to verify payments without running a full network node. A user only needs to keep a copy of the block headers of the longest proof-of-work chain, which he can get by querying network nodes until he’s convinced he has the longest chain, and obtain the Merkle branch linking the transaction to the block it’s timestamped in. He can’t check the transaction for himself, but by linking it to a place in the chain, he can see that a network node has accepted it, and blocks added after it further confirm the network has accepted it.<br>
+<img src="http://cdn.yunminitools.cn/blog/0410Longest-Proof-of-Work-Chain-En.png" alt=" "><br>
+As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker. While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker’s fabricated transactions for as long as the attacker can continue to overpower the network. One strategy to protect against this would be to accept alerts from network nodes when they detect an invalid block, prompting the user’s software to download the full block and alerted transactions to<br>
+confirm the inconsistency. Businesses that receive frequent payments will probably still want to run their own nodes for more independent security and quicker verification.</p>
+<p>不运行一个完整的网络节点也是可以进行支付验证的。用户只需拥有一个最长工作量证明链的区块头副本，他可以通过向其他网络节点查询以确认他拥有了最长的链，并获取链接交易到给交易打时间戳区块的默克尔分支。虽然他自己不能核实这个交易，但如果交易已经链接到链中的某个位置，就说明一个网络节点已经接受了此交易，而其后追加的区块进一步确认网络已经接受了它。<br>
+<img src="http://cdn.yunminitools.cn/blog/0410Longest-Proof-of-Work-Chain-Zh.png" alt=" "><br>
+同样地，只要诚实节点控制着网络，这种简化验证就是可靠的；如果网络被攻击者控制，简化验证会变得比较脆弱。虽然网络节点可以验证他们自己的交易，但只要攻击者持续控制网络，那么这种简化的方法就可能被攻击者的伪造交易欺骗。一种对策是接受其他网络节点发现一个无效区块时发出的警告，提醒用户软件下载整个区块和被警告的交易来检查一致性。为了更加独立的安全性以及更快的支付确认，收款频繁的公司可能仍需运行他们自己的节点。</p>
+<p>【关注点】：</p>
+<ul>
+<li>向其他网络节点查询以确认他拥有了最长的链, 如何做到？</li>
+<li>仍需运行他们自己的节点，是指要运行全节点吗？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个有趣的AI对话网站</title>
+    <url>/2023/04/12/app-myshell-ai/</url>
+    <content><![CDATA[<p>分享一个有趣的AI对话网站：<a href="https://app.myshell.ai/%EF%BC%8C%E7%9B%AE%E5%89%8D%E5%8F%AF%E4%BB%A5%E5%85%8D%E8%B4%B9%E6%B3%A8%E5%86%8C%EF%BC%8C%E5%9B%BD%E5%86%85%E8%AE%BF%E9%97%AE%E4%B9%9F%E6%97%A0%E5%8E%8B%E5%8A%9B%EF%BC%8C%E7%9B%AE%E5%89%8D%E6%9C%894%E4%B8%AA%E8%A7%92%E8%89%B2%E9%83%BD%E5%8F%AF%E4%BB%A5%E5%B0%9D%E8%AF%95%E3%80%82">https://app.myshell.ai/，目前可以免费注册，国内访问也无压力，目前有4个角色都可以尝试。</a><br>
+<img src="http://cdn.yunminitools.cn/blog/0412myshellai.png" alt=" "></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>英语学习</tag>
+      </tags>
+  </entry>
 </search>
