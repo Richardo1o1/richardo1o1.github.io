@@ -4533,4 +4533,30 @@ confirm the inconsistency. Businesses that receive frequent payments will probab
         <tag>英语学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（7）</title>
+    <url>/2023/04/13/A-Peer-to-Peer-Electronic-Cash-System-7/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="9-合并和分割货币">9 合并和分割货币</h2>
+<p>9 Combining and Splitting Value<br>
+Although it would be possible to handle coins individually, it would be unwieldy to make a separate transaction for every cent in a transfer. To allow value to be split and combined, transactions contain multiple inputs and outputs. Normally there will be either a single input from a larger previous transaction or multiple inputs combining smaller amounts, and at most two outputs: one for the payment, and one returning the change, if any, back to the sender.<br>
+<img src="http://cdn.yunminitools.cn/blog/0413Transaction-En.png" alt=" "><br>
+It should be noted that fan-out, where a transaction depends on several transactions, and those transactions depend on many more, is not a problem here. There is never the need to extract a complete standalone copy of a transaction’s history.</p>
+<p>尽管单独处理每个货币是可能的，但将一次转账按每一分拆成多次交易太<strong>笨拙</strong>。为允许交易额被分割和合并，交易将包含多个输入值和输出值。通常是一个从之前交易而得的较大输入值或多个较小输入值的组合，以及最多两个输出值：一个作为支付，另一个作为找零，如果有的话，退还给支付发送方。<br>
+<img src="http://cdn.yunminitools.cn/blog/0413Transaction-Zh.png" alt=" "><br>
+需要注意的是，这里的扇出(fan-out)，即一笔交易依赖数笔交易，这数笔交易又依赖更多的交易，形成了一个树状结构。在比特币系统中，这种情况不会成为问题，因为不需要获取一笔交易历史的完整独立副本。</p>
+<p>【关注点】：</p>
+<ul>
+<li>扇出(fan-out), 是一个比较形象的说法，后面直接给出了定义。</li>
+<li>不需要获取一笔交易历史的完整独立副本，并没有解释原因，为什么呢？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-12T15:47:14.214Z</updated>
+  <updated>2023-04-13T13:47:10.125Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（7）</title>
+    <link href="http://yunminitools.cn/2023/04/13/A-Peer-to-Peer-Electronic-Cash-System-7/"/>
+    <id>http://yunminitools.cn/2023/04/13/A-Peer-to-Peer-Electronic-Cash-System-7/</id>
+    <published>2023-04-13T13:46:32.000Z</published>
+    <updated>2023-04-13T13:47:10.125Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
+&lt;h2 id=&quot;9-合并和分割货币&quot;&gt;9 合并和分割货币&lt;/h2&gt;
+&lt;p&gt;9 Combining and Splitting Value&lt;br&gt;
+Although it would be possible to handle</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
+    
+    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>一个有趣的AI对话网站</title>
@@ -578,36 +608,6 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
     
     
     <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="工具框架" scheme="http://yunminitools.cn/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>思考问题的工具和框架</title>
-    <link href="http://yunminitools.cn/2023/03/25/Tools-for-better-thinking/"/>
-    <id>http://yunminitools.cn/2023/03/25/Tools-for-better-thinking/</id>
-    <published>2023-03-25T02:33:05.000Z</published>
-    <updated>2023-03-25T02:39:44.636Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;网站特点&quot;&gt;网站特点&lt;/h2&gt;
-&lt;p&gt;发现一个帮助更好思考问题的工具「&lt;a href=&quot;https://untools.co/&quot;&gt;untools&lt;/a&gt;」，收集了各种思维工具和框架，可以帮助我们更好地理解问题、分析、决策，包括有常用的金字塔、鱼骨图、二阶思维等，类似于选择不同的思维模型来解决不同的问题。&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0325-untools.png&quot; alt=&quot;https://untools.co/&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;网站结构&quot;&gt;网站结构&lt;/h2&gt;
-&lt;h3 id=&quot;系统思考&quot;&gt;系统思考&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;概念地图（&lt;a href=&quot;https://untools.co/concept-map&quot;&gt;Concept map&lt;/a&gt;）: 形象地理解一个概念或系统，了解其实体之间的关系。&lt;/li&gt;
-&lt;li&gt;连接圈（&lt;a href=&quot;https://untools.co/connection-circles&quot;&gt;Connection circles&lt;/a&gt;）:是一种将故事或系统中的关系可视化的工具。它们通过看到系统中的因果关系来帮助你理解复杂性。&lt;/li&gt;
-&lt;li&gt;冰山模型(&lt;a href=&quot;https://untools.co/iceberg-model&quot;&gt;Iceberg Model&lt;/a&gt;):通过查看隐藏的抽象级别来发现事件的根本原因。&lt;/li&gt;
-&lt;li&gt;平衡反馈回路(&lt;a href=&quot;https://untools.co/balancing-feedback-loop&quot;&gt;Balancing feedback loop&lt;/a&gt;):是一种机制，它抵制在一个方向的进一步变化。它以反方向的变化来对抗一个方向的变化。它试图稳定一个系统。&lt;/li&gt;
-&lt;li&gt;强化反馈回路(&lt;a href=&quot;https://untools.co/reinforcing-feedback-loop&quot;&gt;Reinforcing feedback loop&lt;/a&gt;):了解指数（复利）变化背后的力量。&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
     
     
     <category term="工具框架" scheme="http://yunminitools.cn/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/"/>
