@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-13T13:47:10.125Z</updated>
+  <updated>2023-04-14T15:05:44.376Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Javascript 箭头函数</title>
+    <link href="http://yunminitools.cn/2023/04/14/javascript-arrow-function/"/>
+    <id>http://yunminitools.cn/2023/04/14/javascript-arrow-function/</id>
+    <published>2023-04-14T15:05:13.000Z</published>
+    <updated>2023-04-14T15:05:44.376Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Javascript 箭头函数&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（7）</title>
@@ -574,43 +602,6 @@ X君与Y君分别设计了埋点方案，如图所示：&lt;br&gt;
     <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="论文翻译" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>概念地图介绍</title>
-    <link href="http://yunminitools.cn/2023/03/26/Concept-map-1/"/>
-    <id>http://yunminitools.cn/2023/03/26/Concept-map-1/</id>
-    <published>2023-03-26T12:11:58.000Z</published>
-    <updated>2023-03-26T12:20:22.329Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;什么是概念地图？&quot;&gt;什么是概念地图？&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://wiki.mbalib.com/w/index.php?title=%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7D%C2%B7%E8%AF%BA%E7%93%A6%E5%85%8B&amp;amp;action=edit&quot;&gt;约瑟夫·D·诺瓦克&lt;/a&gt;（&lt;a href=&quot;https://wiki.mbalib.com/w/index.php?title=Joseph_D.Novak&amp;amp;action=edit&quot;&gt;Joseph D.Novak&lt;/a&gt;）于20世纪70年代，在康奈尔大学（Cornell University）发展出概念图绘制技巧。当时，Novak将这种技巧应用在科学教学上，做为一种增进理解的教学技术。Novak的设计是基于&lt;a href=&quot;https://wiki.mbalib.com/wiki/%E5%A4%A7%E5%8D%AB%C2%B7%E5%A5%A5%E8%8B%8F%E4%BC%AF%E5%B0%94&quot;&gt;大卫·奥苏伯尔&lt;/a&gt;（&lt;a href=&quot;https://wiki.mbalib.com/wiki/David_Ausubel&quot;&gt;David Ausubel&lt;/a&gt;）的同化理论（assimilation theory）。&lt;a href=&quot;https://wiki.mbalib.com/wiki/%E5%A5%A5%E8%8B%8F%E4%BC%AF%E5%B0%94&quot;&gt;奥苏伯尔&lt;/a&gt;根据建构式学习（constructivism learning）的观点，强调先前知识（prior knowledge）是学习新知识的基础框架（framework），并有不可取代的重要性。在Novak的著作《习得学习》（Learning to Learn）中，指出“&lt;a href=&quot;https://wiki.mbalib.com/wiki/%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%AD%A6%E4%B9%A0&quot;&gt;有意义的学习&lt;/a&gt;，涉及将新概念与命题的同化于既有的认知架构中。”&lt;br&gt;
-Novak教授认为，概念图是某个主题的概念及其关系的图形化表示，概念图是用来&lt;a href=&quot;https://wiki.mbalib.com/wiki/%E7%BB%84%E7%BB%87&quot;&gt;组织&lt;/a&gt;和表征知识的工具。它通常将某一主题的有关概念置于圆圈或方框之中，然后用连线将相关的概念和命题连接，连线上标明两个概念之间的意义关系。概念图又可称为概念构图（concept mapping）或概念地图（concept maps）。前者注重概念图制作的具体过程，后者注重概念图制作的最后结果。现在一般把概念构图和概念地图统称为概念图而不加于严格的区别。&lt;br&gt;
-在概念图中，由方形表示概念，如“狗”和“动物”等等。概念间的关系则以标名(labelled)的箭头线段连结，箭头的方向表示往下发展的层次。这些线段会像是：“引发”、“导致”、“需要”、“提供”等等。&lt;/p&gt;
-&lt;h2 id=&quot;概念图的组织结构&quot;&gt;概念图的组织结构&lt;/h2&gt;
-&lt;p&gt;“概念图”是一种知识以及知识之间的关系的网络图形化表征，也是&lt;a href=&quot;https://wiki.mbalib.com/wiki/%E6%80%9D%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96&quot;&gt;思维可视化&lt;/a&gt;的表征。一幅概念图一般由“节点”、“链接”和“有关文字标注”组成。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1、节点：&lt;/strong&gt; 由几何图形、图案、文字等表示某个概念，每个节点表示一个概念，一般同一层级的概念用同种的符号（图形）标识。概念是可以用于交流的指代明确的符号（词汇、语言等形式）。&lt;br&gt;
-&lt;strong&gt;2、链接：&lt;/strong&gt; 表示不同节点间的有意义的关系，常用各种形式的线链接不同节点，这其中表达了构图者对概念的理解程度。&lt;br&gt;
-&lt;strong&gt;3、文字标注：&lt;/strong&gt; 可以是表示不同节点上的概念的关系，也可以是对节点上的概念详细阐述，还可以是对整幅图的有关说明。&lt;/p&gt;
-&lt;p&gt;举例：&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0326-WhatIsCmap.jpeg&quot; alt=&quot;《什么是概念地图》&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;概念地图的优势&quot;&gt;概念地图的优势&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;层次结构明显&lt;/li&gt;
-&lt;li&gt;长程连接更容易看到&lt;/li&gt;
-&lt;li&gt;维基融合，主动性导航型知识库&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;举例：&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0326-ReadABook.jpeg&quot; alt=&quot;《如何阅读一本书》&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="工具框架" scheme="http://yunminitools.cn/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
