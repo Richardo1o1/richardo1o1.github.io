@@ -100,6 +100,78 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-VUE-Exercise-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/15/VUE-Exercise-1/"
+    >VUE练习1 - 添加页面</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/15/VUE-Exercise-1/" class="article-date">
+  <time datetime="2023-04-15T15:47:35.000Z" itemprop="datePublished">2023-04-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-Vue-的目录结构">1 Vue 的目录结构</h2>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">src/         主开发目录，要开发的客户端代码文件（单文件组件，样式、工具函数等等）全部在这个目录下</span><br><span class="line"><span class="keyword">static</span>/      静态资源目录，项目中的静态资源(css，js，图片等文件)放在这个文件夹</span><br><span class="line">dist/        项目打包发布文件夹，目前没有这个文件夹，最后要上线单文件项目文件都在这个文件夹中	</span><br><span class="line">		         后面使用npm build 打包项目，让项目中的vue组件经过编译变成js 代码以后,dist就出现了</span><br><span class="line"></span><br><span class="line">node_modules/     node的包目录，项目运行的依赖包存储目录，</span><br><span class="line">                  package.<span class="property">json</span>和package-lock.<span class="property">json</span>文件中会自动记录了这个目录下所有的包以及包的版本信息，</span><br><span class="line">                  如果node_modules没有，但是有package.<span class="property">json</span>，则可以在终端下，通过npm install进行恢复。</span><br><span class="line"></span><br><span class="line">config/      配置目录，是环境配置目录与项目无关。</span><br><span class="line">build/       项目打包时依赖的目录</span><br><span class="line">src/router/  路由，是我们创建项目的时候，如果选择安装vue-router，就自动会生成这个目录。</span><br><span class="line">src/assets/  静态资源存储目录，与<span class="keyword">static</span>目录作用类似。</span><br><span class="line">src/components/  组件存储目录，就是浏览器中用户看到的页面的一部分内容。</span><br><span class="line">src/views/       组件存储目录，就是浏览器中用户看到的页面内容，views往往会加载并包含components中的组件进来</span><br></pre></td></tr></table></figure>
+<h2 id="2-执行流程图">2 执行流程图</h2>
+<pre class="mermaid">graph TD
+A(index.html\n全局唯一入口)-->B(main.js\nVUE项目初始化入口)
+B-->C(App.vue\n根组件/路由)
+C-->D1(首页页面组件)
+C-->D2(登录页面组件)
+C-->D3(商品页面组件)
+D1-->E1(头部子组件)
+D2-->E1
+D3-->E1
+D2-->E2(脚部子组件)
+D1-->E2
+D3-->E2
+F(router/index.js\n配置路由)-->C</pre> 
+      <a class="article-more-link" href="/2023/04/15/VUE-Exercise-1/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-javascript-arrow-function"
   class="article article-type-post"
   itemscope
@@ -707,88 +779,6 @@ We need a way for the payee to know that the previous owners did not sign any ea
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Choose-Is-A-Has-B"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/06/Choose-Is-A-Has-B/"
-    >Is-A 和 Has-A 的取舍</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/06/Choose-Is-A-Has-B/" class="article-date">
-  <time datetime="2023-04-06T08:09:59.000Z" itemprop="datePublished">2023-04-06</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="问题">问题</h2>
-<p>组合和继承是允许在新建的类中放入子对象。其中“<strong>Is-A</strong> （是一个）”的关系是用继承来表达的，而“<strong>Has-A</strong>（有一个）”的关系则是用组合来表达的。<br>
-组合是显示的这样做的，而继承是隐式的做。组合一般是将现有的类型作为新类型底层实现的一部分来加以复用，在一个类中引用另一个类，而继承是拥有了父类的非私有方法。<br>
-二者是之间有何区别？或者怎样在二者之间做出选择呢？</p>
-<h2 id="优缺点分析">优缺点分析</h2>
-<p>继承的优点：</p>
-<ol>
-<li>子类可以重写父类的方法来方便地实现对父类的扩展。</li>
-</ol>
-<p>继承的缺点：</p>
-<ol>
-<li>父类的内部细节对子类是可见的。</li>
-<li>子类从父类继承的方法在编译时就确定下来了，所以无法在运行期间改变从父类继承的方法的行为。</li>
-<li>如果对父类的方法做了修改的话（比如增加了一个参数），则子类的方法必须做出相应的修改。所以说子类与父类是一种高耦合，违背了面向对象思想。</li>
-</ol>
-<p>组合的优点：</p>
-<ol>
-<li>当前对象只能通过所包含的那个对象去调用其方法，所以所包含的对象的内部细节对当前对象时不可见的。</li>
-<li>当前对象与包含的对象是一个低耦合关系，如果修改包含对象的类中代码不需要修改当前对象类的代码。</li>
-<li>当前对象可以在运行时动态的绑定所包含的对象。可以通过set方法给所包含对象赋值。</li>
-</ol>
-<p>组合的缺点：</p>
-<ol>
-<li>容易产生过多的对象。</li>
-<li>为了能组合多个对象，必须仔细对接口进行定义。</li>
-</ol> 
-      <a class="article-more-link" href="/2023/04/06/Choose-Is-A-Has-B/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
 
     </footer>
   </div>

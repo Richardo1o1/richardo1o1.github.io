@@ -4579,4 +4579,51 @@ It should be noted that fan-out, where a transaction depends on several transact
         <tag>前端技术</tag>
       </tags>
   </entry>
+  <entry>
+    <title>VUE练习1 - 添加页面</title>
+    <url>/2023/04/15/VUE-Exercise-1/</url>
+    <content><![CDATA[<h2 id="1-Vue-的目录结构">1 Vue 的目录结构</h2>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">src/         主开发目录，要开发的客户端代码文件（单文件组件，样式、工具函数等等）全部在这个目录下</span><br><span class="line"><span class="keyword">static</span>/      静态资源目录，项目中的静态资源(css，js，图片等文件)放在这个文件夹</span><br><span class="line">dist/        项目打包发布文件夹，目前没有这个文件夹，最后要上线单文件项目文件都在这个文件夹中	</span><br><span class="line">		         后面使用npm build 打包项目，让项目中的vue组件经过编译变成js 代码以后,dist就出现了</span><br><span class="line"></span><br><span class="line">node_modules/     node的包目录，项目运行的依赖包存储目录，</span><br><span class="line">                  package.<span class="property">json</span>和package-lock.<span class="property">json</span>文件中会自动记录了这个目录下所有的包以及包的版本信息，</span><br><span class="line">                  如果node_modules没有，但是有package.<span class="property">json</span>，则可以在终端下，通过npm install进行恢复。</span><br><span class="line"></span><br><span class="line">config/      配置目录，是环境配置目录与项目无关。</span><br><span class="line">build/       项目打包时依赖的目录</span><br><span class="line">src/router/  路由，是我们创建项目的时候，如果选择安装vue-router，就自动会生成这个目录。</span><br><span class="line">src/assets/  静态资源存储目录，与<span class="keyword">static</span>目录作用类似。</span><br><span class="line">src/components/  组件存储目录，就是浏览器中用户看到的页面的一部分内容。</span><br><span class="line">src/views/       组件存储目录，就是浏览器中用户看到的页面内容，views往往会加载并包含components中的组件进来</span><br></pre></td></tr></table></figure>
+<h2 id="2-执行流程图">2 执行流程图</h2>
+<pre class="mermaid">graph TD
+A(index.html\n全局唯一入口)-->B(main.js\nVUE项目初始化入口)
+B-->C(App.vue\n根组件/路由)
+C-->D1(首页页面组件)
+C-->D2(登录页面组件)
+C-->D3(商品页面组件)
+D1-->E1(头部子组件)
+D2-->E1
+D3-->E1
+D2-->E2(脚部子组件)
+D1-->E2
+D3-->E2
+F(router/index.js\n配置路由)-->C</pre>
+<span id="more"></span>
+<h2 id="3-代码部分">3 代码部分</h2>
+<blockquote>
+<p>src/main.js</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(router).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>src/App.vue</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>About<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/showcenter&quot;</span>&gt;</span>展示中心<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#app</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-family</span>: Avenir, Helvetica, Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">  -webkit-<span class="attribute">font-smoothing</span>: antialiased;</span></span><br><span class="line"><span class="language-css">  -moz-osx-<span class="attribute">font-smoothing</span>: grayscale;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#2c3e50</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> <span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#2c3e50</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> <span class="selector-tag">a</span><span class="selector-class">.router-link-exact-active</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#42b983</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>router/index.js，代码：</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter, createWebHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ShowCenter</span> <span class="keyword">from</span> <span class="string">&#x27;../views/ShowCenter.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;ShowCenter&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">ShowCenter</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHistory</span>(process.<span class="property">env</span>.<span class="property">BASE_URL</span>),</span><br><span class="line">  routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>新增 ：views/ShowCenter.vue</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;showcenter&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Show center<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;ShowCenter&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>前端技术</tag>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
 </search>

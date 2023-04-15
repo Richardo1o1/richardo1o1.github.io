@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-14T15:05:44.376Z</updated>
+  <updated>2023-04-15T15:48:09.700Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VUE练习1 - 添加页面</title>
+    <link href="http://yunminitools.cn/2023/04/15/VUE-Exercise-1/"/>
+    <id>http://yunminitools.cn/2023/04/15/VUE-Exercise-1/</id>
+    <published>2023-04-15T15:47:35.000Z</published>
+    <updated>2023-04-15T15:48:09.700Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;1-Vue-的目录结构&quot;&gt;1 Vue 的目录结构&lt;/h2&gt;
+&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;src/         主开发目录，要开发的客户端代码文件（单文件组件，样式、工具函数等等）全部在这个目录下&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;/      静态资源目录，项目中的静态资源(css，js，图片等文件)放在这个文件夹&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dist/        项目打包发布文件夹，目前没有这个文件夹，最后要上线单文件项目文件都在这个文件夹中	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		         后面使用npm build 打包项目，让项目中的vue组件经过编译变成js 代码以后,dist就出现了&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;node_modules/     node的包目录，项目运行的依赖包存储目录，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  package.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;和package-lock.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;文件中会自动记录了这个目录下所有的包以及包的版本信息，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  如果node_modules没有，但是有package.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;，则可以在终端下，通过npm install进行恢复。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config/      配置目录，是环境配置目录与项目无关。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;build/       项目打包时依赖的目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/router/  路由，是我们创建项目的时候，如果选择安装vue-router，就自动会生成这个目录。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/assets/  静态资源存储目录，与&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;目录作用类似。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/components/  组件存储目录，就是浏览器中用户看到的页面的一部分内容。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/views/       组件存储目录，就是浏览器中用户看到的页面内容，views往往会加载并包含components中的组件进来&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;2-执行流程图&quot;&gt;2 执行流程图&lt;/h2&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;graph TD
+A(index.html\n全局唯一入口)--&gt;B(main.js\nVUE项目初始化入口)
+B--&gt;C(App.vue\n根组件/路由)
+C--&gt;D1(首页页面组件)
+C--&gt;D2(登录页面组件)
+C--&gt;D3(商品页面组件)
+D1--&gt;E1(头部子组件)
+D2--&gt;E1
+D3--&gt;E1
+D2--&gt;E2(脚部子组件)
+D1--&gt;E2
+D3--&gt;E2
+F(router/index.js\n配置路由)--&gt;C&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
+    
+  </entry>
   
   <entry>
     <title>Javascript 箭头函数</title>
@@ -576,32 +614,6 @@ X君与Y君分别设计了埋点方案，如图所示：&lt;br&gt;
     <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
     
     <category term="绘画" scheme="http://yunminitools.cn/tags/%E7%BB%98%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>转载：《GPT-4 ，通用人工智能的火花》论文内容精选与翻译</title>
-    <link href="http://yunminitools.cn/2023/03/27/Sparks-of-Artificial-General-Intelligence/"/>
-    <id>http://yunminitools.cn/2023/03/27/Sparks-of-Artificial-General-Intelligence/</id>
-    <published>2023-03-27T15:05:20.000Z</published>
-    <updated>2023-03-27T15:06:22.713Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;引言：&quot;&gt;引言：&lt;/h2&gt;
-&lt;p&gt;《通用人工智能的火花：GPT-4早期实验》是3月最重要的一篇论文，引起了广泛的关注和讨论，但是论文长达 154页，中文版本还无人翻译。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.notion.so/GPT-4-8fc50010291d47efb92cbbd668c8c893&quot;&gt;本文&lt;/a&gt;挑选了论文中的重点结论并进行翻译，虽然已经是精选，但仍然超过万字。但考虑到 GPT5 明年才能面世，这篇文章在今年什么时候看都不晚。&lt;/p&gt;
-&lt;p&gt;微软的研究院在很早期就接触到了 GPT-4 的非多模态版本，并对齐进行了详尽的测试。这篇论文就是整个的测试过程和结论。不管是测试方法还是结论都非常精彩，强烈推荐看一遍，传送门在此 。&lt;a href=&quot;https://arxiv.org/pdf/2303.12712v1.pdf&quot;&gt;https://arxiv.org/pdf/2303.12712v1.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;本文的翻译没有添加任何夸张的修辞（DeepL和ChatGPT贡献也很大），但文中透露的信息本身已足够震撼。&lt;/p&gt;
-&lt;p&gt;本文目的是和大家分享当前AI最新的进展，欢迎分享转发，如需转载，只需要注明作者信息 &lt;a href=&quot;https://web.okjike.com/u/FCEA29D3-5BB5-4174-B7A9-1DEE77CEDC46&quot;&gt;orange.ai&lt;/a&gt; 和原始链接 &lt;a href=&quot;https://www.notion.so/GPT-4-8fc50010291d47efb92cbbd668c8c893&quot;&gt;https://orangeblog.notion.site/GPT-4-8fc50010291d47efb92cbbd668c8c893&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="论文翻译" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
