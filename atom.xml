@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-15T15:48:09.700Z</updated>
+  <updated>2023-04-15T15:50:08.332Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yunminitools.cn/2023/04/15/VUE-Exercise-1/"/>
     <id>http://yunminitools.cn/2023/04/15/VUE-Exercise-1/</id>
     <published>2023-04-15T15:47:35.000Z</published>
-    <updated>2023-04-15T15:48:09.700Z</updated>
+    <updated>2023-04-15T15:50:08.332Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;1-Vue-的目录结构&quot;&gt;1 Vue 的目录结构&lt;/h2&gt;
 &lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;src/         主开发目录，要开发的客户端代码文件（单文件组件，样式、工具函数等等）全部在这个目录下&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;/      静态资源目录，项目中的静态资源(css，js，图片等文件)放在这个文件夹&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dist/        项目打包发布文件夹，目前没有这个文件夹，最后要上线单文件项目文件都在这个文件夹中	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		         后面使用npm build 打包项目，让项目中的vue组件经过编译变成js 代码以后,dist就出现了&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;node_modules/     node的包目录，项目运行的依赖包存储目录，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  package.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;和package-lock.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;文件中会自动记录了这个目录下所有的包以及包的版本信息，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  如果node_modules没有，但是有package.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;，则可以在终端下，通过npm install进行恢复。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config/      配置目录，是环境配置目录与项目无关。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;build/       项目打包时依赖的目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/router/  路由，是我们创建项目的时候，如果选择安装vue-router，就自动会生成这个目录。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/assets/  静态资源存储目录，与&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;目录作用类似。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/components/  组件存储目录，就是浏览器中用户看到的页面的一部分内容。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/views/       组件存储目录，就是浏览器中用户看到的页面内容，views往往会加载并包含components中的组件进来&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;2-执行流程图&quot;&gt;2 执行流程图&lt;/h2&gt;
 &lt;pre class=&quot;mermaid&quot;&gt;graph TD
-A(index.html\n全局唯一入口)--&gt;B(main.js\nVUE项目初始化入口)
-B--&gt;C(App.vue\n根组件/路由)
+A(index.html 全局唯一入口)--&gt;B(main.js VUE项目初始化入口)
+B--&gt;C(App.vue 根组件/路由)
 C--&gt;D1(首页页面组件)
 C--&gt;D2(登录页面组件)
 C--&gt;D3(商品页面组件)
