@@ -4661,4 +4661,22 @@ F(router/index.js 配置路由)-->C</pre>
         <tag>VUE</tag>
       </tags>
   </entry>
+  <entry>
+    <title>VUE练习3 - 使用域名</title>
+    <url>/2023/04/17/VUE-Exercise-3/</url>
+    <content><![CDATA[<h2 id="1-配置vue-config-js">1 配置vue.config.js</h2>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">allowedHosts</span>: <span class="string">&quot;all&quot;</span>,</span><br><span class="line">        <span class="attr">host</span>:<span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">        <span class="attr">port</span>:<span class="number">8080</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="2-效果">2 效果</h2>
+<p>访问 <a href="http://uric.yunminitools.cn:8080">http://uric.yunminitools.cn:8080</a> ， 当点击到展示中心后，浏览器的控制台可以返回数据：</p>
+<p><img src="http://cdn.yunminitools.cn/blog/0416axios-result.png" alt=" "></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>前端技术</tag>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
 </search>
