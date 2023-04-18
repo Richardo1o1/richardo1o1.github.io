@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-17T14:46:12.621Z</updated>
+  <updated>2023-04-18T14:40:40.821Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</title>
+    <link href="http://yunminitools.cn/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/"/>
+    <id>http://yunminitools.cn/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/</id>
+    <published>2023-04-18T14:40:00.000Z</published>
+    <updated>2023-04-18T14:40:40.821Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
+&lt;h2 id=&quot;10-隐私&quot;&gt;10 隐私&lt;/h2&gt;
+&lt;p&gt;10 Privacy&lt;br&gt;
+The traditional banking model achieves a level of privacy by limiting</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
+    
+    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>VUE练习3 - 使用域名</title>
@@ -592,35 +622,6 @@ X君与Y君分别设计了埋点方案，如图所示：&lt;br&gt;
     
     
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>37signals的决策原则</title>
-    <link href="http://yunminitools.cn/2023/03/30/37-how-we-make-decisions/"/>
-    <id>http://yunminitools.cn/2023/03/30/37-how-we-make-decisions/</id>
-    <published>2023-03-30T14:51:25.000Z</published>
-    <updated>2023-03-31T14:52:16.181Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;37signals 是一间芝加哥互联网应用公司，著名产品如 Basecamp，并以开发 Rails 框架著称。下面是他们公司公布的&lt;a href=&quot;https://37signals.com/how-we-make-decisions&quot;&gt;决策原则&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;决策原则&quot;&gt;决策原则&lt;/h2&gt;
-&lt;p&gt;以下是我们在37signals做决定时努力牢记的一些一般原则。它们不是要求，这也不是我们在面临选择时的全面清单，但它们可以作为我们在做每天都需要做的一件事时的框架、考虑和共同做法：决定。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;为什么我们要做这个决定，为什么要现在做这个决定? Why are we deciding anything at all? Does a decision actually need to be made here?&lt;/li&gt;
-&lt;li&gt;是否是正确的人来做这个决定？谁是拥有正确信息、背景和洞察里的正确人选（不是角色）？谁只是在插嘴？ Is the right person making this decision? Not the right role, but the right person with the right information, context, and insight? Who’s merely chiming in?&lt;/li&gt;
-&lt;li&gt;如果忽略眼前利益，我们一年以后还会对这个决定有什么感觉？ If we remove the immediate impact, how do we think we’ll feel about this decision a year from now?&lt;/li&gt;
-&lt;li&gt;为什么还没有做出决定？为什么我们之前没有决定？ Why hasn’t this decision been made already? Why didn’t we decide before?&lt;/li&gt;
-&lt;li&gt;为什么我们要花这么长时间做这个决定，我们在犹豫什么？这说明什么？ What’s taking so long to make this decision? Why are we hesitating? What does that reveal?&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="复盘反思" scheme="http://yunminitools.cn/tags/%E5%A4%8D%E7%9B%98%E5%8F%8D%E6%80%9D/"/>
     
   </entry>
   
