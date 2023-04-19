@@ -4705,4 +4705,28 @@ As an additional firewall, a new key pair should be used for each transaction to
         <tag>论文学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>VUE练习4 - 使用Ant Design</title>
+    <url>/2023/04/19/VUE-Exercise-4/</url>
+    <content><![CDATA[<h2 id="1-安装">1 安装</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save ant-design-vue@3.2.16</span><br></pre></td></tr></table></figure>
+<p>不要装最新版，变化比较大。</p>
+<h2 id="2-注册">2 注册</h2>
+<p>**全局完整注册：**修改 main.js:</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Antd</span> <span class="keyword">from</span> <span class="string">&quot;ant-design-vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;ant-design-vue/dist/antd.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> settings <span class="keyword">from</span> <span class="string">&#x27;@/settings&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(store).<span class="title function_">use</span>(router).<span class="title function_">use</span>(<span class="title class_">Antd</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line">app.<span class="property">config</span>.<span class="property">globalProperties</span>.<span class="property">$settings</span> = settings</span><br></pre></td></tr></table></figure>
+<h2 id="3-测试">3 测试</h2>
+<p>修改 ShowCenterView.vue</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;showcenter&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>show center  | 展示中心<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">a-col</span> <span class="attr">:span</span>=<span class="string">&quot;8&quot;</span> <span class="attr">:offset</span>=<span class="string">&quot;8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">a-input-search</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">v-model:value</span>=<span class="string">&quot;value&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">placeholder</span>=<span class="string">&quot;input text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">enter-button</span>=<span class="string">&quot;Search&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">size</span>=<span class="string">&quot;large&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          @<span class="attr">search</span>=<span class="string">&quot;onSearch&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">a-col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<p>效果：<br>
+<img src="http://cdn.yunminitools.cn/blog/0418AntDesign.png" alt=" "></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>前端技术</tag>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
 </search>
