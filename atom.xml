@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-19T15:50:21.554Z</updated>
+  <updated>2023-04-20T15:38:04.237Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Difference between&quot; npm run serve&quot; and &quot;npm run dev&quot; in VUE</title>
+    <link href="http://yunminitools.cn/2023/04/20/npm-run-serve-vue/"/>
+    <id>http://yunminitools.cn/2023/04/20/npm-run-serve-vue/</id>
+    <published>2023-04-20T15:37:22.000Z</published>
+    <updated>2023-04-20T15:38:04.237Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;code&gt;npm run serve&lt;/code&gt; basically is just saying “npm please &lt;strong&gt;run&lt;/strong&gt; the command I defined under the</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
+    
+  </entry>
   
   <entry>
     <title>VUE练习4 - 使用Ant Design</title>
@@ -591,41 +620,6 @@ X君与Y君分别设计了埋点方案，如图所示：&lt;br&gt;
     
     
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识数据埋点（一）</title>
-    <link href="http://yunminitools.cn/2023/04/01/Event-Tracking-1/"/>
-    <id>http://yunminitools.cn/2023/04/01/Event-Tracking-1/</id>
-    <published>2023-04-01T14:53:37.000Z</published>
-    <updated>2023-04-01T14:54:26.214Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;埋点概述&quot;&gt;&lt;strong&gt;埋点概述&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;数据埋点是数据产品经理、数据运营以及数据分析师，基于业务需求（例如：CPC点击付费广告中统计每一个广告位的点击次数），产品需求（例如：推荐系统中推荐商品的曝光次数以及点击的人数）对用户行为的每一个事件对应的位置进行开发埋点，并通过SDK上报埋点的数据结果，记录数据汇总后进行分析，推动产品优化或指导运营。&lt;br&gt;
-埋点分析，是网站分析的一种常用的数据采集方法。数据埋点分为初级、中级、高级三种方式。数据埋点主流部署的方式有：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;私有化部署（即部署在自己公司的服务器上，如果期望提高数据安全性，或者定制化的埋点方案较多，则适合私有部署，并开发一套针对自己公司定制化的数据后台查询系统保证数据的安全性和精确性，缺点是成本较高）。&lt;/li&gt;
-&lt;li&gt;接入第三方服务，比如国内的某盟和国外的GA（Google Analytics）统计，在以后的文章中会单独介绍，此处不再展开。（优点是成本较低，部分基础服务免费，缺点是：数据会存在不安全的风险，另外一个就是只能进行通用的简单分析，无法定制化埋点方案）&lt;br&gt;
-此处只展开初级：在产品、服务转化关键点植入统计代码，据其独立ID确保数据采集不重复（如收藏按钮点击率）；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;主要的埋点事件分类：&quot;&gt;&lt;strong&gt;主要的埋点事件分类：&lt;/strong&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;点击事件：&quot;&gt;&lt;strong&gt;点击事件：&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;点击事件，用户点击按钮即算点击事件，不管点击后有无结果；&lt;/p&gt;
-&lt;h3 id=&quot;曝光事件：&quot;&gt;&lt;strong&gt;曝光事件：&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;成功打开一次页面记一次，刷新页面一次记一次，加载下一页新页，加载一次记一次。home键切换到后台再进入页面，曝光事件不记；&lt;/p&gt;
-&lt;h3 id=&quot;页面停留时间事件：&quot;&gt;&lt;strong&gt;页面停留时间事件：&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;表示一个用户在X页面的停留时长记为停留时长。例如：小明9:00访问了X网站首页，此时分析工具则开始为小明这个访问者记录1个Session（会话）。接着9:01小明又浏览了另外一个页面列表页，然后离开了网站（离开网站可以是通过关闭浏览器，或在地址栏键入一个不同的网址，或是点击了你网站上链接到其他网站的链接……）为了简单，我们把这个过程当做一个Session。&lt;br&gt;
-则最终小明在首页的页面停留时间：&lt;br&gt;
-&lt;strong&gt;（Time on Page，简称Tp）Tp(首页) = 9:01 – 9:00 = 1 分钟&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
