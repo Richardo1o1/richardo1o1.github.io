@@ -4746,4 +4746,66 @@ As an additional firewall, a new key pair should be used for each transaction to
         <tag>VUE</tag>
       </tags>
   </entry>
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</title>
+    <url>/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="11-计算">11 计算</h2>
+<p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.<br>
+The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker’s chain being extended by one block, reducing the gap by -1. The probability of an attacker catching up from a given deficit is analogous to a Gambler’s Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:<br>
+p = probability an honest node finds the next block<br>
+q = probability the attacker finds the next block<br>
+qz = probability the attacker will ever catch up from z blocks behind<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "></p>
+<span id="more"></span>
+<p>Given our assumption that p &gt; q, the probability drops exponentially as the number of blocks the attacker has to catch up with increases. With the odds against him, if he doesn’t make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.<br>
+We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can’t change the transaction. We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed. The receiver will be alerted when that happens, but the sender hopes it will be too late.<br>
+The receiver generates a new key pair and gives the public key to the sender shortly before signing. This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment. Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.<br>
+The recipient waits until the transaction has been added to a block and z blocks have been linked after it. He doesn’t know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker’s potential progress will be a Poisson distribution with expected value:<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
+To get the probability the attacker could still catch up now, we multiply the Poisson density for<br>
+each amount of progress he could have made by the probability he could catch up from that point:<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
+Rearranging to avoid summing the infinite tail of the distribution…<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "><br>
+Converting to C code…</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Running some results, we can see the probability drop off exponentially with z.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
+<p>Solving for P less than 0.1%…</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
+<p>我们考虑一个攻击者试图生成一条比诚实链更快的替代链的情况。即使这个目标达到了，也不会使系统变得可以任意修改，比如凭空创建货币或拿走不属于他的钱。节点将不会接受无效的交易作为支付，而且诚实节点永远不会接受一个包含无效交易的区块。攻击者只可能改变他自己的某笔交易来拿回他不久前已经支出的钱。<br>
+诚实链与攻击者链之间的竞争可描述为二项随机漫步。成功事件是诚实节点被延长一个区块，两条链的差距加 1，失败事件是攻击者的链延长一个区块，两条链的差距减 1。攻击者从某一落后位置赶上诚实链的概率类似于赌徒破产理论。设想一个拥有无限筹码的赌徒从一定亏损开始，进行可能无限次的赌博试图达到盈亏平衡。我们可以计算他达到盈亏平衡，即一个攻击者赶上诚实链的概率，如下 [8]：<br>
+p = 诚实节点找到下一个区块的概率<br>
+q = 攻击者找到下一个区块的概率<br>
+qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "><br>
+我们假设 p &gt; q，概率将随着攻击者需要赶上的区块数增加而呈指数下降。 由于形势对他不利，如果他没有在早期幸运地快速赶上，他落得越远赶上的机会就越渺茫。我们现在考虑一个新交易的收款人要等多久才能确保付款人不能再改变这个交易。我们假设作为攻击者的付款人是想让收款人相信他暂时已经付款，然后在一段时间后转换成支付回自己。这时收款人会收到警告，但付款人希望警告已为时已晚。<br>
+收款人生成一个新密钥对并将公钥给付款人，这样付款人就无法提前对交易签名。这能防止付款人通过持续工作直到他足够幸运获得大幅领先的方式预先准备一条区块链，然后在那时执行交易。一旦交易被发出，不诚实的付款人就开始秘密地在一条包含了他的替换版交易的平行链上工作。<br>
+收款人等到交易被加到区块中且其后追加了 z 个区块。他不知道攻击者确切的进度，但是假设诚实的区块按期望的平均时间生成，攻击者可能的进度将是一个泊松分布，其期望值为：<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
+为计算攻击者现在仍然能赶上的概率，我们给每个他可能达到的进度的泊松密度乘以他在那个进度能赶上诚实链的概率：<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
+变换以避免对分布的无限尾部求和…<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "></p>
+<p>转换成 C 语言代码…</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行得到一些结果，我们可以看到概率随 z 呈指数下降。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
+<p>P 小于 0.1% 的解…</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
+<p>【关注点】：</p>
+<ul>
+<li>Gambler’s Ruin problem, 这个应该是个经典数学问题，需要资料。</li>
+<li>P 小于 0.1% 的解…，说明了什么？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
 </search>
