@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-23T15:15:51.409Z</updated>
+  <updated>2023-04-25T15:23:28.609Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</title>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
+    <link href="http://yunminitools.cn/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/"/>
+    <id>http://yunminitools.cn/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/</id>
+    <published>2023-04-25T15:22:59.000Z</published>
+    <updated>2023-04-25T15:23:28.609Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
+&lt;h2 id=&quot;11-结论&quot;&gt;11 结论&lt;/h2&gt;
+&lt;p&gt;11 Conclusion&lt;br&gt;
+We have proposed a system for electronic transactions without</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
+    
+    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</title>
     <link href="http://yunminitools.cn/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/"/>
     <id>http://yunminitools.cn/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</id>
     <published>2023-04-23T15:15:15.000Z</published>
-    <updated>2023-04-23T15:15:51.409Z</updated>
+    <updated>2023-04-25T15:22:28.841Z</updated>
     
     
     <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
@@ -596,32 +626,6 @@ X君与Y君分别设计了埋点方案，如图所示：&lt;br&gt;
     
     
     <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软件系统解耦：理解依赖关系（二）</title>
-    <link href="http://yunminitools.cn/2023/04/03/Software-system-decoupling-2/"/>
-    <id>http://yunminitools.cn/2023/04/03/Software-system-decoupling-2/</id>
-    <published>2023-04-03T14:05:54.000Z</published>
-    <updated>2023-04-06T01:41:57.348Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;单向依赖与单一职责原则-SRP&quot;&gt;单向依赖与单一职责原则(SRP)&lt;/h2&gt;
-&lt;p&gt;单向依赖是最简单的依赖。&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0403SRP1.png&quot; alt=&quot; &quot;&gt;&lt;br&gt;
-上述都是单向依赖的例子。其中，(1)是最理想的情况。当逻辑变复杂后，单个模块往往承担了过多的责任。即使模块之间可以保持简单的单向关系，模块内部各行为之间却形成高强度的耦合整体。根据单一职责原则(SRP)，这样的模块也是难以维护的，我们需要对模块做拆分。&lt;br&gt;
-在有多个模块的情况下，(2)的依赖关系显然要好于(3)，因为在(2)中模块的依赖关系要比(3)少。这样的解释过于抽象，我们用游戏中比较典型的一个应用场景来说明一下。&lt;/p&gt;
-&lt;p&gt;场景对象管理器GameObjectManager，管理着场景对象GameObjectInstance，而场景对象的构造需要资源AssetStore的支持。他们的调用关系，用(2)和(3)的模式分别实现一遍：&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//(2) GameObjectManager从AssetStore取资源数据，然后调用GameObjectInstnce的初始化流程&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;GameObjectManager&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;AssetForGameObject* &lt;span class=&quot;title&quot;&gt;GetAsset&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DWORD dwID)&lt;/span&gt;&lt;/span&gt;&amp;#123;m_Asset.&lt;span class=&quot;built_in&quot;&gt;GetAsset&lt;/span&gt;(dwID);&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;GameObjectInstance* &lt;span class=&quot;title&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DWORD dwAssetID)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        AssetForGameObject* pAsset = &lt;span class=&quot;built_in&quot;&gt;GetAsset&lt;/span&gt;(dwAssetID);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; m_GameObjects[dwNewID] = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;GameObjectInstance&lt;/span&gt;(pAsset);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;type&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;TickGameObject&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;foreach(&lt;span class=&quot;keyword&quot;&gt;auto&lt;/span&gt; go = m_GameObjects) go.&lt;span class=&quot;built_in&quot;&gt;Tick&lt;/span&gt;();&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    AssetStore m_Asset;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    map&amp;lt;DWORD, GameObjectInstance*&amp;gt; m_GameObjects;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//(3) GameObjectInstance自己调用AssetStore的方法取资源数据，做初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;GameObjectManager&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;GameObjectInstance* &lt;span class=&quot;title&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(AssetStore* pAssets, DWORD dwAssetID)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        GameObjectInstance* pGo = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;GameObjectInstance&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        pGo-&amp;gt;&lt;span class=&quot;built_in&quot;&gt;Init&lt;/span&gt;(pAssets, dwAssetID);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; m_GameObjects[dwNewID] = pGo;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    AssetStore m_Asset;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    map&amp;lt;DWORD, GameObjectInstance*&amp;gt; m_GameObjects;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;GameObjectInstance&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;type&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Init&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(AssetStore* pAssets, DWORD dwAssetID)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        m_Data = pAssets-&amp;gt;&lt;span class=&quot;built_in&quot;&gt;GetAsset&lt;/span&gt;(dwAssetID);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;GameObjectInstance只需要依赖于AssetForGameObject，但是在依赖关系(3)中，却要依赖于一个范围更大的概念AssetStore。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   

@@ -4747,7 +4747,7 @@ As an additional firewall, a new key pair should be used for each transaction to
       </tags>
   </entry>
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</title>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</title>
     <url>/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</url>
     <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
 <h2 id="11-计算">11 计算</h2>
@@ -4798,6 +4798,27 @@ qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
 <ul>
 <li>Gambler’s Ruin problem, 这个应该是个经典数学问题，需要资料。</li>
 <li>P 小于 0.1% 的解…，说明了什么？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
+    <url>/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="11-结论">11 结论</h2>
+<p>11 Conclusion<br>
+We have proposed a system for electronic transactions without relying on trust. We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power. The network is robust in its unstructured simplicity. Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.</p>
+<p>我们已经提出了一种不依赖信任的电子交易系统。我们从通用的数字签名货币体系开始，这体系提供了强有力的所有权控制，但由于缺乏防止双重支付的方法而不完善。为解决这个问题，我们提出一种使用工作量证明来记录公共交易历史的点对点网络，只要诚实节点控制了多数的 CPU 算力，对于攻击者，交易历史将很快变得在计算上不可更改。网络因其结构简洁性而强大。节点只需很少的协调就能同时工作。它们不需要被认证，因为信息不会被发送到某个特殊的位置，只需被尽力传播。节点可以随时离开和重新加入网络，只需接受工作量证明链作为它们离开时发生事件的证据。节点使用 CPU 算力来投票，通过致力于延长有效区块来表达对其接受，通过拒绝在无效区块上工作来表达对其抵制。任何需要的规则和激励都可通过这个共识机制来加强。</p>
+<p>【关注点】：</p>
+<ul>
+<li><strong>rules and incentives</strong>, 都会有哪些规则和激励？</li>
 </ul>
 ]]></content>
       <categories>
