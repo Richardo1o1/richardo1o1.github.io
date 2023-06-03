@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-04-25T15:23:28.609Z</updated>
+  <updated>2023-06-03T13:08:22.434Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSH客户端会话超时的解决方案</title>
+    <link href="http://yunminitools.cn/2023/06/03/SSH-connention-timeout-setting/"/>
+    <id>http://yunminitools.cn/2023/06/03/SSH-connention-timeout-setting/</id>
+    <published>2023-06-03T13:03:32.000Z</published>
+    <updated>2023-06-03T13:08:22.434Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
@@ -598,34 +623,6 @@ We need a way for the payee to know that the previous owners did not sign any ea
     <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
     
     <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识数据埋点（二）</title>
-    <link href="http://yunminitools.cn/2023/04/04/Event-Tracking-2/"/>
-    <id>http://yunminitools.cn/2023/04/04/Event-Tracking-2/</id>
-    <published>2023-04-04T14:53:37.000Z</published>
-    <updated>2023-04-05T14:23:40.172Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;实际案例：&quot;&gt;实际案例：&lt;/h2&gt;
-&lt;p&gt;**实例背景：**某汽车互联网公司，领导对负责新车业务的产品经理X君、负责二手车业务的产品经理Y君提出需求：对新车APP和二手车APP销售线索数据指标进行数据监控，如有超过5%的数据变动，则需要向上级汇报波动数值以及波动原因。&lt;br&gt;
-&lt;strong&gt;名词注释：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;销售线索：通过事件记录到用户有明确的购买意向，记录行为的事件例如：电话咨询、短信询价、加入心愿单、收藏、特别关注等类型事件。记录一个用户即代表一个线索。&lt;/li&gt;
-&lt;li&gt;数据波动：即(（当日数据-昨天数据）/昨日数据)*100%=环比数据波动&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;根据领导需求，假设定义短信砍价按钮与电话咨询按钮为销售线索指标，销售线索按钮页面的入口来源页面包含：页面A与页面B。&lt;br&gt;
-X君与Y君分别设计了埋点方案，如图所示：&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0405Tracking.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
