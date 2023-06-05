@@ -4877,4 +4877,113 @@ a hypsolebias fish jumping out of sea. The pond is surrounded by tall grass and 
         <tag>Django</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Django 的类视图</title>
+    <url>/2023/06/05/Django-Class-View-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>练习Django的时候发现它的类视图很神奇，很少的代码就能实现功能，研究了一下，发现这个<a href="https://liujiangblog.com/course/django/279">教程</a>，写得比较详细，转载一下，加深印象。</p>
+<h2 id="类视图与函数视图">类视图与函数视图</h2>
+<p>Django的视图可以分为：</p>
+<ul>
+<li>函数视图FBV：<code>def index(request):</code></li>
+<li>类视图CBV：<code>class AboutView(TemplateView):</code></li>
+</ul>
+<p>早期，人们在视图开发中发现了一些常见的习语和句式，也就是重复性代码和工作。于是引入了基于函数的视图来抽象这些模式，便于一般情况下的视图开发。</p>
+<p>基于函数的视图的问题在于，尽管它们覆盖了简单的情况，但是除了一些简单的配置选项之外，没有办法扩展或定制它们，限制了它们在许多现实应用中的实用性。</p>
+<p>基于类的通用视图与基于函数的视图的目标相同，都是想让视图开发更容易。但由于类视图可以使用MIXIN等一些面向对象的方法和工具包，使得基于类的视图比基于函数的视图更具扩展性和灵活性。</p>
+<p>基于类的视图：</p>
+<ul>
+<li>通过HTTP请求方法的不同，将代码分隔在不同的类方法中，比如GET和POST，而不是类函数中的条件判断。</li>
+<li>可以使用面向对象的技巧，比如混入。</li>
+<li>类具有封装和继承的特性，方便代码复用、分发和重构。</li>
+</ul>
+<p>两种视图可以实现同样的功能，本质上是一个东西，没有谁好谁坏之分，只是适用场景不同而已：</p>
+<ul>
+<li>简单逻辑、快速处理，请用FBV</li>
+<li>代码复用、功能封装，请用CBV</li>
+</ul>
+<h2 id="用法">用法</h2>
+<p>Django 提供了很多适用于各种应用场景的基本视图类，我们一般不从头自己写起，这些类视图都继承<code>django.views.generic.base.View</code>类。比如<code>RedirectView</code> 用于 HTTP 重定向，<code>TemplateView</code> 用于渲染模板。</p>
+<p>类视图有很多简单的用法，甚至不需要去views.py中编写代码，比如下面的例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, TemplateView.as_view(template_name=<span class="string">&quot;about.html&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>重点关注：</p>
+<ul>
+<li><code>TemplateView</code>类视图</li>
+<li><code>as_view()</code>方法</li>
+<li><code>template_name</code>参数</li>
+</ul>
+<p>更通用的使用方法是继承Django提供的各种视图类，所以上面的例子的一般性写法如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># some_app/views.py</span></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AboutView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&quot;about.html&quot;</span></span><br></pre></td></tr></table></figure>
+<p>但是，由于类不是函数，所以需要在URLconf中使用<code>as_view()</code>这个类方法将一个基于类的视图转换成函数形式的接口。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> some_app.views <span class="keyword">import</span> AboutView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, AboutView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>上面的AboutView视图不涉及模型的访问，比较简单。让我们看一个书籍列表视图的例子：<br>
+首先是路由：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> books.views <span class="keyword">import</span> BookListView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;books/&#x27;</span>, BookListView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><code>BookListView</code>视图：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> ListView</span><br><span class="line"><span class="keyword">from</span> books.models <span class="keyword">import</span> Book</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BookListView</span>(<span class="title class_ inherited__">ListView</span>):</span><br><span class="line">    model = Book  <span class="comment"># 指定模型</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">head</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        last_book = self.get_queryset().latest(<span class="string">&#x27;publication_date&#x27;</span>)</span><br><span class="line">        response = HttpResponse()</span><br><span class="line">        <span class="comment"># RFC 1123 date format</span></span><br><span class="line">        response[<span class="string">&#x27;Last-Modified&#x27;</span>] = last_book.publication_date.strftime(<span class="string">&#x27;%a, %d %b %Y %H:%M:%S GMT&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
+<p>这个例子中，如果用户通过GET请求数据，那么将正常的返回响应数据（此处省略）。而如果通过HEAD请求，将使用我们写的head方法中的业务逻辑。</p>
+<h3 id="一、使用基于类的视图">一、使用基于类的视图</h3>
+<p>本质上来说，基于类的视图允许你使用不同的实例方法响应不同的HTTP 请求，而不是在单个视图函数里使用<code>if/else</code>代码。<br>
+在函数视图里处理 <code>GET</code>请求的代码像下面这样：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">        <span class="comment"># &lt;view logic&gt;</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>而在类视图中，则通过不同过的实例方法来处理：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># &lt;view logic&gt;</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>上面的继承关系非常重要，不能从头写一个新类，或者随便自己瞎继承一个类，否则你无法和Django系统勾连。<br>
+每个类视图都有一个<code>as_view()</code>方法，用于在<code>urlconf</code>中进行dispatch。这个方法会创建一个类视图的实例，并调用它的<code>dispatch()</code>方法。dispatch方法会在类中查找类似GET\POST之类的类方法，然后与请求request中的HTTP方法匹配。匹配上了就调用对应的代码，匹配不上就弹出异常<code>HttpResponseNotAllowed</code>，也就是不允许当前的请求类型。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> myapp.views <span class="keyword">import</span> MyView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, MyView.as_view()),    <span class="comment"># 注意as_view要加括号进行调用</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>至于return返回的什么，和函数视图是一样样的。</p>
+<p>as_view()方法可以传递参数，例如：</p>
+<p><code>urlpatterns = [ path('view/', MyView.as_view(size=42)), ]</code></p>
+<p>传递给视图的参数会在视图的每个实例之间共享。这意味着你不应使用列表、字典或任何其他可变对象作为视图的参数。如果你这样做并且共享对象被修改，则会导致一个请求对另外一个请求产生影响，这显然存在极大的风险，完全不可接受。</p>
+<p>每个MyView视图的实例都可以使用 <code>self.size</code>接收传入的参数值42，但该参数必须已经在类中定义了。</p>
+<p>基于类的视图不强制你添加任何类属性，当需要的时候，有两种方法来配置或设置类属性。</p>
+<p>第一种是继承父类，在子类中重写父类的属性，如下所示：</p>
+<p>父类：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GreetingView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    greeting = <span class="string">&quot;Good Day&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(self.greeting)</span><br></pre></td></tr></table></figure>
+<p>子类：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MorningGreetingView</span>(<span class="title class_ inherited__">GreetingView</span>):</span><br><span class="line">    greeting = <span class="string">&quot;Morning to ya&quot;</span></span><br></pre></td></tr></table></figure>
+<p>注意其中的greeting类属性。<br>
+另一种就是简单粗暴的在URLconf路由条目中修改as_view()方法的参数。当然，参数名必须是存在的类属性，你不能随便瞎写！如下所示：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, GreetingView.as_view(greeting=<span class="string">&quot;G&#x27;day&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>但是这种方式有很大的弊端，那就是虽然每次匹配上了url，你的类视图都会被实例化一次，但是你的URLs却是在被导入的时候才配置一次，也就是as_view()方法的参数的配置只有一次。也就是说这么做，就不能再改了！所以，不要偷懒，使用子类吧。</p>
+<h3 id="二、使用mixin混入">二、使用mixin混入</h3>
+<p>混入是一种多父类继承的形式，其基础理论知识请参考我的Python教程中多继承相关章节。<br>
+在编写子类的时候，一个父类负责类的主体结构、主要行为和主要属性，其它的功能都通过各种MIXin父类提供。<br>
+MIXIN是跨多个类重用代码的一个很好的方法，但是它们会带来一些代价。你的代码散布在MIXIN中越多，阅读子类就越难，很难知道它到底在做什么。如果你在对具有多级继承树的子类进行分类，就更难以判断子类的方法到底继承的是哪个先祖，俗称‘家谱乱了’。<br>
+<strong>需要注意的是你的父类中只有一个类可以继承最顶级的View类，其它的必须以mixin方法混入。</strong></p>
+<h3 id="三、使用类视图处理表单">三、使用类视图处理表单</h3>
+<p>一个用来处理表单的函数视图通常是下面这样的：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">myview</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        form = MyForm(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="comment"># &lt;process form cleaned data&gt;</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(<span class="string">&#x27;/success/&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        form = MyForm(initial=&#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;form_template.html&#x27;</span>, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
+<p>而如果用类视图来实现，是这样的：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyFormView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    form_class = MyForm</span><br><span class="line">    initial = &#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;</span><br><span class="line">    template_name = <span class="string">&#x27;form_template.html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        form = self.form_class(initial=self.initial)</span><br><span class="line">        <span class="keyword">return</span> render(request, self.template_name, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        form = self.form_class(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="comment"># &lt;process form cleaned data&gt;</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(<span class="string">&#x27;/success/&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> render(request, self.template_name, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
+<p>看起来类视图好像比函数视图代码多了很多，复杂了很多，貌似没啥优点啊。但是如果你有多个类似的视图需要编写，那么你就可以发挥子类的继承和复写神操作了，分分钟整出个新的视图来。或者直接在URLConf中修改参数！或者两种操作同时使用！</p>
+<p>其实，到现在你应该理解，<strong>类视图适用于大量重复性的视图编写工作</strong>，在简单的场景下，没几个视图需要编写，或者各个视图差别很大的情况时，还是函数视图更有效！所以，<strong>不要认为类视图是多么高大上的东西</strong>，人云亦云！</p>
+<h3 id="四、装饰类视图">四、装饰类视图</h3>
+<p>除了mixin，还可以使用装饰器扩展类视图。装饰器的工作方式取决于你是在创建子类还是使用as_view()。</p>
+<p>用法一，在URLConf中直接装饰：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required, permission_required</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> VoteView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, login_required(TemplateView.as_view(template_name=<span class="string">&quot;secret.html&quot;</span>))),</span><br><span class="line">    path(<span class="string">&#x27;vote/&#x27;</span>, permission_required(<span class="string">&#x27;polls.can_vote&#x27;</span>)(VoteView.as_view())),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>用法二，在类视图中装饰指定的方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required</span><br><span class="line"><span class="keyword">from</span> django.utils.decorators <span class="keyword">import</span> method_decorator</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @method_decorator(<span class="params">login_required</span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dispatch</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().dispatch(*args, **kwargs)</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>上面要把装饰器用在dispatch这个方法上，才能在每次请求到达URL时，实例化类视图时都运行这个装饰器的功能。</li>
+<li>不是每个装饰器都能直接运用在类方法上，需要使用<code>method_decorator</code>这个装饰器的装饰器方法将装饰器运用在类方法上。感觉很绕？其实就是说，我们有很多很多的装饰器，但其中有一些不能直接装饰dispatch这种类方法。那怎么办呢？套层壳！用<code>method_decorator</code>装饰器包裹起来，假装成一个能用的。</li>
+</ul>
+<p>有时候，简单地用一下，可以写成下面的精简版：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@method_decorator(<span class="params">login_required, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>有时候，可能你需要对一个对象应用多个装饰器，正常做法是：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@method_decorator(<span class="params">never_cache, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">login_required, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>为了偷懒，我们可以这么做：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">decorators = [never_cache, login_required]</span><br><span class="line"></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">decorators, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>唯一需要注意地是<strong>装饰器是有先后顺序的</strong>。上面的例子中，<code>never_cache</code>就要先于<code>login_required</code>被调用。</p>
+<p>最后，使用<code>method_decorator</code>有时会导致<code>TypeError</code>异常，因为参数传递的原因。</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>Django</tag>
+      </tags>
+  </entry>
 </search>

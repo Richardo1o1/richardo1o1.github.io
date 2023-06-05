@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-04T06:05:36.597Z</updated>
+  <updated>2023-06-05T14:19:27.524Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django 的类视图</title>
+    <link href="http://yunminitools.cn/2023/06/05/Django-Class-View-1/"/>
+    <id>http://yunminitools.cn/2023/06/05/Django-Class-View-1/</id>
+    <published>2023-06-05T14:18:55.000Z</published>
+    <updated>2023-06-05T14:19:27.524Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;练习Django的时候发现它的类视图很神奇，很少的代码就能实现功能，研究了一下，发现这个&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+  </entry>
   
   <entry>
     <title>解决Django无法访问远程服务器</title>
@@ -583,52 +611,6 @@ We need a way for the payee to know that the previous owners did not sign any ea
     <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
     
     <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Is-A 和 Has-A 的取舍</title>
-    <link href="http://yunminitools.cn/2023/04/06/Choose-Is-A-Has-B/"/>
-    <id>http://yunminitools.cn/2023/04/06/Choose-Is-A-Has-B/</id>
-    <published>2023-04-06T08:09:59.000Z</published>
-    <updated>2023-04-06T08:14:12.981Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;问题&lt;/h2&gt;
-&lt;p&gt;组合和继承是允许在新建的类中放入子对象。其中“&lt;strong&gt;Is-A&lt;/strong&gt; （是一个）”的关系是用继承来表达的，而“&lt;strong&gt;Has-A&lt;/strong&gt;（有一个）”的关系则是用组合来表达的。&lt;br&gt;
-组合是显示的这样做的，而继承是隐式的做。组合一般是将现有的类型作为新类型底层实现的一部分来加以复用，在一个类中引用另一个类，而继承是拥有了父类的非私有方法。&lt;br&gt;
-二者是之间有何区别？或者怎样在二者之间做出选择呢？&lt;/p&gt;
-&lt;h2 id=&quot;优缺点分析&quot;&gt;优缺点分析&lt;/h2&gt;
-&lt;p&gt;继承的优点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;子类可以重写父类的方法来方便地实现对父类的扩展。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;继承的缺点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;父类的内部细节对子类是可见的。&lt;/li&gt;
-&lt;li&gt;子类从父类继承的方法在编译时就确定下来了，所以无法在运行期间改变从父类继承的方法的行为。&lt;/li&gt;
-&lt;li&gt;如果对父类的方法做了修改的话（比如增加了一个参数），则子类的方法必须做出相应的修改。所以说子类与父类是一种高耦合，违背了面向对象思想。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;组合的优点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;当前对象只能通过所包含的那个对象去调用其方法，所以所包含的对象的内部细节对当前对象时不可见的。&lt;/li&gt;
-&lt;li&gt;当前对象与包含的对象是一个低耦合关系，如果修改包含对象的类中代码不需要修改当前对象类的代码。&lt;/li&gt;
-&lt;li&gt;当前对象可以在运行时动态的绑定所包含的对象。可以通过set方法给所包含对象赋值。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;组合的缺点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;容易产生过多的对象。&lt;/li&gt;
-&lt;li&gt;为了能组合多个对象，必须仔细对接口进行定义。&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="设计模式" scheme="http://yunminitools.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
