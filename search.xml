@@ -103,6 +103,27 @@ timestamp server to generate computational proof of the chronological order of t
       </tags>
   </entry>
   <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
+    <url>/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="11-结论">11 结论</h2>
+<p>11 Conclusion<br>
+We have proposed a system for electronic transactions without relying on trust. We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power. The network is robust in its unstructured simplicity. Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.</p>
+<p>我们已经提出了一种不依赖信任的电子交易系统。我们从通用的数字签名货币体系开始，这体系提供了强有力的所有权控制，但由于缺乏防止双重支付的方法而不完善。为解决这个问题，我们提出一种使用工作量证明来记录公共交易历史的点对点网络，只要诚实节点控制了多数的 CPU 算力，对于攻击者，交易历史将很快变得在计算上不可更改。网络因其结构简洁性而强大。节点只需很少的协调就能同时工作。它们不需要被认证，因为信息不会被发送到某个特殊的位置，只需被尽力传播。节点可以随时离开和重新加入网络，只需接受工作量证明链作为它们离开时发生事件的证据。节点使用 CPU 算力来投票，通过致力于延长有效区块来表达对其接受，通过拒绝在无效区块上工作来表达对其抵制。任何需要的规则和激励都可通过这个共识机制来加强。</p>
+<p>【关注点】：</p>
+<ul>
+<li><strong>rules and incentives</strong>, 都会有哪些规则和激励？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（2）</title>
     <url>/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/</url>
     <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
@@ -316,6 +337,32 @@ It should be noted that fan-out, where a transaction depends on several transact
       </tags>
   </entry>
   <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</title>
+    <url>/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="10-隐私">10 隐私</h2>
+<p>10 Privacy<br>
+The traditional banking model achieves a level of privacy by limiting access to information to the parties involved and the trusted third party. The necessity to announce all transactions publicly precludes this method, but privacy can still be maintained by breaking the flow of information in another place: by keeping public keys anonymous. The public can see that someone is sending an amount to someone else, but without information linking the transaction to anyone. This is similar to the level of information released by stock exchanges, where the time and size of individual trades, the “tape”, is made public, but without telling who the parties were.<br>
+<img src="http://cdn.yunminitools.cn/blog/0417Privacy-en.png" alt=" "><br>
+As an additional firewall, a new key pair should be used for each transaction to keep them from being linked to a common owner. Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner. The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner.</p>
+<p>传统的银行模型通过限制参与方和可信任第三方对信息的访问来达到一定级别的隐私保护。交易必须要公开发布就不能使用这个方法，但隐私仍可在其他地方通过阻断信息流的方式来保护：那就是保持公钥匿名。公众能看到有人正在发送一定量货币给其他人，但是不能将交易关联到某个人。这和证券交易所发布的信息级别类似，每笔交易的时间和交易量，即行情是公开的，但是不会显示交易双方是谁。<br>
+<img src="http://cdn.yunminitools.cn/blog/0417Privacy-zh.png" alt=" "><br>
+作为额外的防火墙，对每笔交易使用新密钥对可以防止他们被关联到一个共同的拥有者。由于多输入值交易存在，有些关联仍不可避免，因为多输入值交易必然暴露其多个输入是属于同一个拥有者的。风险就在于如果一个密钥的拥有者被暴露，关联性将暴露属于同一个拥有者的其他交易。</p>
+<p>【关注点】：</p>
+<ul>
+<li><strong>keeping public keys anonymous</strong>, 如何做到呢？</li>
+<li><strong>证券交易所发布的信息级别类似</strong>，这个类比比较有趣。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</title>
     <url>/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</url>
     <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
@@ -389,6 +436,32 @@ qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
       </categories>
       <tags>
         <tag>人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub Pages 强制使用HTTPS协议访问</title>
+    <url>/2023/02/18/Add-Https-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
+<h2 id="设置步骤">设置步骤</h2>
+<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
+<ol>
+<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
+<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
+<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
+</ol>
+<div style="width: 40%; margin: 10px">
+   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
+</div>
+3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
+![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
+<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
       </tags>
   </entry>
   <entry>
@@ -1097,6 +1170,136 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
       </tags>
   </entry>
   <entry>
+    <title>Django 的类视图</title>
+    <url>/2023/06/05/Django-Class-View-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>练习Django的时候发现它的类视图很神奇，很少的代码就能实现功能，研究了一下，发现这个<a href="https://liujiangblog.com/course/django/279">教程</a>，写得比较详细，转载一下，加深印象。</p>
+<h2 id="类视图与函数视图">类视图与函数视图</h2>
+<p>Django的视图可以分为：</p>
+<ul>
+<li>函数视图FBV：<code>def index(request):</code></li>
+<li>类视图CBV：<code>class AboutView(TemplateView):</code></li>
+</ul>
+<p>早期，人们在视图开发中发现了一些常见的习语和句式，也就是重复性代码和工作。于是引入了基于函数的视图来抽象这些模式，便于一般情况下的视图开发。</p>
+<p>基于函数的视图的问题在于，尽管它们覆盖了简单的情况，但是除了一些简单的配置选项之外，没有办法扩展或定制它们，限制了它们在许多现实应用中的实用性。</p>
+<p>基于类的通用视图与基于函数的视图的目标相同，都是想让视图开发更容易。但由于类视图可以使用MIXIN等一些面向对象的方法和工具包，使得基于类的视图比基于函数的视图更具扩展性和灵活性。</p>
+<p>基于类的视图：</p>
+<ul>
+<li>通过HTTP请求方法的不同，将代码分隔在不同的类方法中，比如GET和POST，而不是类函数中的条件判断。</li>
+<li>可以使用面向对象的技巧，比如混入。</li>
+<li>类具有封装和继承的特性，方便代码复用、分发和重构。</li>
+</ul>
+<p>两种视图可以实现同样的功能，本质上是一个东西，没有谁好谁坏之分，只是适用场景不同而已：</p>
+<ul>
+<li>简单逻辑、快速处理，请用FBV</li>
+<li>代码复用、功能封装，请用CBV</li>
+</ul>
+<h2 id="用法">用法</h2>
+<p>Django 提供了很多适用于各种应用场景的基本视图类，我们一般不从头自己写起，这些类视图都继承<code>django.views.generic.base.View</code>类。比如<code>RedirectView</code> 用于 HTTP 重定向，<code>TemplateView</code> 用于渲染模板。</p>
+<p>类视图有很多简单的用法，甚至不需要去views.py中编写代码，比如下面的例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, TemplateView.as_view(template_name=<span class="string">&quot;about.html&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>重点关注：</p>
+<ul>
+<li><code>TemplateView</code>类视图</li>
+<li><code>as_view()</code>方法</li>
+<li><code>template_name</code>参数</li>
+</ul>
+<p>更通用的使用方法是继承Django提供的各种视图类，所以上面的例子的一般性写法如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># some_app/views.py</span></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AboutView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&quot;about.html&quot;</span></span><br></pre></td></tr></table></figure>
+<p>但是，由于类不是函数，所以需要在URLconf中使用<code>as_view()</code>这个类方法将一个基于类的视图转换成函数形式的接口。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> some_app.views <span class="keyword">import</span> AboutView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, AboutView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>上面的AboutView视图不涉及模型的访问，比较简单。让我们看一个书籍列表视图的例子：<br>
+首先是路由：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> books.views <span class="keyword">import</span> BookListView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;books/&#x27;</span>, BookListView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><code>BookListView</code>视图：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> ListView</span><br><span class="line"><span class="keyword">from</span> books.models <span class="keyword">import</span> Book</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BookListView</span>(<span class="title class_ inherited__">ListView</span>):</span><br><span class="line">    model = Book  <span class="comment"># 指定模型</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">head</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        last_book = self.get_queryset().latest(<span class="string">&#x27;publication_date&#x27;</span>)</span><br><span class="line">        response = HttpResponse()</span><br><span class="line">        <span class="comment"># RFC 1123 date format</span></span><br><span class="line">        response[<span class="string">&#x27;Last-Modified&#x27;</span>] = last_book.publication_date.strftime(<span class="string">&#x27;%a, %d %b %Y %H:%M:%S GMT&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
+<p>这个例子中，如果用户通过GET请求数据，那么将正常的返回响应数据（此处省略）。而如果通过HEAD请求，将使用我们写的head方法中的业务逻辑。</p>
+<h3 id="一、使用基于类的视图">一、使用基于类的视图</h3>
+<p>本质上来说，基于类的视图允许你使用不同的实例方法响应不同的HTTP 请求，而不是在单个视图函数里使用<code>if/else</code>代码。<br>
+在函数视图里处理 <code>GET</code>请求的代码像下面这样：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">        <span class="comment"># &lt;view logic&gt;</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>而在类视图中，则通过不同过的实例方法来处理：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># &lt;view logic&gt;</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>上面的继承关系非常重要，不能从头写一个新类，或者随便自己瞎继承一个类，否则你无法和Django系统勾连。<br>
+每个类视图都有一个<code>as_view()</code>方法，用于在<code>urlconf</code>中进行dispatch。这个方法会创建一个类视图的实例，并调用它的<code>dispatch()</code>方法。dispatch方法会在类中查找类似GET\POST之类的类方法，然后与请求request中的HTTP方法匹配。匹配上了就调用对应的代码，匹配不上就弹出异常<code>HttpResponseNotAllowed</code>，也就是不允许当前的请求类型。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> myapp.views <span class="keyword">import</span> MyView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, MyView.as_view()),    <span class="comment"># 注意as_view要加括号进行调用</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>至于return返回的什么，和函数视图是一样样的。</p>
+<p>as_view()方法可以传递参数，例如：</p>
+<p><code>urlpatterns = [ path('view/', MyView.as_view(size=42)), ]</code></p>
+<p>传递给视图的参数会在视图的每个实例之间共享。这意味着你不应使用列表、字典或任何其他可变对象作为视图的参数。如果你这样做并且共享对象被修改，则会导致一个请求对另外一个请求产生影响，这显然存在极大的风险，完全不可接受。</p>
+<p>每个MyView视图的实例都可以使用 <code>self.size</code>接收传入的参数值42，但该参数必须已经在类中定义了。</p>
+<p>基于类的视图不强制你添加任何类属性，当需要的时候，有两种方法来配置或设置类属性。</p>
+<p>第一种是继承父类，在子类中重写父类的属性，如下所示：</p>
+<p>父类：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GreetingView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    greeting = <span class="string">&quot;Good Day&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(self.greeting)</span><br></pre></td></tr></table></figure>
+<p>子类：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MorningGreetingView</span>(<span class="title class_ inherited__">GreetingView</span>):</span><br><span class="line">    greeting = <span class="string">&quot;Morning to ya&quot;</span></span><br></pre></td></tr></table></figure>
+<p>注意其中的greeting类属性。<br>
+另一种就是简单粗暴的在URLconf路由条目中修改as_view()方法的参数。当然，参数名必须是存在的类属性，你不能随便瞎写！如下所示：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, GreetingView.as_view(greeting=<span class="string">&quot;G&#x27;day&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>但是这种方式有很大的弊端，那就是虽然每次匹配上了url，你的类视图都会被实例化一次，但是你的URLs却是在被导入的时候才配置一次，也就是as_view()方法的参数的配置只有一次。也就是说这么做，就不能再改了！所以，不要偷懒，使用子类吧。</p>
+<h3 id="二、使用mixin混入">二、使用mixin混入</h3>
+<p>混入是一种多父类继承的形式，其基础理论知识请参考我的Python教程中多继承相关章节。<br>
+在编写子类的时候，一个父类负责类的主体结构、主要行为和主要属性，其它的功能都通过各种MIXin父类提供。<br>
+MIXIN是跨多个类重用代码的一个很好的方法，但是它们会带来一些代价。你的代码散布在MIXIN中越多，阅读子类就越难，很难知道它到底在做什么。如果你在对具有多级继承树的子类进行分类，就更难以判断子类的方法到底继承的是哪个先祖，俗称‘家谱乱了’。<br>
+<strong>需要注意的是你的父类中只有一个类可以继承最顶级的View类，其它的必须以mixin方法混入。</strong></p>
+<h3 id="三、使用类视图处理表单">三、使用类视图处理表单</h3>
+<p>一个用来处理表单的函数视图通常是下面这样的：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">myview</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        form = MyForm(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="comment"># &lt;process form cleaned data&gt;</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(<span class="string">&#x27;/success/&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        form = MyForm(initial=&#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;form_template.html&#x27;</span>, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
+<p>而如果用类视图来实现，是这样的：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyFormView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    form_class = MyForm</span><br><span class="line">    initial = &#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;</span><br><span class="line">    template_name = <span class="string">&#x27;form_template.html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        form = self.form_class(initial=self.initial)</span><br><span class="line">        <span class="keyword">return</span> render(request, self.template_name, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        form = self.form_class(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="comment"># &lt;process form cleaned data&gt;</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(<span class="string">&#x27;/success/&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> render(request, self.template_name, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
+<p>看起来类视图好像比函数视图代码多了很多，复杂了很多，貌似没啥优点啊。但是如果你有多个类似的视图需要编写，那么你就可以发挥子类的继承和复写神操作了，分分钟整出个新的视图来。或者直接在URLConf中修改参数！或者两种操作同时使用！</p>
+<p>其实，到现在你应该理解，<strong>类视图适用于大量重复性的视图编写工作</strong>，在简单的场景下，没几个视图需要编写，或者各个视图差别很大的情况时，还是函数视图更有效！所以，<strong>不要认为类视图是多么高大上的东西</strong>，人云亦云！</p>
+<h3 id="四、装饰类视图">四、装饰类视图</h3>
+<p>除了mixin，还可以使用装饰器扩展类视图。装饰器的工作方式取决于你是在创建子类还是使用as_view()。</p>
+<p>用法一，在URLConf中直接装饰：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required, permission_required</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> VoteView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, login_required(TemplateView.as_view(template_name=<span class="string">&quot;secret.html&quot;</span>))),</span><br><span class="line">    path(<span class="string">&#x27;vote/&#x27;</span>, permission_required(<span class="string">&#x27;polls.can_vote&#x27;</span>)(VoteView.as_view())),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>用法二，在类视图中装饰指定的方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required</span><br><span class="line"><span class="keyword">from</span> django.utils.decorators <span class="keyword">import</span> method_decorator</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @method_decorator(<span class="params">login_required</span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dispatch</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().dispatch(*args, **kwargs)</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>上面要把装饰器用在dispatch这个方法上，才能在每次请求到达URL时，实例化类视图时都运行这个装饰器的功能。</li>
+<li>不是每个装饰器都能直接运用在类方法上，需要使用<code>method_decorator</code>这个装饰器的装饰器方法将装饰器运用在类方法上。感觉很绕？其实就是说，我们有很多很多的装饰器，但其中有一些不能直接装饰dispatch这种类方法。那怎么办呢？套层壳！用<code>method_decorator</code>装饰器包裹起来，假装成一个能用的。</li>
+</ul>
+<p>有时候，简单地用一下，可以写成下面的精简版：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@method_decorator(<span class="params">login_required, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>有时候，可能你需要对一个对象应用多个装饰器，正常做法是：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@method_decorator(<span class="params">never_cache, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">login_required, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>为了偷懒，我们可以这么做：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">decorators = [never_cache, login_required]</span><br><span class="line"></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">decorators, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>唯一需要注意地是<strong>装饰器是有先后顺序的</strong>。上面的例子中，<code>never_cache</code>就要先于<code>login_required</code>被调用。</p>
+<p>最后，使用<code>method_decorator</code>有时会导致<code>TypeError</code>异常，因为参数传递的原因。</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决Django无法访问远程服务器</title>
+    <url>/2023/06/04/Django-Remote-Server-Access/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>我在运上搭建了Django的服务器环境，这样就不能用 <code>http://127.0.0.1:8000</code> 来访问Django的服务了，那如何解决呢？</p>
+<h2 id="解决方案">解决方案</h2>
+<p>在启动服务的时候，加一些参数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 [manage.py](http://manage.py/) runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
+<p>同时，修改 <code>setting.py</code>，将远端的服务器ip加到ALLOWED_HOSTS参数里：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;xxx.xxx.xxx.xxx&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p><em>注：其中’<a href="http://xxx.xxx.xxx.xxx">xxx.xxx.xxx.xxx</a>’是你远程服务器的外网ip</em></p>
+<p>这样，就可以用 <code>http://xxx.xxx.xxx.xxx:8000</code> 访问Django的服务了。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>防御性：如何理解企业护城河</title>
     <url>/2023/02/27/Enterprise-security-perimeter/</url>
     <content><![CDATA[<h2 id="为什么需要护城河">为什么需要护城河</h2>
@@ -1384,6 +1587,68 @@ A---I(退化维度)</pre>
       </tags>
   </entry>
   <entry>
+    <title>GPT 官方推荐使用方法</title>
+    <url>/2023/06/06/GPT-best-practices-Index/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>GPT官方推出了一个使用方法介绍：<a href="https://platform.openai.com/docs/guides/gpt-best-practices">网址</a>，挺有意思，搬运过来，并做一些归纳。<br>
+有6种方法可以得到更好的结果：</p>
+<h2 id="一、写出明确的指引（Clear-Instructions）">一、写出明确的指引（Clear Instructions）</h2>
+<p>GPT无法读取您的思维。如果它们的输出太长，请要求简洁回答。如果它们的输出过于简单，请要求专家级的写作。如果您不喜欢格式，请展示您想要看到的格式。GPT越少猜测您的需求，您得到的结果就更有可能符合您的期望。</p>
+<p><strong>策略：</strong></p>
+<ul>
+<li>在查询中包含详细信息以获得更相关的答案</li>
+<li>要求模型采用一种角色扮演</li>
+<li>使用分隔符清楚地标示输入的不同部分</li>
+<li>明确指定完成任务所需的步骤</li>
+<li>提供示例</li>
+<li>指定所需输出的长度</li>
+</ul>
+<h2 id="二、提供参考文本">二、提供参考文本</h2>
+<p>GPTs可以自信地虚构假答案，特别是在涉及深奥话题、引用和URL的情况下。就像学生在考试中可以通过一张笔记纸表现更好一样，向GPTs提供参考文本可以帮助它在回答时减少虚构内容。</p>
+<p><strong>策略：</strong></p>
+<ul>
+<li>指示模型使用参考文本回答问题</li>
+<li>指示模型使用参考文本中的引用进行回答</li>
+</ul>
+<h2 id="三、将复杂任务分解为简单的子任务">三、将复杂任务分解为简单的子任务</h2>
+<p>就像在软件工程中将复杂系统分解为一组模块化的组件一样，将任务分解为一系列简单的子任务对于提交给GPTs的任务也是一种良好的实践。复杂任务往往比简单任务具有更高的错误率。此外，复杂任务通常可以被重新定义为简单任务的工作流程，其中早期任务的输出用于构建后续任务的输入。</p>
+<p><strong>策略：</strong></p>
+<ul>
+<li>使用意图分类来识别用户查询中最相关的指令</li>
+<li>对于需要非常长对话的对话应用程序，对先前的对话进行概述或筛选</li>
+<li>以分段方式概述长文档并递归构建完整摘要</li>
+</ul>
+<h2 id="四、给GPTs一些时间来“思考”">四、给GPTs一些时间来“思考”</h2>
+<p>如果被要求计算17乘以28，你可能无法立即知道答案，但在给予时间后仍然可以计算出来。类似地，GPTs在试图立即回答问题时会产生更多的推理错误，而不是花时间来思考答案。在得出答案之前，要求GPTs进行一系列的推理可以帮助它们更可靠地推理出正确的答案。</p>
+<p><strong>策略：</strong></p>
+<ul>
+<li>指示模型在草率得出结论之前自己解决问题</li>
+<li>使用内部独白或一系列查询来隐藏模型的推理过程</li>
+<li>询问模型是否在之前的步骤中遗漏了什么</li>
+</ul>
+<h2 id="五、使用外部工具">五、使用外部工具</h2>
+<p>通过将其他工具的输出提供给GPTs来弥补其弱点。例如，文本检索系统可以向GPTs提供相关文档信息。代码执行引擎可以帮助GPTs进行数学计算和代码运行。如果某个任务可以通过工具而不是GPTs更可靠或更高效地完成，可以将其外包，以充分发挥优势。</p>
+<p><strong>策略：</strong></p>
+<ul>
+<li>使用基于嵌入的搜索实现高效的知识检索</li>
+<li>使用代码执行进行更准确的计算或调用外部API</li>
+</ul>
+<h2 id="六、系统地测试变化">六、系统地测试变化</h2>
+<p>如果能够衡量性能，改进性能就会更容易。在某些情况下，对提示进行修改可能会在一些孤立的例子上取得更好的性能，但在更具代表性的例子集上导致整体性能变差。因此，为了确保改变对性能的影响是正向的，可能需要定义一个全面的测试套件（也称为“评估”）。</p>
+<p><strong>策略：</strong></p>
+<ul>
+<li>通过与黄金标准答案对比评估模型输出结果</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
+        <tag>AIGC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>什么是好的商业模式？</title>
     <url>/2023/02/26/Good-Business-Models/</url>
     <content><![CDATA[<h2 id="商业模式是什么？">商业模式是什么？</h2>
@@ -1492,50 +1757,60 @@ HASH算法专门用来做文件数据的识别.那么在网络数据传递的过
       </tags>
   </entry>
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</title>
-    <url>/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/</url>
-    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="10-隐私">10 隐私</h2>
-<p>10 Privacy<br>
-The traditional banking model achieves a level of privacy by limiting access to information to the parties involved and the trusted third party. The necessity to announce all transactions publicly precludes this method, but privacy can still be maintained by breaking the flow of information in another place: by keeping public keys anonymous. The public can see that someone is sending an amount to someone else, but without information linking the transaction to anyone. This is similar to the level of information released by stock exchanges, where the time and size of individual trades, the “tape”, is made public, but without telling who the parties were.<br>
-<img src="http://cdn.yunminitools.cn/blog/0417Privacy-en.png" alt=" "><br>
-As an additional firewall, a new key pair should be used for each transaction to keep them from being linked to a common owner. Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner. The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner.</p>
-<p>传统的银行模型通过限制参与方和可信任第三方对信息的访问来达到一定级别的隐私保护。交易必须要公开发布就不能使用这个方法，但隐私仍可在其他地方通过阻断信息流的方式来保护：那就是保持公钥匿名。公众能看到有人正在发送一定量货币给其他人，但是不能将交易关联到某个人。这和证券交易所发布的信息级别类似，每笔交易的时间和交易量，即行情是公开的，但是不会显示交易双方是谁。<br>
-<img src="http://cdn.yunminitools.cn/blog/0417Privacy-zh.png" alt=" "><br>
-作为额外的防火墙，对每笔交易使用新密钥对可以防止他们被关联到一个共同的拥有者。由于多输入值交易存在，有些关联仍不可避免，因为多输入值交易必然暴露其多个输入是属于同一个拥有者的。风险就在于如果一个密钥的拥有者被暴露，关联性将暴露属于同一个拥有者的其他交易。</p>
-<p>【关注点】：</p>
-<ul>
-<li><strong>keeping public keys anonymous</strong>, 如何做到呢？</li>
-<li><strong>证券交易所发布的信息级别类似</strong>，这个类比比较有趣。</li>
-</ul>
+    <title>在Hexo中插入Mermaid图表</title>
+    <url>/2023/02/22/Hexo-Mermaid-1/</url>
+    <content><![CDATA[<h2 id="Mermaid是什么？">Mermaid是什么？</h2>
+<p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
+<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
+<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
+<h2 id="如何在Hexo中插入Mermaid图表">如何在Hexo中插入Mermaid图表</h2>
+<h3 id="安装Mermaid插件">安装Mermaid插件</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置文件">修改配置文件</h3>
+<p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
+<h3 id="修改主题">修改主题</h3>
+<p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="Mermaid图表演示">Mermaid图表演示</h2>
+<p>下面是mermaid的图表描述：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
+<p>会生成以下图表：</p>
+<pre class="mermaid">graph LR
+A(面试)-->B(笔试)
+A-->C(面试)
+C-->C1(数据结构与算法*)
+C-->C2(计算机网络)
+C-->C3(操作系统Linux)
+B-->B1(数据结构与算法*)</pre>
 ]]></content>
       <categories>
-        <category>当日所学</category>
+        <category>日常练习</category>
       </categories>
       <tags>
-        <tag>比特币</tag>
-        <tag>论文学习</tag>
+        <tag>博客管理</tag>
+        <tag>Mermaid</tag>
+        <tag>Theme_ayer</tag>
       </tags>
   </entry>
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
-    <url>/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/</url>
-    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="11-结论">11 结论</h2>
-<p>11 Conclusion<br>
-We have proposed a system for electronic transactions without relying on trust. We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power. The network is robust in its unstructured simplicity. Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.</p>
-<p>我们已经提出了一种不依赖信任的电子交易系统。我们从通用的数字签名货币体系开始，这体系提供了强有力的所有权控制，但由于缺乏防止双重支付的方法而不完善。为解决这个问题，我们提出一种使用工作量证明来记录公共交易历史的点对点网络，只要诚实节点控制了多数的 CPU 算力，对于攻击者，交易历史将很快变得在计算上不可更改。网络因其结构简洁性而强大。节点只需很少的协调就能同时工作。它们不需要被认证，因为信息不会被发送到某个特殊的位置，只需被尽力传播。节点可以随时离开和重新加入网络，只需接受工作量证明链作为它们离开时发生事件的证据。节点使用 CPU 算力来投票，通过致力于延长有效区块来表达对其接受，通过拒绝在无效区块上工作来表达对其抵制。任何需要的规则和激励都可通过这个共识机制来加强。</p>
-<p>【关注点】：</p>
-<ul>
-<li><strong>rules and incentives</strong>, 都会有哪些规则和激励？</li>
-</ul>
+    <title>解决ayer主题下Mermaid图表背景太暗的问题</title>
+    <url>/2023/02/23/Hexo-Mermaid-2/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
+清缓存，重新发布，搞定。</p>
 ]]></content>
       <categories>
-        <category>当日所学</category>
+        <category>日常练习</category>
       </categories>
       <tags>
-        <tag>比特币</tag>
-        <tag>论文学习</tag>
+        <tag>博客管理</tag>
+        <tag>Theme_ayer</tag>
       </tags>
   </entry>
   <entry>
@@ -1806,29 +2081,64 @@ We have proposed a system for electronic transactions without relying on trust. 
       </tags>
   </entry>
   <entry>
-    <title>GitHub Pages 强制使用HTTPS协议访问</title>
-    <url>/2023/02/18/Add-Https-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
-<h2 id="设置步骤">设置步骤</h2>
-<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
-<ol>
-<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
-<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
-<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
-</ol>
-<div style="width: 40%; margin: 10px">
-   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
-</div>
-3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
-![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
-<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
+    <title>知识管理之收集灵感</title>
+    <url>/2023/02/23/KM-gather-ideas/</url>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
+<h2 id="知识管理循环">知识管理循环</h2>
+<p>知识管理应该是一个循环：</p>
+<pre class="mermaid">graph LR
+A(卡片收集)-->B(卡片组织)
+B-->C(应用卡片)
+C-->D(维护卡片)
+D-->A</pre>
+<p>这一篇主要讲一下收集。</p>
+<span id="more"></span>
+<h2 id="如何收集灵感">如何收集灵感</h2>
+<p>做到以下3个方面：</p>
+<h3 id="1-留出富裕时间">1.留出富裕时间</h3>
+<p>在繁忙的工作生活中，留出时间来做这个事情，而不是想起来再做，以下是一些技巧，此外，还可以参考时间管理的一些书籍：</p>
+<h4 id="学会说不，保护时间">学会说不，保护时间</h4>
+<p>尝试思考「立即说是」后马上就去执行，如果感觉到痛苦，那么这个选项就应该选「不」。</p>
+<h4 id="固定时间，持续投资">固定时间，持续投资</h4>
+<p>我们想积累自己的知识资产时，应该划出一块固定的时间来做知识的积累。</p>
+<h4 id="好奇驱动，乐在其中">好奇驱动，乐在其中</h4>
+<p>想要捕捉到自己的灵感和想法，一个关键的技巧在于，由问题来驱动，但不着急立即获得答案。在找到答案的过程中积累知识。</p>
+<h3 id="2-用不同角度观察">2.用不同角度观察</h3>
+<ul>
+<li>跳出问题本身，看看周边和上下游，往往能得到不同的思考</li>
+<li>看看其他地方行业或领域中的事物，尝试将其和自己在思考的事情进行结合，或许就会有了新的灵感值得记录</li>
+<li>许多时候我们对一些事物过于熟悉，就会忽略掉其中的细节。当我们跃入其中仔细观察时，往往就能发现许多不合理的地方，也就有了值得记录的思考</li>
+</ul>
+<h3 id="3-在日常生活中捕捉">3.在日常生活中捕捉</h3>
+<h4 id="自己做事时">自己做事时</h4>
+<p>记录：</p>
+<ul>
+<li>解决问题的步骤</li>
+<li>事实结果</li>
+<li>自身状态和情绪</li>
+<li>决策过程和结论</li>
+</ul>
+<h4 id="和他人交流时">和他人交流时</h4>
+<p>记录：</p>
+<ul>
+<li>他在关注什么问题</li>
+<li>他在做什么尝试</li>
+<li>他的学习方向</li>
+</ul>
+<h4 id="自己学习时">自己学习时</h4>
+<p>记录：</p>
+<ul>
+<li>全新视角</li>
+<li>具体建议</li>
+<li>感触思考</li>
+</ul>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>当日所学</category>
       </categories>
       <tags>
-        <tag>博客管理</tag>
+        <tag>知识管理</tag>
       </tags>
   </entry>
   <entry>
@@ -1969,22 +2279,25 @@ We have proposed a system for electronic transactions without relying on trust. 
       </tags>
   </entry>
   <entry>
-    <title>解决ayer主题下Mermaid图表背景太暗的问题</title>
-    <url>/2023/02/23/Hexo-Mermaid-2/</url>
+    <title>有了这个网站，Linux命令就不需要到处搜索了</title>
+    <url>/2023/02/17/Linux-Command-1/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
-<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
-清缓存，重新发布，搞定。</p>
+<p>与服务器打交道，免不了和Linux命令打交道，虽然常用的都会，但遇上一些特殊情况，就需要查手册，在系统里查太麻烦，网上搜索效率比较低，今天看到一个<a href="https://github.com/jaywcjlove/linux-command">github项目</a>解决了这个问题，分享纪录一下。</p>
+<h2 id="演示">演示</h2>
+<p>可以用短地址：<a href="https://git.io/linux">https://git.io/linux</a> 访问网站：<br>
+<img src="http://cdn.yunminitools.cn/blog/Linux0217-1.png" alt="演示1"></p>
+<span id="more"></span>
+<p>输入命令，查询：<br>
+<img src="http://cdn.yunminitools.cn/blog/Linux0217-2.png" alt="演示2"></p>
+<p>选择需要查询命令：<br>
+<img src="http://cdn.yunminitools.cn/blog/Linux0217-3.png" alt="演示3"></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>有趣资源</category>
       </categories>
       <tags>
         <tag>博客管理</tag>
-        <tag>Theme_ayer</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -2040,41 +2353,32 @@ Midjourney 的 prompt 的结构可以拆分成三个基础组成部分：</p>
       </tags>
   </entry>
   <entry>
-    <title>在Hexo中插入Mermaid图表</title>
-    <url>/2023/02/22/Hexo-Mermaid-1/</url>
-    <content><![CDATA[<h2 id="Mermaid是什么？">Mermaid是什么？</h2>
-<p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
-<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
-<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
-<h2 id="如何在Hexo中插入Mermaid图表">如何在Hexo中插入Mermaid图表</h2>
-<h3 id="安装Mermaid插件">安装Mermaid插件</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
-<h3 id="修改配置文件">修改配置文件</h3>
-<p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
-<h3 id="修改主题">修改主题</h3>
-<p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
+    <title>Midjourney 提示词(prompt)分析（1）</title>
+    <url>/2023/02/16/Midjourney-prompt-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>画好一个AI画，从分析一个成功的图片提示词(prompt), 今天看到一个还不错的图片:<br>
+<img src="http://cdn.yunminitools.cn/blog/Midjourney0216-1.png" alt="AI画图1"><br>
+提示词(prompt)：<br>
+A hypsolebias fish jumping out of a pond, trying to catch a bug in the air. The pond is surrounded by tall grass and a few trees, with the sun setting in the background. The fish is caught mid-jump, with its mouth wide open and eyes focused on the bug. The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth. --ar 16:9 --niji</p>
+<h2 id="分析">分析</h2>
+<p>翻译和归类：<br>
+一条 Hypsolebias鱼（画面主体） 跳出池塘（主体动作），试图在空中捉住一只虫子（主体动作），池塘周围是高高的草丛和几棵树（环境描写），夕阳在背景中落下（环境描写），这只鱼在跳跃时被捕捉到（细节描写），嘴巴张得很大（细节描写），眼睛专注于虫子（细节描写），整幅画的氛围是欢快和平静的（氛围描写），卡通风格绘制的数字艺术作品（艺术风格），使用温暖和柔和的色彩来唤起日落的温暖感（光线描写）</p>
+<p>可以看到，一个好的提升词还是有规律可循的。</p>
 <span id="more"></span>
-<h2 id="Mermaid图表演示">Mermaid图表演示</h2>
-<p>下面是mermaid的图表描述：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
-<p>会生成以下图表：</p>
-<pre class="mermaid">graph LR
-A(面试)-->B(笔试)
-A-->C(面试)
-C-->C1(数据结构与算法*)
-C-->C2(计算机网络)
-C-->C3(操作系统Linux)
-B-->B1(数据结构与算法*)</pre>
+<h2 id="依葫芦画瓢">依葫芦画瓢</h2>
+<p>我修改了一下，去掉了一些细节描写，看看结果如何。<br>
+提示词(prompt)：<br>
+a hypsolebias fish jumping out of sea. The pond is surrounded by tall grass and a few trees, with the sun setting in the background，The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth   --ar 16:9 --niji</p>
+<p>结果还不错：<br>
+<img src="http://cdn.yunminitools.cn/blog/Midjourney0216-2.png" alt="AI画图2"></p>
+<p>但好像没有原图好看，看来还是要多试试才行。</p>
 ]]></content>
       <categories>
         <category>日常练习</category>
       </categories>
       <tags>
-        <tag>博客管理</tag>
-        <tag>Theme_ayer</tag>
-        <tag>Mermaid</tag>
+        <tag>AIGC</tag>
+        <tag>绘画</tag>
       </tags>
   </entry>
   <entry>
@@ -3515,64 +3819,50 @@ n 为数字，若 n 为 .，表示从当前行开始到最后一行</p>
       </tags>
   </entry>
   <entry>
-    <title>知识管理之收集灵感</title>
-    <url>/2023/02/23/KM-gather-ideas/</url>
-    <content><![CDATA[<h2 id="来源">来源</h2>
-<p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
-<h2 id="知识管理循环">知识管理循环</h2>
-<p>知识管理应该是一个循环：</p>
-<pre class="mermaid">graph LR
-A(卡片收集)-->B(卡片组织)
-B-->C(应用卡片)
-C-->D(维护卡片)
-D-->A</pre>
-<p>这一篇主要讲一下收集。</p>
+    <title>VUE练习1 - 添加页面</title>
+    <url>/2023/04/15/VUE-Exercise-1/</url>
+    <content><![CDATA[<h2 id="1-Vue-的目录结构">1 Vue 的目录结构</h2>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">src/         主开发目录，要开发的客户端代码文件（单文件组件，样式、工具函数等等）全部在这个目录下</span><br><span class="line"><span class="keyword">static</span>/      静态资源目录，项目中的静态资源(css，js，图片等文件)放在这个文件夹</span><br><span class="line">dist/        项目打包发布文件夹，目前没有这个文件夹，最后要上线单文件项目文件都在这个文件夹中	</span><br><span class="line">		         后面使用npm build 打包项目，让项目中的vue组件经过编译变成js 代码以后,dist就出现了</span><br><span class="line"></span><br><span class="line">node_modules/     node的包目录，项目运行的依赖包存储目录，</span><br><span class="line">                  package.<span class="property">json</span>和package-lock.<span class="property">json</span>文件中会自动记录了这个目录下所有的包以及包的版本信息，</span><br><span class="line">                  如果node_modules没有，但是有package.<span class="property">json</span>，则可以在终端下，通过npm install进行恢复。</span><br><span class="line"></span><br><span class="line">config/      配置目录，是环境配置目录与项目无关。</span><br><span class="line">build/       项目打包时依赖的目录</span><br><span class="line">src/router/  路由，是我们创建项目的时候，如果选择安装vue-router，就自动会生成这个目录。</span><br><span class="line">src/assets/  静态资源存储目录，与<span class="keyword">static</span>目录作用类似。</span><br><span class="line">src/components/  组件存储目录，就是浏览器中用户看到的页面的一部分内容。</span><br><span class="line">src/views/       组件存储目录，就是浏览器中用户看到的页面内容，views往往会加载并包含components中的组件进来</span><br></pre></td></tr></table></figure>
+<h2 id="2-执行流程图">2 执行流程图</h2>
+<pre class="mermaid">graph TD
+A(index.html 全局唯一入口)-->B(main.js VUE项目初始化入口)
+B-->C(App.vue 根组件/路由)
+C-->D1(首页页面组件)
+C-->D2(登录页面组件)
+C-->D3(商品页面组件)
+D1-->E1(头部子组件)
+D2-->E1
+D3-->E1
+D2-->E2(脚部子组件)
+D1-->E2
+D3-->E2
+F(router/index.js 配置路由)-->C</pre>
 <span id="more"></span>
-<h2 id="如何收集灵感">如何收集灵感</h2>
-<p>做到以下3个方面：</p>
-<h3 id="1-留出富裕时间">1.留出富裕时间</h3>
-<p>在繁忙的工作生活中，留出时间来做这个事情，而不是想起来再做，以下是一些技巧，此外，还可以参考时间管理的一些书籍：</p>
-<h4 id="学会说不，保护时间">学会说不，保护时间</h4>
-<p>尝试思考「立即说是」后马上就去执行，如果感觉到痛苦，那么这个选项就应该选「不」。</p>
-<h4 id="固定时间，持续投资">固定时间，持续投资</h4>
-<p>我们想积累自己的知识资产时，应该划出一块固定的时间来做知识的积累。</p>
-<h4 id="好奇驱动，乐在其中">好奇驱动，乐在其中</h4>
-<p>想要捕捉到自己的灵感和想法，一个关键的技巧在于，由问题来驱动，但不着急立即获得答案。在找到答案的过程中积累知识。</p>
-<h3 id="2-用不同角度观察">2.用不同角度观察</h3>
-<ul>
-<li>跳出问题本身，看看周边和上下游，往往能得到不同的思考</li>
-<li>看看其他地方行业或领域中的事物，尝试将其和自己在思考的事情进行结合，或许就会有了新的灵感值得记录</li>
-<li>许多时候我们对一些事物过于熟悉，就会忽略掉其中的细节。当我们跃入其中仔细观察时，往往就能发现许多不合理的地方，也就有了值得记录的思考</li>
-</ul>
-<h3 id="3-在日常生活中捕捉">3.在日常生活中捕捉</h3>
-<h4 id="自己做事时">自己做事时</h4>
-<p>记录：</p>
-<ul>
-<li>解决问题的步骤</li>
-<li>事实结果</li>
-<li>自身状态和情绪</li>
-<li>决策过程和结论</li>
-</ul>
-<h4 id="和他人交流时">和他人交流时</h4>
-<p>记录：</p>
-<ul>
-<li>他在关注什么问题</li>
-<li>他在做什么尝试</li>
-<li>他的学习方向</li>
-</ul>
-<h4 id="自己学习时">自己学习时</h4>
-<p>记录：</p>
-<ul>
-<li>全新视角</li>
-<li>具体建议</li>
-<li>感触思考</li>
-</ul>
+<h2 id="3-代码部分">3 代码部分</h2>
+<blockquote>
+<p>src/main.js</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(router).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>src/App.vue</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>About<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/showcenter&quot;</span>&gt;</span>展示中心<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#app</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-family</span>: Avenir, Helvetica, Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">  -webkit-<span class="attribute">font-smoothing</span>: antialiased;</span></span><br><span class="line"><span class="language-css">  -moz-osx-<span class="attribute">font-smoothing</span>: grayscale;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#2c3e50</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> <span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#2c3e50</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> <span class="selector-tag">a</span><span class="selector-class">.router-link-exact-active</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#42b983</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>router/index.js，代码：</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter, createWebHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ShowCenter</span> <span class="keyword">from</span> <span class="string">&#x27;../views/ShowCenter.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;ShowCenter&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">ShowCenter</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHistory</span>(process.<span class="property">env</span>.<span class="property">BASE_URL</span>),</span><br><span class="line">  routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>新增 ：views/ShowCenter.vue</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;showcenter&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Show center<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;ShowCenter&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>当日所学</category>
+        <category>日常练习</category>
       </categories>
       <tags>
-        <tag>知识管理</tag>
+        <tag>编程技巧</tag>
+        <tag>前端技术</tag>
+        <tag>VUE</tag>
       </tags>
   </entry>
   <entry>
@@ -3629,25 +3919,27 @@ D-->A</pre>
       </tags>
   </entry>
   <entry>
-    <title>有了这个网站，Linux命令就不需要到处搜索了</title>
-    <url>/2023/02/17/Linux-Command-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>与服务器打交道，免不了和Linux命令打交道，虽然常用的都会，但遇上一些特殊情况，就需要查手册，在系统里查太麻烦，网上搜索效率比较低，今天看到一个<a href="https://github.com/jaywcjlove/linux-command">github项目</a>解决了这个问题，分享纪录一下。</p>
-<h2 id="演示">演示</h2>
-<p>可以用短地址：<a href="https://git.io/linux">https://git.io/linux</a> 访问网站：<br>
-<img src="http://cdn.yunminitools.cn/blog/Linux0217-1.png" alt="演示1"></p>
-<span id="more"></span>
-<p>输入命令，查询：<br>
-<img src="http://cdn.yunminitools.cn/blog/Linux0217-2.png" alt="演示2"></p>
-<p>选择需要查询命令：<br>
-<img src="http://cdn.yunminitools.cn/blog/Linux0217-3.png" alt="演示3"></p>
+    <title>VUE练习4 - 使用Ant Design</title>
+    <url>/2023/04/19/VUE-Exercise-4/</url>
+    <content><![CDATA[<h2 id="1-安装">1 安装</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save ant-design-vue@3.2.16</span><br></pre></td></tr></table></figure>
+<p>不要装最新版，变化比较大。</p>
+<h2 id="2-注册">2 注册</h2>
+<p>**全局完整注册：**修改 main.js:</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Antd</span> <span class="keyword">from</span> <span class="string">&quot;ant-design-vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;ant-design-vue/dist/antd.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> settings <span class="keyword">from</span> <span class="string">&#x27;@/settings&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(store).<span class="title function_">use</span>(router).<span class="title function_">use</span>(<span class="title class_">Antd</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line">app.<span class="property">config</span>.<span class="property">globalProperties</span>.<span class="property">$settings</span> = settings</span><br></pre></td></tr></table></figure>
+<h2 id="3-测试">3 测试</h2>
+<p>修改 ShowCenterView.vue</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;showcenter&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>show center  | 展示中心<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">a-col</span> <span class="attr">:span</span>=<span class="string">&quot;8&quot;</span> <span class="attr">:offset</span>=<span class="string">&quot;8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">a-input-search</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">v-model:value</span>=<span class="string">&quot;value&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">placeholder</span>=<span class="string">&quot;input text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">enter-button</span>=<span class="string">&quot;Search&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">size</span>=<span class="string">&quot;large&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          @<span class="attr">search</span>=<span class="string">&quot;onSearch&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">a-col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<p>效果：<br>
+<img src="http://cdn.yunminitools.cn/blog/0418AntDesign.png" alt=" "></p>
 ]]></content>
       <categories>
-        <category>有趣资源</category>
+        <category>日常练习</category>
       </categories>
       <tags>
-        <tag>博客管理</tag>
-        <tag>Linux</tag>
+        <tag>编程技巧</tag>
+        <tag>前端技术</tag>
+        <tag>VUE</tag>
       </tags>
   </entry>
   <entry>
@@ -3738,75 +4030,44 @@ end</pre>
       </tags>
   </entry>
   <entry>
-    <title>VUE练习1 - 添加页面</title>
-    <url>/2023/04/15/VUE-Exercise-1/</url>
-    <content><![CDATA[<h2 id="1-Vue-的目录结构">1 Vue 的目录结构</h2>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">src/         主开发目录，要开发的客户端代码文件（单文件组件，样式、工具函数等等）全部在这个目录下</span><br><span class="line"><span class="keyword">static</span>/      静态资源目录，项目中的静态资源(css，js，图片等文件)放在这个文件夹</span><br><span class="line">dist/        项目打包发布文件夹，目前没有这个文件夹，最后要上线单文件项目文件都在这个文件夹中	</span><br><span class="line">		         后面使用npm build 打包项目，让项目中的vue组件经过编译变成js 代码以后,dist就出现了</span><br><span class="line"></span><br><span class="line">node_modules/     node的包目录，项目运行的依赖包存储目录，</span><br><span class="line">                  package.<span class="property">json</span>和package-lock.<span class="property">json</span>文件中会自动记录了这个目录下所有的包以及包的版本信息，</span><br><span class="line">                  如果node_modules没有，但是有package.<span class="property">json</span>，则可以在终端下，通过npm install进行恢复。</span><br><span class="line"></span><br><span class="line">config/      配置目录，是环境配置目录与项目无关。</span><br><span class="line">build/       项目打包时依赖的目录</span><br><span class="line">src/router/  路由，是我们创建项目的时候，如果选择安装vue-router，就自动会生成这个目录。</span><br><span class="line">src/assets/  静态资源存储目录，与<span class="keyword">static</span>目录作用类似。</span><br><span class="line">src/components/  组件存储目录，就是浏览器中用户看到的页面的一部分内容。</span><br><span class="line">src/views/       组件存储目录，就是浏览器中用户看到的页面内容，views往往会加载并包含components中的组件进来</span><br></pre></td></tr></table></figure>
-<h2 id="2-执行流程图">2 执行流程图</h2>
-<pre class="mermaid">graph TD
-A(index.html 全局唯一入口)-->B(main.js VUE项目初始化入口)
-B-->C(App.vue 根组件/路由)
-C-->D1(首页页面组件)
-C-->D2(登录页面组件)
-C-->D3(商品页面组件)
-D1-->E1(头部子组件)
-D2-->E1
-D3-->E1
-D2-->E2(脚部子组件)
-D1-->E2
-D3-->E2
-F(router/index.js 配置路由)-->C</pre>
-<span id="more"></span>
-<h2 id="3-代码部分">3 代码部分</h2>
-<blockquote>
-<p>src/main.js</p>
-</blockquote>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(router).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>src/App.vue</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>About<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/showcenter&quot;</span>&gt;</span>展示中心<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#app</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-family</span>: Avenir, Helvetica, Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">  -webkit-<span class="attribute">font-smoothing</span>: antialiased;</span></span><br><span class="line"><span class="language-css">  -moz-osx-<span class="attribute">font-smoothing</span>: grayscale;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#2c3e50</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> <span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#2c3e50</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#nav</span> <span class="selector-tag">a</span><span class="selector-class">.router-link-exact-active</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">color</span>: <span class="number">#42b983</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>router/index.js，代码：</p>
-</blockquote>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter, createWebHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ShowCenter</span> <span class="keyword">from</span> <span class="string">&#x27;../views/ShowCenter.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;ShowCenter&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">ShowCenter</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHistory</span>(process.<span class="property">env</span>.<span class="property">BASE_URL</span>),</span><br><span class="line">  routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>新增 ：views/ShowCenter.vue</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;showcenter&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Show center<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;ShowCenter&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <title>first-post</title>
+    <url>/2023/02/02/first-post/</url>
+    <content><![CDATA[<h2 id="本博客的内容">本博客的内容</h2>
+<p>可能包括以下几类：</p>
+<ul>
+<li>当日所学：学习的总结，包括技术/设计/产品等</li>
+<li>日常练习：根据学习中的心得进行的练习过程分享</li>
+<li>有趣资源：发现的有趣资源分享</li>
+<li>杂项：包括一些心得体会及其他日常</li>
+</ul>
+<h2 id="更新频率">更新频率</h2>
+<p>目前希望是日更，看看是否能坚持</p>
+<h2 id="博客目的">博客目的</h2>
+<p>作为知识管理的最后一环，需要对知识进行输出，目前我先用博客来实现</p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>杂项</category>
       </categories>
-      <tags>
-        <tag>编程技巧</tag>
-        <tag>前端技术</tag>
-        <tag>VUE</tag>
-      </tags>
   </entry>
   <entry>
-    <title>VUE练习4 - 使用Ant Design</title>
-    <url>/2023/04/19/VUE-Exercise-4/</url>
-    <content><![CDATA[<h2 id="1-安装">1 安装</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save ant-design-vue@3.2.16</span><br></pre></td></tr></table></figure>
-<p>不要装最新版，变化比较大。</p>
-<h2 id="2-注册">2 注册</h2>
-<p>**全局完整注册：**修改 main.js:</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Antd</span> <span class="keyword">from</span> <span class="string">&quot;ant-design-vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;ant-design-vue/dist/antd.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> settings <span class="keyword">from</span> <span class="string">&#x27;@/settings&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(store).<span class="title function_">use</span>(router).<span class="title function_">use</span>(<span class="title class_">Antd</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line">app.<span class="property">config</span>.<span class="property">globalProperties</span>.<span class="property">$settings</span> = settings</span><br></pre></td></tr></table></figure>
-<h2 id="3-测试">3 测试</h2>
-<p>修改 ShowCenterView.vue</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;showcenter&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>show center  | 展示中心<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">a-col</span> <span class="attr">:span</span>=<span class="string">&quot;8&quot;</span> <span class="attr">:offset</span>=<span class="string">&quot;8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">a-input-search</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">v-model:value</span>=<span class="string">&quot;value&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">placeholder</span>=<span class="string">&quot;input text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">enter-button</span>=<span class="string">&quot;Search&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">size</span>=<span class="string">&quot;large&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          @<span class="attr">search</span>=<span class="string">&quot;onSearch&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">a-col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<p>效果：<br>
-<img src="http://cdn.yunminitools.cn/blog/0418AntDesign.png" alt=" "></p>
+    <title>Hello World</title>
+    <url>/2023/01/30/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<span id="more"></span>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>编程技巧</tag>
-        <tag>前端技术</tag>
-        <tag>VUE</tag>
-      </tags>
   </entry>
   <entry>
     <title>Javascript 箭头函数</title>
@@ -3846,24 +4107,30 @@ F(router/index.js 配置路由)-->C</pre>
       </tags>
   </entry>
   <entry>
-    <title>first-post</title>
-    <url>/2023/02/02/first-post/</url>
-    <content><![CDATA[<h2 id="本博客的内容">本博客的内容</h2>
-<p>可能包括以下几类：</p>
+    <title>知识管理相关-来自范冰的分享</title>
+    <url>/2023/02/03/souKPM01/</url>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>最近在听 范冰 的播客（EP01 - from 量贩冰糖），讲到了知识管理相关内容，有一些比较有意思的观点，记录下来。</p>
+<h2 id="避免FOMO">避免FOMO</h2>
+<p>FOMO 全称“Fear of missing out”，意思是害怕错过。简单的说，就是在信息爆炸的时代，我们总是不可避免的被过量的信息包围，没有重点的吸收。<br>
+避免FOMO的办法有：<br>
+对策1：建立一个心理预期，这些信息之后对我还重要吗？对我重要的时间有多久？如果只在很短的时间里有效，那就抛弃。<br>
+对策2：用针对性的工具，去有目的性地关注特定信息，删去无用的渠道和频道 。<br>
+对策3：带着komo的心态，knowing of missing out：知道我错过了什么事情，但是我对它心安理得。<br>
+对策4：知道自己不想什么信息，那就建立一个手段把自己需要的信息过滤出来</p>
+<h2 id="一些原则">一些原则</h2>
 <ul>
-<li>当日所学：学习的总结，包括技术/设计/产品等</li>
-<li>日常练习：根据学习中的心得进行的练习过程分享</li>
-<li>有趣资源：发现的有趣资源分享</li>
-<li>杂项：包括一些心得体会及其他日常</li>
+<li>不要让自己陷入不同切换的过程中，一定要把做事情的门槛降低，降低到你觉得不需要占用额外的思考 ；一件事你需要多做的话，就要让这件事变得越容易。</li>
+<li>除了输入，还要做输出，最简单最低成本的输出就是写笔记，即便是再简单的影响方式， 都可能会对世界产生一些积极的影响，带来一些好的价值交换。</li>
+<li>笔记的管理不要追求all-in-one。 不要觉得整理是一件很烦人的事情，整理能够加深印象，并帮你过滤掉一些信息。</li>
 </ul>
-<h2 id="更新频率">更新频率</h2>
-<p>目前希望是日更，看看是否能坚持</p>
-<h2 id="博客目的">博客目的</h2>
-<p>作为知识管理的最后一环，需要对知识进行输出，目前我先用博客来实现</p>
 ]]></content>
       <categories>
-        <category>杂项</category>
+        <category>当日所学</category>
       </categories>
+      <tags>
+        <tag>知识管理</tag>
+      </tags>
   </entry>
   <entry>
     <title>Uric组件2022文档</title>
@@ -4779,211 +5046,6 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       </categories>
       <tags>
         <tag>用户调研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/01/30/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<span id="more"></span>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Midjourney 提示词(prompt)分析（1）</title>
-    <url>/2023/02/16/Midjourney-prompt-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>画好一个AI画，从分析一个成功的图片提示词(prompt), 今天看到一个还不错的图片:<br>
-<img src="http://cdn.yunminitools.cn/blog/Midjourney0216-1.png" alt="AI画图1"><br>
-提示词(prompt)：<br>
-A hypsolebias fish jumping out of a pond, trying to catch a bug in the air. The pond is surrounded by tall grass and a few trees, with the sun setting in the background. The fish is caught mid-jump, with its mouth wide open and eyes focused on the bug. The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth. --ar 16:9 --niji</p>
-<h2 id="分析">分析</h2>
-<p>翻译和归类：<br>
-一条 Hypsolebias鱼（画面主体） 跳出池塘（主体动作），试图在空中捉住一只虫子（主体动作），池塘周围是高高的草丛和几棵树（环境描写），夕阳在背景中落下（环境描写），这只鱼在跳跃时被捕捉到（细节描写），嘴巴张得很大（细节描写），眼睛专注于虫子（细节描写），整幅画的氛围是欢快和平静的（氛围描写），卡通风格绘制的数字艺术作品（艺术风格），使用温暖和柔和的色彩来唤起日落的温暖感（光线描写）</p>
-<p>可以看到，一个好的提升词还是有规律可循的。</p>
-<span id="more"></span>
-<h2 id="依葫芦画瓢">依葫芦画瓢</h2>
-<p>我修改了一下，去掉了一些细节描写，看看结果如何。<br>
-提示词(prompt)：<br>
-a hypsolebias fish jumping out of sea. The pond is surrounded by tall grass and a few trees, with the sun setting in the background，The atmosphere is playful and peaceful. Digital artwork with a cartoonish style, using warm and pastel colors to evoke the sunset’s warmth   --ar 16:9 --niji</p>
-<p>结果还不错：<br>
-<img src="http://cdn.yunminitools.cn/blog/Midjourney0216-2.png" alt="AI画图2"></p>
-<p>但好像没有原图好看，看来还是要多试试才行。</p>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>AIGC</tag>
-        <tag>绘画</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>知识管理相关-来自范冰的分享</title>
-    <url>/2023/02/03/souKPM01/</url>
-    <content><![CDATA[<h2 id="来源">来源</h2>
-<p>最近在听 范冰 的播客（EP01 - from 量贩冰糖），讲到了知识管理相关内容，有一些比较有意思的观点，记录下来。</p>
-<h2 id="避免FOMO">避免FOMO</h2>
-<p>FOMO 全称“Fear of missing out”，意思是害怕错过。简单的说，就是在信息爆炸的时代，我们总是不可避免的被过量的信息包围，没有重点的吸收。<br>
-避免FOMO的办法有：<br>
-对策1：建立一个心理预期，这些信息之后对我还重要吗？对我重要的时间有多久？如果只在很短的时间里有效，那就抛弃。<br>
-对策2：用针对性的工具，去有目的性地关注特定信息，删去无用的渠道和频道 。<br>
-对策3：带着komo的心态，knowing of missing out：知道我错过了什么事情，但是我对它心安理得。<br>
-对策4：知道自己不想什么信息，那就建立一个手段把自己需要的信息过滤出来</p>
-<h2 id="一些原则">一些原则</h2>
-<ul>
-<li>不要让自己陷入不同切换的过程中，一定要把做事情的门槛降低，降低到你觉得不需要占用额外的思考 ；一件事你需要多做的话，就要让这件事变得越容易。</li>
-<li>除了输入，还要做输出，最简单最低成本的输出就是写笔记，即便是再简单的影响方式， 都可能会对世界产生一些积极的影响，带来一些好的价值交换。</li>
-<li>笔记的管理不要追求all-in-one。 不要觉得整理是一件很烦人的事情，整理能够加深印象，并帮你过滤掉一些信息。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>知识管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决Django无法访问远程服务器</title>
-    <url>/2023/06/04/Django-Remote-Server-Access/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>我在运上搭建了Django的服务器环境，这样就不能用 <code>http://127.0.0.1:8000</code> 来访问Django的服务了，那如何解决呢？</p>
-<h2 id="解决方案">解决方案</h2>
-<p>在启动服务的时候，加一些参数：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 [manage.py](http://manage.py/) runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
-<p>同时，修改 <code>setting.py</code>，将远端的服务器ip加到ALLOWED_HOSTS参数里：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;xxx.xxx.xxx.xxx&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p><em>注：其中’<a href="http://xxx.xxx.xxx.xxx">xxx.xxx.xxx.xxx</a>’是你远程服务器的外网ip</em></p>
-<p>这样，就可以用 <code>http://xxx.xxx.xxx.xxx:8000</code> 访问Django的服务了。</p>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>编程技巧</tag>
-        <tag>Django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django 的类视图</title>
-    <url>/2023/06/05/Django-Class-View-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>练习Django的时候发现它的类视图很神奇，很少的代码就能实现功能，研究了一下，发现这个<a href="https://liujiangblog.com/course/django/279">教程</a>，写得比较详细，转载一下，加深印象。</p>
-<h2 id="类视图与函数视图">类视图与函数视图</h2>
-<p>Django的视图可以分为：</p>
-<ul>
-<li>函数视图FBV：<code>def index(request):</code></li>
-<li>类视图CBV：<code>class AboutView(TemplateView):</code></li>
-</ul>
-<p>早期，人们在视图开发中发现了一些常见的习语和句式，也就是重复性代码和工作。于是引入了基于函数的视图来抽象这些模式，便于一般情况下的视图开发。</p>
-<p>基于函数的视图的问题在于，尽管它们覆盖了简单的情况，但是除了一些简单的配置选项之外，没有办法扩展或定制它们，限制了它们在许多现实应用中的实用性。</p>
-<p>基于类的通用视图与基于函数的视图的目标相同，都是想让视图开发更容易。但由于类视图可以使用MIXIN等一些面向对象的方法和工具包，使得基于类的视图比基于函数的视图更具扩展性和灵活性。</p>
-<p>基于类的视图：</p>
-<ul>
-<li>通过HTTP请求方法的不同，将代码分隔在不同的类方法中，比如GET和POST，而不是类函数中的条件判断。</li>
-<li>可以使用面向对象的技巧，比如混入。</li>
-<li>类具有封装和继承的特性，方便代码复用、分发和重构。</li>
-</ul>
-<p>两种视图可以实现同样的功能，本质上是一个东西，没有谁好谁坏之分，只是适用场景不同而已：</p>
-<ul>
-<li>简单逻辑、快速处理，请用FBV</li>
-<li>代码复用、功能封装，请用CBV</li>
-</ul>
-<h2 id="用法">用法</h2>
-<p>Django 提供了很多适用于各种应用场景的基本视图类，我们一般不从头自己写起，这些类视图都继承<code>django.views.generic.base.View</code>类。比如<code>RedirectView</code> 用于 HTTP 重定向，<code>TemplateView</code> 用于渲染模板。</p>
-<p>类视图有很多简单的用法，甚至不需要去views.py中编写代码，比如下面的例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, TemplateView.as_view(template_name=<span class="string">&quot;about.html&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>重点关注：</p>
-<ul>
-<li><code>TemplateView</code>类视图</li>
-<li><code>as_view()</code>方法</li>
-<li><code>template_name</code>参数</li>
-</ul>
-<p>更通用的使用方法是继承Django提供的各种视图类，所以上面的例子的一般性写法如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># some_app/views.py</span></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AboutView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&quot;about.html&quot;</span></span><br></pre></td></tr></table></figure>
-<p>但是，由于类不是函数，所以需要在URLconf中使用<code>as_view()</code>这个类方法将一个基于类的视图转换成函数形式的接口。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> some_app.views <span class="keyword">import</span> AboutView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, AboutView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>上面的AboutView视图不涉及模型的访问，比较简单。让我们看一个书籍列表视图的例子：<br>
-首先是路由：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> books.views <span class="keyword">import</span> BookListView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;books/&#x27;</span>, BookListView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p><code>BookListView</code>视图：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> ListView</span><br><span class="line"><span class="keyword">from</span> books.models <span class="keyword">import</span> Book</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BookListView</span>(<span class="title class_ inherited__">ListView</span>):</span><br><span class="line">    model = Book  <span class="comment"># 指定模型</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">head</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        last_book = self.get_queryset().latest(<span class="string">&#x27;publication_date&#x27;</span>)</span><br><span class="line">        response = HttpResponse()</span><br><span class="line">        <span class="comment"># RFC 1123 date format</span></span><br><span class="line">        response[<span class="string">&#x27;Last-Modified&#x27;</span>] = last_book.publication_date.strftime(<span class="string">&#x27;%a, %d %b %Y %H:%M:%S GMT&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
-<p>这个例子中，如果用户通过GET请求数据，那么将正常的返回响应数据（此处省略）。而如果通过HEAD请求，将使用我们写的head方法中的业务逻辑。</p>
-<h3 id="一、使用基于类的视图">一、使用基于类的视图</h3>
-<p>本质上来说，基于类的视图允许你使用不同的实例方法响应不同的HTTP 请求，而不是在单个视图函数里使用<code>if/else</code>代码。<br>
-在函数视图里处理 <code>GET</code>请求的代码像下面这样：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">        <span class="comment"># &lt;view logic&gt;</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>而在类视图中，则通过不同过的实例方法来处理：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># &lt;view logic&gt;</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>上面的继承关系非常重要，不能从头写一个新类，或者随便自己瞎继承一个类，否则你无法和Django系统勾连。<br>
-每个类视图都有一个<code>as_view()</code>方法，用于在<code>urlconf</code>中进行dispatch。这个方法会创建一个类视图的实例，并调用它的<code>dispatch()</code>方法。dispatch方法会在类中查找类似GET\POST之类的类方法，然后与请求request中的HTTP方法匹配。匹配上了就调用对应的代码，匹配不上就弹出异常<code>HttpResponseNotAllowed</code>，也就是不允许当前的请求类型。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> myapp.views <span class="keyword">import</span> MyView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, MyView.as_view()),    <span class="comment"># 注意as_view要加括号进行调用</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>至于return返回的什么，和函数视图是一样样的。</p>
-<p>as_view()方法可以传递参数，例如：</p>
-<p><code>urlpatterns = [ path('view/', MyView.as_view(size=42)), ]</code></p>
-<p>传递给视图的参数会在视图的每个实例之间共享。这意味着你不应使用列表、字典或任何其他可变对象作为视图的参数。如果你这样做并且共享对象被修改，则会导致一个请求对另外一个请求产生影响，这显然存在极大的风险，完全不可接受。</p>
-<p>每个MyView视图的实例都可以使用 <code>self.size</code>接收传入的参数值42，但该参数必须已经在类中定义了。</p>
-<p>基于类的视图不强制你添加任何类属性，当需要的时候，有两种方法来配置或设置类属性。</p>
-<p>第一种是继承父类，在子类中重写父类的属性，如下所示：</p>
-<p>父类：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GreetingView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    greeting = <span class="string">&quot;Good Day&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(self.greeting)</span><br></pre></td></tr></table></figure>
-<p>子类：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MorningGreetingView</span>(<span class="title class_ inherited__">GreetingView</span>):</span><br><span class="line">    greeting = <span class="string">&quot;Morning to ya&quot;</span></span><br></pre></td></tr></table></figure>
-<p>注意其中的greeting类属性。<br>
-另一种就是简单粗暴的在URLconf路由条目中修改as_view()方法的参数。当然，参数名必须是存在的类属性，你不能随便瞎写！如下所示：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, GreetingView.as_view(greeting=<span class="string">&quot;G&#x27;day&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>但是这种方式有很大的弊端，那就是虽然每次匹配上了url，你的类视图都会被实例化一次，但是你的URLs却是在被导入的时候才配置一次，也就是as_view()方法的参数的配置只有一次。也就是说这么做，就不能再改了！所以，不要偷懒，使用子类吧。</p>
-<h3 id="二、使用mixin混入">二、使用mixin混入</h3>
-<p>混入是一种多父类继承的形式，其基础理论知识请参考我的Python教程中多继承相关章节。<br>
-在编写子类的时候，一个父类负责类的主体结构、主要行为和主要属性，其它的功能都通过各种MIXin父类提供。<br>
-MIXIN是跨多个类重用代码的一个很好的方法，但是它们会带来一些代价。你的代码散布在MIXIN中越多，阅读子类就越难，很难知道它到底在做什么。如果你在对具有多级继承树的子类进行分类，就更难以判断子类的方法到底继承的是哪个先祖，俗称‘家谱乱了’。<br>
-<strong>需要注意的是你的父类中只有一个类可以继承最顶级的View类，其它的必须以mixin方法混入。</strong></p>
-<h3 id="三、使用类视图处理表单">三、使用类视图处理表单</h3>
-<p>一个用来处理表单的函数视图通常是下面这样的：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">myview</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        form = MyForm(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="comment"># &lt;process form cleaned data&gt;</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(<span class="string">&#x27;/success/&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        form = MyForm(initial=&#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;form_template.html&#x27;</span>, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
-<p>而如果用类视图来实现，是这样的：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyFormView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    form_class = MyForm</span><br><span class="line">    initial = &#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;</span><br><span class="line">    template_name = <span class="string">&#x27;form_template.html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        form = self.form_class(initial=self.initial)</span><br><span class="line">        <span class="keyword">return</span> render(request, self.template_name, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        form = self.form_class(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="comment"># &lt;process form cleaned data&gt;</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(<span class="string">&#x27;/success/&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> render(request, self.template_name, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
-<p>看起来类视图好像比函数视图代码多了很多，复杂了很多，貌似没啥优点啊。但是如果你有多个类似的视图需要编写，那么你就可以发挥子类的继承和复写神操作了，分分钟整出个新的视图来。或者直接在URLConf中修改参数！或者两种操作同时使用！</p>
-<p>其实，到现在你应该理解，<strong>类视图适用于大量重复性的视图编写工作</strong>，在简单的场景下，没几个视图需要编写，或者各个视图差别很大的情况时，还是函数视图更有效！所以，<strong>不要认为类视图是多么高大上的东西</strong>，人云亦云！</p>
-<h3 id="四、装饰类视图">四、装饰类视图</h3>
-<p>除了mixin，还可以使用装饰器扩展类视图。装饰器的工作方式取决于你是在创建子类还是使用as_view()。</p>
-<p>用法一，在URLConf中直接装饰：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required, permission_required</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> VoteView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, login_required(TemplateView.as_view(template_name=<span class="string">&quot;secret.html&quot;</span>))),</span><br><span class="line">    path(<span class="string">&#x27;vote/&#x27;</span>, permission_required(<span class="string">&#x27;polls.can_vote&#x27;</span>)(VoteView.as_view())),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>用法二，在类视图中装饰指定的方法：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required</span><br><span class="line"><span class="keyword">from</span> django.utils.decorators <span class="keyword">import</span> method_decorator</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @method_decorator(<span class="params">login_required</span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dispatch</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().dispatch(*args, **kwargs)</span><br></pre></td></tr></table></figure>
-<p>注意：</p>
-<ul>
-<li>上面要把装饰器用在dispatch这个方法上，才能在每次请求到达URL时，实例化类视图时都运行这个装饰器的功能。</li>
-<li>不是每个装饰器都能直接运用在类方法上，需要使用<code>method_decorator</code>这个装饰器的装饰器方法将装饰器运用在类方法上。感觉很绕？其实就是说，我们有很多很多的装饰器，但其中有一些不能直接装饰dispatch这种类方法。那怎么办呢？套层壳！用<code>method_decorator</code>装饰器包裹起来，假装成一个能用的。</li>
-</ul>
-<p>有时候，简单地用一下，可以写成下面的精简版：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@method_decorator(<span class="params">login_required, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>有时候，可能你需要对一个对象应用多个装饰器，正常做法是：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@method_decorator(<span class="params">never_cache, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">login_required, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>为了偷懒，我们可以这么做：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">decorators = [never_cache, login_required]</span><br><span class="line"></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">decorators, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>唯一需要注意地是<strong>装饰器是有先后顺序的</strong>。上面的例子中，<code>never_cache</code>就要先于<code>login_required</code>被调用。</p>
-<p>最后，使用<code>method_decorator</code>有时会导致<code>TypeError</code>异常，因为参数传递的原因。</p>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>编程技巧</tag>
-        <tag>Django</tag>
       </tags>
   </entry>
 </search>
