@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.3k</span>
+            <span class="post-count">997</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">6 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -168,50 +168,19 @@ var _hmt = _hmt || [];
 <td>USER</td>
 <td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
 </tr>
-<tr>
-<td>Output</td>
-<td>Dear Steel Bolt Vendor,</td>
-</tr>
-<tr>
-<td>I hope this message finds you bolt-tifully well! I wanted to take a moment to express my sincere gratitude and send you a heartfelt “thank you” for your exceptional service. Your prompt delivery of the steel bolts saved the day and allowed us to fulfill an important order on such short notice. You truly tightened the screws (pun intended) and helped us keep everything in place!</td>
-<td></td>
-</tr>
-<tr>
-<td>Your commitment to delivering quality products within tight deadlines is truly impressive. It’s no easy feat, but you managed to bolt ahead and exceed our expectations. Our customers were thrilled to receive their orders on time, thanks to your swift action. You’re definitely a shining example in the world of steel bolt suppliers!</td>
-<td></td>
-</tr>
-<tr>
-<td>We are well aware that success often hinges on the reliability and efficiency of our suppliers. You, my friend, have proven yourself to be a real unsung hero in our industry. You’ve saved us from some major headaches and allowed us to maintain our reputation for delivering excellence. We couldn’t have done it without your bolt-tastic support!</td>
-<td></td>
-</tr>
-<tr>
-<td>On a lighter note, I must admit that working with steel bolts can sometimes drive us nuts. But with you by our side, it feels like a bolt from the blue has brought us joy instead of frustration. Your top-notch service deserves a round of applause – or perhaps a round of nuts and bolts!</td>
-<td></td>
-</tr>
-<tr>
-<td>Once again, I extend my deepest gratitude to you and your team for going above and beyond to accommodate our urgent request. Your dedication and commitment have not gone unnoticed. We value our partnership and look forward to many more successful collaborations in the future. Together, we’ll continue to keep things bolt-tifully organized!</td>
-<td></td>
-</tr>
-<tr>
-<td>Wishing you a future filled with smooth deliveries, sturdy bolts, and endless laughter!</td>
-<td></td>
-</tr>
-<tr>
-<td>Warmest regards,</td>
-<td></td>
-</tr>
-<tr>
-<td>[Your Name]</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <h2 id="使用分隔符清晰地标示输入的不同部分">使用分隔符清晰地标示输入的不同部分</h2>
 <p>（Use delimiters to clearly indicate distinct parts of the input）</p>
 <p>使用分隔符，如三重引号、XML标签、章节标题等，可以帮助标示文本的不同部分，以便进行不同的处理。</p>
-<p>| USER | Summarize the text delimited by triple quotes with a haiku.<br>
-“”“insert text here”&quot;” |<br>
-| — | — |</p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>Summarize the text delimited by triple quotes with a haiku.<br>“”“insert text here”“”</th>
+</tr>
+</thead>
+</table>
 <table>
 <thead>
 <tr>
@@ -222,11 +191,10 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>USER</td>
-<td><article> insert first article here </article></td>
+<td><article> insert first article here </article><br><article> insert second article here </article></td>
 </tr>
 </tbody>
 </table>
-<article> insert second article here </article> |
 <table>
 <thead>
 <tr>
@@ -237,11 +205,7 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>USER</td>
-<td>Abstract: insert abstract here</td>
-</tr>
-<tr>
-<td>Title: insert title here</td>
-<td></td>
+<td>Abstract: insert abstract here<br>Title: insert title here</td>
 </tr>
 </tbody>
 </table>
@@ -249,11 +213,20 @@ var _hmt = _hmt || [];
 <h2 id="指定完成任务所需的步骤">指定完成任务所需的步骤</h2>
 <p>（Specify the steps required to complete a task）<br>
 对于某些任务来说，最好将其指定为一系列步骤。明确地写出这些步骤可以让模型更容易地按照它们进行操作。</p>
-<p>| SYSTEM | Use the following step-by-step instructions to respond to user inputs.<br>
-Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>
-Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: “. |<br>
-| — | — |<br>
-| USER | “”“insert text here””” |</p>
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>Use the following step-by-step instructions to respond to user inputs.<br>Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: &quot;.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>“”“insert text here”“”</td>
+</tr>
+</tbody>
+</table>
 <h2 id="提供示例">提供示例</h2>
 <p>（Provide examples）<br>
 通常情况下，提供适用于所有示例的一般指令比通过示例展示任务的所有变化更高效，但在某些情况下，提供示例可能更容易。例如，如果您打算让模型复制一种难以明确描述的特定用户查询响应样式，这就是所谓的“少样本”提示。</p>
@@ -282,13 +255,24 @@ Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says
 <h2 id="指定期望的输出长度">指定期望的输出长度</h2>
 <p>（Specify the desired length of the output）<br>
 您可以要求模型生成具有特定目标长度的输出。目标输出长度可以根据单词数、句子数、段落数、项目符号等来指定。然而，请注意，指示模型生成特定数量的单词并不具有高精度。模型可以更可靠地生成具有特定段落数或项目符号数的输出。</p>
-<p>| USER | Summarize the text delimited by triple quotes in about 50 words.<br>
-“”“insert text here”“” |<br>
-| — | — |<br>
-| USER | Summarize the text delimited by triple quotes in 2 paragraphs.<br>
-“”“insert text here”“” |<br>
-| USER | Summarize the text delimited by triple quotes in 3 bullet points.<br>
-“”“insert text here””” |</p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>Summarize the text delimited by triple quotes in about 50 words.<br>“”“insert text here”“”</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes in 2 paragraphs.<br>“”“insert text here”&quot;”</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes in 3 bullet points.<br>“”“insert text here”&quot;”</td>
+</tr>
+</tbody>
+</table>
  
       <!-- reward -->
       

@@ -175,50 +175,19 @@ var _hmt = _hmt || [];
 <td>USER</td>
 <td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
 </tr>
-<tr>
-<td>Output</td>
-<td>Dear Steel Bolt Vendor,</td>
-</tr>
-<tr>
-<td>I hope this message finds you bolt-tifully well! I wanted to take a moment to express my sincere gratitude and send you a heartfelt “thank you” for your exceptional service. Your prompt delivery of the steel bolts saved the day and allowed us to fulfill an important order on such short notice. You truly tightened the screws (pun intended) and helped us keep everything in place!</td>
-<td></td>
-</tr>
-<tr>
-<td>Your commitment to delivering quality products within tight deadlines is truly impressive. It’s no easy feat, but you managed to bolt ahead and exceed our expectations. Our customers were thrilled to receive their orders on time, thanks to your swift action. You’re definitely a shining example in the world of steel bolt suppliers!</td>
-<td></td>
-</tr>
-<tr>
-<td>We are well aware that success often hinges on the reliability and efficiency of our suppliers. You, my friend, have proven yourself to be a real unsung hero in our industry. You’ve saved us from some major headaches and allowed us to maintain our reputation for delivering excellence. We couldn’t have done it without your bolt-tastic support!</td>
-<td></td>
-</tr>
-<tr>
-<td>On a lighter note, I must admit that working with steel bolts can sometimes drive us nuts. But with you by our side, it feels like a bolt from the blue has brought us joy instead of frustration. Your top-notch service deserves a round of applause – or perhaps a round of nuts and bolts!</td>
-<td></td>
-</tr>
-<tr>
-<td>Once again, I extend my deepest gratitude to you and your team for going above and beyond to accommodate our urgent request. Your dedication and commitment have not gone unnoticed. We value our partnership and look forward to many more successful collaborations in the future. Together, we’ll continue to keep things bolt-tifully organized!</td>
-<td></td>
-</tr>
-<tr>
-<td>Wishing you a future filled with smooth deliveries, sturdy bolts, and endless laughter!</td>
-<td></td>
-</tr>
-<tr>
-<td>Warmest regards,</td>
-<td></td>
-</tr>
-<tr>
-<td>[Your Name]</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <h2 id="使用分隔符清晰地标示输入的不同部分">使用分隔符清晰地标示输入的不同部分</h2>
 <p>（Use delimiters to clearly indicate distinct parts of the input）</p>
 <p>使用分隔符，如三重引号、XML标签、章节标题等，可以帮助标示文本的不同部分，以便进行不同的处理。</p>
-<p>| USER | Summarize the text delimited by triple quotes with a haiku.<br>
-“”“insert text here”&quot;” |<br>
-| — | — |</p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>Summarize the text delimited by triple quotes with a haiku.<br>“”“insert text here”“”</th>
+</tr>
+</thead>
+</table>
 <table>
 <thead>
 <tr>
@@ -229,11 +198,10 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>USER</td>
-<td><article> insert first article here </article></td>
+<td><article> insert first article here </article><br><article> insert second article here </article></td>
 </tr>
 </tbody>
 </table>
-<article> insert second article here </article> |
 <table>
 <thead>
 <tr>
@@ -244,11 +212,7 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>USER</td>
-<td>Abstract: insert abstract here</td>
-</tr>
-<tr>
-<td>Title: insert title here</td>
-<td></td>
+<td>Abstract: insert abstract here<br>Title: insert title here</td>
 </tr>
 </tbody>
 </table>
@@ -256,11 +220,20 @@ var _hmt = _hmt || [];
 <h2 id="指定完成任务所需的步骤">指定完成任务所需的步骤</h2>
 <p>（Specify the steps required to complete a task）<br>
 对于某些任务来说，最好将其指定为一系列步骤。明确地写出这些步骤可以让模型更容易地按照它们进行操作。</p>
-<p>| SYSTEM | Use the following step-by-step instructions to respond to user inputs.<br>
-Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>
-Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: “. |<br>
-| — | — |<br>
-| USER | “”“insert text here””” |</p>
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>Use the following step-by-step instructions to respond to user inputs.<br>Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: &quot;.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>“”“insert text here”“”</td>
+</tr>
+</tbody>
+</table>
 <h2 id="提供示例">提供示例</h2>
 <p>（Provide examples）<br>
 通常情况下，提供适用于所有示例的一般指令比通过示例展示任务的所有变化更高效，但在某些情况下，提供示例可能更容易。例如，如果您打算让模型复制一种难以明确描述的特定用户查询响应样式，这就是所谓的“少样本”提示。</p>
@@ -289,13 +262,24 @@ Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says
 <h2 id="指定期望的输出长度">指定期望的输出长度</h2>
 <p>（Specify the desired length of the output）<br>
 您可以要求模型生成具有特定目标长度的输出。目标输出长度可以根据单词数、句子数、段落数、项目符号等来指定。然而，请注意，指示模型生成特定数量的单词并不具有高精度。模型可以更可靠地生成具有特定段落数或项目符号数的输出。</p>
-<p>| USER | Summarize the text delimited by triple quotes in about 50 words.<br>
-“”“insert text here”“” |<br>
-| — | — |<br>
-| USER | Summarize the text delimited by triple quotes in 2 paragraphs.<br>
-“”“insert text here”“” |<br>
-| USER | Summarize the text delimited by triple quotes in 3 bullet points.<br>
-“”“insert text here””” |</p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>Summarize the text delimited by triple quotes in about 50 words.<br>“”“insert text here”“”</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes in 2 paragraphs.<br>“”“insert text here”&quot;”</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes in 3 bullet points.<br>“”“insert text here”&quot;”</td>
+</tr>
+</tbody>
+</table>
  
       <!-- reward -->
       
@@ -356,50 +340,17 @@ Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says
 <p>GPT无法读取您的思维。如果它们的输出太长，请要求简洁回答。如果它们的输出过于简单，请要求专家级的写作。如果您不喜欢格式，请展示您想要看到的格式。GPT越少猜测您的需求，您得到的结果就更有可能符合您的期望。</p>
 <p><strong>策略：</strong></p>
 <ul>
-<li>在查询中包含详细信息以获得更相关的答案</li>
-<li>要求模型采用一种角色扮演</li>
-<li>使用分隔符清楚地标示输入的不同部分</li>
-<li>明确指定完成任务所需的步骤</li>
-<li>提供示例</li>
-<li>指定所需输出的长度</li>
-</ul>
-<h2 id="二、提供参考文本">二、提供参考文本</h2>
-<p>GPTs可以自信地虚构假答案，特别是在涉及深奥话题、引用和URL的情况下。就像学生在考试中可以通过一张笔记纸表现更好一样，向GPTs提供参考文本可以帮助它在回答时减少虚构内容。</p>
-<p><strong>策略：</strong></p>
-<ul>
-<li>指示模型使用参考文本回答问题</li>
-<li>指示模型使用参考文本中的引用进行回答</li>
-</ul>
-<h2 id="三、将复杂任务分解为简单的子任务">三、将复杂任务分解为简单的子任务</h2>
-<p>就像在软件工程中将复杂系统分解为一组模块化的组件一样，将任务分解为一系列简单的子任务对于提交给GPTs的任务也是一种良好的实践。复杂任务往往比简单任务具有更高的错误率。此外，复杂任务通常可以被重新定义为简单任务的工作流程，其中早期任务的输出用于构建后续任务的输入。</p>
-<p><strong>策略：</strong></p>
-<ul>
-<li>使用意图分类来识别用户查询中最相关的指令</li>
-<li>对于需要非常长对话的对话应用程序，对先前的对话进行概述或筛选</li>
-<li>以分段方式概述长文档并递归构建完整摘要</li>
-</ul>
-<h2 id="四、给GPTs一些时间来“思考”">四、给GPTs一些时间来“思考”</h2>
-<p>如果被要求计算17乘以28，你可能无法立即知道答案，但在给予时间后仍然可以计算出来。类似地，GPTs在试图立即回答问题时会产生更多的推理错误，而不是花时间来思考答案。在得出答案之前，要求GPTs进行一系列的推理可以帮助它们更可靠地推理出正确的答案。</p>
-<p><strong>策略：</strong></p>
-<ul>
-<li>指示模型在草率得出结论之前自己解决问题</li>
-<li>使用内部独白或一系列查询来隐藏模型的推理过程</li>
-<li>询问模型是否在之前的步骤中遗漏了什么</li>
-</ul>
-<h2 id="五、使用外部工具">五、使用外部工具</h2>
-<p>通过将其他工具的输出提供给GPTs来弥补其弱点。例如，文本检索系统可以向GPTs提供相关文档信息。代码执行引擎可以帮助GPTs进行数学计算和代码运行。如果某个任务可以通过工具而不是GPTs更可靠或更高效地完成，可以将其外包，以充分发挥优势。</p>
-<p><strong>策略：</strong></p>
-<ul>
-<li>使用基于嵌入的搜索实现高效的知识检索</li>
-<li>使用代码执行进行更准确的计算或调用外部API</li>
-</ul>
-<h2 id="六、系统地测试变化">六、系统地测试变化</h2>
-<p>如果能够衡量性能，改进性能就会更容易。在某些情况下，对提示进行修改可能会在一些孤立的例子上取得更好的性能，但在更具代表性的例子集上导致整体性能变差。因此，为了确保改变对性能的影响是正向的，可能需要定义一个全面的测试套件（也称为“评估”）。</p>
-<p><strong>策略：</strong></p>
-<ul>
-<li>通过与黄金标准答案对比评估模型输出结果</li>
-</ul>
- 
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E5%9C%A8%E6%9F%A5%E8%AF%A2%E4%B8%AD%E5%8C%85%E5%90%AB%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E4%BB%A5%E8%8E%B7%E5%BE%97%E6%9B%B4%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AD%94%E6%A1%88">在查询中包含详细信息以获得更相关的答案</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E8%A6%81%E6%B1%82%E6%A8%A1%E5%9E%8B%E9%87%87%E7%94%A8%E7%89%B9%E5%AE%9A%E7%9A%84%E4%BA%BA%E8%AE%BE">要求模型采用特定的人设</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E4%BD%BF%E7%94%A8%E5%88%86%E9%9A%94%E7%AC%A6%E6%B8%85%E6%99%B0%E5%9C%B0%E6%A0%87%E7%A4%BA%E8%BE%93%E5%85%A5%E7%9A%84%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86">使用分隔符清楚地标示输入的不同部分</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8C%87%E5%AE%9A%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E6%89%80%E9%9C%80%E7%9A%84%E6%AD%A5%E9%AA%A4">明确指定完成任务所需的步骤</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8F%90%E4%BE%9B%E7%A4%BA%E4%BE%8B">提供示例</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8C%87%E5%AE%9A%E6%9C%9F%E6%9C%9B%E7%9A%84%E8%BE%93%E5%87%BA%E9%95%BF%E5%BA%A6">指定期望的输出长度</a></li>
+</ul> 
+      <a class="article-more-link" href="/2023/06/06/GPT-best-practices-Index/"
+        >More...</a
+      >
+       
       <!-- reward -->
       
     </div>
