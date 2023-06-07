@@ -1208,6 +1208,7 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># some_app/views.py</span></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AboutView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&quot;about.html&quot;</span></span><br></pre></td></tr></table></figure>
 <p>但是，由于类不是函数，所以需要在URLconf中使用<code>as_view()</code>这个类方法将一个基于类的视图转换成函数形式的接口。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> some_app.views <span class="keyword">import</span> AboutView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, AboutView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 <p>上面的AboutView视图不涉及模型的访问，比较简单。让我们看一个书籍列表视图的例子：<br>
 首先是路由：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> books.views <span class="keyword">import</span> BookListView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;books/&#x27;</span>, BookListView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
@@ -5046,6 +5047,183 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       </categories>
       <tags>
         <tag>用户调研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>写出明确的指引的策略</title>
+    <url>/2023/06/07/Clear-Instructions-Tactics-1/</url>
+    <content><![CDATA[<h2 id="在查询中包含详细信息以获得更相关的答案">在查询中包含详细信息以获得更相关的答案</h2>
+<p>（Include details in your query to get more relevant answers****）****</p>
+<p>为了获得高度相关的回答，请确保请求提供任何重要的细节或背景信息。否则，你就让模型去猜你的意思了。</p>
+<table>
+<thead>
+<tr>
+<th>Worse</th>
+<th>Better</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How do I add numbers in Excel?</td>
+<td>How do I add up a row of dollar amounts in Excel? I want to do this automatically for a whole sheet of rows with all the totals ending up on the right in a column called “Total”.</td>
+</tr>
+<tr>
+<td>Who’s president?</td>
+<td>Who was the president of Mexico in 2021, and how frequently are elections held?</td>
+</tr>
+<tr>
+<td>Write code to calculate the Fibonacci sequence.</td>
+<td>Write a TypeScript function to efficiently calculate the Fibonacci sequence. Comment the code liberally to explain what each piece does and why it’s written that way.</td>
+</tr>
+<tr>
+<td>Summarize the meeting notes.</td>
+<td>Summarize the meeting notes in a single paragraph. Then write a markdown list of the speakers and each of their key points. Finally, list the next steps or action items suggested by the speakers, if any.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="要求模型采用特定的人设">要求模型采用特定的人设</h2>
+<p>（Ask the model to adopt a persona）<br>
+系统消息可以用来指定模型在回复中所使用的人设。</p>
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Dear Steel Bolt Vendor,</td>
+</tr>
+<tr>
+<td>I hope this message finds you bolt-tifully well! I wanted to take a moment to express my sincere gratitude and send you a heartfelt “thank you” for your exceptional service. Your prompt delivery of the steel bolts saved the day and allowed us to fulfill an important order on such short notice. You truly tightened the screws (pun intended) and helped us keep everything in place!</td>
+<td></td>
+</tr>
+<tr>
+<td>Your commitment to delivering quality products within tight deadlines is truly impressive. It’s no easy feat, but you managed to bolt ahead and exceed our expectations. Our customers were thrilled to receive their orders on time, thanks to your swift action. You’re definitely a shining example in the world of steel bolt suppliers!</td>
+<td></td>
+</tr>
+<tr>
+<td>We are well aware that success often hinges on the reliability and efficiency of our suppliers. You, my friend, have proven yourself to be a real unsung hero in our industry. You’ve saved us from some major headaches and allowed us to maintain our reputation for delivering excellence. We couldn’t have done it without your bolt-tastic support!</td>
+<td></td>
+</tr>
+<tr>
+<td>On a lighter note, I must admit that working with steel bolts can sometimes drive us nuts. But with you by our side, it feels like a bolt from the blue has brought us joy instead of frustration. Your top-notch service deserves a round of applause – or perhaps a round of nuts and bolts!</td>
+<td></td>
+</tr>
+<tr>
+<td>Once again, I extend my deepest gratitude to you and your team for going above and beyond to accommodate our urgent request. Your dedication and commitment have not gone unnoticed. We value our partnership and look forward to many more successful collaborations in the future. Together, we’ll continue to keep things bolt-tifully organized!</td>
+<td></td>
+</tr>
+<tr>
+<td>Wishing you a future filled with smooth deliveries, sturdy bolts, and endless laughter!</td>
+<td></td>
+</tr>
+<tr>
+<td>Warmest regards,</td>
+<td></td>
+</tr>
+<tr>
+<td>[Your Name]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用分隔符清晰地标示输入的不同部分">使用分隔符清晰地标示输入的不同部分</h2>
+<p>（Use delimiters to clearly indicate distinct parts of the input）</p>
+<p>使用分隔符，如三重引号、XML标签、章节标题等，可以帮助标示文本的不同部分，以便进行不同的处理。</p>
+<p>| USER | Summarize the text delimited by triple quotes with a haiku.<br>
+“”“insert text here”&quot;” |<br>
+| — | — |</p>
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>You will be provided with a pair of articles (delimited with XML tags) about the same topic. First summarize the arguments of each article. Then indicate which of them makes a better argument and explain why.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td><article> insert first article here </article></td>
+</tr>
+</tbody>
+</table>
+<article> insert second article here </article> |
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>You will be provided with a thesis abstract and a suggested title for it. The thesis title should give the reader a good idea of the topic of the thesis but should also be eye-catching. If the title does not meet these criteria, suggest 5 alternatives.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Abstract: insert abstract here</td>
+</tr>
+<tr>
+<td>Title: insert title here</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>对于这样简单的任务，使用分隔符可能对输出质量没有太大影响。然而，对于更复杂的任务，更重要的是消除任务细节的歧义。不要让GPTs费力去理解您到底要求它们做什么。</p>
+<h2 id="指定完成任务所需的步骤">指定完成任务所需的步骤</h2>
+<p>（Specify the steps required to complete a task）<br>
+对于某些任务来说，最好将其指定为一系列步骤。明确地写出这些步骤可以让模型更容易地按照它们进行操作。</p>
+<p>| SYSTEM | Use the following step-by-step instructions to respond to user inputs.<br>
+Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>
+Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: “. |<br>
+| — | — |<br>
+| USER | “”“insert text here””” |</p>
+<h2 id="提供示例">提供示例</h2>
+<p>（Provide examples）<br>
+通常情况下，提供适用于所有示例的一般指令比通过示例展示任务的所有变化更高效，但在某些情况下，提供示例可能更容易。例如，如果您打算让模型复制一种难以明确描述的特定用户查询响应样式，这就是所谓的“少样本”提示。</p>
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>Answer in a consistent style.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Teach me about patience.</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>The river that carves the deepest valley flows from a modest spring; the grandest symphony originates from a single note; the most intricate tapestry begins with a solitary thread.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Teach me about the ocean.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="指定期望的输出长度">指定期望的输出长度</h2>
+<p>（Specify the desired length of the output）<br>
+您可以要求模型生成具有特定目标长度的输出。目标输出长度可以根据单词数、句子数、段落数、项目符号等来指定。然而，请注意，指示模型生成特定数量的单词并不具有高精度。模型可以更可靠地生成具有特定段落数或项目符号数的输出。</p>
+<p>| USER | Summarize the text delimited by triple quotes in about 50 words.<br>
+“”“insert text here”“” |<br>
+| — | — |<br>
+| USER | Summarize the text delimited by triple quotes in 2 paragraphs.<br>
+“”“insert text here”“” |<br>
+| USER | Summarize the text delimited by triple quotes in 3 bullet points.<br>
+“”“insert text here””” |</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
+        <tag>AIGC</tag>
       </tags>
   </entry>
 </search>

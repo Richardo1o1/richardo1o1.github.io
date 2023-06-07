@@ -100,6 +100,224 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Clear-Instructions-Tactics-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/06/07/Clear-Instructions-Tactics-1/"
+    >写出明确的指引的策略</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/07/Clear-Instructions-Tactics-1/" class="article-date">
+  <time datetime="2023-06-07T04:36:06.000Z" itemprop="datePublished">2023-06-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="在查询中包含详细信息以获得更相关的答案">在查询中包含详细信息以获得更相关的答案</h2>
+<p>（Include details in your query to get more relevant answers****）****</p>
+<p>为了获得高度相关的回答，请确保请求提供任何重要的细节或背景信息。否则，你就让模型去猜你的意思了。</p>
+<table>
+<thead>
+<tr>
+<th>Worse</th>
+<th>Better</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How do I add numbers in Excel?</td>
+<td>How do I add up a row of dollar amounts in Excel? I want to do this automatically for a whole sheet of rows with all the totals ending up on the right in a column called “Total”.</td>
+</tr>
+<tr>
+<td>Who’s president?</td>
+<td>Who was the president of Mexico in 2021, and how frequently are elections held?</td>
+</tr>
+<tr>
+<td>Write code to calculate the Fibonacci sequence.</td>
+<td>Write a TypeScript function to efficiently calculate the Fibonacci sequence. Comment the code liberally to explain what each piece does and why it’s written that way.</td>
+</tr>
+<tr>
+<td>Summarize the meeting notes.</td>
+<td>Summarize the meeting notes in a single paragraph. Then write a markdown list of the speakers and each of their key points. Finally, list the next steps or action items suggested by the speakers, if any.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="要求模型采用特定的人设">要求模型采用特定的人设</h2>
+<p>（Ask the model to adopt a persona）<br>
+系统消息可以用来指定模型在回复中所使用的人设。</p>
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Dear Steel Bolt Vendor,</td>
+</tr>
+<tr>
+<td>I hope this message finds you bolt-tifully well! I wanted to take a moment to express my sincere gratitude and send you a heartfelt “thank you” for your exceptional service. Your prompt delivery of the steel bolts saved the day and allowed us to fulfill an important order on such short notice. You truly tightened the screws (pun intended) and helped us keep everything in place!</td>
+<td></td>
+</tr>
+<tr>
+<td>Your commitment to delivering quality products within tight deadlines is truly impressive. It’s no easy feat, but you managed to bolt ahead and exceed our expectations. Our customers were thrilled to receive their orders on time, thanks to your swift action. You’re definitely a shining example in the world of steel bolt suppliers!</td>
+<td></td>
+</tr>
+<tr>
+<td>We are well aware that success often hinges on the reliability and efficiency of our suppliers. You, my friend, have proven yourself to be a real unsung hero in our industry. You’ve saved us from some major headaches and allowed us to maintain our reputation for delivering excellence. We couldn’t have done it without your bolt-tastic support!</td>
+<td></td>
+</tr>
+<tr>
+<td>On a lighter note, I must admit that working with steel bolts can sometimes drive us nuts. But with you by our side, it feels like a bolt from the blue has brought us joy instead of frustration. Your top-notch service deserves a round of applause – or perhaps a round of nuts and bolts!</td>
+<td></td>
+</tr>
+<tr>
+<td>Once again, I extend my deepest gratitude to you and your team for going above and beyond to accommodate our urgent request. Your dedication and commitment have not gone unnoticed. We value our partnership and look forward to many more successful collaborations in the future. Together, we’ll continue to keep things bolt-tifully organized!</td>
+<td></td>
+</tr>
+<tr>
+<td>Wishing you a future filled with smooth deliveries, sturdy bolts, and endless laughter!</td>
+<td></td>
+</tr>
+<tr>
+<td>Warmest regards,</td>
+<td></td>
+</tr>
+<tr>
+<td>[Your Name]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用分隔符清晰地标示输入的不同部分">使用分隔符清晰地标示输入的不同部分</h2>
+<p>（Use delimiters to clearly indicate distinct parts of the input）</p>
+<p>使用分隔符，如三重引号、XML标签、章节标题等，可以帮助标示文本的不同部分，以便进行不同的处理。</p>
+<p>| USER | Summarize the text delimited by triple quotes with a haiku.<br>
+“”“insert text here”&quot;” |<br>
+| — | — |</p>
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>You will be provided with a pair of articles (delimited with XML tags) about the same topic. First summarize the arguments of each article. Then indicate which of them makes a better argument and explain why.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td><article> insert first article here </article></td>
+</tr>
+</tbody>
+</table>
+<article> insert second article here </article> |
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>You will be provided with a thesis abstract and a suggested title for it. The thesis title should give the reader a good idea of the topic of the thesis but should also be eye-catching. If the title does not meet these criteria, suggest 5 alternatives.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Abstract: insert abstract here</td>
+</tr>
+<tr>
+<td>Title: insert title here</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>对于这样简单的任务，使用分隔符可能对输出质量没有太大影响。然而，对于更复杂的任务，更重要的是消除任务细节的歧义。不要让GPTs费力去理解您到底要求它们做什么。</p>
+<h2 id="指定完成任务所需的步骤">指定完成任务所需的步骤</h2>
+<p>（Specify the steps required to complete a task）<br>
+对于某些任务来说，最好将其指定为一系列步骤。明确地写出这些步骤可以让模型更容易地按照它们进行操作。</p>
+<p>| SYSTEM | Use the following step-by-step instructions to respond to user inputs.<br>
+Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>
+Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: “. |<br>
+| — | — |<br>
+| USER | “”“insert text here””” |</p>
+<h2 id="提供示例">提供示例</h2>
+<p>（Provide examples）<br>
+通常情况下，提供适用于所有示例的一般指令比通过示例展示任务的所有变化更高效，但在某些情况下，提供示例可能更容易。例如，如果您打算让模型复制一种难以明确描述的特定用户查询响应样式，这就是所谓的“少样本”提示。</p>
+<table>
+<thead>
+<tr>
+<th>SYSTEM</th>
+<th>Answer in a consistent style.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Teach me about patience.</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>The river that carves the deepest valley flows from a modest spring; the grandest symphony originates from a single note; the most intricate tapestry begins with a solitary thread.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Teach me about the ocean.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="指定期望的输出长度">指定期望的输出长度</h2>
+<p>（Specify the desired length of the output）<br>
+您可以要求模型生成具有特定目标长度的输出。目标输出长度可以根据单词数、句子数、段落数、项目符号等来指定。然而，请注意，指示模型生成特定数量的单词并不具有高精度。模型可以更可靠地生成具有特定段落数或项目符号数的输出。</p>
+<p>| USER | Summarize the text delimited by triple quotes in about 50 words.<br>
+“”“insert text here”“” |<br>
+| — | — |<br>
+| USER | Summarize the text delimited by triple quotes in 2 paragraphs.<br>
+“”“insert text here”“” |<br>
+| USER | Summarize the text delimited by triple quotes in 3 bullet points.<br>
+“”“insert text here””” |</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-GPT-best-practices-Index"
   class="article article-type-post"
   itemscope
@@ -269,69 +487,11 @@ var _hmt = _hmt || [];
 <p>更通用的使用方法是继承Django提供的各种视图类，所以上面的例子的一般性写法如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># some_app/views.py</span></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AboutView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&quot;about.html&quot;</span></span><br></pre></td></tr></table></figure>
 <p>但是，由于类不是函数，所以需要在URLconf中使用<code>as_view()</code>这个类方法将一个基于类的视图转换成函数形式的接口。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> some_app.views <span class="keyword">import</span> AboutView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, AboutView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>上面的AboutView视图不涉及模型的访问，比较简单。让我们看一个书籍列表视图的例子：<br>
-首先是路由：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> books.views <span class="keyword">import</span> BookListView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;books/&#x27;</span>, BookListView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p><code>BookListView</code>视图：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> ListView</span><br><span class="line"><span class="keyword">from</span> books.models <span class="keyword">import</span> Book</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BookListView</span>(<span class="title class_ inherited__">ListView</span>):</span><br><span class="line">    model = Book  <span class="comment"># 指定模型</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">head</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        last_book = self.get_queryset().latest(<span class="string">&#x27;publication_date&#x27;</span>)</span><br><span class="line">        response = HttpResponse()</span><br><span class="line">        <span class="comment"># RFC 1123 date format</span></span><br><span class="line">        response[<span class="string">&#x27;Last-Modified&#x27;</span>] = last_book.publication_date.strftime(<span class="string">&#x27;%a, %d %b %Y %H:%M:%S GMT&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
-<p>这个例子中，如果用户通过GET请求数据，那么将正常的返回响应数据（此处省略）。而如果通过HEAD请求，将使用我们写的head方法中的业务逻辑。</p>
-<h3 id="一、使用基于类的视图">一、使用基于类的视图</h3>
-<p>本质上来说，基于类的视图允许你使用不同的实例方法响应不同的HTTP 请求，而不是在单个视图函数里使用<code>if/else</code>代码。<br>
-在函数视图里处理 <code>GET</code>请求的代码像下面这样：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">        <span class="comment"># &lt;view logic&gt;</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>而在类视图中，则通过不同过的实例方法来处理：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># &lt;view logic&gt;</span></span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;result&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>上面的继承关系非常重要，不能从头写一个新类，或者随便自己瞎继承一个类，否则你无法和Django系统勾连。<br>
-每个类视图都有一个<code>as_view()</code>方法，用于在<code>urlconf</code>中进行dispatch。这个方法会创建一个类视图的实例，并调用它的<code>dispatch()</code>方法。dispatch方法会在类中查找类似GET\POST之类的类方法，然后与请求request中的HTTP方法匹配。匹配上了就调用对应的代码，匹配不上就弹出异常<code>HttpResponseNotAllowed</code>，也就是不允许当前的请求类型。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> myapp.views <span class="keyword">import</span> MyView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, MyView.as_view()),    <span class="comment"># 注意as_view要加括号进行调用</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>至于return返回的什么，和函数视图是一样样的。</p>
-<p>as_view()方法可以传递参数，例如：</p>
-<p><code>urlpatterns = [ path('view/', MyView.as_view(size=42)), ]</code></p>
-<p>传递给视图的参数会在视图的每个实例之间共享。这意味着你不应使用列表、字典或任何其他可变对象作为视图的参数。如果你这样做并且共享对象被修改，则会导致一个请求对另外一个请求产生影响，这显然存在极大的风险，完全不可接受。</p>
-<p>每个MyView视图的实例都可以使用 <code>self.size</code>接收传入的参数值42，但该参数必须已经在类中定义了。</p>
-<p>基于类的视图不强制你添加任何类属性，当需要的时候，有两种方法来配置或设置类属性。</p>
-<p>第一种是继承父类，在子类中重写父类的属性，如下所示：</p>
-<p>父类：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GreetingView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    greeting = <span class="string">&quot;Good Day&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(self.greeting)</span><br></pre></td></tr></table></figure>
-<p>子类：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MorningGreetingView</span>(<span class="title class_ inherited__">GreetingView</span>):</span><br><span class="line">    greeting = <span class="string">&quot;Morning to ya&quot;</span></span><br></pre></td></tr></table></figure>
-<p>注意其中的greeting类属性。<br>
-另一种就是简单粗暴的在URLconf路由条目中修改as_view()方法的参数。当然，参数名必须是存在的类属性，你不能随便瞎写！如下所示：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, GreetingView.as_view(greeting=<span class="string">&quot;G&#x27;day&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>但是这种方式有很大的弊端，那就是虽然每次匹配上了url，你的类视图都会被实例化一次，但是你的URLs却是在被导入的时候才配置一次，也就是as_view()方法的参数的配置只有一次。也就是说这么做，就不能再改了！所以，不要偷懒，使用子类吧。</p>
-<h3 id="二、使用mixin混入">二、使用mixin混入</h3>
-<p>混入是一种多父类继承的形式，其基础理论知识请参考我的Python教程中多继承相关章节。<br>
-在编写子类的时候，一个父类负责类的主体结构、主要行为和主要属性，其它的功能都通过各种MIXin父类提供。<br>
-MIXIN是跨多个类重用代码的一个很好的方法，但是它们会带来一些代价。你的代码散布在MIXIN中越多，阅读子类就越难，很难知道它到底在做什么。如果你在对具有多级继承树的子类进行分类，就更难以判断子类的方法到底继承的是哪个先祖，俗称‘家谱乱了’。<br>
-<strong>需要注意的是你的父类中只有一个类可以继承最顶级的View类，其它的必须以mixin方法混入。</strong></p>
-<h3 id="三、使用类视图处理表单">三、使用类视图处理表单</h3>
-<p>一个用来处理表单的函数视图通常是下面这样的：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">myview</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        form = MyForm(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="comment"># &lt;process form cleaned data&gt;</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(<span class="string">&#x27;/success/&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        form = MyForm(initial=&#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;form_template.html&#x27;</span>, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
-<p>而如果用类视图来实现，是这样的：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyFormView</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    form_class = MyForm</span><br><span class="line">    initial = &#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;</span><br><span class="line">    template_name = <span class="string">&#x27;form_template.html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        form = self.form_class(initial=self.initial)</span><br><span class="line">        <span class="keyword">return</span> render(request, self.template_name, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request, *args, **kwargs</span>):</span><br><span class="line">        form = self.form_class(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="comment"># &lt;process form cleaned data&gt;</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(<span class="string">&#x27;/success/&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> render(request, self.template_name, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
-<p>看起来类视图好像比函数视图代码多了很多，复杂了很多，貌似没啥优点啊。但是如果你有多个类似的视图需要编写，那么你就可以发挥子类的继承和复写神操作了，分分钟整出个新的视图来。或者直接在URLConf中修改参数！或者两种操作同时使用！</p>
-<p>其实，到现在你应该理解，<strong>类视图适用于大量重复性的视图编写工作</strong>，在简单的场景下，没几个视图需要编写，或者各个视图差别很大的情况时，还是函数视图更有效！所以，<strong>不要认为类视图是多么高大上的东西</strong>，人云亦云！</p>
-<h3 id="四、装饰类视图">四、装饰类视图</h3>
-<p>除了mixin，还可以使用装饰器扩展类视图。装饰器的工作方式取决于你是在创建子类还是使用as_view()。</p>
-<p>用法一，在URLConf中直接装饰：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required, permission_required</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> VoteView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, login_required(TemplateView.as_view(template_name=<span class="string">&quot;secret.html&quot;</span>))),</span><br><span class="line">    path(<span class="string">&#x27;vote/&#x27;</span>, permission_required(<span class="string">&#x27;polls.can_vote&#x27;</span>)(VoteView.as_view())),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>用法二，在类视图中装饰指定的方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required</span><br><span class="line"><span class="keyword">from</span> django.utils.decorators <span class="keyword">import</span> method_decorator</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @method_decorator(<span class="params">login_required</span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dispatch</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().dispatch(*args, **kwargs)</span><br></pre></td></tr></table></figure>
-<p>注意：</p>
-<ul>
-<li>上面要把装饰器用在dispatch这个方法上，才能在每次请求到达URL时，实例化类视图时都运行这个装饰器的功能。</li>
-<li>不是每个装饰器都能直接运用在类方法上，需要使用<code>method_decorator</code>这个装饰器的装饰器方法将装饰器运用在类方法上。感觉很绕？其实就是说，我们有很多很多的装饰器，但其中有一些不能直接装饰dispatch这种类方法。那怎么办呢？套层壳！用<code>method_decorator</code>装饰器包裹起来，假装成一个能用的。</li>
-</ul>
-<p>有时候，简单地用一下，可以写成下面的精简版：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@method_decorator(<span class="params">login_required, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>有时候，可能你需要对一个对象应用多个装饰器，正常做法是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@method_decorator(<span class="params">never_cache, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">login_required, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>为了偷懒，我们可以这么做：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">decorators = [never_cache, login_required]</span><br><span class="line"></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">decorators, name=<span class="string">&#x27;dispatch&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProtectedView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&#x27;secret.html&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>唯一需要注意地是<strong>装饰器是有先后顺序的</strong>。上面的例子中，<code>never_cache</code>就要先于<code>login_required</code>被调用。</p>
-<p>最后，使用<code>method_decorator</code>有时会导致<code>TypeError</code>异常，因为参数传递的原因。</p>
- 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> some_app.views <span class="keyword">import</span> AboutView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, AboutView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2023/06/05/Django-Class-View-1/"
+        >More...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -787,64 +947,6 @@ As an additional firewall, a new key pair should be used for each transaction to
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-VUE-Exercise-3"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/17/VUE-Exercise-3/"
-    >VUE练习3 - 使用域名</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/17/VUE-Exercise-3/" class="article-date">
-  <time datetime="2023-04-17T14:45:32.000Z" itemprop="datePublished">2023-04-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-配置vue-config-js">1 配置vue.config.js</h2>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">allowedHosts</span>: <span class="string">&quot;all&quot;</span>,</span><br><span class="line">        <span class="attr">host</span>:<span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">        <span class="attr">port</span>:<span class="number">8080</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<h2 id="2-效果">2 效果</h2>
-<p>访问 <a target="_blank" rel="noopener" href="http://uric.yunminitools.cn:8080">http://uric.yunminitools.cn:8080</a> ， 当点击到展示中心后，浏览器的控制台可以返回数据：</p>
-<p><img src="http://cdn.yunminitools.cn/blog/0416axios-result.png" alt=" "></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
 
     </footer>
   </div>

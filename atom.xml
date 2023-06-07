@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-06T13:42:12.373Z</updated>
+  <updated>2023-06-07T04:37:55.873Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写出明确的指引的策略</title>
+    <link href="http://yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/"/>
+    <id>http://yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/</id>
+    <published>2023-06-07T04:36:06.000Z</published>
+    <updated>2023-06-07T04:37:55.873Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;在查询中包含详细信息以获得更相关的答案&quot;&gt;在查询中包含详细信息以获得更相关的答案&lt;/h2&gt;
+&lt;p&gt;（Include details in your query to get more relevant</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+  </entry>
   
   <entry>
     <title>GPT 官方推荐使用方法</title>
@@ -49,17 +77,45 @@
     <link href="http://yunminitools.cn/2023/06/05/Django-Class-View-1/"/>
     <id>http://yunminitools.cn/2023/06/05/Django-Class-View-1/</id>
     <published>2023-06-05T14:18:55.000Z</published>
-    <updated>2023-06-05T14:19:27.524Z</updated>
+    <updated>2023-06-06T13:55:11.205Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;练习Django的时候发现它的类视图很神奇，很少的代码就能实现功能，研究了一下，发现这个&lt;a</summary>
-        
-      
+&lt;p&gt;练习Django的时候发现它的类视图很神奇，很少的代码就能实现功能，研究了一下，发现这个&lt;a href=&quot;https://liujiangblog.com/course/django/279&quot;&gt;教程&lt;/a&gt;，写得比较详细，转载一下，加深印象。&lt;/p&gt;
+&lt;h2 id=&quot;类视图与函数视图&quot;&gt;类视图与函数视图&lt;/h2&gt;
+&lt;p&gt;Django的视图可以分为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数视图FBV：&lt;code&gt;def index(request):&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;类视图CBV：&lt;code&gt;class AboutView(TemplateView):&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;早期，人们在视图开发中发现了一些常见的习语和句式，也就是重复性代码和工作。于是引入了基于函数的视图来抽象这些模式，便于一般情况下的视图开发。&lt;/p&gt;
+&lt;p&gt;基于函数的视图的问题在于，尽管它们覆盖了简单的情况，但是除了一些简单的配置选项之外，没有办法扩展或定制它们，限制了它们在许多现实应用中的实用性。&lt;/p&gt;
+&lt;p&gt;基于类的通用视图与基于函数的视图的目标相同，都是想让视图开发更容易。但由于类视图可以使用MIXIN等一些面向对象的方法和工具包，使得基于类的视图比基于函数的视图更具扩展性和灵活性。&lt;/p&gt;
+&lt;p&gt;基于类的视图：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过HTTP请求方法的不同，将代码分隔在不同的类方法中，比如GET和POST，而不是类函数中的条件判断。&lt;/li&gt;
+&lt;li&gt;可以使用面向对象的技巧，比如混入。&lt;/li&gt;
+&lt;li&gt;类具有封装和继承的特性，方便代码复用、分发和重构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;两种视图可以实现同样的功能，本质上是一个东西，没有谁好谁坏之分，只是适用场景不同而已：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;简单逻辑、快速处理，请用FBV&lt;/li&gt;
+&lt;li&gt;代码复用、功能封装，请用CBV&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;用法&quot;&gt;用法&lt;/h2&gt;
+&lt;p&gt;Django 提供了很多适用于各种应用场景的基本视图类，我们一般不从头自己写起，这些类视图都继承&lt;code&gt;django.views.generic.base.View&lt;/code&gt;类。比如&lt;code&gt;RedirectView&lt;/code&gt; 用于 HTTP 重定向，&lt;code&gt;TemplateView&lt;/code&gt; 用于渲染模板。&lt;/p&gt;
+&lt;p&gt;类视图有很多简单的用法，甚至不需要去views.py中编写代码，比如下面的例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; django.urls &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; django.views.generic &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; TemplateView&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;urlpatterns = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path(&lt;span class=&quot;string&quot;&gt;&amp;#x27;about/&amp;#x27;&lt;/span&gt;, TemplateView.as_view(template_name=&lt;span class=&quot;string&quot;&gt;&amp;quot;about.html&amp;quot;&lt;/span&gt;)),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;重点关注：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TemplateView&lt;/code&gt;类视图&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;as_view()&lt;/code&gt;方法&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;template_name&lt;/code&gt;参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更通用的使用方法是继承Django提供的各种视图类，所以上面的例子的一般性写法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# some_app/views.py&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; django.views.generic &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; TemplateView&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;AboutView&lt;/span&gt;(&lt;span class=&quot;title class_ inherited__&quot;&gt;TemplateView&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    template_name = &lt;span class=&quot;string&quot;&gt;&amp;quot;about.html&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;但是，由于类不是函数，所以需要在URLconf中使用&lt;code&gt;as_view()&lt;/code&gt;这个类方法将一个基于类的视图转换成函数形式的接口。&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# urls.py&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; django.urls &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; some_app.views &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; AboutView&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;urlpatterns = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path(&lt;span class=&quot;string&quot;&gt;&amp;#x27;about/&amp;#x27;&lt;/span&gt;, AboutView.as_view()),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
@@ -571,47 +627,6 @@ The solution we propose begins with a timestamp server. A timestamp server works
     <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
     
     <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>哈希函数和数字签名</title>
-    <link href="http://yunminitools.cn/2023/04/07/Hash-Function-Digital-Signature/"/>
-    <id>http://yunminitools.cn/2023/04/07/Hash-Function-Digital-Signature/</id>
-    <published>2023-04-07T13:00:49.000Z</published>
-    <updated>2023-04-07T13:01:48.380Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;1-哈希函数-Hash&quot;&gt;1. 哈希函数 Hash&lt;/h2&gt;
-&lt;h3 id=&quot;1-1-概念&quot;&gt;1.1 概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Hash，一般翻译做&lt;strong&gt;散列&lt;/strong&gt;，也有直接音译为&lt;strong&gt;哈希&lt;/strong&gt;的。就是把任意长度的输入通过散列算法变换成固定长度的输出，该输出就是散列值。&lt;/li&gt;
-&lt;li&gt;这种转换是一种压缩映射，也就是散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，所以不可能从散列值来确定唯一的输入值。简单的说，就是一种将任意长度的消息压缩到某一固定长度的消息摘要的函数。&lt;/li&gt;
-&lt;li&gt;单向散列函数：又称单向Hash函数、杂凑函数，就是把任意长的输入消息串变化成固定长的输出串且由输出串难以得到输入串的一种函数。这个输出串称为该消息的散列值。一般用于产生消息摘要，密钥加密等.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;1-2-特点&quot;&gt;1.2 特点&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;算法是公开的&lt;/li&gt;
-&lt;li&gt;对相同数据运算,得到的结果是一样的&lt;/li&gt;
-&lt;li&gt;对不同数据运算，如MD5得到的结果默认是128位,32个字符(16进制标识)。&lt;/li&gt;
-&lt;li&gt;没法进行逆运算信息摘要。&lt;/li&gt;
-&lt;li&gt;信息“指纹”，是用来做数据识别的。&lt;/li&gt;
-&lt;li&gt;加密后密文的长度是定长的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;1-3-用途&quot;&gt;1.3 用途&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;用户密码的加密&lt;/li&gt;
-&lt;li&gt;搜索引擎，关键字识别(搜索多个关键字，先对每个关键字进行散列，然后多个关键字进行或运算，如果值一致则搜索结果一致)&lt;/li&gt;
-&lt;li&gt;版权标注 对文件进行散列判断该文件是否是正版或原版的&lt;/li&gt;
-&lt;li&gt;数字签名 (文件完整性验证 对整个文件进行散列，比较散列值判断文件是否完整或被篡改)&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="数据安全" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
