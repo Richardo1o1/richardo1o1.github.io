@@ -176,111 +176,11 @@ var _hmt = _hmt || [];
 <td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
 </tr>
 </tbody>
-</table>
-<h2 id="使用分隔符清晰地标示输入的不同部分">使用分隔符清晰地标示输入的不同部分</h2>
-<p>（Use delimiters to clearly indicate distinct parts of the input）</p>
-<p>使用分隔符，如三重引号、XML标签、章节标题等，可以帮助标示文本的不同部分，以便进行不同的处理。</p>
-<table>
-<thead>
-<tr>
-<th>USER</th>
-<th>Summarize the text delimited by triple quotes with a haiku.<br>“”“insert text here”“”</th>
-</tr>
-</thead>
-</table>
-<table>
-<thead>
-<tr>
-<th>SYSTEM</th>
-<th>You will be provided with a pair of articles (delimited with XML tags) about the same topic. First summarize the arguments of each article. Then indicate which of them makes a better argument and explain why.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td><article> insert first article here </article><br><article> insert second article here </article></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>SYSTEM</th>
-<th>You will be provided with a thesis abstract and a suggested title for it. The thesis title should give the reader a good idea of the topic of the thesis but should also be eye-catching. If the title does not meet these criteria, suggest 5 alternatives.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td>Abstract: insert abstract here<br>Title: insert title here</td>
-</tr>
-</tbody>
-</table>
-<p>对于这样简单的任务，使用分隔符可能对输出质量没有太大影响。然而，对于更复杂的任务，更重要的是消除任务细节的歧义。不要让GPTs费力去理解您到底要求它们做什么。</p>
-<h2 id="指定完成任务所需的步骤">指定完成任务所需的步骤</h2>
-<p>（Specify the steps required to complete a task）<br>
-对于某些任务来说，最好将其指定为一系列步骤。明确地写出这些步骤可以让模型更容易地按照它们进行操作。</p>
-<table>
-<thead>
-<tr>
-<th>SYSTEM</th>
-<th>Use the following step-by-step instructions to respond to user inputs.<br>Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: &quot;.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td>“”“insert text here”“”</td>
-</tr>
-</tbody>
-</table>
-<h2 id="提供示例">提供示例</h2>
-<p>（Provide examples）<br>
-通常情况下，提供适用于所有示例的一般指令比通过示例展示任务的所有变化更高效，但在某些情况下，提供示例可能更容易。例如，如果您打算让模型复制一种难以明确描述的特定用户查询响应样式，这就是所谓的“少样本”提示。</p>
-<table>
-<thead>
-<tr>
-<th>SYSTEM</th>
-<th>Answer in a consistent style.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td>Teach me about patience.</td>
-</tr>
-<tr>
-<td>ASSISTANT</td>
-<td>The river that carves the deepest valley flows from a modest spring; the grandest symphony originates from a single note; the most intricate tapestry begins with a solitary thread.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Teach me about the ocean.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="指定期望的输出长度">指定期望的输出长度</h2>
-<p>（Specify the desired length of the output）<br>
-您可以要求模型生成具有特定目标长度的输出。目标输出长度可以根据单词数、句子数、段落数、项目符号等来指定。然而，请注意，指示模型生成特定数量的单词并不具有高精度。模型可以更可靠地生成具有特定段落数或项目符号数的输出。</p>
-<table>
-<thead>
-<tr>
-<th>USER</th>
-<th>Summarize the text delimited by triple quotes in about 50 words.<br>“”“insert text here”“”</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td>Summarize the text delimited by triple quotes in 2 paragraphs.<br>“”“insert text here”&quot;”</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Summarize the text delimited by triple quotes in 3 bullet points.<br>“”“insert text here”&quot;”</td>
-</tr>
-</tbody>
-</table>
- 
+</table> 
+      <a class="article-more-link" href="/2023/06/07/Clear-Instructions-Tactics-1/"
+        >More...</a
+      >
+       
       <!-- reward -->
       
     </div>
