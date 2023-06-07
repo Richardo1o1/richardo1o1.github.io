@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-07T04:52:48.981Z</updated>
+  <updated>2023-06-07T06:22:11.900Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/"/>
     <id>http://yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/</id>
     <published>2023-06-07T04:36:06.000Z</published>
-    <updated>2023-06-07T04:52:48.981Z</updated>
+    <updated>2023-06-07T06:22:11.900Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;在查询中包含详细信息以获得更相关的答案&quot;&gt;在查询中包含详细信息以获得更相关的答案&lt;/h2&gt;
@@ -59,11 +59,15 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;SYSTEM&lt;/th&gt;
-&lt;th&gt;When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.&lt;/th&gt;
+&lt;th&gt;Role&lt;/th&gt;
+&lt;th&gt;Prompt&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SYSTEM&lt;/td&gt;
+&lt;td&gt;When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;USER&lt;/td&gt;
 &lt;td&gt;Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.&lt;/td&gt;

@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">997</span>
+            <span class="post-count">1k</span>
         </span>
     </span>
 
@@ -159,11 +159,15 @@ var _hmt = _hmt || [];
 <table>
 <thead>
 <tr>
-<th>SYSTEM</th>
-<th>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</th>
+<th>Role</th>
+<th>Prompt</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>SYSTEM</td>
+<td>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</td>
+</tr>
 <tr>
 <td>USER</td>
 <td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
@@ -177,16 +181,36 @@ var _hmt = _hmt || [];
 <table>
 <thead>
 <tr>
-<th>USER</th>
-<th>Summarize the text delimited by triple quotes with a haiku.<br>“”“insert text here”“”</th>
+<th>Role</th>
+<th>Prompt</th>
 </tr>
 </thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes with a haiku.<br>“”“insert text here”“”</td>
+</tr>
+</tbody>
 </table>
 <table>
 <thead>
 <tr>
-<th>SYSTEM</th>
-<th>You will be provided with a pair of articles (delimited with XML tags) about the same topic. First summarize the arguments of each article. Then indicate which of them makes a better argument and explain why.</th>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with a pair of articles (delimited with XML tags) about the same topic. First summarize the arguments of each article. Then indicate which of them makes a better argument and explain why.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
 </tr>
 </thead>
 <tbody>
@@ -199,11 +223,15 @@ var _hmt = _hmt || [];
 <table>
 <thead>
 <tr>
-<th>SYSTEM</th>
-<th>You will be provided with a thesis abstract and a suggested title for it. The thesis title should give the reader a good idea of the topic of the thesis but should also be eye-catching. If the title does not meet these criteria, suggest 5 alternatives.</th>
+<th>Role</th>
+<th>Prompt</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with a thesis abstract and a suggested title for it. The thesis title should give the reader a good idea of the topic of the thesis but should also be eye-catching. If the title does not meet these criteria, suggest 5 alternatives.</td>
+</tr>
 <tr>
 <td>USER</td>
 <td>Abstract: insert abstract here<br>Title: insert title here</td>
@@ -217,11 +245,15 @@ var _hmt = _hmt || [];
 <table>
 <thead>
 <tr>
-<th>SYSTEM</th>
-<th>Use the following step-by-step instructions to respond to user inputs.<br>Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: &quot;.</th>
+<th>Role</th>
+<th>Prompt</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Use the following step-by-step instructions to respond to user inputs.<br>Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: &quot;.</td>
+</tr>
 <tr>
 <td>USER</td>
 <td>“”“insert text here”“”</td>
@@ -234,11 +266,15 @@ var _hmt = _hmt || [];
 <table>
 <thead>
 <tr>
-<th>SYSTEM</th>
-<th>Answer in a consistent style.</th>
+<th>Role</th>
+<th>Prompt</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Answer in a consistent style.</td>
+</tr>
 <tr>
 <td>USER</td>
 <td>Teach me about patience.</td>
@@ -259,11 +295,15 @@ var _hmt = _hmt || [];
 <table>
 <thead>
 <tr>
-<th>USER</th>
-<th>Summarize the text delimited by triple quotes in about 50 words.<br>“”“insert text here”“”</th>
+<th>Role</th>
+<th>Prompt</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes in about 50 words.<br>“”“insert text here”“”</td>
+</tr>
 <tr>
 <td>USER</td>
 <td>Summarize the text delimited by triple quotes in 2 paragraphs.<br>“”“insert text here”&quot;”</td>
