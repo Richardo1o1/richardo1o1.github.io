@@ -5252,4 +5252,57 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>用户调研</tag>
       </tags>
   </entry>
+  <entry>
+    <title>提供参考文本的策略</title>
+    <url>/2023/06/08/provide-reference-text-strategy/</url>
+    <content><![CDATA[<h2 id="指示模型使用参考文本回答问题">指示模型使用参考文本回答问题</h2>
+<p>如果我们能够向模型提供与当前查询相关且可信的信息，那么我们可以指示模型使用提供的信息来组织回答。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Use the provided articles delimited by triple quotes to answer questions. If the answer cannot be found in the articles, write &quot;I could not find an answer.”</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>&lt;insert articles, each delimited by triple quotes&gt;<br>Question: <insert question here></td>
+</tr>
+</tbody>
+</table>
+<p>考虑到GPT模型的上下文窗口有限，为了应用这个策略，我们需要一种动态查找与所提问题相关的信息的方法。嵌入可以用来实现高效的知识检索。有关如何实施这一策略的详细信息，请参阅“使用基于嵌入的搜索来实现高效的知识检索”策略。</p>
+<h2 id="指示模型使用参考文本中的引用进行回答">指示模型使用参考文本中的引用进行回答</h2>
+<p>如果输入已经补充了相关知识，可以要求模型通过引用提供的文献中的段落来添加引用。请注意，可以通过在提供的文献中进行字符串匹配来对输出中的引文进行程序验证。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with a document delimited by triple quotes and a question. Your task is to answer the question using only the provided document and to cite the passage(s) of the document used to answer the question. If the document does not contain the information needed to answer this question then simply write: “Insufficient information.” If an answer to the question is provided, it must be annotated with a citation. Use the following format for to cite relevant passages ({“citation”: …}).</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>&lt;insert articles, each delimited by triple quotes&gt;<br>Question: <insert question here></td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
+        <tag>AIGC</tag>
+      </tags>
+  </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-07T06:22:11.900Z</updated>
+  <updated>2023-06-08T06:11:42.441Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>提供参考文本的策略</title>
+    <link href="http://yunminitools.cn/2023/06/08/provide-reference-text-strategy/"/>
+    <id>http://yunminitools.cn/2023/06/08/provide-reference-text-strategy/</id>
+    <published>2023-06-08T06:09:37.000Z</published>
+    <updated>2023-06-08T06:11:42.441Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+  </entry>
   
   <entry>
     <title>写出明确的指引的策略</title>
@@ -639,33 +666,6 @@ The steps to run the network are as follows:&lt;/p&gt;
 &lt;li&gt;New</summary>
         
       
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
-    
-    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（3）</title>
-    <link href="http://yunminitools.cn/2023/04/08/A-Peer-to-Peer-Electronic-Cash-System-3/"/>
-    <id>http://yunminitools.cn/2023/04/08/A-Peer-to-Peer-Electronic-Cash-System-3/</id>
-    <published>2023-04-08T05:58:57.000Z</published>
-    <updated>2023-04-08T05:59:33.612Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
-&lt;h2 id=&quot;3-时间戳服务器&quot;&gt;3. 时间戳服务器&lt;/h2&gt;
-&lt;p&gt;3  Timestamp Server&lt;br&gt;
-The solution we propose begins with a timestamp server. A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post [2-5]. The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0407Timestamp-en.png&quot; alt=&quot; &quot;&gt;&lt;br&gt;
-我们提出的方案从时间戳服务器开始。时间戳服务器计算包含多个需要被打时间戳的数据项的区块的哈希值并广泛地发布这个哈希值，就像在报纸或新闻组帖子里 [2-5]。时间戳能证明要得到这个哈希值，显然这些数据当时一定是存在的。每个时间戳的哈希值都纳入了上一个时间戳，形成一条链，后面的时间戳进一步增强前一个时间戳。&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0407Timestamp-zh.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;</summary>
     
     
     
