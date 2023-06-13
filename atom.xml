@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-08T06:11:42.441Z</updated>
+  <updated>2023-06-13T14:36:01.812Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将复杂任务分解为简单的子任务的策略</title>
+    <link href="http://yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"/>
+    <id>http://yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/</id>
+    <published>2023-06-13T14:35:13.000Z</published>
+    <updated>2023-06-13T14:36:01.812Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+  </entry>
   
   <entry>
     <title>提供参考文本的策略</title>
@@ -632,38 +659,6 @@ It is possible to verify payments</summary>
 &lt;h2 id=&quot;6-激励&quot;&gt;6. 激励&lt;/h2&gt;
 &lt;p&gt;6 Incentive&lt;br&gt;
 By convention, the first transaction in a block is a special</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
-    
-    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（4）</title>
-    <link href="http://yunminitools.cn/2023/04/09/A-Peer-to-Peer-Electronic-Cash-System-4/"/>
-    <id>http://yunminitools.cn/2023/04/09/A-Peer-to-Peer-Electronic-Cash-System-4/</id>
-    <published>2023-04-09T06:08:39.000Z</published>
-    <updated>2023-04-09T06:09:11.077Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
-&lt;h2 id=&quot;5-网络&quot;&gt;5. 网络&lt;/h2&gt;
-&lt;p&gt;5 Network&lt;br&gt;
-The steps to run the network are as follows:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;New</summary>
         
       
     
