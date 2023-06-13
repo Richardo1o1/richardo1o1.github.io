@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-13T14:40:56.936Z</updated>
+  <updated>2023-06-13T14:42:40.424Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"/>
     <id>http://yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/</id>
     <published>2023-06-13T14:35:13.000Z</published>
-    <updated>2023-06-13T14:40:56.936Z</updated>
+    <updated>2023-06-13T14:42:40.424Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;使用意图分类来识别用户查询的最相关指令&quot;&gt;使用意图分类来识别用户查询的最相关指令&lt;/h2&gt;
@@ -37,11 +37,7 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;SYSTEM&lt;/td&gt;
-&lt;td&gt;You will be provided with customer service queries. Classify each query into a primary category and a secondary category. Provide your output in json format with the keys: primary and secondary.&lt;br&gt;Primary categories: Billing, Technical Support, Account Management, or General Inquiry.&lt;br&gt;Billing secondary categories:&lt;br&gt;- Unsubscribe or upgrade&lt;br&gt;- Add a payment method&lt;br&gt;- Explanation for charge&lt;br&gt;- Dispute a charge&lt;br&gt;Technical Support secondary categories:&lt;br&gt;- Troubleshooting&lt;br&gt;- Device compatibility&lt;br&gt;- Software updates&lt;br&gt;Account Management secondary categories:&lt;br&gt;- Password reset&lt;br&gt;- Update personal information&lt;br&gt;- Close account&lt;br&gt;- Account security&lt;br&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;General Inquiry secondary categories:&lt;br&gt;- Product information&lt;br&gt;- Pricing&lt;br&gt;- Feedback&lt;br&gt;- Speak to a human&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;You will be provided with customer service queries. Classify each query into a primary category and a secondary category. Provide your output in json format with the keys: primary and secondary.&lt;br&gt;Primary categories: Billing, Technical Support, Account Management, or General Inquiry.&lt;br&gt;Billing secondary categories:&lt;br&gt;- Unsubscribe or upgrade&lt;br&gt;- Add a payment method&lt;br&gt;- Explanation for charge&lt;br&gt;- Dispute a charge&lt;br&gt;Technical Support secondary categories:&lt;br&gt;- Troubleshooting&lt;br&gt;- Device compatibility&lt;br&gt;- Software updates&lt;br&gt;Account Management secondary categories:&lt;br&gt;- Password reset&lt;br&gt;- Update personal information&lt;br&gt;- Close account&lt;br&gt;- Account security&lt;br&gt;General Inquiry secondary categories:&lt;br&gt;- Product information&lt;br&gt;- Pricing&lt;br&gt;- Feedback&lt;br&gt;- Speak to a human&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;USER&lt;/td&gt;
