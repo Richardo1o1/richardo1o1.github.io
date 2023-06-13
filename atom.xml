@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-13T14:36:01.812Z</updated>
+  <updated>2023-06-13T14:40:56.936Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,16 +21,35 @@
     <link href="http://yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"/>
     <id>http://yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/</id>
     <published>2023-06-13T14:35:13.000Z</published>
-    <updated>2023-06-13T14:36:01.812Z</updated>
+    <updated>2023-06-13T14:40:56.936Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;使用意图分类来识别用户查询的最相关指令&quot;&gt;使用意图分类来识别用户查询的最相关指令&lt;/h2&gt;
+&lt;p&gt;对于需要处理不同情况的大量独立指令的任务，首先对查询类型进行分类，并使用该分类确定所需的指令，可以带来一些好处。这可以通过定义固定的类别和硬编码与处理给定类别任务相关的指令来实现。该过程还可以递归应用于将任务分解为一系列阶段。这种方法的优点在于每个查询只包含执行任务的下一个阶段所需的指令，这可能导致与使用单个查询执行整个任务相比较低的错误率。这还可以降低成本，因为较大的提示运行成本更高（请参阅定价信息）。&lt;/p&gt;
+&lt;p&gt;例如，假设对于客户服务应用程序，查询可以有以下有用的分类方式：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Role&lt;/th&gt;
+&lt;th&gt;Prompt&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SYSTEM&lt;/td&gt;
+&lt;td&gt;You will be provided with customer service queries. Classify each query into a primary category and a secondary category. Provide your output in json format with the keys: primary and secondary.&lt;br&gt;Primary categories: Billing, Technical Support, Account Management, or General Inquiry.&lt;br&gt;Billing secondary categories:&lt;br&gt;- Unsubscribe or upgrade&lt;br&gt;- Add a payment method&lt;br&gt;- Explanation for charge&lt;br&gt;- Dispute a charge&lt;br&gt;Technical Support secondary categories:&lt;br&gt;- Troubleshooting&lt;br&gt;- Device compatibility&lt;br&gt;- Software updates&lt;br&gt;Account Management secondary categories:&lt;br&gt;- Password reset&lt;br&gt;- Update personal information&lt;br&gt;- Close account&lt;br&gt;- Account security&lt;br&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;General Inquiry secondary categories:&lt;br&gt;- Product information&lt;br&gt;- Pricing&lt;br&gt;- Feedback&lt;br&gt;- Speak to a human&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USER&lt;/td&gt;
+&lt;td&gt;I need to get my internet working again.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;根据客户查询的分类，可以为GPT模型提供一组更具体的指令来处理下一步操作。例如，假设客户需要“故障排除”的帮助。&lt;/p&gt;</summary>
     
     
     

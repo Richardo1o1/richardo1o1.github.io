@@ -144,79 +144,23 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>SYSTEM</td>
-<td>You will be provided with customer service queries. Classify each query into a primary category and a secondary category. Provide your output in json format with the keys: primary and secondary.<br></td>
+<td>You will be provided with customer service queries. Classify each query into a primary category and a secondary category. Provide your output in json format with the keys: primary and secondary.<br>Primary categories: Billing, Technical Support, Account Management, or General Inquiry.<br>Billing secondary categories:<br>- Unsubscribe or upgrade<br>- Add a payment method<br>- Explanation for charge<br>- Dispute a charge<br>Technical Support secondary categories:<br>- Troubleshooting<br>- Device compatibility<br>- Software updates<br>Account Management secondary categories:<br>- Password reset<br>- Update personal information<br>- Close account<br>- Account security<br></td>
 </tr>
 <tr>
-<td>Primary categories: Billing, Technical Support, Account Management, or General Inquiry.<br></td>
+<td>General Inquiry secondary categories:<br>- Product information<br>- Pricing<br>- Feedback<br>- Speak to a human</td>
 <td></td>
 </tr>
 <tr>
-<td>Billing secondary categories:<br></td>
-<td></td>
+<td>USER</td>
+<td>I need to get my internet working again.</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Unsubscribe or upgrade<br></li>
-<li>Add a payment method<br></li>
-<li>Explanation for charge<br></li>
-<li>Dispute a charge<br><br>
-Technical Support secondary categories:<br></li>
-<li>Troubleshooting<br></li>
-<li>Device compatibility<br></li>
-<li>Software updates<br><br>
-Account Management secondary categories:<br></li>
-<li>Password reset<br></li>
-<li>Update personal information<br></li>
-<li>Close account<br></li>
-<li>Account security<br><br>
-General Inquiry secondary categories:<br></li>
-<li>Product information<br></li>
-<li>Pricing<br></li>
-<li>Feedback<br></li>
-<li>Speak to a human |<br>
-| USER | I need to get my internet working again. |</li>
-</ul>
-<p>根据客户查询的分类，可以为GPT模型提供一组更具体的指令来处理下一步操作。例如，假设客户需要“故障排除”的帮助。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You will be provided with customer service inquiries that require troubleshooting in a technical support context. Help the user by:<br></td>
-</tr>
-<tr>
-<td><br></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Ask them to check that all cables to/from the router are connected. Note that it is common for cables to come loose over time.<br></li>
-<li>If all cables are connected and the issue persists, ask them which router model they are using<br></li>
-<li>Now you will advise them how to restart their device:<br><br>
-– If the model number is MTD-327J, advise them to push the red button and hold it for 5 seconds, then wait 5 minutes before testing the connection.<br><br>
-– If the model number is MTD-327S, advise them to unplug and replug it, then wait 5 minutes before testing the connection.<br></li>
-<li>If the customer’s issue persists after restarting the device and waiting 5 minutes, connect them to IT support by outputting {“IT support requested”}.<br></li>
-<li>If the user starts asking questions that are unrelated to this topic then confirm if they would like to end the current chat about troubleshooting and classify their request according to the following scheme:<br><br>
-<br><br>
-&lt;insert primary/secondary classification scheme from above here&gt; |<br>
-| USER | I need to get my internet working again. |</li>
-</ul>
-<p>请注意，模型已被指示在对话状态发生变化时发出特殊字符串。这使得我们可以将我们的系统转变为一个状态机，其中状态决定了注入哪些指令。通过跟踪状态、确定在该状态下哪些指令是相关的，以及可选地确定从该状态允许的状态转换，我们可以在用户体验周围设置保护措施，这在非结构化的方法中很难实现。</p>
-<h2 id="对于需要非常长对话的对话应用程序，对先前的对话进行概述或筛选">对于需要非常长对话的对话应用程序，对先前的对话进行概述或筛选</h2>
-<p>由于GPT具有固定的上下文长度，在用户和助手之间的对话中，如果将整个对话包含在上下文窗口中，对话将无法无限地进行下去。</p>
-<p>针对这个问题，有各种解决方法之一是对先前的对话进行总结。一旦输入的大小达到预定的阈值长度，可以触发一个查询，对对话的一部分进行总结，并将先前对话的摘要包含在系统消息中。或者，可以在整个对话过程中异步地在后台对先前的对话进行总结。</p>
-<p>另一种解决方案是动态选择与当前查询最相关的先前对话部分。请参考策略“使用基于嵌入的搜索实现高效的知识检索”。</p>
-<h2 id="以分段方式概述长文档并递归构建完整摘要">以分段方式概述长文档并递归构建完整摘要</h2>
-<p>由于GPT具有固定的上下文长度，在单个查询中无法用于概括长于上下文长度减去生成摘要长度的文本。</p>
-<p>为了概括一个非常长的文档，比如一本书，我们可以使用一系列查询来概括文档的每个部分。可以将部分摘要连接并进行总结，产生总结的总结。这个过程可以递归进行，直到整个文档被概括为止。如果需要使用先前部分的信息来理解后面的部分，那么在概括某一点的内容时，包含前面文本的运行摘要可能会有所帮助。OpenAI在之前的研究中使用GPT-3的变体研究了这种概括书籍的方法的有效性。</p>
- 
+<p>根据客户查询的分类，可以为GPT模型提供一组更具体的指令来处理下一步操作。例如，假设客户需要“故障排除”的帮助。</p> 
+      <a class="article-more-link" href="/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"
+        >More...</a
+      >
+       
       <!-- reward -->
       
     </div>
