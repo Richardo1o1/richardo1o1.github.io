@@ -5366,4 +5366,166 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>AIGC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>给GPTs一些时间来“思考”的策略</title>
+    <url>/2023/06/14/Give-GPTs-time-to-think-strategy/</url>
+    <content><![CDATA[<h2 id="指示模型在草率得出结论之前自己解决问题">指示模型在草率得出结论之前自己解决问题</h2>
+<p>有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Determine if the student’s solution is correct or not.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem Statement: I’m building a solar power installation and I need help working out the financials.<br>- Land costs $100 / square foot<br>- I can buy solar panels for $250 / square foot<br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot<br>What is the total cost for the first year of operations as a function of the number of square feet.<br>Student’s Solution: Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 100x<br>Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>The student’s solution is correct.</td>
+</tr>
+</tbody>
+</table>
+<p>但学生的解答实际上是不正确的！我们可以通过提示模型首先生成自己的解答来成功让模型注意到这一点。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>First work out your own solution to the problem. Then compare your solution to the student’s solution and evaluate if the student’s solution is correct or not. Don’t decide if the student’s solution is correct until you have done the problem yourself.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem Statement: I’m building a solar power installation and I need help working out the financials.<br>- Land costs $100 / square foot<br>- I can buy solar panels for $250 / square foot<br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot<br>What is the total cost for the first year of operations as a function of the number of square feet.<br>Student’s Solution: Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 100x<br>Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 10x<br>Total cost: 100x + 250x + 100,000 + 10x = 360x + 100,000<br>The student’s solution is incorrect. They made an error in the maintenance cost calculation, using 100x instead of 10x. The correct total cost for the first year of operations is 360x + 100,000.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用内部独白或一系列查询来隐藏模型的推理过程">使用内部独白或一系列查询来隐藏模型的推理过程</h2>
+<p>前面的策略表明，对于模型在回答具体问题之前，详细地思考问题有时非常重要。在某些应用中，模型到达最终答案的推理过程可能不适合与用户共享。例如，在辅导应用中，我们可能希望鼓励学生自行解答问题，但是模型关于学生解答的推理过程可能会向学生透露答案。<br>
+内部独白是一种可以缓解这个问题的策略。内部独白的思想是指示模型将输出中需要隐藏的部分放入结构化的格式中，以便容易解析。然后在将输出呈现给用户之前，对输出进行解析，只显示部分输出，隐藏其他部分。这种策略可以在模型的推理过程或敏感信息需要对用户隐藏的情况下使用，同时提供有意义和相关的回答。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Follow these steps to answer the user queries.<br>Step 1 - First work out your own solution to the problem. Don’t rely on the student’s solution since it may be incorrect. Enclose all your work for this step within triple quotes (“”“).<br>Step 2 - Compare your solution to the student’s solution and evaluate if the student’s solution is correct or not. Enclose all your work for this step within triple quotes (”“”).<br>Step 3 - If the student made a mistake, determine what hint you could give the student without giving away the answer. Enclose all your work for this step within triple quotes (“”&quot;).<br>Step 4 - If the student made a mistake, provide the hint from the previous step to the student (outside of triple quotes). Instead of writing “Step 4 - …” write “Hint:”.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem Statement: <insert problem statement><br>Student Solution: <insert student solution></td>
+</tr>
+</tbody>
+</table>
+<p>或者，这可以通过一系列查询来实现，在其中除了最后一个查询外，所有其他查询的输出都对最终用户隐藏。<br>
+首先，我们可以要求模型自行解决问题。由于这个初始查询不需要学生的解答，可以省略该部分。这还具有额外的优点，即模型的解决方案不会受到学生尝试解答的影响。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td><insert problem statement></td>
+</tr>
+</tbody>
+</table>
+<p>接下来，我们可以让模型使用所有可用信息来评估学生的解答的正确性。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Compare your solution to the student’s solution and evaluate if the student’s solution is correct or not.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem statement: “”“<insert problem statement>”“”<br>Your solution: “”“<insert model generated solution>”“”<br>Student’s solution: “”“&lt;insert student’s solution&gt;”&quot;”</td>
+</tr>
+</tbody>
+</table>
+<p>最后，我们可以让模型利用自己的分析能力以一个有帮助的导师的角色构建回复。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You are a math tutor. If the student made an error, offer a hint to the student in a way that does not reveal the answer. If the student did not make an error, simply offer them an encouraging comment.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem statement: “”“<insert problem statement>”“”<br>Your solution: “”“<insert model generated solution>”“”<br>Student’s solution: “”“&lt;insert student’s solution&gt;”“”<br>Analysis: “”“<insert model generated analysis from previous step>”&quot;”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="询问模型是否在之前的步骤中遗漏了什么">询问模型是否在之前的步骤中遗漏了什么</h2>
+<p>假设我们正在使用一个模型来列举与特定问题相关的源文摘。在列举每个文摘后，模型需要确定是否应该开始写下一个文摘，或者是否应该停止。如果源文档很大，模型通常会过早停止，没有列举出所有相关的文摘。在这种情况下，通过提示模型使用后续查询来找出之前遗漏的文摘，通常可以获得更好的性能。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with a document delimited by triple quotes. Your task is to select excerpts which pertain to the following question: “What significant paradigm shifts have occurred in the history of artificial intelligence.”<br>Ensure that excerpts contain all relevant context needed to interpret them - in other words don’t extract small snippets that are missing important context. Provide output in JSON format as follows:<br>[{“excerpt”: “…”},<br>…<br>{“excerpt”: “…”}]</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>“”“<insert document here>”&quot;”</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>[{“excerpt”: “the model writes an excerpt here”},<br>…<br>{“excerpt”: “the model writes another excerpt here”}]</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Are there more relevant excerpts? Take care not to repeat excerpts. Also ensure that excerpts contain all relevant context needed to interpret them - in other words don’t extract small snippets that are missing important context.</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
+        <tag>AIGC</tag>
+      </tags>
+  </entry>
 </search>
