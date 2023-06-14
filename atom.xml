@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-14T15:15:36.378Z</updated>
+  <updated>2023-06-14T15:17:32.330Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,16 +21,34 @@
     <link href="http://yunminitools.cn/2023/06/14/Give-GPTs-time-to-think-strategy/"/>
     <id>http://yunminitools.cn/2023/06/14/Give-GPTs-time-to-think-strategy/</id>
     <published>2023-06-14T15:14:55.000Z</published>
-    <updated>2023-06-14T15:15:36.378Z</updated>
+    <updated>2023-06-14T15:17:32.330Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;指示模型在草率得出结论之前自己解决问题&quot;&gt;指示模型在草率得出结论之前自己解决问题&lt;/h2&gt;
+&lt;p&gt;有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Role&lt;/th&gt;
+&lt;th&gt;Prompt&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SYSTEM&lt;/td&gt;
+&lt;td&gt;Determine if the student’s solution is correct or not.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USER&lt;/td&gt;
+&lt;td&gt;Problem Statement: I’m building a solar power installation and I need help working out the financials.&lt;br&gt;- Land costs $100 / square foot&lt;br&gt;- I can buy solar panels for $250 / square foot&lt;br&gt;- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot&lt;br&gt;What is the total cost for the first year of operations as a function of the number of square feet.&lt;br&gt;Student’s Solution: Let x be the size of the installation in square feet.&lt;br&gt;1. Land cost: 100x&lt;br&gt;2. Solar panel cost: 250x&lt;br&gt;3. Maintenance cost: 100,000 + 100x&lt;br&gt;Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ASSISTANT&lt;/td&gt;
+&lt;td&gt;The student’s solution is correct.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;但学生的解答实际上是不正确的！我们可以通过提示模型首先生成自己的解答来成功让模型注意到这一点。&lt;/p&gt;</summary>
     
     
     
