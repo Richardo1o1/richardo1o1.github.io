@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-06-16T13:11:53.722Z</updated>
+  <updated>2023-06-16T13:14:05.946Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,17 +21,35 @@
     <link href="http://yunminitools.cn/2023/06/16/test-changes-systematically-strategy/"/>
     <id>http://yunminitools.cn/2023/06/16/test-changes-systematically-strategy/</id>
     <published>2023-06-16T13:10:48.000Z</published>
-    <updated>2023-06-16T13:11:53.722Z</updated>
+    <updated>2023-06-16T13:14:05.946Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;有时很难确定一个改变（例如，新的指示或新的设计）是使系统变得更好还是更糟。通过查看一些示例可能可以暗示哪个更好，但是对于小样本量来说，很难区分是真正的改进还是随机运气。也许这个改变对某些输入的性能有所帮助，但对其他输入的性能有所损害。&lt;br&gt;
-评估程序（或“评估”）对于优化</summary>
-        
-      
+评估程序（或“评估”）对于优化系统设计是有用的。好的评估具备以下特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代表真实世界的使用情况（或至少具备多样性）&lt;/li&gt;
+&lt;li&gt;包含许多测试案例以获得更大的统计能力（请参考下表以获取指导方针）&lt;/li&gt;
+&lt;li&gt;易于自动化或重复执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;输出的评估可以由计算机、人类或二者结合来进行。计算机可以通过客观标准（例如，具有单一正确答案的问题）自动化评估，也可以通过一些主观或模糊标准进行评估，其中模型的输出由其他模型查询来评估。OpenAI Evals是一个开源软件框架，提供了创建自动评估的工具。&lt;br&gt;
+基于模型的评估在存在一系列可能的输出，且这些输出在质量上被认为是相等的情况下（例如，对于需要长答案的问题）是有用的。基于模型的评估与需要人类进行评估的情况之间的界限是模糊的，并且随着模型能力的提升，这个界限不断变化。我们鼓励进行实验，以确定基于模型的评估在您的用例中的效果如何。&lt;/p&gt;
+&lt;h2 id=&quot;通过与黄金标准答案对比评估模型输出结果&quot;&gt;通过与黄金标准答案对比评估模型输出结果&lt;/h2&gt;
+&lt;p&gt;假设我们已知问题的正确答案应该涉及到一组特定的已知事实。然后我们可以使用模型查询来计算答案中包含的必要事实的数量。&lt;/p&gt;
+&lt;p&gt;例如，使用以下系统消息：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Role&lt;/th&gt;
+&lt;th&gt;Prompt&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SYSTEM&lt;/td&gt;
+&lt;td&gt;You will be provided with text delimited by triple quotes that is supposed to be the answer to a question. Check if the following pieces of information are directly contained in the answer:&lt;br&gt;- Neil Armstrong was the first person to walk on the moon.&lt;br&gt;- The date Neil Armstrong first walked on the moon was July 21, 1969.&lt;br&gt;For each of these points perform the following steps:&lt;br&gt;1 - Restate the point.&lt;br&gt;2 - Provide a citation from the answer which is closest to this point.&lt;br&gt;3 - Consider if someone reading the citation who doesn’t know the topic could directly infer the point. Explain why or why not before making up your mind.&lt;br&gt;4 - Write “yes” if the answer to 3 was yes, otherwise write “no”.&lt;br&gt;Finally, provide a count of how many “yes” answers there are. Provide this count as {“count”: &lt;insert count here&gt;}.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</summary>
     
     
     
