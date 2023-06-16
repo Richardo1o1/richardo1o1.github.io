@@ -150,30 +150,30 @@ var _hmt = _hmt || [];
 <p>就像在软件工程中将复杂系统分解为一组模块化的组件一样，将任务分解为一系列简单的子任务对于提交给GPTs的任务也是一种良好的实践。复杂任务往往比简单任务具有更高的错误率。此外，复杂任务通常可以被重新定义为简单任务的工作流程，其中早期任务的输出用于构建后续任务的输入。</p>
 <p><strong>策略：</strong></p>
 <ul>
-<li>使用意图分类来识别用户查询中最相关的指令</li>
-<li>对于需要非常长对话的对话应用程序，对先前的对话进行概述或筛选</li>
-<li>以分段方式概述长文档并递归构建完整摘要</li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/#%E4%BD%BF%E7%94%A8%E6%84%8F%E5%9B%BE%E5%88%86%E7%B1%BB%E6%9D%A5%E8%AF%86%E5%88%AB%E7%94%A8%E6%88%B7%E6%9F%A5%E8%AF%A2%E7%9A%84%E6%9C%80%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4">使用意图分类来识别用户查询中最相关的指令</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/#%E5%AF%B9%E4%BA%8E%E9%9C%80%E8%A6%81%E9%9D%9E%E5%B8%B8%E9%95%BF%E5%AF%B9%E8%AF%9D%E7%9A%84%E5%AF%B9%E8%AF%9D%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%AF%B9%E5%85%88%E5%89%8D%E7%9A%84%E5%AF%B9%E8%AF%9D%E8%BF%9B%E8%A1%8C%E6%A6%82%E8%BF%B0%E6%88%96%E7%AD%9B%E9%80%89">对于需要非常长对话的对话应用程序，对先前的对话进行概述或筛选</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/#%E4%BB%A5%E5%88%86%E6%AE%B5%E6%96%B9%E5%BC%8F%E6%A6%82%E8%BF%B0%E9%95%BF%E6%96%87%E6%A1%A3%E5%B9%B6%E9%80%92%E5%BD%92%E6%9E%84%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%91%98%E8%A6%81">以分段方式概述长文档并递归构建完整摘要</a></li>
 </ul>
 <h2 id="四、给GPTs一些时间来“思考”">四、给GPTs一些时间来“思考”</h2>
 <p>如果被要求计算17乘以28，你可能无法立即知道答案，但在给予时间后仍然可以计算出来。类似地，GPTs在试图立即回答问题时会产生更多的推理错误，而不是花时间来思考答案。在得出答案之前，要求GPTs进行一系列的推理可以帮助它们更可靠地推理出正确的答案。</p>
 <p><strong>策略：</strong></p>
 <ul>
-<li>指示模型在草率得出结论之前自己解决问题</li>
-<li>使用内部独白或一系列查询来隐藏模型的推理过程</li>
-<li>询问模型是否在之前的步骤中遗漏了什么</li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/14/Give-GPTs-time-to-think-strategy/#%E6%8C%87%E7%A4%BA%E6%A8%A1%E5%9E%8B%E5%9C%A8%E8%8D%89%E7%8E%87%E5%BE%97%E5%87%BA%E7%BB%93%E8%AE%BA%E4%B9%8B%E5%89%8D%E8%87%AA%E5%B7%B1%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">指示模型在草率得出结论之前自己解决问题</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/14/Give-GPTs-time-to-think-strategy/#%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E7%8B%AC%E7%99%BD%E6%88%96%E4%B8%80%E7%B3%BB%E5%88%97%E6%9F%A5%E8%AF%A2%E6%9D%A5%E9%9A%90%E8%97%8F%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%BF%87%E7%A8%8B">使用内部独白或一系列查询来隐藏模型的推理过程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/14/Give-GPTs-time-to-think-strategy/#%E8%AF%A2%E9%97%AE%E6%A8%A1%E5%9E%8B%E6%98%AF%E5%90%A6%E5%9C%A8%E4%B9%8B%E5%89%8D%E7%9A%84%E6%AD%A5%E9%AA%A4%E4%B8%AD%E9%81%97%E6%BC%8F%E4%BA%86%E4%BB%80%E4%B9%88">询问模型是否在之前的步骤中遗漏了什么</a></li>
 </ul>
 <h2 id="五、使用外部工具">五、使用外部工具</h2>
 <p>通过将其他工具的输出提供给GPTs来弥补其弱点。例如，文本检索系统可以向GPTs提供相关文档信息。代码执行引擎可以帮助GPTs进行数学计算和代码运行。如果某个任务可以通过工具而不是GPTs更可靠或更高效地完成，可以将其外包，以充分发挥优势。</p>
 <p><strong>策略：</strong></p>
 <ul>
-<li>使用基于嵌入的搜索实现高效的知识检索</li>
-<li>使用代码执行进行更准确的计算或调用外部API</li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/15/Use-external-tools-strategy/#%E4%BD%BF%E7%94%A8%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E6%90%9C%E7%B4%A2%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E7%9A%84%E7%9F%A5%E8%AF%86%E6%A3%80%E7%B4%A2">使用基于嵌入的搜索实现高效的知识检索</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/15/Use-external-tools-strategy/#%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E8%BF%9B%E8%A1%8C%E6%9B%B4%E5%87%86%E7%A1%AE%E7%9A%84%E8%AE%A1%E7%AE%97%E6%88%96%E8%B0%83%E7%94%A8%E5%A4%96%E9%83%A8API">使用代码执行进行更准确的计算或调用外部API</a></li>
 </ul>
 <h2 id="六、系统地测试变化">六、系统地测试变化</h2>
 <p>如果能够衡量性能，改进性能就会更容易。在某些情况下，对提示进行修改可能会在一些孤立的例子上取得更好的性能，但在更具代表性的例子集上导致整体性能变差。因此，为了确保改变对性能的影响是正向的，可能需要定义一个全面的测试套件（也称为“评估”）。</p>
 <p><strong>策略：</strong></p>
 <ul>
-<li>通过与黄金标准答案对比评估模型输出结果</li>
+<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/16/test-changes-systematically-strategy/#%E9%80%9A%E8%BF%87%E4%B8%8E%E9%BB%84%E9%87%91%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88%E5%AF%B9%E6%AF%94%E8%AF%84%E4%BC%B0%E6%A8%A1%E5%9E%8B%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C">通过与黄金标准答案对比评估模型输出结果</a></li>
 </ul>
  
       <!-- reward -->
