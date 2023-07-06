@@ -5730,4 +5730,83 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>AIGC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>FRP内网穿透实际操作</title>
+    <url>/2023/07/06/frp-NAT-intranet-remote-control/</url>
+    <content><![CDATA[<h2 id="为什么要内网穿透">为什么要内网穿透</h2>
+<p>内网穿透，也即 NAT 穿透，进行 NAT 穿透是为了使具有某一个特定源 IP 地址和源端口号的数据包不被 NAT 设备屏蔽而正确路由到内网主机。 说人话就是我们想在不连接家里的wifi的情况下访问我们家里面的电脑和其他设备时，由于家庭宽带没有固定的公网ip使得我们无法向访问云服务器一样 直接访问，这时候我们就需要使用到内网穿透技术，让我们在其他网络下也能访问到处于内网环境的设备。而内网穿透的工具也有很多如： - 花生壳 - nat123 - ngrok - frp，本文主要讲FRP的搭建和使用，这个方案基本免费，仅需要一个有公网IP的服务器。我用的是腾讯云的服务器。</p>
+<h2 id="什么是FRP">什么是FRP</h2>
+<p>Frp (Fast Reverse Proxy) 是比较流行的一款。FRP 是一个免费开源的用于内网穿透的反向代理应用，它支持 TCP、UDP 协议， 也为 http 和 https 协议提供了额外的支持。你可以粗略理解它是一个中转站， 帮你实现 公网 ←→ FRP(服务器) ←→ 内网 的连接，让内网里的设备也可以被公网访问到。<a href="https://link.zhihu.com/?target=https%3A//github.com/fatedier/frp">仓库地址</a></p>
+<h2 id="安装FRP">安装FRP</h2>
+<span id="more"></span>
+<p>首先我们得要有一台有公网ip的服务器，比如各大云服务器。然后我们就需要去服务器上安装服务端。</p>
+<h3 id="服务端安装与配置">服务端安装与配置</h3>
+<p>FRP 使用 Go 语言开发，可以支持 Windows、Linux、macOS、ARM 等多平台部署。FRP 安装非常容易，只需下载对应系统平台的软件包并解压就可用了。 这里以Linux系统Ubuntu 18.04为例：</p>
+<ul>
+<li>首先下载对应的安装包。自行选择对应的版本 <a href="https://link.zhihu.com/?target=https%3A//github.com/fatedier/frp/releases">https://github.com/fatedier/frp</a> ，一般Linux服务器都选择 xxx_linux_amd64.tar.gz 的版本。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -<span class="comment"># -LJO https://github.com/fatedier/frp/releases/download/v0.51.0/frp_0.51.0_linux_amd64.tar.gz</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用tar指令解压tar.gz文件 <code>tar -zxvf frp_0.51.0_linux_amd64.tar.gz</code></li>
+<li>进入解压后的文件夹</li>
+<li>由于我们是服务端所以只需要关注frps相关文件就行了 - 接下来我们开始对服务端进行配置 <code>vim frps.ini</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">bind_addr = 0.0.0.0</span><br><span class="line">token = 123456</span><br><span class="line"></span><br><span class="line">dashboard_port = 37500</span><br><span class="line">dashboard_user = admin</span><br><span class="line">dashboard_pwd = admin</span><br></pre></td></tr></table></figure>
+<p>[common]部分是必须有的配置,其中bind_port是自己设定的frp服务端端口，bind_addr是绑定的ip地址默认为0.0.0.0即本机的所有ip地址。 token用于验证连接，只有服务端和客户端token相同的时候才能正常访问。如果不使用token，那么所有人都可以直接连接上，所以建议大家在使用的时候还是把token加上。 而下面的[dashboard]仪表盘的配置（可以不配置） 配置了的化可以访问服务器ip:dashboard_port 通过dashboard_user和dashboard_pwd登陆后查看frp服务器状态</p>
+<p>服务端这样配置就可以了，其他高级功能请参考<a href="https://link.zhihu.com/?target=https%3A//gofrp.org/docs/">官方文档</a>。 - 启动服务端 <code>./frps -c frps.ini</code> 当然我们也可以把frps注册成系统服务，避免每次重启系统都要去手动启动。</p>
+<h3 id="配置系统服务">配置系统服务</h3>
+<p><code>sudo vim /lib/systemd/system/frps.service</code> 然后在frps.service文件里写入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=frp server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line"></span><br><span class="line">ExecStart=/your path/frps -c /your path/frps.ini</span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line">ExecStop=/bin/kill -s QUIT $MAINPID</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>然后就可以</p>
+<ul>
+<li>启动frps了 <code>sudo systemctl start frps</code></li>
+<li>打开自启动 <code>sudo systemctl enable frps</code></li>
+<li>查看状态和日志信息： <code>sudo systemctl status frps</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">➜  ~ systemctl status frps</span><br><span class="line">● frps.service - fraps service</span><br><span class="line">   Loaded: loaded (/lib/systemd/system/frps.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since Thu 2020-12-17 17:14:06 CST; 49s ago</span><br><span class="line"> Main PID: 28974 (frps)</span><br><span class="line">    Tasks: 5 (limit: 4465)</span><br><span class="line">   CGroup: /system.slice/frps.service</span><br><span class="line">           └─28974 /root/frp/frps -c /root/frp/frps.ini</span><br><span class="line"></span><br><span class="line">Dec 17 17:14:06 VM-0-15-ubuntu systemd[1]: Started fraps service.</span><br><span class="line">Dec 17 17:14:06 VM-0-15-ubuntu frps[28974]: 2020/12/17 17:14:06 [I] [service.go:190] frps tcp listen on 0.0.0.0:700</span><br><span class="line">Dec 17 17:14:06 VM-0-15-ubuntu frps[28974]: 2020/12/17 17:14:06 [I] [service.go:289] Dashboard listen on 0.0.0.0:37</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果要重启应用，可以这样，<code>sudo systemctl restart frps</code></li>
+<li>如果要停止应用，可以输入，<code>sudo systemctl stop frps</code></li>
+</ul>
+<p>到这里服务端已经配置完成，你已经可以访问你的frp仪表盘了。</p>
+<h3 id="Windows客户端的配置">Windows客户端的配置</h3>
+<p>首先客户端也要先去下载对应的安装包。自行选择对应的版本 <a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a> ，Windows端一般选择： xxx_windows_amd64.zip ,好像最新版本没有Windows版本的，我下的是 v0.50.0</p>
+<ul>
+<li>然后我们需要对frpc.ini进行配置 这里以windows 远程控制为例：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line"># 服务器的公网地址</span><br><span class="line">server_addr = X.X.X.X</span><br><span class="line"># 7000为服务端frp与客户端frp相互通信的端口就是我们服务端配置的监听端口</span><br><span class="line">server_port = 7000</span><br><span class="line">token = 123456</span><br><span class="line"></span><br><span class="line">[rdp]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 3389</span><br><span class="line">remote_port = 6666</span><br></pre></td></tr></table></figure>
+<p>接着我们就可以启动客户端了。 powershell启动客户端frp <code>./frpc -c frpc.ini</code></p>
+<p>当然我们还可以设置客户端的自启动，以Windows电脑为例：</p>
+<ol>
+<li>首先编写启动脚本：run.vbs</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Set ws = CreateObject(&quot;Wscript.Shell&quot;)</span><br><span class="line">ws.run &quot;cmd /c c:\frps\frpc.exe -c c:\frps\frpc.ini&quot;,vbhide</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：<code>/c c:\frps</code>请自行更换成你自己电脑的frp所在路径</p>
+<ol start="2">
+<li>然后把run.vbs放到启动目录即可 <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp</code><br>
+远端Windows电脑就可以通过 远程桌面 访问 X.X.X.X:6666 来访问这台电脑（前提是这台电脑开启了远程桌面）</li>
+</ol>
+<h3 id="Linux客户端的配置">Linux客户端的配置</h3>
+<ul>
+<li>首先客户端也要先去下载对应的安装包。自行选择对应的版本 <a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a> ，一般Linux服务器都选择 xxx_linux_amd64.tar.gz 的版本。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -<span class="comment"># -LJO https://github.com/fatedier/frp/releases/download/v0.51.0/frp_0.51.0_linux_amd64.tar.gz</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用tar指令解压tar.gz文件 <code>tar -zxvf frp_0.51.0_linux_amd64.tar.gz</code></li>
+<li>进入解压后的文件夹</li>
+<li>配置frpc.ini文件：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line"># 服务器的公网地址</span><br><span class="line">server_addr = X.X.X.X</span><br><span class="line"># 7000为服务端frp与客户端frp相互通信的端口就是我们服务端配置的监听端口</span><br><span class="line">server_port = 7000</span><br><span class="line">token = 123456</span><br><span class="line"></span><br><span class="line">[ssh]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 6020</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动客户端 <code>./frpc -c frpc.ini</code> 当然我们也可以把frpc注册成系统服务，避免每次重启系统都要去手动启动,步骤和上面类似。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>远程控制</tag>
+      </tags>
+  </entry>
 </search>
