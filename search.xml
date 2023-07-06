@@ -5800,6 +5800,7 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <ul>
 <li>启动客户端 <code>./frpc -c frpc.ini</code> 当然我们也可以把frpc注册成系统服务，避免每次重启系统都要去手动启动,步骤和上面类似。</li>
 </ul>
+<p>远端电脑就可以通过 <code>ssh xxx.xxx.xxx.xxx -p 6020</code> 来访问这台Linux了</p>
 ]]></content>
       <categories>
         <category>日常练习</category>
