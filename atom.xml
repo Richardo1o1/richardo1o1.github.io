@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-07-06T14:20:07.493Z</updated>
+  <updated>2023-07-25T03:41:45.249Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>conda 创建、激活、退出、删除虚拟环境 (Anaconda)</title>
+    <link href="http://yunminitools.cn/2023/07/25/conda-command-create-activate/"/>
+    <id>http://yunminitools.cn/2023/07/25/conda-command-create-activate/</id>
+    <published>2023-07-25T03:39:55.000Z</published>
+    <updated>2023-07-25T03:41:45.249Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在Anaconda中conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。所以对虚拟环境进行创建、删除等操作需要使用conda命令。&lt;/p&gt;
+&lt;h1&gt;conda 本地环境常用操作&lt;/h1&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>FRP内网穿透实际操作</title>
@@ -684,34 +711,6 @@ F(router/index.js 配置路由)--&gt;C&lt;/pre&gt;</summary>
     <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
     <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript 箭头函数</title>
-    <link href="http://yunminitools.cn/2023/04/14/javascript-arrow-function/"/>
-    <id>http://yunminitools.cn/2023/04/14/javascript-arrow-function/</id>
-    <published>2023-04-14T15:05:13.000Z</published>
-    <updated>2023-04-14T15:05:44.376Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;strong&gt;Javascript 箭头函数&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
