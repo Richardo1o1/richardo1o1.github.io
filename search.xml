@@ -363,6 +363,68 @@ As an additional firewall, a new key pair should be used for each transaction to
       </tags>
   </entry>
   <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</title>
+    <url>/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="11-计算">11 计算</h2>
+<p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.<br>
+The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker’s chain being extended by one block, reducing the gap by -1. The probability of an attacker catching up from a given deficit is analogous to a Gambler’s Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:<br>
+p = probability an honest node finds the next block<br>
+q = probability the attacker finds the next block<br>
+qz = probability the attacker will ever catch up from z blocks behind<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "></p>
+<span id="more"></span>
+<p>Given our assumption that p &gt; q, the probability drops exponentially as the number of blocks the attacker has to catch up with increases. With the odds against him, if he doesn’t make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.<br>
+We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can’t change the transaction. We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed. The receiver will be alerted when that happens, but the sender hopes it will be too late.<br>
+The receiver generates a new key pair and gives the public key to the sender shortly before signing. This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment. Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.<br>
+The recipient waits until the transaction has been added to a block and z blocks have been linked after it. He doesn’t know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker’s potential progress will be a Poisson distribution with expected value:<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
+To get the probability the attacker could still catch up now, we multiply the Poisson density for<br>
+each amount of progress he could have made by the probability he could catch up from that point:<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
+Rearranging to avoid summing the infinite tail of the distribution…<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "><br>
+Converting to C code…</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Running some results, we can see the probability drop off exponentially with z.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
+<p>Solving for P less than 0.1%…</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
+<p>我们考虑一个攻击者试图生成一条比诚实链更快的替代链的情况。即使这个目标达到了，也不会使系统变得可以任意修改，比如凭空创建货币或拿走不属于他的钱。节点将不会接受无效的交易作为支付，而且诚实节点永远不会接受一个包含无效交易的区块。攻击者只可能改变他自己的某笔交易来拿回他不久前已经支出的钱。<br>
+诚实链与攻击者链之间的竞争可描述为二项随机漫步。成功事件是诚实节点被延长一个区块，两条链的差距加 1，失败事件是攻击者的链延长一个区块，两条链的差距减 1。攻击者从某一落后位置赶上诚实链的概率类似于赌徒破产理论。设想一个拥有无限筹码的赌徒从一定亏损开始，进行可能无限次的赌博试图达到盈亏平衡。我们可以计算他达到盈亏平衡，即一个攻击者赶上诚实链的概率，如下 [8]：<br>
+p = 诚实节点找到下一个区块的概率<br>
+q = 攻击者找到下一个区块的概率<br>
+qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "><br>
+我们假设 p &gt; q，概率将随着攻击者需要赶上的区块数增加而呈指数下降。 由于形势对他不利，如果他没有在早期幸运地快速赶上，他落得越远赶上的机会就越渺茫。我们现在考虑一个新交易的收款人要等多久才能确保付款人不能再改变这个交易。我们假设作为攻击者的付款人是想让收款人相信他暂时已经付款，然后在一段时间后转换成支付回自己。这时收款人会收到警告，但付款人希望警告已为时已晚。<br>
+收款人生成一个新密钥对并将公钥给付款人，这样付款人就无法提前对交易签名。这能防止付款人通过持续工作直到他足够幸运获得大幅领先的方式预先准备一条区块链，然后在那时执行交易。一旦交易被发出，不诚实的付款人就开始秘密地在一条包含了他的替换版交易的平行链上工作。<br>
+收款人等到交易被加到区块中且其后追加了 z 个区块。他不知道攻击者确切的进度，但是假设诚实的区块按期望的平均时间生成，攻击者可能的进度将是一个泊松分布，其期望值为：<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
+为计算攻击者现在仍然能赶上的概率，我们给每个他可能达到的进度的泊松密度乘以他在那个进度能赶上诚实链的概率：<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
+变换以避免对分布的无限尾部求和…<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "></p>
+<p>转换成 C 语言代码…</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行得到一些结果，我们可以看到概率随 z 呈指数下降。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
+<p>P 小于 0.1% 的解…</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
+<p>【关注点】：</p>
+<ul>
+<li>Gambler’s Ruin problem, 这个应该是个经典数学问题，需要资料。</li>
+<li>P 小于 0.1% 的解…，说明了什么？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AI 论文速递</title>
     <url>/2023/03/29/AI-articles/</url>
     <content><![CDATA[<p>@RickYU写了个小项目 BriefGPT，抓取 Arxiv AI 领域论文，通过 GPT 生成中文标题和论文概要，高亮顶会论文，方便快速筛选。<br>
@@ -374,6 +436,32 @@ As an additional firewall, a new key pair should be used for each transaction to
       </categories>
       <tags>
         <tag>人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub Pages 强制使用HTTPS协议访问</title>
+    <url>/2023/02/18/Add-Https-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
+<h2 id="设置步骤">设置步骤</h2>
+<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
+<ol>
+<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
+<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
+<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
+</ol>
+<div style="width: 40%; margin: 10px">
+   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
+</div>
+3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
+![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
+<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
       </tags>
   </entry>
   <entry>
@@ -493,6 +581,208 @@ SSL/TLS协议的基本思路是采用公钥加密法，也就是说，客户端�
       <tags>
         <tag>编程技巧</tag>
         <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>写出明确的指引的策略</title>
+    <url>/2023/06/07/Clear-Instructions-Tactics-1/</url>
+    <content><![CDATA[<h2 id="在查询中包含详细信息以获得更相关的答案">在查询中包含详细信息以获得更相关的答案</h2>
+<p>（Include details in your query to get more relevant answers****）****</p>
+<p>为了获得高度相关的回答，请确保请求提供任何重要的细节或背景信息。否则，你就让模型去猜你的意思了。</p>
+<table>
+<thead>
+<tr>
+<th>Worse</th>
+<th>Better</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How do I add numbers in Excel?</td>
+<td>How do I add up a row of dollar amounts in Excel? I want to do this automatically for a whole sheet of rows with all the totals ending up on the right in a column called “Total”.</td>
+</tr>
+<tr>
+<td>Who’s president?</td>
+<td>Who was the president of Mexico in 2021, and how frequently are elections held?</td>
+</tr>
+<tr>
+<td>Write code to calculate the Fibonacci sequence.</td>
+<td>Write a TypeScript function to efficiently calculate the Fibonacci sequence. Comment the code liberally to explain what each piece does and why it’s written that way.</td>
+</tr>
+<tr>
+<td>Summarize the meeting notes.</td>
+<td>Summarize the meeting notes in a single paragraph. Then write a markdown list of the speakers and each of their key points. Finally, list the next steps or action items suggested by the speakers, if any.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="要求模型采用特定的人设">要求模型采用特定的人设</h2>
+<p>（Ask the model to adopt a persona）<br>
+系统消息可以用来指定模型在回复中所使用的人设。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
+</tr>
+</tbody>
+</table>
+<span id="more"></span>
+<h2 id="使用分隔符清晰地标示输入的不同部分">使用分隔符清晰地标示输入的不同部分</h2>
+<p>（Use delimiters to clearly indicate distinct parts of the input）</p>
+<p>使用分隔符，如三重引号、XML标签、章节标题等，可以帮助标示文本的不同部分，以便进行不同的处理。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes with a haiku.<br>“”“insert text here”“”</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with a pair of articles (delimited with XML tags) about the same topic. First summarize the arguments of each article. Then indicate which of them makes a better argument and explain why.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td><article> insert first article here </article><br><article> insert second article here </article></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with a thesis abstract and a suggested title for it. The thesis title should give the reader a good idea of the topic of the thesis but should also be eye-catching. If the title does not meet these criteria, suggest 5 alternatives.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Abstract: insert abstract here<br>Title: insert title here</td>
+</tr>
+</tbody>
+</table>
+<p>对于这样简单的任务，使用分隔符可能对输出质量没有太大影响。然而，对于更复杂的任务，更重要的是消除任务细节的歧义。不要让GPTs费力去理解您到底要求它们做什么。</p>
+<h2 id="指定完成任务所需的步骤">指定完成任务所需的步骤</h2>
+<p>（Specify the steps required to complete a task）<br>
+对于某些任务来说，最好将其指定为一系列步骤。明确地写出这些步骤可以让模型更容易地按照它们进行操作。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Use the following step-by-step instructions to respond to user inputs.<br>Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: &quot;.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>“”“insert text here”“”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="提供示例">提供示例</h2>
+<p>（Provide examples）<br>
+通常情况下，提供适用于所有示例的一般指令比通过示例展示任务的所有变化更高效，但在某些情况下，提供示例可能更容易。例如，如果您打算让模型复制一种难以明确描述的特定用户查询响应样式，这就是所谓的“少样本”提示。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Answer in a consistent style.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Teach me about patience.</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>The river that carves the deepest valley flows from a modest spring; the grandest symphony originates from a single note; the most intricate tapestry begins with a solitary thread.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Teach me about the ocean.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="指定期望的输出长度">指定期望的输出长度</h2>
+<p>（Specify the desired length of the output）<br>
+您可以要求模型生成具有特定目标长度的输出。目标输出长度可以根据单词数、句子数、段落数、项目符号等来指定。然而，请注意，指示模型生成特定数量的单词并不具有高精度。模型可以更可靠地生成具有特定段落数或项目符号数的输出。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes in about 50 words.<br>“”“insert text here”“”</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes in 2 paragraphs.<br>“”“insert text here”&quot;”</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Summarize the text delimited by triple quotes in 3 bullet points.<br>“”“insert text here”&quot;”</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
+        <tag>AIGC</tag>
       </tags>
   </entry>
   <entry>
@@ -1192,65 +1482,24 @@ MIXIN是跨多个类重用代码的一个很好的方法，但是它们会带来
       </tags>
   </entry>
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</title>
-    <url>/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</url>
-    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="11-计算">11 计算</h2>
-<p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.<br>
-The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker’s chain being extended by one block, reducing the gap by -1. The probability of an attacker catching up from a given deficit is analogous to a Gambler’s Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:<br>
-p = probability an honest node finds the next block<br>
-q = probability the attacker finds the next block<br>
-qz = probability the attacker will ever catch up from z blocks behind<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "></p>
-<span id="more"></span>
-<p>Given our assumption that p &gt; q, the probability drops exponentially as the number of blocks the attacker has to catch up with increases. With the odds against him, if he doesn’t make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.<br>
-We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can’t change the transaction. We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed. The receiver will be alerted when that happens, but the sender hopes it will be too late.<br>
-The receiver generates a new key pair and gives the public key to the sender shortly before signing. This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment. Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.<br>
-The recipient waits until the transaction has been added to a block and z blocks have been linked after it. He doesn’t know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker’s potential progress will be a Poisson distribution with expected value:<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
-To get the probability the attacker could still catch up now, we multiply the Poisson density for<br>
-each amount of progress he could have made by the probability he could catch up from that point:<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
-Rearranging to avoid summing the infinite tail of the distribution…<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "><br>
-Converting to C code…</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Running some results, we can see the probability drop off exponentially with z.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
-<p>Solving for P less than 0.1%…</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
-<p>我们考虑一个攻击者试图生成一条比诚实链更快的替代链的情况。即使这个目标达到了，也不会使系统变得可以任意修改，比如凭空创建货币或拿走不属于他的钱。节点将不会接受无效的交易作为支付，而且诚实节点永远不会接受一个包含无效交易的区块。攻击者只可能改变他自己的某笔交易来拿回他不久前已经支出的钱。<br>
-诚实链与攻击者链之间的竞争可描述为二项随机漫步。成功事件是诚实节点被延长一个区块，两条链的差距加 1，失败事件是攻击者的链延长一个区块，两条链的差距减 1。攻击者从某一落后位置赶上诚实链的概率类似于赌徒破产理论。设想一个拥有无限筹码的赌徒从一定亏损开始，进行可能无限次的赌博试图达到盈亏平衡。我们可以计算他达到盈亏平衡，即一个攻击者赶上诚实链的概率，如下 [8]：<br>
-p = 诚实节点找到下一个区块的概率<br>
-q = 攻击者找到下一个区块的概率<br>
-qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "><br>
-我们假设 p &gt; q，概率将随着攻击者需要赶上的区块数增加而呈指数下降。 由于形势对他不利，如果他没有在早期幸运地快速赶上，他落得越远赶上的机会就越渺茫。我们现在考虑一个新交易的收款人要等多久才能确保付款人不能再改变这个交易。我们假设作为攻击者的付款人是想让收款人相信他暂时已经付款，然后在一段时间后转换成支付回自己。这时收款人会收到警告，但付款人希望警告已为时已晚。<br>
-收款人生成一个新密钥对并将公钥给付款人，这样付款人就无法提前对交易签名。这能防止付款人通过持续工作直到他足够幸运获得大幅领先的方式预先准备一条区块链，然后在那时执行交易。一旦交易被发出，不诚实的付款人就开始秘密地在一条包含了他的替换版交易的平行链上工作。<br>
-收款人等到交易被加到区块中且其后追加了 z 个区块。他不知道攻击者确切的进度，但是假设诚实的区块按期望的平均时间生成，攻击者可能的进度将是一个泊松分布，其期望值为：<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
-为计算攻击者现在仍然能赶上的概率，我们给每个他可能达到的进度的泊松密度乘以他在那个进度能赶上诚实链的概率：<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
-变换以避免对分布的无限尾部求和…<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "></p>
-<p>转换成 C 语言代码…</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行得到一些结果，我们可以看到概率随 z 呈指数下降。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
-<p>P 小于 0.1% 的解…</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
-<p>【关注点】：</p>
-<ul>
-<li>Gambler’s Ruin problem, 这个应该是个经典数学问题，需要资料。</li>
-<li>P 小于 0.1% 的解…，说明了什么？</li>
-</ul>
+    <title>解决Django无法访问远程服务器</title>
+    <url>/2023/06/04/Django-Remote-Server-Access/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>我在运上搭建了Django的服务器环境，这样就不能用 <code>http://127.0.0.1:8000</code> 来访问Django的服务了，那如何解决呢？</p>
+<h2 id="解决方案">解决方案</h2>
+<p>在启动服务的时候，加一些参数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 [manage.py](http://manage.py/) runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
+<p>同时，修改 <code>setting.py</code>，将远端的服务器ip加到ALLOWED_HOSTS参数里：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;xxx.xxx.xxx.xxx&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p><em>注：其中’<a href="http://xxx.xxx.xxx.xxx">xxx.xxx.xxx.xxx</a>’是你远程服务器的外网ip</em></p>
+<p>这样，就可以用 <code>http://xxx.xxx.xxx.xxx:8000</code> 访问Django的服务了。</p>
 ]]></content>
       <categories>
-        <category>当日所学</category>
+        <category>日常练习</category>
       </categories>
       <tags>
-        <tag>比特币</tag>
-        <tag>论文学习</tag>
+        <tag>编程技巧</tag>
+        <tag>Django</tag>
       </tags>
   </entry>
   <entry>
@@ -1604,29 +1853,166 @@ A---I(退化维度)</pre>
       </tags>
   </entry>
   <entry>
-    <title>GitHub Pages 强制使用HTTPS协议访问</title>
-    <url>/2023/02/18/Add-Https-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
-<h2 id="设置步骤">设置步骤</h2>
-<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
-<ol>
-<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
-<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
-<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
-</ol>
-<div style="width: 40%; margin: 10px">
-   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
-</div>
-3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
-![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
-<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
+    <title>给GPTs一些时间来“思考”的策略</title>
+    <url>/2023/06/14/Give-GPTs-time-to-think-strategy/</url>
+    <content><![CDATA[<h2 id="指示模型在草率得出结论之前自己解决问题">指示模型在草率得出结论之前自己解决问题</h2>
+<p>有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Determine if the student’s solution is correct or not.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem Statement: I’m building a solar power installation and I need help working out the financials.<br>- Land costs $100 / square foot<br>- I can buy solar panels for $250 / square foot<br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot<br>What is the total cost for the first year of operations as a function of the number of square feet.<br>Student’s Solution: Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 100x<br>Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>The student’s solution is correct.</td>
+</tr>
+</tbody>
+</table>
+<p>但学生的解答实际上是不正确的！我们可以通过提示模型首先生成自己的解答来成功让模型注意到这一点。</p>
+<span id="more"></span>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>First work out your own solution to the problem. Then compare your solution to the student’s solution and evaluate if the student’s solution is correct or not. Don’t decide if the student’s solution is correct until you have done the problem yourself.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem Statement: I’m building a solar power installation and I need help working out the financials.<br>- Land costs $100 / square foot<br>- I can buy solar panels for $250 / square foot<br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot<br>What is the total cost for the first year of operations as a function of the number of square feet.<br>Student’s Solution: Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 100x<br>Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 10x<br>Total cost: 100x + 250x + 100,000 + 10x = 360x + 100,000<br>The student’s solution is incorrect. They made an error in the maintenance cost calculation, using 100x instead of 10x. The correct total cost for the first year of operations is 360x + 100,000.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用内部独白或一系列查询来隐藏模型的推理过程">使用内部独白或一系列查询来隐藏模型的推理过程</h2>
+<p>前面的策略表明，对于模型在回答具体问题之前，详细地思考问题有时非常重要。在某些应用中，模型到达最终答案的推理过程可能不适合与用户共享。例如，在辅导应用中，我们可能希望鼓励学生自行解答问题，但是模型关于学生解答的推理过程可能会向学生透露答案。<br>
+内部独白是一种可以缓解这个问题的策略。内部独白的思想是指示模型将输出中需要隐藏的部分放入结构化的格式中，以便容易解析。然后在将输出呈现给用户之前，对输出进行解析，只显示部分输出，隐藏其他部分。这种策略可以在模型的推理过程或敏感信息需要对用户隐藏的情况下使用，同时提供有意义和相关的回答。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Follow these steps to answer the user queries.<br>Step 1 - First work out your own solution to the problem. Don’t rely on the student’s solution since it may be incorrect. Enclose all your work for this step within triple quotes (“”“).<br>Step 2 - Compare your solution to the student’s solution and evaluate if the student’s solution is correct or not. Enclose all your work for this step within triple quotes (”“”).<br>Step 3 - If the student made a mistake, determine what hint you could give the student without giving away the answer. Enclose all your work for this step within triple quotes (“”&quot;).<br>Step 4 - If the student made a mistake, provide the hint from the previous step to the student (outside of triple quotes). Instead of writing “Step 4 - …” write “Hint:”.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem Statement: <insert problem statement><br>Student Solution: <insert student solution></td>
+</tr>
+</tbody>
+</table>
+<p>或者，这可以通过一系列查询来实现，在其中除了最后一个查询外，所有其他查询的输出都对最终用户隐藏。<br>
+首先，我们可以要求模型自行解决问题。由于这个初始查询不需要学生的解答，可以省略该部分。这还具有额外的优点，即模型的解决方案不会受到学生尝试解答的影响。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td><insert problem statement></td>
+</tr>
+</tbody>
+</table>
+<p>接下来，我们可以让模型使用所有可用信息来评估学生的解答的正确性。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Compare your solution to the student’s solution and evaluate if the student’s solution is correct or not.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem statement: “”“<insert problem statement>”“”<br>Your solution: “”“<insert model generated solution>”“”<br>Student’s solution: “”“&lt;insert student’s solution&gt;”&quot;”</td>
+</tr>
+</tbody>
+</table>
+<p>最后，我们可以让模型利用自己的分析能力以一个有帮助的导师的角色构建回复。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You are a math tutor. If the student made an error, offer a hint to the student in a way that does not reveal the answer. If the student did not make an error, simply offer them an encouraging comment.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem statement: “”“<insert problem statement>”“”<br>Your solution: “”“<insert model generated solution>”“”<br>Student’s solution: “”“&lt;insert student’s solution&gt;”“”<br>Analysis: “”“<insert model generated analysis from previous step>”&quot;”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="询问模型是否在之前的步骤中遗漏了什么">询问模型是否在之前的步骤中遗漏了什么</h2>
+<p>假设我们正在使用一个模型来列举与特定问题相关的源文摘。在列举每个文摘后，模型需要确定是否应该开始写下一个文摘，或者是否应该停止。如果源文档很大，模型通常会过早停止，没有列举出所有相关的文摘。在这种情况下，通过提示模型使用后续查询来找出之前遗漏的文摘，通常可以获得更好的性能。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with a document delimited by triple quotes. Your task is to select excerpts which pertain to the following question: “What significant paradigm shifts have occurred in the history of artificial intelligence.”<br>Ensure that excerpts contain all relevant context needed to interpret them - in other words don’t extract small snippets that are missing important context. Provide output in JSON format as follows:<br>[{“excerpt”: “…”},<br>…<br>{“excerpt”: “…”}]</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>“”“<insert document here>”&quot;”</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>[{“excerpt”: “the model writes an excerpt here”},<br>…<br>{“excerpt”: “the model writes another excerpt here”}]</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Are there more relevant excerpts? Take care not to repeat excerpts. Also ensure that excerpts contain all relevant context needed to interpret them - in other words don’t extract small snippets that are missing important context.</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>当日所学</category>
       </categories>
       <tags>
-        <tag>博客管理</tag>
+        <tag>人工智能</tag>
+        <tag>AIGC</tag>
       </tags>
   </entry>
   <entry>
@@ -3552,6 +3938,30 @@ B5-->C53(Stand up)</pre>
       </tags>
   </entry>
   <entry>
+    <title>U型思考介绍-1</title>
+    <url>/2023/07/27/U-Theory-1/</url>
+    <content><![CDATA[<p>什么是U型思维呢？</p>
+<p>U型思维是指先向下挖掘出问题本质，然后基于本质再来做决策的思考方式。它与上面直线式的思考相对应，因为思维链路有点像U，所以叫它U型思维，也可以叫它本质思考或者第二性思考。</p>
+<p><img src="http://cdn.yunminitools.cn/blog/0727U-Theory-1.png" alt="U-Theory"></p>
+<p>既然 U 型思维这么好，那么我们又如何能由直线思考升级到U型思考，从而拥有一眼洞穿本质的能力呢？</p>
+<p>其实和学习其他新生事物一样的道理，我们首先需要掌握科学系统的训练方法，其次通过刻意练习，让U型思考这种思维方式形成习惯以后，存储到我们潜意识层，它也就变成了我们操作系统上又一个常用的<strong>思维框架</strong> 。后续每当你遇到方向性问题时，U型思维这个 <strong>思维框架</strong> 就会自动运转起来，它就是专门用来解决战略方向性问题的，帮助我们确立前行方向。所以擅长U型思考的人，往往也是战略高手。</p>
+<p>具体的训练步骤可以分为以下三步：</p>
+<ol>
+<li>找核心问题</li>
+<li>找本质原因</li>
+<li>找解决方案</li>
+</ol>
+<p>助记词：<br>
+<strong>先问后挖，不破不立</strong></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>工具框架</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用外部工具的策略</title>
     <url>/2023/06/15/Use-external-tools-strategy/</url>
     <content><![CDATA[<h2 id="使用基于嵌入的搜索实现高效的知识检索">使用基于嵌入的搜索实现高效的知识检索</h2>
@@ -4152,167 +4562,24 @@ end</pre>
       </tags>
   </entry>
   <entry>
-    <title>给GPTs一些时间来“思考”的策略</title>
-    <url>/2023/06/14/Give-GPTs-time-to-think-strategy/</url>
-    <content><![CDATA[<h2 id="指示模型在草率得出结论之前自己解决问题">指示模型在草率得出结论之前自己解决问题</h2>
-<p>有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>Determine if the student’s solution is correct or not.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Problem Statement: I’m building a solar power installation and I need help working out the financials.<br>- Land costs $100 / square foot<br>- I can buy solar panels for $250 / square foot<br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot<br>What is the total cost for the first year of operations as a function of the number of square feet.<br>Student’s Solution: Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 100x<br>Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
-</tr>
-<tr>
-<td>ASSISTANT</td>
-<td>The student’s solution is correct.</td>
-</tr>
-</tbody>
-</table>
-<p>但学生的解答实际上是不正确的！我们可以通过提示模型首先生成自己的解答来成功让模型注意到这一点。</p>
-<span id="more"></span>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>First work out your own solution to the problem. Then compare your solution to the student’s solution and evaluate if the student’s solution is correct or not. Don’t decide if the student’s solution is correct until you have done the problem yourself.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Problem Statement: I’m building a solar power installation and I need help working out the financials.<br>- Land costs $100 / square foot<br>- I can buy solar panels for $250 / square foot<br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot<br>What is the total cost for the first year of operations as a function of the number of square feet.<br>Student’s Solution: Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 100x<br>Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
-</tr>
-<tr>
-<td>ASSISTANT</td>
-<td>Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 10x<br>Total cost: 100x + 250x + 100,000 + 10x = 360x + 100,000<br>The student’s solution is incorrect. They made an error in the maintenance cost calculation, using 100x instead of 10x. The correct total cost for the first year of operations is 360x + 100,000.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="使用内部独白或一系列查询来隐藏模型的推理过程">使用内部独白或一系列查询来隐藏模型的推理过程</h2>
-<p>前面的策略表明，对于模型在回答具体问题之前，详细地思考问题有时非常重要。在某些应用中，模型到达最终答案的推理过程可能不适合与用户共享。例如，在辅导应用中，我们可能希望鼓励学生自行解答问题，但是模型关于学生解答的推理过程可能会向学生透露答案。<br>
-内部独白是一种可以缓解这个问题的策略。内部独白的思想是指示模型将输出中需要隐藏的部分放入结构化的格式中，以便容易解析。然后在将输出呈现给用户之前，对输出进行解析，只显示部分输出，隐藏其他部分。这种策略可以在模型的推理过程或敏感信息需要对用户隐藏的情况下使用，同时提供有意义和相关的回答。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>Follow these steps to answer the user queries.<br>Step 1 - First work out your own solution to the problem. Don’t rely on the student’s solution since it may be incorrect. Enclose all your work for this step within triple quotes (“”“).<br>Step 2 - Compare your solution to the student’s solution and evaluate if the student’s solution is correct or not. Enclose all your work for this step within triple quotes (”“”).<br>Step 3 - If the student made a mistake, determine what hint you could give the student without giving away the answer. Enclose all your work for this step within triple quotes (“”&quot;).<br>Step 4 - If the student made a mistake, provide the hint from the previous step to the student (outside of triple quotes). Instead of writing “Step 4 - …” write “Hint:”.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Problem Statement: <insert problem statement><br>Student Solution: <insert student solution></td>
-</tr>
-</tbody>
-</table>
-<p>或者，这可以通过一系列查询来实现，在其中除了最后一个查询外，所有其他查询的输出都对最终用户隐藏。<br>
-首先，我们可以要求模型自行解决问题。由于这个初始查询不需要学生的解答，可以省略该部分。这还具有额外的优点，即模型的解决方案不会受到学生尝试解答的影响。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td><insert problem statement></td>
-</tr>
-</tbody>
-</table>
-<p>接下来，我们可以让模型使用所有可用信息来评估学生的解答的正确性。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>Compare your solution to the student’s solution and evaluate if the student’s solution is correct or not.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Problem statement: “”“<insert problem statement>”“”<br>Your solution: “”“<insert model generated solution>”“”<br>Student’s solution: “”“&lt;insert student’s solution&gt;”&quot;”</td>
-</tr>
-</tbody>
-</table>
-<p>最后，我们可以让模型利用自己的分析能力以一个有帮助的导师的角色构建回复。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You are a math tutor. If the student made an error, offer a hint to the student in a way that does not reveal the answer. If the student did not make an error, simply offer them an encouraging comment.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Problem statement: “”“<insert problem statement>”“”<br>Your solution: “”“<insert model generated solution>”“”<br>Student’s solution: “”“&lt;insert student’s solution&gt;”“”<br>Analysis: “”“<insert model generated analysis from previous step>”&quot;”</td>
-</tr>
-</tbody>
-</table>
-<h2 id="询问模型是否在之前的步骤中遗漏了什么">询问模型是否在之前的步骤中遗漏了什么</h2>
-<p>假设我们正在使用一个模型来列举与特定问题相关的源文摘。在列举每个文摘后，模型需要确定是否应该开始写下一个文摘，或者是否应该停止。如果源文档很大，模型通常会过早停止，没有列举出所有相关的文摘。在这种情况下，通过提示模型使用后续查询来找出之前遗漏的文摘，通常可以获得更好的性能。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You will be provided with a document delimited by triple quotes. Your task is to select excerpts which pertain to the following question: “What significant paradigm shifts have occurred in the history of artificial intelligence.”<br>Ensure that excerpts contain all relevant context needed to interpret them - in other words don’t extract small snippets that are missing important context. Provide output in JSON format as follows:<br>[{“excerpt”: “…”},<br>…<br>{“excerpt”: “…”}]</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>“”“<insert document here>”&quot;”</td>
-</tr>
-<tr>
-<td>ASSISTANT</td>
-<td>[{“excerpt”: “the model writes an excerpt here”},<br>…<br>{“excerpt”: “the model writes another excerpt here”}]</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Are there more relevant excerpts? Take care not to repeat excerpts. Also ensure that excerpts contain all relevant context needed to interpret them - in other words don’t extract small snippets that are missing important context.</td>
-</tr>
-</tbody>
-</table>
+    <title>first-post</title>
+    <url>/2023/02/02/first-post/</url>
+    <content><![CDATA[<h2 id="本博客的内容">本博客的内容</h2>
+<p>可能包括以下几类：</p>
+<ul>
+<li>当日所学：学习的总结，包括技术/设计/产品等</li>
+<li>日常练习：根据学习中的心得进行的练习过程分享</li>
+<li>有趣资源：发现的有趣资源分享</li>
+<li>杂项：包括一些心得体会及其他日常</li>
+</ul>
+<h2 id="更新频率">更新频率</h2>
+<p>目前希望是日更，看看是否能坚持</p>
+<h2 id="博客目的">博客目的</h2>
+<p>作为知识管理的最后一环，需要对知识进行输出，目前我先用博客来实现</p>
 ]]></content>
       <categories>
-        <category>当日所学</category>
+        <category>杂项</category>
       </categories>
-      <tags>
-        <tag>人工智能</tag>
-        <tag>AIGC</tag>
-      </tags>
   </entry>
   <entry>
     <title>FRP内网穿透实际操作</title>
@@ -4395,206 +4662,24 @@ end</pre>
       </tags>
   </entry>
   <entry>
-    <title>写出明确的指引的策略</title>
-    <url>/2023/06/07/Clear-Instructions-Tactics-1/</url>
-    <content><![CDATA[<h2 id="在查询中包含详细信息以获得更相关的答案">在查询中包含详细信息以获得更相关的答案</h2>
-<p>（Include details in your query to get more relevant answers****）****</p>
-<p>为了获得高度相关的回答，请确保请求提供任何重要的细节或背景信息。否则，你就让模型去猜你的意思了。</p>
-<table>
-<thead>
-<tr>
-<th>Worse</th>
-<th>Better</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>How do I add numbers in Excel?</td>
-<td>How do I add up a row of dollar amounts in Excel? I want to do this automatically for a whole sheet of rows with all the totals ending up on the right in a column called “Total”.</td>
-</tr>
-<tr>
-<td>Who’s president?</td>
-<td>Who was the president of Mexico in 2021, and how frequently are elections held?</td>
-</tr>
-<tr>
-<td>Write code to calculate the Fibonacci sequence.</td>
-<td>Write a TypeScript function to efficiently calculate the Fibonacci sequence. Comment the code liberally to explain what each piece does and why it’s written that way.</td>
-</tr>
-<tr>
-<td>Summarize the meeting notes.</td>
-<td>Summarize the meeting notes in a single paragraph. Then write a markdown list of the speakers and each of their key points. Finally, list the next steps or action items suggested by the speakers, if any.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="要求模型采用特定的人设">要求模型采用特定的人设</h2>
-<p>（Ask the model to adopt a persona）<br>
-系统消息可以用来指定模型在回复中所使用的人设。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
-</tr>
-</tbody>
-</table>
+    <title>Hello World</title>
+    <url>/2023/01/30/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
 <span id="more"></span>
-<h2 id="使用分隔符清晰地标示输入的不同部分">使用分隔符清晰地标示输入的不同部分</h2>
-<p>（Use delimiters to clearly indicate distinct parts of the input）</p>
-<p>使用分隔符，如三重引号、XML标签、章节标题等，可以帮助标示文本的不同部分，以便进行不同的处理。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td>Summarize the text delimited by triple quotes with a haiku.<br>“”“insert text here”“”</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You will be provided with a pair of articles (delimited with XML tags) about the same topic. First summarize the arguments of each article. Then indicate which of them makes a better argument and explain why.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td><article> insert first article here </article><br><article> insert second article here </article></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You will be provided with a thesis abstract and a suggested title for it. The thesis title should give the reader a good idea of the topic of the thesis but should also be eye-catching. If the title does not meet these criteria, suggest 5 alternatives.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Abstract: insert abstract here<br>Title: insert title here</td>
-</tr>
-</tbody>
-</table>
-<p>对于这样简单的任务，使用分隔符可能对输出质量没有太大影响。然而，对于更复杂的任务，更重要的是消除任务细节的歧义。不要让GPTs费力去理解您到底要求它们做什么。</p>
-<h2 id="指定完成任务所需的步骤">指定完成任务所需的步骤</h2>
-<p>（Specify the steps required to complete a task）<br>
-对于某些任务来说，最好将其指定为一系列步骤。明确地写出这些步骤可以让模型更容易地按照它们进行操作。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>Use the following step-by-step instructions to respond to user inputs.<br>Step 1 - The user will provide you with text in triple quotes. Summarize this text in one sentence with a prefix that says &quot;Summary: &quot;.<br>Step 2 - Translate the summary from Step 1 into Spanish, with a prefix that says &quot;Translation: &quot;.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>“”“insert text here”“”</td>
-</tr>
-</tbody>
-</table>
-<h2 id="提供示例">提供示例</h2>
-<p>（Provide examples）<br>
-通常情况下，提供适用于所有示例的一般指令比通过示例展示任务的所有变化更高效，但在某些情况下，提供示例可能更容易。例如，如果您打算让模型复制一种难以明确描述的特定用户查询响应样式，这就是所谓的“少样本”提示。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>Answer in a consistent style.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Teach me about patience.</td>
-</tr>
-<tr>
-<td>ASSISTANT</td>
-<td>The river that carves the deepest valley flows from a modest spring; the grandest symphony originates from a single note; the most intricate tapestry begins with a solitary thread.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Teach me about the ocean.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="指定期望的输出长度">指定期望的输出长度</h2>
-<p>（Specify the desired length of the output）<br>
-您可以要求模型生成具有特定目标长度的输出。目标输出长度可以根据单词数、句子数、段落数、项目符号等来指定。然而，请注意，指示模型生成特定数量的单词并不具有高精度。模型可以更可靠地生成具有特定段落数或项目符号数的输出。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>USER</td>
-<td>Summarize the text delimited by triple quotes in about 50 words.<br>“”“insert text here”“”</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Summarize the text delimited by triple quotes in 2 paragraphs.<br>“”“insert text here”&quot;”</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Summarize the text delimited by triple quotes in 3 bullet points.<br>“”“insert text here”&quot;”</td>
-</tr>
-</tbody>
-</table>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>人工智能</tag>
-        <tag>AIGC</tag>
-      </tags>
   </entry>
   <entry>
     <title>Javascript 箭头函数</title>
@@ -4687,24 +4772,29 @@ end</pre>
       </tags>
   </entry>
   <entry>
-    <title>解决Django无法访问远程服务器</title>
-    <url>/2023/06/04/Django-Remote-Server-Access/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>我在运上搭建了Django的服务器环境，这样就不能用 <code>http://127.0.0.1:8000</code> 来访问Django的服务了，那如何解决呢？</p>
-<h2 id="解决方案">解决方案</h2>
-<p>在启动服务的时候，加一些参数：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 [manage.py](http://manage.py/) runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
-<p>同时，修改 <code>setting.py</code>，将远端的服务器ip加到ALLOWED_HOSTS参数里：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;xxx.xxx.xxx.xxx&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p><em>注：其中’<a href="http://xxx.xxx.xxx.xxx">xxx.xxx.xxx.xxx</a>’是你远程服务器的外网ip</em></p>
-<p>这样，就可以用 <code>http://xxx.xxx.xxx.xxx:8000</code> 访问Django的服务了。</p>
+    <title>知识管理相关-来自范冰的分享</title>
+    <url>/2023/02/03/souKPM01/</url>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>最近在听 范冰 的播客（EP01 - from 量贩冰糖），讲到了知识管理相关内容，有一些比较有意思的观点，记录下来。</p>
+<h2 id="避免FOMO">避免FOMO</h2>
+<p>FOMO 全称“Fear of missing out”，意思是害怕错过。简单的说，就是在信息爆炸的时代，我们总是不可避免的被过量的信息包围，没有重点的吸收。<br>
+避免FOMO的办法有：<br>
+对策1：建立一个心理预期，这些信息之后对我还重要吗？对我重要的时间有多久？如果只在很短的时间里有效，那就抛弃。<br>
+对策2：用针对性的工具，去有目的性地关注特定信息，删去无用的渠道和频道 。<br>
+对策3：带着komo的心态，knowing of missing out：知道我错过了什么事情，但是我对它心安理得。<br>
+对策4：知道自己不想什么信息，那就建立一个手段把自己需要的信息过滤出来</p>
+<h2 id="一些原则">一些原则</h2>
+<ul>
+<li>不要让自己陷入不同切换的过程中，一定要把做事情的门槛降低，降低到你觉得不需要占用额外的思考 ；一件事你需要多做的话，就要让这件事变得越容易。</li>
+<li>除了输入，还要做输出，最简单最低成本的输出就是写笔记，即便是再简单的影响方式， 都可能会对世界产生一些积极的影响，带来一些好的价值交换。</li>
+<li>笔记的管理不要追求all-in-one。 不要觉得整理是一件很烦人的事情，整理能够加深印象，并帮你过滤掉一些信息。</li>
+</ul>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>当日所学</category>
       </categories>
       <tags>
-        <tag>编程技巧</tag>
-        <tag>Django</tag>
+        <tag>知识管理</tag>
       </tags>
   </entry>
   <entry>
@@ -5770,72 +5860,6 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       </categories>
       <tags>
         <tag>用户调研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>first-post</title>
-    <url>/2023/02/02/first-post/</url>
-    <content><![CDATA[<h2 id="本博客的内容">本博客的内容</h2>
-<p>可能包括以下几类：</p>
-<ul>
-<li>当日所学：学习的总结，包括技术/设计/产品等</li>
-<li>日常练习：根据学习中的心得进行的练习过程分享</li>
-<li>有趣资源：发现的有趣资源分享</li>
-<li>杂项：包括一些心得体会及其他日常</li>
-</ul>
-<h2 id="更新频率">更新频率</h2>
-<p>目前希望是日更，看看是否能坚持</p>
-<h2 id="博客目的">博客目的</h2>
-<p>作为知识管理的最后一环，需要对知识进行输出，目前我先用博客来实现</p>
-]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/01/30/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<span id="more"></span>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>知识管理相关-来自范冰的分享</title>
-    <url>/2023/02/03/souKPM01/</url>
-    <content><![CDATA[<h2 id="来源">来源</h2>
-<p>最近在听 范冰 的播客（EP01 - from 量贩冰糖），讲到了知识管理相关内容，有一些比较有意思的观点，记录下来。</p>
-<h2 id="避免FOMO">避免FOMO</h2>
-<p>FOMO 全称“Fear of missing out”，意思是害怕错过。简单的说，就是在信息爆炸的时代，我们总是不可避免的被过量的信息包围，没有重点的吸收。<br>
-避免FOMO的办法有：<br>
-对策1：建立一个心理预期，这些信息之后对我还重要吗？对我重要的时间有多久？如果只在很短的时间里有效，那就抛弃。<br>
-对策2：用针对性的工具，去有目的性地关注特定信息，删去无用的渠道和频道 。<br>
-对策3：带着komo的心态，knowing of missing out：知道我错过了什么事情，但是我对它心安理得。<br>
-对策4：知道自己不想什么信息，那就建立一个手段把自己需要的信息过滤出来</p>
-<h2 id="一些原则">一些原则</h2>
-<ul>
-<li>不要让自己陷入不同切换的过程中，一定要把做事情的门槛降低，降低到你觉得不需要占用额外的思考 ；一件事你需要多做的话，就要让这件事变得越容易。</li>
-<li>除了输入，还要做输出，最简单最低成本的输出就是写笔记，即便是再简单的影响方式， 都可能会对世界产生一些积极的影响，带来一些好的价值交换。</li>
-<li>笔记的管理不要追求all-in-one。 不要觉得整理是一件很烦人的事情，整理能够加深印象，并帮你过滤掉一些信息。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>知识管理</tag>
       </tags>
   </entry>
 </search>

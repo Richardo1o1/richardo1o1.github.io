@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-07-25T03:41:45.249Z</updated>
+  <updated>2023-07-27T02:24:15.073Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>U型思考介绍-1</title>
+    <link href="http://yunminitools.cn/2023/07/27/U-Theory-1/"/>
+    <id>http://yunminitools.cn/2023/07/27/U-Theory-1/</id>
+    <published>2023-07-27T02:22:18.000Z</published>
+    <updated>2023-07-27T02:24:15.073Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;什么是U型思维呢？&lt;/p&gt;
+&lt;p&gt;U型思维是指先向下挖掘出问题本质，然后基于本质再来做决策的思考方式。它与上面直线式的思考相对应，因为思维链路有点像U，所以叫它U型思维，也可以叫它本质思考或者第二性思考。&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="工具框架" scheme="http://yunminitools.cn/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>conda 创建、激活、退出、删除虚拟环境 (Anaconda)</title>
@@ -662,44 +689,6 @@ The traditional banking model achieves a level of privacy by limiting</summary>
 &lt;p&gt;/settings.js&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &amp;#123; &lt;span class=&quot;comment&quot;&gt;// 注意，对象要抛出后，其他文件中才能引入使用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;http://api.yunminitools.cn:8000&amp;#x27;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// 我们的后台项目将来就通过这个域名和端口来启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE练习1 - 添加页面</title>
-    <link href="http://yunminitools.cn/2023/04/15/VUE-Exercise-1/"/>
-    <id>http://yunminitools.cn/2023/04/15/VUE-Exercise-1/</id>
-    <published>2023-04-15T15:47:35.000Z</published>
-    <updated>2023-04-16T02:14:00.987Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;1-Vue-的目录结构&quot;&gt;1 Vue 的目录结构&lt;/h2&gt;
-&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;src/         主开发目录，要开发的客户端代码文件（单文件组件，样式、工具函数等等）全部在这个目录下&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;/      静态资源目录，项目中的静态资源(css，js，图片等文件)放在这个文件夹&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dist/        项目打包发布文件夹，目前没有这个文件夹，最后要上线单文件项目文件都在这个文件夹中	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		         后面使用npm build 打包项目，让项目中的vue组件经过编译变成js 代码以后,dist就出现了&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;node_modules/     node的包目录，项目运行的依赖包存储目录，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  package.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;和package-lock.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;文件中会自动记录了这个目录下所有的包以及包的版本信息，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                  如果node_modules没有，但是有package.&lt;span class=&quot;property&quot;&gt;json&lt;/span&gt;，则可以在终端下，通过npm install进行恢复。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;config/      配置目录，是环境配置目录与项目无关。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;build/       项目打包时依赖的目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/router/  路由，是我们创建项目的时候，如果选择安装vue-router，就自动会生成这个目录。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/assets/  静态资源存储目录，与&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;目录作用类似。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/components/  组件存储目录，就是浏览器中用户看到的页面的一部分内容。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;src/views/       组件存储目录，就是浏览器中用户看到的页面内容，views往往会加载并包含components中的组件进来&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;2-执行流程图&quot;&gt;2 执行流程图&lt;/h2&gt;
-&lt;pre class=&quot;mermaid&quot;&gt;graph TD
-A(index.html 全局唯一入口)--&gt;B(main.js VUE项目初始化入口)
-B--&gt;C(App.vue 根组件/路由)
-C--&gt;D1(首页页面组件)
-C--&gt;D2(登录页面组件)
-C--&gt;D3(商品页面组件)
-D1--&gt;E1(头部子组件)
-D2--&gt;E1
-D3--&gt;E1
-D2--&gt;E2(脚部子组件)
-D1--&gt;E2
-D3--&gt;E2
-F(router/index.js 配置路由)--&gt;C&lt;/pre&gt;</summary>
     
     
     
