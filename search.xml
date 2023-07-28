@@ -59,6 +59,42 @@
       </tags>
   </entry>
   <entry>
+    <title>4S方法设计系统</title>
+    <url>/2023/07/28/4S-System-Design-Methodology/</url>
+    <content><![CDATA[<h2 id="概述">概述</h2>
+<p>所谓4S分析法中的4S是指：<br>
+Scenario（场景），Service（服务），Storage（存储），Scale（扩展）。<br>
+接下来，我们结合4S分析法来具体回答一道常见系统设计题：如何设计一个推特？</p>
+<h2 id="第一步：Scenario-场景">第一步：Scenario 场景</h2>
+<p>在这一步，你需要询问面试官：需要设计哪些功能（也可以自己想），需要承受多大的访问量？<br>
+首先可以把Twitter的功能一个个罗列出来，很显然你无法在45分钟的面试中完成所有功能的设计，所以需要筛选出核心功能（Post a Tweet，Timeline，News Feed，Follow/Unfollow a user，Register/Login）。<br>
+然后有的面试官可能会问你系统承受的QPS大概是多少？需要考虑并发用户，读频率（Read QPS）以及写频率（Write QPS）。记住重要的是你的思考和计算过程而不是计算结果。</p>
+<h2 id="第二步，Service服务">第二步，Service服务</h2>
+<p>所谓服务可以认为是逻辑处理的整合，对于同一类问题的逻辑处理可以归并到一个服务中。这一步实际上就是将整个系统细分为若干个小的服务。<br>
+根据第一步选出的核心功能，我们可以将推特拆分成如下的几个服务：<br>
+<img src="http://cdn.yunminitools.cn/blog/0728Service.png" alt=""></p>
+<h2 id="第三步，Storage-存储">第三步，Storage 存储</h2>
+<p>接下来就是4S分析法中最重要的一部分，存储。根据每个服务的数据特性选择合适的存储结构，然后细化数据表结构。<br>
+系统设计中可以选择的存储结构一般有三大类：数据库系统，文件系统，缓存系统。其中数据库系统又分为关系型数据库（SQL Database）和 非关系型数据库（NoSQL Database）。<br>
+<img src="http://cdn.yunminitools.cn/blog/0728Storage.png" alt=""></p>
+<p>确定存储结构后，我们需要细化数据表结构，面试中可以通过画图展示数据存储和读取的流程。<br>
+<img src="http://cdn.yunminitools.cn/blog/0728DataStructure.png" alt=""></p>
+<p>用过前3个步骤的分析，我们已经得到了一个可行方案，注意是Work Solution而不是Perfect Solution，这个方案可以存在很多待解决的缺陷。</p>
+<h2 id="第四步，Scale-扩展">第四步，Scale 扩展</h2>
+<p>这一步主要分两部分：</p>
+<ul>
+<li>一个是优化和迭代设计，包括解决设计缺陷，更多功能设计，后台管理功能以及一些特殊情况如何处理；</li>
+<li>另一个是维护，包括系统的鲁棒性和扩展性，比如有一台服务器/数据库挂了怎么办？如果有流量暴增，如何扩展？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>架构设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（1）</title>
     <url>/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/</url>
     <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
@@ -2668,6 +2704,46 @@ D-->A</pre>
       </tags>
   </entry>
   <entry>
+    <title>耦合度以及降低耦合度的方法</title>
+    <url>/2023/07/28/Methods-of-reducing-coupling/</url>
+    <content><![CDATA[<h2 id="一、耦合度"><strong>一、耦合度</strong></h2>
+<p>模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。模块间联系越多，其耦合性越强，同时表明其独立性越差。<br>
+降低模块间的耦合度能减少模块间的影响，防止对某一模块修改所引起的“牵一发动全身”的水波效应，保证系统设计顺利进行</p>
+<h2 id="二、紧密耦合的系统在开发阶段有以下的缺点"><strong>二、紧密耦合的系统在开发阶段有以下的缺点</strong></h2>
+<p>一个模块的修改会产生涟漪效应，其他模块也需随之修改。<br>
+由于模块之间的相依性，模块的组合会需要更多的精力及时间。<br>
+由于一个模块有许多的相依模块，模块的可复用性低。</p>
+<h2 id="三、降低耦合度的方法"><strong>三、降低耦合度的方法</strong></h2>
+<ol>
+<li>少使用类的继承，多用接口隐藏实现的细节。 java面向对象编程引入接口除了支持多态外， 隐藏实现细节也是其中一个目的。</li>
+<li>模块的功能化分尽可能的单一。道理也很简单，功能单一的模块供其它模块调用的机会就少。</li>
+<li>遵循一个定义只在一个地方出现。（对一个功能、类只定义在一个地方）。
+<ul>
+<li>修改时永远只修改这一个地方。</li>
+<li>增加功能时也只在一个地方修改。</li>
+<li>将变动只缩小到一个地方。</li>
+<li>一处修改，所有用它的地方都生效。</li>
+</ul>
+</li>
+<li>少使用全局变量。
+<ul>
+<li>由于全局变量，程序运行期间，始终占有那块存储区，所以空间利用率比较低，大量的全局变量，很快就会把内存用光</li>
+<li>全局变量由于每个函数都可以使用，所以任何一个函数的修改，如果修改了全局变量，都有可能影响到其他函数，所以不利于调试</li>
+</ul>
+</li>
+<li>类属性和方法的声明少用public，多用private关键字（公共的就有可能被到处调用，到处new对象）</li>
+<li>多用设计模式，比如采用MVC的设计模式就可以降低界面与业务逻辑的耦合度。</li>
+<li>尽量不用“硬编码”的方式写程序，同时也尽量避免直接用SQL语句操作数据库。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>架构设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Midjourney 极简入门（1）</title>
     <url>/2023/02/09/Midjourney-Getting-Started-1/</url>
     <content><![CDATA[<h2 id="背景介绍">背景介绍</h2>
@@ -3435,6 +3511,39 @@ GPT4 或其他 LLMs 需要继续改进的方向包括：</p>
       <tags>
         <tag>人工智能</tag>
         <tag>AIGC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>系统性能调优-学习笔记1</title>
+    <url>/2023/07/28/System-performance-tuning/</url>
+    <content><![CDATA[<h2 id="基本知识">基本知识</h2>
+<p>大型网站架构设计必备的三板斧：</p>
+<ul>
+<li><strong>高性能架构设计</strong>： 熟悉系统常见性能优化手段比如引入 读写分离、缓存、负载均衡、异步 等等。</li>
+<li><strong>高可用架构设计</strong> ：CAP理论和BASE理论、通过集群来提高系统整体稳定性、超时和重试机制、应对接口级故障：降级、熔断、限流、排队。</li>
+<li><strong>高扩展架构设计</strong> ：如何拆分系统。按照不同的思路来拆分软件系统，就会得到不同的架构。</li>
+</ul>
+<h2 id="基本原则">基本原则</h2>
+<p>合适优于先进 &gt; 演化优于一步到位 &gt; 简单优于复杂</p>
+<h2 id="常见的性能优化策略">常见的性能优化策略</h2>
+<p>性能优化之前我们需要对请求经历的各个环节进行分析，排查出可能出现性能瓶颈的地方，定位问题。</p>
+<p>下面是一些性能优化时常见问题：</p>
+<ol>
+<li>当前系统的SQL语句是否存在问题？</li>
+<li>当前系统是否需要升级硬件？</li>
+<li>系统是否需要缓存？</li>
+<li>系统架构本身是不是就有问题？</li>
+<li>系统是否存在死锁的地方？</li>
+<li>数据库索引使用是否合理？</li>
+<li>系统是否存在内存泄漏？</li>
+<li>系统的耗时操作进行了异步处理？</li>
+</ol>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>架构设计</tag>
       </tags>
   </entry>
   <entry>
@@ -5860,42 +5969,6 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       </categories>
       <tags>
         <tag>用户调研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>4S方法设计系统</title>
-    <url>/2023/07/28/4S-System-Design-Methodology/</url>
-    <content><![CDATA[<h2 id="概述">概述</h2>
-<p>所谓4S分析法中的4S是指：<br>
-Scenario（场景），Service（服务），Storage（存储），Scale（扩展）。<br>
-接下来，我们结合4S分析法来具体回答一道常见系统设计题：如何设计一个推特？</p>
-<h2 id="第一步：Scenario-场景">第一步：Scenario 场景</h2>
-<p>在这一步，你需要询问面试官：需要设计哪些功能（也可以自己想），需要承受多大的访问量？<br>
-首先可以把Twitter的功能一个个罗列出来，很显然你无法在45分钟的面试中完成所有功能的设计，所以需要筛选出核心功能（Post a Tweet，Timeline，News Feed，Follow/Unfollow a user，Register/Login）。<br>
-然后有的面试官可能会问你系统承受的QPS大概是多少？需要考虑并发用户，读频率（Read QPS）以及写频率（Write QPS）。记住重要的是你的思考和计算过程而不是计算结果。</p>
-<h2 id="第二步，Service服务">第二步，Service服务</h2>
-<p>所谓服务可以认为是逻辑处理的整合，对于同一类问题的逻辑处理可以归并到一个服务中。这一步实际上就是将整个系统细分为若干个小的服务。<br>
-根据第一步选出的核心功能，我们可以将推特拆分成如下的几个服务：<br>
-<img src="http://cdn.yunminitools.cn/blog/0728Service.png" alt=""></p>
-<h2 id="第三步，Storage-存储">第三步，Storage 存储</h2>
-<p>接下来就是4S分析法中最重要的一部分，存储。根据每个服务的数据特性选择合适的存储结构，然后细化数据表结构。<br>
-系统设计中可以选择的存储结构一般有三大类：数据库系统，文件系统，缓存系统。其中数据库系统又分为关系型数据库（SQL Database）和 非关系型数据库（NoSQL Database）。<br>
-<img src="http://cdn.yunminitools.cn/blog/0728Storage.png" alt=""></p>
-<p>确定存储结构后，我们需要细化数据表结构，面试中可以通过画图展示数据存储和读取的流程。<br>
-<img src="http://cdn.yunminitools.cn/blog/0728DataStructure.png" alt=""></p>
-<p>用过前3个步骤的分析，我们已经得到了一个可行方案，注意是Work Solution而不是Perfect Solution，这个方案可以存在很多待解决的缺陷。</p>
-<h2 id="第四步，Scale-扩展">第四步，Scale 扩展</h2>
-<p>这一步主要分两部分：</p>
-<ul>
-<li>一个是优化和迭代设计，包括解决设计缺陷，更多功能设计，后台管理功能以及一些特殊情况如何处理；</li>
-<li>另一个是维护，包括系统的鲁棒性和扩展性，比如有一台服务器/数据库挂了怎么办？如果有流量暴增，如何扩展？</li>
-</ul>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>架构设计</tag>
       </tags>
   </entry>
 </search>

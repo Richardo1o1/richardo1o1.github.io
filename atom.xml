@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-07-28T07:11:44.857Z</updated>
+  <updated>2023-07-28T07:57:06.289Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>耦合度以及降低耦合度的方法</title>
+    <link href="http://yunminitools.cn/2023/07/28/Methods-of-reducing-coupling/"/>
+    <id>http://yunminitools.cn/2023/07/28/Methods-of-reducing-coupling/</id>
+    <published>2023-07-28T07:52:11.000Z</published>
+    <updated>2023-07-28T07:57:06.289Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>系统性能调优-学习笔记1</title>
+    <link href="http://yunminitools.cn/2023/07/28/System-performance-tuning/"/>
+    <id>http://yunminitools.cn/2023/07/28/System-performance-tuning/</id>
+    <published>2023-07-28T07:50:13.000Z</published>
+    <updated>2023-07-28T07:51:49.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基本知识&quot;&gt;基本知识&lt;/h2&gt;
+&lt;p&gt;大型网站架构设计必备的三板斧：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高性能架构设计&lt;/strong&gt;： 熟悉系统常见性能优化手段比如引入 读写分离、缓存、负载均衡、异步</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>4S方法设计系统</title>
@@ -626,66 +679,6 @@ qz = probability the attacker will ever catch up from z blocks behind&lt;br&gt;
         
     <summary type="html">&lt;h2 id=&quot;1-安装&quot;&gt;1 安装&lt;/h2&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</title>
-    <link href="http://yunminitools.cn/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/"/>
-    <id>http://yunminitools.cn/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/</id>
-    <published>2023-04-18T14:40:00.000Z</published>
-    <updated>2023-04-18T14:40:40.821Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
-&lt;h2 id=&quot;10-隐私&quot;&gt;10 隐私&lt;/h2&gt;
-&lt;p&gt;10 Privacy&lt;br&gt;
-The traditional banking model achieves a level of privacy by limiting</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
-    
-    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE练习3 - 使用域名</title>
-    <link href="http://yunminitools.cn/2023/04/17/VUE-Exercise-3/"/>
-    <id>http://yunminitools.cn/2023/04/17/VUE-Exercise-3/</id>
-    <published>2023-04-17T14:45:32.000Z</published>
-    <updated>2023-04-17T14:46:12.621Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-配置vue-config-js&quot;&gt;1 配置vue.config.js&lt;/h2&gt;
-&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
         
       
     
