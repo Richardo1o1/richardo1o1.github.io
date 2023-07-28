@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-07-27T02:24:15.073Z</updated>
+  <updated>2023-07-28T07:11:44.857Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>4S方法设计系统</title>
+    <link href="http://yunminitools.cn/2023/07/28/4S-System-Design-Methodology/"/>
+    <id>http://yunminitools.cn/2023/07/28/4S-System-Design-Methodology/</id>
+    <published>2023-07-28T07:05:58.000Z</published>
+    <updated>2023-07-28T07:11:44.857Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+&lt;p&gt;所谓4S分析法中的4S是指：&lt;br&gt;
+Scenario（场景），Service（服务），Storage（存储），Scale（扩展）。&lt;br&gt;
+接下来，我们结合4S分析法来具体回答一道常见系统设计题：如何设计一个推特？&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>U型思考介绍-1</title>
@@ -659,36 +688,6 @@ The traditional banking model achieves a level of privacy by limiting</summary>
 &lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
         
       
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE练习2 - 使用axios模块</title>
-    <link href="http://yunminitools.cn/2023/04/16/VUE-Exercise-2/"/>
-    <id>http://yunminitools.cn/2023/04/16/VUE-Exercise-2/</id>
-    <published>2023-04-16T07:22:34.000Z</published>
-    <updated>2023-04-16T07:23:26.920Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;1-安装axios&quot;&gt;1 安装axios&lt;/h2&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;项目根目录下执行如下指令&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install -S axios --registry https://registry.npm.taobao.org&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;2-修改模块代码&quot;&gt;2 修改模块代码&lt;/h2&gt;
-&lt;p&gt;在开发过程中，我们可能经常会在前端项目的业务里面使用到某些变量，我们可以添加到配置文件中，比如我们在src目录下创建一个settings.js文件：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;/settings.js&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &amp;#123; &lt;span class=&quot;comment&quot;&gt;// 注意，对象要抛出后，其他文件中才能引入使用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;http://api.yunminitools.cn:8000&amp;#x27;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// 我们的后台项目将来就通过这个域名和端口来启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

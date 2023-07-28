@@ -5862,4 +5862,40 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>用户调研</tag>
       </tags>
   </entry>
+  <entry>
+    <title>4S方法设计系统</title>
+    <url>/2023/07/28/4S-System-Design-Methodology/</url>
+    <content><![CDATA[<h2 id="概述">概述</h2>
+<p>所谓4S分析法中的4S是指：<br>
+Scenario（场景），Service（服务），Storage（存储），Scale（扩展）。<br>
+接下来，我们结合4S分析法来具体回答一道常见系统设计题：如何设计一个推特？</p>
+<h2 id="第一步：Scenario-场景">第一步：Scenario 场景</h2>
+<p>在这一步，你需要询问面试官：需要设计哪些功能（也可以自己想），需要承受多大的访问量？<br>
+首先可以把Twitter的功能一个个罗列出来，很显然你无法在45分钟的面试中完成所有功能的设计，所以需要筛选出核心功能（Post a Tweet，Timeline，News Feed，Follow/Unfollow a user，Register/Login）。<br>
+然后有的面试官可能会问你系统承受的QPS大概是多少？需要考虑并发用户，读频率（Read QPS）以及写频率（Write QPS）。记住重要的是你的思考和计算过程而不是计算结果。</p>
+<h2 id="第二步，Service服务">第二步，Service服务</h2>
+<p>所谓服务可以认为是逻辑处理的整合，对于同一类问题的逻辑处理可以归并到一个服务中。这一步实际上就是将整个系统细分为若干个小的服务。<br>
+根据第一步选出的核心功能，我们可以将推特拆分成如下的几个服务：<br>
+<img src="http://cdn.yunminitools.cn/blog/0728Service.png" alt=""></p>
+<h2 id="第三步，Storage-存储">第三步，Storage 存储</h2>
+<p>接下来就是4S分析法中最重要的一部分，存储。根据每个服务的数据特性选择合适的存储结构，然后细化数据表结构。<br>
+系统设计中可以选择的存储结构一般有三大类：数据库系统，文件系统，缓存系统。其中数据库系统又分为关系型数据库（SQL Database）和 非关系型数据库（NoSQL Database）。<br>
+<img src="http://cdn.yunminitools.cn/blog/0728Storage.png" alt=""></p>
+<p>确定存储结构后，我们需要细化数据表结构，面试中可以通过画图展示数据存储和读取的流程。<br>
+<img src="http://cdn.yunminitools.cn/blog/0728DataStructure.png" alt=""></p>
+<p>用过前3个步骤的分析，我们已经得到了一个可行方案，注意是Work Solution而不是Perfect Solution，这个方案可以存在很多待解决的缺陷。</p>
+<h2 id="第四步，Scale-扩展">第四步，Scale 扩展</h2>
+<p>这一步主要分两部分：</p>
+<ul>
+<li>一个是优化和迭代设计，包括解决设计缺陷，更多功能设计，后台管理功能以及一些特殊情况如何处理；</li>
+<li>另一个是维护，包括系统的鲁棒性和扩展性，比如有一台服务器/数据库挂了怎么办？如果有流量暴增，如何扩展？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>架构设计</tag>
+      </tags>
+  </entry>
 </search>
