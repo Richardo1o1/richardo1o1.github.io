@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2023/7 |  New structure for utility</title>
+      <title>Docker如何搭建私有Registry镜像仓库 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,178 +68,195 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-Docker-hub-creation-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">2023/7</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Docker如何搭建私有Registry镜像仓库
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/29/Docker-hub-creation-1/" class="article-date">
+  <time datetime="2023-07-29T14:46:42.000Z" itemprop="datePublished">2023-07-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">665</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/29/Docker-hub-creation-1/" class="archive-article-date">
-  <time datetime="2023-07-29T14:46:42.000Z" itemprop="datePublished">07/29</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/07/29/Docker-hub-creation-1/"
-    >Docker如何搭建私有Registry镜像仓库</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/28/Methods-of-reducing-coupling/" class="archive-article-date">
-  <time datetime="2023-07-28T07:52:11.000Z" itemprop="datePublished">07/28</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/07/28/Methods-of-reducing-coupling/"
-    >耦合度以及降低耦合度的方法</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/28/System-performance-tuning/" class="archive-article-date">
-  <time datetime="2023-07-28T07:50:13.000Z" itemprop="datePublished">07/28</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/07/28/System-performance-tuning/"
-    >系统性能调优-学习笔记1</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/28/4S-System-Design-Methodology/" class="archive-article-date">
-  <time datetime="2023-07-28T07:05:58.000Z" itemprop="datePublished">07/28</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/07/28/4S-System-Design-Methodology/"
-    >4S方法设计系统</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/27/U-Theory-1/" class="archive-article-date">
-  <time datetime="2023-07-27T02:22:18.000Z" itemprop="datePublished">07/27</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/07/27/U-Theory-1/"
-    >U型思考介绍-1</a> 
-</h2>
+  <h2 id="概述">概述</h2>
+<p>仓库（Repository）是集中存放镜像的地方。<br>
+一个容易混淆的概念是注册服务器（Registry）。实际上注册服务器是管理仓库的具体服务器，每个服务器上可以有多个仓库，而每个仓库下面有多个镜像。从这方面来说，仓库可以被认为是一个具体的项目或目录。例如对于仓库地址 <a target="_blank" rel="noopener" href="http://docker.io/ubuntu">docker.io/ubuntu</a> 来说，<a target="_blank" rel="noopener" href="http://docker.io">docker.io</a> 是注册服务器地址，ubuntu 是仓库名。<br>
+大部分时候，并不需要严格区分这两者的概念。</p>
+<h2 id="私有仓库搭建">私有仓库搭建</h2>
+<p>有时候使用 Docker Hub 这样的公共仓库可能不方便，用户可以创建一个本地仓库供私人使用。<br>
+docker-registry 是官方提供的工具，可以用于构建私有的镜像仓库。</p>
+<h2 id="获取镜像-启动服务">获取镜像/启动服务</h2>
+<p>说明：registry 镜像选择 registry:2 和 registry:2.4.1 都可以。<br>
+拉取私有镜像仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry:2</span><br><span class="line">docker run -d -v /opt/registry:/var/lib/registry -p 5000:5000 --name myregistry registry:2</span><br></pre></td></tr></table></figure>
+<p>参数解析:</p>
+<ul>
+<li>-d：后台运行</li>
+<li>-p：将容器的5000端口映射到宿主机的5000端口</li>
+<li>–restart：docker服务重启后总是重启此容器</li>
+<li>–name：容器的名称</li>
+<li>-v = --volume：数据卷，进行一个挂载宿主机：容器内。将容器的/var/lib/registry映射到宿主机的 /opt/registry目录</li>
+</ul>
+<h2 id="查看仓库镜像">查看仓库镜像</h2>
+<p>要得到的镜像信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl 172.16.1.30:5000/v2/_catalog</span><br><span class="line">&#123;<span class="string">&quot;repositories&quot;</span>:[<span class="string">&quot;my-app&quot;</span>]&#125;</span><br><span class="line">curl 172.16.1.30:5000/v2/my-app/tags/list</span><br><span class="line">&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;my-app&quot;</span>,<span class="string">&quot;tags&quot;</span>:[<span class="string">&quot;v1&quot;</span>]&#125;</span><br></pre></td></tr></table></figure>
+<p>其中172.16.1.30为仓库地址</p>
+<h2 id="实现http上传"><strong>实现http上传</strong></h2>
+<p>添加如下配置，如果文件不存在则添加，在docker01和docker02机器都要添加，因为这两台机器都可能向仓库推送或拉取镜像。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/docker/daemon.json</span><br><span class="line">添加：</span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;insecure-registries&quot;</span>: [<span class="string">&quot;172.16.1.31:5000&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="上传镜像"><strong>上传镜像</strong></h2>
+<ol>
+<li>
+<p>在本地为要上传的镜像打标签：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker tag my-app:latest 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>上传到私有仓库</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker push 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="拉取镜像并运行">拉取镜像并运行</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull 192.168.50.188:5000/my-app:v1</span><br><span class="line">sudo docker run -it -p 8000:8000 --name my-app 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
+<h2 id="查看数据大小">查看数据大小</h2>
+<p>进入仓库容器中，通过du命令查看大小</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it registry sh  <span class="comment"># 进入容器</span></span><br><span class="line"><span class="comment"># du -sh /var/lib/registry/</span></span><br></pre></td></tr></table></figure>
+<h2 id="Registry删除镜像">Registry删除镜像</h2>
+<p>在运行registry时挂载在本地的目录[/opt/registry]中，找到指定的镜像存放的目录来进行删除。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it registry sh</span><br><span class="line"><span class="comment"># cd /var/lib/registry/docker/registry/v2/repositories/</span></span><br><span class="line"><span class="comment"># rm -rf xxx/</span></span><br></pre></td></tr></table></figure>
+<p>xxx 为你想删除的镜像</p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/25/conda-command-create-activate/" class="archive-article-date">
-  <time datetime="2023-07-25T03:39:55.000Z" itemprop="datePublished">07/25</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/07/25/conda-command-create-activate/"
-    >conda 创建、激活、退出、删除虚拟环境 (Anaconda)</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/06/frp-NAT-intranet-remote-control/" class="archive-article-date">
-  <time datetime="2023-07-06T14:14:40.000Z" itemprop="datePublished">07/06</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/07/06/frp-NAT-intranet-remote-control/"
-    >FRP内网穿透实际操作</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2023/07/29/Docker-hub-creation-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
   </div>
-  
-  
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/07/28/Methods-of-reducing-coupling/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">耦合度以及降低耦合度的方法</div>
+      </a>
+    
+  </nav>
 
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -376,6 +393,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-07-28T07:57:06.289Z</updated>
+  <updated>2023-07-29T14:47:26.652Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker如何搭建私有Registry镜像仓库</title>
+    <link href="http://yunminitools.cn/2023/07/29/Docker-hub-creation-1/"/>
+    <id>http://yunminitools.cn/2023/07/29/Docker-hub-creation-1/</id>
+    <published>2023-07-29T14:46:42.000Z</published>
+    <updated>2023-07-29T14:47:26.652Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>耦合度以及降低耦合度的方法</title>
@@ -649,36 +676,6 @@ qz = probability the attacker will ever catch up from z blocks behind&lt;br&gt;
         
         
     <summary type="html">&lt;p&gt;&lt;code&gt;npm run serve&lt;/code&gt; basically is just saying “npm please &lt;strong&gt;run&lt;/strong&gt; the command I defined under the</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE练习4 - 使用Ant Design</title>
-    <link href="http://yunminitools.cn/2023/04/19/VUE-Exercise-4/"/>
-    <id>http://yunminitools.cn/2023/04/19/VUE-Exercise-4/</id>
-    <published>2023-04-19T15:49:43.000Z</published>
-    <updated>2023-04-19T15:50:21.554Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-安装&quot;&gt;1 安装&lt;/h2&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td</summary>
         
       
     
