@@ -135,6 +135,7 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
 <p>说明：registry 镜像选择 registry:2 和 registry:2.4.1 都可以。<br>
 拉取私有镜像仓库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry:2</span><br><span class="line">docker run -d -v /opt/registry:/var/lib/registry -p 5000:5000 --name myregistry registry:2</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 <p>参数解析:</p>
 <ul>
 <li>-d：后台运行</li>
