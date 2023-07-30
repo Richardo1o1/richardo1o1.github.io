@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-07-30T08:31:16.292Z</updated>
+  <updated>2023-07-30T13:12:53.169Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django 简版 Docker 发布流程</title>
+    <link href="http://yunminitools.cn/2023/07/30/Django-Docker-Release-Script/"/>
+    <id>http://yunminitools.cn/2023/07/30/Django-Docker-Release-Script/</id>
+    <published>2023-07-30T13:12:16.000Z</published>
+    <updated>2023-07-30T13:12:53.169Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+&lt;p&gt;想实现通过开发系统打包Docker，上传到私有部署的Hub。生产系统下载更新包，发布新版本，以下是对应的脚本文件。&lt;/p&gt;
+&lt;h2 id=&quot;开发系统打包上传&quot;&gt;开发系统打包上传&lt;/h2&gt;
+&lt;p&gt;脚本文件：&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>U型思考介绍-2-问挖破立</title>
@@ -663,34 +694,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 We have proposed a system for electronic transactions without</summary>
         
       
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
-    
-    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</title>
-    <link href="http://yunminitools.cn/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/"/>
-    <id>http://yunminitools.cn/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</id>
-    <published>2023-04-23T15:15:15.000Z</published>
-    <updated>2023-04-25T15:22:28.841Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
-&lt;h2 id=&quot;11-计算&quot;&gt;11 计算&lt;/h2&gt;
-&lt;p&gt;We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.&lt;br&gt;
-The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker’s chain being extended by one block, reducing the gap by -1. The probability of an attacker catching up from a given deficit is analogous to a Gambler’s Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:&lt;br&gt;
-p = probability an honest node finds the next block&lt;br&gt;
-q = probability the attacker finds the next block&lt;br&gt;
-qz = probability the attacker will ever catch up from z blocks behind&lt;br&gt;
-&lt;img src=&quot;http://cdn.yunminitools.cn/blog/0423Formula1.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;</summary>
     
     
     

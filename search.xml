@@ -6062,4 +6062,26 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
         <tag>工具框架</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Django 简版 Docker 发布流程</title>
+    <url>/2023/07/30/Django-Docker-Release-Script/</url>
+    <content><![CDATA[<h2 id="概述">概述</h2>
+<p>想实现通过开发系统打包Docker，上传到私有部署的Hub。生产系统下载更新包，发布新版本，以下是对应的脚本文件。</p>
+<h2 id="开发系统打包上传">开发系统打包上传</h2>
+<p>脚本文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker build . -t my-app:latest</span><br><span class="line">sudo docker tag my-app:latest 192.168.50.188:5000/my-app:v1</span><br><span class="line">sudo docker push 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
+<p>其中 192.168.50.188:5000 是私有仓库地址</p>
+<h2 id="生产系统下载发布">生产系统下载发布</h2>
+<p>脚本文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker pull 192.168.50.188:5000/my-app:v1</span><br><span class="line">sudo docker stop my-app</span><br><span class="line">sudo docker <span class="built_in">rm</span> /my-app</span><br><span class="line">sudo docker run -it -d -p 8000:8000 --name my-app 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
+<p>测试成功，记录一下。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
 </search>
