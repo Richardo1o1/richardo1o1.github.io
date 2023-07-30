@@ -6030,4 +6030,36 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
         <tag>Docker</tag>
       </tags>
   </entry>
+  <entry>
+    <title>U型思考介绍-2-问挖破立</title>
+    <url>/2023/07/30/U-Theory-2/</url>
+    <content><![CDATA[<pre class="mermaid">graph LR
+  U型思考 --> 问
+  U型思考 --> 挖
+  U型思考 --> 破
+  U型思考 --> 立
+
+  问--> 认知差定胜负
+  问--> 透视U型思考
+  问--> 好问题的力量
+
+  挖--> 追问法
+  挖--> 框架法
+  挖--> 类推法与假设法
+
+  破--> 破界法
+  破--> 升维法
+  破--> 优势法
+
+  立--> 飞轮法
+  立--> 价值网法与画布法
+  立--> 跨越未知之墙</pre>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>工具框架</tag>
+      </tags>
+  </entry>
 </search>

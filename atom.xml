@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-07-29T14:48:26.224Z</updated>
+  <updated>2023-07-30T08:31:16.292Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>U型思考介绍-2-问挖破立</title>
+    <link href="http://yunminitools.cn/2023/07/30/U-Theory-2/"/>
+    <id>http://yunminitools.cn/2023/07/30/U-Theory-2/</id>
+    <published>2023-07-30T08:30:32.000Z</published>
+    <updated>2023-07-30T08:31:16.292Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;mermaid&quot;&gt;graph LR
+  U型思考 --&gt; 问
+  U型思考 --&gt; 挖
+  U型思考 --&gt; 破
+  U型思考 --&gt; 立
+
+  问--&gt; 认知差定胜负
+  问--&gt; 透视U型思考
+  问--&gt; 好问题的力量
+
+  挖--&gt; 追问法
+ </summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="工具框架" scheme="http://yunminitools.cn/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker如何搭建私有Registry镜像仓库</title>
@@ -664,35 +700,6 @@ qz = probability the attacker will ever catch up from z blocks behind&lt;br&gt;
     <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
     
     <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Difference between&quot; npm run serve&quot; and &quot;npm run dev&quot; in VUE</title>
-    <link href="http://yunminitools.cn/2023/04/20/npm-run-serve-vue/"/>
-    <id>http://yunminitools.cn/2023/04/20/npm-run-serve-vue/</id>
-    <published>2023-04-20T15:37:22.000Z</published>
-    <updated>2023-04-20T15:38:04.237Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;code&gt;npm run serve&lt;/code&gt; basically is just saying “npm please &lt;strong&gt;run&lt;/strong&gt; the command I defined under the</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
     
   </entry>
   
