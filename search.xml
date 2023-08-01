@@ -6137,4 +6137,22 @@ ssh-keygen -t ed25519 -C “<a href="mailto:your_email@example.com">your_email@e
         <tag>Github</tag>
       </tags>
   </entry>
+  <entry>
+    <title>问题解决 - Your configuration specifies to merge with the ref xxx</title>
+    <url>/2023/08/01/issue-resolve-1/</url>
+    <content><![CDATA[<h2 id="原因">原因</h2>
+<p>在执行git pull的时候会报错:<br>
+Your configuration specifies to merge with the ref ‘refs/heads/master’ from the remote, but no such ref was fetched<br>
+原因是，现在默认分支已更名为 “main”，但本地git仍试图从 &quot;master &quot;中提取，因此出现了此消息。</p>
+<p>解决方案：执行以下脚本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -m master main</span><br><span class="line">git fetch origin</span><br><span class="line">git branch -u origin/main main</span><br><span class="line">git remote set-head origin -a</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>Issue-resolve</tag>
+      </tags>
+  </entry>
 </search>

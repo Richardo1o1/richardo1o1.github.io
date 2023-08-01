@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-08-01T06:18:07.156Z</updated>
+  <updated>2023-08-01T07:06:46.248Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>问题解决 - Your configuration specifies to merge with the ref xxx</title>
+    <link href="http://yunminitools.cn/2023/08/01/issue-resolve-1/"/>
+    <id>http://yunminitools.cn/2023/08/01/issue-resolve-1/</id>
+    <published>2023-08-01T06:19:15.000Z</published>
+    <updated>2023-08-01T07:06:46.248Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;原因&quot;&gt;原因&lt;/h2&gt;
+&lt;p&gt;在执行git pull的时候会报错:&lt;br&gt;
+Your configuration specifies to merge with the ref ‘refs/heads/master’ from the remote, but</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
+    
+    <category term="Issue-resolve" scheme="http://yunminitools.cn/tags/Issue-resolve/"/>
+    
+  </entry>
   
   <entry>
     <title>本地项目连接Github</title>
@@ -673,31 +702,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
     
     <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSH客户端会话超时的解决方案</title>
-    <link href="http://yunminitools.cn/2023/06/03/SSH-connention-timeout-setting/"/>
-    <id>http://yunminitools.cn/2023/06/03/SSH-connention-timeout-setting/</id>
-    <published>2023-06-03T13:03:32.000Z</published>
-    <updated>2023-06-03T13:08:22.434Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
