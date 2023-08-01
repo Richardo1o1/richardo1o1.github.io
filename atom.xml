@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-07-30T13:12:53.169Z</updated>
+  <updated>2023-08-01T06:18:07.156Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>本地项目连接Github</title>
+    <link href="http://yunminitools.cn/2023/08/01/Local-project-link-github/"/>
+    <id>http://yunminitools.cn/2023/08/01/Local-project-link-github/</id>
+    <published>2023-08-01T06:17:13.000Z</published>
+    <updated>2023-08-01T06:18:07.156Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+&lt;p&gt;本地有一些程序文件用Vim 编辑有点不方便，打算上传到github后，用网页编辑器编辑。下面是具体步骤&lt;/p&gt;
+&lt;h2 id=&quot;一、建立本地仓库&quot;&gt;一、建立本地仓库&lt;/h2&gt;
+&lt;h3 id=&quot;1-初始化本地仓库&quot;&gt;1.初始化本地仓库&lt;/h3&gt;
+&lt;p&gt;git init&lt;/p&gt;
+&lt;h3 id=&quot;2-添加所有文件&quot;&gt;2.添加所有文件&lt;/h3&gt;
+&lt;p&gt;git add .&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>Django 简版 Docker 发布流程</title>
@@ -673,36 +698,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     
     
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
-    <link href="http://yunminitools.cn/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/"/>
-    <id>http://yunminitools.cn/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/</id>
-    <published>2023-04-25T15:22:59.000Z</published>
-    <updated>2023-04-25T15:23:28.609Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;比特币：一个点对点的电子货币系统&lt;/h1&gt;
-&lt;h2 id=&quot;11-结论&quot;&gt;11 结论&lt;/h2&gt;
-&lt;p&gt;11 Conclusion&lt;br&gt;
-We have proposed a system for electronic transactions without</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="比特币" scheme="http://yunminitools.cn/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
-    
-    <category term="论文学习" scheme="http://yunminitools.cn/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
