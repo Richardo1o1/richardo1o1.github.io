@@ -6155,4 +6155,57 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
         <tag>Issue-resolve</tag>
       </tags>
   </entry>
+  <entry>
+    <title>本地项目连接Github</title>
+    <url>/2023/08/02/Local-project-link-github-1/</url>
+    <content><![CDATA[<h2 id="概述">概述</h2>
+<p>本地有一些程序文件用Vim 编辑有点不方便，打算上传到github后，用网页编辑器编辑。下面是具体步骤</p>
+<h2 id="一、建立本地仓库">一、建立本地仓库</h2>
+<h3 id="1-初始化本地仓库">1.初始化本地仓库</h3>
+<p>git init</p>
+<h3 id="2-添加所有文件">2.添加所有文件</h3>
+<p>git add .</p>
+<span id="more"></span>
+<h3 id="3-提交所有文件到本地仓库">3.提交所有文件到本地仓库</h3>
+<p>git commit -m “备注信息”</p>
+<h2 id="二、建立Github仓库">二、建立Github仓库</h2>
+<h3 id="4-登录Github">4.登录Github</h3>
+<p>找到仓库页面，点击“new”，新建一个仓库</p>
+<h3 id="5-得到仓库git格式地址">5.得到仓库git格式地址</h3>
+<p>找到新建的仓库，点击 “code”， 在ssh页面得到git格式仓库地址<br>
+<img src="http://cdn.yunminitools.cn/blog/0801github_address.PNG" alt=""></p>
+<h2 id="三、添加本地公钥到github">三、添加本地公钥到github</h2>
+<h3 id="6-查看是否存在本地SSH密钥">6.查看是否存在本地SSH密钥</h3>
+<p>执行：<br>
+ls ~/.ssh<br>
+查看是否有文件 id_rsa 、id_rsa_pub，如果有，跳到第8步</p>
+<h3 id="7-创建SSH密钥">7.创建SSH密钥</h3>
+<p>执行：<br>
+ssh-keygen -t ed25519 -C “<a href="mailto:your_email@example.com">your_email@example.com</a>”<br>
+按3个回车，密码为空。</p>
+<h3 id="8-查看密钥">8. 查看密钥</h3>
+<p>cat ~/.ssh/id_ed25519.pub</p>
+<h3 id="9-在github里配置密钥">9.在github里配置密钥</h3>
+<p>登录github，进入个人设置 settings --&gt; ssh and gpg keys --&gt; new ssh key 添加密钥。</p>
+<h2 id="四、关联并推送">四、关联并推送</h2>
+<h3 id="10-连接到远程仓库">10.连接到远程仓库</h3>
+<p>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:<github username>/<repository name>.git</p>
+<h3 id="11-推送本地库到远程库">11.推送本地库到远程库</h3>
+<p>git push -u origin master</p>
+<p>注意，有个坑是github现在用main做主流程，本地是master，要<a href="https://zhuanlan.zhihu.com/p/557304573">修改一下</a></p>
+<h2 id="四、在线修改文件并下载">四、在线修改文件并下载</h2>
+<h3 id="12-打开github仓库并编辑">12.打开github仓库并编辑</h3>
+<p>打开github仓库，按“.” ,自动跳到 “<a href="https://github.dev/%E2%80%9D">https://github.dev/”</a> 开头的网站，可以在线编辑了。</p>
+<h3 id="13-修改并提交">13.修改并提交</h3>
+<p>修改任意文件，并提交（用commit &amp; Push) 。</p>
+<h3 id="13-本地拉取">13.本地拉取</h3>
+<p>git pull</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
 </search>
