@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-08-02T01:08:52.533Z</updated>
+  <updated>2023-08-01T07:06:46.248Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>本地项目连接Github</title>
-    <link href="http://yunminitools.cn/2023/08/02/Local-project-link-github-1/"/>
-    <id>http://yunminitools.cn/2023/08/02/Local-project-link-github-1/</id>
-    <published>2023-08-02T01:08:17.000Z</published>
-    <updated>2023-08-02T01:08:52.533Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
-&lt;p&gt;本地有一些程序文件用Vim 编辑有点不方便，打算上传到github后，用网页编辑器编辑。下面是具体步骤&lt;/p&gt;
-&lt;h2 id=&quot;一、建立本地仓库&quot;&gt;一、建立本地仓库&lt;/h2&gt;
-&lt;h3 id=&quot;1-初始化本地仓库&quot;&gt;1.初始化本地仓库&lt;/h3&gt;
-&lt;p&gt;git init&lt;/p&gt;
-&lt;h3 id=&quot;2-添加所有文件&quot;&gt;2.添加所有文件&lt;/h3&gt;
-&lt;p&gt;git add .&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
-    
-  </entry>
   
   <entry>
     <title>问题解决 - Your configuration specifies to merge with the ref xxx</title>
@@ -693,6 +668,35 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     
     
     <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决Django无法访问远程服务器</title>
+    <link href="http://yunminitools.cn/2023/06/04/Django-Remote-Server-Access/"/>
+    <id>http://yunminitools.cn/2023/06/04/Django-Remote-Server-Access/</id>
+    <published>2023-06-04T06:03:31.000Z</published>
+    <updated>2023-06-04T06:05:36.597Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;我在运上搭建了Django的服务器环境，这样就不能用 &lt;code&gt;http://127.0.0.1:8000&lt;/code&gt; 来访问Django的服务了，那如何解决呢？&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>

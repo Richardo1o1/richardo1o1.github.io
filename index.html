@@ -100,69 +100,6 @@ var _hmt = _hmt || [];
     
     
     <article
-  id="post-Local-project-link-github-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/08/02/Local-project-link-github-1/"
-    >本地项目连接Github</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/08/02/Local-project-link-github-1/" class="article-date">
-  <time datetime="2023-08-02T01:08:17.000Z" itemprop="datePublished">2023-08-02</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="概述">概述</h2>
-<p>本地有一些程序文件用Vim 编辑有点不方便，打算上传到github后，用网页编辑器编辑。下面是具体步骤</p>
-<h2 id="一、建立本地仓库">一、建立本地仓库</h2>
-<h3 id="1-初始化本地仓库">1.初始化本地仓库</h3>
-<p>git init</p>
-<h3 id="2-添加所有文件">2.添加所有文件</h3>
-<p>git add .</p> 
-      <a class="article-more-link" href="/2023/08/02/Local-project-link-github-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
   id="post-issue-resolve-1"
   class="article article-type-post"
   itemscope
@@ -779,6 +716,76 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/" rel="tag">工具框架</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-conda-command-create-activate"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/25/conda-command-create-activate/"
+    >conda 创建、激活、退出、删除虚拟环境 (Anaconda)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/25/conda-command-create-activate/" class="article-date">
+  <time datetime="2023-07-25T03:39:55.000Z" itemprop="datePublished">2023-07-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>在Anaconda中conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。所以对虚拟环境进行创建、删除等操作需要使用conda命令。</p>
+<h1>conda 本地环境常用操作</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取版本号</span></span><br><span class="line">conda --version 或 conda -V</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查更新当前conda</span></span><br><span class="line">conda update conda</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看当前存在哪些虚拟环境</span></span><br><span class="line">conda <span class="built_in">env</span> list 或 conda info -e</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看--安装--更新--删除包</span></span><br><span class="line"></span><br><span class="line">conda list：</span><br><span class="line">conda search package_name<span class="comment"># 查询包</span></span><br><span class="line">conda install package_name</span><br><span class="line">conda install package_name=1.5.0</span><br><span class="line">conda update package_name</span><br><span class="line">conda remove package_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>conda创建虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建名为your_env_name的环境</span></span><br><span class="line">conda create --name your_env_name</span><br><span class="line"><span class="comment">#创建制定python版本的环境</span></span><br><span class="line">conda create --name your_env_name python=2.7</span><br><span class="line">conda create --name your_env_name python=3.6</span><br><span class="line"><span class="comment">#创建包含某些包（如numpy，scipy）的环境</span></span><br><span class="line">conda create --name your_env_name numpy scipy</span><br><span class="line"><span class="comment">#创建指定python版本下包含某些包的环境</span></span><br><span class="line">conda create --name your_env_name python=3.6 numpy scipy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>激活虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Linux</span></span><br><span class="line"><span class="built_in">source</span> activate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#Windows</span></span><br><span class="line">activate your_env_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>退出虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Linux</span></span><br><span class="line"><span class="built_in">source</span> deactivate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#Windows</span></span><br><span class="line">deactivate env_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>删除虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n your_env_name --all</span><br><span class="line">conda remove --name your_env_name --all</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>复制某个环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name new_env_name --<span class="built_in">clone</span> old_env_name</span><br></pre></td></tr></table></figure>
+<h1>在指定环境中管理包</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda list -n your_env_name</span><br><span class="line">conda install --name myenv package_name</span><br><span class="line">conda remove --name myenv package_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>使用国内 conda 软件源加速</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
