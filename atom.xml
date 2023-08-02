@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-08-01T07:06:46.248Z</updated>
+  <updated>2023-08-02T04:50:23.600Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>避免每次更新代码后Docker都重新安装依赖</title>
+    <link href="http://yunminitools.cn/2023/08/02/Avoid-pip-docker-build/"/>
+    <id>http://yunminitools.cn/2023/08/02/Avoid-pip-docker-build/</id>
+    <published>2023-08-02T04:49:28.000Z</published>
+    <updated>2023-08-02T04:50:23.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;最简单的Dockerfile指令打包一个项目（以某python项目为例）：&lt;/p&gt;
+&lt;figure class=&quot;highlight docker&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>问题解决 - Your configuration specifies to merge with the ref xxx</title>
@@ -668,35 +697,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     
     
     <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决Django无法访问远程服务器</title>
-    <link href="http://yunminitools.cn/2023/06/04/Django-Remote-Server-Access/"/>
-    <id>http://yunminitools.cn/2023/06/04/Django-Remote-Server-Access/</id>
-    <published>2023-06-04T06:03:31.000Z</published>
-    <updated>2023-06-04T06:05:36.597Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;我在运上搭建了Django的服务器环境，这样就不能用 &lt;code&gt;http://127.0.0.1:8000&lt;/code&gt; 来访问Django的服务了，那如何解决呢？&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>

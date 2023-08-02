@@ -6155,4 +6155,27 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
         <tag>Issue-resolve</tag>
       </tags>
   </entry>
+  <entry>
+    <title>避免每次更新代码后Docker都重新安装依赖</title>
+    <url>/2023/08/02/Avoid-pip-docker-build/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>最简单的Dockerfile指令打包一个项目（以某python项目为例）：</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 选择一个基础镜像</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.6</span> </span><br><span class="line"><span class="comment"># 设置虚拟机中的工作路径 </span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /qqzone</span></span><br><span class="line"><span class="comment"># 将当前目录下所有文件拷贝到工作路径中  </span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . /qqzone  </span></span><br><span class="line"><span class="comment"># 执行命令，安装依赖</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -r requirements.txt</span></span><br><span class="line"><span class="comment"># 执行命令，启动服务</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python src/web/server.py</span></span><br></pre></td></tr></table></figure>
+<p>但是这样存在一个巨大的问题，每次更新代码后重新build镜像都会重新安装依赖，会浪费大量时间。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>有两种途径可以解决这个问题，一是将安装依赖后的环境打包为一个镜像，但是这样做显然有点麻烦，并且每次更新依赖后都得重新打包，因此推荐下面这种方式：使用缓存</p>
+<p><img src="http://cdn.yunminitools.cn/blog/0802Docker-build.jpg" alt=""></p>
+<p><strong>先安装依赖再拷贝代码时就会显示Using cache</strong></p>
+<p>只需要更改上面的Dockerfile命令如下：</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.6</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /qqzone</span></span><br><span class="line"><span class="comment"># 先将依赖文件拷贝到项目中</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt /qqzone</span></span><br><span class="line"><span class="comment"># 执行指令，安装依赖</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -i -r requirements.txt</span></span><br><span class="line"><span class="comment"># 拷贝项目文件和代码</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . /qqzone</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python src/web/server.py</span></span><br></pre></td></tr></table></figure>
+<p>与之前代码不同的是，先单独拷贝依赖文件（requirements.txt）到docker中，再立即安装依赖。由于通常在更新代码之后，依赖文件并没有改变（改变的代码部分在下一步才会被拷贝到镜像中），因此docker在build中会显示“using cache”（调用缓存），从而避免了重新安装依赖。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
 </search>
