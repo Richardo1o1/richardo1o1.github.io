@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-08-02T04:50:23.600Z</updated>
+  <updated>2023-08-07T01:07:55.600Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django -APIView的使用</title>
+    <link href="http://yunminitools.cn/2023/08/07/Django-APIView-usage/"/>
+    <id>http://yunminitools.cn/2023/08/07/Django-APIView-usage/</id>
+    <published>2023-08-07T01:05:29.000Z</published>
+    <updated>2023-08-07T01:07:55.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-APIView的使用：&quot;&gt;1.APIView的使用：&lt;/h2&gt;
+&lt;h3 id=&quot;1-1-在-user-urls-py-中添加路由&quot;&gt;1.1 在 user/urls.py 中添加路由&lt;/h3&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+  </entry>
   
   <entry>
     <title>避免每次更新代码后Docker都重新安装依赖</title>
@@ -646,62 +673,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django 的类视图</title>
-    <link href="http://yunminitools.cn/2023/06/05/Django-Class-View-1/"/>
-    <id>http://yunminitools.cn/2023/06/05/Django-Class-View-1/</id>
-    <published>2023-06-05T14:18:55.000Z</published>
-    <updated>2023-06-06T13:55:11.205Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;练习Django的时候发现它的类视图很神奇，很少的代码就能实现功能，研究了一下，发现这个&lt;a href=&quot;https://liujiangblog.com/course/django/279&quot;&gt;教程&lt;/a&gt;，写得比较详细，转载一下，加深印象。&lt;/p&gt;
-&lt;h2 id=&quot;类视图与函数视图&quot;&gt;类视图与函数视图&lt;/h2&gt;
-&lt;p&gt;Django的视图可以分为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;函数视图FBV：&lt;code&gt;def index(request):&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;类视图CBV：&lt;code&gt;class AboutView(TemplateView):&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;早期，人们在视图开发中发现了一些常见的习语和句式，也就是重复性代码和工作。于是引入了基于函数的视图来抽象这些模式，便于一般情况下的视图开发。&lt;/p&gt;
-&lt;p&gt;基于函数的视图的问题在于，尽管它们覆盖了简单的情况，但是除了一些简单的配置选项之外，没有办法扩展或定制它们，限制了它们在许多现实应用中的实用性。&lt;/p&gt;
-&lt;p&gt;基于类的通用视图与基于函数的视图的目标相同，都是想让视图开发更容易。但由于类视图可以使用MIXIN等一些面向对象的方法和工具包，使得基于类的视图比基于函数的视图更具扩展性和灵活性。&lt;/p&gt;
-&lt;p&gt;基于类的视图：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通过HTTP请求方法的不同，将代码分隔在不同的类方法中，比如GET和POST，而不是类函数中的条件判断。&lt;/li&gt;
-&lt;li&gt;可以使用面向对象的技巧，比如混入。&lt;/li&gt;
-&lt;li&gt;类具有封装和继承的特性，方便代码复用、分发和重构。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;两种视图可以实现同样的功能，本质上是一个东西，没有谁好谁坏之分，只是适用场景不同而已：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;简单逻辑、快速处理，请用FBV&lt;/li&gt;
-&lt;li&gt;代码复用、功能封装，请用CBV&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;用法&quot;&gt;用法&lt;/h2&gt;
-&lt;p&gt;Django 提供了很多适用于各种应用场景的基本视图类，我们一般不从头自己写起，这些类视图都继承&lt;code&gt;django.views.generic.base.View&lt;/code&gt;类。比如&lt;code&gt;RedirectView&lt;/code&gt; 用于 HTTP 重定向，&lt;code&gt;TemplateView&lt;/code&gt; 用于渲染模板。&lt;/p&gt;
-&lt;p&gt;类视图有很多简单的用法，甚至不需要去views.py中编写代码，比如下面的例子：&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; django.urls &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; django.views.generic &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; TemplateView&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;urlpatterns = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path(&lt;span class=&quot;string&quot;&gt;&amp;#x27;about/&amp;#x27;&lt;/span&gt;, TemplateView.as_view(template_name=&lt;span class=&quot;string&quot;&gt;&amp;quot;about.html&amp;quot;&lt;/span&gt;)),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;重点关注：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;TemplateView&lt;/code&gt;类视图&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;as_view()&lt;/code&gt;方法&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;template_name&lt;/code&gt;参数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;更通用的使用方法是继承Django提供的各种视图类，所以上面的例子的一般性写法如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# some_app/views.py&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; django.views.generic &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; TemplateView&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;AboutView&lt;/span&gt;(&lt;span class=&quot;title class_ inherited__&quot;&gt;TemplateView&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    template_name = &lt;span class=&quot;string&quot;&gt;&amp;quot;about.html&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;但是，由于类不是函数，所以需要在URLconf中使用&lt;code&gt;as_view()&lt;/code&gt;这个类方法将一个基于类的视图转换成函数形式的接口。&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# urls.py&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; django.urls &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; some_app.views &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; AboutView&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;urlpatterns = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path(&lt;span class=&quot;string&quot;&gt;&amp;#x27;about/&amp;#x27;&lt;/span&gt;, AboutView.as_view()),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
     
   </entry>
   
