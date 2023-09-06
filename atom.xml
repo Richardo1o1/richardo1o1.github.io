@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-08-07T01:17:00.640Z</updated>
+  <updated>2023-09-06T08:17:53.573Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker迁移默认的/var/lib/docker 目录（避坑指南）</title>
+    <link href="http://yunminitools.cn/2023/09/06/move-docker-data-folder/"/>
+    <id>http://yunminitools.cn/2023/09/06/move-docker-data-folder/</id>
+    <published>2023-09-06T08:17:12.000Z</published>
+    <updated>2023-09-06T08:17:53.573Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近在做docker 数据文件的迁移，按指引创建，遇到了一些问题，把步骤和解决方案记录一下。&lt;/p&gt;
+&lt;h2 id=&quot;1-停止docker服务&quot;&gt;1. 停止docker服务&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;systemctl stop</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Django -APIView的使用</title>
@@ -630,40 +659,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GPT 官方推荐使用方法</title>
-    <link href="http://yunminitools.cn/2023/06/06/GPT-best-practices-Index/"/>
-    <id>http://yunminitools.cn/2023/06/06/GPT-best-practices-Index/</id>
-    <published>2023-06-06T13:39:45.000Z</published>
-    <updated>2023-06-16T13:24:27.838Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;GPT官方推出了一个使用方法介绍：&lt;a href=&quot;https://platform.openai.com/docs/guides/gpt-best-practices&quot;&gt;网址&lt;/a&gt;，挺有意思，搬运过来，并做一些归纳。&lt;br&gt;
-有6种方法可以得到更好的结果：&lt;/p&gt;
-&lt;h2 id=&quot;一、写出明确的指引（Clear-Instructions）&quot;&gt;一、写出明确的指引（Clear Instructions）&lt;/h2&gt;
-&lt;p&gt;GPT无法读取您的思维。如果它们的输出太长，请要求简洁回答。如果它们的输出过于简单，请要求专家级的写作。如果您不喜欢格式，请展示您想要看到的格式。GPT越少猜测您的需求，您得到的结果就更有可能符合您的期望。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;策略：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E5%9C%A8%E6%9F%A5%E8%AF%A2%E4%B8%AD%E5%8C%85%E5%90%AB%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E4%BB%A5%E8%8E%B7%E5%BE%97%E6%9B%B4%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AD%94%E6%A1%88&quot;&gt;在查询中包含详细信息以获得更相关的答案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E8%A6%81%E6%B1%82%E6%A8%A1%E5%9E%8B%E9%87%87%E7%94%A8%E7%89%B9%E5%AE%9A%E7%9A%84%E4%BA%BA%E8%AE%BE&quot;&gt;要求模型采用特定的人设&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E4%BD%BF%E7%94%A8%E5%88%86%E9%9A%94%E7%AC%A6%E6%B8%85%E6%99%B0%E5%9C%B0%E6%A0%87%E7%A4%BA%E8%BE%93%E5%85%A5%E7%9A%84%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86&quot;&gt;使用分隔符清楚地标示输入的不同部分&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8C%87%E5%AE%9A%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E6%89%80%E9%9C%80%E7%9A%84%E6%AD%A5%E9%AA%A4&quot;&gt;明确指定完成任务所需的步骤&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8F%90%E4%BE%9B%E7%A4%BA%E4%BE%8B&quot;&gt;提供示例&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8C%87%E5%AE%9A%E6%9C%9F%E6%9C%9B%E7%9A%84%E8%BE%93%E5%87%BA%E9%95%BF%E5%BA%A6&quot;&gt;指定期望的输出长度&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary>
     
     
     

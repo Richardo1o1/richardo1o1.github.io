@@ -6196,4 +6196,36 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
         <tag>Django</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Docker迁移默认的/var/lib/docker 目录（避坑指南）</title>
+    <url>/2023/09/06/move-docker-data-folder/</url>
+    <content><![CDATA[<p>最近在做docker 数据文件的迁移，按指引创建，遇到了一些问题，把步骤和解决方案记录一下。</p>
+<h2 id="1-停止docker服务">1. 停止docker服务</h2>
+<p><code>systemctl stop docker</code></p>
+<h2 id="2-创建docker新目录">2.创建docker新目录</h2>
+<p><code>mkdir -p /data/docker/lib</code></p>
+<h2 id="3-安装迁移软件包">3.安装迁移软件包</h2>
+<p><code>yum install rsync -y</code></p>
+<p>或者</p>
+<p><code>sudo apt-get install rsync</code></p>
+<h2 id="4-开始迁移">4.开始迁移</h2>
+<p><code>rsync -avzP /var/lib/docker /data/docker/lib/</code></p>
+<p>注：这个不是必须的，也可以用<code>mv</code>命令</p>
+<h2 id="5-修改docker配置文件">5.修改docker配置文件</h2>
+<p><code>vim /lib/systemd/system/docker.service</code></p>
+<p>在<code>ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</code>后添加<code>--graph=/data/docker/lib</code></p>
+<p>注意：这里有个坑，最新的docker版本（≥ version 23.0.0 ) 这个参数（–graph）要改为 --data-root ，也就是： <code>--data-root=/data/docker/lib</code></p>
+<h2 id="6-重启docker">6.重启docker</h2>
+<p><code>systemctl daemon-reload systemctl restart docker</code></p>
+<h2 id="7-确认docker没有问题，删除原目录">7.确认docker没有问题，删除原目录</h2>
+<p><code>rm -rf /var/lib/docker</code></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
 </search>
