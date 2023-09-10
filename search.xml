@@ -6228,4 +6228,138 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
         <tag>Docker</tag>
       </tags>
   </entry>
+  <entry>
+    <title>建立个人和组织的声望（转）</title>
+    <url>/2023/09/10/Building-personal-prestige/</url>
+    <content><![CDATA[<h2 id="品牌-VS-声望">品牌 VS 声望</h2>
+<p><strong>Brand</strong> as a deliberately crafted, sustained narrative that is actively known about you. You don’t have to research Google engineering to have an opinion about Google engineering. In your career and as an engineering leader, you will likely be given the advice that it’s <em>very important</em> to build a brand.<br>
+品牌是一个经过精心打造、持续传播的叙事，它是人们主动了解你的方式。你不必研究谷歌的工程技术，就能对谷歌的工程技术有所见解。在你的职业生涯中，作为一名工程领导者，你很有可能会被建议：建立自己的品牌非常重要。<br>
+If you participate frequently in social media, it’s easy to get sucked into its reality distortion field. When you spend a lot of time in a given online community, being well-known in that community feels equivalent to professional credibility. However, my experience is that few of the most successful folks I know are well-known online, and many of the most successful folks I know don’t create content online at all. Maybe they have an Instagram account, but it focuses on their family and non-professional interests.<br>
+如果你经常参与社交媒体，很容易陷入其现实扭曲力场。当你在一个特定的在线社区花费大量时间时，在那个社区中广为人知似乎等同于专业信誉。然而，根据我的经验，我认识的许多最成功的人在线并不广为人知，而我认识的许多最成功的人根本不在线上创作内容。也许他们有一个Instagram账号，但它关注的是他们的家庭和非职业兴趣。<br>
+Enough folks find this <strong>counter-intuitive</strong> that I’ll emphasize this theme a bit. The majority of successful executives I’ve worked with don’t write online. They won’t post on Twitter or Mastodon. They haven’t written a book. They don’t speak at conferences. They don’t have a YouTube channel. They don’t stream on Twitch. In your engineering leadership career, you will at times be immersed in the message that you need to be creating content to be successful, but there’s abundant evidence to the contrary. You absolutely don’t have to do this sort of thing.<br>
+足够多的人认为这一点与直觉相悖，因此我将强调这个主题。我与之合作过的大多数成功高管并不在网上写作。他们不会在Twitter或Mastodon上发帖。他们没有写过书。他们不会在会议上演讲。他们没有YouTube频道。他不在Twitch上直播。在你的工程领导生涯中，你有时会沉浸在这样一种信息中，即你需要创造内容才能成功，但有大量证据表明相反。你绝对不必做这种事情。<br>
+Similarly, most Engineering organizations spend little time developing their external brand, and are not externally well-known. For every <a href="https://engineering.fb.com/">Meta Engineering blog</a> or <a href="https://netflixtechblog.com/">Netflix Engineering blog</a>, you’ll find hundreds of engineering organizations with limited public visibility around their work. Many of those silent organizations are doing very interesting work, they just don’t spend much time talking about it publicly. You can, without a doubt, be a successful engineering organization without ever doing any external communication to build your brand.<br>
+同样，大多数工程组织很少花时间发展他们的外部品牌，也不为外界所熟知。在每一个Meta工程博客或Netflix工程博客之后，你会发现数百个工程组织几乎没有公开可见性。许多这些低调的组织正在做非常有趣的工作，只是他们不花太多时间公开谈论。毫无疑问，你可以在不做任何外部沟通来建立品牌的情况下成为一家成功的工程组织。</p>
+<span id="more"></span>
+<p>Prestige is the passive-awareness counterpart to brand. Rather than being what someone actively knows about you, it’s what someone can easily discover about you if they look for it. Many interviewers won’t know anything about me, but a few minutes of research will find my writing, conference talks, and work history.<br>
+声望是品牌的被动意识对应物。与其说是别人主动了解你的东西，不如说是如果有人寻找，他们可以轻松发现关于你的信息。许多面试官可能对我一无所知，但只需几分钟的研究就能找到我的写作、会议演讲和工作经历。</p>
+<p>You can build prestige by attending a well-respected university, joining a well-known company, or giving a recorded conference. Companies can build prestige by focusing on a problem that’s immediately attractive to software engineers, finding an attractive way to approach that problem, or retaining prestigious employees. More engineers are interested in working on self-driving cars than on automating personal taxes. If your company does work on automating personal taxes, engineers would certainly be more interested in fully automating that process than streamlining back office processes for a team of accountants.<br>
+你可以通过就读声誉卓著的大学、加入知名公司，或者参加被记录下来的会议来建立声望。公司可以通过专注于对软件工程师具有吸引力的问题，找到解决问题的吸引人方式，或者保留有声望的员工来建立声望。与其说工程师对自动化个人税务不如对自动驾驶汽车感兴趣。如果你的公司致力于自动化个人税务处理，工程师肯定更感兴趣于全面自动化该过程，而不是优化会计团队的后勤流程。</p>
+<p>While many successful engineering leaders and engineering organizations don’t have much of a brand, most are prestigious in one way or another. Prestige is a universal lubricant. It opens the door to taking senior roles and recruiting senior candidates. It creates edges in your network graph that open doors across the industry.<br>
+虽然许多成功的工程领导者和工程组织在品牌方面表现不显著，但大多数在某种程度上都具有声望。声望是一种普遍的润滑剂。它为担任高级职位和招聘高级候选人敞开了大门。它在你的网络图中创造了行业内的机会。</p>
+<h2 id="是否值得建立你的个人声望">是否值得建立你的个人声望</h2>
+<ul>
+<li>Are you able to start the interview process for jobs you’re interested in? (Not necessarily receive an offer, but start the process.)</li>
+<li>Is an executive recruiter able to match you with interesting roles? (Particularly roles that are more complex or desirable than your current role.)</li>
+<li>Are you able to hire senior candidates to work in your organization? (Particularly those with more applicable experience than you.)</li>
+<li>Does your team seek you out for career advice and advice beyond the immediate scope of their current work? (Not just your direct reports, but more widely.)</li>
+<li>Is your network expanding by default, allowing you to reach out further and to more senior individuals? (Prestige expands its reach by default, as those you already know go into more senior roles.)</li>
+</ul>
+<p>在评估是否值得投入更多时间来建立声望时，可以考虑以下几个问题：</p>
+<ol>
+<li>你能够开始面试你感兴趣的工作吗？（不一定是获得一个职位提议，但能够进入面试流程。）</li>
+<li>执行招聘人员能够为你匹配到有趣的职位吗？（特别是比你当前职位更复杂或更令人向往的职位。）</li>
+<li>你能够招聘到在你的组织中工作的高级候选人吗？（特别是那些具有更相关经验的人。）</li>
+<li>你的团队会寻求你的职业建议以及超出他们当前工作范围的建议吗？（不仅仅是你的直接下属，还包括更广泛的范围。）</li>
+<li>你的人际网络是否在不断扩大，使你能够与更多的高级别个体取得联系？（声望默认情况下会扩大其影响范围，因为你已经认识的人会进入更高级别的职位。）</li>
+</ol>
+<p>If you answer “yes” to most of those questions, then I wouldn’t invest much additional energy here. On the other hand, if you answered no to many of those questions, if you didn’t attend a prestigious university, work at a prestigious company, or select a core business space that software engineers are interested in, then it’s worthwhile to learn how to manufacture prestige.<br>
+如果你对大多数问题回答“是”，那么我就不会在这方面投入太多额外精力。另一方面，如果你对许多问题的回答是“否”，如果你没有就读过有声望的大学、没有在有声望的公司工作过，或者没有选择软件工程师感兴趣的核心业务领域，那么学习如何制造声望是值得的。</p>
+<h2 id="通过不经常但高质量的内容来制造声望">通过不经常但高质量的内容来制造声望</h2>
+<p>In my experience, engineers confronted with a new problem often leap to creating a system to solve that problem rather than addressing it directly. I’ve found this particularly true when engineers approach a problem domain they don’t yet understand well, including building prestige.<br>
+根据我的经验，面临新问题的工程师往往会立即创建一个系统来解决问题，而不是直接解决问题。我发现，当工程师面对他们尚不太了解的问题领域，包括建立声望时，这一点尤其明显。</p>
+<p>For example, when an organization decides to invest into its engineering brand, the initial plan will often focus on project execution. It’ll include a goal for publishing frequency, ensuring content is representationally accurate across different engineering sub-domains, and how to incentivize participants to contribute. If you follow the project plan carefully, you will technically have built an engineering brand, but my experience is that it’ll be both more work and less effective than a less systematic approach.<br>
+例如，当一个组织决定投资于其工程品牌时，最初的计划通常会集中在项目执行上。它将包括发布频率的目标，确保内容在不同的工程子领域中具有代表性，并如何激励参与者做出贡献。如果你仔细遵循项目计划，从技术上讲，你确实建立了一个工程品牌，但根据我的经验，这将比不太系统化的方法更费力而效果更差。</p>
+<p>Prestige is an ambient, positive familiarity. This doesn’t require an <a href="https://lethain.com/programs-owning-the-unownable/">organizational program</a> or a strict content calendar, rather it depends on building awareness of a small amount of noteworthy accomplishments. The most effective approach I’ve seen is doing a small amount of writing or public speaking, and then ensuring that work is discoverable.<br>
+声望是一种环境中的积极熟悉感。这不需要组织性的计划或严格的内容日历，而是依赖于建立对一些值得注意的成就的认知。我见过的最有效方法是进行少量的写作或公开演讲，然后确保这些工作可以被发现。</p>
+<p>The steps to that approach are:</p>
+<ol>
+<li>
+<p>Identify a timeless topic where <strong>you have a meaningful perspective, and have an atypical perspective</strong>. You’re looking for topics where your writing can remain relevant for decades, and perspectives that demonstrate depth rather than chase controversy. Be mindful that atypical doesn’t mean controversial, it’s usually introducing an additional layer of detail to a low nuance debate.</p>
+<p>For a few example topics, consider <em>Productivity in the age of hypergrowth</em>, where I argued that effective onboarding was the key constraint in hypergrowth companies rather than hiring. Or in _Migrations,_where I argued that the value of technical platforms should be foremost evaluated through migration cost rather than the capabilities of the technical platform. Both of these topics remain relevant today, and will hopefully remain relevant for much longer.</p>
+</li>
+<li>
+<p>Pick a format that feels the most comfortable for you, typically this is either a blog post or a conference talk. The ideal format is something that you’re excited about, you can iterate on the content until it’s ready for release, it’s small enough that you can iterate quickly, and it generates a permanent digital artifact (e.g. a video or piece of writing).</p>
+<p>I recommend avoiding books and podcasts in this step. Podcasts are hard to iterate on, as you generally get one take plus whatever you can fix in editing. Books are a difficult format to learn in, as iterating on the content can consume a great deal of time.</p>
+</li>
+<li>
+<p>Once you’ve picked a format, create the content! Go into this process assuming that you will throw away two or three drafts. Get early feedback, and get that feedback from folks who are experienced in that format: everyone has an opinion on what good content looks like, but not all opinions are equally valuable.</p>
+<p>Your content is done when readers can accurately identify your key insight and enjoy it enough to read or listen to its entirety. It’s a good sign if some readers disagree with you: anything interesting will generate some disagreement.</p>
+</li>
+<li>
+<p>Develop an explicit distribution plan to share your content. The simplest effective distribution plan is coordinating with a few more visible friends to share your article online: ten people committing to share your article online around the same time is a fine distribution plan.</p>
+</li>
+<li>
+<p>Make it easy for interested parties to discover what you’ve written in the future by collecting them on a personal website and your various presences online (e.g. LinkedIn).</p>
+</li>
+<li>
+<p>Repeat this process two or three times over the next several years.</p>
+</li>
+<li>
+<p>You’re done! Many more folks will have ambient, positive awareness of you, and whenever you interview for a role or show up as a hiring manager, it will be easy to discover this previous content that reflects positively upon you. If you enjoyed the process, you can do more, but you don’t need to spend more time on this unless you particularly enjoy it.</p>
+</li>
+</ol>
+<p>这种方法的步骤如下：</p>
+<ol>
+<li>
+<p>选择一个具有持久性的主题，在这个主题上你有有意义的观点，并且具有非典型的观点。你要寻找那些你的写作可以在几十年内保持相关性的主题，以及展示深度而不是追求争议的观点。请注意，非典型并不意味着争议性，通常是在低层次的辩论中引入了额外的细节。</p>
+<p>对于一些示例主题，考虑“在高速增长时代的生产力”，在这个主题中，我主张在高速增长的公司中，有效的入职培训是关键约束，而不是招聘。或者在“迁移”中，我主张技术平台的价值应首先通过迁移成本而不是技术平台的能力来评估。这些主题今天仍然具有相关性，希望在更长的时间内仍然具有相关性。</p>
+</li>
+<li>
+<p>选择一个对你来说最舒适的格式，通常是博客文章或会议演讲。理想的格式是你感到兴奋的，可以不断完善内容直到准备发布，足够小以便你可以快速迭代，并且生成一个永久的数字化文档（例如视频或文字）。</p>
+<p>我建议在这一步骤中避免书籍和播客。播客难以迭代，因为通常只有一次录音机会，再加上你可以在编辑中修复的问题。书籍是一种难以学习的格式，因为内容的迭代可能会消耗大量时间。</p>
+</li>
+<li>
+<p>一旦选定了格式，就创作内容！在这个过程中，假设你将会放弃两到三个草稿。获取早期反馈，而且要从在该格式上有经验的人那里获取反馈：每个人都对什么是好的内容有自己的看法，但并非所有看法都是有价值的。</p>
+<p>当读者能够准确识别你的关键观点并且足够喜欢它以至于愿意阅读或听完整个内容时，你的内容就完成了。如果有些读者不同意你，这是一个好兆头：任何有趣的东西都会引发一些争议。</p>
+</li>
+<li>
+<p>制定一个明确的分发计划来分享你的内容。最简单且有效的分发计划是与一些更有影响力的朋友合作，在线上分享你的文章：十个人承诺在同一时间在线分享你的文章是一个不错的分发计划。</p>
+</li>
+<li>
+<p>通过将它们收集在个人网站和你在线的各个位置（例如LinkedIn），使有兴趣的人能够在未来轻松发现你所写的内容。</p>
+</li>
+<li>
+<p>在接下来的几年内重复这个过程两到三次。</p>
+</li>
+<li>
+<p>你完成了！更多的人会对你有一种环境中的积极熟悉感，每当你面试一个职位或作为招聘经理出现时，都可以轻松地发现这些以前的内容，这些内容对你产生了积极的影响。如果你喜欢这个过程，你可以做更多，但除非你特别喜欢它，否则你不需要在这方面花费更多时间。</p>
+</li>
+</ol>
+<p>This approach works equally well for building your company’s engineering brand as it does for building your personal brand as an executive. In both cases, a small amount of positive, thoughtful content will go further than a larger volume of lesser content, and the short-term distribution benefits of engaging in controversy is at odds with your goal of building prestige.</p>
+<p>这种方法对于建立你公司的工程品牌和建立你作为高管的个人品牌同样有效。在这两种情况下，一小部分积极而深思熟虑的内容将比大量较差的内容更有价值，而参与争议的短期分发好处与建立声望的目标相矛盾。</p>
+<p>If this advice feels counterintuitive–if it feels <em>too</em> easy–it’s likely because you’re applying advice for building a brand or an audience to the rather different topic of building prestige. To build a brand that you measure through an audience, consistency is valuable, and volume does matter. Prestige doesn’t need all that, just easily discoverable content that paints a positive connotation.</p>
+<p>如果这个建议感觉反直觉——如果感觉太容易——那很可能是因为你正在将建立品牌或受众的建议应用到建立声望这个完全不同的话题上。要建立一个通过受众来衡量的品牌，一致性是有价值的，而数量也很重要。但声望不需要这一切，只需要易于发现的内容，能够营造积极的联想。</p>
+<h2 id="衡量声望确实是一个充满挑战的领域">衡量声望确实是一个充满挑战的领域</h2>
+<p>All corporate initiatives demand a metric to measure their outcomes, which brings us to the messy topic of measuring prestige. I recommend making a small, timeboxed time investment, tracking how often content comes up in hiring processes (both as a candidate and as a hirer), and avoiding spending any more time on measurement.<br>
+There are several measures I specifically recommend avoiding:<br>
+所有公司倡议都需要一个度量标准来衡量它们的结果，这就引出了衡量声望这个复杂的话题。我建议进行一次小规模、限时的时间投资，跟踪内容在招聘过程中出现的频率（既作为候选人又作为招聘者），并避免在度量方面再投入太多时间。<br>
+有几种度量标准我特别建议避免使用：</p>
+<ul>
+<li>Pageviews are usually the easiest measure to instrument, but establish the wrong incentives. This is because it’s much easier to drive pageviews by being controversial than by being thoughtful, but controversy reduces prestige rather than enhancing it. Pageviews also <strong>incentivize selecting large audiences</strong> (“early-career software engineers”) over influential audiences (“technology executives”), whereas the influential audiences will become increasingly important to your career and hiring priorities as you get further into your career.</li>
+<li>Social media followers are a good measure of reach. Reach is part of distribution, and distribution is an important part of building prestige, so this is a useful measure, but again suffers from the same issues of incentives as measuring pageviews. There are many ways to build social media reach that are at odds with building prestige, particularly anchoring on controversy, which makes this a poor measure.</li>
+<li>If you’re selling your content as a book or course, then measuring sales is attractive. Unfortunately, once again the correlation with prestige is questionable. Particularly if this is your only content, it’s likely that selling it will reduce your reach.</li>
+<li>Volume of writing is also tempting, but this will orient you towards building an audience rather than building prestige. There’s certainly nothing wrong with writing a lot, but it’s an inefficient route towards prestige.</li>
+<li>页面浏览量通常是最容易测量的指标，但它建立了错误的激励机制。这是因为通过引发争议而不是深思熟虑，要提高页面浏览量要容易得多，但争议不会增强声望，反而会减损声望。页面浏览量还会激励选择大规模受众（“初级软件工程师”）而不是有影响力的受众（“技术高管”），然而有影响力的受众将在你的职业和招聘优先事项中越来越重要，随着你的职业发展。</li>
+<li>社交媒体关注者是衡量影响范围的好指标。影响范围是分发的一部分，而分发是建立声望的重要组成部分，因此这是一个有用的度量标准，但同样存在与衡量页面浏览量相同的激励问题。有很多方式可以扩大社交媒体影响范围，但这些方式可能与建立声望相抵触，尤其是围绕争议展开，这使得这个度量标准不太理想。</li>
+<li>如果你将你的内容作为一本书或课程出售，那么衡量销售量是有吸引力的。然而，再次强调，与声望的相关性是值得质疑的。特别是如果这是你唯一的内容，很可能销售它会降低你的影响范围。</li>
+<li>写作数量也是一种诱人的度量标准，但这会导向你建立受众而不是声望。写得多当然没有错，但它是一条低效的通往声望的路径。</li>
+</ul>
+<p>If you build out a heavy investment into your brand, it’s unavoidable that you’ll end up measuring the above measures, but it’s very unlikely that this measurement will be useful to you. You can fight that by looking for better measurables, but I’ve found it’s much easier to address that friction by limiting yourself to a modest investment, and channeling the saved energy towards something more directly useful to your business or career.</p>
+<p>如果你大力投资于你的品牌，不可避免地你会开始测量上述度量标准，但很可能这种测量对你没有多大用处。你可以通过寻找更好的可度量指标来应对这个问题，但我发现通过将自己限制在适度的投资水平，并将节省下来的精力引导到对你的业务或职业更直接有用的事情上，更容易克服这种摩擦。</p>
+<p>在建立声望时，关注质量而不是数量，专注于为受众提供有价值的见解，建立有影响力的内容，通常会更有益于长期的职业发展和企业成功。度量声望的困难在于，它常常是一个积累性的过程，难以用简单的数字来衡量。因此，将注意力放在提供有价值的内容和建立可发现性的内容上，比过于纠结于度量具体指标更为重要。</p>
+<h2 id="总结">总结</h2>
+<p>In this piece, you learned how to build prestige for yourself as an executive, and your engineering organization as an employer. You also spent time on the distinction between building prestige and building an audience, and why it’s more efficient to prioritize prestige unless you’re selling directly to software engineers. You further spent time on why most measurements will steer you away from your goal, which should <strong>encourage you to timebox your investment rather than invest more heavily into measurement</strong>.</p>
+<p>If you only take one idea away, it’s that you should be lightly skeptical of following advice and patterns from the companies and executives around you. Companies and individuals play many different games when they create and distribute content online, and the rules and values conflict across many of those games. Make sure you know what game you are playing, and why you’re playing it.</p>
+<p>在这篇文章中，你学会了如何作为高管建立声望，以及如何作为雇主将你的工程组织建设成有声望的机构。你还花时间区分了建立声望和建立受众之间的区别，以及为什么在除非你直接面向软件工程师，否则更高效地优先考虑声望。你还花时间解释了为什么大多数度量标准会偏离你的目标，这应该鼓励你设定时间限制来投资，而不是更深入地投资于度量。</p>
+<p>如果只能带走一个观点，那就是你应该对跟随周围公司和高管的建议和模式持有轻度的怀疑态度。在在线创建和分发内容时，公司和个人参与了许多不同的游戏，而这些游戏的规则和价值观在很多情况下都存在冲突。确保你知道你正在玩的是哪种游戏，以及为什么要参与其中。</p>
+<p>from 《<strong><a href="https://lethain.com/building-prestige/">Building personal and organizational prestige</a></strong>》</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>公司文化</tag>
+      </tags>
+  </entry>
 </search>
