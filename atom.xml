@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-09-10T06:07:13.645Z</updated>
+  <updated>2023-09-13T14:19:18.388Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VUE页面刷新实战</title>
+    <link href="http://yunminitools.cn/2023/09/13/vue-refresh-page-route/"/>
+    <id>http://yunminitools.cn/2023/09/13/vue-refresh-page-route/</id>
+    <published>2023-09-13T14:18:39.000Z</published>
+    <updated>2023-09-13T14:19:18.388Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;在进行VUE开发时，往往会出现需要实现当前页面操作完毕后，返回一个列表页面，如果用 this.$router.go(-1)</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
+    
+  </entry>
   
   <entry>
     <title>建立个人和组织的声望（转）</title>
@@ -589,33 +617,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;根据客户查询的分类，可以为GPT模型提供一组更具体的指令来处理下一步操作。例如，假设客户需要“故障排除”的帮助。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>提供参考文本的策略</title>
-    <link href="http://yunminitools.cn/2023/06/08/provide-reference-text-strategy/"/>
-    <id>http://yunminitools.cn/2023/06/08/provide-reference-text-strategy/</id>
-    <published>2023-06-08T06:09:37.000Z</published>
-    <updated>2023-06-08T06:11:42.441Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
     
     
     
