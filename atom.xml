@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-09-13T14:19:18.388Z</updated>
+  <updated>2023-09-17T10:40:59.209Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Taylor Swift 纽约大学演讲（节选）</title>
+    <link href="http://yunminitools.cn/2023/09/17/Taylor-Swift-NYC-Speech/"/>
+    <id>http://yunminitools.cn/2023/09/17/Taylor-Swift-NYC-Speech/</id>
+    <published>2023-09-17T10:40:04.000Z</published>
+    <updated>2023-09-17T10:40:59.209Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;Taylor Swift（泰勒·斯威夫特），1989年12月13日出生于美国宾夕法尼亚州，美国女歌手、词曲作者、音乐制作人、演员、纽约大学荣誉博士。&lt;br&gt;
+2022年5月19日，泰勒于纽约大学2022届毕业典礼发表演讲并被授予 “艺术博士” 荣誉学位。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;荣誉博士学位（Honorary Doctoral Degree），也叫名誉博士学位，是世界多数国家通行授予的一种名誉性学术称号。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;演讲稿&quot;&gt;演讲稿&lt;/h2&gt;
+&lt;p&gt;You went to NYU during a global pandemic, being essentially locked into your dorms and having to do classes over Zoom. Everyone in college during normal times stresses of about test scores. But on top of that, you also had to pass like a thousand COVID tests. I imagine the idea of a normal college experience was all you wanted to. But in this case, you and I both learned that you don’t always get all the things in the bag that you selected from the menu in the delivery surface. That is life. You get what you get.&lt;br&gt;
+你们在全球大流行期间去了纽约大学，基本上被困在宿舍里，不得不通过Zoom上课。在正常时期上大学的人都会担心考试成绩，但除此之外，你们还必须通过数以千次的核酸检测。我可以想象，你们也渴望能够拥有正常的大学经历。但在这种情况下，你和我都学到了，很多时候你难以获得你所选择的。这就是生活。你得到的仅仅是你所能够得到的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>VUE页面刷新实战</title>
@@ -575,48 +602,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;但学生的解答实际上是不正确的！我们可以通过提示模型首先生成自己的解答来成功让模型注意到这一点。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>将复杂任务分解为简单的子任务的策略</title>
-    <link href="http://yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"/>
-    <id>http://yunminitools.cn/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/</id>
-    <published>2023-06-13T14:35:13.000Z</published>
-    <updated>2023-06-16T13:29:12.334Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;使用意图分类来识别用户查询的最相关指令&quot;&gt;使用意图分类来识别用户查询的最相关指令&lt;/h2&gt;
-&lt;p&gt;对于需要处理不同情况的大量独立指令的任务，首先对查询类型进行分类，并使用该分类确定所需的指令，可以带来一些好处。这可以通过定义固定的类别和硬编码与处理给定类别任务相关的指令来实现。该过程还可以递归应用于将任务分解为一系列阶段。这种方法的优点在于每个查询只包含执行任务的下一个阶段所需的指令，这可能导致与使用单个查询执行整个任务相比较低的错误率。这还可以降低成本，因为较大的提示运行成本更高（请参阅定价信息）。&lt;/p&gt;
-&lt;p&gt;例如，假设对于客户服务应用程序，查询可以有以下有用的分类方式：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Role&lt;/th&gt;
-&lt;th&gt;Prompt&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SYSTEM&lt;/td&gt;
-&lt;td&gt;You will be provided with customer service queries. Classify each query into a primary category and a secondary category. Provide your output in json format with the keys: primary and secondary.&lt;br&gt;Primary categories: Billing, Technical Support, Account Management, or General Inquiry.&lt;br&gt;Billing secondary categories:&lt;br&gt;- Unsubscribe or upgrade&lt;br&gt;- Add a payment method&lt;br&gt;- Explanation for charge&lt;br&gt;- Dispute a charge&lt;br&gt;Technical Support secondary categories:&lt;br&gt;- Troubleshooting&lt;br&gt;- Device compatibility&lt;br&gt;- Software updates&lt;br&gt;Account Management secondary categories:&lt;br&gt;- Password reset&lt;br&gt;- Update personal information&lt;br&gt;- Close account&lt;br&gt;- Account security&lt;br&gt;General Inquiry secondary categories:&lt;br&gt;- Product information&lt;br&gt;- Pricing&lt;br&gt;- Feedback&lt;br&gt;- Speak to a human&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;USER&lt;/td&gt;
-&lt;td&gt;I need to get my internet working again.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;根据客户查询的分类，可以为GPT模型提供一组更具体的指令来处理下一步操作。例如，假设客户需要“故障排除”的帮助。&lt;/p&gt;</summary>
     
     
     
