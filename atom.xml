@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-09-17T10:40:59.209Z</updated>
+  <updated>2023-11-05T02:35:56.372Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设置ssh代理解决git pull慢的问题</title>
+    <link href="http://yunminitools.cn/2023/11/05/ssh-proxy-github-slow-resolve/"/>
+    <id>http://yunminitools.cn/2023/11/05/ssh-proxy-github-slow-resolve/</id>
+    <published>2023-11-05T02:34:08.000Z</published>
+    <updated>2023-11-05T02:35:56.372Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近Github特别慢，应该和网络关系比较大，查了一下，用设置代理方式搞定，具体步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;搭建代理服务器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装ncat 使用以下命令&lt;/p&gt;
+ &lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>Taylor Swift 纽约大学演讲（节选）</title>
@@ -121,9 +155,9 @@ Similarly, most Engineering organizations spend little time developing their ext
     <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
@@ -177,9 +211,9 @@ Similarly, most Engineering organizations spend little time developing their ext
     <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
-    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
-    
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
     
   </entry>
   
@@ -262,9 +296,9 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
     <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
-    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
-    
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
     
   </entry>
   
@@ -329,9 +363,9 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
     <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
@@ -557,51 +591,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     <summary type="html">&lt;h2</summary>
         
       
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>给GPTs一些时间来“思考”的策略</title>
-    <link href="http://yunminitools.cn/2023/06/14/Give-GPTs-time-to-think-strategy/"/>
-    <id>http://yunminitools.cn/2023/06/14/Give-GPTs-time-to-think-strategy/</id>
-    <published>2023-06-14T15:14:55.000Z</published>
-    <updated>2023-06-14T15:17:32.330Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;指示模型在草率得出结论之前自己解决问题&quot;&gt;指示模型在草率得出结论之前自己解决问题&lt;/h2&gt;
-&lt;p&gt;有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Role&lt;/th&gt;
-&lt;th&gt;Prompt&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SYSTEM&lt;/td&gt;
-&lt;td&gt;Determine if the student’s solution is correct or not.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;USER&lt;/td&gt;
-&lt;td&gt;Problem Statement: I’m building a solar power installation and I need help working out the financials.&lt;br&gt;- Land costs $100 / square foot&lt;br&gt;- I can buy solar panels for $250 / square foot&lt;br&gt;- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot&lt;br&gt;What is the total cost for the first year of operations as a function of the number of square feet.&lt;br&gt;Student’s Solution: Let x be the size of the installation in square feet.&lt;br&gt;1. Land cost: 100x&lt;br&gt;2. Solar panel cost: 250x&lt;br&gt;3. Maintenance cost: 100,000 + 100x&lt;br&gt;Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ASSISTANT&lt;/td&gt;
-&lt;td&gt;The student’s solution is correct.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;但学生的解答实际上是不正确的！我们可以通过提示模型首先生成自己的解答来成功让模型注意到这一点。&lt;/p&gt;</summary>
     
     
     

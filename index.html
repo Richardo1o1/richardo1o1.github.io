@@ -100,6 +100,79 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-ssh-proxy-github-slow-resolve"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/11/05/ssh-proxy-github-slow-resolve/"
+    >设置ssh代理解决git pull慢的问题</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/11/05/ssh-proxy-github-slow-resolve/" class="article-date">
+  <time datetime="2023-11-05T02:34:08.000Z" itemprop="datePublished">2023-11-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>最近Github特别慢，应该和网络关系比较大，查了一下，用设置代理方式搞定，具体步骤如下：</p>
+<ol>
+<li>
+<p>搭建代理服务器</p>
+</li>
+<li>
+<p>安装ncat 使用以下命令</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ncat</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置ssh代理，编辑ssh设置文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p>文件内容如下：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User git</span><br><span class="line">Port 443</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">TCPKeepAlive <span class="built_in">yes</span></span><br><span class="line">ProxyCommand /usr/local/bin/ncat --proxy 127.0.0.1:7890 --proxy-type socks5 %h %p</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用以下命令测试，如果返回成功则设置成功</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Taylor-Swift-NYC-Speech"
   class="article article-type-post"
   itemscope
@@ -680,80 +753,6 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-U-Theory-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/30/U-Theory-2/"
-    >U型思考介绍-2-问挖破立</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/30/U-Theory-2/" class="article-date">
-  <time datetime="2023-07-30T08:30:32.000Z" itemprop="datePublished">2023-07-30</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <pre class="mermaid">graph LR
-  U型思考 --> 问
-  U型思考 --> 挖
-  U型思考 --> 破
-  U型思考 --> 立
-
-  问--> 认知差定胜负
-  问--> 透视U型思考
-  问--> 好问题的力量
-
-  挖--> 追问法
-  挖--> 框架法
-  挖--> 类推法与假设法
-
-  破--> 破界法
-  破--> 升维法
-  破--> 优势法
-
-  立--> 飞轮法
-  立--> 价值网法与画布法
-  立--> 跨越未知之墙</pre>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/" rel="tag">工具框架</a></li></ul>
 
     </footer>
   </div>
