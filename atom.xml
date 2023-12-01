@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2023-11-05T02:35:56.372Z</updated>
+  <updated>2023-12-01T14:39:28.269Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>50个常见的认知偏差</title>
+    <link href="http://yunminitools.cn/2023/12/01/50-Cognitive-Biases/"/>
+    <id>http://yunminitools.cn/2023/12/01/50-Cognitive-Biases/</id>
+    <published>2023-12-01T14:38:41.000Z</published>
+    <updated>2023-12-01T14:39:28.269Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;马斯克点赞的50个常见的认知偏差，快来学习一下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;权威偏见&lt;br&gt;
+典型表现：专家说可以这么做…&lt;/li&gt;
+&lt;li&gt;聚类错误&lt;br&gt;
+典型表现：你看那朵云好像你家的猫。&lt;/li&gt;
+&lt;li&gt;偏见盲点&lt;br&gt;
+典型表现：我没有偏见。&lt;/li&gt;
+&lt;li&gt;乐观偏见&lt;br&gt;
+典型表现：水还有一半，一切都好好起来的。&lt;/li&gt;
+&lt;li&gt;潜隐记忆&lt;br&gt;
+典型表现：Greg以为去过墓地是他的一个梦，其实他真的去过。&lt;br&gt;
+&lt;img src=&quot;http://cdn.yunminitools.cn/blog/50Cognitive-Biases-1.jpeg&quot; alt=&quot; &quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="思维框架" scheme="http://yunminitools.cn/tags/%E6%80%9D%E7%BB%B4%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>设置ssh代理解决git pull慢的问题</title>
@@ -564,33 +596,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="人工智能" scheme="http://yunminitools.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用外部工具的策略</title>
-    <link href="http://yunminitools.cn/2023/06/15/Use-external-tools-strategy/"/>
-    <id>http://yunminitools.cn/2023/06/15/Use-external-tools-strategy/</id>
-    <published>2023-06-15T15:13:54.000Z</published>
-    <updated>2023-06-16T13:27:31.823Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
     
     
     
