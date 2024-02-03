@@ -475,43 +475,6 @@ chain, using the hash of the accepted block as the previous hash.</li>
       </tags>
   </entry>
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（5）</title>
-    <url>/2023/04/10/A-Peer-to-Peer-Electronic-Cash-System-5/</url>
-    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="6-激励">6. 激励</h2>
-<p>6 Incentive<br>
-By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.<br>
-The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation. In our case, it is CPU time and electricity that is expended. The incentive can also be funded with transaction fees. If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction. Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.<br>
-The incentive may help encourage nodes to stay honest. If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins. He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.</p>
-<p>我们约定，区块中的第一笔交易是区块创建者开创一枚属于他的新货币的特殊的交易。这就加入了对支持网络的节点的激励，并提供了一种初始分发货币到流通领域的方法，因为这里没有中央机构来发行货币。新货币按固定量稳定地增加就像金矿矿工消耗资源并增加黄金到流通领域一样。对我们而言，消耗的是 CPU 时间和电力激励也可以由交易费充当。如果交易的输出值小于其输入值，差价就作为交易费被加到包含此交易的区块的激励中。一旦预定量的货币进入了流通领域，激励将变为只含有交易费，这样可以完全避免通货膨胀。<br>
-激励会有助于鼓励节点保持诚实。如果一个贪心的攻击者有能力聚集比所有诚实节点更多的 CPU 算力，他将面临是以骗回已付款的方式欺诈别人还是使用这些算力生成新货币的抉择。他将发现遵守规则比破坏系统和他自己财产的有效性更有利，因为这些规则准许他获得比所有其他人都多的新货币。</p>
-<h2 id="7-回收磁盘空间">7. 回收磁盘空间</h2>
-<ol start="7">
-<li>Reclaiming Disk Space<br>
-Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block’s hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block’s hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.<br>
-<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-en.png" alt=" "><br>
-A block header with no transactions would be about 80 bytes. If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year. With computer systems typically selling with 2GB of RAM as of 2008, and Moore’s Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.</li>
-</ol>
-<p>一旦某个货币的最新交易已经被足够多的区块覆盖，这之前的支付交易就可以被丢弃以节省磁盘空间。为便于此而又不破坏区块的哈希值，交易将被哈希进默克尔树 [7][2][5]，只有根节点被纳入到区块的哈希值。老的区块可通过剪除树枝的方式被压缩。树枝内部的哈希不需要被保存。<br>
-<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-zh.png" alt=" "><br>
-每个不包含交易的区块头大约是 80 bytes。如果每 10 分钟生成一个区块，每年生成80 bytes * 6 * 24 * 365 = 4.2 MB，2008 年在售的典型计算机有 2 GB 内存，并且摩尔定律预测目前每年内存增加 1.2 GB，所以就算区块头一定要存在内存里，存储也不是问题。</p>
-<p>【关注点】：</p>
-<ul>
-<li>If the output value of a transaction is less than its input value，这句话不是太理解，什么情况下会出现？</li>
-<li>favour him with more new coins，翻译为 有利于他 获得更多的新币。问题是当到后期新币越来越少的时候，做这个事情是否是就有利可图了？</li>
-<li>enough blocks ，多少算足够？</li>
-<li>transactions are hashed in a Merkle Tree，为什么这样就可以不改变Hash值？</li>
-</ul>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>比特币</tag>
-        <tag>论文学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（6）</title>
     <url>/2023/04/11/A-Peer-to-Peer-Electronic-Cash-System-6/</url>
     <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
@@ -591,6 +554,20 @@ As an additional firewall, a new key pair should be used for each transaction to
       </tags>
   </entry>
   <entry>
+    <title>AI 论文速递</title>
+    <url>/2023/03/29/AI-articles/</url>
+    <content><![CDATA[<p>@RickYU写了个小项目 BriefGPT，抓取 Arxiv AI 领域论文，通过 GPT 生成中文标题和论文概要，高亮顶会论文，方便快速筛选。<br>
+网站：<a href="https://briefgpt.xyz">https://briefgpt.xyz</a><br>
+<img src="http://cdn.yunminitools.cn/blog/2023-03-29AIArticles.jpeg" alt=" "></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
     <url>/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/</url>
     <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
@@ -609,46 +586,6 @@ We have proposed a system for electronic transactions without relying on trust. 
       <tags>
         <tag>比特币</tag>
         <tag>论文学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AI 论文速递</title>
-    <url>/2023/03/29/AI-articles/</url>
-    <content><![CDATA[<p>@RickYU写了个小项目 BriefGPT，抓取 Arxiv AI 领域论文，通过 GPT 生成中文标题和论文概要，高亮顶会论文，方便快速筛选。<br>
-网站：<a href="https://briefgpt.xyz">https://briefgpt.xyz</a><br>
-<img src="http://cdn.yunminitools.cn/blog/2023-03-29AIArticles.jpeg" alt=" "></p>
-]]></content>
-      <categories>
-        <category>有趣资源</category>
-      </categories>
-      <tags>
-        <tag>人工智能</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GitHub Pages 强制使用HTTPS协议访问</title>
-    <url>/2023/02/18/Add-Https-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
-<h2 id="设置步骤">设置步骤</h2>
-<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
-<ol>
-<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
-<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
-<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
-</ol>
-<div style="width: 40%; margin: 10px">
-   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
-</div>
-3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
-![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
-<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>博客管理</tag>
       </tags>
   </entry>
   <entry>
@@ -1716,21 +1653,40 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
       </tags>
   </entry>
   <entry>
-    <title>Django -APIView的使用</title>
-    <url>/2023/08/07/Django-APIView-usage/</url>
-    <content><![CDATA[<h2 id="1-APIView的使用：">1.APIView的使用：</h2>
-<h3 id="1-1-在-user-urls-py-中添加路由">1.1 在 user/urls.py 中添加路由</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> bookapp.views <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;book/cate/&#x27;</span>, CateView.as_view()),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="1-2创建user-serializers-py写序列化器">1.2创建user/serializers.py写序列化器</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cateser</span>(serializers.ModelSerializer):</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Cate	  <span class="comment">#数据库表名</span></span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span> <span class="comment">#序列化所有字段      </span></span><br><span class="line">        <span class="comment">#depth = 1  # 外键序列化 添加了这个关联的外键都会查询出来*class Bookser(serializers.ModelSerializer):</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Book</span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-3-在-user-views-py-中添加视图函数">1.3 在 user/views.py 中添加视图函数</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"><span class="keyword">from</span> .sers <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CateView</span>(<span class="title class_ inherited__">APIView</span>):</span><br><span class="line">    <span class="comment"># get是查询数据  post是添加数据</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        cate = Cate.objects.<span class="built_in">all</span>()  <span class="comment"># 查询所有数据 他是一个查询集</span></span><br><span class="line">        ser = Cateser(cate, many=<span class="literal">True</span>)  <span class="comment"># 因为查询的是一个查询集 所以需要些many=True</span></span><br><span class="line">        <span class="keyword">return</span> Response(ser.data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        ser = Cateser(data=request.data)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.data</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(ser.errors)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.errors</span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, request</span>):  <span class="comment"># put 修改数据 完全修改数据  patch 部分修改数据# 想要修改的话 需要知道要修改谁 还要知道最新的数据 data=xxx 传递的新的值</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        <span class="comment"># first是从查询集中 获取一个model对象</span></span><br><span class="line">        cate = Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).first()  </span><br><span class="line">        <span class="comment"># 传递 两个参数 参数1是要修改的数据  参数2是要赋予的新值</span></span><br><span class="line">        ser = Cateser(instance=cate, data=request.data)  </span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 需要知道删除谁</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).delete()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br></pre></td></tr></table></figure>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（5）</title>
+    <url>/2023/04/10/A-Peer-to-Peer-Electronic-Cash-System-5/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="6-激励">6. 激励</h2>
+<p>6 Incentive<br>
+By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.<br>
+The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation. In our case, it is CPU time and electricity that is expended. The incentive can also be funded with transaction fees. If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction. Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.<br>
+The incentive may help encourage nodes to stay honest. If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins. He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.</p>
+<p>我们约定，区块中的第一笔交易是区块创建者开创一枚属于他的新货币的特殊的交易。这就加入了对支持网络的节点的激励，并提供了一种初始分发货币到流通领域的方法，因为这里没有中央机构来发行货币。新货币按固定量稳定地增加就像金矿矿工消耗资源并增加黄金到流通领域一样。对我们而言，消耗的是 CPU 时间和电力激励也可以由交易费充当。如果交易的输出值小于其输入值，差价就作为交易费被加到包含此交易的区块的激励中。一旦预定量的货币进入了流通领域，激励将变为只含有交易费，这样可以完全避免通货膨胀。<br>
+激励会有助于鼓励节点保持诚实。如果一个贪心的攻击者有能力聚集比所有诚实节点更多的 CPU 算力，他将面临是以骗回已付款的方式欺诈别人还是使用这些算力生成新货币的抉择。他将发现遵守规则比破坏系统和他自己财产的有效性更有利，因为这些规则准许他获得比所有其他人都多的新货币。</p>
+<h2 id="7-回收磁盘空间">7. 回收磁盘空间</h2>
+<ol start="7">
+<li>Reclaiming Disk Space<br>
+Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block’s hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block’s hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.<br>
+<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-en.png" alt=" "><br>
+A block header with no transactions would be about 80 bytes. If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year. With computer systems typically selling with 2GB of RAM as of 2008, and Moore’s Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.</li>
+</ol>
+<p>一旦某个货币的最新交易已经被足够多的区块覆盖，这之前的支付交易就可以被丢弃以节省磁盘空间。为便于此而又不破坏区块的哈希值，交易将被哈希进默克尔树 [7][2][5]，只有根节点被纳入到区块的哈希值。老的区块可通过剪除树枝的方式被压缩。树枝内部的哈希不需要被保存。<br>
+<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-zh.png" alt=" "><br>
+每个不包含交易的区块头大约是 80 bytes。如果每 10 分钟生成一个区块，每年生成80 bytes * 6 * 24 * 365 = 4.2 MB，2008 年在售的典型计算机有 2 GB 内存，并且摩尔定律预测目前每年内存增加 1.2 GB，所以就算区块头一定要存在内存里，存储也不是问题。</p>
+<p>【关注点】：</p>
+<ul>
+<li>If the output value of a transaction is less than its input value，这句话不是太理解，什么情况下会出现？</li>
+<li>favour him with more new coins，翻译为 有利于他 获得更多的新币。问题是当到后期新币越来越少的时候，做这个事情是否是就有利可图了？</li>
+<li>enough blocks ，多少算足够？</li>
+<li>transactions are hashed in a Merkle Tree，为什么这样就可以不改变Hash值？</li>
+</ul>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>当日所学</category>
       </categories>
       <tags>
-        <tag>Django</tag>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1863,6 +1819,60 @@ MIXIN是跨多个类重用代码的一个很好的方法，但是它们会带来
       <tags>
         <tag>Docker</tag>
         <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django 的日志机制-1</title>
+    <url>/2024/02/03/Django-Logging-1/</url>
+    <content><![CDATA[<h2 id="日志目的">日志目的</h2>
+<p>日志文件在开发环境中以及在线上环境或者在测试环境中都可以很好的反应程序的执行情况，以及出现bug的时候，准确的定位bug的位置，请求方法，错误原因等。所以说日志对于程序猿来说是一个开发者必备的必须了解且精通的东西。</p>
+<h2 id="日志需要实现功能">日志需要实现功能</h2>
+<h3 id="日志要分等级">日志要分等级</h3>
+<p>等级说明：<strong>debug</strong>调试信息；<strong>info</strong>用来收集关注的信息；<strong>warn</strong>警告信息；<strong>error</strong>错误信息</p>
+<p>好多开发工程师记录日志总是喜欢用info级别来记录日志，一般的组件默认级别都是info,所有info默认都是会被记录的，而debug信息发布后，是不会被记录的。这是一种偷懒的做法，但这也是很普遍的做法。正确的方式应该根据日志本身的特性去设置日志的级别，其实规范的日志级别是非常重要的：</p>
+<ul>
+<li>正确的级别便于运维。便于统一调整系统日志级别，如特殊情况可以只记录error错误</li>
+<li>没有正确的级别，对后期日志分析和处理是留下很大的隐患。error是需要去关注，并且处理掉的问题。info是普通日志的记录，大部分时候是无需关注的。</li>
+</ul>
+<h3 id="error日志内容一定要详实">error日志内容一定要详实</h3>
+<p>运营过大型系统的人都知道，除了数据库存储外，日志、图片、附件是存储的三大债主，他们是会占用非常非常大的空间，所有记录info的日志，要简洁易懂，避免空间浪费。 而对于error级别的错误，记录一定要详实，因为error的所有问题，是后期都要去解决的。</p>
+<ul>
+<li>请求的地址</li>
+<li>请求的参数</li>
+<li>请求的ip</li>
+<li>请求的用户</li>
+<li>error具体信息</li>
+<li>输出的内容</li>
+<li>…</li>
+</ul>
+<p>为了能很好的反馈当时error产生场景，以上的这些内容都应该被记录，而且越详细越好。</p>
+<h3 id="全局统一收集日志">全局统一收集日志</h3>
+<p>前文说过，error的日志，不仅是我们需要关注的，还是我需要解决掉的问题，所有error日志非常重要。错误日志的收集，必须是全局统一收集的。如果你发现你的errorr日志收集是在每个类中，这个一定要避免，不管你用那种语言，错误的处理，都是可以通过全局进行统一的处理，错误日志也要通过全局统一收集。</p>
+<h3 id="单个文件的大小要控制">单个文件的大小要控制</h3>
+<p>因为大家都是通过日期方式保存的，但是因为有的人不重视日志，经常会看到有的系统单个日志文件上百M，有的甚至是几G，而实际大家处理问题关注的都是最近的日志，所以控制单个日志文件的大小，对日志的性能以及后期的运维都是非常便利的。</p>
+<h3 id="日志要便于浏览">日志要便于浏览</h3>
+<p>日志文件小才便于浏览，日志最好能通过网址直接访问到，而不需要一波三折登录服务器，花10分钟下载下来，再来分析。</p>
+<h3 id="日志的安全性要得到保障">日志的安全性要得到保障</h3>
+<p>日志内容有时会包含敏感信息，特别是error日志，直接把系统的具体错误抛出来，所以日志除了查看方便，还需要确保日志文件的安全。</p>
+<h3 id="日志要定期清理">日志要定期清理</h3>
+<p>日志是非常占用存储的空间，日志太大对存储的性能也有一定的影响，所有日志要定期进行清理。</p>
+<ul>
+<li>空间充足可以保留半年</li>
+<li>空间不足最少也要保留3个月</li>
+</ul>
+<h2 id="理想的日志架构">理想的日志架构</h2>
+<pre class="mermaid">graph LR
+A(应用)-->B(日志)
+B-->C(聚合)
+C-->D(分析)</pre>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2629,6 +2639,24 @@ qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
       </tags>
   </entry>
   <entry>
+    <title>Django -APIView的使用</title>
+    <url>/2023/08/07/Django-APIView-usage/</url>
+    <content><![CDATA[<h2 id="1-APIView的使用：">1.APIView的使用：</h2>
+<h3 id="1-1-在-user-urls-py-中添加路由">1.1 在 user/urls.py 中添加路由</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> bookapp.views <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;book/cate/&#x27;</span>, CateView.as_view()),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="1-2创建user-serializers-py写序列化器">1.2创建user/serializers.py写序列化器</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cateser</span>(serializers.ModelSerializer):</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Cate	  <span class="comment">#数据库表名</span></span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span> <span class="comment">#序列化所有字段      </span></span><br><span class="line">        <span class="comment">#depth = 1  # 外键序列化 添加了这个关联的外键都会查询出来*class Bookser(serializers.ModelSerializer):</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Book</span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-在-user-views-py-中添加视图函数">1.3 在 user/views.py 中添加视图函数</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"><span class="keyword">from</span> .sers <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CateView</span>(<span class="title class_ inherited__">APIView</span>):</span><br><span class="line">    <span class="comment"># get是查询数据  post是添加数据</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        cate = Cate.objects.<span class="built_in">all</span>()  <span class="comment"># 查询所有数据 他是一个查询集</span></span><br><span class="line">        ser = Cateser(cate, many=<span class="literal">True</span>)  <span class="comment"># 因为查询的是一个查询集 所以需要些many=True</span></span><br><span class="line">        <span class="keyword">return</span> Response(ser.data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        ser = Cateser(data=request.data)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.data</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(ser.errors)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.errors</span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, request</span>):  <span class="comment"># put 修改数据 完全修改数据  patch 部分修改数据# 想要修改的话 需要知道要修改谁 还要知道最新的数据 data=xxx 传递的新的值</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        <span class="comment"># first是从查询集中 获取一个model对象</span></span><br><span class="line">        cate = Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).first()  </span><br><span class="line">        <span class="comment"># 传递 两个参数 参数1是要修改的数据  参数2是要赋予的新值</span></span><br><span class="line">        ser = Cateser(instance=cate, data=request.data)  </span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 需要知道删除谁</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).delete()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo中使用emoji表情</title>
     <url>/2023/02/26/Hexo-Use-emoji/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -2893,6 +2921,32 @@ qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
       </categories>
       <tags>
         <tag>UI设计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub Pages 强制使用HTTPS协议访问</title>
+    <url>/2023/02/18/Add-Https-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
+<h2 id="设置步骤">设置步骤</h2>
+<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
+<ol>
+<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
+<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
+<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
+</ol>
+<div style="width: 40%; margin: 10px">
+   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
+</div>
+3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
+![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
+<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
       </tags>
   </entry>
   <entry>
@@ -5064,48 +5118,6 @@ F(router/index.js 配置路由)-->C</pre>
       </tags>
   </entry>
   <entry>
-    <title>业务数据治理实施流程-1</title>
-    <url>/2023/03/07/business-data-governance-1/</url>
-    <content><![CDATA[<p>数据治理实施流程，是我们依据业务数据治理标准化框架在实施解决具体数据问题时，总结抽象出来的一套适用于大多数治理场景解决问题的通用标准流程。标准流程的好处在于更加规范化数据治理工程师的操作流程，来保证实施的质量。流程一共包含5个步骤：</p>
-<h2 id="STEP-1：发现问题和制定目标">STEP 1：发现问题和制定目标</h2>
-<p>发现问题要从业务数据开发团队的视角出发，围绕服务好业务、遵守数据研发规范、收集好用户反馈，尽可能全地发现和收集相关需要解决的问题。同时，制定的目标要具备可实现性。</p>
-<h2 id="STEP-2：设计指标">STEP 2：设计指标</h2>
-<p>针对问题进行拆解，设计可衡量的指标，并通过元数据的采集建设进行实现，用做对目标的进一步量化，并作为实施过程监控及治理抓手。</p>
-<h2 id="STEP-3：制定SOP并工具化">STEP 3：制定SOP并工具化</h2>
-<p>对衡量出来的具体问题，制定相关的解决SOP，并且检查相应的研发标准规范是否完善，通过问题发生的事前、事中、事后几个阶段，建设或完善相应的工具化解决问题的能力。</p>
-<h2 id="STEP-4：推广实施">STEP 4：推广实施</h2>
-<p>推广运营，以拿结果为核心目标，针对不同角色运用不同策略，重点关注问题解决过程是否会与用户利益发生冲突，控制好节奏，根据问题的重要程度有规划地进行解决。</p>
-<h2 id="STEP-5：总结沉淀方法论">STEP 5：总结沉淀方法论</h2>
-<p>总结方法论，迭代认知，持续探索问题的最优解，优化治理方案和能力。</p>
-<pre class="mermaid">graph LR
-subgraph Step1 
-A(发现问题)-->B(制定目标)
-end
-
-subgraph Step2
-B-->C(设计衡量指标)-->D(元数据及指标建设)
-end
-
-subgraph Step3
-D-->E(解决方案SOP)-->F(工具化)
-end
-
-subgraph Step4
-F-->G(运营治理)-->H(效果评估)
-end
-
-subgraph Step5
-H-->I(方法论沉淀)
-end</pre>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>数据管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>conda 创建、激活、退出、删除虚拟环境 (Anaconda)</title>
     <url>/2023/07/25/conda-command-create-activate/</url>
     <content><![CDATA[<p>在Anaconda中conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。所以对虚拟环境进行创建、删除等操作需要使用conda命令。</p>
@@ -5598,202 +5610,6 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
       <tags>
         <tag>人工智能</tag>
         <tag>AIGC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决ayer主题下Mermaid图表背景太暗的问题</title>
-    <url>/2023/02/23/Hexo-Mermaid-2/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
-清缓存，重新发布，搞定。</p>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>博客管理</tag>
-        <tag>Theme_ayer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用户调研的一种方法</title>
-    <url>/2023/02/04/userresearch01/</url>
-    <content><![CDATA[<h2 id="来源">来源</h2>
-<p>最近在即刻看到一个帖子，总结的用户调研方法可以参考一下。</p>
-<h2 id="方法论">方法论</h2>
-<p>一个完整的用户调研步骤，一共有6大步骤：定目标、定渠道、选方法、定纬度、挖需求、验真假。<br>
-可以用一个仪表盘来帮助记忆：</p>
-<p><img src="http://cdn.yunminitools.cn/blog/20230204-2.png" alt="仪表盘"></p>
-<h3 id="1、用户定位">1、用户定位</h3>
-<p>哪些用户是我的目标，哪些是潜在用户，用户有没有需求，平时有哪些痛点或者不满<br>
-例如：减肥人群，药物减肥还是健身、还是断食</p>
-<h3 id="2、品牌认知">2、品牌认知</h3>
-<p>用户对品牌的了解有多少，对产品的认知是什么<br>
-例如：大家都了解可口可乐</p>
-<h3 id="3、用户触点">3、用户触点</h3>
-<p>哪些地方可以接触到用户，平时用户会聚集地在哪里<br>
-例如：学习英语的人通常在哪里？在平台，在美剧</p>
-<h3 id="4、解决方案（旧的）">4、解决方案（旧的）</h3>
-<p>市面上卖蛋黄派的商家都是用什么方法卖这个产品？他们包装都是主打什么？这个产品给用户解决了什么问题？解嘴馋？还是当做早餐？还是健康？还是口味？</p>
-<h3 id="5、机会点">5、机会点</h3>
-<p>现有的这个产品里面，用户还有什么不满的点，从这些不满的点，挖掘新的机会点。</p>
-<h3 id="6、核心壁垒">6、核心壁垒</h3>
-<p>你的产品和别人家有什么不同点？你的新在哪里？你的独特的卖点是什么？核心壁垒是什么？你有，别人没有的</p>
-<h3 id="7、决策过程／决策要素">7、决策过程／决策要素</h3>
-<p>我想要买这个产品，我的决策过程是什么？先考虑品牌？还是对比价格？还是产品口味？还是外部包装？还是数量大小等等，把用户这个决策要素，按照先后顺序排列出来，重点强调用户最关心的点</p>
-<h3 id="8、付出成本／我要做什么">8、付出成本／我要做什么</h3>
-<p>对应用户愿意要付出多少成本去购买这个产品，用户心理预期价位是多少，用户要做什么动作才能获取到这个产品，需要投入多少精力？</p>
-<h3 id="9、收获／好处">9、收获／好处</h3>
-<p>对用户而言，我买这个产品，可以帮我解决什么问题，对我有什么好处？<br>
-例如蛋黄酥，可以解决我饥饿问题，可以解决我嘴馋问题，可以保证我的健康和体验，这里我们经常会和用户产生一个链接，和用户强相关，人只有看到足够多的好处，他们才愿意付出相应的成本去交换，所以前提要激发大家的获得感。</p>
-<p>只有弄清楚，用户需求是什么，产品能解决好什么，在这个过程中，用户的决策心里是怎样，能够得到怎样的好处，那么你调研的问题，也就变得清晰了~</p>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>用户调研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VUE页面刷新实战</title>
-    <url>/2023/09/13/vue-refresh-page-route/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>在进行VUE开发时，往往会出现需要实现当前页面操作完毕后，返回一个列表页面，如果用 this.$router.go(-1) 的方法，页面不会刷新。如果是没有操作，问题不大，但如果我们执行的是删除或添加动作，希望的效果是重新刷新页面，显示操作后的列表页面，这时，用 this.$router.go(-1) 就不能满足需求了。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>研究了一下，有多种解决方案，我选择了下面的解决方案：</p>
-<ol>
-<li>先定义一个空页面，接收需要跳转的目标页面</li>
-<li>需要跳转到列表页面的函数，不要直接跳到列表页面，先用push方法跳到空页面，同时把目标页面作为参数传给空页面</li>
-<li>这样利用VUE的路由跳转功能，可以让页面流转比较流畅，不会出现页面闪烁的情况。</li>
-</ol>
-<h2 id="代码">代码</h2>
-<ol>
-<li>
-<p>定义空页面</p>
- <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;Empty-form&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt; </span><br><span class="line">  </span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; useRoute &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">var</span> topath = <span class="string">&quot;&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">export</span> <span class="title function_">default</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">const</span> route = <span class="title function_">useRoute</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      topath = route.<span class="property">params</span>.<span class="property">topath</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">created</span>(<span class="params"></span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">replace</span>(&#123; <span class="attr">path</span>: topath &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"> &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>定义空页面路由</p>
- <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/empty/:topath&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Empty&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">EmptyView</span>,</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-<p><strong>此处注意</strong>：如果需要传参数，必须把参数定义在path里。</p>
-</li>
-<li>
-<p>页面跳转，传递参数</p>
- <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123;<span class="attr">name</span>:<span class="string">&#x27;Empty&#x27;</span>, <span class="attr">params</span>: &#123; <span class="attr">topath</span>: <span class="string">&#x27;/questionlist&#x27;</span> &#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p><strong>此处注意</strong>：带参数push，请用‘name’ 指定页面。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>编程技巧</tag>
-        <tag>VUE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Hexo中插入Mermaid图表</title>
-    <url>/2023/02/22/Hexo-Mermaid-1/</url>
-    <content><![CDATA[<h2 id="Mermaid是什么？">Mermaid是什么？</h2>
-<p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
-<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
-<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
-<h2 id="如何在Hexo中插入Mermaid图表">如何在Hexo中插入Mermaid图表</h2>
-<h3 id="安装Mermaid插件">安装Mermaid插件</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
-<h3 id="修改配置文件">修改配置文件</h3>
-<p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
-<h3 id="修改主题">修改主题</h3>
-<p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="Mermaid图表演示">Mermaid图表演示</h2>
-<p>下面是mermaid的图表描述：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
-<p>会生成以下图表：</p>
-<pre class="mermaid">graph LR
-A(面试)-->B(笔试)
-A-->C(面试)
-C-->C1(数据结构与算法*)
-C-->C2(计算机网络)
-C-->C3(操作系统Linux)
-B-->B1(数据结构与算法*)</pre>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>博客管理</tag>
-        <tag>Mermaid</tag>
-        <tag>Theme_ayer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>知识管理之收集灵感</title>
-    <url>/2023/02/23/KM-gather-ideas/</url>
-    <content><![CDATA[<h2 id="来源">来源</h2>
-<p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
-<h2 id="知识管理循环">知识管理循环</h2>
-<p>知识管理应该是一个循环：</p>
-<pre class="mermaid">graph LR
-A(卡片收集)-->B(卡片组织)
-B-->C(应用卡片)
-C-->D(维护卡片)
-D-->A</pre>
-<p>这一篇主要讲一下收集。</p>
-<span id="more"></span>
-<h2 id="如何收集灵感">如何收集灵感</h2>
-<p>做到以下3个方面：</p>
-<h3 id="1-留出富裕时间">1.留出富裕时间</h3>
-<p>在繁忙的工作生活中，留出时间来做这个事情，而不是想起来再做，以下是一些技巧，此外，还可以参考时间管理的一些书籍：</p>
-<h4 id="学会说不，保护时间">学会说不，保护时间</h4>
-<p>尝试思考「立即说是」后马上就去执行，如果感觉到痛苦，那么这个选项就应该选「不」。</p>
-<h4 id="固定时间，持续投资">固定时间，持续投资</h4>
-<p>我们想积累自己的知识资产时，应该划出一块固定的时间来做知识的积累。</p>
-<h4 id="好奇驱动，乐在其中">好奇驱动，乐在其中</h4>
-<p>想要捕捉到自己的灵感和想法，一个关键的技巧在于，由问题来驱动，但不着急立即获得答案。在找到答案的过程中积累知识。</p>
-<h3 id="2-用不同角度观察">2.用不同角度观察</h3>
-<ul>
-<li>跳出问题本身，看看周边和上下游，往往能得到不同的思考</li>
-<li>看看其他地方行业或领域中的事物，尝试将其和自己在思考的事情进行结合，或许就会有了新的灵感值得记录</li>
-<li>许多时候我们对一些事物过于熟悉，就会忽略掉其中的细节。当我们跃入其中仔细观察时，往往就能发现许多不合理的地方，也就有了值得记录的思考</li>
-</ul>
-<h3 id="3-在日常生活中捕捉">3.在日常生活中捕捉</h3>
-<h4 id="自己做事时">自己做事时</h4>
-<p>记录：</p>
-<ul>
-<li>解决问题的步骤</li>
-<li>事实结果</li>
-<li>自身状态和情绪</li>
-<li>决策过程和结论</li>
-</ul>
-<h4 id="和他人交流时">和他人交流时</h4>
-<p>记录：</p>
-<ul>
-<li>他在关注什么问题</li>
-<li>他在做什么尝试</li>
-<li>他的学习方向</li>
-</ul>
-<h4 id="自己学习时">自己学习时</h4>
-<p>记录：</p>
-<ul>
-<li>全新视角</li>
-<li>具体建议</li>
-<li>感触思考</li>
-</ul>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>知识管理</tag>
       </tags>
   </entry>
   <entry>
@@ -6670,6 +6486,244 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       </categories>
       <tags>
         <tag>编程技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用户调研的一种方法</title>
+    <url>/2023/02/04/userresearch01/</url>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>最近在即刻看到一个帖子，总结的用户调研方法可以参考一下。</p>
+<h2 id="方法论">方法论</h2>
+<p>一个完整的用户调研步骤，一共有6大步骤：定目标、定渠道、选方法、定纬度、挖需求、验真假。<br>
+可以用一个仪表盘来帮助记忆：</p>
+<p><img src="http://cdn.yunminitools.cn/blog/20230204-2.png" alt="仪表盘"></p>
+<h3 id="1、用户定位">1、用户定位</h3>
+<p>哪些用户是我的目标，哪些是潜在用户，用户有没有需求，平时有哪些痛点或者不满<br>
+例如：减肥人群，药物减肥还是健身、还是断食</p>
+<h3 id="2、品牌认知">2、品牌认知</h3>
+<p>用户对品牌的了解有多少，对产品的认知是什么<br>
+例如：大家都了解可口可乐</p>
+<h3 id="3、用户触点">3、用户触点</h3>
+<p>哪些地方可以接触到用户，平时用户会聚集地在哪里<br>
+例如：学习英语的人通常在哪里？在平台，在美剧</p>
+<h3 id="4、解决方案（旧的）">4、解决方案（旧的）</h3>
+<p>市面上卖蛋黄派的商家都是用什么方法卖这个产品？他们包装都是主打什么？这个产品给用户解决了什么问题？解嘴馋？还是当做早餐？还是健康？还是口味？</p>
+<h3 id="5、机会点">5、机会点</h3>
+<p>现有的这个产品里面，用户还有什么不满的点，从这些不满的点，挖掘新的机会点。</p>
+<h3 id="6、核心壁垒">6、核心壁垒</h3>
+<p>你的产品和别人家有什么不同点？你的新在哪里？你的独特的卖点是什么？核心壁垒是什么？你有，别人没有的</p>
+<h3 id="7、决策过程／决策要素">7、决策过程／决策要素</h3>
+<p>我想要买这个产品，我的决策过程是什么？先考虑品牌？还是对比价格？还是产品口味？还是外部包装？还是数量大小等等，把用户这个决策要素，按照先后顺序排列出来，重点强调用户最关心的点</p>
+<h3 id="8、付出成本／我要做什么">8、付出成本／我要做什么</h3>
+<p>对应用户愿意要付出多少成本去购买这个产品，用户心理预期价位是多少，用户要做什么动作才能获取到这个产品，需要投入多少精力？</p>
+<h3 id="9、收获／好处">9、收获／好处</h3>
+<p>对用户而言，我买这个产品，可以帮我解决什么问题，对我有什么好处？<br>
+例如蛋黄酥，可以解决我饥饿问题，可以解决我嘴馋问题，可以保证我的健康和体验，这里我们经常会和用户产生一个链接，和用户强相关，人只有看到足够多的好处，他们才愿意付出相应的成本去交换，所以前提要激发大家的获得感。</p>
+<p>只有弄清楚，用户需求是什么，产品能解决好什么，在这个过程中，用户的决策心里是怎样，能够得到怎样的好处，那么你调研的问题，也就变得清晰了~</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>用户调研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VUE页面刷新实战</title>
+    <url>/2023/09/13/vue-refresh-page-route/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在进行VUE开发时，往往会出现需要实现当前页面操作完毕后，返回一个列表页面，如果用 this.$router.go(-1) 的方法，页面不会刷新。如果是没有操作，问题不大，但如果我们执行的是删除或添加动作，希望的效果是重新刷新页面，显示操作后的列表页面，这时，用 this.$router.go(-1) 就不能满足需求了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>研究了一下，有多种解决方案，我选择了下面的解决方案：</p>
+<ol>
+<li>先定义一个空页面，接收需要跳转的目标页面</li>
+<li>需要跳转到列表页面的函数，不要直接跳到列表页面，先用push方法跳到空页面，同时把目标页面作为参数传给空页面</li>
+<li>这样利用VUE的路由跳转功能，可以让页面流转比较流畅，不会出现页面闪烁的情况。</li>
+</ol>
+<h2 id="代码">代码</h2>
+<ol>
+<li>
+<p>定义空页面</p>
+ <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;Empty-form&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt; </span><br><span class="line">  </span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; useRoute &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">var</span> topath = <span class="string">&quot;&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">export</span> <span class="title function_">default</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">const</span> route = <span class="title function_">useRoute</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      topath = route.<span class="property">params</span>.<span class="property">topath</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">created</span>(<span class="params"></span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">replace</span>(&#123; <span class="attr">path</span>: topath &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"> &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>定义空页面路由</p>
+ <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/empty/:topath&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Empty&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">EmptyView</span>,</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p><strong>此处注意</strong>：如果需要传参数，必须把参数定义在path里。</p>
+</li>
+<li>
+<p>页面跳转，传递参数</p>
+ <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123;<span class="attr">name</span>:<span class="string">&#x27;Empty&#x27;</span>, <span class="attr">params</span>: &#123; <span class="attr">topath</span>: <span class="string">&#x27;/questionlist&#x27;</span> &#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>此处注意</strong>：带参数push，请用‘name’ 指定页面。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决ayer主题下Mermaid图表背景太暗的问题</title>
+    <url>/2023/02/23/Hexo-Mermaid-2/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
+清缓存，重新发布，搞定。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+        <tag>Theme_ayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Hexo中插入Mermaid图表</title>
+    <url>/2023/02/22/Hexo-Mermaid-1/</url>
+    <content><![CDATA[<h2 id="Mermaid是什么？">Mermaid是什么？</h2>
+<p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
+<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
+<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
+<h2 id="如何在Hexo中插入Mermaid图表">如何在Hexo中插入Mermaid图表</h2>
+<h3 id="安装Mermaid插件">安装Mermaid插件</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置文件">修改配置文件</h3>
+<p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
+<h3 id="修改主题">修改主题</h3>
+<p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="Mermaid图表演示">Mermaid图表演示</h2>
+<p>下面是mermaid的图表描述：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
+<p>会生成以下图表：</p>
+<pre class="mermaid">graph LR
+A(面试)-->B(笔试)
+A-->C(面试)
+C-->C1(数据结构与算法*)
+C-->C2(计算机网络)
+C-->C3(操作系统Linux)
+B-->B1(数据结构与算法*)</pre>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+        <tag>Mermaid</tag>
+        <tag>Theme_ayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>知识管理之收集灵感</title>
+    <url>/2023/02/23/KM-gather-ideas/</url>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
+<h2 id="知识管理循环">知识管理循环</h2>
+<p>知识管理应该是一个循环：</p>
+<pre class="mermaid">graph LR
+A(卡片收集)-->B(卡片组织)
+B-->C(应用卡片)
+C-->D(维护卡片)
+D-->A</pre>
+<p>这一篇主要讲一下收集。</p>
+<span id="more"></span>
+<h2 id="如何收集灵感">如何收集灵感</h2>
+<p>做到以下3个方面：</p>
+<h3 id="1-留出富裕时间">1.留出富裕时间</h3>
+<p>在繁忙的工作生活中，留出时间来做这个事情，而不是想起来再做，以下是一些技巧，此外，还可以参考时间管理的一些书籍：</p>
+<h4 id="学会说不，保护时间">学会说不，保护时间</h4>
+<p>尝试思考「立即说是」后马上就去执行，如果感觉到痛苦，那么这个选项就应该选「不」。</p>
+<h4 id="固定时间，持续投资">固定时间，持续投资</h4>
+<p>我们想积累自己的知识资产时，应该划出一块固定的时间来做知识的积累。</p>
+<h4 id="好奇驱动，乐在其中">好奇驱动，乐在其中</h4>
+<p>想要捕捉到自己的灵感和想法，一个关键的技巧在于，由问题来驱动，但不着急立即获得答案。在找到答案的过程中积累知识。</p>
+<h3 id="2-用不同角度观察">2.用不同角度观察</h3>
+<ul>
+<li>跳出问题本身，看看周边和上下游，往往能得到不同的思考</li>
+<li>看看其他地方行业或领域中的事物，尝试将其和自己在思考的事情进行结合，或许就会有了新的灵感值得记录</li>
+<li>许多时候我们对一些事物过于熟悉，就会忽略掉其中的细节。当我们跃入其中仔细观察时，往往就能发现许多不合理的地方，也就有了值得记录的思考</li>
+</ul>
+<h3 id="3-在日常生活中捕捉">3.在日常生活中捕捉</h3>
+<h4 id="自己做事时">自己做事时</h4>
+<p>记录：</p>
+<ul>
+<li>解决问题的步骤</li>
+<li>事实结果</li>
+<li>自身状态和情绪</li>
+<li>决策过程和结论</li>
+</ul>
+<h4 id="和他人交流时">和他人交流时</h4>
+<p>记录：</p>
+<ul>
+<li>他在关注什么问题</li>
+<li>他在做什么尝试</li>
+<li>他的学习方向</li>
+</ul>
+<h4 id="自己学习时">自己学习时</h4>
+<p>记录：</p>
+<ul>
+<li>全新视角</li>
+<li>具体建议</li>
+<li>感触思考</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>知识管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>业务数据治理实施流程-1</title>
+    <url>/2023/03/07/business-data-governance-1/</url>
+    <content><![CDATA[<p>数据治理实施流程，是我们依据业务数据治理标准化框架在实施解决具体数据问题时，总结抽象出来的一套适用于大多数治理场景解决问题的通用标准流程。标准流程的好处在于更加规范化数据治理工程师的操作流程，来保证实施的质量。流程一共包含5个步骤：</p>
+<h2 id="STEP-1：发现问题和制定目标">STEP 1：发现问题和制定目标</h2>
+<p>发现问题要从业务数据开发团队的视角出发，围绕服务好业务、遵守数据研发规范、收集好用户反馈，尽可能全地发现和收集相关需要解决的问题。同时，制定的目标要具备可实现性。</p>
+<h2 id="STEP-2：设计指标">STEP 2：设计指标</h2>
+<p>针对问题进行拆解，设计可衡量的指标，并通过元数据的采集建设进行实现，用做对目标的进一步量化，并作为实施过程监控及治理抓手。</p>
+<h2 id="STEP-3：制定SOP并工具化">STEP 3：制定SOP并工具化</h2>
+<p>对衡量出来的具体问题，制定相关的解决SOP，并且检查相应的研发标准规范是否完善，通过问题发生的事前、事中、事后几个阶段，建设或完善相应的工具化解决问题的能力。</p>
+<h2 id="STEP-4：推广实施">STEP 4：推广实施</h2>
+<p>推广运营，以拿结果为核心目标，针对不同角色运用不同策略，重点关注问题解决过程是否会与用户利益发生冲突，控制好节奏，根据问题的重要程度有规划地进行解决。</p>
+<h2 id="STEP-5：总结沉淀方法论">STEP 5：总结沉淀方法论</h2>
+<p>总结方法论，迭代认知，持续探索问题的最优解，优化治理方案和能力。</p>
+<pre class="mermaid">graph LR
+subgraph Step1 
+A(发现问题)-->B(制定目标)
+end
+
+subgraph Step2
+B-->C(设计衡量指标)-->D(元数据及指标建设)
+end
+
+subgraph Step3
+D-->E(解决方案SOP)-->F(工具化)
+end
+
+subgraph Step4
+F-->G(运营治理)-->H(效果评估)
+end
+
+subgraph Step5
+H-->I(方法论沉淀)
+end</pre>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>数据管理</tag>
       </tags>
   </entry>
 </search>

@@ -100,6 +100,69 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Local-project-link-github"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/08/01/Local-project-link-github/"
+    >本地项目连接Github</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/08/01/Local-project-link-github/" class="article-date">
+  <time datetime="2023-08-01T06:17:13.000Z" itemprop="datePublished">2023-08-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="概述">概述</h2>
+<p>本地有一些程序文件用Vim 编辑有点不方便，打算上传到github后，用网页编辑器编辑。下面是具体步骤</p>
+<h2 id="一、建立本地仓库">一、建立本地仓库</h2>
+<h3 id="1-初始化本地仓库">1.初始化本地仓库</h3>
+<p>git init</p>
+<h3 id="2-添加所有文件">2.添加所有文件</h3>
+<p>git add .</p> 
+      <a class="article-more-link" href="/2023/08/01/Local-project-link-github/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Django-Docker-Release-Script"
   class="article article-type-post"
   itemscope
@@ -735,95 +798,13 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 </article>
 
     
-    <article
-  id="post-test-changes-systematically-strategy"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/16/test-changes-systematically-strategy/"
-    >系统地测试变化的策略</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/16/test-changes-systematically-strategy/" class="article-date">
-  <time datetime="2023-06-16T13:10:48.000Z" itemprop="datePublished">2023-06-16</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>有时很难确定一个改变（例如，新的指示或新的设计）是使系统变得更好还是更糟。通过查看一些示例可能可以暗示哪个更好，但是对于小样本量来说，很难区分是真正的改进还是随机运气。也许这个改变对某些输入的性能有所帮助，但对其他输入的性能有所损害。<br>
-评估程序（或“评估”）对于优化系统设计是有用的。好的评估具备以下特点：</p>
-<ul>
-<li>代表真实世界的使用情况（或至少具备多样性）</li>
-<li>包含许多测试案例以获得更大的统计能力（请参考下表以获取指导方针）</li>
-<li>易于自动化或重复执行</li>
-</ul>
-<p>输出的评估可以由计算机、人类或二者结合来进行。计算机可以通过客观标准（例如，具有单一正确答案的问题）自动化评估，也可以通过一些主观或模糊标准进行评估，其中模型的输出由其他模型查询来评估。OpenAI Evals是一个开源软件框架，提供了创建自动评估的工具。<br>
-基于模型的评估在存在一系列可能的输出，且这些输出在质量上被认为是相等的情况下（例如，对于需要长答案的问题）是有用的。基于模型的评估与需要人类进行评估的情况之间的界限是模糊的，并且随着模型能力的提升，这个界限不断变化。我们鼓励进行实验，以确定基于模型的评估在您的用例中的效果如何。</p>
-<h2 id="通过与黄金标准答案对比评估模型输出结果">通过与黄金标准答案对比评估模型输出结果</h2>
-<p>假设我们已知问题的正确答案应该涉及到一组特定的已知事实。然后我们可以使用模型查询来计算答案中包含的必要事实的数量。</p>
-<p>例如，使用以下系统消息：</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You will be provided with text delimited by triple quotes that is supposed to be the answer to a question. Check if the following pieces of information are directly contained in the answer:<br>- Neil Armstrong was the first person to walk on the moon.<br>- The date Neil Armstrong first walked on the moon was July 21, 1969.<br>For each of these points perform the following steps:<br>1 - Restate the point.<br>2 - Provide a citation from the answer which is closest to this point.<br>3 - Consider if someone reading the citation who doesn’t know the topic could directly infer the point. Explain why or why not before making up your mind.<br>4 - Write “yes” if the answer to 3 was yes, otherwise write “no”.<br>Finally, provide a count of how many “yes” answers there are. Provide this count as {“count”: <insert count here>}.</td>
-</tr>
-</tbody>
-</table> 
-      <a class="article-more-link" href="/2023/06/16/test-changes-systematically-strategy/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>
