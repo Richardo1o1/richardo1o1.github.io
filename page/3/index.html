@@ -100,6 +100,137 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-conda-command-create-activate"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/25/conda-command-create-activate/"
+    >conda 创建、激活、退出、删除虚拟环境 (Anaconda)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/25/conda-command-create-activate/" class="article-date">
+  <time datetime="2023-07-25T03:39:55.000Z" itemprop="datePublished">2023-07-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>在Anaconda中conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。所以对虚拟环境进行创建、删除等操作需要使用conda命令。</p>
+<h1>conda 本地环境常用操作</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取版本号</span></span><br><span class="line">conda --version 或 conda -V</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查更新当前conda</span></span><br><span class="line">conda update conda</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看当前存在哪些虚拟环境</span></span><br><span class="line">conda <span class="built_in">env</span> list 或 conda info -e</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看--安装--更新--删除包</span></span><br><span class="line"></span><br><span class="line">conda list：</span><br><span class="line">conda search package_name<span class="comment"># 查询包</span></span><br><span class="line">conda install package_name</span><br><span class="line">conda install package_name=1.5.0</span><br><span class="line">conda update package_name</span><br><span class="line">conda remove package_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>conda创建虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建名为your_env_name的环境</span></span><br><span class="line">conda create --name your_env_name</span><br><span class="line"><span class="comment">#创建制定python版本的环境</span></span><br><span class="line">conda create --name your_env_name python=2.7</span><br><span class="line">conda create --name your_env_name python=3.6</span><br><span class="line"><span class="comment">#创建包含某些包（如numpy，scipy）的环境</span></span><br><span class="line">conda create --name your_env_name numpy scipy</span><br><span class="line"><span class="comment">#创建指定python版本下包含某些包的环境</span></span><br><span class="line">conda create --name your_env_name python=3.6 numpy scipy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>激活虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Linux</span></span><br><span class="line"><span class="built_in">source</span> activate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#Windows</span></span><br><span class="line">activate your_env_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>退出虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Linux</span></span><br><span class="line"><span class="built_in">source</span> deactivate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#Windows</span></span><br><span class="line">deactivate env_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>删除虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n your_env_name --all</span><br><span class="line">conda remove --name your_env_name --all</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>复制某个环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name new_env_name --<span class="built_in">clone</span> old_env_name</span><br></pre></td></tr></table></figure>
+<h1>在指定环境中管理包</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda list -n your_env_name</span><br><span class="line">conda install --name myenv package_name</span><br><span class="line">conda remove --name myenv package_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>使用国内 conda 软件源加速</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-frp-NAT-intranet-remote-control"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/06/frp-NAT-intranet-remote-control/"
+    >FRP内网穿透实际操作</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/06/frp-NAT-intranet-remote-control/" class="article-date">
+  <time datetime="2023-07-06T14:14:40.000Z" itemprop="datePublished">2023-07-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="为什么要内网穿透">为什么要内网穿透</h2>
+<p>内网穿透，也即 NAT 穿透，进行 NAT 穿透是为了使具有某一个特定源 IP 地址和源端口号的数据包不被 NAT 设备屏蔽而正确路由到内网主机。 说人话就是我们想在不连接家里的wifi的情况下访问我们家里面的电脑和其他设备时，由于家庭宽带没有固定的公网ip使得我们无法向访问云服务器一样 直接访问，这时候我们就需要使用到内网穿透技术，让我们在其他网络下也能访问到处于内网环境的设备。而内网穿透的工具也有很多如： - 花生壳 - nat123 - ngrok - frp，本文主要讲FRP的搭建和使用，这个方案基本免费，仅需要一个有公网IP的服务器。我用的是腾讯云的服务器。</p>
+<h2 id="什么是FRP">什么是FRP</h2>
+<p>Frp (Fast Reverse Proxy) 是比较流行的一款。FRP 是一个免费开源的用于内网穿透的反向代理应用，它支持 TCP、UDP 协议， 也为 http 和 https 协议提供了额外的支持。你可以粗略理解它是一个中转站， 帮你实现 公网 ←→ FRP(服务器) ←→ 内网 的连接，让内网里的设备也可以被公网访问到。<a href="https://link.zhihu.com/?target=https%3A//github.com/fatedier/frp">仓库地址</a></p>
+<h2 id="安装FRP">安装FRP</h2> 
+      <a class="article-more-link" href="/2023/07/06/frp-NAT-intranet-remote-control/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag">远程控制</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-test-changes-systematically-strategy"
   class="article article-type-post"
   itemscope
@@ -785,137 +916,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Django-Remote-Server-Access"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/04/Django-Remote-Server-Access/"
-    >解决Django无法访问远程服务器</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/04/Django-Remote-Server-Access/" class="article-date">
-  <time datetime="2023-06-04T06:03:31.000Z" itemprop="datePublished">2023-06-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>我在运上搭建了Django的服务器环境，这样就不能用 <code>http://127.0.0.1:8000</code> 来访问Django的服务了，那如何解决呢？</p>
-<h2 id="解决方案">解决方案</h2>
-<p>在启动服务的时候，加一些参数：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 [manage.py](http://manage.py/) runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
-<p>同时，修改 <code>setting.py</code>，将远端的服务器ip加到ALLOWED_HOSTS参数里：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;xxx.xxx.xxx.xxx&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p><em>注：其中’<a target="_blank" rel="noopener" href="http://xxx.xxx.xxx.xxx">xxx.xxx.xxx.xxx</a>’是你远程服务器的外网ip</em></p>
-<p>这样，就可以用 <code>http://xxx.xxx.xxx.xxx:8000</code> 访问Django的服务了。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-SSH-connention-timeout-setting"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/03/SSH-connention-timeout-setting/"
-    >SSH客户端会话超时的解决方案</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/03/SSH-connention-timeout-setting/" class="article-date">
-  <time datetime="2023-06-03T13:03:32.000Z" itemprop="datePublished">2023-06-03</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>通常默认公有云上的ECS远程连接，很容易断开，当你有什么事情被打断或者去操作别的机器同步做点其他事情，你会发现你SSH客户端登录窗口经常会断开掉，非常烦人，经常要重新登录。<br>
-如果用一些Windows下客户端软件比如<code>XShell</code> or <code>CRT</code>都会有超时时间和心跳检测次数设置，但是默认<code>Mac</code>下的终端 Or <code>Linux</code>下直接远程命令客户端是没有这个设置窗口的。<br>
-SSH Client会从以下途径获取配置参数:</p>
-<ol>
-<li>SSH命令行参数；</li>
-<li>用户配置文件 (~/.ssh/config);</li>
-<li>系统配置文件 (/etc/ssh/ssh_config)。</li>
-</ol>
-<h2 id="方法1">方法1</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=30 root@10.0.1.25 -p22</span><br></pre></td></tr></table></figure>
-<h2 id="方法2">方法2</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.ssh/config <span class="comment">#添加如下内容</span></span><br><span class="line">Host *</span><br><span class="line"> ServerAliveInterval 60</span><br><span class="line"> ServerAliveCountMax 30</span><br></pre></td></tr></table></figure>
-<h2 id="方法3">方法3</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/ssh/ssh_config <span class="comment"># 在Host *下面添加：</span></span><br><span class="line"></span><br><span class="line">Host *</span><br><span class="line">       SendEnv LANG LC_*</span><br><span class="line">       ServerAliveInterval 60</span><br><span class="line">       ServerAliveCountMax 30</span><br></pre></td></tr></table></figure>
-<p>如果三个都设置了，读取顺序是 方法1 —&gt; 方法2 —&gt; 方法3</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>

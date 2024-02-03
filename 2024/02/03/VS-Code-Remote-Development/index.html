@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives |  New structure for utility</title>
+      <title>远程开发的VS Code方法 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,246 +68,167 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-VS-Code-Remote-Development"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  远程开发的VS Code方法
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/03/VS-Code-Remote-Development/" class="article-date">
+  <time datetime="2024-02-03T12:07:20.000Z" itemprop="datePublished">2024-02-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">643</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/" class="archive-article-date">
-  <time datetime="2023-04-05T15:53:35.000Z" itemprop="datePublished">04/05</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（1）</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/04/Event-Tracking-2/" class="archive-article-date">
-  <time datetime="2023-04-04T14:53:37.000Z" itemprop="datePublished">04/04</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/04/Event-Tracking-2/"
-    >初识数据埋点（二）</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/03/Software-system-decoupling-2/" class="archive-article-date">
-  <time datetime="2023-04-03T14:05:54.000Z" itemprop="datePublished">04/03</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/03/Software-system-decoupling-2/"
-    >软件系统解耦：理解依赖关系（二）</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/02/Software-system-decoupling-1/" class="archive-article-date">
-  <time datetime="2023-04-02T15:00:17.000Z" itemprop="datePublished">04/02</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/02/Software-system-decoupling-1/"
-    >软件系统解耦：理解依赖关系（一）</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/01/Event-Tracking-1/" class="archive-article-date">
-  <time datetime="2023-04-01T14:53:37.000Z" itemprop="datePublished">04/01</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/01/Event-Tracking-1/"
-    >初识数据埋点（一）</a> 
-</h2>
+  <h2 id="背景">背景</h2>
+<p>远程开发并非仅仅是直接在服务器上编辑代码，远程开发侧重的不应该是是“远程”，而是“开发”，至于“远程”对用户而言应该是无感的，除了代码是在远程服务器上存储和运行，其他体验应该和本地开发一致，撰写代码时能享受到 IDE 带来的便利，运行代码时不必额外去上传下载——这似乎看起来很容易，但在VS Code Remote 出现之前，没有工具能做到。</p>
+<p>使用 VS Code Remote，你可以无缝的从一台设备切换到另一台设备，开会前在台式机上写代码，开会时拿起笔记本连上远程服务器就能继续，下班可以直接关掉公司的电脑，回到家打开家里的电脑就可以继续，设备切换从来没有如此方便，你不必关心这一切是如何实现的，只要使用就好，因为大部分时间你并不会觉得这和以前的本地开发有什么区别。</p>
+<h2 id="安装及配置流程">安装及配置流程</h2>
+<h3 id="远程开发必备扩展安装">远程开发必备扩展安装</h3>
+<p>在扩展中搜索 remote ，找到 Remote Development，安装即可，会为你安装包括 Remote-SSH 等全部远程开发使用的扩展。</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_0.png" alt=" "></p>
+<p>安装完成后，你会发现左下角多了一个小图标，点击就可以看到用来连接远程开发的菜单了。</p>
+<span id="more"></span>
+<h3 id="配置远程服务器">配置远程服务器</h3>
+<p>点击左下角，选择 Remote-SSH: Connect to Host，然后选择 Configure SSH Hosts，选择默认生成的配置文件进行配置，Host 填写为要起的别名，HostName 填 IP 或者域名（如果你配置过的话），User 填登录用户名：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_1.png" alt=" "></p>
+<p>之后保存，再点击左下方进行连接，第一次连接时需要在服务器上下载安装必备的文件，稍等后即可连接成功：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_2.png" alt=" "></p>
+<p>查看左下角已经显示连接成功，打开终端也可以看到此时使用的是远程服务器的终端，注意我们很多的扩展是需要安装在服务器端的，比如 Git 相关的扩展，毕竟我们要编辑的文件是位于服务器而非本地，点击<code>Install in SSH：XXX</code>再安装一次即可：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_3.png" alt=" "></p>
+<p>实际上，最狭义的远程开发配置已经完成了，现在你就可以在服务器上创建编辑文件，运行服务，并且通过自带的端口转发在本地进行查看了：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_4.png" alt=" "></p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/31/Learn-Regular-expressions/" class="archive-article-date">
-  <time datetime="2023-03-31T15:04:59.000Z" itemprop="datePublished">03/31</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/31/Learn-Regular-expressions/"
-    >推荐：学正则表达式的网站</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/30/37-how-we-make-decisions/" class="archive-article-date">
-  <time datetime="2023-03-30T14:51:25.000Z" itemprop="datePublished">03/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/30/37-how-we-make-decisions/"
-    >37signals的决策原则</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/29/AI-articles/" class="archive-article-date">
-  <time datetime="2023-03-29T14:55:00.000Z" itemprop="datePublished">03/29</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/29/AI-articles/"
-    >AI 论文速递</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/28/Prompts-Resource-1/" class="archive-article-date">
-  <time datetime="2023-03-28T15:47:56.000Z" itemprop="datePublished">03/28</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/28/Prompts-Resource-1/"
-    >推荐：Prompts 收集网站</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/27/Sparks-of-Artificial-General-Intelligence/" class="archive-article-date">
-  <time datetime="2023-03-27T15:05:20.000Z" itemprop="datePublished">03/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/27/Sparks-of-Artificial-General-Intelligence/"
-    >转载：《GPT-4 ，通用人工智能的火花》论文内容精选与翻译</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/page/5/">上一页</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/13/">13</a><a class="extend next" rel="next" href="/archives/page/7/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/02/03/VS-Code-Remote-Development/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/02/03/SSH-Key-Based-Authentication-on-a-Linux-Server/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">免密远程登录Linux服务方法</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -444,6 +365,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

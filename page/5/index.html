@@ -100,6 +100,134 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-javascript-arrow-function"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/14/javascript-arrow-function/"
+    >Javascript 箭头函数</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/14/javascript-arrow-function/" class="article-date">
+  <time datetime="2023-04-14T15:05:13.000Z" itemprop="datePublished">2023-04-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><strong>Javascript 箭头函数</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>]</span><br><span class="line"><span class="keyword">var</span> res = arr.<span class="title function_">filter</span>(<span class="function">(<span class="params">item,index</span>)=&gt;</span> item&gt;<span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+<p>其等价形式为：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>]</span><br><span class="line"><span class="keyword">var</span> res = arr.<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">item,index</span>)&#123;</span><br><span class="line">                    <span class="keyword">return</span> item&gt;<span class="number">30</span></span><br><span class="line">                &#125;)</span><br></pre></td></tr></table></figure>
+<p>在 vue 中常常可以看到箭头函数的使用：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// give each todo a unique id</span></span><br><span class="line"><span class="keyword">let</span> id = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">newTodo</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      <span class="attr">todos</span>: [</span><br><span class="line">        &#123; <span class="attr">id</span>: id++, <span class="attr">text</span>: <span class="string">&#x27;Learn HTML&#x27;</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">id</span>: id++, <span class="attr">text</span>: <span class="string">&#x27;Learn JavaScript&#x27;</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">id</span>: id++, <span class="attr">text</span>: <span class="string">&#x27;Learn Vue&#x27;</span> &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="title function_">addTodo</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">todos</span>.<span class="title function_">push</span>(&#123;<span class="attr">id</span>:id++,<span class="attr">text</span>:<span class="variable language_">this</span>.<span class="property">newTodo</span>&#125;)</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">newTodo</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">removeTodo</span>(<span class="params">todo</span>) &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">todos</span> = <span class="variable language_">this</span>.<span class="property">todos</span>.<span class="title function_">filter</span>(<span class="function">(<span class="params">t</span>)=&gt;</span>t!=todo)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">form</span> @<span class="attr">submit.prevent</span>=<span class="string">&quot;addTodo&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">&quot;newTodo&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Add Todo<span class="tag">&lt;/<span class="name">button</span>&gt;</span>    </span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;todo in todos&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;todo.id&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;&#123; todo.text &#125;&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;removeTodo(todo)&quot;</span>&gt;</span>X<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>其中的 this.todos = this.todos.filter ((t)=&gt;t!=todo) 就是箭头函数。 可以实现列表的删除效果。<br>
+原理就是把不等于todo的元素筛选出来，也就是去除了todo。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-A-Peer-to-Peer-Electronic-Cash-System-7"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/13/A-Peer-to-Peer-Electronic-Cash-System-7/"
+    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（7）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/13/A-Peer-to-Peer-Electronic-Cash-System-7/" class="article-date">
+  <time datetime="2023-04-13T13:46:32.000Z" itemprop="datePublished">2023-04-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="9-合并和分割货币">9 合并和分割货币</h2>
+<p>9 Combining and Splitting Value<br>
+Although it would be possible to handle coins individually, it would be unwieldy to make a separate transaction for every cent in a transfer. To allow value to be split and combined, transactions contain multiple inputs and outputs. Normally there will be either a single input from a larger previous transaction or multiple inputs combining smaller amounts, and at most two outputs: one for the payment, and one returning the change, if any, back to the sender.<br>
+<img src="http://cdn.yunminitools.cn/blog/0413Transaction-En.png" alt=" "><br>
+It should be noted that fan-out, where a transaction depends on several transactions, and those transactions depend on many more, is not a problem here. There is never the need to extract a complete standalone copy of a transaction’s history.</p>
+<p>尽管单独处理每个货币是可能的，但将一次转账按每一分拆成多次交易太<strong>笨拙</strong>。为允许交易额被分割和合并，交易将包含多个输入值和输出值。通常是一个从之前交易而得的较大输入值或多个较小输入值的组合，以及最多两个输出值：一个作为支付，另一个作为找零，如果有的话，退还给支付发送方。<br>
+<img src="http://cdn.yunminitools.cn/blog/0413Transaction-Zh.png" alt=" "><br>
+需要注意的是，这里的扇出(fan-out)，即一笔交易依赖数笔交易，这数笔交易又依赖更多的交易，形成了一个树状结构。在比特币系统中，这种情况不会成为问题，因为不需要获取一笔交易历史的完整独立副本。</p>
+<p>【关注点】：</p>
+<ul>
+<li>扇出(fan-out), 是一个比较形象的说法，后面直接给出了定义。</li>
+<li>不需要获取一笔交易历史的完整独立副本，并没有解释原因，为什么呢？</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-app-myshell-ai"
   class="article article-type-post"
   itemscope
@@ -661,131 +789,6 @@ We need a way for the payee to know that the previous owners did not sign any ea
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-A-Peer-to-Peer-Electronic-Cash-System-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（1）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/" class="article-date">
-  <time datetime="2023-04-05T15:53:35.000Z" itemprop="datePublished">2023-04-05</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>比特币：一个点对点的电子货币系统</h1>
-<p><strong>Abstract.</strong> A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they’ll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.</p>
-<p><strong>摘要：</strong>  本文提出了一种完全通过点对点技术实现的电子货币系统，它使得在线支付能够直接由一方发起并支付给另外一方，中间不需要通过任何的金融机构。虽然数字签名部分解决了这个问题，但是如果仍然需要可信任的第三方的支持才能防止重复支付的话，那么这种系统的也会失去价值。我们在此提出一种解决方案，使支付系统在点对点的环境下运行，并防止重复支付问题。<strong>该网络通过随机散列对全部交易加上时间戳，将它们合并入一个不断延伸的基于随机散列的工作量证明（proof-of-work）的链条作为交易记录</strong>，除非重新完成全部的工作量证明，形成的交易记录将不可更改。最长的链条不仅将作为被观察到的事件序列的证明，而且被看做是来自 CPU计算能力最大的池。只要大多数的节点的CPU 计算能力没有被控制用来进行对全网的攻击，那么这些节点将会生成最长的、超过攻击者的链条。这个系统本身需要的基础设施非常少。信息尽最大努力在全网传播即可，节点可以随时离开和重新加入网络，并将接受最长的工作量证明链条作为在该节点离线期间发生的交易的证明。</p> 
-      <a class="article-more-link" href="/2023/04/05/A-Peer-to-Peer-Electronic-Cash-System-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Event-Tracking-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/04/Event-Tracking-2/"
-    >初识数据埋点（二）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/04/Event-Tracking-2/" class="article-date">
-  <time datetime="2023-04-04T14:53:37.000Z" itemprop="datePublished">2023-04-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="实际案例：">实际案例：</h2>
-<p>**实例背景：**某汽车互联网公司，领导对负责新车业务的产品经理X君、负责二手车业务的产品经理Y君提出需求：对新车APP和二手车APP销售线索数据指标进行数据监控，如有超过5%的数据变动，则需要向上级汇报波动数值以及波动原因。<br>
-<strong>名词注释：</strong></p>
-<ul>
-<li>销售线索：通过事件记录到用户有明确的购买意向，记录行为的事件例如：电话咨询、短信询价、加入心愿单、收藏、特别关注等类型事件。记录一个用户即代表一个线索。</li>
-<li>数据波动：即(（当日数据-昨天数据）/昨日数据)*100%=环比数据波动</li>
-</ul>
-<p>根据领导需求，假设定义短信砍价按钮与电话咨询按钮为销售线索指标，销售线索按钮页面的入口来源页面包含：页面A与页面B。<br>
-X君与Y君分别设计了埋点方案，如图所示：<br>
-<img src="http://cdn.yunminitools.cn/blog/0405Tracking.png" alt=" "></p> 
-      <a class="article-more-link" href="/2023/04/04/Event-Tracking-2/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
 
     </footer>
   </div>

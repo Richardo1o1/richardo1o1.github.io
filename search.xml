@@ -6726,4 +6726,56 @@ end</pre>
         <tag>数据管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>免密远程登录Linux服务方法</title>
+    <url>/2024/02/03/SSH-Key-Based-Authentication-on-a-Linux-Server/</url>
+    <content><![CDATA[<h2 id="问题">问题</h2>
+<p>经常需要访问Linux服务器，每次都要输密码很麻烦，查询了资料，可以通过密钥对配置来实现免密登录，每次都查完就忘，这次记录一下。</p>
+<h2 id="客户端配置">客户端配置</h2>
+<p>如果你使用的是 macOS，那么直接打开终端，输入<code>ssh-keygen -t rsa</code>，回车确认即可，默认会存储在用户名录下的 .ssh 目录；</p>
+<p>如果使用的是 Windows，那么需要安装 Git，然后在任意位置点击鼠标右键，选择“Git Bash Here”，然后输入<code>ssh-keygen -t rsa</code>，直接回车确认即可，默认也会存储在当前用户目录下的 .ssh 目录。</p>
+<h2 id="服务器端配置">服务器端配置</h2>
+<p>使用<code>ssh-copy-id root@服务器IP</code>，需要输入密码进行确认，之后再登录就可以直接通过<code>ssh root@服务器IP</code>即可。</p>
+<p><em>注意，如果你的帐号不是root，可以把root换为你平时登陆的帐号。</em></p>
+<p>一些资料：</p>
+<p><a href="https://rem486.top/server/env/ssh-password-free-login.html#%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE">https://rem486.top/server/env/ssh-password-free-login.html#免密登录配置</a></p>
+<p><a href="https://www.jianshu.com/p/c80e063d61f6">https://www.jianshu.com/p/c80e063d61f6</a></p>
+<p><a href="https://www.xshellv.com/2021/04/28/mac%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86centos%E6%9C%8D%E5%8A%A1%E5%99%A8/">https://www.xshellv.com/2021/04/28/mac免密登陆centos服务器/</a></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>远程开发的VS Code方法</title>
+    <url>/2024/02/03/VS-Code-Remote-Development/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>远程开发并非仅仅是直接在服务器上编辑代码，远程开发侧重的不应该是是“远程”，而是“开发”，至于“远程”对用户而言应该是无感的，除了代码是在远程服务器上存储和运行，其他体验应该和本地开发一致，撰写代码时能享受到 IDE 带来的便利，运行代码时不必额外去上传下载——这似乎看起来很容易，但在VS Code Remote 出现之前，没有工具能做到。</p>
+<p>使用 VS Code Remote，你可以无缝的从一台设备切换到另一台设备，开会前在台式机上写代码，开会时拿起笔记本连上远程服务器就能继续，下班可以直接关掉公司的电脑，回到家打开家里的电脑就可以继续，设备切换从来没有如此方便，你不必关心这一切是如何实现的，只要使用就好，因为大部分时间你并不会觉得这和以前的本地开发有什么区别。</p>
+<h2 id="安装及配置流程">安装及配置流程</h2>
+<h3 id="远程开发必备扩展安装">远程开发必备扩展安装</h3>
+<p>在扩展中搜索 remote ，找到 Remote Development，安装即可，会为你安装包括 Remote-SSH 等全部远程开发使用的扩展。</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_0.png" alt=" "></p>
+<p>安装完成后，你会发现左下角多了一个小图标，点击就可以看到用来连接远程开发的菜单了。</p>
+<span id="more"></span>
+<h3 id="配置远程服务器">配置远程服务器</h3>
+<p>点击左下角，选择 Remote-SSH: Connect to Host，然后选择 Configure SSH Hosts，选择默认生成的配置文件进行配置，Host 填写为要起的别名，HostName 填 IP 或者域名（如果你配置过的话），User 填登录用户名：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_1.png" alt=" "></p>
+<p>之后保存，再点击左下方进行连接，第一次连接时需要在服务器上下载安装必备的文件，稍等后即可连接成功：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_2.png" alt=" "></p>
+<p>查看左下角已经显示连接成功，打开终端也可以看到此时使用的是远程服务器的终端，注意我们很多的扩展是需要安装在服务器端的，比如 Git 相关的扩展，毕竟我们要编辑的文件是位于服务器而非本地，点击<code>Install in SSH：XXX</code>再安装一次即可：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_3.png" alt=" "></p>
+<p>实际上，最狭义的远程开发配置已经完成了，现在你就可以在服务器上创建编辑文件，运行服务，并且通过自带的端口转发在本地进行查看了：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_4.png" alt=" "></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+      </tags>
+  </entry>
 </search>
