@@ -100,6 +100,105 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Django-Logging-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/04/Django-Logging-2/"
+    >Django 的日志机制-2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/04/Django-Logging-2/" class="article-date">
+  <time datetime="2024-02-04T13:55:49.000Z" itemprop="datePublished">2024-02-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="logging-结构">logging 结构</h2>
+<p>在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：<code>Loggers</code>、<code>Handlers</code>、<code>Filters</code> 和 <code>Formatters</code>。</p>
+<h3 id="Loggers">Loggers</h3>
+<p><code>Logger</code> 即<strong>记录器</strong>，是日志系统的入口。它有三个重要的工作：</p>
+<ul>
+<li>向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息</li>
+<li>根据传递给 <code>Logger</code> 的消息的严重性，确定消息是否需要处理</li>
+<li>将需要处理的消息传递给所有感兴趣的处理器 <code>Handler</code></li>
+</ul>
+<p>每一条写入 <code>Logger</code> 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：</p>
+<ul>
+<li><code>DEBUG</code>：排查故障时使用的低级别系统信息，通常开发时使用</li>
+<li><code>INFO</code>：一般的系统信息，并不算问题</li>
+<li><code>WARNING</code>：描述系统发生小问题的信息，但通常不影响功能</li>
+<li><code>ERROR</code>：描述系统发生大问题的信息，可能会导致功能不正常</li>
+<li><code>CRITICAL</code>：描述系统发生严重问题的信息，应用程序有崩溃的风险</li>
+</ul>
+<p>当 <code>Logger</code> 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 <code>Logger</code> 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。</p>
+<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p>
+<h3 id="Handlers">Handlers</h3>
+<p><code>Handler</code> 即<strong>处理器</strong>，它的主要功能是决定如何处理 <code>Logger</code> 中的每一条消息，比如把消息输出到屏幕、文件或者 Email 中。</p>
+<p>和 <code>Logger</code> 一样，<code>Handler</code> 也有级别的概念。如果一条日志记录的级别不匹配或者低于 <code>Handler</code> 的日志级别，则会被 <code>Handler</code> 忽略。</p>
+<p>一个 <code>Logger</code> 可以有多个 <code>Handler</code>，每一个 <code>Handler</code> 可以有不同的日志级别。这样就可以根据消息的重要性不同，来提供不同类型的输出。例如，你可以添加一个 <code>Handler</code> 把 <code>ERROR</code> 和 <code>CRITICAL</code> 消息发到你的 Email，再添加另一个 <code>Handler</code> 把所有的消息（包括 <code>ERROR</code> 和 <code>CRITICAL</code> 消息）保存到文件里。</p>
+<h3 id="Filters">Filters</h3>
+<p><code>Filter</code> 即<strong>过滤器</strong>。在日志记录从 <code>Logger</code> 传到 <code>Handler</code> 的过程中，使用 <code>Filter</code> 来做额外的控制。例如，只允许某个特定来源的 <code>ERROR</code> 消息输出。</p>
+<p><code>Filter</code> 还被用来在日志输出之前对日志记录做修改。例如，当满足一定条件时，把日志级别从 <code>ERROR</code> 降到 <code>WARNING</code> 。</p>
+<p><code>Filter</code> 在 <code>Logger</code> 和 <code>Handler</code> 中都可以添加，多个 <code>Filter</code> 可以链接起来使用，来做多重过滤操作。</p>
+<h3 id="Formaters">Formaters</h3>
+<p><code>Formatter</code> 即<strong>格式化器</strong>，主要功能是确定最终输出的形式和内容。Formatter 通常由一个包含 <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord 属性</a> 的 Python 格式化字符串组成；但是，您也可以编写自定义的 Formatter 来实现特定的格式化行为。</p>
+<pre class="mermaid">graph LR
+A(日志)-->B(发生了什么：Logger)
+B-->B1(记录消息，确定消息级别)
+B-->B2(根据消息级别，确定是否需要处理)
+B-->B3(把消息传递给消息处理器)
+A-->C(消息如何处理：Handler)
+C-->C1(决定如何处理消息，常见的有控制器/日志文件/邮件)
+C-->C2(可以有多个 Handler，每一个 Handler 可以有不同的日志级别)
+C-->C3(如果一条日志记录的级别不匹配或者低于 Handler 的日志级别，则会被 Handler 忽略)
+A-->D(额外的控制：Filter)
+D-->D1(例如：只允许某个特定来源的 ERROR 消息输出)
+D-->D2(例如：当满足一定条件时，把日志级别从 ERROR 降到 WARNING)
+D-->D3(多个 Filter 可以链接起来使用，来做多重过滤操作)
+A-->E(输出格式控制：Formater)
+E-->E1(确定最终输出的形式和内容)</pre>
+<p>相关链接：<br>
+<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-VS-Code-Remote-Development"
   class="article article-type-post"
   itemscope
@@ -737,66 +836,6 @@ Similarly, most Engineering organizations spend little time developing their ext
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Django-APIView-usage"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/08/07/Django-APIView-usage/"
-    >Django -APIView的使用</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/08/07/Django-APIView-usage/" class="article-date">
-  <time datetime="2023-08-07T01:05:29.000Z" itemprop="datePublished">2023-08-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-APIView的使用：">1.APIView的使用：</h2>
-<h3 id="1-1-在-user-urls-py-中添加路由">1.1 在 user/urls.py 中添加路由</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> bookapp.views <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;book/cate/&#x27;</span>, CateView.as_view()),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="1-2创建user-serializers-py写序列化器">1.2创建user/serializers.py写序列化器</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cateser</span>(serializers.ModelSerializer):</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Cate	  <span class="comment">#数据库表名</span></span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span> <span class="comment">#序列化所有字段      </span></span><br><span class="line">        <span class="comment">#depth = 1  # 外键序列化 添加了这个关联的外键都会查询出来*class Bookser(serializers.ModelSerializer):</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Book</span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-3-在-user-views-py-中添加视图函数">1.3 在 user/views.py 中添加视图函数</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"><span class="keyword">from</span> .sers <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CateView</span>(<span class="title class_ inherited__">APIView</span>):</span><br><span class="line">    <span class="comment"># get是查询数据  post是添加数据</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        cate = Cate.objects.<span class="built_in">all</span>()  <span class="comment"># 查询所有数据 他是一个查询集</span></span><br><span class="line">        ser = Cateser(cate, many=<span class="literal">True</span>)  <span class="comment"># 因为查询的是一个查询集 所以需要些many=True</span></span><br><span class="line">        <span class="keyword">return</span> Response(ser.data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        ser = Cateser(data=request.data)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.data</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(ser.errors)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.errors</span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, request</span>):  <span class="comment"># put 修改数据 完全修改数据  patch 部分修改数据# 想要修改的话 需要知道要修改谁 还要知道最新的数据 data=xxx 传递的新的值</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        <span class="comment"># first是从查询集中 获取一个model对象</span></span><br><span class="line">        cate = Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).first()  </span><br><span class="line">        <span class="comment"># 传递 两个参数 参数1是要修改的数据  参数2是要赋予的新值</span></span><br><span class="line">        ser = Cateser(instance=cate, data=request.data)  </span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 需要知道删除谁</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).delete()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li></ul>
 
     </footer>
   </div>

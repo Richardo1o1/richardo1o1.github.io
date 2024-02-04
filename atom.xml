@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-03T12:09:38.321Z</updated>
+  <updated>2024-02-04T13:56:35.693Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django 的日志机制-2</title>
+    <link href="http://yunminitools.cn/2024/02/04/Django-Logging-2/"/>
+    <id>http://yunminitools.cn/2024/02/04/Django-Logging-2/</id>
+    <published>2024-02-04T13:55:49.000Z</published>
+    <updated>2024-02-04T13:56:35.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;logging-结构&quot;&gt;logging 结构&lt;/h2&gt;
+&lt;p&gt;在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>远程开发的VS Code方法</title>
@@ -563,33 +593,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     
     
     <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>U型思考介绍-1</title>
-    <link href="http://yunminitools.cn/2023/07/27/U-Theory-1/"/>
-    <id>http://yunminitools.cn/2023/07/27/U-Theory-1/</id>
-    <published>2023-07-27T02:22:18.000Z</published>
-    <updated>2023-07-27T02:24:15.073Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;什么是U型思维呢？&lt;/p&gt;
-&lt;p&gt;U型思维是指先向下挖掘出问题本质，然后基于本质再来做决策的思考方式。它与上面直线式的思考相对应，因为思维链路有点像U，所以叫它U型思维，也可以叫它本质思考或者第二性思考。&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="工具框架" scheme="http://yunminitools.cn/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   

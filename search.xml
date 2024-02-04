@@ -6778,4 +6778,63 @@ end</pre>
         <tag>编程技巧</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Django 的日志机制-2</title>
+    <url>/2024/02/04/Django-Logging-2/</url>
+    <content><![CDATA[<h2 id="logging-结构">logging 结构</h2>
+<p>在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：<code>Loggers</code>、<code>Handlers</code>、<code>Filters</code> 和 <code>Formatters</code>。</p>
+<h3 id="Loggers">Loggers</h3>
+<p><code>Logger</code> 即<strong>记录器</strong>，是日志系统的入口。它有三个重要的工作：</p>
+<ul>
+<li>向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息</li>
+<li>根据传递给 <code>Logger</code> 的消息的严重性，确定消息是否需要处理</li>
+<li>将需要处理的消息传递给所有感兴趣的处理器 <code>Handler</code></li>
+</ul>
+<p>每一条写入 <code>Logger</code> 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：</p>
+<ul>
+<li><code>DEBUG</code>：排查故障时使用的低级别系统信息，通常开发时使用</li>
+<li><code>INFO</code>：一般的系统信息，并不算问题</li>
+<li><code>WARNING</code>：描述系统发生小问题的信息，但通常不影响功能</li>
+<li><code>ERROR</code>：描述系统发生大问题的信息，可能会导致功能不正常</li>
+<li><code>CRITICAL</code>：描述系统发生严重问题的信息，应用程序有崩溃的风险</li>
+</ul>
+<p>当 <code>Logger</code> 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 <code>Logger</code> 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。</p>
+<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p>
+<h3 id="Handlers">Handlers</h3>
+<p><code>Handler</code> 即<strong>处理器</strong>，它的主要功能是决定如何处理 <code>Logger</code> 中的每一条消息，比如把消息输出到屏幕、文件或者 Email 中。</p>
+<p>和 <code>Logger</code> 一样，<code>Handler</code> 也有级别的概念。如果一条日志记录的级别不匹配或者低于 <code>Handler</code> 的日志级别，则会被 <code>Handler</code> 忽略。</p>
+<p>一个 <code>Logger</code> 可以有多个 <code>Handler</code>，每一个 <code>Handler</code> 可以有不同的日志级别。这样就可以根据消息的重要性不同，来提供不同类型的输出。例如，你可以添加一个 <code>Handler</code> 把 <code>ERROR</code> 和 <code>CRITICAL</code> 消息发到你的 Email，再添加另一个 <code>Handler</code> 把所有的消息（包括 <code>ERROR</code> 和 <code>CRITICAL</code> 消息）保存到文件里。</p>
+<h3 id="Filters">Filters</h3>
+<p><code>Filter</code> 即<strong>过滤器</strong>。在日志记录从 <code>Logger</code> 传到 <code>Handler</code> 的过程中，使用 <code>Filter</code> 来做额外的控制。例如，只允许某个特定来源的 <code>ERROR</code> 消息输出。</p>
+<p><code>Filter</code> 还被用来在日志输出之前对日志记录做修改。例如，当满足一定条件时，把日志级别从 <code>ERROR</code> 降到 <code>WARNING</code> 。</p>
+<p><code>Filter</code> 在 <code>Logger</code> 和 <code>Handler</code> 中都可以添加，多个 <code>Filter</code> 可以链接起来使用，来做多重过滤操作。</p>
+<h3 id="Formaters">Formaters</h3>
+<p><code>Formatter</code> 即<strong>格式化器</strong>，主要功能是确定最终输出的形式和内容。Formatter 通常由一个包含 <a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord 属性</a> 的 Python 格式化字符串组成；但是，您也可以编写自定义的 Formatter 来实现特定的格式化行为。</p>
+<pre class="mermaid">graph LR
+A(日志)-->B(发生了什么：Logger)
+B-->B1(记录消息，确定消息级别)
+B-->B2(根据消息级别，确定是否需要处理)
+B-->B3(把消息传递给消息处理器)
+A-->C(消息如何处理：Handler)
+C-->C1(决定如何处理消息，常见的有控制器/日志文件/邮件)
+C-->C2(可以有多个 Handler，每一个 Handler 可以有不同的日志级别)
+C-->C3(如果一条日志记录的级别不匹配或者低于 Handler 的日志级别，则会被 Handler 忽略)
+A-->D(额外的控制：Filter)
+D-->D1(例如：只允许某个特定来源的 ERROR 消息输出)
+D-->D2(例如：当满足一定条件时，把日志级别从 ERROR 降到 WARNING)
+D-->D3(多个 Filter 可以链接起来使用，来做多重过滤操作)
+A-->E(输出格式控制：Formater)
+E-->E1(确定最终输出的形式和内容)</pre>
+<p>相关链接：<br>
+<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
 </search>
