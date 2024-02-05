@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-05T14:18:48.853Z</updated>
+  <updated>2024-02-05T14:49:12.713Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mermaid 插件语法错误解决</title>
+    <link href="http://yunminitools.cn/2024/02/05/mermaid-Syntax-error-in-graph/"/>
+    <id>http://yunminitools.cn/2024/02/05/mermaid-Syntax-error-in-graph/</id>
+    <published>2024-02-05T14:47:37.000Z</published>
+    <updated>2024-02-05T14:49:12.713Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;问题&lt;/h2&gt;
+&lt;p&gt;之前安装的mermaid插件，用下来一直很好，但最近出了问题，脚本无法运行，报错：&lt;br&gt;
+Syntax error in graph mermaid version 8.14.0&lt;br&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Django 的日志机制-3</title>
@@ -48,7 +76,7 @@
     <link href="http://yunminitools.cn/2024/02/04/Django-Logging-2/"/>
     <id>http://yunminitools.cn/2024/02/04/Django-Logging-2/</id>
     <published>2024-02-04T13:55:49.000Z</published>
-    <updated>2024-02-05T14:17:55.381Z</updated>
+    <updated>2024-02-05T14:36:41.197Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;logging-结构&quot;&gt;logging 结构&lt;/h2&gt;
@@ -565,34 +593,6 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
         
         
     <summary type="html">&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统性能调优-学习笔记1</title>
-    <link href="http://yunminitools.cn/2023/07/28/System-performance-tuning/"/>
-    <id>http://yunminitools.cn/2023/07/28/System-performance-tuning/</id>
-    <published>2023-07-28T07:50:13.000Z</published>
-    <updated>2023-07-28T07:51:49.761Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;基本知识&quot;&gt;基本知识&lt;/h2&gt;
-&lt;p&gt;大型网站架构设计必备的三板斧：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;高性能架构设计&lt;/strong&gt;： 熟悉系统常见性能优化手段比如引入 读写分离、缓存、负载均衡、异步</summary>
         
       
     
