@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">953</span>
+            <span class="post-count">733</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -153,20 +153,7 @@ var _hmt = _hmt || [];
 <h3 id="Formaters">Formaters</h3>
 <p><code>Formatter</code> 即<strong>格式化器</strong>，主要功能是确定最终输出的形式和内容。Formatter 通常由一个包含 <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord 属性</a> 的 Python 格式化字符串组成；但是，您也可以编写自定义的 Formatter 来实现特定的格式化行为。</p>
 <pre class="mermaid">graph LR
-A(日志)-->B(发生了什么:Logger)
-B-->B1(记录消息,确定消息级别)
-B-->B2(根据消息级别，确定是否需要处理)
-B-->B3(把消息传递给消息处理器)
-A-->C(消息如何处理:Handler)
-C-->C1(决定如何处理消息:常见的有控制器/日志文件/邮件)
-C-->C2(可以有多个 Handler,每一个 Handler 可以有不同的日志级别)
-C-->C3(如果一条日志记录的级别不匹配或者低于 Handler 的日志级别,则会被 Handler 忽略)
-A-->D(额外的控制:Filter)
-D-->D1(例如-只允许某个特定来源的 ERROR 消息输出)
-D-->D2(例如-当满足一定条件时，把日志级别从 ERROR 降到 WARNING)
-D-->D3(多个 Filter 可以链接起来使用，来做多重过滤操作)
-A-->E(输出格式控制:Formater)
-E-->E1(确定最终输出的形式和内容)</pre>
+A(日志)-->B(发生了什么:Logger)</pre>
 <p>相关链接：<br>
 <a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a></p>
  
