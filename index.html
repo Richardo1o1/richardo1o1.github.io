@@ -155,25 +155,24 @@ var _hmt = _hmt || [];
 <p>和 <code>Logger</code> 一样，<code>Handler</code> 也有级别的概念。如果一条日志记录的级别不匹配或者低于 <code>Handler</code> 的日志级别，则会被 <code>Handler</code> 忽略。</p>
 <p>一个 <code>Logger</code> 可以有多个 <code>Handler</code>，每一个 <code>Handler</code> 可以有不同的日志级别。这样就可以根据消息的重要性不同，来提供不同类型的输出。例如，你可以添加一个 <code>Handler</code> 把 <code>ERROR</code> 和 <code>CRITICAL</code> 消息发到你的 Email，再添加另一个 <code>Handler</code> 把所有的消息（包括 <code>ERROR</code> 和 <code>CRITICAL</code> 消息）保存到文件里。</p>
 <h3 id="Filters">Filters</h3>
-<p><code>Filter</code> 即<strong>过滤器</strong>。在日志记录从 <code>Logger</code> 传到 <code>Handler</code> 的过程中，使用 <code>Filter</code> 来做额外的控制。例如，只允许某个特定来源的 <code>ERROR</code> 消息输出。</p>
 <p><code>Filter</code> 还被用来在日志输出之前对日志记录做修改。例如，当满足一定条件时，把日志级别从 <code>ERROR</code> 降到 <code>WARNING</code> 。</p>
 <p><code>Filter</code> 在 <code>Logger</code> 和 <code>Handler</code> 中都可以添加，多个 <code>Filter</code> 可以链接起来使用，来做多重过滤操作。</p>
 <h3 id="Formaters">Formaters</h3>
 <p><code>Formatter</code> 即<strong>格式化器</strong>，主要功能是确定最终输出的形式和内容。Formatter 通常由一个包含 <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord 属性</a> 的 Python 格式化字符串组成；但是，您也可以编写自定义的 Formatter 来实现特定的格式化行为。</p>
 <pre class="mermaid">graph LR
-A(日志)-->B(发生了什么：Logger)
-B-->B1(记录消息，确定消息级别)
+A(日志)-->B(发生了什么:Logger)
+B-->B1(记录消息,确定消息级别)
 B-->B2(根据消息级别，确定是否需要处理)
 B-->B3(把消息传递给消息处理器)
-A-->C(消息如何处理：Handler)
-C-->C1(决定如何处理消息，常见的有控制器/日志文件/邮件)
-C-->C2(可以有多个 Handler，每一个 Handler 可以有不同的日志级别)
-C-->C3(如果一条日志记录的级别不匹配或者低于 Handler 的日志级别，则会被 Handler 忽略)
-A-->D(额外的控制：Filter)
-D-->D1(例如：只允许某个特定来源的 ERROR 消息输出)
-D-->D2(例如：当满足一定条件时，把日志级别从 ERROR 降到 WARNING)
+A-->C(消息如何处理:Handler)
+C-->C1(决定如何处理消息:常见的有控制器/日志文件/邮件)
+C-->C2(可以有多个 Handler,每一个 Handler 可以有不同的日志级别)
+C-->C3(如果一条日志记录的级别不匹配或者低于 Handler 的日志级别,则会被 Handler 忽略)
+A-->D(额外的控制:Filter)
+D-->D1(例如-只允许某个特定来源的 ERROR 消息输出)
+D-->D2(例如-当满足一定条件时，把日志级别从 ERROR 降到 WARNING)
 D-->D3(多个 Filter 可以链接起来使用，来做多重过滤操作)
-A-->E(输出格式控制：Formater)
+A-->E(输出格式控制:Formater)
 E-->E1(确定最终输出的形式和内容)</pre>
 <p>相关链接：<br>
 <a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a></p>
