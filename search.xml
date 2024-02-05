@@ -6813,11 +6813,7 @@ end</pre>
 A(日志)-->B(发生了什么:Logger)
 B-->B1(记录消息,确定消息级别)
 B-->B2(根据消息级别，确定是否需要处理)
-B-->B3(把消息传递给消息处理器)
-A-->C(消息如何处理_Handler)
-C-->C1(决定如何处理消息_常见的有控制器_日志文件_邮件)
-C-->C2(可以有多个Handler,每一个Handler可以有不同的日志级别)
-C-->C3(如果一条日志记录的级别不匹配或者低于Handler的日志级别,则会被Handler忽略)</pre>
+B-->B3(把消息传递给消息处理器)</pre>
 <p>相关链接：<br>
 <a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a></p>
 ]]></content>
