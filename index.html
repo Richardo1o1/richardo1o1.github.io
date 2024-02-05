@@ -100,6 +100,67 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Django-Logging-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/05/Django-Logging-3/"
+    >Django 的日志机制-3</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/05/Django-Logging-3/" class="article-date">
+  <time datetime="2024-02-05T14:18:12.000Z" itemprop="datePublished">2024-02-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="实现方式">实现方式</h2>
+<p>其实最简单的方式就是直接在文件开头 <strong><code>import</code></strong>，然后程序中调用，像下面这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import the logging library</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># Get an instance of a logger</span></span><br><span class="line">logging.basicConfig(</span><br><span class="line">    <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(pathname)s[%(lineno)d] - %(levelname)s: %(message)s&#x27;</span>,</span><br><span class="line">    level=logging.INFO)</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request, arg1, arg</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> bad_mojo:</span><br><span class="line">        <span class="comment"># Log an error message</span></span><br><span class="line">				logger.error(<span class="string">&#x27;Something went wrong!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>但这种方式并不好，如果在每个文件开头都这样写一遍，第一是麻烦，第二是如果哪天要改变输出日志格式，那每个文件都要改一遍，还不累死。</p>
+<p>很显然，如果能封装成一个类，用的时候调用这个类，修改的时候也只需要修改这一个地方:</p> 
+      <a class="article-more-link" href="/2024/02/05/Django-Logging-3/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Django-Logging-2"
   class="article article-type-post"
   itemscope
@@ -149,22 +210,11 @@ var _hmt = _hmt || [];
 <li><code>CRITICAL</code>：描述系统发生严重问题的信息，应用程序有崩溃的风险</li>
 </ul>
 <p>当 <code>Logger</code> 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 <code>Logger</code> 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。</p>
-<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p>
-<h3 id="Handlers">Handlers</h3>
-<p><code>Handler</code> 即<strong>处理器</strong>，它的主要功能是决定如何处理 <code>Logger</code> 中的每一条消息，比如把消息输出到屏幕、文件或者 Email 中。</p>
-<p>和 <code>Logger</code> 一样，<code>Handler</code> 也有级别的概念。如果一条日志记录的级别不匹配或者低于 <code>Handler</code> 的日志级别，则会被 <code>Handler</code> 忽略。</p>
-<p>一个 <code>Logger</code> 可以有多个 <code>Handler</code>，每一个 <code>Handler</code> 可以有不同的日志级别。这样就可以根据消息的重要性不同，来提供不同类型的输出。例如，你可以添加一个 <code>Handler</code> 把 <code>ERROR</code> 和 <code>CRITICAL</code> 消息发到你的 Email，再添加另一个 <code>Handler</code> 把所有的消息（包括 <code>ERROR</code> 和 <code>CRITICAL</code> 消息）保存到文件里。</p>
-<h3 id="Filters">Filters</h3>
-<p><code>Filter</code> 还被用来在日志输出之前对日志记录做修改。例如，当满足一定条件时，把日志级别从 <code>ERROR</code> 降到 <code>WARNING</code> 。</p>
-<p><code>Filter</code> 在 <code>Logger</code> 和 <code>Handler</code> 中都可以添加，多个 <code>Filter</code> 可以链接起来使用，来做多重过滤操作。</p>
-<h3 id="Formaters">Formaters</h3>
-<p><code>Formatter</code> 即<strong>格式化器</strong>，主要功能是确定最终输出的形式和内容。Formatter 通常由一个包含 <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord 属性</a> 的 Python 格式化字符串组成；但是，您也可以编写自定义的 Formatter 来实现特定的格式化行为。</p>
-<pre class="mermaid">graph LR
-A(日志)-->B(发生了什么:Logger)
-B-->B1(记录消息,确定消息级别)</pre>
-<p>相关链接：<br>
-<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a></p>
- 
+<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p> 
+      <a class="article-more-link" href="/2024/02/04/Django-Logging-2/"
+        >More...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -750,79 +800,6 @@ Similarly, most Engineering organizations spend little time developing their ext
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E5%8F%B8%E6%96%87%E5%8C%96/" rel="tag">公司文化</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-move-docker-data-folder"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/06/move-docker-data-folder/"
-    >Docker迁移默认的/var/lib/docker 目录（避坑指南）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/06/move-docker-data-folder/" class="article-date">
-  <time datetime="2023-09-06T08:17:12.000Z" itemprop="datePublished">2023-09-06</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>最近在做docker 数据文件的迁移，按指引创建，遇到了一些问题，把步骤和解决方案记录一下。</p>
-<h2 id="1-停止docker服务">1. 停止docker服务</h2>
-<p><code>systemctl stop docker</code></p>
-<h2 id="2-创建docker新目录">2.创建docker新目录</h2>
-<p><code>mkdir -p /data/docker/lib</code></p>
-<h2 id="3-安装迁移软件包">3.安装迁移软件包</h2>
-<p><code>yum install rsync -y</code></p>
-<p>或者</p>
-<p><code>sudo apt-get install rsync</code></p>
-<h2 id="4-开始迁移">4.开始迁移</h2>
-<p><code>rsync -avzP /var/lib/docker /data/docker/lib/</code></p>
-<p>注：这个不是必须的，也可以用<code>mv</code>命令</p>
-<h2 id="5-修改docker配置文件">5.修改docker配置文件</h2>
-<p><code>vim /lib/systemd/system/docker.service</code></p>
-<p>在<code>ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</code>后添加<code>--graph=/data/docker/lib</code></p>
-<p>注意：这里有个坑，最新的docker版本（≥ version 23.0.0 ) 这个参数（–graph）要改为 --data-root ，也就是： <code>--data-root=/data/docker/lib</code></p>
-<h2 id="6-重启docker">6.重启docker</h2>
-<p><code>systemctl daemon-reload systemctl restart docker</code></p>
-<h2 id="7-确认docker没有问题，删除原目录">7.确认docker没有问题，删除原目录</h2>
-<p><code>rm -rf /var/lib/docker</code></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>

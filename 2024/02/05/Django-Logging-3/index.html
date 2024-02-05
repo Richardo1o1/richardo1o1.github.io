@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Django 的日志机制-2 |  New structure for utility</title>
+      <title>Django 的日志机制-3 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Django-Logging-2"
+  id="post-Django-Logging-3"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Django 的日志机制-2
+  Django 的日志机制-3
 </h1>
  
 
@@ -88,8 +88,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2024/02/04/Django-Logging-2/" class="article-date">
-  <time datetime="2024-02-04T13:55:49.000Z" itemprop="datePublished">2024-02-04</time>
+      <a href="/2024/02/05/Django-Logging-3/" class="article-date">
+  <time datetime="2024-02-05T14:18:12.000Z" itemprop="datePublished">2024-02-05</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">745</span>
+            <span class="post-count">526</span>
         </span>
     </span>
 
@@ -124,40 +124,20 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="logging-结构">logging 结构</h2>
-<p>在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：<code>Loggers</code>、<code>Handlers</code>、<code>Filters</code> 和 <code>Formatters</code>。</p>
-<h3 id="Loggers">Loggers</h3>
-<p><code>Logger</code> 即<strong>记录器</strong>，是日志系统的入口。它有三个重要的工作：</p>
-<ul>
-<li>向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息</li>
-<li>根据传递给 <code>Logger</code> 的消息的严重性，确定消息是否需要处理</li>
-<li>将需要处理的消息传递给所有感兴趣的处理器 <code>Handler</code></li>
-</ul>
-<p>每一条写入 <code>Logger</code> 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：</p>
-<ul>
-<li><code>DEBUG</code>：排查故障时使用的低级别系统信息，通常开发时使用</li>
-<li><code>INFO</code>：一般的系统信息，并不算问题</li>
-<li><code>WARNING</code>：描述系统发生小问题的信息，但通常不影响功能</li>
-<li><code>ERROR</code>：描述系统发生大问题的信息，可能会导致功能不正常</li>
-<li><code>CRITICAL</code>：描述系统发生严重问题的信息，应用程序有崩溃的风险</li>
-</ul>
-<p>当 <code>Logger</code> 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 <code>Logger</code> 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。</p>
-<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p>
+  <h2 id="实现方式">实现方式</h2>
+<p>其实最简单的方式就是直接在文件开头 <strong><code>import</code></strong>，然后程序中调用，像下面这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import the logging library</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># Get an instance of a logger</span></span><br><span class="line">logging.basicConfig(</span><br><span class="line">    <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(pathname)s[%(lineno)d] - %(levelname)s: %(message)s&#x27;</span>,</span><br><span class="line">    level=logging.INFO)</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request, arg1, arg</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> bad_mojo:</span><br><span class="line">        <span class="comment"># Log an error message</span></span><br><span class="line">				logger.error(<span class="string">&#x27;Something went wrong!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>但这种方式并不好，如果在每个文件开头都这样写一遍，第一是麻烦，第二是如果哪天要改变输出日志格式，那每个文件都要改一遍，还不累死。</p>
+<p>很显然，如果能封装成一个类，用的时候调用这个类，修改的时候也只需要修改这一个地方:</p>
 <span id="more"></span>
-<h3 id="Handlers">Handlers</h3>
-<p><code>Handler</code> 即<strong>处理器</strong>，它的主要功能是决定如何处理 <code>Logger</code> 中的每一条消息，比如把消息输出到屏幕、文件或者 Email 中。</p>
-<p>和 <code>Logger</code> 一样，<code>Handler</code> 也有级别的概念。如果一条日志记录的级别不匹配或者低于 <code>Handler</code> 的日志级别，则会被 <code>Handler</code> 忽略。</p>
-<p>一个 <code>Logger</code> 可以有多个 <code>Handler</code>，每一个 <code>Handler</code> 可以有不同的日志级别。这样就可以根据消息的重要性不同，来提供不同类型的输出。例如，你可以添加一个 <code>Handler</code> 把 <code>ERROR</code> 和 <code>CRITICAL</code> 消息发到你的 Email，再添加另一个 <code>Handler</code> 把所有的消息（包括 <code>ERROR</code> 和 <code>CRITICAL</code> 消息）保存到文件里。</p>
-<h3 id="Filters">Filters</h3>
-<p><code>Filter</code> 还被用来在日志输出之前对日志记录做修改。例如，当满足一定条件时，把日志级别从 <code>ERROR</code> 降到 <code>WARNING</code> 。</p>
-<p><code>Filter</code> 在 <code>Logger</code> 和 <code>Handler</code> 中都可以添加，多个 <code>Filter</code> 可以链接起来使用，来做多重过滤操作。</p>
-<h3 id="Formaters">Formaters</h3>
-<p><code>Formatter</code> 即<strong>格式化器</strong>，主要功能是确定最终输出的形式和内容。Formatter 通常由一个包含 <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord 属性</a> 的 Python 格式化字符串组成；但是，您也可以编写自定义的 Formatter 来实现特定的格式化行为。</p>
-<pre class="mermaid">graph LR
-A(日志)-->B(发生了什么:Logger)
-B-->B1(记录消息,确定消息级别)</pre>
+<h2 id="自定义类">自定义类</h2>
+<p><a target="_blank" rel="noopener" href="http://logging.py">logging.py</a> 内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CommonLog</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    日志记录</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, logger, logname=<span class="string">&#x27;web-log&#x27;</span></span>):</span><br><span class="line">        self.logname = os.path.join(settings.LOGS_DIR, <span class="string">&#x27;%s&#x27;</span> % logname)</span><br><span class="line">        self.logger = logger</span><br><span class="line">        self.logger.setLevel(logging.DEBUG)</span><br><span class="line">        self.logger.propagate = <span class="literal">False</span></span><br><span class="line">        self.formatter = logging.Formatter(<span class="string">&#x27;%(asctime)s - %(name)s - %(levelname)s: %(message)s&#x27;</span>, <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__console</span>(<span class="params">self, level, message</span>):</span><br><span class="line">        <span class="comment"># 创建一个FileHandler，用于写到本地</span></span><br><span class="line">        fh = logging.handlers.TimedRotatingFileHandler(self.logname, when=<span class="string">&#x27;MIDNIGHT&#x27;</span>, interval=<span class="number">1</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="comment"># fh = logging.FileHandler(self.logname, &#x27;a&#x27;, encoding=&#x27;utf-8&#x27;)</span></span><br><span class="line">        fh.suffix = <span class="string">&#x27;%Y-%m-%d.log&#x27;</span></span><br><span class="line">        fh.setLevel(logging.DEBUG)</span><br><span class="line">        fh.setFormatter(self.formatter)</span><br><span class="line">        self.logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建一个StreamHandler,用于输出到控制台</span></span><br><span class="line">        ch = logging.StreamHandler()</span><br><span class="line">        ch.setLevel(logging.DEBUG)</span><br><span class="line">        ch.setFormatter(self.formatter)</span><br><span class="line">        self.logger.addHandler(ch)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> level == <span class="string">&#x27;info&#x27;</span>:</span><br><span class="line">            self.logger.info(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;debug&#x27;</span>:</span><br><span class="line">            self.logger.debug(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;warning&#x27;</span>:</span><br><span class="line">            self.logger.warning(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;error&#x27;</span>:</span><br><span class="line">            self.logger.error(message)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 这两行代码是为了避免日志输出重复问题</span></span><br><span class="line">        self.logger.removeHandler(ch)</span><br><span class="line">        self.logger.removeHandler(fh)</span><br><span class="line">        <span class="comment"># 关闭打开的文件</span></span><br><span class="line">        fh.close()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">debug</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;debug&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">info</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;info&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">warning</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;warning&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">error</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;error&#x27;</span>, message)</span><br></pre></td></tr></table></figure>
+<h2 id="其他文件引用">其他文件引用</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 引用</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> logtool</span><br><span class="line">logger=logging.getLogger()</span><br><span class="line">log=logTool.CommonLog(logger=logger,logname=<span class="string">&quot;指定日志名称&quot;</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 代码中使用</span></span><br><span class="line">log.info(<span class="string">&#x27;日志内容&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>相关链接：<br>
-<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a></p>
+<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
+<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/02/03/Django-Logging-2/">Django 的日志机制-2</a></p>
  
       <!-- reward -->
       
@@ -210,7 +190,7 @@ B-->B1(记录消息,确定消息级别)</pre>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/02/04/Django-Logging-2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/02/05/Django-Logging-3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -223,19 +203,10 @@ B-->B1(记录消息,确定消息级别)</pre>
    
   <nav class="article-nav">
     
-      <a href="/2024/02/05/Django-Logging-3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Django 的日志机制-3
-          
-        </div>
-      </a>
     
-    
-      <a href="/2024/02/03/VS-Code-Remote-Development/" class="article-nav-link">
+      <a href="/2024/02/04/Django-Logging-2/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">远程开发的VS Code方法</div>
+        <div class="article-nav-title">Django 的日志机制-2</div>
       </a>
     
   </nav>

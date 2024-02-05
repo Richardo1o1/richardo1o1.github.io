@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-05T14:14:13.009Z</updated>
+  <updated>2024-02-05T14:18:48.853Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -17,21 +17,59 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Django 的日志机制-3</title>
+    <link href="http://yunminitools.cn/2024/02/05/Django-Logging-3/"/>
+    <id>http://yunminitools.cn/2024/02/05/Django-Logging-3/</id>
+    <published>2024-02-05T14:18:12.000Z</published>
+    <updated>2024-02-05T14:18:48.853Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;实现方式&quot;&gt;实现方式&lt;/h2&gt;
+&lt;p&gt;其实最简单的方式就是直接在文件开头 &lt;strong&gt;&lt;code&gt;import&lt;/code&gt;&lt;/strong&gt;，然后程序中调用，像下面这样：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# import the logging library&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; logging&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Get an instance of a logger&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;logging.basicConfig(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;format&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#x27;%(asctime)s - %(pathname)s[%(lineno)d] - %(levelname)s: %(message)s&amp;#x27;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    level=logging.INFO)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;logger = logging.getLogger(__name__)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;my_view&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;request, arg1, arg&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; bad_mojo:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# Log an error message&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				logger.error(&lt;span class=&quot;string&quot;&gt;&amp;#x27;Something went wrong!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;但这种方式并不好，如果在每个文件开头都这样写一遍，第一是麻烦，第二是如果哪天要改变输出日志格式，那每个文件都要改一遍，还不累死。&lt;/p&gt;
+&lt;p&gt;很显然，如果能封装成一个类，用的时候调用这个类，修改的时候也只需要修改这一个地方:&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Django 的日志机制-2</title>
     <link href="http://yunminitools.cn/2024/02/04/Django-Logging-2/"/>
     <id>http://yunminitools.cn/2024/02/04/Django-Logging-2/</id>
     <published>2024-02-04T13:55:49.000Z</published>
-    <updated>2024-02-05T14:14:13.009Z</updated>
+    <updated>2024-02-05T14:17:55.381Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;logging-结构&quot;&gt;logging 结构&lt;/h2&gt;
-&lt;p&gt;在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging</summary>
-        
-      
+&lt;p&gt;在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：&lt;code&gt;Loggers&lt;/code&gt;、&lt;code&gt;Handlers&lt;/code&gt;、&lt;code&gt;Filters&lt;/code&gt; 和 &lt;code&gt;Formatters&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;Loggers&quot;&gt;Loggers&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Logger&lt;/code&gt; 即&lt;strong&gt;记录器&lt;/strong&gt;，是日志系统的入口。它有三个重要的工作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息&lt;/li&gt;
+&lt;li&gt;根据传递给 &lt;code&gt;Logger&lt;/code&gt; 的消息的严重性，确定消息是否需要处理&lt;/li&gt;
+&lt;li&gt;将需要处理的消息传递给所有感兴趣的处理器 &lt;code&gt;Handler&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每一条写入 &lt;code&gt;Logger&lt;/code&gt; 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEBUG&lt;/code&gt;：排查故障时使用的低级别系统信息，通常开发时使用&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INFO&lt;/code&gt;：一般的系统信息，并不算问题&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;WARNING&lt;/code&gt;：描述系统发生小问题的信息，但通常不影响功能&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ERROR&lt;/code&gt;：描述系统发生大问题的信息，可能会导致功能不正常&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CRITICAL&lt;/code&gt;：描述系统发生严重问题的信息，应用程序有崩溃的风险&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当 &lt;code&gt;Logger&lt;/code&gt; 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 &lt;code&gt;Logger&lt;/code&gt; 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。&lt;/p&gt;
+&lt;p&gt;当 &lt;code&gt;Logger&lt;/code&gt; 确定了一条消息需要处理之后，会把它传给 &lt;code&gt;Handler&lt;/code&gt;。&lt;/p&gt;</summary>
     
     
     
@@ -555,35 +593,6 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
 &lt;p&gt;大型网站架构设计必备的三板斧：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;高性能架构设计&lt;/strong&gt;： 熟悉系统常见性能优化手段比如引入 读写分离、缓存、负载均衡、异步</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>4S方法设计系统</title>
-    <link href="http://yunminitools.cn/2023/07/28/4S-System-Design-Methodology/"/>
-    <id>http://yunminitools.cn/2023/07/28/4S-System-Design-Methodology/</id>
-    <published>2023-07-28T07:05:58.000Z</published>
-    <updated>2023-07-28T08:54:32.113Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
-&lt;p&gt;所谓4S分析法中的4S是指：&lt;br&gt;
-Scenario（场景），Service（服务），Storage（存储），Scale（扩展）。&lt;br&gt;
-接下来，我们结合4S分析法来具体回答一道常见系统设计题：如何设计一个推特？&lt;/p&gt;
-&lt;h2</summary>
         
       
     
