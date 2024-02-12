@@ -6881,4 +6881,51 @@ Syntax error in graph mermaid version 8.14.0<br>
         <tag>博客管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>牛客网 面试必刷TOP101 算法题</title>
+    <url>/2024/02/12/nowcoder-algorithm-test-101/</url>
+    <content><![CDATA[<h2 id="介绍">介绍</h2>
+<p>发现一个除了Leecode以外比较好的刷算法的网站：</p>
+<p><a href="https://www.nowcoder.com/exam/oj?page=1&amp;tab=%E7%AE%97%E6%B3%95%E7%AF%87&amp;topicId=295">牛客网在线编程_算法篇_面试必刷TOP101 (nowcoder.com)</a></p>
+<p>据说是收集了很多面试题精选的题目</p>
+<h2 id="题目例子">题目例子</h2>
+<p><strong>BM83 字符串变形</strong></p>
+<p><strong>描述</strong></p>
+<p>对于一个长度为 n 字符串，我们需要对它做一些变形。</p>
+<p>首先这个字符串中包含着一些空格，就像&quot;Hello World&quot;一样，然后我们要做的是把这个字符串中由空格隔开的单词反序，同时反转每个字符的大小写。</p>
+<p>比如&quot;Hello World&quot;变形后就变成了&quot;wORLD hELLO&quot;。</p>
+<p>数据范围: 1≤�≤1061≤<em>n</em>≤106 , 字符串中包括大写英文字母、小写英文字母、空格。</p>
+<p>进阶：空间复杂度 �(�)<em>O</em>(<em>n</em>) ， 时间复杂度 �(�)<em>O</em>(<em>n</em>)</p>
+<p><strong>输入描述：</strong></p>
+<p>给定一个字符串s以及它的长度n(1 ≤ n ≤ 10^6)</p>
+<p><strong>返回值描述：</strong></p>
+<p>请返回变形后的字符串。题目保证给定的字符串均由大小写字母和空格构成。</p>
+<p><strong>示例1</strong></p>
+<p>输入：<br>
+<code>&quot;This is a sample&quot;,16</code></p>
+<p>返回值：<br>
+<code>&quot;SAMPLE A IS tHIS&quot;</code></p>
+<h2 id="Python实现">Python实现</h2>
+<p>参考了答案，我的代码实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">trans</span>(<span class="params">self, s: <span class="built_in">str</span>, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        word_list = <span class="built_in">list</span>(s.split(<span class="string">&quot; &quot;</span>))[::-<span class="number">1</span>]</span><br><span class="line">        new_str = <span class="string">&quot; &quot;</span>.join(word_list)</span><br><span class="line">        res = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> new_str[i] &lt;= <span class="string">&quot;Z&quot;</span> <span class="keyword">and</span> new_str[i] &gt;= <span class="string">&quot;A&quot;</span>:</span><br><span class="line">                res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(new_str[i]) - <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>) + <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>))</span><br><span class="line">            <span class="keyword">elif</span> new_str[i] &lt;= <span class="string">&quot;z&quot;</span> <span class="keyword">and</span> new_str[i] &gt;= <span class="string">&quot;a&quot;</span>:</span><br><span class="line">                res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(new_str[i]) - <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>) + <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res += new_str[i]</span><br><span class="line">        <span class="built_in">print</span>(res)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<p>其中以下写法值得借鉴：</p>
+<ol>
+<li>倒序的实现为 list(s.split(&quot; &quot;))[::-1]</li>
+<li>字母变为小写：chr(ord(new_str[i]) - ord(“A”) + ord(“a”))</li>
+<li>另外 用 swapcase() 函数更简洁</li>
+</ol>
+<h2 id="界面和操作">界面和操作</h2>
+<p>界面如下：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0212_nowcoder_101.png" alt=" "></p>
+<p>操作还比较方便，有语法提示，有调试界面。</p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-05T14:49:12.713Z</updated>
+  <updated>2024-02-12T15:49:19.629Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>牛客网 面试必刷TOP101 算法题</title>
+    <link href="http://yunminitools.cn/2024/02/12/nowcoder-algorithm-test-101/"/>
+    <id>http://yunminitools.cn/2024/02/12/nowcoder-algorithm-test-101/</id>
+    <published>2024-02-12T15:48:40.000Z</published>
+    <updated>2024-02-12T15:49:19.629Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;发现一个除了Leecode以外比较好的刷算法的网站：&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
+    
+    <category term="算法" scheme="http://yunminitools.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>mermaid 插件语法错误解决</title>
@@ -577,31 +608,6 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
     
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>耦合度以及降低耦合度的方法</title>
-    <link href="http://yunminitools.cn/2023/07/28/Methods-of-reducing-coupling/"/>
-    <id>http://yunminitools.cn/2023/07/28/Methods-of-reducing-coupling/</id>
-    <published>2023-07-28T07:52:11.000Z</published>
-    <updated>2023-07-28T07:57:06.289Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
