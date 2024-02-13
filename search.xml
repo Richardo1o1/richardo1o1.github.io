@@ -6928,4 +6928,37 @@ Syntax error in graph mermaid version 8.14.0<br>
         <tag>算法</tag>
       </tags>
   </entry>
+  <entry>
+    <title>算法练习：BM1 反转链表</title>
+    <url>/2024/02/13/nowcoder-algorithm-test-bm1/</url>
+    <content><![CDATA[<h2 id="题目内容">题目内容</h2>
+<p>给定一个单链表的头结点pHead(该头节点是有值的，比如在下图，它的val是1)，长度为n，反转该链表后，返回新链表的表头。</p>
+<p>数据范围： 0 ≤ <em>n</em> ≤1000</p>
+<p>要求：空间复杂度 <em>O</em>(1) ，时间复杂度 <em>O</em>(<em>n</em>) 。</p>
+<p>如当输入链表{1,2,3}时，</p>
+<p>经反转后，原链表变为{3,2,1}，所以对应的输出为{3,2,1}。</p>
+<h2 id="我的思路">我的思路</h2>
+<p>在遍历链表时，将当前节点的next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。在更改引用之前，还需要存储后一个节点。最后返回新的头引用。借用网上一个图解：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/02_13_bm1_test.gif" alt=" "></p>
+<span id="more"></span>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># @param head ListNode类 </span></span><br><span class="line"><span class="comment"># @return ListNode类</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ReverseList</span>(<span class="params">self , head: ListNode</span>) -&gt; ListNode:</span><br><span class="line">        <span class="comment">#如果head为空，则直接返回空</span></span><br><span class="line">        <span class="keyword">if</span> head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">            </span><br><span class="line">        reverse_node = ListNode(head.val)</span><br><span class="line">        x = head</span><br><span class="line">        <span class="keyword">while</span> x != <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> x.<span class="built_in">next</span> != <span class="literal">None</span>:</span><br><span class="line">                temp_node = ListNode(x.<span class="built_in">next</span>.val)</span><br><span class="line">                temp_node.<span class="built_in">next</span> = reverse_node</span><br><span class="line">                reverse_node = temp_node</span><br><span class="line">            x = x.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> reverse_node</span><br></pre></td></tr></table></figure>
+<p>提交通过，但代码不够简洁。</p>
+<h2 id="参考答案">参考答案</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ReverseList</span>(<span class="params">self , head: ListNode</span>) -&gt; ListNode:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        reverse = <span class="literal">None</span></span><br><span class="line">        phead = head</span><br><span class="line">        <span class="keyword">while</span> phead != <span class="literal">None</span>:</span><br><span class="line">            tmp = phead.<span class="built_in">next</span></span><br><span class="line">            phead.<span class="built_in">next</span> = reverse</span><br><span class="line">            reverse = phead</span><br><span class="line">            phead = tmp</span><br><span class="line">        <span class="keyword">return</span> reverse</span><br></pre></td></tr></table></figure>
+<h2 id="经验总结">经验总结</h2>
+<ul>
+<li>我默认节点从第一个开始，就增加了判断的部分，还多调用一次构造函数</li>
+<li>简洁的做法是，从第0个开始，默认节点为None，这样就省去了判断语句，逻辑更简单，语句简洁。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
