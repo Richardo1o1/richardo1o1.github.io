@@ -1865,6 +1865,10 @@ MIXIN是跨多个类重用代码的一个很好的方法，但是它们会带来
 A(应用)-->B(日志)
 B-->C(聚合)
 C-->D(分析)</pre>
+<p>相关链接：<br>
+<a href="https://www.yunminitools.cn/2024/02/04/Django-Logging-2/">Django 的日志机制-2</a><br>
+<a href="https://www.yunminitools.cn/2024/02/05/Django-Logging-3/">Django 的日志机制-3</a><br>
+<a href="https://www.yunminitools.cn/2024/02/16/Django-Logging-4/">Django 的日志机制-4</a></p>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -6825,7 +6829,9 @@ D-->D3(多个Filter可以链接起来使用,来做多重过滤操作)
 A-->E(输出格式控制:Formater)
 E-->E1(确定最终输出的形式和内容)</pre>
 <p>相关链接：<br>
-<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a></p>
+<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
+<a href="https://www.yunminitools.cn/2024/02/05/Django-Logging-3/">Django 的日志机制-3</a><br>
+<a href="https://www.yunminitools.cn/2024/02/16/Django-Logging-4/">Django 的日志机制-4</a></p>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -6852,7 +6858,8 @@ E-->E1(确定最终输出的形式和内容)</pre>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 引用</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> logtool</span><br><span class="line">logger=logging.getLogger()</span><br><span class="line">log=logTool.CommonLog(logger=logger,logname=<span class="string">&quot;指定日志名称&quot;</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 代码中使用</span></span><br><span class="line">log.info(<span class="string">&#x27;日志内容&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>相关链接：<br>
 <a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
-<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-2/">Django 的日志机制-2</a></p>
+<a href="https://www.yunminitools.cn/2024/02/04/Django-Logging-2/">Django 的日志机制-2</a><br>
+<a href="https://www.yunminitools.cn/2024/02/16/Django-Logging-4/">Django 的日志机制-4</a></p>
 ]]></content>
       <categories>
         <category>当日所学</category>
