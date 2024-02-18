@@ -6999,4 +6999,42 @@ Syntax error in graph mermaid version 8.14.0<br>
         <tag>Python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>一次Docker应用排查过程</title>
+    <url>/2024/02/18/docker-debug-test-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>重新发布了一个应用，发现无法访问，把排查过程记录一下。</p>
+<h2 id="检查docker程序和开放端口">检查docker程序和开放端口</h2>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker ps</span><br></pre></td></tr></table></figure>
+<p>发现docker都在运行。</p>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo netstat -tunpl</span><br></pre></td></tr></table></figure>
+<p>检查开放端口，端口开放正常。</p>
+<h2 id="检查frp的状态">检查frp的状态</h2>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status frp</span><br></pre></td></tr></table></figure>
+<p>由于是通过frp穿透内网的，要看一下是否是frp问题，查看日志，没有报错。</p>
+<h2 id="检查内网网页状态">检查内网网页状态</h2>
+<p>访问内网ip，报错：<strong>502 Bad Gateway</strong></p>
+<p>运行一下语句，查看docker日志：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker logs ee86b3ee2451</span><br></pre></td></tr></table></figure>
+<p>其中 ee86b3ee2451 为容器ID</p>
+<p>运行下面语句，查看实时docker日志：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker logs -f ee86b3ee2451</span><br></pre></td></tr></table></figure>
+<h2 id="进入Docker查看">进入Docker查看</h2>
+<p>如果还是有问题，运行下面语句，查看docker内部情况</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker <span class="built_in">exec</span> -it ee86b3ee2451 bash</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<p>经过一番折腾，发现还是docker本身的问题，restart一下就好了，运行以下语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>

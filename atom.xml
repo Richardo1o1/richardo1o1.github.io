@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-16T12:48:17.053Z</updated>
+  <updated>2024-02-18T14:12:31.709Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一次Docker应用排查过程</title>
+    <link href="http://yunminitools.cn/2024/02/18/docker-debug-test-1/"/>
+    <id>http://yunminitools.cn/2024/02/18/docker-debug-test-1/</id>
+    <published>2024-02-18T14:11:46.000Z</published>
+    <updated>2024-02-18T14:12:31.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;重新发布了一个应用，发现无法访问，把排查过程记录一下。&lt;/p&gt;
+&lt;h2 id=&quot;检查docker程序和开放端口&quot;&gt;检查docker程序和开放端口&lt;/h2&gt;
+&lt;p&gt;运行下面语句：&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Django 的日志机制-4</title>
@@ -569,37 +600,6 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
     
     
     <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django 简版 Docker 发布流程</title>
-    <link href="http://yunminitools.cn/2023/07/30/Django-Docker-Release-Script/"/>
-    <id>http://yunminitools.cn/2023/07/30/Django-Docker-Release-Script/</id>
-    <published>2023-07-30T13:12:16.000Z</published>
-    <updated>2023-07-30T13:12:53.169Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
-&lt;p&gt;想实现通过开发系统打包Docker，上传到私有部署的Hub。生产系统下载更新包，发布新版本，以下是对应的脚本文件。&lt;/p&gt;
-&lt;h2 id=&quot;开发系统打包上传&quot;&gt;开发系统打包上传&lt;/h2&gt;
-&lt;p&gt;脚本文件：&lt;/p&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
-    
-    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
     
   </entry>
   

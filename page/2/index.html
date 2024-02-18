@@ -100,6 +100,76 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-50-Cognitive-Biases"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/12/01/50-Cognitive-Biases/"
+    >50个常见的认知偏差</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/12/01/50-Cognitive-Biases/" class="article-date">
+  <time datetime="2023-12-01T14:38:41.000Z" itemprop="datePublished">2023-12-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>马斯克点赞的50个常见的认知偏差，快来学习一下：</p>
+<ol>
+<li>权威偏见<br>
+典型表现：专家说可以这么做…</li>
+<li>聚类错误<br>
+典型表现：你看那朵云好像你家的猫。</li>
+<li>偏见盲点<br>
+典型表现：我没有偏见。</li>
+<li>乐观偏见<br>
+典型表现：水还有一半，一切都好好起来的。</li>
+<li>潜隐记忆<br>
+典型表现：Greg以为去过墓地是他的一个梦，其实他真的去过。<br>
+<img src="https://cdn.yunminitools.cn/blog/50Cognitive-Biases-1.jpeg" alt=" "></li>
+</ol> 
+      <a class="article-more-link" href="/2023/12/01/50-Cognitive-Biases/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4%E6%A1%86%E6%9E%B6/" rel="tag">思维框架</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-ssh-proxy-github-slow-resolve"
   class="article article-type-post"
   itemscope
@@ -690,69 +760,6 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Django-Docker-Release-Script"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/30/Django-Docker-Release-Script/"
-    >Django 简版 Docker 发布流程</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/30/Django-Docker-Release-Script/" class="article-date">
-  <time datetime="2023-07-30T13:12:16.000Z" itemprop="datePublished">2023-07-30</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="概述">概述</h2>
-<p>想实现通过开发系统打包Docker，上传到私有部署的Hub。生产系统下载更新包，发布新版本，以下是对应的脚本文件。</p>
-<h2 id="开发系统打包上传">开发系统打包上传</h2>
-<p>脚本文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker build . -t my-app:latest</span><br><span class="line">sudo docker tag my-app:latest 192.168.50.188:5000/my-app:v1</span><br><span class="line">sudo docker push 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
-<p>其中 192.168.50.188:5000 是私有仓库地址</p>
-<h2 id="生产系统下载发布">生产系统下载发布</h2>
-<p>脚本文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull 192.168.50.188:5000/my-app:v1</span><br><span class="line">sudo docker stop my-app</span><br><span class="line">sudo docker <span class="built_in">rm</span> /my-app</span><br><span class="line">sudo docker run -it -d -p 8000:8000 --name my-app 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
-<p>测试成功，记录一下。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
 
     </footer>
   </div>
