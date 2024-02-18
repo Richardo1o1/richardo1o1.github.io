@@ -352,6 +352,27 @@ timestamp server to generate computational proof of the chronological order of t
       </tags>
   </entry>
   <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
+    <url>/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="11-结论">11 结论</h2>
+<p>11 Conclusion<br>
+We have proposed a system for electronic transactions without relying on trust. We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power. The network is robust in its unstructured simplicity. Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.</p>
+<p>我们已经提出了一种不依赖信任的电子交易系统。我们从通用的数字签名货币体系开始，这体系提供了强有力的所有权控制，但由于缺乏防止双重支付的方法而不完善。为解决这个问题，我们提出一种使用工作量证明来记录公共交易历史的点对点网络，只要诚实节点控制了多数的 CPU 算力，对于攻击者，交易历史将很快变得在计算上不可更改。网络因其结构简洁性而强大。节点只需很少的协调就能同时工作。它们不需要被认证，因为信息不会被发送到某个特殊的位置，只需被尽力传播。节点可以随时离开和重新加入网络，只需接受工作量证明链作为它们离开时发生事件的证据。节点使用 CPU 算力来投票，通过致力于延长有效区块来表达对其接受，通过拒绝在无效区块上工作来表达对其抵制。任何需要的规则和激励都可通过这个共识机制来加强。</p>
+<p>【关注点】：</p>
+<ul>
+<li><strong>rules and incentives</strong>, 都会有哪些规则和激励？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（2）</title>
     <url>/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/</url>
     <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
@@ -475,6 +496,43 @@ chain, using the hash of the accepted block as the previous hash.</li>
       </tags>
   </entry>
   <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（5）</title>
+    <url>/2023/04/10/A-Peer-to-Peer-Electronic-Cash-System-5/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="6-激励">6. 激励</h2>
+<p>6 Incentive<br>
+By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.<br>
+The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation. In our case, it is CPU time and electricity that is expended. The incentive can also be funded with transaction fees. If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction. Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.<br>
+The incentive may help encourage nodes to stay honest. If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins. He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.</p>
+<p>我们约定，区块中的第一笔交易是区块创建者开创一枚属于他的新货币的特殊的交易。这就加入了对支持网络的节点的激励，并提供了一种初始分发货币到流通领域的方法，因为这里没有中央机构来发行货币。新货币按固定量稳定地增加就像金矿矿工消耗资源并增加黄金到流通领域一样。对我们而言，消耗的是 CPU 时间和电力激励也可以由交易费充当。如果交易的输出值小于其输入值，差价就作为交易费被加到包含此交易的区块的激励中。一旦预定量的货币进入了流通领域，激励将变为只含有交易费，这样可以完全避免通货膨胀。<br>
+激励会有助于鼓励节点保持诚实。如果一个贪心的攻击者有能力聚集比所有诚实节点更多的 CPU 算力，他将面临是以骗回已付款的方式欺诈别人还是使用这些算力生成新货币的抉择。他将发现遵守规则比破坏系统和他自己财产的有效性更有利，因为这些规则准许他获得比所有其他人都多的新货币。</p>
+<h2 id="7-回收磁盘空间">7. 回收磁盘空间</h2>
+<ol start="7">
+<li>Reclaiming Disk Space<br>
+Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block’s hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block’s hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.<br>
+<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-en.png" alt=" "><br>
+A block header with no transactions would be about 80 bytes. If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year. With computer systems typically selling with 2GB of RAM as of 2008, and Moore’s Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.</li>
+</ol>
+<p>一旦某个货币的最新交易已经被足够多的区块覆盖，这之前的支付交易就可以被丢弃以节省磁盘空间。为便于此而又不破坏区块的哈希值，交易将被哈希进默克尔树 [7][2][5]，只有根节点被纳入到区块的哈希值。老的区块可通过剪除树枝的方式被压缩。树枝内部的哈希不需要被保存。<br>
+<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-zh.png" alt=" "><br>
+每个不包含交易的区块头大约是 80 bytes。如果每 10 分钟生成一个区块，每年生成80 bytes * 6 * 24 * 365 = 4.2 MB，2008 年在售的典型计算机有 2 GB 内存，并且摩尔定律预测目前每年内存增加 1.2 GB，所以就算区块头一定要存在内存里，存储也不是问题。</p>
+<p>【关注点】：</p>
+<ul>
+<li>If the output value of a transaction is less than its input value，这句话不是太理解，什么情况下会出现？</li>
+<li>favour him with more new coins，翻译为 有利于他 获得更多的新币。问题是当到后期新币越来越少的时候，做这个事情是否是就有利可图了？</li>
+<li>enough blocks ，多少算足够？</li>
+<li>transactions are hashed in a Merkle Tree，为什么这样就可以不改变Hash值？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（6）</title>
     <url>/2023/04/11/A-Peer-to-Peer-Electronic-Cash-System-6/</url>
     <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
@@ -554,6 +612,68 @@ As an additional firewall, a new key pair should be used for each transaction to
       </tags>
   </entry>
   <entry>
+    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</title>
+    <url>/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</url>
+    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="11-计算">11 计算</h2>
+<p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.<br>
+The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker’s chain being extended by one block, reducing the gap by -1. The probability of an attacker catching up from a given deficit is analogous to a Gambler’s Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:<br>
+p = probability an honest node finds the next block<br>
+q = probability the attacker finds the next block<br>
+qz = probability the attacker will ever catch up from z blocks behind<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "></p>
+<span id="more"></span>
+<p>Given our assumption that p &gt; q, the probability drops exponentially as the number of blocks the attacker has to catch up with increases. With the odds against him, if he doesn’t make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.<br>
+We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can’t change the transaction. We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed. The receiver will be alerted when that happens, but the sender hopes it will be too late.<br>
+The receiver generates a new key pair and gives the public key to the sender shortly before signing. This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment. Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.<br>
+The recipient waits until the transaction has been added to a block and z blocks have been linked after it. He doesn’t know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker’s potential progress will be a Poisson distribution with expected value:<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
+To get the probability the attacker could still catch up now, we multiply the Poisson density for<br>
+each amount of progress he could have made by the probability he could catch up from that point:<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
+Rearranging to avoid summing the infinite tail of the distribution…<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "><br>
+Converting to C code…</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Running some results, we can see the probability drop off exponentially with z.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
+<p>Solving for P less than 0.1%…</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
+<p>我们考虑一个攻击者试图生成一条比诚实链更快的替代链的情况。即使这个目标达到了，也不会使系统变得可以任意修改，比如凭空创建货币或拿走不属于他的钱。节点将不会接受无效的交易作为支付，而且诚实节点永远不会接受一个包含无效交易的区块。攻击者只可能改变他自己的某笔交易来拿回他不久前已经支出的钱。<br>
+诚实链与攻击者链之间的竞争可描述为二项随机漫步。成功事件是诚实节点被延长一个区块，两条链的差距加 1，失败事件是攻击者的链延长一个区块，两条链的差距减 1。攻击者从某一落后位置赶上诚实链的概率类似于赌徒破产理论。设想一个拥有无限筹码的赌徒从一定亏损开始，进行可能无限次的赌博试图达到盈亏平衡。我们可以计算他达到盈亏平衡，即一个攻击者赶上诚实链的概率，如下 [8]：<br>
+p = 诚实节点找到下一个区块的概率<br>
+q = 攻击者找到下一个区块的概率<br>
+qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "><br>
+我们假设 p &gt; q，概率将随着攻击者需要赶上的区块数增加而呈指数下降。 由于形势对他不利，如果他没有在早期幸运地快速赶上，他落得越远赶上的机会就越渺茫。我们现在考虑一个新交易的收款人要等多久才能确保付款人不能再改变这个交易。我们假设作为攻击者的付款人是想让收款人相信他暂时已经付款，然后在一段时间后转换成支付回自己。这时收款人会收到警告，但付款人希望警告已为时已晚。<br>
+收款人生成一个新密钥对并将公钥给付款人，这样付款人就无法提前对交易签名。这能防止付款人通过持续工作直到他足够幸运获得大幅领先的方式预先准备一条区块链，然后在那时执行交易。一旦交易被发出，不诚实的付款人就开始秘密地在一条包含了他的替换版交易的平行链上工作。<br>
+收款人等到交易被加到区块中且其后追加了 z 个区块。他不知道攻击者确切的进度，但是假设诚实的区块按期望的平均时间生成，攻击者可能的进度将是一个泊松分布，其期望值为：<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
+为计算攻击者现在仍然能赶上的概率，我们给每个他可能达到的进度的泊松密度乘以他在那个进度能赶上诚实链的概率：<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
+变换以避免对分布的无限尾部求和…<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "></p>
+<p>转换成 C 语言代码…</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行得到一些结果，我们可以看到概率随 z 呈指数下降。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
+<p>P 小于 0.1% 的解…</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
+<p>【关注点】：</p>
+<ul>
+<li>Gambler’s Ruin problem, 这个应该是个经典数学问题，需要资料。</li>
+<li>P 小于 0.1% 的解…，说明了什么？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>比特币</tag>
+        <tag>论文学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AI 论文速递</title>
     <url>/2023/03/29/AI-articles/</url>
     <content><![CDATA[<p>@RickYU写了个小项目 BriefGPT，抓取 Arxiv AI 领域论文，通过 GPT 生成中文标题和论文概要，高亮顶会论文，方便快速筛选。<br>
@@ -568,24 +688,29 @@ As an additional firewall, a new key pair should be used for each transaction to
       </tags>
   </entry>
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</title>
-    <url>/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/</url>
-    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="11-结论">11 结论</h2>
-<p>11 Conclusion<br>
-We have proposed a system for electronic transactions without relying on trust. We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power. The network is robust in its unstructured simplicity. Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.</p>
-<p>我们已经提出了一种不依赖信任的电子交易系统。我们从通用的数字签名货币体系开始，这体系提供了强有力的所有权控制，但由于缺乏防止双重支付的方法而不完善。为解决这个问题，我们提出一种使用工作量证明来记录公共交易历史的点对点网络，只要诚实节点控制了多数的 CPU 算力，对于攻击者，交易历史将很快变得在计算上不可更改。网络因其结构简洁性而强大。节点只需很少的协调就能同时工作。它们不需要被认证，因为信息不会被发送到某个特殊的位置，只需被尽力传播。节点可以随时离开和重新加入网络，只需接受工作量证明链作为它们离开时发生事件的证据。节点使用 CPU 算力来投票，通过致力于延长有效区块来表达对其接受，通过拒绝在无效区块上工作来表达对其抵制。任何需要的规则和激励都可通过这个共识机制来加强。</p>
-<p>【关注点】：</p>
-<ul>
-<li><strong>rules and incentives</strong>, 都会有哪些规则和激励？</li>
-</ul>
+    <title>GitHub Pages 强制使用HTTPS协议访问</title>
+    <url>/2023/02/18/Add-Https-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
+<h2 id="设置步骤">设置步骤</h2>
+<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
+<ol>
+<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
+<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
+<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
+</ol>
+<div style="width: 40%; margin: 10px">
+   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
+</div>
+3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
+![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
+<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
 ]]></content>
       <categories>
-        <category>当日所学</category>
+        <category>日常练习</category>
       </categories>
       <tags>
-        <tag>比特币</tag>
-        <tag>论文学习</tag>
+        <tag>博客管理</tag>
       </tags>
   </entry>
   <entry>
@@ -1653,40 +1778,21 @@ Novak教授认为，概念图是某个主题的概念及其关系的图形化表
       </tags>
   </entry>
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（5）</title>
-    <url>/2023/04/10/A-Peer-to-Peer-Electronic-Cash-System-5/</url>
-    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="6-激励">6. 激励</h2>
-<p>6 Incentive<br>
-By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.<br>
-The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation. In our case, it is CPU time and electricity that is expended. The incentive can also be funded with transaction fees. If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction. Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.<br>
-The incentive may help encourage nodes to stay honest. If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins. He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.</p>
-<p>我们约定，区块中的第一笔交易是区块创建者开创一枚属于他的新货币的特殊的交易。这就加入了对支持网络的节点的激励，并提供了一种初始分发货币到流通领域的方法，因为这里没有中央机构来发行货币。新货币按固定量稳定地增加就像金矿矿工消耗资源并增加黄金到流通领域一样。对我们而言，消耗的是 CPU 时间和电力激励也可以由交易费充当。如果交易的输出值小于其输入值，差价就作为交易费被加到包含此交易的区块的激励中。一旦预定量的货币进入了流通领域，激励将变为只含有交易费，这样可以完全避免通货膨胀。<br>
-激励会有助于鼓励节点保持诚实。如果一个贪心的攻击者有能力聚集比所有诚实节点更多的 CPU 算力，他将面临是以骗回已付款的方式欺诈别人还是使用这些算力生成新货币的抉择。他将发现遵守规则比破坏系统和他自己财产的有效性更有利，因为这些规则准许他获得比所有其他人都多的新货币。</p>
-<h2 id="7-回收磁盘空间">7. 回收磁盘空间</h2>
-<ol start="7">
-<li>Reclaiming Disk Space<br>
-Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block’s hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block’s hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.<br>
-<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-en.png" alt=" "><br>
-A block header with no transactions would be about 80 bytes. If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year. With computer systems typically selling with 2GB of RAM as of 2008, and Moore’s Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.</li>
-</ol>
-<p>一旦某个货币的最新交易已经被足够多的区块覆盖，这之前的支付交易就可以被丢弃以节省磁盘空间。为便于此而又不破坏区块的哈希值，交易将被哈希进默克尔树 [7][2][5]，只有根节点被纳入到区块的哈希值。老的区块可通过剪除树枝的方式被压缩。树枝内部的哈希不需要被保存。<br>
-<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-zh.png" alt=" "><br>
-每个不包含交易的区块头大约是 80 bytes。如果每 10 分钟生成一个区块，每年生成80 bytes * 6 * 24 * 365 = 4.2 MB，2008 年在售的典型计算机有 2 GB 内存，并且摩尔定律预测目前每年内存增加 1.2 GB，所以就算区块头一定要存在内存里，存储也不是问题。</p>
-<p>【关注点】：</p>
-<ul>
-<li>If the output value of a transaction is less than its input value，这句话不是太理解，什么情况下会出现？</li>
-<li>favour him with more new coins，翻译为 有利于他 获得更多的新币。问题是当到后期新币越来越少的时候，做这个事情是否是就有利可图了？</li>
-<li>enough blocks ，多少算足够？</li>
-<li>transactions are hashed in a Merkle Tree，为什么这样就可以不改变Hash值？</li>
-</ul>
+    <title>Django -APIView的使用</title>
+    <url>/2023/08/07/Django-APIView-usage/</url>
+    <content><![CDATA[<h2 id="1-APIView的使用：">1.APIView的使用：</h2>
+<h3 id="1-1-在-user-urls-py-中添加路由">1.1 在 user/urls.py 中添加路由</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> bookapp.views <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;book/cate/&#x27;</span>, CateView.as_view()),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="1-2创建user-serializers-py写序列化器">1.2创建user/serializers.py写序列化器</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cateser</span>(serializers.ModelSerializer):</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Cate	  <span class="comment">#数据库表名</span></span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span> <span class="comment">#序列化所有字段      </span></span><br><span class="line">        <span class="comment">#depth = 1  # 外键序列化 添加了这个关联的外键都会查询出来*class Bookser(serializers.ModelSerializer):</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Book</span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-在-user-views-py-中添加视图函数">1.3 在 user/views.py 中添加视图函数</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"><span class="keyword">from</span> .sers <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CateView</span>(<span class="title class_ inherited__">APIView</span>):</span><br><span class="line">    <span class="comment"># get是查询数据  post是添加数据</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        cate = Cate.objects.<span class="built_in">all</span>()  <span class="comment"># 查询所有数据 他是一个查询集</span></span><br><span class="line">        ser = Cateser(cate, many=<span class="literal">True</span>)  <span class="comment"># 因为查询的是一个查询集 所以需要些many=True</span></span><br><span class="line">        <span class="keyword">return</span> Response(ser.data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        ser = Cateser(data=request.data)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.data</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(ser.errors)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.errors</span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, request</span>):  <span class="comment"># put 修改数据 完全修改数据  patch 部分修改数据# 想要修改的话 需要知道要修改谁 还要知道最新的数据 data=xxx 传递的新的值</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        <span class="comment"># first是从查询集中 获取一个model对象</span></span><br><span class="line">        cate = Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).first()  </span><br><span class="line">        <span class="comment"># 传递 两个参数 参数1是要修改的数据  参数2是要赋予的新值</span></span><br><span class="line">        ser = Cateser(instance=cate, data=request.data)  </span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 需要知道删除谁</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).delete()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>当日所学</category>
+        <category>日常练习</category>
       </categories>
       <tags>
-        <tag>比特币</tag>
-        <tag>论文学习</tag>
+        <tag>Django</tag>
       </tags>
   </entry>
   <entry>
@@ -1869,6 +1975,125 @@ C-->D(分析)</pre>
 <a href="https://www.yunminitools.cn/2024/02/04/Django-Logging-2/">Django 的日志机制-2</a><br>
 <a href="https://www.yunminitools.cn/2024/02/05/Django-Logging-3/">Django 的日志机制-3</a><br>
 <a href="https://www.yunminitools.cn/2024/02/16/Django-Logging-4/">Django 的日志机制-4</a></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django 的日志机制-2</title>
+    <url>/2024/02/04/Django-Logging-2/</url>
+    <content><![CDATA[<h2 id="logging-结构">logging 结构</h2>
+<p>在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：<code>Loggers</code>、<code>Handlers</code>、<code>Filters</code> 和 <code>Formatters</code>。</p>
+<h3 id="Loggers">Loggers</h3>
+<p><code>Logger</code> 即<strong>记录器</strong>，是日志系统的入口。它有三个重要的工作：</p>
+<ul>
+<li>向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息</li>
+<li>根据传递给 <code>Logger</code> 的消息的严重性，确定消息是否需要处理</li>
+<li>将需要处理的消息传递给所有感兴趣的处理器 <code>Handler</code></li>
+</ul>
+<p>每一条写入 <code>Logger</code> 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：</p>
+<ul>
+<li><code>DEBUG</code>：排查故障时使用的低级别系统信息，通常开发时使用</li>
+<li><code>INFO</code>：一般的系统信息，并不算问题</li>
+<li><code>WARNING</code>：描述系统发生小问题的信息，但通常不影响功能</li>
+<li><code>ERROR</code>：描述系统发生大问题的信息，可能会导致功能不正常</li>
+<li><code>CRITICAL</code>：描述系统发生严重问题的信息，应用程序有崩溃的风险</li>
+</ul>
+<p>当 <code>Logger</code> 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 <code>Logger</code> 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。</p>
+<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p>
+<span id="more"></span>
+<h3 id="Handlers">Handlers</h3>
+<p><code>Handler</code> 即<strong>处理器</strong>，它的主要功能是决定如何处理 <code>Logger</code> 中的每一条消息，比如把消息输出到屏幕、文件或者 Email 中。</p>
+<p>和 <code>Logger</code> 一样，<code>Handler</code> 也有级别的概念。如果一条日志记录的级别不匹配或者低于 <code>Handler</code> 的日志级别，则会被 <code>Handler</code> 忽略。</p>
+<p>一个 <code>Logger</code> 可以有多个 <code>Handler</code>，每一个 <code>Handler</code> 可以有不同的日志级别。这样就可以根据消息的重要性不同，来提供不同类型的输出。例如，你可以添加一个 <code>Handler</code> 把 <code>ERROR</code> 和 <code>CRITICAL</code> 消息发到你的 Email，再添加另一个 <code>Handler</code> 把所有的消息（包括 <code>ERROR</code> 和 <code>CRITICAL</code> 消息）保存到文件里。</p>
+<h3 id="Filters">Filters</h3>
+<p><code>Filter</code> 还被用来在日志输出之前对日志记录做修改。例如，当满足一定条件时，把日志级别从 <code>ERROR</code> 降到 <code>WARNING</code> 。</p>
+<p><code>Filter</code> 在 <code>Logger</code> 和 <code>Handler</code> 中都可以添加，多个 <code>Filter</code> 可以链接起来使用，来做多重过滤操作。</p>
+<h3 id="Formaters">Formaters</h3>
+<p><code>Formatter</code> 即<strong>格式化器</strong>，主要功能是确定最终输出的形式和内容。Formatter 通常由一个包含 <a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord 属性</a> 的 Python 格式化字符串组成；但是，您也可以编写自定义的 Formatter 来实现特定的格式化行为。</p>
+<pre class="mermaid">graph LR
+A(日志)-->B(发生了什么:Logger)
+B-->B1(记录消息,确定消息级别)
+B-->B2(根据消息级别,确定是否需要处理)
+B-->B3(把消息传递给消息处理器)
+A-->C(消息如何处理:Handler)
+C-->C1(决定如何处理消息,常见的有控制器/日志文件/邮件)
+C-->C3(如果一条日志记录的级别不匹配或者低于Handler的日志级别,则会被 Handler 忽略)
+A-->D(额外的控制:Filter)
+D-->D1(例如:只允许某个特定来源的ERROR消息输出)
+D-->D2(例如:当满足一定条件时,把日志级别从ERROR降到WARNING)
+D-->D3(多个Filter可以链接起来使用,来做多重过滤操作)
+A-->E(输出格式控制:Formater)
+E-->E1(确定最终输出的形式和内容)</pre>
+<p>相关链接：<br>
+<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
+<a href="https://www.yunminitools.cn/2024/02/05/Django-Logging-3/">Django 的日志机制-3</a><br>
+<a href="https://www.yunminitools.cn/2024/02/16/Django-Logging-4/">Django 的日志机制-4</a></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django 的日志机制-3</title>
+    <url>/2024/02/05/Django-Logging-3/</url>
+    <content><![CDATA[<h2 id="实现方式">实现方式</h2>
+<p>其实最简单的方式就是直接在文件开头 <strong><code>import</code></strong>，然后程序中调用，像下面这样：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># import the logging library</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># Get an instance of a logger</span></span><br><span class="line">logging.basicConfig(</span><br><span class="line">    <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(pathname)s[%(lineno)d] - %(levelname)s: %(message)s&#x27;</span>,</span><br><span class="line">    level=logging.INFO)</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request, arg1, arg</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> bad_mojo:</span><br><span class="line">        <span class="comment"># Log an error message</span></span><br><span class="line">	logger.error(<span class="string">&#x27;Something went wrong!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>但这种方式并不好，如果在每个文件开头都这样写一遍，第一是麻烦，第二是如果哪天要改变输出日志格式，那每个文件都要改一遍，还不累死。</p>
+<p>很显然，如果能封装成一个类，用的时候调用这个类，修改的时候也只需要修改这一个地方:</p>
+<span id="more"></span>
+<h2 id="自定义类">自定义类</h2>
+<p><a href="http://logging.py">logging.py</a> 内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CommonLog</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    日志记录</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, logger, logname=<span class="string">&#x27;web-log&#x27;</span></span>):</span><br><span class="line">        self.logname = os.path.join(settings.LOGS_DIR, <span class="string">&#x27;%s&#x27;</span> % logname)</span><br><span class="line">        self.logger = logger</span><br><span class="line">        self.logger.setLevel(logging.DEBUG)</span><br><span class="line">        self.logger.propagate = <span class="literal">False</span></span><br><span class="line">        self.formatter = logging.Formatter(<span class="string">&#x27;%(asctime)s - %(name)s - %(levelname)s: %(message)s&#x27;</span>, <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__console</span>(<span class="params">self, level, message</span>):</span><br><span class="line">        <span class="comment"># 创建一个FileHandler，用于写到本地</span></span><br><span class="line">        fh = logging.handlers.TimedRotatingFileHandler(self.logname, when=<span class="string">&#x27;MIDNIGHT&#x27;</span>, interval=<span class="number">1</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="comment"># fh = logging.FileHandler(self.logname, &#x27;a&#x27;, encoding=&#x27;utf-8&#x27;)</span></span><br><span class="line">        fh.suffix = <span class="string">&#x27;%Y-%m-%d.log&#x27;</span></span><br><span class="line">        fh.setLevel(logging.DEBUG)</span><br><span class="line">        fh.setFormatter(self.formatter)</span><br><span class="line">        self.logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建一个StreamHandler,用于输出到控制台</span></span><br><span class="line">        ch = logging.StreamHandler()</span><br><span class="line">        ch.setLevel(logging.DEBUG)</span><br><span class="line">        ch.setFormatter(self.formatter)</span><br><span class="line">        self.logger.addHandler(ch)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> level == <span class="string">&#x27;info&#x27;</span>:</span><br><span class="line">            self.logger.info(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;debug&#x27;</span>:</span><br><span class="line">            self.logger.debug(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;warning&#x27;</span>:</span><br><span class="line">            self.logger.warning(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;error&#x27;</span>:</span><br><span class="line">            self.logger.error(message)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 这两行代码是为了避免日志输出重复问题</span></span><br><span class="line">        self.logger.removeHandler(ch)</span><br><span class="line">        self.logger.removeHandler(fh)</span><br><span class="line">        <span class="comment"># 关闭打开的文件</span></span><br><span class="line">        fh.close()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">debug</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;debug&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">info</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;info&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">warning</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;warning&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">error</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;error&#x27;</span>, message)</span><br></pre></td></tr></table></figure>
+<h2 id="其他文件引用">其他文件引用</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 引用</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> logtool</span><br><span class="line">logger=logging.getLogger()</span><br><span class="line">log=logTool.CommonLog(logger=logger,logname=<span class="string">&quot;指定日志名称&quot;</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 代码中使用</span></span><br><span class="line">log.info(<span class="string">&#x27;日志内容&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>相关链接：<br>
+<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
+<a href="https://www.yunminitools.cn/2024/02/04/Django-Logging-2/">Django 的日志机制-2</a><br>
+<a href="https://www.yunminitools.cn/2024/02/16/Django-Logging-4/">Django 的日志机制-4</a></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django 的日志机制-4</title>
+    <url>/2024/02/16/Django-Logging-4/</url>
+    <content><![CDATA[<h2 id="进阶">进阶</h2>
+<p>其实，如果只是为了排错方便，记录一些日志，自定义类基本可以满足要求。但如果要记录访问系统的所有请求日志，那就无能为力了，因为不可能手动在每个接口代码加日志，也没必要。</p>
+<p>这个时候，很自然就能想到 Django 中间件了。</p>
+<h2 id="Django-中间件">Django 中间件</h2>
+<p>定义中间件类，包括  <strong><code>Filters</code></strong> 代码和 <strong><code>middleware</code></strong> 代码，在本地app文件夹中创建目录：<code>middlewares</code>，目录下创建文件 <code>LogMiddleware.py</code> :</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.utils.deprecation <span class="keyword">import</span> MiddlewareMixin</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">local = threading.local()</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RequestLogFilter</span>(logging.Filter):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    日志过滤器</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">filter</span>(<span class="params">self, record</span>):</span><br><span class="line">        record.sip = <span class="built_in">getattr</span>(local, <span class="string">&#x27;sip&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.dip = <span class="built_in">getattr</span>(local, <span class="string">&#x27;dip&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.body = <span class="built_in">getattr</span>(local, <span class="string">&#x27;body&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.path = <span class="built_in">getattr</span>(local, <span class="string">&#x27;path&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.method = <span class="built_in">getattr</span>(local, <span class="string">&#x27;method&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.username = <span class="built_in">getattr</span>(local, <span class="string">&#x27;username&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.status_code = <span class="built_in">getattr</span>(local, <span class="string">&#x27;status_code&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.reason_phrase = <span class="built_in">getattr</span>(local, <span class="string">&#x27;reason_phrase&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RequestLogMiddleware</span>(<span class="title class_ inherited__">MiddlewareMixin</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    将request的信息记录在当前的请求线程上。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, get_response=<span class="literal">None</span></span>):</span><br><span class="line">        self.get_response = get_response</span><br><span class="line">        self.apiLogger = logging.getLogger(<span class="string">&#x27;web.log&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, request</span>):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            body = json.loads(request.body)</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            body = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">            body.update(<span class="built_in">dict</span>(request.GET))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            body.update(<span class="built_in">dict</span>(request.POST))</span><br><span class="line"></span><br><span class="line">        local.body = body</span><br><span class="line">        local.path = request.path</span><br><span class="line">        local.method = request.method</span><br><span class="line">        local.username = request.user</span><br><span class="line">        local.sip = request.META.get(<span class="string">&#x27;REMOTE_ADDR&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        local.dip = socket.gethostbyname(socket.gethostname())</span><br><span class="line"></span><br><span class="line">        response = self.get_response(request)</span><br><span class="line">        local.status_code = response.status_code</span><br><span class="line">        local.reason_phrase = response.reason_phrase</span><br><span class="line">        self.apiLogger.info(<span class="string">&#x27;system-auto&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="设置文件配置">设置文件配置</h2>
+<p>在 <code>**setting.py**</code> 文件的最后，加上以下内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 设置log文件的目录</span></span><br><span class="line">LOGS_DIR = BASE_DIR / <span class="string">&#x27;log&#x27;</span></span><br><span class="line"></span><br><span class="line">LOGGING = &#123;</span><br><span class="line">    <span class="comment"># 版本</span></span><br><span class="line">    <span class="string">&#x27;version&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="comment"># 是否禁止默认配置的记录器</span></span><br><span class="line">    <span class="string">&#x27;disable_existing_loggers&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line">    <span class="string">&#x27;formatters&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;standard&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;format&#x27;</span>: <span class="string">&#x27;&#123;&quot;time&quot;: &quot;%(asctime)s&quot;, &quot;level&quot;: &quot;%(levelname)s&quot;, &quot;method&quot;: &quot;%(method)s&quot;, &quot;username&quot;: &quot;%(username)s&quot;, &quot;sip&quot;: &quot;%(sip)s&quot;, &quot;dip&quot;: &quot;%(dip)s&quot;, &quot;path&quot;: &quot;%(path)s&quot;, &quot;status_code&quot;: &quot;%(status_code)s&quot;, &quot;reason_phrase&quot;: &quot;%(reason_phrase)s&quot;, &quot;func&quot;: &quot;%(module)s.%(funcName)s:%(lineno)d&quot;,  &quot;message&quot;: &quot;%(message)s&quot;&#125;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;datefmt&#x27;</span>: <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment"># 过滤器, 其中xxxapp为项目app</span></span><br><span class="line">    <span class="string">&#x27;filters&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;request_info&#x27;</span>: &#123;<span class="string">&#x27;()&#x27;</span>: <span class="string">&#x27;xxxapp.middlewares.LogMiddleware.RequestLogFilter&#x27;</span>&#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;handlers&#x27;</span>: &#123;</span><br><span class="line">        <span class="comment"># 标准输出</span></span><br><span class="line">        <span class="string">&#x27;console&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;ERROR&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;logging.StreamHandler&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;formatter&#x27;</span>: <span class="string">&#x27;standard&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment"># 自定义 handlers，输出到文件</span></span><br><span class="line">        <span class="string">&#x27;restful_api&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;DEBUG&#x27;</span>,</span><br><span class="line">            <span class="comment"># 时间滚动切分</span></span><br><span class="line">            <span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;logging.handlers.TimedRotatingFileHandler&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;filename&#x27;</span>: os.path.join(LOGS_DIR, <span class="string">&#x27;web-log.log&#x27;</span>),</span><br><span class="line">            <span class="string">&#x27;formatter&#x27;</span>: <span class="string">&#x27;standard&#x27;</span>,</span><br><span class="line">            <span class="comment"># 调用过滤器</span></span><br><span class="line">            <span class="string">&#x27;filters&#x27;</span>: [<span class="string">&#x27;request_info&#x27;</span>],</span><br><span class="line">            <span class="comment"># 每天凌晨切分</span></span><br><span class="line">            <span class="string">&#x27;when&#x27;</span>: <span class="string">&#x27;MIDNIGHT&#x27;</span>,</span><br><span class="line">            <span class="comment"># 保存 30 天</span></span><br><span class="line">            <span class="string">&#x27;backupCount&#x27;</span>: <span class="number">30</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;loggers&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;django&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;handlers&#x27;</span>: [<span class="string">&#x27;console&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;ERROR&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;propagate&#x27;</span>: <span class="literal">False</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;web.log&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;handlers&#x27;</span>: [<span class="string">&#x27;restful_api&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;INFO&#x27;</span>,</span><br><span class="line">            <span class="comment"># 此记录器处理过的消息就不再让 django 记录器再次处理了</span></span><br><span class="line">            <span class="string">&#x27;propagate&#x27;</span>: <span class="literal">False</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<p>通过这种方式，只要过 Django 的请求就都会有日志，不管是 web 还是 Django admin。具体记录哪些字段可以根据项目需要进行获取和配置。</p>
+<p>如果需要在视图中使用log，用下面语句即可：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">log = logging.getLogger(<span class="string">&#x27;middleware&#x27;</span>)</span><br><span class="line">log.debug(<span class="string">&quot;......&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>相关链接：<br>
+<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
+<a href="https://www.yunminitools.cn/2024/02/04/Django-Logging-2/">Django 的日志机制-2</a><br>
+<a href="https://www.yunminitools.cn/2024/02/05/Django-Logging-3/">Django 的日志机制-3</a></p>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -2581,83 +2806,60 @@ HASH算法专门用来做文件数据的识别.那么在网络数据传递的过
       </tags>
   </entry>
   <entry>
-    <title>论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</title>
-    <url>/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/</url>
-    <content><![CDATA[<h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="11-计算">11 计算</h2>
-<p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.<br>
-The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker’s chain being extended by one block, reducing the gap by -1. The probability of an attacker catching up from a given deficit is analogous to a Gambler’s Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:<br>
-p = probability an honest node finds the next block<br>
-q = probability the attacker finds the next block<br>
-qz = probability the attacker will ever catch up from z blocks behind<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "></p>
+    <title>在Hexo中插入Mermaid图表</title>
+    <url>/2023/02/22/Hexo-Mermaid-1/</url>
+    <content><![CDATA[<h2 id="Mermaid是什么？">Mermaid是什么？</h2>
+<p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
+<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
+<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
+<h2 id="如何在Hexo中插入Mermaid图表">如何在Hexo中插入Mermaid图表</h2>
+<h3 id="安装Mermaid插件">安装Mermaid插件</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置文件">修改配置文件</h3>
+<p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
+<h3 id="修改主题">修改主题</h3>
+<p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<p>Given our assumption that p &gt; q, the probability drops exponentially as the number of blocks the attacker has to catch up with increases. With the odds against him, if he doesn’t make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.<br>
-We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can’t change the transaction. We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed. The receiver will be alerted when that happens, but the sender hopes it will be too late.<br>
-The receiver generates a new key pair and gives the public key to the sender shortly before signing. This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment. Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.<br>
-The recipient waits until the transaction has been added to a block and z blocks have been linked after it. He doesn’t know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker’s potential progress will be a Poisson distribution with expected value:<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
-To get the probability the attacker could still catch up now, we multiply the Poisson density for<br>
-each amount of progress he could have made by the probability he could catch up from that point:<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
-Rearranging to avoid summing the infinite tail of the distribution…<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "><br>
-Converting to C code…</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Running some results, we can see the probability drop off exponentially with z.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
-<p>Solving for P less than 0.1%…</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
-<p>我们考虑一个攻击者试图生成一条比诚实链更快的替代链的情况。即使这个目标达到了，也不会使系统变得可以任意修改，比如凭空创建货币或拿走不属于他的钱。节点将不会接受无效的交易作为支付，而且诚实节点永远不会接受一个包含无效交易的区块。攻击者只可能改变他自己的某笔交易来拿回他不久前已经支出的钱。<br>
-诚实链与攻击者链之间的竞争可描述为二项随机漫步。成功事件是诚实节点被延长一个区块，两条链的差距加 1，失败事件是攻击者的链延长一个区块，两条链的差距减 1。攻击者从某一落后位置赶上诚实链的概率类似于赌徒破产理论。设想一个拥有无限筹码的赌徒从一定亏损开始，进行可能无限次的赌博试图达到盈亏平衡。我们可以计算他达到盈亏平衡，即一个攻击者赶上诚实链的概率，如下 [8]：<br>
-p = 诚实节点找到下一个区块的概率<br>
-q = 攻击者找到下一个区块的概率<br>
-qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "><br>
-我们假设 p &gt; q，概率将随着攻击者需要赶上的区块数增加而呈指数下降。 由于形势对他不利，如果他没有在早期幸运地快速赶上，他落得越远赶上的机会就越渺茫。我们现在考虑一个新交易的收款人要等多久才能确保付款人不能再改变这个交易。我们假设作为攻击者的付款人是想让收款人相信他暂时已经付款，然后在一段时间后转换成支付回自己。这时收款人会收到警告，但付款人希望警告已为时已晚。<br>
-收款人生成一个新密钥对并将公钥给付款人，这样付款人就无法提前对交易签名。这能防止付款人通过持续工作直到他足够幸运获得大幅领先的方式预先准备一条区块链，然后在那时执行交易。一旦交易被发出，不诚实的付款人就开始秘密地在一条包含了他的替换版交易的平行链上工作。<br>
-收款人等到交易被加到区块中且其后追加了 z 个区块。他不知道攻击者确切的进度，但是假设诚实的区块按期望的平均时间生成，攻击者可能的进度将是一个泊松分布，其期望值为：<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula2.png" alt=" "><br>
-为计算攻击者现在仍然能赶上的概率，我们给每个他可能达到的进度的泊松密度乘以他在那个进度能赶上诚实链的概率：<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula3.png" alt=" "><br>
-变换以避免对分布的无限尾部求和…<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula4.png" alt=" "></p>
-<p>转换成 C 语言代码…</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">double</span> <span class="title function_">AttackerSuccessProbability</span><span class="params">(<span class="type">double</span> q, <span class="type">int</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">double</span> p = <span class="number">1.0</span> - q;</span><br><span class="line"> <span class="type">double</span> lambda = z * (q / p);</span><br><span class="line"> <span class="type">double</span> sum = <span class="number">1.0</span>;</span><br><span class="line"> <span class="type">int</span> i, k;</span><br><span class="line"> <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= z; k++)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="type">double</span> poisson = <span class="built_in">exp</span>(-lambda);</span><br><span class="line"> <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line"> poisson *= lambda / i;</span><br><span class="line"> sum -= poisson * (<span class="number">1</span> - <span class="built_in">pow</span>(q / p, z - k));</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行得到一些结果，我们可以看到概率随 z 呈指数下降。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">q=0.1</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=1 P=0.2045873</span><br><span class="line">z=2 P=0.0509779</span><br><span class="line">z=3 P=0.0131722</span><br><span class="line">z=4 P=0.0034552</span><br><span class="line">z=5 P=0.0009137</span><br><span class="line">z=6 P=0.0002428</span><br><span class="line">z=7 P=0.0000647</span><br><span class="line">z=8 P=0.0000173</span><br><span class="line">z=9 P=0.0000046</span><br><span class="line">z=10 P=0.0000012</span><br><span class="line">q=0.3</span><br><span class="line">z=0 P=1.0000000</span><br><span class="line">z=5 P=0.1773523</span><br><span class="line">z=10 P=0.0416605</span><br><span class="line">z=15 P=0.0101008</span><br><span class="line">z=20 P=0.0024804</span><br><span class="line">z=25 P=0.0006132</span><br><span class="line">z=30 P=0.0001522</span><br><span class="line">z=35 P=0.0000379</span><br><span class="line">z=40 P=0.0000095</span><br><span class="line">z=45 P=0.0000024</span><br><span class="line">z=50 P=0.0000006</span><br></pre></td></tr></table></figure>
-<p>P 小于 0.1% 的解…</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P &lt; 0.001</span><br><span class="line">q=0.10 z=5</span><br><span class="line">q=0.15 z=8</span><br><span class="line">q=0.20 z=11</span><br><span class="line">q=0.25 z=15</span><br><span class="line">q=0.30 z=24</span><br><span class="line">q=0.35 z=41</span><br><span class="line">q=0.40 z=89</span><br><span class="line">q=0.45 z=340</span><br></pre></td></tr></table></figure>
-<p>【关注点】：</p>
-<ul>
-<li>Gambler’s Ruin problem, 这个应该是个经典数学问题，需要资料。</li>
-<li>P 小于 0.1% 的解…，说明了什么？</li>
-</ul>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>比特币</tag>
-        <tag>论文学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django -APIView的使用</title>
-    <url>/2023/08/07/Django-APIView-usage/</url>
-    <content><![CDATA[<h2 id="1-APIView的使用：">1.APIView的使用：</h2>
-<h3 id="1-1-在-user-urls-py-中添加路由">1.1 在 user/urls.py 中添加路由</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> bookapp.views <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;book/cate/&#x27;</span>, CateView.as_view()),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="1-2创建user-serializers-py写序列化器">1.2创建user/serializers.py写序列化器</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cateser</span>(serializers.ModelSerializer):</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Cate	  <span class="comment">#数据库表名</span></span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span> <span class="comment">#序列化所有字段      </span></span><br><span class="line">        <span class="comment">#depth = 1  # 外键序列化 添加了这个关联的外键都会查询出来*class Bookser(serializers.ModelSerializer):</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Book</span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-3-在-user-views-py-中添加视图函数">1.3 在 user/views.py 中添加视图函数</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"><span class="keyword">from</span> .sers <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CateView</span>(<span class="title class_ inherited__">APIView</span>):</span><br><span class="line">    <span class="comment"># get是查询数据  post是添加数据</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        cate = Cate.objects.<span class="built_in">all</span>()  <span class="comment"># 查询所有数据 他是一个查询集</span></span><br><span class="line">        ser = Cateser(cate, many=<span class="literal">True</span>)  <span class="comment"># 因为查询的是一个查询集 所以需要些many=True</span></span><br><span class="line">        <span class="keyword">return</span> Response(ser.data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        ser = Cateser(data=request.data)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.data</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(ser.errors)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.errors</span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, request</span>):  <span class="comment"># put 修改数据 完全修改数据  patch 部分修改数据# 想要修改的话 需要知道要修改谁 还要知道最新的数据 data=xxx 传递的新的值</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        <span class="comment"># first是从查询集中 获取一个model对象</span></span><br><span class="line">        cate = Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).first()  </span><br><span class="line">        <span class="comment"># 传递 两个参数 参数1是要修改的数据  参数2是要赋予的新值</span></span><br><span class="line">        ser = Cateser(instance=cate, data=request.data)  </span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 需要知道删除谁</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).delete()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br></pre></td></tr></table></figure>
+<h2 id="Mermaid图表演示">Mermaid图表演示</h2>
+<p>下面是mermaid的图表描述：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
+<p>会生成以下图表：</p>
+<pre class="mermaid">graph LR
+A(面试)-->B(笔试)
+A-->C(面试)
+C-->C1(数据结构与算法*)
+C-->C2(计算机网络)
+C-->C3(操作系统Linux)
+B-->B1(数据结构与算法*)</pre>
 ]]></content>
       <categories>
         <category>日常练习</category>
       </categories>
       <tags>
-        <tag>Django</tag>
+        <tag>博客管理</tag>
+        <tag>Mermaid</tag>
+        <tag>Theme_ayer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决ayer主题下Mermaid图表背景太暗的问题</title>
+    <url>/2023/02/23/Hexo-Mermaid-2/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
+清缓存，重新发布，搞定。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+        <tag>Theme_ayer</tag>
       </tags>
   </entry>
   <entry>
@@ -2928,29 +3130,64 @@ qz = 攻击者从落后 z 个区块赶上诚实链的概率<br>
       </tags>
   </entry>
   <entry>
-    <title>GitHub Pages 强制使用HTTPS协议访问</title>
-    <url>/2023/02/18/Add-Https-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>在上一篇文章《<a href="https://www.yunminitools.cn/2023/02/12/Add-Https/">实现自定义域名Github Page网站Https访问</a>》,我们实现了网站的https协议的添加，但有一个小问题，用户依然可以通过http协议访问网站。现在大部分网站都实现了强制跳转https网站的功能，以提高网站安全性，那基于github page的网站如何实现这个功能呢？</p>
-<h2 id="设置步骤">设置步骤</h2>
-<p>其实只要在github上进行简单的配置就可以实现了，以下是配置过程：</p>
-<ol>
-<li>在 GitHub 上，导航到站点的仓库，在存储库名称下，单击 “Setting”。<br>
-<img src="http://cdn.yunminitools.cn/blog/Https0218-1.png" alt="HTTPS访问1"></li>
-<li>在边栏的“Code and automation”部分，单击“Pages”。</li>
-</ol>
-<div style="width: 40%; margin: 10px">
-   <img src="http://cdn.yunminitools.cn/blog/Https0218-2.png">
-</div>
-3. 在 GitHub Pages 下，选择“Enforce HTTPS”。
-![HTTPS访问3](http://cdn.yunminitools.cn/blog/Https0218-3.png)
-<p>设置好了以后，再用http访问网站，自动跳到的https的网址，设置成功。</p>
+    <title>知识管理之收集灵感</title>
+    <url>/2023/02/23/KM-gather-ideas/</url>
+    <content><![CDATA[<h2 id="来源">来源</h2>
+<p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
+<h2 id="知识管理循环">知识管理循环</h2>
+<p>知识管理应该是一个循环：</p>
+<pre class="mermaid">graph LR
+A(卡片收集)-->B(卡片组织)
+B-->C(应用卡片)
+C-->D(维护卡片)
+D-->A</pre>
+<p>这一篇主要讲一下收集。</p>
+<span id="more"></span>
+<h2 id="如何收集灵感">如何收集灵感</h2>
+<p>做到以下3个方面：</p>
+<h3 id="1-留出富裕时间">1.留出富裕时间</h3>
+<p>在繁忙的工作生活中，留出时间来做这个事情，而不是想起来再做，以下是一些技巧，此外，还可以参考时间管理的一些书籍：</p>
+<h4 id="学会说不，保护时间">学会说不，保护时间</h4>
+<p>尝试思考「立即说是」后马上就去执行，如果感觉到痛苦，那么这个选项就应该选「不」。</p>
+<h4 id="固定时间，持续投资">固定时间，持续投资</h4>
+<p>我们想积累自己的知识资产时，应该划出一块固定的时间来做知识的积累。</p>
+<h4 id="好奇驱动，乐在其中">好奇驱动，乐在其中</h4>
+<p>想要捕捉到自己的灵感和想法，一个关键的技巧在于，由问题来驱动，但不着急立即获得答案。在找到答案的过程中积累知识。</p>
+<h3 id="2-用不同角度观察">2.用不同角度观察</h3>
+<ul>
+<li>跳出问题本身，看看周边和上下游，往往能得到不同的思考</li>
+<li>看看其他地方行业或领域中的事物，尝试将其和自己在思考的事情进行结合，或许就会有了新的灵感值得记录</li>
+<li>许多时候我们对一些事物过于熟悉，就会忽略掉其中的细节。当我们跃入其中仔细观察时，往往就能发现许多不合理的地方，也就有了值得记录的思考</li>
+</ul>
+<h3 id="3-在日常生活中捕捉">3.在日常生活中捕捉</h3>
+<h4 id="自己做事时">自己做事时</h4>
+<p>记录：</p>
+<ul>
+<li>解决问题的步骤</li>
+<li>事实结果</li>
+<li>自身状态和情绪</li>
+<li>决策过程和结论</li>
+</ul>
+<h4 id="和他人交流时">和他人交流时</h4>
+<p>记录：</p>
+<ul>
+<li>他在关注什么问题</li>
+<li>他在做什么尝试</li>
+<li>他的学习方向</li>
+</ul>
+<h4 id="自己学习时">自己学习时</h4>
+<p>记录：</p>
+<ul>
+<li>全新视角</li>
+<li>具体建议</li>
+<li>感触思考</li>
+</ul>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>当日所学</category>
       </categories>
       <tags>
-        <tag>博客管理</tag>
+        <tag>知识管理</tag>
       </tags>
   </entry>
   <entry>
@@ -3514,6 +3751,29 @@ a hypsolebias fish jumping out of sea. The pond is surrounded by tall grass and 
       <tags>
         <tag>AIGC</tag>
         <tag>绘画</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>免密远程登录Linux服务方法</title>
+    <url>/2024/02/03/SSH-Key-Based-Authentication-on-a-Linux-Server/</url>
+    <content><![CDATA[<h2 id="问题">问题</h2>
+<p>经常需要访问Linux服务器，每次都要输密码很麻烦，查询了资料，可以通过密钥对配置来实现免密登录，每次都查完就忘，这次记录一下。</p>
+<h2 id="客户端配置">客户端配置</h2>
+<p>如果你使用的是 macOS，那么直接打开终端，输入<code>ssh-keygen -t rsa</code>，回车确认即可，默认会存储在用户名录下的 .ssh 目录；</p>
+<p>如果使用的是 Windows，那么需要安装 Git，然后在任意位置点击鼠标右键，选择“Git Bash Here”，然后输入<code>ssh-keygen -t rsa</code>，直接回车确认即可，默认也会存储在当前用户目录下的 .ssh 目录。</p>
+<h2 id="服务器端配置">服务器端配置</h2>
+<p>使用<code>ssh-copy-id root@服务器IP</code>，需要输入密码进行确认，之后再登录就可以直接通过<code>ssh root@服务器IP</code>即可。</p>
+<p><em>注意，如果你的帐号不是root，可以把root换为你平时登陆的帐号。</em></p>
+<p>一些资料：</p>
+<p><a href="https://rem486.top/server/env/ssh-password-free-login.html#%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE">https://rem486.top/server/env/ssh-password-free-login.html#免密登录配置</a></p>
+<p><a href="https://www.jianshu.com/p/c80e063d61f6">https://www.jianshu.com/p/c80e063d61f6</a></p>
+<p><a href="https://www.xshellv.com/2021/04/28/mac%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86centos%E6%9C%8D%E5%8A%A1%E5%99%A8/">https://www.xshellv.com/2021/04/28/mac免密登陆centos服务器/</a></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -4480,9 +4740,9 @@ B5-->C53(Stand up)</pre>
         <category>English_Article</category>
       </categories>
       <tags>
+        <tag>Mermaid</tag>
         <tag>英语学习</tag>
         <tag>沟通技巧</tag>
-        <tag>Mermaid</tag>
       </tags>
   </entry>
   <entry>
@@ -4953,6 +5213,35 @@ n 为数字，若 n 为 .，表示从当前行开始到最后一行</p>
       </tags>
   </entry>
   <entry>
+    <title>远程开发的VS Code方法</title>
+    <url>/2024/02/03/VS-Code-Remote-Development/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>远程开发并非仅仅是直接在服务器上编辑代码，远程开发侧重的不应该是是“远程”，而是“开发”，至于“远程”对用户而言应该是无感的，除了代码是在远程服务器上存储和运行，其他体验应该和本地开发一致，撰写代码时能享受到 IDE 带来的便利，运行代码时不必额外去上传下载——这似乎看起来很容易，但在VS Code Remote 出现之前，没有工具能做到。</p>
+<p>使用 VS Code Remote，你可以无缝的从一台设备切换到另一台设备，开会前在台式机上写代码，开会时拿起笔记本连上远程服务器就能继续，下班可以直接关掉公司的电脑，回到家打开家里的电脑就可以继续，设备切换从来没有如此方便，你不必关心这一切是如何实现的，只要使用就好，因为大部分时间你并不会觉得这和以前的本地开发有什么区别。</p>
+<h2 id="安装及配置流程">安装及配置流程</h2>
+<h3 id="远程开发必备扩展安装">远程开发必备扩展安装</h3>
+<p>在扩展中搜索 remote ，找到 Remote Development，安装即可，会为你安装包括 Remote-SSH 等全部远程开发使用的扩展。</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_0.png" alt=" "></p>
+<p>安装完成后，你会发现左下角多了一个小图标，点击就可以看到用来连接远程开发的菜单了。</p>
+<span id="more"></span>
+<h3 id="配置远程服务器">配置远程服务器</h3>
+<p>点击左下角，选择 Remote-SSH: Connect to Host，然后选择 Configure SSH Hosts，选择默认生成的配置文件进行配置，Host 填写为要起的别名，HostName 填 IP 或者域名（如果你配置过的话），User 填登录用户名：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_1.png" alt=" "></p>
+<p>之后保存，再点击左下方进行连接，第一次连接时需要在服务器上下载安装必备的文件，稍等后即可连接成功：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_2.png" alt=" "></p>
+<p>查看左下角已经显示连接成功，打开终端也可以看到此时使用的是远程服务器的终端，注意我们很多的扩展是需要安装在服务器端的，比如 Git 相关的扩展，毕竟我们要编辑的文件是位于服务器而非本地，点击<code>Install in SSH：XXX</code>再安装一次即可：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_3.png" alt=" "></p>
+<p>实际上，最狭义的远程开发配置已经完成了，现在你就可以在服务器上创建编辑文件，运行服务，并且通过自带的端口转发在本地进行查看了：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_4.png" alt=" "></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VUE练习1 - 添加页面</title>
     <url>/2023/04/15/VUE-Exercise-1/</url>
     <content><![CDATA[<h2 id="1-Vue-的目录结构">1 Vue 的目录结构</h2>
@@ -5122,6 +5411,48 @@ F(router/index.js 配置路由)-->C</pre>
       </tags>
   </entry>
   <entry>
+    <title>业务数据治理实施流程-1</title>
+    <url>/2023/03/07/business-data-governance-1/</url>
+    <content><![CDATA[<p>数据治理实施流程，是我们依据业务数据治理标准化框架在实施解决具体数据问题时，总结抽象出来的一套适用于大多数治理场景解决问题的通用标准流程。标准流程的好处在于更加规范化数据治理工程师的操作流程，来保证实施的质量。流程一共包含5个步骤：</p>
+<h2 id="STEP-1：发现问题和制定目标">STEP 1：发现问题和制定目标</h2>
+<p>发现问题要从业务数据开发团队的视角出发，围绕服务好业务、遵守数据研发规范、收集好用户反馈，尽可能全地发现和收集相关需要解决的问题。同时，制定的目标要具备可实现性。</p>
+<h2 id="STEP-2：设计指标">STEP 2：设计指标</h2>
+<p>针对问题进行拆解，设计可衡量的指标，并通过元数据的采集建设进行实现，用做对目标的进一步量化，并作为实施过程监控及治理抓手。</p>
+<h2 id="STEP-3：制定SOP并工具化">STEP 3：制定SOP并工具化</h2>
+<p>对衡量出来的具体问题，制定相关的解决SOP，并且检查相应的研发标准规范是否完善，通过问题发生的事前、事中、事后几个阶段，建设或完善相应的工具化解决问题的能力。</p>
+<h2 id="STEP-4：推广实施">STEP 4：推广实施</h2>
+<p>推广运营，以拿结果为核心目标，针对不同角色运用不同策略，重点关注问题解决过程是否会与用户利益发生冲突，控制好节奏，根据问题的重要程度有规划地进行解决。</p>
+<h2 id="STEP-5：总结沉淀方法论">STEP 5：总结沉淀方法论</h2>
+<p>总结方法论，迭代认知，持续探索问题的最优解，优化治理方案和能力。</p>
+<pre class="mermaid">graph LR
+subgraph Step1 
+A(发现问题)-->B(制定目标)
+end
+
+subgraph Step2
+B-->C(设计衡量指标)-->D(元数据及指标建设)
+end
+
+subgraph Step3
+D-->E(解决方案SOP)-->F(工具化)
+end
+
+subgraph Step4
+F-->G(运营治理)-->H(效果评估)
+end
+
+subgraph Step5
+H-->I(方法论沉淀)
+end</pre>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>数据管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>conda 创建、激活、退出、删除虚拟环境 (Anaconda)</title>
     <url>/2023/07/25/conda-command-create-activate/</url>
     <content><![CDATA[<p>在Anaconda中conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。所以对虚拟环境进行创建、删除等操作需要使用conda命令。</p>
@@ -5147,6 +5478,44 @@ F(router/index.js 配置路由)-->C</pre>
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一次Docker应用排查过程</title>
+    <url>/2024/02/18/docker-debug-test-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>重新发布了一个应用，发现无法访问，把排查过程记录一下。</p>
+<h2 id="检查docker程序和开放端口">检查docker程序和开放端口</h2>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker ps</span><br></pre></td></tr></table></figure>
+<p>发现docker都在运行。</p>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo netstat -tunpl</span><br></pre></td></tr></table></figure>
+<p>检查开放端口，端口开放正常。</p>
+<h2 id="检查frp的状态">检查frp的状态</h2>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status frp</span><br></pre></td></tr></table></figure>
+<p>由于是通过frp穿透内网的，要看一下是否是frp问题，查看日志，没有报错。</p>
+<h2 id="检查内网网页状态">检查内网网页状态</h2>
+<p>访问内网ip，报错：<strong>502 Bad Gateway</strong></p>
+<p>运行一下语句，查看docker日志：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker logs ee86b3ee2451</span><br></pre></td></tr></table></figure>
+<p>其中 ee86b3ee2451 为容器ID</p>
+<p>运行下面语句，查看实时docker日志：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker logs -f ee86b3ee2451</span><br></pre></td></tr></table></figure>
+<h2 id="进入Docker查看">进入Docker查看</h2>
+<p>如果还是有问题，运行下面语句，查看docker内部情况</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker <span class="built_in">exec</span> -it ee86b3ee2451 bash</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<p>经过一番折腾，发现还是docker本身的问题，restart一下就好了，运行以下语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -5308,6 +5677,24 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
       </tags>
   </entry>
   <entry>
+    <title>mermaid 插件语法错误解决</title>
+    <url>/2024/02/05/mermaid-Syntax-error-in-graph/</url>
+    <content><![CDATA[<h2 id="问题">问题</h2>
+<p>之前安装的mermaid插件，用下来一直很好，但最近出了问题，脚本无法运行，报错：<br>
+Syntax error in graph mermaid version 8.14.0<br>
+<img src="https://cdn.yunminitools.cn/blog/0205_mermaid_error.png" alt="error"></p>
+<h2 id="解决方法">解决方法</h2>
+<p>比较头疼的是，这个error没有具体错误信息，一开始解决起来无从下手。只好祭出替换大法，从少到多逐步替换，终于发现问题。<br>
+可能是由于这个插件为老外开发的，内容中出现<strong>全角的标点符号</strong>就会出错，包括“，”，“：” 等，把这些标点符号都换成半角的，就不会报错了。比较奇怪的是，汉字显示是没有问题的，可能是标点符号和正常的汉字不在一个编码范围。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker迁移默认的/var/lib/docker 目录（避坑指南）</title>
     <url>/2023/09/06/move-docker-data-folder/</url>
     <content><![CDATA[<p>最近在做docker 数据文件的迁移，按指引创建，遇到了一些问题，把步骤和解决方案记录一下。</p>
@@ -5337,6 +5724,86 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
       <tags>
         <tag>Docker</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>牛客网 面试必刷TOP101 算法题</title>
+    <url>/2024/02/12/nowcoder-algorithm-test-101/</url>
+    <content><![CDATA[<h2 id="介绍">介绍</h2>
+<p>发现一个除了Leecode以外比较好的刷算法的网站：</p>
+<p><a href="https://www.nowcoder.com/exam/oj?page=1&amp;tab=%E7%AE%97%E6%B3%95%E7%AF%87&amp;topicId=295">牛客网在线编程_算法篇_面试必刷TOP101 (nowcoder.com)</a></p>
+<p>据说是收集了很多面试题精选的题目</p>
+<h2 id="题目例子">题目例子</h2>
+<p><strong>BM83 字符串变形</strong></p>
+<p><strong>描述</strong></p>
+<p>对于一个长度为 n 字符串，我们需要对它做一些变形。</p>
+<p>首先这个字符串中包含着一些空格，就像&quot;Hello World&quot;一样，然后我们要做的是把这个字符串中由空格隔开的单词反序，同时反转每个字符的大小写。</p>
+<p>比如&quot;Hello World&quot;变形后就变成了&quot;wORLD hELLO&quot;。</p>
+<p>数据范围: 1≤�≤1061≤<em>n</em>≤106 , 字符串中包括大写英文字母、小写英文字母、空格。</p>
+<p>进阶：空间复杂度 �(�)<em>O</em>(<em>n</em>) ， 时间复杂度 �(�)<em>O</em>(<em>n</em>)</p>
+<p><strong>输入描述：</strong></p>
+<p>给定一个字符串s以及它的长度n(1 ≤ n ≤ 10^6)</p>
+<p><strong>返回值描述：</strong></p>
+<p>请返回变形后的字符串。题目保证给定的字符串均由大小写字母和空格构成。</p>
+<p><strong>示例1</strong></p>
+<p>输入：<br>
+<code>&quot;This is a sample&quot;,16</code></p>
+<p>返回值：<br>
+<code>&quot;SAMPLE A IS tHIS&quot;</code></p>
+<h2 id="Python实现">Python实现</h2>
+<p>参考了答案，我的代码实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">trans</span>(<span class="params">self, s: <span class="built_in">str</span>, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        word_list = <span class="built_in">list</span>(s.split(<span class="string">&quot; &quot;</span>))[::-<span class="number">1</span>]</span><br><span class="line">        new_str = <span class="string">&quot; &quot;</span>.join(word_list)</span><br><span class="line">        res = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> new_str[i] &lt;= <span class="string">&quot;Z&quot;</span> <span class="keyword">and</span> new_str[i] &gt;= <span class="string">&quot;A&quot;</span>:</span><br><span class="line">                res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(new_str[i]) - <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>) + <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>))</span><br><span class="line">            <span class="keyword">elif</span> new_str[i] &lt;= <span class="string">&quot;z&quot;</span> <span class="keyword">and</span> new_str[i] &gt;= <span class="string">&quot;a&quot;</span>:</span><br><span class="line">                res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(new_str[i]) - <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>) + <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res += new_str[i]</span><br><span class="line">        <span class="built_in">print</span>(res)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<p>其中以下写法值得借鉴：</p>
+<ol>
+<li>倒序的实现为 list(s.split(&quot; &quot;))[::-1]</li>
+<li>字母变为小写：chr(ord(new_str[i]) - ord(“A”) + ord(“a”))</li>
+<li>另外 用 swapcase() 函数更简洁</li>
+</ol>
+<h2 id="界面和操作">界面和操作</h2>
+<p>界面如下：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/0212_nowcoder_101.png" alt=" "></p>
+<p>操作还比较方便，有语法提示，有调试界面。</p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法练习：BM1 反转链表</title>
+    <url>/2024/02/13/nowcoder-algorithm-test-bm1/</url>
+    <content><![CDATA[<h2 id="题目内容">题目内容</h2>
+<p>给定一个单链表的头结点pHead(该头节点是有值的，比如在下图，它的val是1)，长度为n，反转该链表后，返回新链表的表头。</p>
+<p>数据范围： 0 ≤ <em>n</em> ≤1000</p>
+<p>要求：空间复杂度 <em>O</em>(1) ，时间复杂度 <em>O</em>(<em>n</em>) 。</p>
+<p>如当输入链表{1,2,3}时，</p>
+<p>经反转后，原链表变为{3,2,1}，所以对应的输出为{3,2,1}。</p>
+<h2 id="我的思路">我的思路</h2>
+<p>在遍历链表时，将当前节点的next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。在更改引用之前，还需要存储后一个节点。最后返回新的头引用。借用网上一个图解：</p>
+<p><img src="https://cdn.yunminitools.cn/blog/02_13_bm1_test.gif" alt=" "></p>
+<span id="more"></span>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># @param head ListNode类 </span></span><br><span class="line"><span class="comment"># @return ListNode类</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ReverseList</span>(<span class="params">self , head: ListNode</span>) -&gt; ListNode:</span><br><span class="line">        <span class="comment">#如果head为空，则直接返回空</span></span><br><span class="line">        <span class="keyword">if</span> head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">            </span><br><span class="line">        reverse_node = ListNode(head.val)</span><br><span class="line">        x = head</span><br><span class="line">        <span class="keyword">while</span> x != <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> x.<span class="built_in">next</span> != <span class="literal">None</span>:</span><br><span class="line">                temp_node = ListNode(x.<span class="built_in">next</span>.val)</span><br><span class="line">                temp_node.<span class="built_in">next</span> = reverse_node</span><br><span class="line">                reverse_node = temp_node</span><br><span class="line">            x = x.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> reverse_node</span><br></pre></td></tr></table></figure>
+<p>提交通过，但代码不够简洁。</p>
+<h2 id="参考答案">参考答案</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ReverseList</span>(<span class="params">self , head: ListNode</span>) -&gt; ListNode:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        reverse = <span class="literal">None</span></span><br><span class="line">        phead = head</span><br><span class="line">        <span class="keyword">while</span> phead != <span class="literal">None</span>:</span><br><span class="line">            tmp = phead.<span class="built_in">next</span></span><br><span class="line">            phead.<span class="built_in">next</span> = reverse</span><br><span class="line">            reverse = phead</span><br><span class="line">            phead = tmp</span><br><span class="line">        <span class="keyword">return</span> reverse</span><br></pre></td></tr></table></figure>
+<h2 id="经验总结">经验总结</h2>
+<ul>
+<li>我默认节点从第一个开始，就增加了判断的部分，还多调用一次构造函数</li>
+<li>简洁的做法是，从第0个开始，默认节点为None，这样就省去了判断语句，逻辑更简单，语句简洁。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -6568,473 +7035,6 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       <tags>
         <tag>编程技巧</tag>
         <tag>VUE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决ayer主题下Mermaid图表背景太暗的问题</title>
-    <url>/2023/02/23/Hexo-Mermaid-2/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>配好Mermaid图表后，我发现自动生成的图表背景太暗，和线的颜色混在了一起。刚开始我的思路是换Mermaid图表主题颜色，后来发现换主题只能修改线和图形的样式，不能改背景。经过研究网页CSS结构，我发现主要由于这个主题所有的代码块的背景是深色的，导致Mermaid图表的背景也是继承下来了。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>找到原因，解决方案也就呼之欲出了，找到主题路径：<code>themes/ayer/layout/_partial/</code> 下，修改 <code>head.ejs</code> 文件，找到 <code>&lt;!-- mermaid --&gt;</code> 标签，在<code>&lt;style&gt;&lt;/style&gt;</code> 代码块内添加以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pre.mermaid &#123;</span><br><span class="line">   background: #dedede;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>含义为指定mermaid的div的背景，#dedede为背景色，比较浅。<br>
-清缓存，重新发布，搞定。</p>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>博客管理</tag>
-        <tag>Theme_ayer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Hexo中插入Mermaid图表</title>
-    <url>/2023/02/22/Hexo-Mermaid-1/</url>
-    <content><![CDATA[<h2 id="Mermaid是什么？">Mermaid是什么？</h2>
-<p>Mermaid是一个基于JavaScript的流程图、序列图、甘特图等图表生成工具。使用Mermaid可以方便地在Markdown文档中嵌入各种图表，而无需手动绘制或使用其他辅助工具。</p>
-<p>Mermaid支持多种流程图、序列图、甘特图等图表类型，使用简单明了的语法来描述图表元素之间的关系。在插入Mermaid图表之前，需要在Hexo中安装相应的插件，如前面所述。</p>
-<p>Mermaid提供了丰富的语法来绘制各种类型的图表，具体语法可以参考官方文档。在Hexo中插入Mermaid图表时，只需要在Markdown文档中使用Mermaid代码块即可。</p>
-<h2 id="如何在Hexo中插入Mermaid图表">如何在Hexo中插入Mermaid图表</h2>
-<h3 id="安装Mermaid插件">安装Mermaid插件</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
-<h3 id="修改配置文件">修改配置文件</h3>
-<p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mermaid chart</span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid</span><br><span class="line">  enable: true  # default true</span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2</span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure>
-<h3 id="修改主题">修改主题</h3>
-<p>根据主题不同，修改方式不同，我使用的ayer主题，只要修改主题目录<code>themes/ayer</code>下的<code>_config.yml</code>文件，将Enable选项改为<strong>true</strong>即可：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mermaid:</span><br><span class="line">  enable: true</span><br><span class="line">  cdn: https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js</span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="Mermaid图表演示">Mermaid图表演示</h2>
-<p>下面是mermaid的图表描述：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(面试)--&gt;B(笔试)</span><br><span class="line">A--&gt;C(面试)</span><br><span class="line">C--&gt;C1(数据结构与算法*)</span><br><span class="line">C--&gt;C2(计算机网络)</span><br><span class="line">C--&gt;C3(操作系统Linux)</span><br><span class="line">B--&gt;B1(数据结构与算法*)</span><br></pre></td></tr></table></figure>
-<p>会生成以下图表：</p>
-<pre class="mermaid">graph LR
-A(面试)-->B(笔试)
-A-->C(面试)
-C-->C1(数据结构与算法*)
-C-->C2(计算机网络)
-C-->C3(操作系统Linux)
-B-->B1(数据结构与算法*)</pre>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>博客管理</tag>
-        <tag>Mermaid</tag>
-        <tag>Theme_ayer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>知识管理之收集灵感</title>
-    <url>/2023/02/23/KM-gather-ideas/</url>
-    <content><![CDATA[<h2 id="来源">来源</h2>
-<p>来自于小报童的<a href="https://xiaobot.net/p/card?refer=d71223b1-9994-4950-b872-ea0a9371fd06">知识资产专栏</a>，做一些整理。</p>
-<h2 id="知识管理循环">知识管理循环</h2>
-<p>知识管理应该是一个循环：</p>
-<pre class="mermaid">graph LR
-A(卡片收集)-->B(卡片组织)
-B-->C(应用卡片)
-C-->D(维护卡片)
-D-->A</pre>
-<p>这一篇主要讲一下收集。</p>
-<span id="more"></span>
-<h2 id="如何收集灵感">如何收集灵感</h2>
-<p>做到以下3个方面：</p>
-<h3 id="1-留出富裕时间">1.留出富裕时间</h3>
-<p>在繁忙的工作生活中，留出时间来做这个事情，而不是想起来再做，以下是一些技巧，此外，还可以参考时间管理的一些书籍：</p>
-<h4 id="学会说不，保护时间">学会说不，保护时间</h4>
-<p>尝试思考「立即说是」后马上就去执行，如果感觉到痛苦，那么这个选项就应该选「不」。</p>
-<h4 id="固定时间，持续投资">固定时间，持续投资</h4>
-<p>我们想积累自己的知识资产时，应该划出一块固定的时间来做知识的积累。</p>
-<h4 id="好奇驱动，乐在其中">好奇驱动，乐在其中</h4>
-<p>想要捕捉到自己的灵感和想法，一个关键的技巧在于，由问题来驱动，但不着急立即获得答案。在找到答案的过程中积累知识。</p>
-<h3 id="2-用不同角度观察">2.用不同角度观察</h3>
-<ul>
-<li>跳出问题本身，看看周边和上下游，往往能得到不同的思考</li>
-<li>看看其他地方行业或领域中的事物，尝试将其和自己在思考的事情进行结合，或许就会有了新的灵感值得记录</li>
-<li>许多时候我们对一些事物过于熟悉，就会忽略掉其中的细节。当我们跃入其中仔细观察时，往往就能发现许多不合理的地方，也就有了值得记录的思考</li>
-</ul>
-<h3 id="3-在日常生活中捕捉">3.在日常生活中捕捉</h3>
-<h4 id="自己做事时">自己做事时</h4>
-<p>记录：</p>
-<ul>
-<li>解决问题的步骤</li>
-<li>事实结果</li>
-<li>自身状态和情绪</li>
-<li>决策过程和结论</li>
-</ul>
-<h4 id="和他人交流时">和他人交流时</h4>
-<p>记录：</p>
-<ul>
-<li>他在关注什么问题</li>
-<li>他在做什么尝试</li>
-<li>他的学习方向</li>
-</ul>
-<h4 id="自己学习时">自己学习时</h4>
-<p>记录：</p>
-<ul>
-<li>全新视角</li>
-<li>具体建议</li>
-<li>感触思考</li>
-</ul>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>知识管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>业务数据治理实施流程-1</title>
-    <url>/2023/03/07/business-data-governance-1/</url>
-    <content><![CDATA[<p>数据治理实施流程，是我们依据业务数据治理标准化框架在实施解决具体数据问题时，总结抽象出来的一套适用于大多数治理场景解决问题的通用标准流程。标准流程的好处在于更加规范化数据治理工程师的操作流程，来保证实施的质量。流程一共包含5个步骤：</p>
-<h2 id="STEP-1：发现问题和制定目标">STEP 1：发现问题和制定目标</h2>
-<p>发现问题要从业务数据开发团队的视角出发，围绕服务好业务、遵守数据研发规范、收集好用户反馈，尽可能全地发现和收集相关需要解决的问题。同时，制定的目标要具备可实现性。</p>
-<h2 id="STEP-2：设计指标">STEP 2：设计指标</h2>
-<p>针对问题进行拆解，设计可衡量的指标，并通过元数据的采集建设进行实现，用做对目标的进一步量化，并作为实施过程监控及治理抓手。</p>
-<h2 id="STEP-3：制定SOP并工具化">STEP 3：制定SOP并工具化</h2>
-<p>对衡量出来的具体问题，制定相关的解决SOP，并且检查相应的研发标准规范是否完善，通过问题发生的事前、事中、事后几个阶段，建设或完善相应的工具化解决问题的能力。</p>
-<h2 id="STEP-4：推广实施">STEP 4：推广实施</h2>
-<p>推广运营，以拿结果为核心目标，针对不同角色运用不同策略，重点关注问题解决过程是否会与用户利益发生冲突，控制好节奏，根据问题的重要程度有规划地进行解决。</p>
-<h2 id="STEP-5：总结沉淀方法论">STEP 5：总结沉淀方法论</h2>
-<p>总结方法论，迭代认知，持续探索问题的最优解，优化治理方案和能力。</p>
-<pre class="mermaid">graph LR
-subgraph Step1 
-A(发现问题)-->B(制定目标)
-end
-
-subgraph Step2
-B-->C(设计衡量指标)-->D(元数据及指标建设)
-end
-
-subgraph Step3
-D-->E(解决方案SOP)-->F(工具化)
-end
-
-subgraph Step4
-F-->G(运营治理)-->H(效果评估)
-end
-
-subgraph Step5
-H-->I(方法论沉淀)
-end</pre>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>数据管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>免密远程登录Linux服务方法</title>
-    <url>/2024/02/03/SSH-Key-Based-Authentication-on-a-Linux-Server/</url>
-    <content><![CDATA[<h2 id="问题">问题</h2>
-<p>经常需要访问Linux服务器，每次都要输密码很麻烦，查询了资料，可以通过密钥对配置来实现免密登录，每次都查完就忘，这次记录一下。</p>
-<h2 id="客户端配置">客户端配置</h2>
-<p>如果你使用的是 macOS，那么直接打开终端，输入<code>ssh-keygen -t rsa</code>，回车确认即可，默认会存储在用户名录下的 .ssh 目录；</p>
-<p>如果使用的是 Windows，那么需要安装 Git，然后在任意位置点击鼠标右键，选择“Git Bash Here”，然后输入<code>ssh-keygen -t rsa</code>，直接回车确认即可，默认也会存储在当前用户目录下的 .ssh 目录。</p>
-<h2 id="服务器端配置">服务器端配置</h2>
-<p>使用<code>ssh-copy-id root@服务器IP</code>，需要输入密码进行确认，之后再登录就可以直接通过<code>ssh root@服务器IP</code>即可。</p>
-<p><em>注意，如果你的帐号不是root，可以把root换为你平时登陆的帐号。</em></p>
-<p>一些资料：</p>
-<p><a href="https://rem486.top/server/env/ssh-password-free-login.html#%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE">https://rem486.top/server/env/ssh-password-free-login.html#免密登录配置</a></p>
-<p><a href="https://www.jianshu.com/p/c80e063d61f6">https://www.jianshu.com/p/c80e063d61f6</a></p>
-<p><a href="https://www.xshellv.com/2021/04/28/mac%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86centos%E6%9C%8D%E5%8A%A1%E5%99%A8/">https://www.xshellv.com/2021/04/28/mac免密登陆centos服务器/</a></p>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>远程开发的VS Code方法</title>
-    <url>/2024/02/03/VS-Code-Remote-Development/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>远程开发并非仅仅是直接在服务器上编辑代码，远程开发侧重的不应该是是“远程”，而是“开发”，至于“远程”对用户而言应该是无感的，除了代码是在远程服务器上存储和运行，其他体验应该和本地开发一致，撰写代码时能享受到 IDE 带来的便利，运行代码时不必额外去上传下载——这似乎看起来很容易，但在VS Code Remote 出现之前，没有工具能做到。</p>
-<p>使用 VS Code Remote，你可以无缝的从一台设备切换到另一台设备，开会前在台式机上写代码，开会时拿起笔记本连上远程服务器就能继续，下班可以直接关掉公司的电脑，回到家打开家里的电脑就可以继续，设备切换从来没有如此方便，你不必关心这一切是如何实现的，只要使用就好，因为大部分时间你并不会觉得这和以前的本地开发有什么区别。</p>
-<h2 id="安装及配置流程">安装及配置流程</h2>
-<h3 id="远程开发必备扩展安装">远程开发必备扩展安装</h3>
-<p>在扩展中搜索 remote ，找到 Remote Development，安装即可，会为你安装包括 Remote-SSH 等全部远程开发使用的扩展。</p>
-<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_0.png" alt=" "></p>
-<p>安装完成后，你会发现左下角多了一个小图标，点击就可以看到用来连接远程开发的菜单了。</p>
-<span id="more"></span>
-<h3 id="配置远程服务器">配置远程服务器</h3>
-<p>点击左下角，选择 Remote-SSH: Connect to Host，然后选择 Configure SSH Hosts，选择默认生成的配置文件进行配置，Host 填写为要起的别名，HostName 填 IP 或者域名（如果你配置过的话），User 填登录用户名：</p>
-<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_1.png" alt=" "></p>
-<p>之后保存，再点击左下方进行连接，第一次连接时需要在服务器上下载安装必备的文件，稍等后即可连接成功：</p>
-<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_2.png" alt=" "></p>
-<p>查看左下角已经显示连接成功，打开终端也可以看到此时使用的是远程服务器的终端，注意我们很多的扩展是需要安装在服务器端的，比如 Git 相关的扩展，毕竟我们要编辑的文件是位于服务器而非本地，点击<code>Install in SSH：XXX</code>再安装一次即可：</p>
-<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_3.png" alt=" "></p>
-<p>实际上，最狭义的远程开发配置已经完成了，现在你就可以在服务器上创建编辑文件，运行服务，并且通过自带的端口转发在本地进行查看了：</p>
-<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_4.png" alt=" "></p>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>编程技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django 的日志机制-2</title>
-    <url>/2024/02/04/Django-Logging-2/</url>
-    <content><![CDATA[<h2 id="logging-结构">logging 结构</h2>
-<p>在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：<code>Loggers</code>、<code>Handlers</code>、<code>Filters</code> 和 <code>Formatters</code>。</p>
-<h3 id="Loggers">Loggers</h3>
-<p><code>Logger</code> 即<strong>记录器</strong>，是日志系统的入口。它有三个重要的工作：</p>
-<ul>
-<li>向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息</li>
-<li>根据传递给 <code>Logger</code> 的消息的严重性，确定消息是否需要处理</li>
-<li>将需要处理的消息传递给所有感兴趣的处理器 <code>Handler</code></li>
-</ul>
-<p>每一条写入 <code>Logger</code> 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：</p>
-<ul>
-<li><code>DEBUG</code>：排查故障时使用的低级别系统信息，通常开发时使用</li>
-<li><code>INFO</code>：一般的系统信息，并不算问题</li>
-<li><code>WARNING</code>：描述系统发生小问题的信息，但通常不影响功能</li>
-<li><code>ERROR</code>：描述系统发生大问题的信息，可能会导致功能不正常</li>
-<li><code>CRITICAL</code>：描述系统发生严重问题的信息，应用程序有崩溃的风险</li>
-</ul>
-<p>当 <code>Logger</code> 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 <code>Logger</code> 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。</p>
-<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p>
-<span id="more"></span>
-<h3 id="Handlers">Handlers</h3>
-<p><code>Handler</code> 即<strong>处理器</strong>，它的主要功能是决定如何处理 <code>Logger</code> 中的每一条消息，比如把消息输出到屏幕、文件或者 Email 中。</p>
-<p>和 <code>Logger</code> 一样，<code>Handler</code> 也有级别的概念。如果一条日志记录的级别不匹配或者低于 <code>Handler</code> 的日志级别，则会被 <code>Handler</code> 忽略。</p>
-<p>一个 <code>Logger</code> 可以有多个 <code>Handler</code>，每一个 <code>Handler</code> 可以有不同的日志级别。这样就可以根据消息的重要性不同，来提供不同类型的输出。例如，你可以添加一个 <code>Handler</code> 把 <code>ERROR</code> 和 <code>CRITICAL</code> 消息发到你的 Email，再添加另一个 <code>Handler</code> 把所有的消息（包括 <code>ERROR</code> 和 <code>CRITICAL</code> 消息）保存到文件里。</p>
-<h3 id="Filters">Filters</h3>
-<p><code>Filter</code> 还被用来在日志输出之前对日志记录做修改。例如，当满足一定条件时，把日志级别从 <code>ERROR</code> 降到 <code>WARNING</code> 。</p>
-<p><code>Filter</code> 在 <code>Logger</code> 和 <code>Handler</code> 中都可以添加，多个 <code>Filter</code> 可以链接起来使用，来做多重过滤操作。</p>
-<h3 id="Formaters">Formaters</h3>
-<p><code>Formatter</code> 即<strong>格式化器</strong>，主要功能是确定最终输出的形式和内容。Formatter 通常由一个包含 <a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord 属性</a> 的 Python 格式化字符串组成；但是，您也可以编写自定义的 Formatter 来实现特定的格式化行为。</p>
-<pre class="mermaid">graph LR
-A(日志)-->B(发生了什么:Logger)
-B-->B1(记录消息,确定消息级别)
-B-->B2(根据消息级别,确定是否需要处理)
-B-->B3(把消息传递给消息处理器)
-A-->C(消息如何处理:Handler)
-C-->C1(决定如何处理消息,常见的有控制器/日志文件/邮件)
-C-->C3(如果一条日志记录的级别不匹配或者低于Handler的日志级别,则会被 Handler 忽略)
-A-->D(额外的控制:Filter)
-D-->D1(例如:只允许某个特定来源的ERROR消息输出)
-D-->D2(例如:当满足一定条件时,把日志级别从ERROR降到WARNING)
-D-->D3(多个Filter可以链接起来使用,来做多重过滤操作)
-A-->E(输出格式控制:Formater)
-E-->E1(确定最终输出的形式和内容)</pre>
-<p>相关链接：<br>
-<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
-<a href="https://www.yunminitools.cn/2024/02/05/Django-Logging-3/">Django 的日志机制-3</a><br>
-<a href="https://www.yunminitools.cn/2024/02/16/Django-Logging-4/">Django 的日志机制-4</a></p>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-        <tag>编程技巧</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django 的日志机制-3</title>
-    <url>/2024/02/05/Django-Logging-3/</url>
-    <content><![CDATA[<h2 id="实现方式">实现方式</h2>
-<p>其实最简单的方式就是直接在文件开头 <strong><code>import</code></strong>，然后程序中调用，像下面这样：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># import the logging library</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># Get an instance of a logger</span></span><br><span class="line">logging.basicConfig(</span><br><span class="line">    <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(pathname)s[%(lineno)d] - %(levelname)s: %(message)s&#x27;</span>,</span><br><span class="line">    level=logging.INFO)</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request, arg1, arg</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> bad_mojo:</span><br><span class="line">        <span class="comment"># Log an error message</span></span><br><span class="line">	logger.error(<span class="string">&#x27;Something went wrong!&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>但这种方式并不好，如果在每个文件开头都这样写一遍，第一是麻烦，第二是如果哪天要改变输出日志格式，那每个文件都要改一遍，还不累死。</p>
-<p>很显然，如果能封装成一个类，用的时候调用这个类，修改的时候也只需要修改这一个地方:</p>
-<span id="more"></span>
-<h2 id="自定义类">自定义类</h2>
-<p><a href="http://logging.py">logging.py</a> 内容：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CommonLog</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    日志记录</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, logger, logname=<span class="string">&#x27;web-log&#x27;</span></span>):</span><br><span class="line">        self.logname = os.path.join(settings.LOGS_DIR, <span class="string">&#x27;%s&#x27;</span> % logname)</span><br><span class="line">        self.logger = logger</span><br><span class="line">        self.logger.setLevel(logging.DEBUG)</span><br><span class="line">        self.logger.propagate = <span class="literal">False</span></span><br><span class="line">        self.formatter = logging.Formatter(<span class="string">&#x27;%(asctime)s - %(name)s - %(levelname)s: %(message)s&#x27;</span>, <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__console</span>(<span class="params">self, level, message</span>):</span><br><span class="line">        <span class="comment"># 创建一个FileHandler，用于写到本地</span></span><br><span class="line">        fh = logging.handlers.TimedRotatingFileHandler(self.logname, when=<span class="string">&#x27;MIDNIGHT&#x27;</span>, interval=<span class="number">1</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="comment"># fh = logging.FileHandler(self.logname, &#x27;a&#x27;, encoding=&#x27;utf-8&#x27;)</span></span><br><span class="line">        fh.suffix = <span class="string">&#x27;%Y-%m-%d.log&#x27;</span></span><br><span class="line">        fh.setLevel(logging.DEBUG)</span><br><span class="line">        fh.setFormatter(self.formatter)</span><br><span class="line">        self.logger.addHandler(fh)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建一个StreamHandler,用于输出到控制台</span></span><br><span class="line">        ch = logging.StreamHandler()</span><br><span class="line">        ch.setLevel(logging.DEBUG)</span><br><span class="line">        ch.setFormatter(self.formatter)</span><br><span class="line">        self.logger.addHandler(ch)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> level == <span class="string">&#x27;info&#x27;</span>:</span><br><span class="line">            self.logger.info(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;debug&#x27;</span>:</span><br><span class="line">            self.logger.debug(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;warning&#x27;</span>:</span><br><span class="line">            self.logger.warning(message)</span><br><span class="line">        <span class="keyword">elif</span> level == <span class="string">&#x27;error&#x27;</span>:</span><br><span class="line">            self.logger.error(message)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 这两行代码是为了避免日志输出重复问题</span></span><br><span class="line">        self.logger.removeHandler(ch)</span><br><span class="line">        self.logger.removeHandler(fh)</span><br><span class="line">        <span class="comment"># 关闭打开的文件</span></span><br><span class="line">        fh.close()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">debug</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;debug&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">info</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;info&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">warning</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;warning&#x27;</span>, message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">error</span>(<span class="params">self, message</span>):</span><br><span class="line">        self.__console(<span class="string">&#x27;error&#x27;</span>, message)</span><br></pre></td></tr></table></figure>
-<h2 id="其他文件引用">其他文件引用</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 引用</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> logtool</span><br><span class="line">logger=logging.getLogger()</span><br><span class="line">log=logTool.CommonLog(logger=logger,logname=<span class="string">&quot;指定日志名称&quot;</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 代码中使用</span></span><br><span class="line">log.info(<span class="string">&#x27;日志内容&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>相关链接：<br>
-<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
-<a href="https://www.yunminitools.cn/2024/02/04/Django-Logging-2/">Django 的日志机制-2</a><br>
-<a href="https://www.yunminitools.cn/2024/02/16/Django-Logging-4/">Django 的日志机制-4</a></p>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-        <tag>编程技巧</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mermaid 插件语法错误解决</title>
-    <url>/2024/02/05/mermaid-Syntax-error-in-graph/</url>
-    <content><![CDATA[<h2 id="问题">问题</h2>
-<p>之前安装的mermaid插件，用下来一直很好，但最近出了问题，脚本无法运行，报错：<br>
-Syntax error in graph mermaid version 8.14.0<br>
-<img src="https://cdn.yunminitools.cn/blog/0205_mermaid_error.png" alt="error"></p>
-<h2 id="解决方法">解决方法</h2>
-<p>比较头疼的是，这个error没有具体错误信息，一开始解决起来无从下手。只好祭出替换大法，从少到多逐步替换，终于发现问题。<br>
-可能是由于这个插件为老外开发的，内容中出现<strong>全角的标点符号</strong>就会出错，包括“，”，“：” 等，把这些标点符号都换成半角的，就不会报错了。比较奇怪的是，汉字显示是没有问题的，可能是标点符号和正常的汉字不在一个编码范围。</p>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>博客管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>牛客网 面试必刷TOP101 算法题</title>
-    <url>/2024/02/12/nowcoder-algorithm-test-101/</url>
-    <content><![CDATA[<h2 id="介绍">介绍</h2>
-<p>发现一个除了Leecode以外比较好的刷算法的网站：</p>
-<p><a href="https://www.nowcoder.com/exam/oj?page=1&amp;tab=%E7%AE%97%E6%B3%95%E7%AF%87&amp;topicId=295">牛客网在线编程_算法篇_面试必刷TOP101 (nowcoder.com)</a></p>
-<p>据说是收集了很多面试题精选的题目</p>
-<h2 id="题目例子">题目例子</h2>
-<p><strong>BM83 字符串变形</strong></p>
-<p><strong>描述</strong></p>
-<p>对于一个长度为 n 字符串，我们需要对它做一些变形。</p>
-<p>首先这个字符串中包含着一些空格，就像&quot;Hello World&quot;一样，然后我们要做的是把这个字符串中由空格隔开的单词反序，同时反转每个字符的大小写。</p>
-<p>比如&quot;Hello World&quot;变形后就变成了&quot;wORLD hELLO&quot;。</p>
-<p>数据范围: 1≤�≤1061≤<em>n</em>≤106 , 字符串中包括大写英文字母、小写英文字母、空格。</p>
-<p>进阶：空间复杂度 �(�)<em>O</em>(<em>n</em>) ， 时间复杂度 �(�)<em>O</em>(<em>n</em>)</p>
-<p><strong>输入描述：</strong></p>
-<p>给定一个字符串s以及它的长度n(1 ≤ n ≤ 10^6)</p>
-<p><strong>返回值描述：</strong></p>
-<p>请返回变形后的字符串。题目保证给定的字符串均由大小写字母和空格构成。</p>
-<p><strong>示例1</strong></p>
-<p>输入：<br>
-<code>&quot;This is a sample&quot;,16</code></p>
-<p>返回值：<br>
-<code>&quot;SAMPLE A IS tHIS&quot;</code></p>
-<h2 id="Python实现">Python实现</h2>
-<p>参考了答案，我的代码实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">trans</span>(<span class="params">self, s: <span class="built_in">str</span>, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        word_list = <span class="built_in">list</span>(s.split(<span class="string">&quot; &quot;</span>))[::-<span class="number">1</span>]</span><br><span class="line">        new_str = <span class="string">&quot; &quot;</span>.join(word_list)</span><br><span class="line">        res = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> new_str[i] &lt;= <span class="string">&quot;Z&quot;</span> <span class="keyword">and</span> new_str[i] &gt;= <span class="string">&quot;A&quot;</span>:</span><br><span class="line">                res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(new_str[i]) - <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>) + <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>))</span><br><span class="line">            <span class="keyword">elif</span> new_str[i] &lt;= <span class="string">&quot;z&quot;</span> <span class="keyword">and</span> new_str[i] &gt;= <span class="string">&quot;a&quot;</span>:</span><br><span class="line">                res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(new_str[i]) - <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>) + <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res += new_str[i]</span><br><span class="line">        <span class="built_in">print</span>(res)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-<p>其中以下写法值得借鉴：</p>
-<ol>
-<li>倒序的实现为 list(s.split(&quot; &quot;))[::-1]</li>
-<li>字母变为小写：chr(ord(new_str[i]) - ord(“A”) + ord(“a”))</li>
-<li>另外 用 swapcase() 函数更简洁</li>
-</ol>
-<h2 id="界面和操作">界面和操作</h2>
-<p>界面如下：</p>
-<p><img src="https://cdn.yunminitools.cn/blog/0212_nowcoder_101.png" alt=" "></p>
-<p>操作还比较方便，有语法提示，有调试界面。</p>
-]]></content>
-      <categories>
-        <category>有趣资源</category>
-      </categories>
-      <tags>
-        <tag>编程技巧</tag>
-        <tag>Python</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法练习：BM1 反转链表</title>
-    <url>/2024/02/13/nowcoder-algorithm-test-bm1/</url>
-    <content><![CDATA[<h2 id="题目内容">题目内容</h2>
-<p>给定一个单链表的头结点pHead(该头节点是有值的，比如在下图，它的val是1)，长度为n，反转该链表后，返回新链表的表头。</p>
-<p>数据范围： 0 ≤ <em>n</em> ≤1000</p>
-<p>要求：空间复杂度 <em>O</em>(1) ，时间复杂度 <em>O</em>(<em>n</em>) 。</p>
-<p>如当输入链表{1,2,3}时，</p>
-<p>经反转后，原链表变为{3,2,1}，所以对应的输出为{3,2,1}。</p>
-<h2 id="我的思路">我的思路</h2>
-<p>在遍历链表时，将当前节点的next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。在更改引用之前，还需要存储后一个节点。最后返回新的头引用。借用网上一个图解：</p>
-<p><img src="https://cdn.yunminitools.cn/blog/02_13_bm1_test.gif" alt=" "></p>
-<span id="more"></span>
-<p>代码：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># @param head ListNode类 </span></span><br><span class="line"><span class="comment"># @return ListNode类</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ReverseList</span>(<span class="params">self , head: ListNode</span>) -&gt; ListNode:</span><br><span class="line">        <span class="comment">#如果head为空，则直接返回空</span></span><br><span class="line">        <span class="keyword">if</span> head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">            </span><br><span class="line">        reverse_node = ListNode(head.val)</span><br><span class="line">        x = head</span><br><span class="line">        <span class="keyword">while</span> x != <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> x.<span class="built_in">next</span> != <span class="literal">None</span>:</span><br><span class="line">                temp_node = ListNode(x.<span class="built_in">next</span>.val)</span><br><span class="line">                temp_node.<span class="built_in">next</span> = reverse_node</span><br><span class="line">                reverse_node = temp_node</span><br><span class="line">            x = x.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> reverse_node</span><br></pre></td></tr></table></figure>
-<p>提交通过，但代码不够简洁。</p>
-<h2 id="参考答案">参考答案</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ReverseList</span>(<span class="params">self , head: ListNode</span>) -&gt; ListNode:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        reverse = <span class="literal">None</span></span><br><span class="line">        phead = head</span><br><span class="line">        <span class="keyword">while</span> phead != <span class="literal">None</span>:</span><br><span class="line">            tmp = phead.<span class="built_in">next</span></span><br><span class="line">            phead.<span class="built_in">next</span> = reverse</span><br><span class="line">            reverse = phead</span><br><span class="line">            phead = tmp</span><br><span class="line">        <span class="keyword">return</span> reverse</span><br></pre></td></tr></table></figure>
-<h2 id="经验总结">经验总结</h2>
-<ul>
-<li>我默认节点从第一个开始，就增加了判断的部分，还多调用一次构造函数</li>
-<li>简洁的做法是，从第0个开始，默认节点为None，这样就省去了判断语句，逻辑更简单，语句简洁。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>编程技巧</tag>
-        <tag>Python</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django 的日志机制-4</title>
-    <url>/2024/02/16/Django-Logging-4/</url>
-    <content><![CDATA[<h2 id="进阶">进阶</h2>
-<p>其实，如果只是为了排错方便，记录一些日志，自定义类基本可以满足要求。但如果要记录访问系统的所有请求日志，那就无能为力了，因为不可能手动在每个接口代码加日志，也没必要。</p>
-<p>这个时候，很自然就能想到 Django 中间件了。</p>
-<h2 id="Django-中间件">Django 中间件</h2>
-<p>定义中间件类，包括  <strong><code>Filters</code></strong> 代码和 <strong><code>middleware</code></strong> 代码，在本地app文件夹中创建目录：<code>middlewares</code>，目录下创建文件 <code>LogMiddleware.py</code> :</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.utils.deprecation <span class="keyword">import</span> MiddlewareMixin</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">local = threading.local()</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RequestLogFilter</span>(logging.Filter):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    日志过滤器</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">filter</span>(<span class="params">self, record</span>):</span><br><span class="line">        record.sip = <span class="built_in">getattr</span>(local, <span class="string">&#x27;sip&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.dip = <span class="built_in">getattr</span>(local, <span class="string">&#x27;dip&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.body = <span class="built_in">getattr</span>(local, <span class="string">&#x27;body&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.path = <span class="built_in">getattr</span>(local, <span class="string">&#x27;path&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.method = <span class="built_in">getattr</span>(local, <span class="string">&#x27;method&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.username = <span class="built_in">getattr</span>(local, <span class="string">&#x27;username&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.status_code = <span class="built_in">getattr</span>(local, <span class="string">&#x27;status_code&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.reason_phrase = <span class="built_in">getattr</span>(local, <span class="string">&#x27;reason_phrase&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RequestLogMiddleware</span>(<span class="title class_ inherited__">MiddlewareMixin</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    将request的信息记录在当前的请求线程上。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, get_response=<span class="literal">None</span></span>):</span><br><span class="line">        self.get_response = get_response</span><br><span class="line">        self.apiLogger = logging.getLogger(<span class="string">&#x27;web.log&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, request</span>):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            body = json.loads(request.body)</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            body = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">            body.update(<span class="built_in">dict</span>(request.GET))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            body.update(<span class="built_in">dict</span>(request.POST))</span><br><span class="line"></span><br><span class="line">        local.body = body</span><br><span class="line">        local.path = request.path</span><br><span class="line">        local.method = request.method</span><br><span class="line">        local.username = request.user</span><br><span class="line">        local.sip = request.META.get(<span class="string">&#x27;REMOTE_ADDR&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        local.dip = socket.gethostbyname(socket.gethostname())</span><br><span class="line"></span><br><span class="line">        response = self.get_response(request)</span><br><span class="line">        local.status_code = response.status_code</span><br><span class="line">        local.reason_phrase = response.reason_phrase</span><br><span class="line">        self.apiLogger.info(<span class="string">&#x27;system-auto&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="设置文件配置">设置文件配置</h2>
-<p>在 <code>**setting.py**</code> 文件的最后，加上以下内容：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 设置log文件的目录</span></span><br><span class="line">LOGS_DIR = BASE_DIR / <span class="string">&#x27;log&#x27;</span></span><br><span class="line"></span><br><span class="line">LOGGING = &#123;</span><br><span class="line">    <span class="comment"># 版本</span></span><br><span class="line">    <span class="string">&#x27;version&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="comment"># 是否禁止默认配置的记录器</span></span><br><span class="line">    <span class="string">&#x27;disable_existing_loggers&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line">    <span class="string">&#x27;formatters&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;standard&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;format&#x27;</span>: <span class="string">&#x27;&#123;&quot;time&quot;: &quot;%(asctime)s&quot;, &quot;level&quot;: &quot;%(levelname)s&quot;, &quot;method&quot;: &quot;%(method)s&quot;, &quot;username&quot;: &quot;%(username)s&quot;, &quot;sip&quot;: &quot;%(sip)s&quot;, &quot;dip&quot;: &quot;%(dip)s&quot;, &quot;path&quot;: &quot;%(path)s&quot;, &quot;status_code&quot;: &quot;%(status_code)s&quot;, &quot;reason_phrase&quot;: &quot;%(reason_phrase)s&quot;, &quot;func&quot;: &quot;%(module)s.%(funcName)s:%(lineno)d&quot;,  &quot;message&quot;: &quot;%(message)s&quot;&#125;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;datefmt&#x27;</span>: <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment"># 过滤器, 其中xxxapp为项目app</span></span><br><span class="line">    <span class="string">&#x27;filters&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;request_info&#x27;</span>: &#123;<span class="string">&#x27;()&#x27;</span>: <span class="string">&#x27;xxxapp.middlewares.LogMiddleware.RequestLogFilter&#x27;</span>&#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;handlers&#x27;</span>: &#123;</span><br><span class="line">        <span class="comment"># 标准输出</span></span><br><span class="line">        <span class="string">&#x27;console&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;ERROR&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;logging.StreamHandler&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;formatter&#x27;</span>: <span class="string">&#x27;standard&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment"># 自定义 handlers，输出到文件</span></span><br><span class="line">        <span class="string">&#x27;restful_api&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;DEBUG&#x27;</span>,</span><br><span class="line">            <span class="comment"># 时间滚动切分</span></span><br><span class="line">            <span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;logging.handlers.TimedRotatingFileHandler&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;filename&#x27;</span>: os.path.join(LOGS_DIR, <span class="string">&#x27;web-log.log&#x27;</span>),</span><br><span class="line">            <span class="string">&#x27;formatter&#x27;</span>: <span class="string">&#x27;standard&#x27;</span>,</span><br><span class="line">            <span class="comment"># 调用过滤器</span></span><br><span class="line">            <span class="string">&#x27;filters&#x27;</span>: [<span class="string">&#x27;request_info&#x27;</span>],</span><br><span class="line">            <span class="comment"># 每天凌晨切分</span></span><br><span class="line">            <span class="string">&#x27;when&#x27;</span>: <span class="string">&#x27;MIDNIGHT&#x27;</span>,</span><br><span class="line">            <span class="comment"># 保存 30 天</span></span><br><span class="line">            <span class="string">&#x27;backupCount&#x27;</span>: <span class="number">30</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;loggers&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;django&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;handlers&#x27;</span>: [<span class="string">&#x27;console&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;ERROR&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;propagate&#x27;</span>: <span class="literal">False</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;web.log&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;handlers&#x27;</span>: [<span class="string">&#x27;restful_api&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;INFO&#x27;</span>,</span><br><span class="line">            <span class="comment"># 此记录器处理过的消息就不再让 django 记录器再次处理了</span></span><br><span class="line">            <span class="string">&#x27;propagate&#x27;</span>: <span class="literal">False</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结">总结</h2>
-<p>通过这种方式，只要过 Django 的请求就都会有日志，不管是 web 还是 Django admin。具体记录哪些字段可以根据项目需要进行获取和配置。</p>
-<p>如果需要在视图中使用log，用下面语句即可：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">log = logging.getLogger(<span class="string">&#x27;middleware&#x27;</span>)</span><br><span class="line">log.debug(<span class="string">&quot;......&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>相关链接：<br>
-<a href="https://www.yunminitools.cn/2024/02/03/Django-Logging-1/">Django 的日志机制-1</a><br>
-<a href="https://www.yunminitools.cn/2024/02/04/Django-Logging-2/">Django 的日志机制-2</a><br>
-<a href="https://www.yunminitools.cn/2024/02/05/Django-Logging-3/">Django 的日志机制-3</a></p>
-]]></content>
-      <categories>
-        <category>当日所学</category>
-      </categories>
-      <tags>
-        <tag>Django</tag>
-        <tag>编程技巧</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一次Docker应用排查过程</title>
-    <url>/2024/02/18/docker-debug-test-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>重新发布了一个应用，发现无法访问，把排查过程记录一下。</p>
-<h2 id="检查docker程序和开放端口">检查docker程序和开放端口</h2>
-<p>运行下面语句：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker ps</span><br></pre></td></tr></table></figure>
-<p>发现docker都在运行。</p>
-<p>运行下面语句：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo netstat -tunpl</span><br></pre></td></tr></table></figure>
-<p>检查开放端口，端口开放正常。</p>
-<h2 id="检查frp的状态">检查frp的状态</h2>
-<p>运行下面语句：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status frp</span><br></pre></td></tr></table></figure>
-<p>由于是通过frp穿透内网的，要看一下是否是frp问题，查看日志，没有报错。</p>
-<h2 id="检查内网网页状态">检查内网网页状态</h2>
-<p>访问内网ip，报错：<strong>502 Bad Gateway</strong></p>
-<p>运行一下语句，查看docker日志：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker logs ee86b3ee2451</span><br></pre></td></tr></table></figure>
-<p>其中 ee86b3ee2451 为容器ID</p>
-<p>运行下面语句，查看实时docker日志：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker logs -f ee86b3ee2451</span><br></pre></td></tr></table></figure>
-<h2 id="进入Docker查看">进入Docker查看</h2>
-<p>如果还是有问题，运行下面语句，查看docker内部情况</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker <span class="built_in">exec</span> -it ee86b3ee2451 bash</span><br></pre></td></tr></table></figure>
-<h2 id="总结">总结</h2>
-<p>经过一番折腾，发现还是docker本身的问题，restart一下就好了，运行以下语句：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>日常练习</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
