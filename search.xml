@@ -7037,4 +7037,20 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>VUE</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Mac brew安装tmux报错“no bottle available!“</title>
+    <url>/2024/02/18/mac-brew-install-tmux-error/</url>
+    <content><![CDATA[<h2 id="问题">问题</h2>
+<p>在Mac M1安装tmux时，老是报错，根据报错提示无法解决。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>执行以下命令，再安装就可以了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-18T14:12:31.709Z</updated>
+  <updated>2024-02-18T14:17:51.073Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac brew安装tmux报错“no bottle available!“</title>
+    <link href="http://yunminitools.cn/2024/02/18/mac-brew-install-tmux-error/"/>
+    <id>http://yunminitools.cn/2024/02/18/mac-brew-install-tmux-error/</id>
+    <published>2024-02-18T14:14:03.000Z</published>
+    <updated>2024-02-18T14:17:51.073Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;问题&lt;/h2&gt;
+&lt;p&gt;在Mac M1安装tmux时，老是报错，根据报错提示无法解决。&lt;/p&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;执行以下命令，再安装就可以了。&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Mac" scheme="http://yunminitools.cn/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>一次Docker应用排查过程</title>
@@ -575,31 +604,6 @@ Your configuration specifies to merge with the ref ‘refs/heads/master’ from 
     <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
     
     <category term="Issue-resolve" scheme="http://yunminitools.cn/tags/Issue-resolve/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>本地项目连接Github</title>
-    <link href="http://yunminitools.cn/2023/08/01/Local-project-link-github/"/>
-    <id>http://yunminitools.cn/2023/08/01/Local-project-link-github/</id>
-    <published>2023-08-01T06:17:13.000Z</published>
-    <updated>2023-08-01T06:18:07.156Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
-&lt;p&gt;本地有一些程序文件用Vim 编辑有点不方便，打算上传到github后，用网页编辑器编辑。下面是具体步骤&lt;/p&gt;
-&lt;h2 id=&quot;一、建立本地仓库&quot;&gt;一、建立本地仓库&lt;/h2&gt;
-&lt;h3 id=&quot;1-初始化本地仓库&quot;&gt;1.初始化本地仓库&lt;/h3&gt;
-&lt;p&gt;git init&lt;/p&gt;
-&lt;h3 id=&quot;2-添加所有文件&quot;&gt;2.添加所有文件&lt;/h3&gt;
-&lt;p&gt;git add .&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
     
   </entry>
   
