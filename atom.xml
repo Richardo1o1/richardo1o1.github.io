@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-18T14:17:51.073Z</updated>
+  <updated>2024-02-20T14:03:49.301Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows命令-域内信息收集</title>
+    <link href="http://yunminitools.cn/2024/02/20/windows-domain-commands-collection-1/"/>
+    <id>http://yunminitools.cn/2024/02/20/windows-domain-commands-collection-1/</id>
+    <published>2024-02-20T14:03:02.000Z</published>
+    <updated>2024-02-20T14:03:49.301Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;判断是否存在域&quot;&gt;判断是否存在域&lt;/h2&gt;
+&lt;h3 id=&quot;ipconfig&quot;&gt;ipconfig&lt;/h3&gt;
+&lt;p&gt;查看网关 IP 地址、DNS 的 IP 地址、域名、本机是否和 DNS 服务器处于同一网段。&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="Windows" scheme="http://yunminitools.cn/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac brew安装tmux报错“no bottle available!“</title>
@@ -575,35 +603,6 @@ Similarly, most Engineering organizations spend little time developing their ext
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
     
     <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>问题解决 - Your configuration specifies to merge with the ref xxx</title>
-    <link href="http://yunminitools.cn/2023/08/01/issue-resolve-1/"/>
-    <id>http://yunminitools.cn/2023/08/01/issue-resolve-1/</id>
-    <published>2023-08-01T06:19:15.000Z</published>
-    <updated>2023-08-01T07:06:46.248Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;原因&quot;&gt;原因&lt;/h2&gt;
-&lt;p&gt;在执行git pull的时候会报错:&lt;br&gt;
-Your configuration specifies to merge with the ref ‘refs/heads/master’ from the remote, but</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
-    
-    <category term="Issue-resolve" scheme="http://yunminitools.cn/tags/Issue-resolve/"/>
     
   </entry>
   

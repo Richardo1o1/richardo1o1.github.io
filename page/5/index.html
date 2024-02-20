@@ -100,6 +100,75 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-SSH-connention-timeout-setting"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/06/03/SSH-connention-timeout-setting/"
+    >SSH客户端会话超时的解决方案</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/03/SSH-connention-timeout-setting/" class="article-date">
+  <time datetime="2023-06-03T13:03:32.000Z" itemprop="datePublished">2023-06-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>通常默认公有云上的ECS远程连接，很容易断开，当你有什么事情被打断或者去操作别的机器同步做点其他事情，你会发现你SSH客户端登录窗口经常会断开掉，非常烦人，经常要重新登录。<br>
+如果用一些Windows下客户端软件比如<code>XShell</code> or <code>CRT</code>都会有超时时间和心跳检测次数设置，但是默认<code>Mac</code>下的终端 Or <code>Linux</code>下直接远程命令客户端是没有这个设置窗口的。<br>
+SSH Client会从以下途径获取配置参数:</p>
+<ol>
+<li>SSH命令行参数；</li>
+<li>用户配置文件 (~/.ssh/config);</li>
+<li>系统配置文件 (/etc/ssh/ssh_config)。</li>
+</ol>
+<h2 id="方法1">方法1</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=30 root@10.0.1.25 -p22</span><br></pre></td></tr></table></figure>
+<h2 id="方法2">方法2</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.ssh/config <span class="comment">#添加如下内容</span></span><br><span class="line">Host *</span><br><span class="line"> ServerAliveInterval 60</span><br><span class="line"> ServerAliveCountMax 30</span><br></pre></td></tr></table></figure>
+<h2 id="方法3">方法3</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/ssh/ssh_config <span class="comment"># 在Host *下面添加：</span></span><br><span class="line"></span><br><span class="line">Host *</span><br><span class="line">       SendEnv LANG LC_*</span><br><span class="line">       ServerAliveInterval 60</span><br><span class="line">       ServerAliveCountMax 30</span><br></pre></td></tr></table></figure>
+<p>如果三个都设置了，读取顺序是 方法1 —&gt; 方法2 —&gt; 方法3</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-A-Peer-to-Peer-Electronic-Cash-System-10"
   class="article article-type-post"
   itemscope
@@ -658,73 +727,6 @@ F(router/index.js 配置路由)-->C</pre>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-A-Peer-to-Peer-Electronic-Cash-System-7"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/13/A-Peer-to-Peer-Electronic-Cash-System-7/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（7）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/13/A-Peer-to-Peer-Electronic-Cash-System-7/" class="article-date">
-  <time datetime="2023-04-13T13:46:32.000Z" itemprop="datePublished">2023-04-13</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="9-合并和分割货币">9 合并和分割货币</h2>
-<p>9 Combining and Splitting Value<br>
-Although it would be possible to handle coins individually, it would be unwieldy to make a separate transaction for every cent in a transfer. To allow value to be split and combined, transactions contain multiple inputs and outputs. Normally there will be either a single input from a larger previous transaction or multiple inputs combining smaller amounts, and at most two outputs: one for the payment, and one returning the change, if any, back to the sender.<br>
-<img src="http://cdn.yunminitools.cn/blog/0413Transaction-En.png" alt=" "><br>
-It should be noted that fan-out, where a transaction depends on several transactions, and those transactions depend on many more, is not a problem here. There is never the need to extract a complete standalone copy of a transaction’s history.</p>
-<p>尽管单独处理每个货币是可能的，但将一次转账按每一分拆成多次交易太<strong>笨拙</strong>。为允许交易额被分割和合并，交易将包含多个输入值和输出值。通常是一个从之前交易而得的较大输入值或多个较小输入值的组合，以及最多两个输出值：一个作为支付，另一个作为找零，如果有的话，退还给支付发送方。<br>
-<img src="http://cdn.yunminitools.cn/blog/0413Transaction-Zh.png" alt=" "><br>
-需要注意的是，这里的扇出(fan-out)，即一笔交易依赖数笔交易，这数笔交易又依赖更多的交易，形成了一个树状结构。在比特币系统中，这种情况不会成为问题，因为不需要获取一笔交易历史的完整独立副本。</p>
-<p>【关注点】：</p>
-<ul>
-<li>扇出(fan-out), 是一个比较形象的说法，后面直接给出了定义。</li>
-<li>不需要获取一笔交易历史的完整独立副本，并没有解释原因，为什么呢？</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
 
     </footer>
   </div>

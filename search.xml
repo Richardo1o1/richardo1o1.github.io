@@ -7053,4 +7053,27 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Mac</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Windows命令-域内信息收集</title>
+    <url>/2024/02/20/windows-domain-commands-collection-1/</url>
+    <content><![CDATA[<h2 id="判断是否存在域">判断是否存在域</h2>
+<h3 id="ipconfig">ipconfig</h3>
+<p>查看网关 IP 地址、DNS 的 IP 地址、域名、本机是否和 DNS 服务器处于同一网段。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ipconfig /all</span><br><span class="line">C:\Users\daniel10&gt; ipconfig /all</span><br><span class="line"></span><br><span class="line">Windows IP 配置</span><br><span class="line">   主 DNS 后缀 . . . . . . . . . .  : teamssix.com</span><br><span class="line">   DNS 后缀搜索列表  . . . . . . . . : teamssix.com</span><br><span class="line"></span><br><span class="line">以太网适配器 Ethernet0:</span><br><span class="line">   IPv4 地址 . . . . . . . . . . .. : <span class="number">192.168</span>.<span class="number">7.110</span></span><br><span class="line">   子网掩码  . . . . . . . . . . . . : <span class="number">255.255</span>.<span class="number">255.0</span></span><br><span class="line">   默认网关. . . . . . . . . . . . . : <span class="number">192.168</span>.<span class="number">7.1</span></span><br><span class="line">   DNS 服务器  . . . . . . . . . . . : <span class="number">192.168</span>.<span class="number">7.7</span></span><br></pre></td></tr></table></figure>
+<p>接着使用 nslookup 解析域名的 IP 地址，查看是否与 DNS 服务器为同一 IP</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">nslookup teamssix.com</span><br><span class="line">C:\Users\daniel10&gt; nslookup teamssix.com</span><br><span class="line">服务器:  UnKnown</span><br><span class="line">Address:  <span class="number">192.168</span>.<span class="number">7.7</span></span><br><span class="line">名称:    teamssix.com</span><br><span class="line">Address:  <span class="number">192.168</span>.<span class="number">7.7</span></span><br></pre></td></tr></table></figure>
+<h3 id="系统详细信息">系统详细信息</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">systeminfo</span><br><span class="line">C:\Users\daniel10&gt; systeminfo | findstr 域</span><br><span class="line">域: teamssix.com</span><br></pre></td></tr></table></figure>
+<h3 id="当前登录域与域用户">当前登录域与域用户</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">net config workstation</span><br><span class="line">C:\Users\daniel10&gt; net config workstation | findstr 域</span><br><span class="line">工作站域                    TEAMSSIX</span><br><span class="line">工作站域 DNS 名称            teamssix.com</span><br><span class="line">登录域                      TEAMSSIX</span><br></pre></td></tr></table></figure>
+<h3 id="判断主域">判断主域</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">net time /domain</span><br><span class="line">C:\Users\daniel10&gt; net time /domain</span><br><span class="line">\\dc.teamssix.com 的当前时间是 <span class="number">2021</span>/<span class="number">2</span>/<span class="number">13</span> <span class="number">20</span>:<span class="number">49</span>:<span class="number">56</span></span><br><span class="line">命令成功完成。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
 </search>
