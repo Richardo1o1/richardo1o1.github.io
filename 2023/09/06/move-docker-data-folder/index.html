@@ -141,7 +141,8 @@ var _hmt = _hmt || [];
 <p>在<code>ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</code>后添加<code>--graph=/data/docker/lib</code></p>
 <p>注意：这里有个坑，最新的docker版本（≥ version 23.0.0 ) 这个参数（–graph）要改为 --data-root ，也就是： <code>--data-root=/data/docker/lib</code></p>
 <h2 id="6-重启docker">6.重启docker</h2>
-<p><code>systemctl daemon-reload systemctl restart docker</code></p>
+<p><code>systemctl daemon-reload</code><br>
+<code>systemctl restart docker</code></p>
 <h2 id="7-确认docker没有问题，删除原目录">7.确认docker没有问题，删除原目录</h2>
 <p><code>rm -rf /var/lib/docker</code></p>
  
