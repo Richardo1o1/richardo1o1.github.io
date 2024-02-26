@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-21T14:18:01.880Z</updated>
+  <updated>2024-02-26T13:33:37.908Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Window上用包管理应用安装软件 — Chocolatey</title>
+    <link href="http://yunminitools.cn/2024/02/26/windows-package-management-chocolatey/"/>
+    <id>http://yunminitools.cn/2024/02/26/windows-package-management-chocolatey/</id>
+    <published>2024-02-26T13:32:55.000Z</published>
+    <updated>2024-02-26T13:33:37.908Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;在经历了多次重装系统、重新安装各种常用软件后，我突然萌生了一个想法，难道 Window 就没有一个像 Linux 一样可以使用一行命令安装软件的包管理器吗？&lt;/p&gt;
+&lt;p&gt;答案是：有的。&lt;/p&gt;
+&lt;p&gt;这里主要是介绍</summary>
+        
+      
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="Windows" scheme="http://yunminitools.cn/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>查看和清理Linux日志文件</title>
@@ -579,35 +607,6 @@ Similarly, most Engineering organizations spend little time developing their ext
     
     
     <category term="公司文化" scheme="http://yunminitools.cn/tags/%E5%85%AC%E5%8F%B8%E6%96%87%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker迁移默认的/var/lib/docker 目录（避坑指南）</title>
-    <link href="http://yunminitools.cn/2023/09/06/move-docker-data-folder/"/>
-    <id>http://yunminitools.cn/2023/09/06/move-docker-data-folder/</id>
-    <published>2023-09-06T08:17:12.000Z</published>
-    <updated>2024-02-22T07:23:40.296Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;最近在做docker 数据文件的迁移，按指引创建，遇到了一些问题，把步骤和解决方案记录一下。&lt;/p&gt;
-&lt;h2 id=&quot;1-停止docker服务&quot;&gt;1. 停止docker服务&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;systemctl stop</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
