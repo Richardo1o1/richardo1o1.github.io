@@ -167,7 +167,7 @@ docker run ：创建并运行一个容器<br>
 <h2 id="12-在从数据库里面配置主从复制">12.在从数据库里面配置主从复制</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; change master to master_host=<span class="string">&#x27;192.168.50.188&#x27;</span>, master_user=<span class="string">&#x27;slave&#x27;</span>, master_password=<span class="string">&#x27;123456&#x27;</span>, master_port=3501, master_log_file=<span class="string">&#x27;mall-mysql-bin.000001&#x27;</span>, master_log_pos=156, master_connect_retry=30;</span><br></pre></td></tr></table></figure>
 <p>主从复制命令参数说明：<br>
-master_host: 主<a target="_blank" rel="noopener" href="https://cloud.tencent.com/solution/database?from_column=20065&amp;from=20065">数据库</a>的IP地址；</p>
+master_host: 主数据库的IP地址；</p>
 <p>master_port：主数据库的运行端口；</p>
 <p>master_user：在主数据库创建的用于同步数据的用户账号；</p>
 <p>master_password：在主数据库创建的用于同步数据的用户密码；</p>

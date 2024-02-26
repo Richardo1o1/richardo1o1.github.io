@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">784</span>
+            <span class="post-count">763</span>
         </span>
     </span>
 
@@ -145,21 +145,21 @@ var _hmt = _hmt || [];
 <li>子区间第二个变量为curr，定义为当前pre的下一个节点，这个变量是这次翻转的当前变量</li>
 <li>子区间第三个变量为next，定义为当前curr的下一个节点</li>
 </ul>
-<p>!<a target="_blank" rel="noopener" href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_1.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_1.png</a></p>
+<p><img src="https://cdn.yunminitools.cn/blog/0226_bm2_demo_1.png" alt=" "></p>
 <h3 id="进行翻转">进行翻转</h3>
 <ul>
 <li>将pre_fix 的下一个节点指向curr （区间外的最后一个节点指向子区间当前尾节点）</li>
 <li>将sub_head 的下一个节点指向next （区间内的第一个节点指向区间外的第一个节点）</li>
 <li>将curr 的下一个节点指向pre （节点翻转）</li>
 </ul>
-<p>!<a target="_blank" rel="noopener" href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_2.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_2.png</a></p>
+<p><img src="https://cdn.yunminitools.cn/blog/0226_bm2_demo_2.png" alt=" "></p>
 <h3 id="移动指针">移动指针</h3>
 <ul>
 <li>将pre 赋值为当前的curr指向的节点</li>
 <li>将curr 赋值为当前的next指向的节点</li>
 <li>next赋值为当前的curr指向的下一个节点（循环开始做）</li>
 </ul>
-<p>!<a target="_blank" rel="noopener" href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_3.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_3.png</a></p>
+<p><img src="https://cdn.yunminitools.cn/blog/0226_bm2_demo_3.png" alt=" "></p>
 <h2 id="循环">循环</h2>
 <p>以上1-3步骤，根据区间长度，可以多次循环，最终得到结果。</p>
 <h2 id="代码">代码</h2>
