@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Window上用包管理应用安装软件 — Chocolatey |  New structure for utility</title>
+      <title>算法练习：BM2 链表内指定区间反转 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-windows-package-management-chocolatey"
+  id="post-nowcoder-algorithm-test-bm2"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Window上用包管理应用安装软件 — Chocolatey
+  算法练习：BM2 链表内指定区间反转
 </h1>
  
 
@@ -88,11 +88,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2024/02/26/windows-package-management-chocolatey/" class="article-date">
-  <time datetime="2024-02-26T13:32:55.000Z" itemprop="datePublished">2024-02-26</time>
+      <a href="/2024/02/26/nowcoder-algorithm-test-bm2/" class="article-date">
+  <time datetime="2024-02-26T14:09:45.000Z" itemprop="datePublished">2024-02-26</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
   </div>
   
 <div class="word_count">
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">516</span>
+            <span class="post-count">784</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -124,49 +124,49 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="前言">前言</h2>
-<p>在经历了多次重装系统、重新安装各种常用软件后，我突然萌生了一个想法，难道 Window 就没有一个像 Linux 一样可以使用一行命令安装软件的包管理器吗？</p>
-<p>答案是：有的。</p>
-<p>这里主要是介绍 Chocolatey，对其他包管理器感兴趣的可以自行查看。</p>
-<h2 id="安装使用">安装使用</h2>
-<p>安装 Chocolatey 前，你需要对检查一下自身系统是否达到所需的要求。</p>
+  <h2 id="问题描述">问题描述</h2>
+<p>将一个节点数为 size 链表 m 位置到 n 位置之间的区间反转，要求时间复杂度<em>O</em>(<em>n</em>)，空间复杂度<em>O</em>(1)。例如：给出的链表为 1→2→3→4→5→<em>NULL</em>, m=2,<em>n</em>=4,返回 1→4→3→2→5→<em>NULL</em>.</p>
+<p>数据范围： 链表长度 0&lt;<em>size</em>≤10000，0&lt;<em>m</em>≤<em>n</em>≤<em>size</em>，链表中每个节点的值满足 <em>val</em>∣≤10000</p>
+<p>要求：时间复杂度 <em>O</em>(<em>n</em>) ，空间复杂度 <em>O</em>(<em>n</em>)</p>
+<p>进阶：时间复杂度<em>O</em>(<em>n</em>)，空间复杂度<em>O</em>(1)</p>
+<h2 id="示例1">示例1</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line"></span><br><span class="line">&#123;1,2,3,4,5&#125;,2,4</span><br><span class="line"></span><br><span class="line">返回值：</span><br><span class="line"></span><br><span class="line">&#123;1,4,3,2,5&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="示例2">示例2</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line"></span><br><span class="line">&#123;5&#125;,1,1</span><br><span class="line"></span><br><span class="line">返回值：</span><br><span class="line"></span><br><span class="line">&#123;5&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="解题思路">解题思路</h2>
+<p>如果要空间复杂度小，就不能copy链表，只能做指针转换，用循环将指针颠倒，具体方法如图示：</p>
+<h3 id="设定指针变量">设定指针变量</h3>
+<p>（<em>为了方便图示，假设区间长度大于1，如果区间等于1，直接返回，不需要变换</em>）</p>
 <ul>
-<li>Windows 7+ / Windows Server 2003+</li>
-<li>PowerShell v2+</li>
-<li>.NET Framework 4+</li>
+<li>先找到子区间的第一个节点，定义为sub_head</li>
+<li>它的前一个节点定义为 pre_fix</li>
+<li>子区间的第一个节点变量为pre（与sub_head不同，这个变量会移动）</li>
+<li>子区间第二个变量为curr，定义为当前pre的下一个节点，这个变量是这次翻转的当前变量</li>
+<li>子区间第三个变量为next，定义为当前curr的下一个节点</li>
 </ul>
-<p>如果已经满足要求，就可以打开命令行 copy 下面的命令执行。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@powershell <span class="literal">-NoProfile</span> <span class="literal">-ExecutionPolicy</span> unrestricted <span class="literal">-Command</span> <span class="string">&quot;(iex ((new-object net.webclient).DownloadString(&#x27;https://chocolatey.org/install.ps1&#x27;))) &gt;<span class="variable">$null</span> 2&gt;&amp;1&quot;</span> &amp;&amp; <span class="built_in">SET</span> PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>如果没报红字错误，应该是安装成功了。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">choco <span class="literal">-v</span></span><br><span class="line"><span class="comment"># 0.10.11</span></span><br></pre></td></tr></table></figure>
-<p>接下来你可以打开下方的链接，查看一下可以安装的软件列表。</p>
-<p><a href="https://link.juejin.cn/?target=https%3A%2F%2Fchocolatey.org%2Fpackages">chocolatey.org/packages</a></p>
-<p>比如，安装 Git</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install git</span><br></pre></td></tr></table></figure>
-<p>安装 Node</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">choco install nodejs.install</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>也可以加上<code>-y</code>，安装时就不需要等待确认了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">choco install firefox -y</span><br></pre></td></tr></table></figure>
-<h3 id="基本用法">基本用法</h3>
-<ol>
-<li>安装 <code>choco install baretail</code></li>
-<li>升级 <code>choco upgrade baretail</code></li>
-<li>卸载 <code>choco uninstall baretail</code></li>
-<li>搜索 <code>choco search something</code></li>
-<li>列出已安装 <code>choco list -lo</code></li>
-</ol>
-<p>关于更多用法可点击以下链接查看：</p>
-<p><a href="https://link.juejin.cn/?target=https%3A%2F%2Fchocolatey.org%2Fdocs">chocolatey.org/docs</a></p>
-<h2 id="修改默认安装目录">修改默认安装目录</h2>
-<p>但是，Chocolatey 安装的软件默认存放在 C 盘，对于我这种不太喜欢把软件装到 C 盘的人来说是不能忍的。</p>
-<p>虽然 Chocolatey 自己提供了一个修改默认安装目录的命令，但是需要注册（收费），对于资金充裕的同学我还是建议使用这种方法。</p>
-<p>这里我提供另外一个思路，既然他存到默认安装目录，那我们把这个默认安装目录改一下就好了。</p>
-<p>比如我要默认存放到<code>E</code>盘，打开注册表，把 <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion</code> 下的：</p>
-<ol>
-<li><code>ProgramFilesDir</code>的值改为：<code>E:\Program Files</code></li>
-<li><code>ProgramFilesDir (x86)</code>的值改为：<code>E:\Program Files (x86)</code></li>
-</ol>
-<p>参考链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903782854164487">https://juejin.cn/post/6844903782854164487</a></p>
+<p>!<a target="_blank" rel="noopener" href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_1.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_1.png</a></p>
+<h3 id="进行翻转">进行翻转</h3>
+<ul>
+<li>将pre_fix 的下一个节点指向curr （区间外的最后一个节点指向子区间当前尾节点）</li>
+<li>将sub_head 的下一个节点指向next （区间内的第一个节点指向区间外的第一个节点）</li>
+<li>将curr 的下一个节点指向pre （节点翻转）</li>
+</ul>
+<p>!<a target="_blank" rel="noopener" href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_2.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_2.png</a></p>
+<h3 id="移动指针">移动指针</h3>
+<ul>
+<li>将pre 赋值为当前的curr指向的节点</li>
+<li>将curr 赋值为当前的next指向的节点</li>
+<li>next赋值为当前的curr指向的下一个节点（循环开始做）</li>
+</ul>
+<p>!<a target="_blank" rel="noopener" href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_3.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_3.png</a></p>
+<h2 id="循环">循环</h2>
+<p>以上1-3步骤，根据区间长度，可以多次循环，最终得到结果。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x</span>):</span><br><span class="line">        self.val = x</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convertLisNode</span>(<span class="params">mylist</span>) -&gt; ListNode:</span><br><span class="line">  head_node = <span class="literal">None</span></span><br><span class="line">  prev_node = <span class="literal">None</span></span><br><span class="line">  <span class="keyword">for</span> item <span class="keyword">in</span> mylist:</span><br><span class="line">    new_node = ListNode(item)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> head_node == <span class="literal">None</span>:</span><br><span class="line">      head_node = new_node</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      prev_node.<span class="built_in">next</span> = new_node</span><br><span class="line"></span><br><span class="line">    prev_node = new_node</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> head_node</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_list</span>(<span class="params">head, m, n</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> m == n:</span><br><span class="line">        <span class="keyword">return</span> head</span><br><span class="line"></span><br><span class="line">    dummy = ListNode(-<span class="number">1</span>)</span><br><span class="line">    dummy.<span class="built_in">next</span> = head</span><br><span class="line">    pre_fix_Node = dummy</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Move pre pointer to the m-th node</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m - <span class="number">1</span>):</span><br><span class="line">        pre_fix_Node = pre_fix_Node.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;pre_fix_Node:&quot;</span> , pre_fix_Node.val)</span><br><span class="line">    <span class="comment"># Reverse the list between m-th and n-th nodes</span></span><br><span class="line"></span><br><span class="line">    pre = pre_fix_Node.<span class="built_in">next</span></span><br><span class="line">    sub_head = pre</span><br><span class="line">    curr = pre.<span class="built_in">next</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n - m):</span><br><span class="line">      <span class="built_in">next</span> = curr.<span class="built_in">next</span></span><br><span class="line">      <span class="comment">#---------------------------</span></span><br><span class="line">      pre_fix_Node.<span class="built_in">next</span> = curr</span><br><span class="line">      sub_head.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">      <span class="comment">#---------------------------</span></span><br><span class="line">      curr.<span class="built_in">next</span> = pre</span><br><span class="line">      pre = curr</span><br><span class="line">      curr = <span class="built_in">next</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">initList = &#123;<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">13</span>&#125;</span><br><span class="line">m = <span class="number">2</span></span><br><span class="line">n = <span class="number">5</span></span><br><span class="line">newNode = convertLisNode(initList)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the new linked list</span></span><br><span class="line">curr = newNode</span><br><span class="line"><span class="keyword">while</span> curr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">  <span class="built_in">print</span>(curr.val, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">  curr = curr.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">revNode = reverse_list(newNode,m,n)</span><br><span class="line"><span class="comment"># Print revNode linked list</span></span><br><span class="line">curr = revNode</span><br><span class="line"><span class="keyword">while</span> curr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">  <span class="built_in">print</span>(curr.val, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">  curr = curr.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<h2 id="小技巧">小技巧</h2>
+<p>指针编程变量的指向非常搞，很容易出错，下面的网站可以可视化的看到变量的分配和实际运行效果，推荐尝试：</p>
+<p><a target="_blank" rel="noopener" href="https://pythontutor.com/python-compiler.html#mode=edit">Online Python compiler, visual debugger, and AI tutor</a></p>
  
       <!-- reward -->
       
@@ -219,12 +219,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/02/26/windows-package-management-chocolatey/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/02/26/nowcoder-algorithm-test-bm2/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
 
     </footer>
   </div>
@@ -232,19 +232,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2024/02/26/nowcoder-algorithm-test-bm2/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            算法练习：BM2 链表内指定区间反转
-          
-        </div>
-      </a>
     
-    
-      <a href="/2024/02/21/linux-commands-collection-1/" class="article-nav-link">
+      <a href="/2024/02/26/windows-package-management-chocolatey/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">查看和清理Linux日志文件</div>
+        <div class="article-nav-title">Window上用包管理应用安装软件 — Chocolatey</div>
       </a>
     
   </nav>

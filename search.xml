@@ -7231,4 +7231,60 @@ master_host: 主<a href="https://cloud.tencent.com/solution/database?from_column
         <tag>Windows</tag>
       </tags>
   </entry>
+  <entry>
+    <title>算法练习：BM2 链表内指定区间反转</title>
+    <url>/2024/02/26/nowcoder-algorithm-test-bm2/</url>
+    <content><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>将一个节点数为 size 链表 m 位置到 n 位置之间的区间反转，要求时间复杂度<em>O</em>(<em>n</em>)，空间复杂度<em>O</em>(1)。例如：给出的链表为 1→2→3→4→5→<em>NULL</em>, m=2,<em>n</em>=4,返回 1→4→3→2→5→<em>NULL</em>.</p>
+<p>数据范围： 链表长度 0&lt;<em>size</em>≤10000，0&lt;<em>m</em>≤<em>n</em>≤<em>size</em>，链表中每个节点的值满足 <em>val</em>∣≤10000</p>
+<p>要求：时间复杂度 <em>O</em>(<em>n</em>) ，空间复杂度 <em>O</em>(<em>n</em>)</p>
+<p>进阶：时间复杂度<em>O</em>(<em>n</em>)，空间复杂度<em>O</em>(1)</p>
+<h2 id="示例1">示例1</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：</span><br><span class="line"></span><br><span class="line">&#123;1,2,3,4,5&#125;,2,4</span><br><span class="line"></span><br><span class="line">返回值：</span><br><span class="line"></span><br><span class="line">&#123;1,4,3,2,5&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="示例2">示例2</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：</span><br><span class="line"></span><br><span class="line">&#123;5&#125;,1,1</span><br><span class="line"></span><br><span class="line">返回值：</span><br><span class="line"></span><br><span class="line">&#123;5&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="解题思路">解题思路</h2>
+<p>如果要空间复杂度小，就不能copy链表，只能做指针转换，用循环将指针颠倒，具体方法如图示：</p>
+<h3 id="设定指针变量">设定指针变量</h3>
+<p>（<em>为了方便图示，假设区间长度大于1，如果区间等于1，直接返回，不需要变换</em>）</p>
+<ul>
+<li>先找到子区间的第一个节点，定义为sub_head</li>
+<li>它的前一个节点定义为 pre_fix</li>
+<li>子区间的第一个节点变量为pre（与sub_head不同，这个变量会移动）</li>
+<li>子区间第二个变量为curr，定义为当前pre的下一个节点，这个变量是这次翻转的当前变量</li>
+<li>子区间第三个变量为next，定义为当前curr的下一个节点</li>
+</ul>
+<p>!<a href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_1.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_1.png</a></p>
+<h3 id="进行翻转">进行翻转</h3>
+<ul>
+<li>将pre_fix 的下一个节点指向curr （区间外的最后一个节点指向子区间当前尾节点）</li>
+<li>将sub_head 的下一个节点指向next （区间内的第一个节点指向区间外的第一个节点）</li>
+<li>将curr 的下一个节点指向pre （节点翻转）</li>
+</ul>
+<p>!<a href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_2.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_2.png</a></p>
+<h3 id="移动指针">移动指针</h3>
+<ul>
+<li>将pre 赋值为当前的curr指向的节点</li>
+<li>将curr 赋值为当前的next指向的节点</li>
+<li>next赋值为当前的curr指向的下一个节点（循环开始做）</li>
+</ul>
+<p>!<a href="https://cdn.yunminitools.cn/blog/0226_bm2_demo_3.png">https://cdn.yunminitools.cn/blog/0226_bm2_demo_3.png</a></p>
+<h2 id="循环">循环</h2>
+<p>以上1-3步骤，根据区间长度，可以多次循环，最终得到结果。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x</span>):</span><br><span class="line">        self.val = x</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convertLisNode</span>(<span class="params">mylist</span>) -&gt; ListNode:</span><br><span class="line">  head_node = <span class="literal">None</span></span><br><span class="line">  prev_node = <span class="literal">None</span></span><br><span class="line">  <span class="keyword">for</span> item <span class="keyword">in</span> mylist:</span><br><span class="line">    new_node = ListNode(item)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> head_node == <span class="literal">None</span>:</span><br><span class="line">      head_node = new_node</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      prev_node.<span class="built_in">next</span> = new_node</span><br><span class="line"></span><br><span class="line">    prev_node = new_node</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> head_node</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_list</span>(<span class="params">head, m, n</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> m == n:</span><br><span class="line">        <span class="keyword">return</span> head</span><br><span class="line"></span><br><span class="line">    dummy = ListNode(-<span class="number">1</span>)</span><br><span class="line">    dummy.<span class="built_in">next</span> = head</span><br><span class="line">    pre_fix_Node = dummy</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Move pre pointer to the m-th node</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m - <span class="number">1</span>):</span><br><span class="line">        pre_fix_Node = pre_fix_Node.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;pre_fix_Node:&quot;</span> , pre_fix_Node.val)</span><br><span class="line">    <span class="comment"># Reverse the list between m-th and n-th nodes</span></span><br><span class="line"></span><br><span class="line">    pre = pre_fix_Node.<span class="built_in">next</span></span><br><span class="line">    sub_head = pre</span><br><span class="line">    curr = pre.<span class="built_in">next</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n - m):</span><br><span class="line">      <span class="built_in">next</span> = curr.<span class="built_in">next</span></span><br><span class="line">      <span class="comment">#---------------------------</span></span><br><span class="line">      pre_fix_Node.<span class="built_in">next</span> = curr</span><br><span class="line">      sub_head.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">      <span class="comment">#---------------------------</span></span><br><span class="line">      curr.<span class="built_in">next</span> = pre</span><br><span class="line">      pre = curr</span><br><span class="line">      curr = <span class="built_in">next</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">initList = &#123;<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">13</span>&#125;</span><br><span class="line">m = <span class="number">2</span></span><br><span class="line">n = <span class="number">5</span></span><br><span class="line">newNode = convertLisNode(initList)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the new linked list</span></span><br><span class="line">curr = newNode</span><br><span class="line"><span class="keyword">while</span> curr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">  <span class="built_in">print</span>(curr.val, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">  curr = curr.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">revNode = reverse_list(newNode,m,n)</span><br><span class="line"><span class="comment"># Print revNode linked list</span></span><br><span class="line">curr = revNode</span><br><span class="line"><span class="keyword">while</span> curr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">  <span class="built_in">print</span>(curr.val, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">  curr = curr.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<h2 id="小技巧">小技巧</h2>
+<p>指针编程变量的指向非常搞，很容易出错，下面的网站可以可视化的看到变量的分配和实际运行效果，推荐尝试：</p>
+<p><a href="https://pythontutor.com/python-compiler.html#mode=edit">Online Python compiler, visual debugger, and AI tutor</a></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+        <tag>Python</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
