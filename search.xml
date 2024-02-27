@@ -7211,8 +7211,8 @@ master_host: 主数据库的IP地址；</p>
 <li>搜索 <code>choco search something</code></li>
 <li>列出已安装 <code>choco list -lo</code></li>
 </ol>
-<p>关于更多用法可点击以下链接查看：</p>
-<p><a href="https://link.juejin.cn/?target=https%3A%2F%2Fchocolatey.org%2Fdocs">chocolatey.org/docs</a></p>
+<p>关于更多用法可点击以下链接查看：<br>
+<a href="https://docs.chocolatey.org/en-us/">chocolatey.org/docs</a></p>
 <h2 id="修改默认安装目录">修改默认安装目录</h2>
 <p>但是，Chocolatey 安装的软件默认存放在 C 盘，对于我这种不太喜欢把软件装到 C 盘的人来说是不能忍的。</p>
 <p>虽然 Chocolatey 自己提供了一个修改默认安装目录的命令，但是需要注册（收费），对于资金充裕的同学我还是建议使用这种方法。</p>
@@ -7285,6 +7285,42 @@ master_host: 主数据库的IP地址；</p>
         <tag>编程技巧</tag>
         <tag>Python</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python的列表，字典，元组，集合的区别和各自使用方法</title>
+    <url>/2024/02/27/difference-of-list-tuple-set-dict/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>我在学习Python的时候，经常把 几个数据类型搞混，下面就对 list，tuple，set，dict总结区别：<br>
+<img src="https://cdn.yunminitools.cn/blog/0227_diff.png" alt=" "></p>
+<h2 id="1-列表list">1.列表list []</h2>
+<p>列表是处理一组有序的数据结构，可以读写，添加和删除，或者搜索列表里的元素。因为可以添加和删除，所以称为可变的数据类型，即这种类型是可以被改变的，并且列表可以嵌套。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">res = [<span class="number">1</span>,<span class="number">2</span>,<span class="string">&#x27;yihang&#x27;</span>]</span><br><span class="line"><span class="comment">#增加元素：extend和append</span></span><br><span class="line">res.append(<span class="number">1</span>)</span><br><span class="line">res.extend(<span class="string">&#x27;6&#x27;</span>)</span><br><span class="line"><span class="comment">#删除元素：del，pop，切片，remove</span></span><br><span class="line"><span class="keyword">del</span> res[<span class="number">1</span>]</span><br><span class="line">res.pop(<span class="number">1</span>)<span class="comment">#删除该位置上的元素，没有指定则是最后一个元素</span></span><br><span class="line">res = res[:<span class="number">2</span>]+res[<span class="number">3</span>:]<span class="comment">#切片</span></span><br><span class="line">res.remove(<span class="number">2</span>)<span class="comment">#删除指定值的元素</span></span><br><span class="line"><span class="comment">#更改元素</span></span><br><span class="line">res[<span class="number">1</span>] = <span class="number">100</span> <span class="comment">#</span></span><br><span class="line"><span class="comment">#查元素</span></span><br><span class="line"><span class="built_in">print</span>(res[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(res[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>注意：如果想添加的一个元素是一个列表，那么append是将这个这个列表作为一个元素添加进来，而extend是将列中的元素一个一个添加进去</p>
+<span id="more"></span>
+<h2 id="2-元组tuple（）">2.元组tuple（）</h2>
+<p>元组跟列表非常相似，用（）来表示，但是元组是不可变的，不能修改元组。元组可以嵌套。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>zoo=(<span class="string">&#x27;wolf&#x27;</span>,<span class="string">&#x27;elephant&#x27;</span>,<span class="string">&#x27;penguin&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zoo.count(<span class="string">&#x27;penguin&#x27;</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zoo.index(<span class="string">&#x27;penguin&#x27;</span>)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zoo.append(<span class="string">&#x27;pig&#x27;</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">AttributeError: <span class="string">&#x27;tuple&#x27;</span> <span class="built_in">object</span> has no attribute <span class="string">&#x27;append&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> zoo[<span class="number">0</span>]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">TypeError: <span class="string">&#x27;tuple&#x27;</span> <span class="built_in">object</span> doesn<span class="string">&#x27;t support item deletion</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-字典dict">3.字典dict</h2>
+<p>字典是通过键值对的方式就数据存储下来，键必须是唯一的</p>
+<p>键值对在字典中以这样的方式标记：d = {key1 : value1, key2 : value2 }。注意它们的键/值对用冒号分割，而各个对用逗号分割，所有这些都包括在花括号中。另外，记住字典中的键/值对是没有顺序的。如果你想要一个特定的顺 序，那么你应该在使用前自己对它们排序</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict1=&#123;<span class="string">&#x27;zhang&#x27;</span>:<span class="string">&#x27;张家辉&#x27;</span>,<span class="string">&#x27;wang&#x27;</span>:<span class="string">&#x27;王宝强&#x27;</span>,<span class="string">&#x27;li&#x27;</span>:<span class="string">&#x27;李冰冰&#x27;</span>,<span class="string">&#x27;zhao&#x27;</span>:<span class="string">&#x27;赵薇&#x27;</span>&#125;</span><br><span class="line"><span class="comment">#字典的操作，添加，删除，打印</span></span><br><span class="line">dict1[<span class="string">&#x27;huang&#x27;</span>]=<span class="string">&#x27;黄家驹&#x27;</span></span><br><span class="line"><span class="keyword">del</span> dict1[<span class="string">&#x27;zhao&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> firstname,name <span class="keyword">in</span> dict1.items():</span><br><span class="line">    <span class="built_in">print</span> firstname,name</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line"></span><br><span class="line">li 李冰冰</span><br><span class="line">wang 王宝强</span><br><span class="line">huang 黄家驹</span><br><span class="line">zhang 张家辉</span><br></pre></td></tr></table></figure>
+<p>定义 dict.fromkeys(range(30）,value) 可以形成一个双列的列表相当于java中的map，这个键值对列表存储子dict中</p>
+<p>取键可以通过循环 for eachkey in dict.keys(): 把所有的键赋值到eachkey中去</p>
+<p>取值可以通过循环 for eachkey in dict.values(): 把所有的值赋值到eachkey中去</p>
+<p>取键值对站线程元组的形式 for eachItem in dict.item(): 把所有的键值对转化成元组的方式赋值给eachItem中</p>
+<h2 id="4-集合-set">4.集合(set)</h2>
+<p>特性：与字典类似，但只包含键，而没有对应的值，包含的数据不重复。</p>
+<p>创建：s = set(list or tuple or string)。重复的值在集合中只存在一个。如：</p>
+<p>列表list：s = set([1,2,3,3]) -&gt;s = set([1,2,3])</p>
+<p>元组tuple：s = set((1,2,3)) -&gt;s = set([1,2,3])</p>
+<p>字符串string：s = set(“abc”) -&gt;s = set([“a”,“b”,“c”])</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>
