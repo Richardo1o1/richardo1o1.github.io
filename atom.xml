@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-02-27T15:10:44.632Z</updated>
+  <updated>2024-03-07T13:14:24.897Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Docker环境下部署 Elasticsearch 数据库(从零到一搭建ELK日志)</title>
+    <link href="http://yunminitools.cn/2024/03/07/install-elk-elasticseach-docker/"/>
+    <id>http://yunminitools.cn/2024/03/07/install-elk-elasticseach-docker/</id>
+    <published>2024-03-07T13:13:20.000Z</published>
+    <updated>2024-03-07T13:14:24.897Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;最近在玩 ELK 日志平台，它是 Elastic</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+    <category term="ELK" scheme="http://yunminitools.cn/tags/ELK/"/>
+    
+  </entry>
   
   <entry>
     <title>Python的列表，字典，元组，集合的区别和各自使用方法</title>
@@ -77,7 +105,7 @@
     <link href="http://yunminitools.cn/2024/02/26/windows-package-management-chocolatey/"/>
     <id>http://yunminitools.cn/2024/02/26/windows-package-management-chocolatey/</id>
     <published>2024-02-26T13:32:55.000Z</published>
-    <updated>2024-02-27T15:01:03.616Z</updated>
+    <updated>2024-03-07T13:09:06.401Z</updated>
     
     
       
@@ -581,33 +609,6 @@ Syntax error in graph mermaid version 8.14.0&lt;br&gt;
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
     <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Taylor Swift 纽约大学演讲（节选）</title>
-    <link href="http://yunminitools.cn/2023/09/17/Taylor-Swift-NYC-Speech/"/>
-    <id>http://yunminitools.cn/2023/09/17/Taylor-Swift-NYC-Speech/</id>
-    <published>2023-09-17T10:40:04.000Z</published>
-    <updated>2023-09-17T10:40:59.209Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;Taylor Swift（泰勒·斯威夫特），1989年12月13日出生于美国宾夕法尼亚州，美国女歌手、词曲作者、音乐制作人、演员、纽约大学荣誉博士。&lt;br&gt;
-2022年5月19日，泰勒于纽约大学2022届毕业典礼发表演讲并被授予 “艺术博士” 荣誉学位。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;荣誉博士学位（Honorary Doctoral Degree），也叫名誉博士学位，是世界多数国家通行授予的一种名誉性学术称号。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;演讲稿&quot;&gt;演讲稿&lt;/h2&gt;
-&lt;p&gt;You went to NYU during a global pandemic, being essentially locked into your dorms and having to do classes over Zoom. Everyone in college during normal times stresses of about test scores. But on top of that, you also had to pass like a thousand COVID tests. I imagine the idea of a normal college experience was all you wanted to. But in this case, you and I both learned that you don’t always get all the things in the bag that you selected from the menu in the delivery surface. That is life. You get what you get.&lt;br&gt;
-你们在全球大流行期间去了纽约大学，基本上被困在宿舍里，不得不通过Zoom上课。在正常时期上大学的人都会担心考试成绩，但除此之外，你们还必须通过数以千次的核酸检测。我可以想象，你们也渴望能够拥有正常的大学经历。但在这种情况下，你和我都学到了，很多时候你难以获得你所选择的。这就是生活。你得到的仅仅是你所能够得到的。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

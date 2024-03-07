@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2024 |  New structure for utility</title>
+      <title>在Docker环境下部署 Elasticsearch 数据库(从零到一搭建ELK日志) |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,246 +68,197 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-install-elk-elasticseach-docker"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">2024</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  在Docker环境下部署 Elasticsearch 数据库(从零到一搭建ELK日志)
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/07/install-elk-elasticseach-docker/" class="article-date">
+  <time datetime="2024-03-07T13:13:20.000Z" itemprop="datePublished">2024-03-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2024" class="archive-year">2024</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">830</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/03/07/install-elk-elasticseach-docker/" class="archive-article-date">
-  <time datetime="2024-03-07T13:13:20.000Z" itemprop="datePublished">03/07</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/03/07/install-elk-elasticseach-docker/"
-    >在Docker环境下部署 Elasticsearch 数据库(从零到一搭建ELK日志)</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/27/difference-of-list-tuple-set-dict/" class="archive-article-date">
-  <time datetime="2024-02-27T15:10:04.000Z" itemprop="datePublished">02/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/27/difference-of-list-tuple-set-dict/"
-    >Python的列表，字典，元组，集合的区别和各自使用方法</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/26/nowcoder-algorithm-test-bm2/" class="archive-article-date">
-  <time datetime="2024-02-26T14:09:45.000Z" itemprop="datePublished">02/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/26/nowcoder-algorithm-test-bm2/"
-    >算法练习：BM2 链表内指定区间反转</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/26/windows-package-management-chocolatey/" class="archive-article-date">
-  <time datetime="2024-02-26T13:32:55.000Z" itemprop="datePublished">02/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/26/windows-package-management-chocolatey/"
-    >Window上用包管理应用安装软件 — Chocolatey</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/21/linux-commands-collection-1/" class="archive-article-date">
-  <time datetime="2024-02-21T14:15:10.000Z" itemprop="datePublished">02/21</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/21/linux-commands-collection-1/"
-    >查看和清理Linux日志文件</a> 
-</h2>
+  <h2 id="背景">背景</h2>
+<p>最近在玩 ELK 日志平台，它是 Elastic 公司推出的一整套日志收集、分析和展示的解决方案。只有学习了，操作了才能算真正的学会使用了，虽然看起来简单，但是里面的流程步骤还是很多的，将步骤和遇到的问题记录和总结下，今天主要分享下在Docker环境下部署 Elasticsearch 数据库。</p>
+<h2 id="什么是Elasticsearch？">什么是Elasticsearch？</h2>
+<p>ElasticStack简称为ES， 是一个分布式、高扩展、高实时的搜索与数据分析引擎，是整个ELK架构的核心。</p>
+<p>它能很方便的使大量数据具有搜索、分析和探索的能力。充分利用Elasticsearch的水平伸缩性，能使数据在生产环境变得更有价值。</p>
+<p>Elasticsearch 的实现原理主要分为以下几个步骤，首先用户将数据提交到Elasticsearch 数据库中，再通过分词控制器去将对应的语句分词，将其权重和分词结果一并存入数据，当用户搜索数据时候，再根据权重将结果排名，打分，再将返回结果呈现给用户。</p>
+<h2 id="主要优点">主要优点</h2>
+<ul>
+<li><strong>处理方式灵活：</strong> elasticsearch是实时全文索引，具有强大的搜索功能；</li>
+<li><strong>配置相对简单：</strong> elasticsearch全部使用JSON接口，logstash使用模块配置，kibana的配置文件部分更简单；</li>
+<li><strong>检索性能高效：</strong> 基于优秀的设计，虽然每次查询都是实时，但是也可以达到百亿级数据的查询秒级响应；</li>
+<li><strong>集群线性扩展：</strong> elasticsearch和logstash都可以灵活线性扩展。</li>
+</ul>
+<h2 id="常用场景">常用场景</h2>
+<ul>
+<li>全文搜索</li>
+</ul>
+<p>Elasticsearch提供了全文搜索的功能，适用于电商商品搜索、App搜索、企业内部信息搜索、IT系统搜索等。</p>
+<ul>
+<li>日志分析</li>
+</ul>
+<p>Elasticsearch能够借助Beats、Logstash等快速对接各种常见的数据源，并通过集成的Kibana高效地完成日志的可视化分析，让日志产生价值。</p>
+<ul>
+<li>运维监控</li>
+</ul>
+<p>使用Elasticsearch结合Beats、Logstash或ElasticFlow将所有日志实时集中并构建索引，然后通过集成的Kibana灵活地运用数据构建可视化运维看板</p>
+<ul>
+<li>安全分析</li>
+</ul>
+<p>通过日志解决公司内部繁杂的安全审计工作，可通过Elasticsearch分析、检索海量历史日志，高效地完成安全审计工作</p>
+<h2 id="部署ES数据库">部署ES数据库</h2>
+<h3 id="1-获取es镜像">1.获取es镜像</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudodocker pull elasticsearch:7.7.1</span><br></pre></td></tr></table></figure>
+<h3 id="2-创造挂载目录">2. 创造挂载目录</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/config</span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/data</span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/logs</span><br></pre></td></tr></table></figure>
+<h3 id="3-赋予权限">3.赋予权限</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> -R 1000:1000 /data/elk/es</span><br></pre></td></tr></table></figure>
+<h3 id="4-进入config创建配置文件">4.进入config创建配置文件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/elk/es/config</span><br><span class="line">sudo vim elasticsearch.yml</span><br></pre></td></tr></table></figure>
+<p>编辑 elasticsearch.yml 文件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cluster.name:</span> <span class="string">&quot;my-es&quot;</span></span><br><span class="line"><span class="attr">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">http.port:</span> <span class="number">92</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-启动服务">5.启动服务</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -it  -d -p 9200:9200 -p 9300:9300 --name es -e ES_JAVA_OPTS=<span class="string">&quot;-Xms84m -Xmx512m&quot;</span> -e <span class="string">&quot;discovery.type=single-node&quot;</span> --restart=always -v /data/elk/es/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /data/elk/es/data:/usr/share/elasticsearch/data -v /data/elk/es/logs:/usr/share/elasticsearch/logs elasticsearch:7.7.1</span><br></pre></td></tr></table></figure>
+<p>这里我们需要特别注意的是，做好容器内的文件与第二步创建的挂载目录进行文件夹的映射。</p>
+<h2 id="6-验证服务">6.验证服务</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 127.0.0.1:9200</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.yunminitools.cn/blog/0229_curl_result.png" alt=" "></p>
+<p>看到这个，就表示我们已经安装成功了!</p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/21/master-slave-replication-docker-install/" class="archive-article-date">
-  <time datetime="2024-02-21T14:12:19.000Z" itemprop="datePublished">02/21</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/21/master-slave-replication-docker-install/"
-    >docker安装MySQL主从复制</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/20/windows-domain-commands-collection-1/" class="archive-article-date">
-  <time datetime="2024-02-20T14:03:02.000Z" itemprop="datePublished">02/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/20/windows-domain-commands-collection-1/"
-    >Windows命令-域内信息收集</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/18/mac-brew-install-tmux-error/" class="archive-article-date">
-  <time datetime="2024-02-18T14:14:03.000Z" itemprop="datePublished">02/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/18/mac-brew-install-tmux-error/"
-    >Mac brew安装tmux报错“no bottle available!“</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/18/docker-debug-test-1/" class="archive-article-date">
-  <time datetime="2024-02-18T14:11:46.000Z" itemprop="datePublished">02/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/18/docker-debug-test-1/"
-    >一次Docker应用排查过程</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/02/16/Django-Logging-4/" class="archive-article-date">
-  <time datetime="2024-02-16T12:19:13.000Z" itemprop="datePublished">02/16</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/02/16/Django-Logging-4/"
-    >Django 的日志机制-4</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2024/page/2/">2</a><a class="extend next" rel="next" href="/archives/2024/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/03/07/install-elk-elasticseach-docker/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/" rel="tag">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/02/27/difference-of-list-tuple-set-dict/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Python的列表，字典，元组，集合的区别和各自使用方法</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -444,6 +395,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
