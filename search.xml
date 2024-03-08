@@ -7485,4 +7485,45 @@ master_host: 主数据库的IP地址；</p>
         <tag>ELK</tag>
       </tags>
   </entry>
+  <entry>
+    <title>安装 Python 虚拟环境（venv）</title>
+    <url>/2024/03/08/python-install-venv/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>Python有很多虚拟环境解决方案，今天介绍一个Python自带的解决方案。</p>
+<h2 id="venv-模块">venv 模块</h2>
+<p>Python3.3 之后，可以用模块 venv 代替 virtualenv 工具，好处是不用单独安装，3.3 及之后的版本，都可以通过安装好的 Python 来创建虚拟环境:</p>
+<p><code>python -m venv myvenv</code></p>
+<p>可以在当前目录创建一个名为 myvenv 的虚拟环境</p>
+<p>venv 有些参数，不过相比 virtualenv 少了些，这里简单介绍几个：</p>
+<ul>
+<li>-without-pip: 不需要安装 pip，默认为安装</li>
+<li>-clear：如果创建虚拟环境的目录已经有了其他虚拟环境，清楚重建</li>
+</ul>
+<p>因为 venv 是依附于一个 Python 解析器创建的，所以不需要指定 Python 解释器版本</p>
+<h2 id="激活">激活</h2>
+<p>虚拟环境创建好后，需要激活才能在当前命令行中使用，可以理解成将当前命令行环境中 PATH 变量的值替换掉</p>
+<p>通过 virtualenv 和 模块 venv 创建的虚拟环境，激活方式是一样的，即运行激活脚本</p>
+<ul>
+<li>Windows 系统中，激活脚本路径是 <code>&lt;myvenv&gt;\Scripts\activate.bat</code>，如果是 powershell 命令行，脚本换成 <code>Activate.ps1</code> , 注意将 <code>&lt;myvenv&gt;</code>换成你自己的虚拟环境目录</li>
+<li>Linux 系统中，激活脚本路径是 <code>&lt;myvenv&gt;/bin/activate</code>，默认脚本没有执行权限，要么设置脚本为可执行，要么用 <code>source</code> 命令执行，例如</li>
+</ul>
+<p>$ source myvenv/bin/activate</p>
+<p>激活后，可以在命令行中看到虚拟环境标记，如上图</p>
+<p>打印 PATH，命令如下：</p>
+<p>Linux 下：</p>
+<p><code>echo $PATH</code></p>
+<p>Windows 下</p>
+<p><code>echo %PATH%</code></p>
+<p>可以看到创建的虚拟环境脚本目录被加载了最前面</p>
+<h2 id="退出">退出</h2>
+<p>退出虚拟环境很简单，只需要执行 <code>deactivate</code> 命令就行，这个命令也在虚拟环境的脚本目录下，因为激活时，将脚本目录设置到 PATH 中了，所以可以直接使用</p>
+<p>退出虚拟环境相当于将 PATH 恢复成原来的。</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
 </search>

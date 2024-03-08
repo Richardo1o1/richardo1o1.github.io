@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-03-07T13:45:53.057Z</updated>
+  <updated>2024-03-08T11:45:26.589Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装 Python 虚拟环境（venv）</title>
+    <link href="http://yunminitools.cn/2024/03/08/python-install-venv/"/>
+    <id>http://yunminitools.cn/2024/03/08/python-install-venv/</id>
+    <published>2024-03-08T11:44:38.000Z</published>
+    <updated>2024-03-08T11:45:26.589Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;Python有很多虚拟环境解决方案，今天介绍一个Python自带的解决方案。&lt;/p&gt;
+&lt;h2 id=&quot;venv-模块&quot;&gt;venv 模块&lt;/h2&gt;
+&lt;p&gt;Python3.3 之后，可以用模块 venv 代替 virtualenv</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>ElasticSearch入门篇-操作1</title>
@@ -577,38 +605,6 @@ Syntax error in graph mermaid version 8.14.0&lt;br&gt;
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
     
     <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>50个常见的认知偏差</title>
-    <link href="http://yunminitools.cn/2023/12/01/50-Cognitive-Biases/"/>
-    <id>http://yunminitools.cn/2023/12/01/50-Cognitive-Biases/</id>
-    <published>2023-12-01T14:38:41.000Z</published>
-    <updated>2024-01-16T12:59:21.516Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;马斯克点赞的50个常见的认知偏差，快来学习一下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;权威偏见&lt;br&gt;
-典型表现：专家说可以这么做…&lt;/li&gt;
-&lt;li&gt;聚类错误&lt;br&gt;
-典型表现：你看那朵云好像你家的猫。&lt;/li&gt;
-&lt;li&gt;偏见盲点&lt;br&gt;
-典型表现：我没有偏见。&lt;/li&gt;
-&lt;li&gt;乐观偏见&lt;br&gt;
-典型表现：水还有一半，一切都好好起来的。&lt;/li&gt;
-&lt;li&gt;潜隐记忆&lt;br&gt;
-典型表现：Greg以为去过墓地是他的一个梦，其实他真的去过。&lt;br&gt;
-&lt;img src=&quot;https://cdn.yunminitools.cn/blog/50Cognitive-Biases-1.jpeg&quot; alt=&quot; &quot;&gt;&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
-    
-    
-    <category term="思维框架" scheme="http://yunminitools.cn/tags/%E6%80%9D%E7%BB%B4%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
