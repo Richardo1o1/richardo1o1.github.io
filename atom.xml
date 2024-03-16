@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-03-08T11:45:26.589Z</updated>
+  <updated>2024-03-16T12:02:44.989Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Docker环境下部署 Kibana 可视化工具 (从零到一搭建ELK日志)</title>
+    <link href="http://yunminitools.cn/2024/03/16/install-elk-kibana-docker/"/>
+    <id>http://yunminitools.cn/2024/03/16/install-elk-kibana-docker/</id>
+    <published>2024-03-16T12:00:53.000Z</published>
+    <updated>2024-03-16T12:02:44.989Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是-Kibana？&quot;&gt;什么是</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+    <category term="ELK" scheme="http://yunminitools.cn/tags/ELK/"/>
+    
+  </entry>
   
   <entry>
     <title>安装 Python 虚拟环境（venv）</title>
@@ -576,35 +603,6 @@ Syntax error in graph mermaid version 8.14.0&lt;br&gt;
     
     
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django 的日志机制-1</title>
-    <link href="http://yunminitools.cn/2024/02/03/Django-Logging-1/"/>
-    <id>http://yunminitools.cn/2024/02/03/Django-Logging-1/</id>
-    <published>2024-02-03T09:56:23.000Z</published>
-    <updated>2024-02-16T12:25:44.241Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
     
   </entry>
   
