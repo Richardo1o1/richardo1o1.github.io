@@ -7595,4 +7595,25 @@ master_host: 主数据库的IP地址；</p>
         <tag>ELK</tag>
       </tags>
   </entry>
+  <entry>
+    <title>有用的学习英语插件-1</title>
+    <url>/2024/03/18/usefule-chrome-plugin-1/</url>
+    <content><![CDATA[<h2 id="语言反应器（Language-Reactor）">语言反应器（Language Reactor）</h2>
+<p>非常强大，可以提取Youtube字幕，翻译，如图：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0002-languagereactor-demo1.png" alt=""></p>
+<p>字幕可以导出</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0003-languagereactor-demo2.png" alt=""></p>
+<p>导出格式如下：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0004-languagereactor-demo3.png" alt=""></p>
+<p>插件：<a href="https://chromewebstore.google.com/detail/language-reactor/hoombieeljmmljlkjmnheibnpciblicm">链接</a><br>
+官网：<a href="https://www.languagereactor.com/">链接</a></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>英语学习</tag>
+        <tag>Chrom插件</tag>
+      </tags>
+  </entry>
 </search>
