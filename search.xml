@@ -7616,4 +7616,51 @@ master_host: 主数据库的IP地址；</p>
         <tag>Chrom插件</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Data Warehouse Construction Standards - Why</title>
+    <url>/2024/03/20/Data-Warehouse-Construction-Standards-1/</url>
+    <content><![CDATA[<h2 id="1-Why-We-Need-Data-Warehouse-Standards">1. Why We Need Data Warehouse Standards</h2>
+<p>The adage “No rules, no success” underscores the critical importance of established standards in ensuring optimal team performance and high-quality deliverables. In the absence of such standards, operational efficiency and collaboration may suffer, leading to potentially chaotic outcomes.</p>
+<p>Have you encountered similar issues in your work?</p>
+<ul>
+<li>Received a requirement and not sure which table to pull data from. Table A seems feasible, while table B also appears to work. Asked colleague A, and they said they always pull from table C. Spent a long time exploring these three tables but couldn’t match them up. Oh well, let me calculate from the source again, and then a new table D appeared.</li>
+<li>I’ve noticed that there are thousands of tables in our database, but I only use a handful. So, what’s the point of all these other ones? I asked my colleagues, but nobody seems to know. Should I just get rid of them? Nobody else is touching them anyway.</li>
+<li>I got tasked with investigating an error in our process after my boss asked me to take a look. But man, the code is a total mess! I can’t make heads or tails of it. Plus, I’ve been searching for what feels like forever but still can’t find the upstream dependencies. What a headache!</li>
+<li>My coworker bailed on our project, and now I’m stuck with their share of the work. I’ve been grinding away for weeks, but I just can’t seem to wrap my head around it. It’s like they dumped a ton of unfinished business on me, and I’m feeling pretty frustrated myself now. Maybe it’s time for me to look for a new gig too…</li>
+</ul>
+<p>Our data warehouse team’s performance has taken a hit due to all the issues we’ve faced lately. Efficiency, output quality, job satisfaction – you name it. And let me tell you, it’s usually the hardest-working and most loyal employees who bear the brunt of all these problems. It’s just not right.</p>
+<p>If you’ve ever worked in data development, you know the pain I’m talking about. I mean, who hasn’t experienced some of these frustrations, right? So, what’s going on here? In my humble opinion, it all boils down to a lack of standards or proper implementation. And hey, I get it – sometimes business demands are tight, and shortcuts gotta be taken. But, that technical debt better be paid off pronto. Blaming employees for that ain’t cool. Leadership needs to own up to it.</p>
+<p>Think of a data warehouse like a digital construction project – it’s the intangible result of our data engineers’ hard work. Data standards are like the blueprints for building this system, serving as both the instruction manual and translator for data usage. And just like how you need quality control in construction, we gotta ensure data quality too. But here’s the thing – for our data system to really thrive, we need to move away from relying on individual judgment and toward standardized, tool-driven management. That way, we can scale sustainably and keep the system healthy.</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>数据管理</tag>
+        <tag>English_Article</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Data Warehouse Construction Standards - How</title>
+    <url>/2024/03/20/Data-Warehouse-Construction-Standards-2/</url>
+    <content><![CDATA[<h2 id="2-How-To-Implement-Data-Warehouse-Standards">2.How To Implement Data Warehouse Standards</h2>
+<h3 id="a-Standard-formulation">a. Standard formulation</h3>
+<p>This involves defining and documenting the specific rules, guidelines, and best practices that will govern the data warehouse. It is essential to involve stakeholders from different teams and departments to ensure comprehensive coverage and alignment with business requirements.</p>
+<h3 id="b-Standard-discussion">b. Standard discussion</h3>
+<p>Once the standards are formulated, it is important to engage in discussions with relevant teams and individuals. This can include conducting workshops, training sessions, or meetings to explain the standards, address any questions or concerns, and gather feedback.</p>
+<h3 id="c-Standard-implementation">c. Standard implementation</h3>
+<p>After the standards have been discussed and finalized, they need to be effectively communicated and implemented across the organization. This can involve creating documentation, providing training, and establishing processes and tools to support adherence to the standards.</p>
+<h3 id="d-Standard-enforcement-and-supervision">d. Standard enforcement and supervision</h3>
+<p>It is crucial to have mechanisms in place to monitor and enforce compliance with the data warehouse standards. This can include regular audits, performance reviews, and ongoing communication and support to ensure that the standards are being followed consistently.</p>
+<h3 id="e-Standard-refinement">e. Standard refinement</h3>
+<p>Data warehouse standards should be treated as living documents that are continuously reviewed and refined based on feedback, evolving business needs, and technological advancements. Regular evaluations and updates should be conducted to ensure that the standards remain relevant and effective.</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>数据管理</tag>
+        <tag>English_Article</tag>
+      </tags>
+  </entry>
 </search>

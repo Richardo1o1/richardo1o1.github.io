@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-03-18T13:16:56.761Z</updated>
+  <updated>2024-03-20T13:09:19.493Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Data Warehouse Construction Standards - How</title>
+    <link href="http://yunminitools.cn/2024/03/20/Data-Warehouse-Construction-Standards-2/"/>
+    <id>http://yunminitools.cn/2024/03/20/Data-Warehouse-Construction-Standards-2/</id>
+    <published>2024-03-20T13:08:45.000Z</published>
+    <updated>2024-03-20T13:09:19.493Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;2-How-To-Implement-Data-Warehouse-Standards&quot;&gt;2.How To Implement Data Warehouse Standards&lt;/h2&gt;
+&lt;h3 id=&quot;a-Standard-formulation&quot;&gt;a.</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Data Warehouse Construction Standards - Why</title>
+    <link href="http://yunminitools.cn/2024/03/20/Data-Warehouse-Construction-Standards-1/"/>
+    <id>http://yunminitools.cn/2024/03/20/Data-Warehouse-Construction-Standards-1/</id>
+    <published>2024-03-20T13:05:51.000Z</published>
+    <updated>2024-03-20T13:06:22.481Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-Why-We-Need-Data-Warehouse-Standards&quot;&gt;1. Why We Need Data Warehouse Standards&lt;/h2&gt;
+&lt;p&gt;The adage “No rules, no success”</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
+    
+  </entry>
   
   <entry>
     <title>有用的学习英语插件-1</title>
@@ -537,73 +593,6 @@ Syntax error in graph mermaid version 8.14.0&lt;br&gt;
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
     
     <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django 的日志机制-2</title>
-    <link href="http://yunminitools.cn/2024/02/04/Django-Logging-2/"/>
-    <id>http://yunminitools.cn/2024/02/04/Django-Logging-2/</id>
-    <published>2024-02-04T13:55:49.000Z</published>
-    <updated>2024-02-16T12:24:36.397Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;logging-结构&quot;&gt;logging 结构&lt;/h2&gt;
-&lt;p&gt;在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：&lt;code&gt;Loggers&lt;/code&gt;、&lt;code&gt;Handlers&lt;/code&gt;、&lt;code&gt;Filters&lt;/code&gt; 和 &lt;code&gt;Formatters&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id=&quot;Loggers&quot;&gt;Loggers&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;Logger&lt;/code&gt; 即&lt;strong&gt;记录器&lt;/strong&gt;，是日志系统的入口。它有三个重要的工作：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息&lt;/li&gt;
-&lt;li&gt;根据传递给 &lt;code&gt;Logger&lt;/code&gt; 的消息的严重性，确定消息是否需要处理&lt;/li&gt;
-&lt;li&gt;将需要处理的消息传递给所有感兴趣的处理器 &lt;code&gt;Handler&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;每一条写入 &lt;code&gt;Logger&lt;/code&gt; 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;DEBUG&lt;/code&gt;：排查故障时使用的低级别系统信息，通常开发时使用&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;INFO&lt;/code&gt;：一般的系统信息，并不算问题&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;WARNING&lt;/code&gt;：描述系统发生小问题的信息，但通常不影响功能&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ERROR&lt;/code&gt;：描述系统发生大问题的信息，可能会导致功能不正常&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;CRITICAL&lt;/code&gt;：描述系统发生严重问题的信息，应用程序有崩溃的风险&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;当 &lt;code&gt;Logger&lt;/code&gt; 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 &lt;code&gt;Logger&lt;/code&gt; 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。&lt;/p&gt;
-&lt;p&gt;当 &lt;code&gt;Logger&lt;/code&gt; 确定了一条消息需要处理之后，会把它传给 &lt;code&gt;Handler&lt;/code&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>远程开发的VS Code方法</title>
-    <link href="http://yunminitools.cn/2024/02/03/VS-Code-Remote-Development/"/>
-    <id>http://yunminitools.cn/2024/02/03/VS-Code-Remote-Development/</id>
-    <published>2024-02-03T12:07:20.000Z</published>
-    <updated>2024-02-03T12:09:38.321Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;远程开发并非仅仅是直接在服务器上编辑代码，远程开发侧重的不应该是是“远程”，而是“开发”，至于“远程”对用户而言应该是无感的，除了代码是在远程服务器上存储和运行，其他体验应该和本地开发一致，撰写代码时能享受到 IDE 带来的便利，运行代码时不必额外去上传下载——这似乎看起来很容易，但在VS Code Remote 出现之前，没有工具能做到。&lt;/p&gt;
-&lt;p&gt;使用 VS Code Remote，你可以无缝的从一台设备切换到另一台设备，开会前在台式机上写代码，开会时拿起笔记本连上远程服务器就能继续，下班可以直接关掉公司的电脑，回到家打开家里的电脑就可以继续，设备切换从来没有如此方便，你不必关心这一切是如何实现的，只要使用就好，因为大部分时间你并不会觉得这和以前的本地开发有什么区别。&lt;/p&gt;
-&lt;h2 id=&quot;安装及配置流程&quot;&gt;安装及配置流程&lt;/h2&gt;
-&lt;h3 id=&quot;远程开发必备扩展安装&quot;&gt;远程开发必备扩展安装&lt;/h3&gt;
-&lt;p&gt;在扩展中搜索 remote ，找到 Remote Development，安装即可，会为你安装包括 Remote-SSH 等全部远程开发使用的扩展。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/blog/0203-remote_dev_0.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;
-&lt;p&gt;安装完成后，你会发现左下角多了一个小图标，点击就可以看到用来连接远程开发的菜单了。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
