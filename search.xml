@@ -7663,4 +7663,147 @@ master_host: 主数据库的IP地址；</p>
         <tag>English_Article</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Data Warehouse Construction Standards - What</title>
+    <url>/2024/03/22/Data-Warehouse-Construction-Standards-3/</url>
+    <content><![CDATA[<h2 id="3-What-are-the-key-components-of-data-warehouse-standards">3.What are the key components of data warehouse standards?</h2>
+<h3 id="a-Data-Modeling-Standards">a. Data Modeling Standards:</h3>
+<p>These standards define the guidelines for designing and structuring the data models used in the data warehouse. They include naming conventions, entity-relationship diagrams, data type definitions, and relationships between tables.</p>
+<h3 id="b-Data-Integration-Standards">b. Data Integration Standards:</h3>
+<p>These standards focus on the processes and methods used to extract, transform, and load (ETL) data into the data warehouse. They cover data extraction techniques, data cleansing procedures, transformation rules, and data loading strategies.</p>
+<h3 id="c-Data-Quality-Standards">c. Data Quality Standards:</h3>
+<p>These standards ensure the accuracy, consistency, completeness, and validity of data within the data warehouse. They include data profiling, data validation rules, data cleansing methodologies, and data quality metrics.</p>
+<h3 id="d-Metadata-Standards">d. Metadata Standards:</h3>
+<p>Metadata standards define the structure and format of metadata stored in the data warehouse. They cover metadata definitions, metadata repositories, metadata integration, and metadata management processes.</p>
+<h3 id="e-Security-and-Access-Control-Standards">e. Security and Access Control Standards:</h3>
+<p>These standards focus on protecting the data warehouse from unauthorized access, ensuring data privacy, and enforcing data security policies. They include user authentication, authorization mechanisms, encryption techniques, and data masking methods.</p>
+<h3 id="f-Performance-and-Scalability-Standards">f. Performance and Scalability Standards:</h3>
+<p>These standards address the performance optimization and scalability aspects of the data warehouse. They cover query optimization techniques, indexing strategies, partitioning schemes, and data archiving processes.</p>
+<h3 id="g-Data-Governance-Standards">g. Data Governance Standards:</h3>
+<p>Data governance standards define the overall framework and processes for managing and governing data within the data warehouse. They include data stewardship, data ownership, data lifecycle management, and data governance policies.</p>
+<h3 id="h-Documentation-Standards">h. Documentation Standards:</h3>
+<p>These standards ensure the documentation of all aspects of the data warehouse, including data models, ETL processes, data dictionaries, and data lineage. They promote understanding, maintainability, and ease of future enhancements.</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>数据管理</tag>
+        <tag>English_Article</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Data Warehouse Construction Standards - Data Modeling Standards</title>
+    <url>/2024/03/22/Data-Warehouse-Construction-Standards-4/</url>
+    <content><![CDATA[<h2 id="3-1-Data-Modeling-Standards">3.1 Data Modeling Standards</h2>
+<h3 id="a-Horizontal-Layering">a. Horizontal Layering:</h3>
+<ul>
+<li>
+<p>Explanation</p>
+<p>Our layered design approach is an essential byproduct of our data architecture strategy, adhering to <strong>strict standards</strong> during the modeling phase for optimal results.</p>
+</li>
+<li>
+<p>Layer Standards</p>
+<ul>
+<li>The Operational Data Store (ODS)
+<ul>
+<li>Design Methodology:
+<ul>
+<li>Store raw data with minimal processing in the data warehouse system, maintaining a structure that is similar to the source system.</li>
+</ul>
+</li>
+<li>Main Functions:
+<ul>
+<li>Synchronize and store foundational data in the data warehouse to address data silo issues and ensure the integrity of data integration .</li>
+<li>To ensure data persistence, keeping tables and data in perfect sync.</li>
+<li>Perform regular synchronization and add synchronization timestamps to the tables to capture their temporal variability.</li>
+</ul>
+</li>
+<li>Data Processing:
+<ul>
+<li>Handling of anomalies and erroneous data.</li>
+</ul>
+</li>
+<li>Naming Convention:
+<ul>
+<li>Layer abbreviation_Source System_Source System Table Name</li>
+<li>Example: ods_oms_order</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span> 
+<pre><code>- The Data Warehouse Details (DWD)
+    - Design Methodology:
+        - A core layer of the design that obtains data from the ODS layer and establishes data models according to subjects. It cleans and processes the original data for consistency and stores detailed factual data.
+    - Main Functions:
+        - Data Segmentation: Categorizing **Analytical Subject** for Precise Insights
+        - Cleanse the data and process it for consistency to resolve issues of poor data quality and inconsistencies in definitions, thereby ensuring the consistency, integrity, validity, and accuracy of data integration.
+        - Store the most detailed granularity of metrics to address the issue of having numerous development tasks.
+        - Perform regular synchronization and add synchronization timestamps to the tables to capture their temporal variability.
+    - Data Processing:
+        - Handle null values
+        - Verify data validity
+        - Standardize data formats
+        - Unify data standards
+        - Perform data transform
+        - Clean data according to business rules.
+    - Naming Convention:
+        - Layer abbreviation_Subject abbreviation_Full name of stored content
+        - Example: dwd_mkt_sign
+    - Construction Method:
+        - Select business processes
+            - For example: For the supply chain subject area, select the purchase order product refund amount based on the indicator document.
+        - Declare granularity
+            - For example: Analyze business forms/find the base table for purchase refunds, extract the business primary key granularity of the table, return order number, product number.
+        - Confirm dimensions
+            - For example: Purchase order number, product, product type, supplier, time, purchaser.
+        - Confirm facts
+            - For example: Purchase order product refund amount, purchase order product refund quantity.
+    
+- The Data Warehouse Service (DWS)
+    - Design Methodology:
+    Using the **analysis object** as the modeling driver, build a summary indicator table at a common granularity based on the common requirements of the upper-level applications and products. Physically model the wide table to provide a unified calculation basis and data standard for the application layer, improving efficiency.
+    - Main Functions:
+        - Meet 90% of common requirements, address inconsistencies in standards and the issue of having too many development tasks.
+        - Implement wide-table processing to address poor performance issues and improve analysis efficiency.
+        - Regular synchronization, add table synchronization timestamps to reflect the temporal variability.
+    - Data Processing:
+        - Dimension Roll-up
+        - Metric Aggregation
+        - Metric Consolidation
+    - Naming Convention
+        - Layer abbreviation_Object abbreviation_Full name of stored content
+        - Example: dws_order_orderdetail
+    
+- The Application Data Service (ADS)
+    - Design Methodology:
+        - Based on business requirements, store personalized report data of data products, which can be directly provided for query and display, ensuring efficiency.
+    - Main Functions:
+        - Personalized design to solve performance issues and ensure data analysis efficiency.
+    - Data Processing:
+        - High-level summarization, individualized processing.
+    - Name convention:
+        - Layer abbreviation_Subject abbreviation_Full name of form.
+        - Example: ADS/DM_mkt_XSJSC
+</code></pre>
+<ul>
+<li>Data ingestion ****Principal:
+<ul>
+<li>In layered data modeling, each layer builds on the previous one, starting with ingesting raw data and resulting in a final view containing clean transformed data that is highly functional.</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>数据管理</tag>
+        <tag>English_Article</tag>
+      </tags>
+  </entry>
 </search>

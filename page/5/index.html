@@ -100,6 +100,159 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-System-performance-tuning"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/28/System-performance-tuning/"
+    >系统性能调优-学习笔记1</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/28/System-performance-tuning/" class="article-date">
+  <time datetime="2023-07-28T07:50:13.000Z" itemprop="datePublished">2023-07-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="基本知识">基本知识</h2>
+<p>大型网站架构设计必备的三板斧：</p>
+<ul>
+<li><strong>高性能架构设计</strong>： 熟悉系统常见性能优化手段比如引入 读写分离、缓存、负载均衡、异步 等等。</li>
+<li><strong>高可用架构设计</strong> ：CAP理论和BASE理论、通过集群来提高系统整体稳定性、超时和重试机制、应对接口级故障：降级、熔断、限流、排队。</li>
+<li><strong>高扩展架构设计</strong> ：如何拆分系统。按照不同的思路来拆分软件系统，就会得到不同的架构。</li>
+</ul>
+<h2 id="基本原则">基本原则</h2>
+<p>合适优于先进 &gt; 演化优于一步到位 &gt; 简单优于复杂</p>
+<h2 id="常见的性能优化策略">常见的性能优化策略</h2>
+<p>性能优化之前我们需要对请求经历的各个环节进行分析，排查出可能出现性能瓶颈的地方，定位问题。</p>
+<p>下面是一些性能优化时常见问题：</p>
+<ol>
+<li>当前系统的SQL语句是否存在问题？</li>
+<li>当前系统是否需要升级硬件？</li>
+<li>系统是否需要缓存？</li>
+<li>系统架构本身是不是就有问题？</li>
+<li>系统是否存在死锁的地方？</li>
+<li>数据库索引使用是否合理？</li>
+<li>系统是否存在内存泄漏？</li>
+<li>系统的耗时操作进行了异步处理？</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-4S-System-Design-Methodology"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/28/4S-System-Design-Methodology/"
+    >4S方法设计系统</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/28/4S-System-Design-Methodology/" class="article-date">
+  <time datetime="2023-07-28T07:05:58.000Z" itemprop="datePublished">2023-07-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="概述">概述</h2>
+<p>所谓4S分析法中的4S是指：<br>
+Scenario（场景），Service（服务），Storage（存储），Scale（扩展）。<br>
+接下来，我们结合4S分析法来具体回答一道常见系统设计题：如何设计一个推特？</p>
+<h2 id="第一步：Scenario-场景">第一步：Scenario 场景</h2>
+<p>在这一步，需要考虑：需要设计哪些功能（也可以自己想），需要承受多大的访问量？<br>
+首先可以把Twitter的功能一个个罗列出来，很显然你无法在45分钟的面试中完成所有功能的设计，所以需要筛选出核心功能（Post a Tweet，Timeline，News Feed，Follow/Unfollow a user，Register/Login）。<br>
+然后需要继续考虑系统承受的QPS大概是多少？需要考虑并发用户，读频率（Read QPS）以及写频率（Write QPS）。记住重要的是你的思考和计算过程而不是计算结果。</p>
+<h2 id="第二步，Service服务">第二步，Service服务</h2>
+<p>所谓服务可以认为是逻辑处理的整合，对于同一类问题的逻辑处理可以归并到一个服务中。这一步实际上就是将整个系统细分为若干个小的服务。<br>
+根据第一步选出的核心功能，我们可以将推特拆分成如下的几个服务：<br>
+<img src="http://cdn.yunminitools.cn/blog/0728Service.png" alt=""></p>
+<h2 id="第三步，Storage-存储">第三步，Storage 存储</h2>
+<p>接下来就是4S分析法中最重要的一部分，存储。根据每个服务的数据特性选择合适的存储结构，然后细化数据表结构。<br>
+系统设计中可以选择的存储结构一般有三大类：数据库系统，文件系统，缓存系统。其中数据库系统又分为关系型数据库（SQL Database）和 非关系型数据库（NoSQL Database）。<br>
+<img src="http://cdn.yunminitools.cn/blog/0728Storage.png" alt=""></p>
+<p>确定存储结构后，我们需要细化数据表结构，面试中可以通过画图展示数据存储和读取的流程。<br>
+<img src="http://cdn.yunminitools.cn/blog/0728DataStructure.png" alt=""></p>
+<p>用过前3个步骤的分析，我们已经得到了一个可行方案，注意是Work Solution而不是Perfect Solution，这个方案可以存在很多待解决的缺陷。</p>
+<h2 id="第四步，Scale-扩展">第四步，Scale 扩展</h2>
+<p>这一步主要分两部分：</p>
+<ul>
+<li>一个是优化和迭代设计，包括解决设计缺陷，更多功能设计，后台管理功能以及一些特殊情况如何处理；</li>
+<li>另一个是维护，包括系统的鲁棒性和扩展性，比如有一台服务器/数据库挂了怎么办？如果有流量暴增，如何扩展？</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-U-Theory-1"
   class="article article-type-post"
   itemscope
@@ -704,182 +857,6 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
  
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Clear-Instructions-Tactics-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/07/Clear-Instructions-Tactics-1/"
-    >写出明确的指引的策略</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/07/Clear-Instructions-Tactics-1/" class="article-date">
-  <time datetime="2023-06-07T04:36:06.000Z" itemprop="datePublished">2023-06-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="在查询中包含详细信息以获得更相关的答案">在查询中包含详细信息以获得更相关的答案</h2>
-<p>（Include details in your query to get more relevant answers****）****</p>
-<p>为了获得高度相关的回答，请确保请求提供任何重要的细节或背景信息。否则，你就让模型去猜你的意思了。</p>
-<table>
-<thead>
-<tr>
-<th>Worse</th>
-<th>Better</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>How do I add numbers in Excel?</td>
-<td>How do I add up a row of dollar amounts in Excel? I want to do this automatically for a whole sheet of rows with all the totals ending up on the right in a column called “Total”.</td>
-</tr>
-<tr>
-<td>Who’s president?</td>
-<td>Who was the president of Mexico in 2021, and how frequently are elections held?</td>
-</tr>
-<tr>
-<td>Write code to calculate the Fibonacci sequence.</td>
-<td>Write a TypeScript function to efficiently calculate the Fibonacci sequence. Comment the code liberally to explain what each piece does and why it’s written that way.</td>
-</tr>
-<tr>
-<td>Summarize the meeting notes.</td>
-<td>Summarize the meeting notes in a single paragraph. Then write a markdown list of the speakers and each of their key points. Finally, list the next steps or action items suggested by the speakers, if any.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="要求模型采用特定的人设">要求模型采用特定的人设</h2>
-<p>（Ask the model to adopt a persona）<br>
-系统消息可以用来指定模型在回复中所使用的人设。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
-</tr>
-</tbody>
-</table> 
-      <a class="article-more-link" href="/2023/06/07/Clear-Instructions-Tactics-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-GPT-best-practices-Index"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/06/GPT-best-practices-Index/"
-    >GPT 官方推荐使用方法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/06/GPT-best-practices-Index/" class="article-date">
-  <time datetime="2023-06-06T13:39:45.000Z" itemprop="datePublished">2023-06-06</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>GPT官方推出了一个使用方法介绍：<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/gpt-best-practices">网址</a>，挺有意思，搬运过来，并做一些归纳。<br>
-有6种方法可以得到更好的结果：</p>
-<h2 id="一、写出明确的指引（Clear-Instructions）">一、写出明确的指引（Clear Instructions）</h2>
-<p>GPT无法读取您的思维。如果它们的输出太长，请要求简洁回答。如果它们的输出过于简单，请要求专家级的写作。如果您不喜欢格式，请展示您想要看到的格式。GPT越少猜测您的需求，您得到的结果就更有可能符合您的期望。</p>
-<p><strong>策略：</strong></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E5%9C%A8%E6%9F%A5%E8%AF%A2%E4%B8%AD%E5%8C%85%E5%90%AB%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E4%BB%A5%E8%8E%B7%E5%BE%97%E6%9B%B4%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AD%94%E6%A1%88">在查询中包含详细信息以获得更相关的答案</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E8%A6%81%E6%B1%82%E6%A8%A1%E5%9E%8B%E9%87%87%E7%94%A8%E7%89%B9%E5%AE%9A%E7%9A%84%E4%BA%BA%E8%AE%BE">要求模型采用特定的人设</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E4%BD%BF%E7%94%A8%E5%88%86%E9%9A%94%E7%AC%A6%E6%B8%85%E6%99%B0%E5%9C%B0%E6%A0%87%E7%A4%BA%E8%BE%93%E5%85%A5%E7%9A%84%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86">使用分隔符清楚地标示输入的不同部分</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8C%87%E5%AE%9A%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E6%89%80%E9%9C%80%E7%9A%84%E6%AD%A5%E9%AA%A4">明确指定完成任务所需的步骤</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8F%90%E4%BE%9B%E7%A4%BA%E4%BE%8B">提供示例</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/07/Clear-Instructions-Tactics-1/#%E6%8C%87%E5%AE%9A%E6%9C%9F%E6%9C%9B%E7%9A%84%E8%BE%93%E5%87%BA%E9%95%BF%E5%BA%A6">指定期望的输出长度</a></li>
-</ul> 
-      <a class="article-more-link" href="/2023/06/06/GPT-best-practices-Index/"
-        >More...</a
-      >
-       
       <!-- reward -->
       
     </div>

@@ -100,6 +100,208 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Three-Fact-Table"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/08/Three-Fact-Table/"
+    >三种事实表</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/08/Three-Fact-Table/" class="article-date">
+  <time datetime="2023-03-08T07:19:04.000Z" itemprop="datePublished">2023-03-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="什么是事实表？">什么是事实表？</h2>
+<p>事实表作为数据仓库维度建模的核心，紧紧围绕着业务过程来设计，通过获取描述业务过程的度量来表达业务过程，包含了引用的维度 和与业务过程有关的度量。</p>
+<p>每个数据仓库都包含一个或者多个事实数据表。事实数据表可能包含业务销售数据，如现金登记事务所产生的数据，事实数据表通常包含大量的行。事实数据表的主要特点是包含数字数据（事实），并且这些数字信息可以汇总，以提供有关单位作为历史的数据。事实数据表<strong>不应该包含描述性的信息</strong>，也不应该包含除数字度量字段及使事实与纬度表中对应项的相关索引字段之外的任何数据。</p>
+<h2 id="事实表的三种类型">事实表的三种类型</h2>
+<p>事实表有三种类型 : 事务事实表、周期快照事实表和累积快照事实表。</p>
+<h3 id="事务事实表"><strong><strong>事务事实表</strong></strong></h3>
+<p>事务事实表记录的事务层面的事实，保存的是最原子的数据，也称“原子事实表”。事务事实表中的数据在事务事件发生后产生，数据的粒度通常是每个事务记录一条记录。一旦事务被提交，事实表数据被插入，数据就不再进行更改，其更新方式为增量更新。</p>
+<h3 id="周期快照事实表">周期快照事实表</h3>
+<p>周期快照事实表以具有规律性的、可预见的时间间隔来记录事实，时间间隔如每天、每月、每年等等。典型的例子如销售日快照表、库存日快照表等。它统计的是间隔周期内的度量统计，如历史至今、自然年至今、季度至今等等。周期快照表没有粒度的概念，取而代之的是周期+状态度量的组合，如历史至今的订单总数，其中历史至今是一个周期，订单总数是度量。</p>
+<p>周期快照事实表的粒度是每个时间段一条记录，通常比事务事实表的粒度要粗，是在事务事实表之上建立的聚集表，比如说时间周期是1周，那么这个周期快照事实表的一条记录就是这一周的对于某个度量的统计值（我理解的）。</p>
+<h3 id="累积快照事实表">累积快照事实表</h3>
+<p>累积快照事实表和周期快照事实表有些相似之处，它们存储的都是事务数据的快照信息。但是它们之间也有着很大的不同，周期快照事实表记录的确定的周期的数据，而累积快照事实表记录的不确定的周期的数据。累积快照事实表代表的是完全覆盖一个事务或产品的生命周期的时间跨度，它通常具有多个日期字段，用来记录整个生命周期中的关键时间点。例如订单累计快照事实表会有付款日期，发货日期，收货日期等时间点。</p>
+<p>事务事实表中一条交易记录会每天有一条数据来记录整个交易过程；而累积快照事实表只会有一条记录，数据会一致更新直到过程结束。</p>
+<p>累积快照事实表代表的是完全覆盖一个事务或产品的生命周期的时间跨度，它通常具有多个日期字段，用来记录整个生命周期中的关键时间点。另外，它还会有一个用于指示最后更新日期的附加日期字段。由于事实表中许多日期在首次加载时是不知道的，所以必须使用代理关键字来处理未定义的日期，而且这类事实表在数据加载完后，是可以对它进行更新的，来补充随后知道的日期信息。</p>
+<p><strong>周期快照事实表记录的是重复的可预测到的时间间隔的事实</strong>，例如帐户月结余事实表，用来记录每个月末的帐户结余信息。一般周期快照的数据会按报表需要的周期进行记录，比较适合周期长一些的情况。</p>
+<p>而<strong>累计快照适用于较短周期，有着明确的开始和结束状态的过程</strong>，如一个订单执行的过程，并记录过程中每个步骤的执行时间，使分析人员对执行的过程有整体的把握。周期快照事实表记录上每个步骤的执行时间是逐步建立的，随着执行的过程逐步更新的事实表中。</p>
+<h3 id="类型比较">类型比较</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>事务事实表</th>
+<th>周期快照事实表</th>
+<th>累积快照事实表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时期/时间</td>
+<td>离散事务时间点</td>
+<td>以有规律的、可预测的</td>
+<td>用于时间跨度不确定的不断变化的工作流</td>
+</tr>
+<tr>
+<td>日期维度</td>
+<td>事务日期</td>
+<td>快照日期</td>
+<td>相关业务过程涉及的多个日期</td>
+</tr>
+<tr>
+<td>粒度</td>
+<td>每行代表实体的一个事务</td>
+<td>每行代表某时间周期的一个实体</td>
+<td>每行代表一个实体的生命周期</td>
+</tr>
+<tr>
+<td>事实</td>
+<td>事务事实</td>
+<td>累积事实</td>
+<td>相关业务过程事实和时间间隔事实</td>
+</tr>
+<tr>
+<td>事实表加载</td>
+<td>插入</td>
+<td>插入</td>
+<td>插入与更新</td>
+</tr>
+<tr>
+<td>事实表更新</td>
+<td>不更新</td>
+<td>不更新</td>
+<td>业务过程变更时更新</td>
+</tr>
+</tbody>
+</table>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-business-data-governance-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/07/business-data-governance-1/"
+    >业务数据治理实施流程-1</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/07/business-data-governance-1/" class="article-date">
+  <time datetime="2023-03-07T15:23:54.000Z" itemprop="datePublished">2023-03-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>数据治理实施流程，是我们依据业务数据治理标准化框架在实施解决具体数据问题时，总结抽象出来的一套适用于大多数治理场景解决问题的通用标准流程。标准流程的好处在于更加规范化数据治理工程师的操作流程，来保证实施的质量。流程一共包含5个步骤：</p>
+<h2 id="STEP-1：发现问题和制定目标">STEP 1：发现问题和制定目标</h2>
+<p>发现问题要从业务数据开发团队的视角出发，围绕服务好业务、遵守数据研发规范、收集好用户反馈，尽可能全地发现和收集相关需要解决的问题。同时，制定的目标要具备可实现性。</p>
+<h2 id="STEP-2：设计指标">STEP 2：设计指标</h2>
+<p>针对问题进行拆解，设计可衡量的指标，并通过元数据的采集建设进行实现，用做对目标的进一步量化，并作为实施过程监控及治理抓手。</p>
+<h2 id="STEP-3：制定SOP并工具化">STEP 3：制定SOP并工具化</h2>
+<p>对衡量出来的具体问题，制定相关的解决SOP，并且检查相应的研发标准规范是否完善，通过问题发生的事前、事中、事后几个阶段，建设或完善相应的工具化解决问题的能力。</p>
+<h2 id="STEP-4：推广实施">STEP 4：推广实施</h2>
+<p>推广运营，以拿结果为核心目标，针对不同角色运用不同策略，重点关注问题解决过程是否会与用户利益发生冲突，控制好节奏，根据问题的重要程度有规划地进行解决。</p>
+<h2 id="STEP-5：总结沉淀方法论">STEP 5：总结沉淀方法论</h2>
+<p>总结方法论，迭代认知，持续探索问题的最优解，优化治理方案和能力。</p>
+<pre class="mermaid">graph LR
+subgraph Step1 
+A(发现问题)-->B(制定目标)
+end
+
+subgraph Step2
+B-->C(设计衡量指标)-->D(元数据及指标建设)
+end
+
+subgraph Step3
+D-->E(解决方案SOP)-->F(工具化)
+end
+
+subgraph Step4
+F-->G(运营治理)-->H(效果评估)
+end
+
+subgraph Step5
+H-->I(方法论沉淀)
+end</pre>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Things-you-should-never-do-1"
   class="article article-type-post"
   itemscope
@@ -660,153 +862,6 @@ A(认知现状)-->B(制定策略)-->C(选择方法)-->D(监控执行)-->E(复盘
         >More...</a
       >
        
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/" rel="tag">投资管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Enterprise-security-perimeter"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/27/Enterprise-security-perimeter/"
-    >防御性：如何理解企业护城河</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/27/Enterprise-security-perimeter/" class="article-date">
-  <time datetime="2023-02-27T14:34:29.000Z" itemprop="datePublished">2023-02-27</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="为什么需要护城河">为什么需要护城河</h2>
-<p>企业成功主导一个山头，成为行业领导品牌，要随时审视竞争环境的变化，快速转变战略节奏，从进攻战切换为防御战。</p>
-<p>商业竞争是无情的，竞争的环境总是在变化，行业领先者需要不断审视和调整战略，从进攻转为防御。新进入的企业总是企图挑战行业领导者的地位，从不同角度对其发起攻击。为了保持领先地位，领导品牌需要采取各种手段来封杀竞争对手。</p>
-<p>领导品牌必须高筑墙，广积粮，构筑防御工事，在优势位置上持续巩固自身的竞争壁垒，不断拓宽自身的护城河，以抵御竞争对手的攻击，有护城河的企业才能享受行业长期增长带来的红利。</p>
-<h2 id="五种护城河">五种护城河</h2>
-<pre class="mermaid">graph LR
-A(企业护城河)-->B3(无形资产门槛)
-B3-->B31(专利)
-B3-->B32(创新)
-B3-->B33(监管)
-B3-->B34(标准)
-A-->B2(转换成本高)
-B2-->B21(依托大公司的相互依存)
-B2-->B22(复杂的程序转换)
-B2-->B23(数据绑定生态)
-A-->B4(网络效应形成)
-B4-->B41(双边网络-平台)
-B4-->B42(三边网络-渠道)
-B4-->B43(通讯网络)
-B4-->B44(内容网络)
-B4-->B45(本地网络)
-A-->B1(成本优势)
-B1-->B11(规模优势)
-B1-->B13(经验优势)
-B1-->B14(模式优势)
-A-->B5(用户心智)
-B5-->B51(品牌)
-B5-->B52(特性)</pre>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/" rel="tag">投资管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Good-Business-Models"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/26/Good-Business-Models/"
-    >什么是好的商业模式？</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/26/Good-Business-Models/" class="article-date">
-  <time datetime="2023-02-26T03:28:37.000Z" itemprop="datePublished">2023-02-26</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="商业模式是什么？">商业模式是什么？</h2>
-<p>商业模式是指企业如何创造和捕获价值，并将其转化为盈利的方式。一个好的商业模式应该能够产生持续的现金流和利润，并且能够与竞争对手区分开来。</p>
-<p>例如，苹果公司的商业模式是基于高端硬件销售和软件服务的组合。他们通过不断创新和设计出高品质的产品，吸引了一大批忠实的用户，并提供了与之相配套的软件和服务。这种商业模式的成功在于他们不断创新和提供高品质产品的能力，以及对消费者需求的深刻理解。</p>
-<p>另一个例子是Amazon的商业模式，它是基于在线销售和物流的组合。Amazon通过建立强大的物流网络和广泛的产品选择，吸引了大量的消费者和卖家。同时，他们提供了高水平的客户体验和优质的客户服务，让他们赢得了消费者的信任和忠诚度，从而成为全球最大的在线零售商之一。</p>
-<h2 id="什么是好的商业模式">什么是好的商业模式</h2>
-<p>好的商业模式很简单，就是利润和净现金流很好，竞争对手哪怕花很长时间也很难抢。“<strong>时间是平庸公司的敌人，是伟大公司的朋友</strong>”，所以说伟大的公司时间越长越可怕。</p>
-<p>商业模式经常要看的东西是：</p>
-<ul>
-<li>护城河是否长期坚固。<strong>（<strong>产品的</strong>差异化的持续性，<strong>包括</strong>企业文化）</strong></li>
-<li>长期毛利率是否合理。（产品的<strong>可替代性</strong>）</li>
-<li>长期的净现金流是否满意。（长期而言其实就是净利润）</li>
-</ul>
-<p>判断是否是好的商业模式，可以从两个角度看：<strong>“定价权”<strong>和</strong>“防御性”</strong>。简而言之，只有拥有定价权、别人打价格战己方可以稳坐钓鱼台的，才是好的商业模式。有很高的防御性护城河，当竞争对手进入市场才不会太容易，这个和定价权也是有一定关联性的。</p>
- 
       <!-- reward -->
       
     </div>

@@ -100,6 +100,127 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-mermaid-Syntax-error-in-graph"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/05/mermaid-Syntax-error-in-graph/"
+    >mermaid 插件语法错误解决</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/05/mermaid-Syntax-error-in-graph/" class="article-date">
+  <time datetime="2024-02-05T14:47:37.000Z" itemprop="datePublished">2024-02-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="问题">问题</h2>
+<p>之前安装的mermaid插件，用下来一直很好，但最近出了问题，脚本无法运行，报错：<br>
+Syntax error in graph mermaid version 8.14.0<br>
+<img src="https://cdn.yunminitools.cn/blog/0205_mermaid_error.png" alt="error"></p>
+<h2 id="解决方法">解决方法</h2>
+<p>比较头疼的是，这个error没有具体错误信息，一开始解决起来无从下手。只好祭出替换大法，从少到多逐步替换，终于发现问题。<br>
+可能是由于这个插件为老外开发的，内容中出现<strong>全角的标点符号</strong>就会出错，包括“，”，“：” 等，把这些标点符号都换成半角的，就不会报错了。比较奇怪的是，汉字显示是没有问题的，可能是标点符号和正常的汉字不在一个编码范围。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Django-Logging-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/05/Django-Logging-3/"
+    >Django 的日志机制-3</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/05/Django-Logging-3/" class="article-date">
+  <time datetime="2024-02-05T14:18:12.000Z" itemprop="datePublished">2024-02-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="实现方式">实现方式</h2>
+<p>其实最简单的方式就是直接在文件开头 <strong><code>import</code></strong>，然后程序中调用，像下面这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import the logging library</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># Get an instance of a logger</span></span><br><span class="line">logging.basicConfig(</span><br><span class="line">    <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(pathname)s[%(lineno)d] - %(levelname)s: %(message)s&#x27;</span>,</span><br><span class="line">    level=logging.INFO)</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request, arg1, arg</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> bad_mojo:</span><br><span class="line">        <span class="comment"># Log an error message</span></span><br><span class="line">	logger.error(<span class="string">&#x27;Something went wrong!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>但这种方式并不好，如果在每个文件开头都这样写一遍，第一是麻烦，第二是如果哪天要改变输出日志格式，那每个文件都要改一遍，还不累死。</p>
+<p>很显然，如果能封装成一个类，用的时候调用这个类，修改的时候也只需要修改这一个地方:</p> 
+      <a class="article-more-link" href="/2024/02/05/Django-Logging-3/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Django-Logging-2"
   class="article article-type-post"
   itemscope
@@ -678,145 +799,6 @@ C-->D(分析)</pre>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Building-personal-prestige"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/10/Building-personal-prestige/"
-    >建立个人和组织的声望（转）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/10/Building-personal-prestige/" class="article-date">
-  <time datetime="2023-09-10T06:06:40.000Z" itemprop="datePublished">2023-09-10</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="品牌-VS-声望">品牌 VS 声望</h2>
-<p><strong>Brand</strong> as a deliberately crafted, sustained narrative that is actively known about you. You don’t have to research Google engineering to have an opinion about Google engineering. In your career and as an engineering leader, you will likely be given the advice that it’s <em>very important</em> to build a brand.<br>
-品牌是一个经过精心打造、持续传播的叙事，它是人们主动了解你的方式。你不必研究谷歌的工程技术，就能对谷歌的工程技术有所见解。在你的职业生涯中，作为一名工程领导者，你很有可能会被建议：建立自己的品牌非常重要。<br>
-If you participate frequently in social media, it’s easy to get sucked into its reality distortion field. When you spend a lot of time in a given online community, being well-known in that community feels equivalent to professional credibility. However, my experience is that few of the most successful folks I know are well-known online, and many of the most successful folks I know don’t create content online at all. Maybe they have an Instagram account, but it focuses on their family and non-professional interests.<br>
-如果你经常参与社交媒体，很容易陷入其现实扭曲力场。当你在一个特定的在线社区花费大量时间时，在那个社区中广为人知似乎等同于专业信誉。然而，根据我的经验，我认识的许多最成功的人在线并不广为人知，而我认识的许多最成功的人根本不在线上创作内容。也许他们有一个Instagram账号，但它关注的是他们的家庭和非职业兴趣。<br>
-Enough folks find this <strong>counter-intuitive</strong> that I’ll emphasize this theme a bit. The majority of successful executives I’ve worked with don’t write online. They won’t post on Twitter or Mastodon. They haven’t written a book. They don’t speak at conferences. They don’t have a YouTube channel. They don’t stream on Twitch. In your engineering leadership career, you will at times be immersed in the message that you need to be creating content to be successful, but there’s abundant evidence to the contrary. You absolutely don’t have to do this sort of thing.<br>
-足够多的人认为这一点与直觉相悖，因此我将强调这个主题。我与之合作过的大多数成功高管并不在网上写作。他们不会在Twitter或Mastodon上发帖。他们没有写过书。他们不会在会议上演讲。他们没有YouTube频道。他不在Twitch上直播。在你的工程领导生涯中，你有时会沉浸在这样一种信息中，即你需要创造内容才能成功，但有大量证据表明相反。你绝对不必做这种事情。<br>
-Similarly, most Engineering organizations spend little time developing their external brand, and are not externally well-known. For every <a target="_blank" rel="noopener" href="https://engineering.fb.com/">Meta Engineering blog</a> or <a target="_blank" rel="noopener" href="https://netflixtechblog.com/">Netflix Engineering blog</a>, you’ll find hundreds of engineering organizations with limited public visibility around their work. Many of those silent organizations are doing very interesting work, they just don’t spend much time talking about it publicly. You can, without a doubt, be a successful engineering organization without ever doing any external communication to build your brand.<br>
-同样，大多数工程组织很少花时间发展他们的外部品牌，也不为外界所熟知。在每一个Meta工程博客或Netflix工程博客之后，你会发现数百个工程组织几乎没有公开可见性。许多这些低调的组织正在做非常有趣的工作，只是他们不花太多时间公开谈论。毫无疑问，你可以在不做任何外部沟通来建立品牌的情况下成为一家成功的工程组织。</p> 
-      <a class="article-more-link" href="/2023/09/10/Building-personal-prestige/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E5%8F%B8%E6%96%87%E5%8C%96/" rel="tag">公司文化</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-move-docker-data-folder"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/06/move-docker-data-folder/"
-    >Docker迁移默认的/var/lib/docker 目录（避坑指南）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/06/move-docker-data-folder/" class="article-date">
-  <time datetime="2023-09-06T08:17:12.000Z" itemprop="datePublished">2023-09-06</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>最近在做docker 数据文件的迁移，按指引创建，遇到了一些问题，把步骤和解决方案记录一下。</p>
-<h2 id="1-停止docker服务">1. 停止docker服务</h2>
-<p><code>systemctl stop docker</code></p>
-<h2 id="2-创建docker新目录">2.创建docker新目录</h2>
-<p><code>mkdir -p /data/docker/lib</code></p>
-<h2 id="3-安装迁移软件包">3.安装迁移软件包</h2>
-<p><code>yum install rsync -y</code></p>
-<p>或者</p>
-<p><code>sudo apt-get install rsync</code></p>
-<h2 id="4-开始迁移">4.开始迁移</h2>
-<p><code>rsync -avzP /var/lib/docker /data/docker/lib/</code></p>
-<p>注：这个不是必须的，也可以用<code>mv</code>命令</p>
-<h2 id="5-修改docker配置文件">5.修改docker配置文件</h2>
-<p><code>vim /lib/systemd/system/docker.service</code></p>
-<p>在<code>ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</code>后添加<code>--graph=/data/docker/lib</code></p>
-<p>注意：这里有个坑，最新的docker版本（≥ version 23.0.0 ) 这个参数（–graph）要改为 --data-root ，也就是： <code>--data-root=/data/docker/lib</code></p>
-<h2 id="6-重启docker">6.重启docker</h2>
-<p><code>systemctl daemon-reload</code><br>
-<code>systemctl restart docker</code></p>
-<h2 id="7-确认docker没有问题，删除原目录">7.确认docker没有问题，删除原目录</h2>
-<p><code>rm -rf /var/lib/docker</code></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>
