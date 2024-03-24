@@ -7806,4 +7806,24 @@ master_host: 主数据库的IP地址；</p>
         <tag>English_Article</tag>
       </tags>
   </entry>
+  <entry>
+    <title>查看Linux用户登录日志</title>
+    <url>/2024/03/24/linux-user-login-review/</url>
+    <content><![CDATA[<h2 id="1-lastlog">1. lastlog</h2>
+<p>使用<strong>lastlog</strong>可以查看所有用户最近登录的信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(base) root@VM-16-4-debian:~<span class="comment"># lastlog</span></span><br><span class="line">Username         Port     From             Latest</span><br><span class="line">root             pts/0    10.10.75.10     Sun Mar 24 17:13:34 +0800 2024</span><br><span class="line">daemon                                     **Never logged <span class="keyword">in</span>**</span><br><span class="line">bin                                        **Never logged <span class="keyword">in</span>**</span><br><span class="line">sys                                        **Never logged <span class="keyword">in</span>**</span><br></pre></td></tr></table></figure>
+<h2 id="2-last">2. last</h2>
+<p>列出当前和曾经登入系统的用户信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(base) root@VM-16-4-debian:~<span class="comment"># last</span></span><br><span class="line">root     pts/0        10.10.75.10     Sun Mar 24 17:13   still logged <span class="keyword">in</span></span><br><span class="line">root     pts/0        10.10.75.10     Fri Mar 22 22:31 - 01:21  (02:49)</span><br><span class="line">root     pts/0        10.10.75.10     Fri Mar 22 20:07 - 22:31  (02:24)</span><br><span class="line">root     pts/1        10.10.75.10     Fri Mar 22 18:28 - 20:53  (02:25)</span><br></pre></td></tr></table></figure>
+<h2 id="3-lastb">3. lastb</h2>
+<p>列出失败尝试的登录信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">(base) root@VM-16-4-debian:~<span class="comment"># lastb -50</span></span><br><span class="line">root     ssh:notty    106.55.187.66    Sun Mar 24 17:28 - 17:28  (00:00)</span><br><span class="line">root     ssh:notty    183.15.207.112   Sun Mar 24 17:28 - 17:28  (00:00)</span><br><span class="line">root     ssh:notty    101.43.137.100   Sun Mar 24 17:28 - 17:28  (00:00)</span><br><span class="line">root     ssh:notty    43.156.133.218   Sun Mar 24 17:28 - 17:28  (00:00)</span><br><span class="line">test1    ssh:notty    170.64.190.204   Sun Mar 24 17:28 - 17:28  (00:00)</span><br><span class="line">test1    ssh:notty    170.64.190.204   Sun Mar 24 17:28 - 17:28  (00:00)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>

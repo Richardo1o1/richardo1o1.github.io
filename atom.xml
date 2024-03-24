@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-03-22T14:33:27.645Z</updated>
+  <updated>2024-03-24T09:33:25.336Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>查看Linux用户登录日志</title>
+    <link href="http://yunminitools.cn/2024/03/24/linux-user-login-review/"/>
+    <id>http://yunminitools.cn/2024/03/24/linux-user-login-review/</id>
+    <published>2024-03-24T09:32:49.000Z</published>
+    <updated>2024-03-24T09:33:25.336Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-lastlog&quot;&gt;1. lastlog&lt;/h2&gt;
+&lt;p&gt;使用&lt;strong&gt;lastlog&lt;/strong&gt;可以查看所有用户最近登录的信息：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Data Warehouse Construction Standards - Data Modeling Standards</title>
@@ -588,37 +615,6 @@ docker run ：创建并运行一个容器&lt;br&gt;
     
     
     <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-    <category term="算法" scheme="http://yunminitools.cn/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>牛客网 面试必刷TOP101 算法题</title>
-    <link href="http://yunminitools.cn/2024/02/12/nowcoder-algorithm-test-101/"/>
-    <id>http://yunminitools.cn/2024/02/12/nowcoder-algorithm-test-101/</id>
-    <published>2024-02-12T15:48:40.000Z</published>
-    <updated>2024-02-22T07:20:08.020Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
-&lt;p&gt;发现一个除了Leecode以外比较好的刷算法的网站：&lt;/p&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
     
     
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
