@@ -845,7 +845,7 @@ var _hmt = _hmt || [];
 <p>通过日志解决公司内部繁杂的安全审计工作，可通过Elasticsearch分析、检索海量历史日志，高效地完成安全审计工作</p>
 <h2 id="部署ES数据库">部署ES数据库</h2>
 <h3 id="1-获取es镜像">1.获取es镜像</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudodocker pull elasticsearch:7.7.1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull elasticsearch:7.7.1</span><br></pre></td></tr></table></figure>
 <h3 id="2-创造挂载目录">2. 创造挂载目录</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/config</span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/data</span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/logs</span><br></pre></td></tr></table></figure>
 <h3 id="3-赋予权限">3.赋予权限</h3>

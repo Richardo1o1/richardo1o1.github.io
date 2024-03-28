@@ -192,7 +192,6 @@ var _hmt = _hmt || [];
             - For example: Purchase order number, product, product type, supplier, time, purchaser.
         - Confirm facts
             - For example: Purchase order product refund amount, purchase order product refund quantity.
-    
 - The Data Warehouse Service (DWS)
     - Design Methodology:
     Using the **analysis object** as the modeling driver, build a summary indicator table at a common granularity based on the common requirements of the upper-level applications and products. Physically model the wide table to provide a unified calculation basis and data standard for the application layer, improving efficiency.
@@ -207,7 +206,6 @@ var _hmt = _hmt || [];
     - Naming Convention
         - Layer abbreviation_Object abbreviation_Full name of stored content
         - Example: dws_order_orderdetail
-    
 - The Application Data Service (ADS)
     - Design Methodology:
         - Based on business requirements, store personalized report data of data products, which can be directly provided for query and display, ensuring efficiency.
@@ -220,7 +218,7 @@ var _hmt = _hmt || [];
         - Example: ADS/DM_mkt_XSJSC
 </code></pre>
 <ul>
-<li>Data ingestion ****Principal:
+<li>Data Ingestion Principal:
 <ul>
 <li>In layered data modeling, each layer builds on the previous one, starting with ingesting raw data and resulting in a final view containing clean transformed data that is highly functional.</li>
 </ul>
