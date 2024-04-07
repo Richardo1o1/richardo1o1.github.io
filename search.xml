@@ -7840,4 +7840,32 @@ master_host: 主数据库的IP地址；</p>
         <tag>Linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Https网站不能访问问题排查</title>
+    <url>/2024/04/07/https-ssl-error-issue-resolve/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>我有一个https的网站，最近折腾了一下，发现不能访问了，用各种办法测试，逐步找到问题，这里记录一下。</p>
+<h2 id="检查证书是否正常">检查证书是否正常</h2>
+<p>首先怀疑证书，好久不检查，不知道是否过期，用下面的语句检查一下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl x509 -noout -text -<span class="keyword">in</span> xxx.com.crt</span><br></pre></td></tr></table></figure>
+<p>可以看到以下结果：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Certificate:</span><br><span class="line">    Data:</span><br><span class="line">        Version: 3 (0x2)</span><br><span class="line">        Serial Number:</span><br><span class="line">            xxxxxxx</span><br><span class="line">        Signature Algorithm: sha384WithRSAEncryption</span><br><span class="line">        Issuer: C = CN, O = <span class="string">&quot;TrustAsia Technologies, Inc.&quot;</span>, CN = TrustAsia RSA DV TLS CA G2</span><br><span class="line">        Validity</span><br><span class="line">            Not Before: Jan 29 00:00:00 2024 GMT</span><br><span class="line">            Not After : Jan 28 23:59:59 2025 GMT</span><br></pre></td></tr></table></figure>
+<p>证书没问题，25年才过期</p>
+<h2 id="检查证书是否可以被访问">检查证书是否可以被访问</h2>
+<p>用以下语句：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl s_client -connect xxx.com:443 -showcerts</span><br></pre></td></tr></table></figure>
+<p>这时报错了：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">4087E3AE1B7F0000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:</span><br></pre></td></tr></table></figure>
+<p>查到这基本可以确认是网络问题，仔细排查了一下，原来是frp的配置忘改为https协议，导致网络转发不通。改完重启frp，问题解决。</p>
+<h2 id="查看SSL详细信息">查看SSL详细信息</h2>
+<p>问题解决后，可以再用 [<a href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a>](<a href="https://www.ssllabs.com/ssltest/%EF%BC%89">https://www.ssllabs.com/ssltest/）</a> 这个网站测试一下，结果非常丰富。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Issue-reslove</tag>
+      </tags>
+  </entry>
 </search>
