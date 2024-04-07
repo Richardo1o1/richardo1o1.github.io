@@ -7366,7 +7366,7 @@ master_host: 主数据库的IP地址；</p>
 <h3 id="4-进入config创建配置文件">4.进入config创建配置文件</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/elk/es/config</span><br><span class="line">sudo vim elasticsearch.yml</span><br></pre></td></tr></table></figure>
 <p>编辑 elasticsearch.yml 文件：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster.name:</span> <span class="string">&quot;my-es&quot;</span></span><br><span class="line"><span class="attr">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">http.port:</span> <span class="number">92</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">cluster.name:</span> <span class="string">&quot;my-es&quot;</span></span><br><span class="line"><span class="attr">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">http.port:</span> <span class="number">9200</span></span><br></pre></td></tr></table></figure>
 <h3 id="5-启动服务">5.启动服务</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run -it  -d -p 9200:9200 -p 9300:9300 --name es -e ES_JAVA_OPTS=<span class="string">&quot;-Xms84m -Xmx512m&quot;</span> -e <span class="string">&quot;discovery.type=single-node&quot;</span> --restart=always -v /data/elk/es/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /data/elk/es/data:/usr/share/elasticsearch/data -v /data/elk/es/logs:/usr/share/elasticsearch/logs elasticsearch:7.7.1</span><br></pre></td></tr></table></figure>
 <p>这里我们需要特别注意的是，做好容器内的文件与第二步创建的挂载目录进行文件夹的映射。</p>
@@ -7821,6 +7821,22 @@ master_host: 主数据库的IP地址；</p>
         <category>当日所学</category>
       </categories>
       <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker相关命令收集（IP地址/Log地址）</title>
+    <url>/2024/04/07/docker-command-collect-1/</url>
+    <content><![CDATA[<h2 id="1-查看Docker内IP地址">1. 查看Docker内IP地址</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> YOUR_CONTAINER</span><br></pre></td></tr></table></figure>
+<h2 id="2-查看Log文件地址">2. 查看Log文件地址</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker inspect --format=<span class="string">&#x27;&#123;&#123;.LogPath&#125;&#125;&#x27;</span> YOUR_CONTAINER</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
         <tag>Linux</tag>
       </tags>
   </entry>

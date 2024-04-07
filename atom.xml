@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-03-24T09:33:25.336Z</updated>
+  <updated>2024-04-07T11:53:29.348Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker相关命令收集（IP地址/Log地址）</title>
+    <link href="http://yunminitools.cn/2024/04/07/docker-command-collect-1/"/>
+    <id>http://yunminitools.cn/2024/04/07/docker-command-collect-1/</id>
+    <published>2024-04-07T11:52:43.000Z</published>
+    <updated>2024-04-07T11:53:29.348Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-查看Docker内IP地址&quot;&gt;1. 查看Docker内IP地址&lt;/h2&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>查看Linux用户登录日志</title>
@@ -310,7 +338,7 @@
     <link href="http://yunminitools.cn/2024/03/07/install-elk-elasticseach-docker/"/>
     <id>http://yunminitools.cn/2024/03/07/install-elk-elasticseach-docker/</id>
     <published>2024-03-07T13:13:20.000Z</published>
-    <updated>2024-03-28T05:05:34.757Z</updated>
+    <updated>2024-03-28T05:56:27.240Z</updated>
     
     
       
@@ -591,37 +619,6 @@ docker run ：创建并运行一个容器&lt;br&gt;
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
     
     <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法练习：BM1 反转链表</title>
-    <link href="http://yunminitools.cn/2024/02/13/nowcoder-algorithm-test-bm1/"/>
-    <id>http://yunminitools.cn/2024/02/13/nowcoder-algorithm-test-bm1/</id>
-    <published>2024-02-13T13:32:49.000Z</published>
-    <updated>2024-02-13T13:33:30.373Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;题目内容&quot;&gt;题目内容&lt;/h2&gt;
-&lt;p&gt;给定一个单链表的头结点pHead(该头节点是有值的，比如在下图，它的val是1)，长度为n，反转该链表后，返回新链表的表头。&lt;/p&gt;
-&lt;p&gt;数据范围： 0 ≤ &lt;em&gt;n&lt;/em&gt; ≤1000&lt;/p&gt;
-&lt;p&gt;要求：空间复杂度 &lt;em&gt;O&lt;/em&gt;(1) ，时间复杂度 &lt;em&gt;O&lt;/em&gt;(&lt;em&gt;n&lt;/em&gt;) 。&lt;/p&gt;
-&lt;p&gt;如当输入链表{1,2,3}时，&lt;/p&gt;
-&lt;p&gt;经反转后，原链表变为{3,2,1}，所以对应的输出为{3,2,1}。&lt;/p&gt;
-&lt;h2 id=&quot;我的思路&quot;&gt;我的思路&lt;/h2&gt;
-&lt;p&gt;在遍历链表时，将当前节点的next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。在更改引用之前，还需要存储后一个节点。最后返回新的头引用。借用网上一个图解：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/blog/02_13_bm1_test.gif&quot; alt=&quot; &quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-    <category term="算法" scheme="http://yunminitools.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
