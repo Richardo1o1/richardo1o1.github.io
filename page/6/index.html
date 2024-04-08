@@ -100,6 +100,181 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-test-changes-systematically-strategy"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/06/16/test-changes-systematically-strategy/"
+    >系统地测试变化的策略</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/16/test-changes-systematically-strategy/" class="article-date">
+  <time datetime="2023-06-16T13:10:48.000Z" itemprop="datePublished">2023-06-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>有时很难确定一个改变（例如，新的指示或新的设计）是使系统变得更好还是更糟。通过查看一些示例可能可以暗示哪个更好，但是对于小样本量来说，很难区分是真正的改进还是随机运气。也许这个改变对某些输入的性能有所帮助，但对其他输入的性能有所损害。<br>
+评估程序（或“评估”）对于优化系统设计是有用的。好的评估具备以下特点：</p>
+<ul>
+<li>代表真实世界的使用情况（或至少具备多样性）</li>
+<li>包含许多测试案例以获得更大的统计能力（请参考下表以获取指导方针）</li>
+<li>易于自动化或重复执行</li>
+</ul>
+<p>输出的评估可以由计算机、人类或二者结合来进行。计算机可以通过客观标准（例如，具有单一正确答案的问题）自动化评估，也可以通过一些主观或模糊标准进行评估，其中模型的输出由其他模型查询来评估。OpenAI Evals是一个开源软件框架，提供了创建自动评估的工具。<br>
+基于模型的评估在存在一系列可能的输出，且这些输出在质量上被认为是相等的情况下（例如，对于需要长答案的问题）是有用的。基于模型的评估与需要人类进行评估的情况之间的界限是模糊的，并且随着模型能力的提升，这个界限不断变化。我们鼓励进行实验，以确定基于模型的评估在您的用例中的效果如何。</p>
+<h2 id="通过与黄金标准答案对比评估模型输出结果">通过与黄金标准答案对比评估模型输出结果</h2>
+<p>假设我们已知问题的正确答案应该涉及到一组特定的已知事实。然后我们可以使用模型查询来计算答案中包含的必要事实的数量。</p>
+<p>例如，使用以下系统消息：</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with text delimited by triple quotes that is supposed to be the answer to a question. Check if the following pieces of information are directly contained in the answer:<br>- Neil Armstrong was the first person to walk on the moon.<br>- The date Neil Armstrong first walked on the moon was July 21, 1969.<br>For each of these points perform the following steps:<br>1 - Restate the point.<br>2 - Provide a citation from the answer which is closest to this point.<br>3 - Consider if someone reading the citation who doesn’t know the topic could directly infer the point. Explain why or why not before making up your mind.<br>4 - Write “yes” if the answer to 3 was yes, otherwise write “no”.<br>Finally, provide a count of how many “yes” answers there are. Provide this count as {“count”: <insert count here>}.</td>
+</tr>
+</tbody>
+</table> 
+      <a class="article-more-link" href="/2023/06/16/test-changes-systematically-strategy/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Use-external-tools-strategy"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/06/15/Use-external-tools-strategy/"
+    >使用外部工具的策略</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/15/Use-external-tools-strategy/" class="article-date">
+  <time datetime="2023-06-15T15:13:54.000Z" itemprop="datePublished">2023-06-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="使用基于嵌入的搜索实现高效的知识检索">使用基于嵌入的搜索实现高效的知识检索</h2>
+<p>有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确</p>
+<p>如果提供外部信息作为模型输入的一部分，模型可以利用这些信息。这可以帮助模型生成更具见解和最新的回答。例如，如果用户问一个关于特定电影的问题，将关于电影的高质量信息（如演员、导演等）添加到模型的输入中可能会很有用。可以使用嵌入（embeddings）来实现高效的知识检索，以便在运行时动态地将相关信息添加到模型输入中。</p>
+<p>文本嵌入是可以衡量文本字符串之间关联性的向量。相似或相关的字符串之间的距离比不相关的字符串更近。这一事实，加上存在快速向量搜索算法，意味着可以利用嵌入来实现高效的知识检索。具体而言，可以将文本语料库分割成多个块，然后对每个块进行嵌入和存储。然后，可以对给定的查询进行嵌入，执行向量搜索以找到与查询最相关的文本块（即在嵌入空间中最接近的文本块）。</p>
+<p>在<a target="_blank" rel="noopener" href="https://github.com/openai/openai-cookbook">OpenAI Cookbook</a>中可以找到<a target="_blank" rel="noopener" href="https://github.com/openai/openai-cookbook/blob/main/examples/vector_databases/Using_vector_databases_for_embeddings_search.ipynb">示例实现</a>。参考“<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/15/Use-external-tools-strategy/#%E4%BD%BF%E7%94%A8%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E6%90%9C%E7%B4%A2%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E7%9A%84%E7%9F%A5%E8%AF%86%E6%A3%80%E7%B4%A2">指示模型使用检索到的知识来回答查询</a>”策略，了解如何使用知识检索来最大程度地减少模型捏造不正确事实的可能性的示例。</p>
+<h2 id="使用代码执行进行更准确的计算或调用外部API">使用代码执行进行更准确的计算或调用外部API</h2>
+<p>GPT模型本身不能可靠地执行算术或长时间计算。在需要进行这类计算的情况下，可以指示模型编写和运行代码，而不是进行自己的计算。特别是，可以指示模型将需要运行的代码放入指定的格式，例如三个反引号（triple backtics）。在生成输出后，可以提取并运行代码。最后，如果需要的话，可以将代码执行引擎（例如Python解释器）的输出作为下一个查询的模型输入。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You can write and execute Python code by enclosing it in triple backticks, e.g. <code>code goes here</code>. Use this to perform calculations.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Find all real-valued roots of the following polynomial: 3x**5 - 5x4 - 3<em>x3 - 7</em>x - 10.</td>
+</tr>
+</tbody>
+</table>
+<p>另一个代码执行的良好用例是调用外部API。如果向模型传授API的正确使用方法，它可以编写使用该API的代码。通过向模型提供API的文档和/或代码示例，可以告诉它如何使用该API。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You can write and execute Python code by enclosing it in triple backticks. Also note that you have access to the following module to help users send messages to their friends:<br>‘’‘python<br>import message<br>message.write(to=“John”, message=“Hey, want to meetup after work?”) ‘’’</td>
+</tr>
+</tbody>
+</table>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Give-GPTs-time-to-think-strategy"
   class="article article-type-post"
   itemscope
@@ -751,139 +926,13 @@ SSH Client会从以下途径获取配置参数:</p>
 </article>
 
     
-    <article
-  id="post-A-Peer-to-Peer-Electronic-Cash-System-10"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/" class="article-date">
-  <time datetime="2023-04-25T15:22:59.000Z" itemprop="datePublished">2023-04-25</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="11-结论">11 结论</h2>
-<p>11 Conclusion<br>
-We have proposed a system for electronic transactions without relying on trust. We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power. The network is robust in its unstructured simplicity. Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.</p>
-<p>我们已经提出了一种不依赖信任的电子交易系统。我们从通用的数字签名货币体系开始，这体系提供了强有力的所有权控制，但由于缺乏防止双重支付的方法而不完善。为解决这个问题，我们提出一种使用工作量证明来记录公共交易历史的点对点网络，只要诚实节点控制了多数的 CPU 算力，对于攻击者，交易历史将很快变得在计算上不可更改。网络因其结构简洁性而强大。节点只需很少的协调就能同时工作。它们不需要被认证，因为信息不会被发送到某个特殊的位置，只需被尽力传播。节点可以随时离开和重新加入网络，只需接受工作量证明链作为它们离开时发生事件的证据。节点使用 CPU 算力来投票，通过致力于延长有效区块来表达对其接受，通过拒绝在无效区块上工作来表达对其抵制。任何需要的规则和激励都可通过这个共识机制来加强。</p>
-<p>【关注点】：</p>
-<ul>
-<li><strong>rules and incentives</strong>, 都会有哪些规则和激励？</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-A-Peer-to-Peer-Electronic-Cash-System-9"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/" class="article-date">
-  <time datetime="2023-04-23T15:15:15.000Z" itemprop="datePublished">2023-04-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="11-计算">11 计算</h2>
-<p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.<br>
-The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker’s chain being extended by one block, reducing the gap by -1. The probability of an attacker catching up from a given deficit is analogous to a Gambler’s Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:<br>
-p = probability an honest node finds the next block<br>
-q = probability the attacker finds the next block<br>
-qz = probability the attacker will ever catch up from z blocks behind<br>
-<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "></p> 
-      <a class="article-more-link" href="/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
   </nav>
   
 </section>

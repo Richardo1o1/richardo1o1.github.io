@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-07T12:14:34.292Z</updated>
+  <updated>2024-04-08T14:08:48.048Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue中实现动态样式的几种方式</title>
+    <link href="http://yunminitools.cn/2024/04/08/implement-dynamic-styles-in-vue/"/>
+    <id>http://yunminitools.cn/2024/04/08/implement-dynamic-styles-in-vue/</id>
+    <published>2024-04-08T14:08:17.000Z</published>
+    <updated>2024-04-08T14:08:48.048Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-三元运算符判断&quot;&gt;1. 三元运算符判断&lt;/h2&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>卫哲：创业公司发展该如何提高效率？</title>
+    <link href="http://yunminitools.cn/2024/04/08/how-can-startup-improve-efficiency/"/>
+    <id>http://yunminitools.cn/2024/04/08/how-can-startup-improve-efficiency/</id>
+    <published>2024-04-08T14:03:34.000Z</published>
+    <updated>2024-04-08T14:04:12.108Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;看到一篇&lt;strong&gt;卫哲&lt;/strong&gt;的演讲稿，很有启发，转载学习一下。&lt;/p&gt;
+&lt;h2 id=&quot;原文&quot;&gt;原文&lt;/h2&gt;
+&lt;p&gt;我每年会出席各种各样的场合，但从来没有像“效率”这个题目这么令我兴奋的。为什么？&lt;/p&gt;
+&lt;p&gt;做投资五年多来，收到无数的BP计划（商业计划书），永远是讲“我规模有多大”、“我今天有多大”、“我未来会做得有多大”，还有“我有多快”。&lt;/p&gt;
+&lt;p&gt;但从来没有没有人在BP当中说：我效率有多高——我今天效率有多高；未来随着我多快、多大以后，我的效率有多高。&lt;/p&gt;
+&lt;p&gt;互联网最大的作用就是提升效率。**一个互联网公司没有人均10万美元的利润贡献，就不是真正的互联网公司。**大和快的背后，是效率。&lt;/p&gt;
+&lt;p&gt;不要被互联网这层外衣给迷惑了。&lt;strong&gt;商业的本质，除了增长以外还有效率。没有效率的增长，不是慢性自杀，而是加速自杀。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如何提高效率，我们今天会分五个环节来讲。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="团队管理" scheme="http://yunminitools.cn/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="名人演讲" scheme="http://yunminitools.cn/tags/%E5%90%8D%E4%BA%BA%E6%BC%94%E8%AE%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>Https网站不能访问问题排查</title>
@@ -560,66 +617,6 @@ docker run ：创建并运行一个容器&lt;br&gt;
     
     
     <category term="Windows" scheme="http://yunminitools.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac brew安装tmux报错“no bottle available!“</title>
-    <link href="http://yunminitools.cn/2024/02/18/mac-brew-install-tmux-error/"/>
-    <id>http://yunminitools.cn/2024/02/18/mac-brew-install-tmux-error/</id>
-    <published>2024-02-18T14:14:03.000Z</published>
-    <updated>2024-02-18T14:17:51.073Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;问题&lt;/h2&gt;
-&lt;p&gt;在Mac M1安装tmux时，老是报错，根据报错提示无法解决。&lt;/p&gt;
-&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
-&lt;p&gt;执行以下命令，再安装就可以了。&lt;/p&gt;
-&lt;figure class=&quot;highlight</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Mac" scheme="http://yunminitools.cn/tags/Mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一次Docker应用排查过程</title>
-    <link href="http://yunminitools.cn/2024/02/18/docker-debug-test-1/"/>
-    <id>http://yunminitools.cn/2024/02/18/docker-debug-test-1/</id>
-    <published>2024-02-18T14:11:46.000Z</published>
-    <updated>2024-02-18T14:12:31.709Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;重新发布了一个应用，发现无法访问，把排查过程记录一下。&lt;/p&gt;
-&lt;h2 id=&quot;检查docker程序和开放端口&quot;&gt;检查docker程序和开放端口&lt;/h2&gt;
-&lt;p&gt;运行下面语句：&lt;/p&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
