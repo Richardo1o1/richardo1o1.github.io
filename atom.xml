@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-08T14:08:48.048Z</updated>
+  <updated>2024-04-09T10:04:01.996Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在线编程网站收集</title>
+    <link href="http://yunminitools.cn/2024/04/09/online-programming-website/"/>
+    <id>http://yunminitools.cn/2024/04/09/online-programming-website/</id>
+    <published>2024-04-09T10:02:29.000Z</published>
+    <updated>2024-04-09T10:04:01.996Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;有时想测试一下一些代码，手边没有IDE，就需要在线编程网站，尝试了以下几个，还不错：&lt;/p&gt;
+&lt;h2 id=&quot;1-Repl-it&quot;&gt;1. &lt;a href=&quot;http://Repl.it&quot;&gt;Repl.it&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://repl.it/&quot;&gt;Repl.it：&lt;/a&gt; 是一个强大的在线编码平台，支持多种编程语言，包括 JavaScript。它提供了一个集成开发环境 (IDE)，您可以在其中在线编写、运行和调试 JavaScript 代码。测试了一下，现在还支持AI补全代码，和IDE体验相当：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0023-replit.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue中实现动态样式的几种方式</title>
@@ -589,34 +612,6 @@ docker run ：创建并运行一个容器&lt;br&gt;
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
     <category term="Mysql" scheme="http://yunminitools.cn/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows命令-域内信息收集</title>
-    <link href="http://yunminitools.cn/2024/02/20/windows-domain-commands-collection-1/"/>
-    <id>http://yunminitools.cn/2024/02/20/windows-domain-commands-collection-1/</id>
-    <published>2024-02-20T14:03:02.000Z</published>
-    <updated>2024-02-20T14:03:49.301Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;判断是否存在域&quot;&gt;判断是否存在域&lt;/h2&gt;
-&lt;h3 id=&quot;ipconfig&quot;&gt;ipconfig&lt;/h3&gt;
-&lt;p&gt;查看网关 IP 地址、DNS 的 IP 地址、域名、本机是否和 DNS 服务器处于同一网段。&lt;/p&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
-    
-    
-    <category term="Windows" scheme="http://yunminitools.cn/tags/Windows/"/>
     
   </entry>
   

@@ -8087,4 +8087,27 @@ master_host: 主数据库的IP地址；</p>
         <tag>VUE</tag>
       </tags>
   </entry>
+  <entry>
+    <title>在线编程网站收集</title>
+    <url>/2024/04/09/online-programming-website/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>有时想测试一下一些代码，手边没有IDE，就需要在线编程网站，尝试了以下几个，还不错：</p>
+<h2 id="1-Repl-it">1. <a href="http://Repl.it">Repl.it</a></h2>
+<p><a href="https://repl.it/">Repl.it：</a> 是一个强大的在线编码平台，支持多种编程语言，包括 JavaScript。它提供了一个集成开发环境 (IDE)，您可以在其中在线编写、运行和调试 JavaScript 代码。测试了一下，现在还支持AI补全代码，和IDE体验相当：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0023-replit.png" alt=""></p>
+<span id="more"></span>
+<h2 id="2-CodePen">2. CodePen</h2>
+<p><a href="https://codepen.io/">codepen.io：</a> 是一种广泛使用的在线代码编辑器，支持 JavaScript、HTML 和 CSS。它提供了一个简洁直观的界面，您可以在其中编写、编辑和运行您的 JavaScript 代码。CodePen 还允许您与他人共享您的代码片段。它的社区功能比较好，你可以参考别人的代码：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0024-codepen.png" alt=""></p>
+<h2 id="3-JS-Bin">3. JS Bin</h2>
+<p><a href="https://jsbin.com/">JS Bin：</a> 是一个简单但功能强大的在线 JavaScript 编辑器。它在您键入时提供代码的实时预览，使您可以轻松地实时查看结果。您还可以通过共享您的 JS Bin 项目与他人协作。特色是无需注册即可使用：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0025-jsbin.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>编程技巧</tag>
+      </tags>
+  </entry>
 </search>
