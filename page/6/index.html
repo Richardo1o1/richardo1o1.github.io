@@ -100,6 +100,142 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-U-Theory-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/27/U-Theory-1/"
+    >U型思考介绍-1</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/27/U-Theory-1/" class="article-date">
+  <time datetime="2023-07-27T02:22:18.000Z" itemprop="datePublished">2023-07-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>什么是U型思维呢？</p>
+<p>U型思维是指先向下挖掘出问题本质，然后基于本质再来做决策的思考方式。它与上面直线式的思考相对应，因为思维链路有点像U，所以叫它U型思维，也可以叫它本质思考或者第二性思考。</p>
+<p><img src="http://cdn.yunminitools.cn/blog/0727U-Theory-1.png" alt="U-Theory"></p>
+<p>既然 U 型思维这么好，那么我们又如何能由直线思考升级到U型思考，从而拥有一眼洞穿本质的能力呢？</p>
+<p>其实和学习其他新生事物一样的道理，我们首先需要掌握科学系统的训练方法，其次通过刻意练习，让U型思考这种思维方式形成习惯以后，存储到我们潜意识层，它也就变成了我们操作系统上又一个常用的<strong>思维框架</strong> 。后续每当你遇到方向性问题时，U型思维这个 <strong>思维框架</strong> 就会自动运转起来，它就是专门用来解决战略方向性问题的，帮助我们确立前行方向。所以擅长U型思考的人，往往也是战略高手。</p>
+<p>具体的训练步骤可以分为以下三步：</p>
+<ol>
+<li>找核心问题</li>
+<li>找本质原因</li>
+<li>找解决方案</li>
+</ol>
+<p>助记词：<br>
+<strong>先问后挖，不破不立</strong></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/" rel="tag">工具框架</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-conda-command-create-activate"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/25/conda-command-create-activate/"
+    >conda 创建、激活、退出、删除虚拟环境 (Anaconda)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/25/conda-command-create-activate/" class="article-date">
+  <time datetime="2023-07-25T03:39:55.000Z" itemprop="datePublished">2023-07-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>在Anaconda中conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。所以对虚拟环境进行创建、删除等操作需要使用conda命令。</p>
+<h1>conda 本地环境常用操作</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取版本号</span></span><br><span class="line">conda --version 或 conda -V</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查更新当前conda</span></span><br><span class="line">conda update conda</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看当前存在哪些虚拟环境</span></span><br><span class="line">conda <span class="built_in">env</span> list 或 conda info -e</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看--安装--更新--删除包</span></span><br><span class="line"></span><br><span class="line">conda list：</span><br><span class="line">conda search package_name<span class="comment"># 查询包</span></span><br><span class="line">conda install package_name</span><br><span class="line">conda install package_name=1.5.0</span><br><span class="line">conda update package_name</span><br><span class="line">conda remove package_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>conda创建虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建名为your_env_name的环境</span></span><br><span class="line">conda create --name your_env_name</span><br><span class="line"><span class="comment">#创建制定python版本的环境</span></span><br><span class="line">conda create --name your_env_name python=2.7</span><br><span class="line">conda create --name your_env_name python=3.6</span><br><span class="line"><span class="comment">#创建包含某些包（如numpy，scipy）的环境</span></span><br><span class="line">conda create --name your_env_name numpy scipy</span><br><span class="line"><span class="comment">#创建指定python版本下包含某些包的环境</span></span><br><span class="line">conda create --name your_env_name python=3.6 numpy scipy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>激活虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Linux</span></span><br><span class="line"><span class="built_in">source</span> activate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#Windows</span></span><br><span class="line">activate your_env_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>退出虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Linux</span></span><br><span class="line"><span class="built_in">source</span> deactivate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#Windows</span></span><br><span class="line">deactivate env_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>删除虚拟环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n your_env_name --all</span><br><span class="line">conda remove --name your_env_name --all</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>复制某个环境</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name new_env_name --<span class="built_in">clone</span> old_env_name</span><br></pre></td></tr></table></figure>
+<h1>在指定环境中管理包</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda list -n your_env_name</span><br><span class="line">conda install --name myenv package_name</span><br><span class="line">conda remove --name myenv package_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>使用国内 conda 软件源加速</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-frp-NAT-intranet-remote-control"
   class="article article-type-post"
   itemscope
@@ -754,160 +890,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Django-Class-View-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/05/Django-Class-View-1/"
-    >Django 的类视图</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/05/Django-Class-View-1/" class="article-date">
-  <time datetime="2023-06-05T14:18:55.000Z" itemprop="datePublished">2023-06-05</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>练习Django的时候发现它的类视图很神奇，很少的代码就能实现功能，研究了一下，发现这个<a target="_blank" rel="noopener" href="https://liujiangblog.com/course/django/279">教程</a>，写得比较详细，转载一下，加深印象。</p>
-<h2 id="类视图与函数视图">类视图与函数视图</h2>
-<p>Django的视图可以分为：</p>
-<ul>
-<li>函数视图FBV：<code>def index(request):</code></li>
-<li>类视图CBV：<code>class AboutView(TemplateView):</code></li>
-</ul>
-<p>早期，人们在视图开发中发现了一些常见的习语和句式，也就是重复性代码和工作。于是引入了基于函数的视图来抽象这些模式，便于一般情况下的视图开发。</p>
-<p>基于函数的视图的问题在于，尽管它们覆盖了简单的情况，但是除了一些简单的配置选项之外，没有办法扩展或定制它们，限制了它们在许多现实应用中的实用性。</p>
-<p>基于类的通用视图与基于函数的视图的目标相同，都是想让视图开发更容易。但由于类视图可以使用MIXIN等一些面向对象的方法和工具包，使得基于类的视图比基于函数的视图更具扩展性和灵活性。</p>
-<p>基于类的视图：</p>
-<ul>
-<li>通过HTTP请求方法的不同，将代码分隔在不同的类方法中，比如GET和POST，而不是类函数中的条件判断。</li>
-<li>可以使用面向对象的技巧，比如混入。</li>
-<li>类具有封装和继承的特性，方便代码复用、分发和重构。</li>
-</ul>
-<p>两种视图可以实现同样的功能，本质上是一个东西，没有谁好谁坏之分，只是适用场景不同而已：</p>
-<ul>
-<li>简单逻辑、快速处理，请用FBV</li>
-<li>代码复用、功能封装，请用CBV</li>
-</ul>
-<h2 id="用法">用法</h2>
-<p>Django 提供了很多适用于各种应用场景的基本视图类，我们一般不从头自己写起，这些类视图都继承<code>django.views.generic.base.View</code>类。比如<code>RedirectView</code> 用于 HTTP 重定向，<code>TemplateView</code> 用于渲染模板。</p>
-<p>类视图有很多简单的用法，甚至不需要去views.py中编写代码，比如下面的例子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, TemplateView.as_view(template_name=<span class="string">&quot;about.html&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>重点关注：</p>
-<ul>
-<li><code>TemplateView</code>类视图</li>
-<li><code>as_view()</code>方法</li>
-<li><code>template_name</code>参数</li>
-</ul>
-<p>更通用的使用方法是继承Django提供的各种视图类，所以上面的例子的一般性写法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># some_app/views.py</span></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> TemplateView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AboutView</span>(<span class="title class_ inherited__">TemplateView</span>):</span><br><span class="line">    template_name = <span class="string">&quot;about.html&quot;</span></span><br></pre></td></tr></table></figure>
-<p>但是，由于类不是函数，所以需要在URLconf中使用<code>as_view()</code>这个类方法将一个基于类的视图转换成函数形式的接口。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> some_app.views <span class="keyword">import</span> AboutView</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;about/&#x27;</span>, AboutView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2023/06/05/Django-Class-View-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Django-Remote-Server-Access"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/04/Django-Remote-Server-Access/"
-    >解决Django无法访问远程服务器</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/04/Django-Remote-Server-Access/" class="article-date">
-  <time datetime="2023-06-04T06:03:31.000Z" itemprop="datePublished">2023-06-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>我在运上搭建了Django的服务器环境，这样就不能用 <code>http://127.0.0.1:8000</code> 来访问Django的服务了，那如何解决呢？</p>
-<h2 id="解决方案">解决方案</h2>
-<p>在启动服务的时候，加一些参数：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 [manage.py](http://manage.py/) runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
-<p>同时，修改 <code>setting.py</code>，将远端的服务器ip加到ALLOWED_HOSTS参数里：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;xxx.xxx.xxx.xxx&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<p><em>注：其中’<a target="_blank" rel="noopener" href="http://xxx.xxx.xxx.xxx">xxx.xxx.xxx.xxx</a>’是你远程服务器的外网ip</em></p>
-<p>这样，就可以用 <code>http://xxx.xxx.xxx.xxx:8000</code> 访问Django的服务了。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
 
     </footer>
   </div>

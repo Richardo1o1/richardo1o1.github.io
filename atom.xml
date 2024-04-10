@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-09T10:04:01.996Z</updated>
+  <updated>2024-04-10T15:32:49.396Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>英语单词辨析 - &quot;above&quot; and &quot;over&quot;</title>
+    <link href="http://yunminitools.cn/2024/04/10/differentiation-of-above-and-over/"/>
+    <id>http://yunminitools.cn/2024/04/10/differentiation-of-above-and-over/</id>
+    <published>2024-04-10T15:31:59.000Z</published>
+    <updated>2024-04-10T15:32:49.396Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;发现了一个英文单词辨析的网站，写得挺清楚的，搬运过来，同时翻译一下，加深印象。&lt;/p&gt;
+&lt;h2 id=&quot;“above”-and-“over”&quot;&gt;&lt;strong&gt;“above” and</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fail2Ban - 网络入侵防御软件</title>
+    <link href="http://yunminitools.cn/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/"/>
+    <id>http://yunminitools.cn/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/</id>
+    <published>2024-04-10T15:26:20.000Z</published>
+    <updated>2024-04-10T15:28:06.676Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Fail2Ban 是一款入侵防御软件，可以保护服务器免受暴力攻击，开源在**&lt;a href=&quot;https://github.com/fail2ban/fail2ban&quot;&gt;GitHub&lt;/a&gt;**&lt;/p&gt;
+&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;简单来说，Fail2Ban 的功能就是可以记录登录失败（例如SSH，MySQL等服务）的次数，如果失败太多次就禁用登录的 IP，还可以邮件通知；这样可以防止短时间内有大量暴力破解。&lt;/p&gt;
+&lt;p&gt;注意：Fail2Ban 能够降低错误认证尝试的速度，但是它不能消除弱认证带来的风险。假如一款服务使用了弱密码，那么别人一猜就对了，那么 Fail2Ban 也无能为力。&lt;/p&gt;
+&lt;h2 id=&quot;安装Fail2Ban&quot;&gt;安装Fail2Ban&lt;/h2&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Ubuntu&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt update &amp;amp;&amp;amp; apt upgrade&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt install fail2ban&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+    <category term="网络安全" scheme="http://yunminitools.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>在线编程网站收集</title>
@@ -551,67 +604,6 @@
     
     
     <category term="Windows" scheme="http://yunminitools.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>查看和清理Linux日志文件</title>
-    <link href="http://yunminitools.cn/2024/02/21/linux-commands-collection-1/"/>
-    <id>http://yunminitools.cn/2024/02/21/linux-commands-collection-1/</id>
-    <published>2024-02-21T14:15:10.000Z</published>
-    <updated>2024-02-21T14:18:01.880Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1、查看目录大小&quot;&gt;&lt;strong&gt;1、查看目录大小&lt;/strong&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;du，下面命令显示当前文件夹下各个文件及文件夹大小（汇总）&quot;&gt;du，下面命令显示当前文件夹下各个文件及文件夹大小（汇总）&lt;/h3&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker安装MySQL主从复制</title>
-    <link href="http://yunminitools.cn/2024/02/21/master-slave-replication-docker-install/"/>
-    <id>http://yunminitools.cn/2024/02/21/master-slave-replication-docker-install/</id>
-    <published>2024-02-21T14:12:19.000Z</published>
-    <updated>2024-02-26T14:15:51.869Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;以下是步骤：&lt;/p&gt;
-&lt;h2 id=&quot;1-拉取MySQL的镜像&quot;&gt;&lt;strong&gt;1.拉取MySQL的镜像&lt;/strong&gt;&lt;/h2&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo docker pull mysql:8.0.25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;2-新建MySQL主服务器的容器实例，端口为3307&quot;&gt;2.新建MySQL主服务器的容器实例，端口为3307&lt;/h2&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo docker run -p 3501:3306 --name mysql-master \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v /mnt/n1/data/mysql-master/log:/var/log/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v /mnt/n1/data/mysql-master/data:/var/lib/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v /mnt/n1/data/mysql-master/conf:/etc/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v /mnt/n1/data/mysql-master/mysql-files:/var/lib/mysql-files \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-e MYSQL_ROOT_PASSWORD=123456 \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-d mysql:8.0.25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;命令解读：&lt;br&gt;
-docker run ：创建并运行一个容器&lt;br&gt;
-–name : 给容器起一个名字，比如叫做 mysql-master&lt;br&gt;
--p ：将宿主机端口与容器端口映射，冒号左侧是宿主机端口，右侧是容器端口&lt;br&gt;
--d：后台运行容器&lt;br&gt;
--e：环境变量，如密码什么的&lt;br&gt;
--v：挂载一个数据卷到某个容器内目录，上面分别配置了日志、数据、配置的数据卷&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-    <category term="Mysql" scheme="http://yunminitools.cn/tags/Mysql/"/>
     
   </entry>
   
