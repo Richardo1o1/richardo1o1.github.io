@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-11T01:36:56.832Z</updated>
+  <updated>2024-04-11T12:54:47.225Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>英语单词辨析 - Principal or principle</title>
+    <link href="http://yunminitools.cn/2024/04/11/differentiation-of-principal-principle/"/>
+    <id>http://yunminitools.cn/2024/04/11/differentiation-of-principal-principle/</id>
+    <published>2024-04-11T12:54:07.000Z</published>
+    <updated>2024-04-11T12:54:47.225Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Principal-or-principle&quot;&gt;Principal or principle&lt;/h2&gt;
+&lt;p&gt;ref：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fail2Ban 排查错误</title>
+    <link href="http://yunminitools.cn/2024/04/11/troubleshooting-fail2ban-log-error/"/>
+    <id>http://yunminitools.cn/2024/04/11/troubleshooting-fail2ban-log-error/</id>
+    <published>2024-04-11T12:51:59.000Z</published>
+    <updated>2024-04-11T12:52:54.533Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;Fail2Ban 安装完后( 参考 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+    <category term="网络安全" scheme="http://yunminitools.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>英语单词辨析 - As, because or since</title>
@@ -546,62 +600,6 @@
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
     <category term="ELK" scheme="http://yunminitools.cn/tags/ELK/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python的列表，字典，元组，集合的区别和各自使用方法</title>
-    <link href="http://yunminitools.cn/2024/02/27/difference-of-list-tuple-set-dict/"/>
-    <id>http://yunminitools.cn/2024/02/27/difference-of-list-tuple-set-dict/</id>
-    <published>2024-02-27T15:10:04.000Z</published>
-    <updated>2024-02-27T15:10:44.632Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;我在学习Python的时候，经常把 几个数据类型搞混，下面就对 list，tuple，set，dict总结区别：&lt;br&gt;
-&lt;img src=&quot;https://cdn.yunminitools.cn/blog/0227_diff.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-列表list&quot;&gt;1.列表list []&lt;/h2&gt;
-&lt;p&gt;列表是处理一组有序的数据结构，可以读写，添加和删除，或者搜索列表里的元素。因为可以添加和删除，所以称为可变的数据类型，即这种类型是可以被改变的，并且列表可以嵌套。&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;res = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;#x27;yihang&amp;#x27;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#增加元素：extend和append&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;res.append(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;res.extend(&lt;span class=&quot;string&quot;&gt;&amp;#x27;6&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#删除元素：del，pop，切片，remove&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;del&lt;/span&gt; res[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;res.pop(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;span class=&quot;comment&quot;&gt;#删除该位置上的元素，没有指定则是最后一个元素&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;res = res[:&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]+res[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;:]&lt;span class=&quot;comment&quot;&gt;#切片&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;res.remove(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)&lt;span class=&quot;comment&quot;&gt;#删除指定值的元素&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#更改元素&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;res[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#查元素&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(res[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(res[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;注意：如果想添加的一个元素是一个列表，那么append是将这个这个列表作为一个元素添加进来，而extend是将列中的元素一个一个添加进去&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法练习：BM2 链表内指定区间反转</title>
-    <link href="http://yunminitools.cn/2024/02/26/nowcoder-algorithm-test-bm2/"/>
-    <id>http://yunminitools.cn/2024/02/26/nowcoder-algorithm-test-bm2/</id>
-    <published>2024-02-26T14:09:45.000Z</published>
-    <updated>2024-02-26T14:17:12.049Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;问题描述&quot;&gt;问题描述&lt;/h2&gt;
-&lt;p&gt;将一个节点数为 size 链表 m 位置到 n 位置之间的区间反转，要求时间复杂度&lt;em&gt;O&lt;/em&gt;(&lt;em&gt;n&lt;/em&gt;)，空间复杂度&lt;em&gt;O&lt;/em&gt;(1)。例如：给出的链表为 1→2→3→4→5→&lt;em&gt;NULL&lt;/em&gt;, m=2,&lt;em&gt;n&lt;/em&gt;=4,返回 1→4→3→2→5→&lt;em&gt;NULL&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;数据范围： 链表长度 0&amp;lt;&lt;em&gt;size&lt;/em&gt;≤10000，0&amp;lt;&lt;em&gt;m&lt;/em&gt;≤&lt;em&gt;n&lt;/em&gt;≤&lt;em&gt;size&lt;/em&gt;，链表中每个节点的值满足 &lt;em&gt;val&lt;/em&gt;∣≤10000&lt;/p&gt;
-&lt;p&gt;要求：时间复杂度 &lt;em&gt;O&lt;/em&gt;(&lt;em&gt;n&lt;/em&gt;) ，空间复杂度 &lt;em&gt;O&lt;/em&gt;(&lt;em&gt;n&lt;/em&gt;)&lt;/p&gt;
-&lt;p&gt;进阶：时间复杂度&lt;em&gt;O&lt;/em&gt;(&lt;em&gt;n&lt;/em&gt;)，空间复杂度&lt;em&gt;O&lt;/em&gt;(1)&lt;/p&gt;
-&lt;h2 id=&quot;示例1&quot;&gt;示例1&lt;/h2&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;1,2,3,4,5&amp;#125;,2,4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;返回值：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;1,4,3,2,5&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;示例2&quot;&gt;示例2&lt;/h2&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;5&amp;#125;,1,1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;返回值：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;5&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-    <category term="算法" scheme="http://yunminitools.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

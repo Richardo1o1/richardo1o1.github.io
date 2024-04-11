@@ -8302,4 +8302,66 @@ Not: <s>Are you feeling unwell since you ate too much? or … as you ate too 
         <tag>英语学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>英语单词辨析 - Principal or principle</title>
+    <url>/2024/04/11/differentiation-of-principal-principle/</url>
+    <content><![CDATA[<h2 id="Principal-or-principle">Principal or principle</h2>
+<p>ref：<a href="https://dictionary.cambridge.org/grammar/british-grammar/principal-or-principle">原文</a></p>
+<h3 id="Principal：">Principal：</h3>
+<p>Principal作为形容词意味着“<strong>最重要的”</strong>：</p>
+<blockquote>
+<p>The principal reason for the failure to take action was poor communication between government departments. (the most important reason)</p>
+</blockquote>
+<p>我们可以将principal用作名词，指的是学校或大学的校长（尤其在美式英语中）：</p>
+<blockquote>
+<p>The college principal made a speech congratulating all the students who were graduating in that year.</p>
+</blockquote>
+<h3 id="Principle：">Principle：</h3>
+<p>Principle是一个名词，意思是‘解释某事物或工作方式的规则或理论’或‘道德规则或准则’：</p>
+<blockquote>
+<p>The scientific principles behind even the most complicated computer are relatively simple.</p>
+<p>He seems to have no principles at all, and is only interested in money. (He has no moral rules or guidelines.)</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>英语学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Fail2Ban 排查错误</title>
+    <url>/2024/04/11/troubleshooting-fail2ban-log-error/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>Fail2Ban 安装完后( 参考 <a href="https://www.yunminitools.cn/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/">安装过程</a> ），用 systemctl status fail2ban 查看，发现报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fail2ban.service: Main process exited, code=exited, status=255</span><br></pre></td></tr></table></figure>
+<h2 id="排查过程">排查过程</h2>
+<p>首先查看 log:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">cat</span> /var/log/fail2ban.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<p>发现日志为空，无线索。</p>
+<p>有搜索了一下，可以通过下面命令查看系统log：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo journalctl -xe | <span class="built_in">tail</span> -n 50</span><br></pre></td></tr></table></figure>
+<p>检查了一下，发现以下报错：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Failed during configuration: Have not found any <span class="built_in">log</span> file <span class="keyword">for</span> sshd jail</span><br></pre></td></tr></table></figure>
+<p>感觉是配置文件问题，搜索了一下，找到以下解决方案：</p>
+<p>编辑jail.conf文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/fail2ban/jail.conf</span><br></pre></td></tr></table></figure>
+<p>找到  ‘<strong>backend = auto</strong>‘ 修改为 ‘<strong>backend = systemd</strong>‘</p>
+<p>重启fail2ban 服务：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart fail2ban</span><br></pre></td></tr></table></figure>
+<p>发现还是报错，查了以下，需要手工创建log文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">touch</span> /var/log/auth.log</span><br></pre></td></tr></table></figure>
+<p>该文件定义在 <code>fail2ban.local</code> 文件中</p>
+<p>再次重启fail2ban 服务，问题解决：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; sudo fail2ban-client status sshd</span><br><span class="line">Status <span class="keyword">for</span> the jail: sshd</span><br><span class="line">|- Filter</span><br><span class="line">|  |- Currently failed: 0</span><br><span class="line">|  |- Total failed:     0</span><br><span class="line">|  `- File list:        /var/log/auth.log</span><br><span class="line">`- Actions</span><br><span class="line">   |- Currently banned: 0</span><br><span class="line">   |- Total banned:     0</span><br><span class="line">   `- Banned IP list:</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>网络安全</tag>
+      </tags>
+  </entry>
 </search>

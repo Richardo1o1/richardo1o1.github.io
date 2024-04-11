@@ -100,6 +100,150 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-vue-refresh-page-route"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/09/13/vue-refresh-page-route/"
+    >VUE页面刷新实战</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/09/13/vue-refresh-page-route/" class="article-date">
+  <time datetime="2023-09-13T14:18:39.000Z" itemprop="datePublished">2023-09-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>在进行VUE开发时，往往会出现需要实现当前页面操作完毕后，返回一个列表页面，如果用 this.$router.go(-1) 的方法，页面不会刷新。如果是没有操作，问题不大，但如果我们执行的是删除或添加动作，希望的效果是重新刷新页面，显示操作后的列表页面，这时，用 this.$router.go(-1) 就不能满足需求了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>研究了一下，有多种解决方案，我选择了下面的解决方案：</p>
+<ol>
+<li>先定义一个空页面，接收需要跳转的目标页面</li>
+<li>需要跳转到列表页面的函数，不要直接跳到列表页面，先用push方法跳到空页面，同时把目标页面作为参数传给空页面</li>
+<li>这样利用VUE的路由跳转功能，可以让页面流转比较流畅，不会出现页面闪烁的情况。</li>
+</ol>
+<h2 id="代码">代码</h2>
+<ol>
+<li>
+<p>定义空页面</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;Empty-form&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt; </span><br><span class="line">  </span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; useRoute &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">var</span> topath = <span class="string">&quot;&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">export</span> <span class="title function_">default</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">const</span> route = <span class="title function_">useRoute</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      topath = route.<span class="property">params</span>.<span class="property">topath</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">created</span>(<span class="params"></span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">replace</span>(&#123; <span class="attr">path</span>: topath &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"> &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>定义空页面路由</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/empty/:topath&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Empty&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">EmptyView</span>,</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p><strong>此处注意</strong>：如果需要传参数，必须把参数定义在path里。</p>
+</li>
+<li>
+<p>页面跳转，传递参数</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123;<span class="attr">name</span>:<span class="string">&#x27;Empty&#x27;</span>, <span class="attr">params</span>: &#123; <span class="attr">topath</span>: <span class="string">&#x27;/questionlist&#x27;</span> &#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>此处注意</strong>：带参数push，请用‘name’ 指定页面。</p>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Building-personal-prestige"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/09/10/Building-personal-prestige/"
+    >建立个人和组织的声望（转）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/09/10/Building-personal-prestige/" class="article-date">
+  <time datetime="2023-09-10T06:06:40.000Z" itemprop="datePublished">2023-09-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="品牌-VS-声望">品牌 VS 声望</h2>
+<p><strong>Brand</strong> as a deliberately crafted, sustained narrative that is actively known about you. You don’t have to research Google engineering to have an opinion about Google engineering. In your career and as an engineering leader, you will likely be given the advice that it’s <em>very important</em> to build a brand.<br>
+品牌是一个经过精心打造、持续传播的叙事，它是人们主动了解你的方式。你不必研究谷歌的工程技术，就能对谷歌的工程技术有所见解。在你的职业生涯中，作为一名工程领导者，你很有可能会被建议：建立自己的品牌非常重要。<br>
+If you participate frequently in social media, it’s easy to get sucked into its reality distortion field. When you spend a lot of time in a given online community, being well-known in that community feels equivalent to professional credibility. However, my experience is that few of the most successful folks I know are well-known online, and many of the most successful folks I know don’t create content online at all. Maybe they have an Instagram account, but it focuses on their family and non-professional interests.<br>
+如果你经常参与社交媒体，很容易陷入其现实扭曲力场。当你在一个特定的在线社区花费大量时间时，在那个社区中广为人知似乎等同于专业信誉。然而，根据我的经验，我认识的许多最成功的人在线并不广为人知，而我认识的许多最成功的人根本不在线上创作内容。也许他们有一个Instagram账号，但它关注的是他们的家庭和非职业兴趣。<br>
+Enough folks find this <strong>counter-intuitive</strong> that I’ll emphasize this theme a bit. The majority of successful executives I’ve worked with don’t write online. They won’t post on Twitter or Mastodon. They haven’t written a book. They don’t speak at conferences. They don’t have a YouTube channel. They don’t stream on Twitch. In your engineering leadership career, you will at times be immersed in the message that you need to be creating content to be successful, but there’s abundant evidence to the contrary. You absolutely don’t have to do this sort of thing.<br>
+足够多的人认为这一点与直觉相悖，因此我将强调这个主题。我与之合作过的大多数成功高管并不在网上写作。他们不会在Twitter或Mastodon上发帖。他们没有写过书。他们不会在会议上演讲。他们没有YouTube频道。他不在Twitch上直播。在你的工程领导生涯中，你有时会沉浸在这样一种信息中，即你需要创造内容才能成功，但有大量证据表明相反。你绝对不必做这种事情。<br>
+Similarly, most Engineering organizations spend little time developing their external brand, and are not externally well-known. For every <a target="_blank" rel="noopener" href="https://engineering.fb.com/">Meta Engineering blog</a> or <a target="_blank" rel="noopener" href="https://netflixtechblog.com/">Netflix Engineering blog</a>, you’ll find hundreds of engineering organizations with limited public visibility around their work. Many of those silent organizations are doing very interesting work, they just don’t spend much time talking about it publicly. You can, without a doubt, be a successful engineering organization without ever doing any external communication to build your brand.<br>
+同样，大多数工程组织很少花时间发展他们的外部品牌，也不为外界所熟知。在每一个Meta工程博客或Netflix工程博客之后，你会发现数百个工程组织几乎没有公开可见性。许多这些低调的组织正在做非常有趣的工作，只是他们不花太多时间公开谈论。毫无疑问，你可以在不做任何外部沟通来建立品牌的情况下成为一家成功的工程组织。</p> 
+      <a class="article-more-link" href="/2023/09/10/Building-personal-prestige/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E5%8F%B8%E6%96%87%E5%8C%96/" rel="tag">公司文化</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-move-docker-data-folder"
   class="article article-type-post"
   itemscope
@@ -613,163 +757,6 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Methods-of-reducing-coupling"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/28/Methods-of-reducing-coupling/"
-    >耦合度以及降低耦合度的方法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/28/Methods-of-reducing-coupling/" class="article-date">
-  <time datetime="2023-07-28T07:52:11.000Z" itemprop="datePublished">2023-07-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="一、耦合度"><strong>一、耦合度</strong></h2>
-<p>模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。模块间联系越多，其耦合性越强，同时表明其独立性越差。<br>
-降低模块间的耦合度能减少模块间的影响，防止对某一模块修改所引起的“牵一发动全身”的水波效应，保证系统设计顺利进行</p>
-<h2 id="二、紧密耦合的系统在开发阶段有以下的缺点"><strong>二、紧密耦合的系统在开发阶段有以下的缺点</strong></h2>
-<p>一个模块的修改会产生涟漪效应，其他模块也需随之修改。<br>
-由于模块之间的相依性，模块的组合会需要更多的精力及时间。<br>
-由于一个模块有许多的相依模块，模块的可复用性低。</p>
-<h2 id="三、降低耦合度的方法"><strong>三、降低耦合度的方法</strong></h2>
-<ol>
-<li>少使用类的继承，多用接口隐藏实现的细节。 java面向对象编程引入接口除了支持多态外， 隐藏实现细节也是其中一个目的。</li>
-<li>模块的功能化分尽可能的单一。道理也很简单，功能单一的模块供其它模块调用的机会就少。</li>
-<li>遵循一个定义只在一个地方出现。（对一个功能、类只定义在一个地方）。
-<ul>
-<li>修改时永远只修改这一个地方。</li>
-<li>增加功能时也只在一个地方修改。</li>
-<li>将变动只缩小到一个地方。</li>
-<li>一处修改，所有用它的地方都生效。</li>
-</ul>
-</li>
-<li>少使用全局变量。
-<ul>
-<li>由于全局变量，程序运行期间，始终占有那块存储区，所以空间利用率比较低，大量的全局变量，很快就会把内存用光</li>
-<li>全局变量由于每个函数都可以使用，所以任何一个函数的修改，如果修改了全局变量，都有可能影响到其他函数，所以不利于调试</li>
-</ul>
-</li>
-<li>类属性和方法的声明少用public，多用private关键字（公共的就有可能被到处调用，到处new对象）</li>
-<li>多用设计模式，比如采用MVC的设计模式就可以降低界面与业务逻辑的耦合度。</li>
-<li>尽量不用“硬编码”的方式写程序，同时也尽量避免直接用SQL语句操作数据库。</li>
-</ol>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-System-performance-tuning"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/28/System-performance-tuning/"
-    >系统性能调优-学习笔记1</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/28/System-performance-tuning/" class="article-date">
-  <time datetime="2023-07-28T07:50:13.000Z" itemprop="datePublished">2023-07-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="基本知识">基本知识</h2>
-<p>大型网站架构设计必备的三板斧：</p>
-<ul>
-<li><strong>高性能架构设计</strong>： 熟悉系统常见性能优化手段比如引入 读写分离、缓存、负载均衡、异步 等等。</li>
-<li><strong>高可用架构设计</strong> ：CAP理论和BASE理论、通过集群来提高系统整体稳定性、超时和重试机制、应对接口级故障：降级、熔断、限流、排队。</li>
-<li><strong>高扩展架构设计</strong> ：如何拆分系统。按照不同的思路来拆分软件系统，就会得到不同的架构。</li>
-</ul>
-<h2 id="基本原则">基本原则</h2>
-<p>合适优于先进 &gt; 演化优于一步到位 &gt; 简单优于复杂</p>
-<h2 id="常见的性能优化策略">常见的性能优化策略</h2>
-<p>性能优化之前我们需要对请求经历的各个环节进行分析，排查出可能出现性能瓶颈的地方，定位问题。</p>
-<p>下面是一些性能优化时常见问题：</p>
-<ol>
-<li>当前系统的SQL语句是否存在问题？</li>
-<li>当前系统是否需要升级硬件？</li>
-<li>系统是否需要缓存？</li>
-<li>系统架构本身是不是就有问题？</li>
-<li>系统是否存在死锁的地方？</li>
-<li>数据库索引使用是否合理？</li>
-<li>系统是否存在内存泄漏？</li>
-<li>系统的耗时操作进行了异步处理？</li>
-</ol>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
 
     </footer>
   </div>
