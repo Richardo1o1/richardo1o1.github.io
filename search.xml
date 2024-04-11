@@ -8113,7 +8113,7 @@ master_host: 主数据库的IP地址；</p>
   <entry>
     <title>Fail2Ban - 网络入侵防御软件</title>
     <url>/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/</url>
-    <content><![CDATA[<p>Fail2Ban 是一款入侵防御软件，可以保护服务器免受暴力攻击，开源在**<a href="https://github.com/fail2ban/fail2ban">GitHub</a>**</p>
+    <content><![CDATA[<p>Fail2Ban 是一款入侵防御软件，可以保护服务器免受暴力攻击，开源在 <a href="https://github.com/fail2ban/fail2ban">GitHub</a></p>
 <h2 id="介绍">介绍</h2>
 <p>简单来说，Fail2Ban 的功能就是可以记录登录失败（例如SSH，MySQL等服务）的次数，如果失败太多次就禁用登录的 IP，还可以邮件通知；这样可以防止短时间内有大量暴力破解。</p>
 <p>注意：Fail2Ban 能够降低错误认证尝试的速度，但是它不能消除弱认证带来的风险。假如一款服务使用了弱密码，那么别人一猜就对了，那么 Fail2Ban 也无能为力。</p>

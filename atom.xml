@@ -74,10 +74,10 @@
     <link href="http://yunminitools.cn/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/"/>
     <id>http://yunminitools.cn/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/</id>
     <published>2024-04-10T15:26:20.000Z</published>
-    <updated>2024-04-10T15:28:06.676Z</updated>
+    <updated>2024-04-11T02:14:22.672Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Fail2Ban 是一款入侵防御软件，可以保护服务器免受暴力攻击，开源在**&lt;a href=&quot;https://github.com/fail2ban/fail2ban&quot;&gt;GitHub&lt;/a&gt;**&lt;/p&gt;
+    <summary type="html">&lt;p&gt;Fail2Ban 是一款入侵防御软件，可以保护服务器免受暴力攻击，开源在 &lt;a href=&quot;https://github.com/fail2ban/fail2ban&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;简单来说，Fail2Ban 的功能就是可以记录登录失败（例如SSH，MySQL等服务）的次数，如果失败太多次就禁用登录的 IP，还可以邮件通知；这样可以防止短时间内有大量暴力破解。&lt;/p&gt;
 &lt;p&gt;注意：Fail2Ban 能够降低错误认证尝试的速度，但是它不能消除弱认证带来的风险。假如一款服务使用了弱密码，那么别人一猜就对了，那么 Fail2Ban 也无能为力。&lt;/p&gt;
