@@ -8365,7 +8365,7 @@ Not: <s>Are you feeling unwell since you ate too much? or … as you ate too 
       </tags>
   </entry>
   <entry>
-    <title>Python管理虚拟环境-virtualenv</title>
+    <title>Python管理虚拟环境安装 virtualenv</title>
     <url>/2024/04/13/python-virtualenv-memo/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
 <p>记录一下virtualenv安装过程，这里只介绍Windows下的情况</p>
