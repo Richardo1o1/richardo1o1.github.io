@@ -8364,4 +8364,47 @@ Not: <s>Are you feeling unwell since you ate too much? or … as you ate too 
         <tag>网络安全</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python管理虚拟环境-virtualenv</title>
+    <url>/2024/04/13/python-virtualenv-memo/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>记录一下virtualenv安装过程，这里只介绍Windows下的情况</p>
+<h3 id="安装：">安装：</h3>
+<p>终端（命令行）输入：<code>pip install virtualenv</code></p>
+<h3 id="创建虚拟环境目录">创建虚拟环境目录</h3>
+<p>终端（命令行）输入：<code>python -m venv venv</code></p>
+<p>其中，venv就是你创建的环境目录，创建成功后，你项目里会出现一个名为venv的文件夹。</p>
+<h3 id="注意：">注意：</h3>
+<p>①不创建目录直接激活的话会出现如下错误：</p>
+<p>②后面的那个venv是可以自定义的文件夹名字</p>
+<p>③不写文件夹名称会报错;</p>
+<p>venv: error: the following arguments are required: ENV_DIR</p>
+<p>这个错误提示表明在使用<code>venv</code>命令时缺少了必要的<code>ENV_DIR</code>参数。</p>
+<p><code>venv</code>是Python内置的用于创建和管理虚拟环境的模块，它需要指定一个目录作为虚拟环境的位置。</p>
+<p>要创建一个新的虚拟环境，你需要提供一个目录路径作为<code>ENV_DIR</code>参数。</p>
+<p>例如，以下命令将创建一个名为<code>myenv</code>的虚拟环境：python -m venv myenv</p>
+<p>在这个例子中，<code>myenv</code>是虚拟环境的目录名，它将在当前工作目录中创建。</p>
+<h3 id="激活：">激活：</h3>
+<p>终端（命令行）输入：.\venv\Scripts\activate</p>
+<p>其中，venv是你的虚拟环境名称。如果你的虚拟环境名称不同，请将命令中的venv替换为你的虚拟环境名称。</p>
+<p>如果你的虚拟环境成功激活，你应该能够看到终端命令提示符的前面有(virtualenv名称)字样。</p>
+<h3 id="退出当前虚拟环境：">退出当前虚拟环境：</h3>
+<p>终端（命令行）输入：deactivate</p>
+<h3 id="删除虚拟环境：">删除虚拟环境：</h3>
+<p>直接删除venv目录即可</p>
+<h3 id="另外：">另外：</h3>
+<p>（1）Git Bash或Cygwin等Unix/Linux命令行终端，则可以继续使用“source”命令激活虚拟环境。在命令行终端输入：source venv/bin/activate</p>
+<p>（2）问题：在pycharm终端，无法将“source”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。</p>
+<p>原因：“source”命令是Unix/Linux命令，在Windows命令行终端无法识别“source”命令。</p>
+<p>在Windows下虚拟环境的激活用的是：.\venv\Scripts\activate</p>
+<p>（3）问题：无法将“activate”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。</p>
+<p>原因：没有正确激活虚拟环境。</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
 </search>

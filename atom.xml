@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-11T12:54:47.225Z</updated>
+  <updated>2024-04-13T09:23:03.529Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python管理虚拟环境-virtualenv</title>
+    <link href="http://yunminitools.cn/2024/04/13/python-virtualenv-memo/"/>
+    <id>http://yunminitools.cn/2024/04/13/python-virtualenv-memo/</id>
+    <published>2024-04-13T09:54:07.000Z</published>
+    <updated>2024-04-13T09:23:03.529Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;记录一下virtualenv安装过程，这里只介绍Windows下的情况&lt;/p&gt;
+&lt;h3 id=&quot;安装：&quot;&gt;安装：&lt;/h3&gt;
+&lt;p&gt;终端（命令行）输入：&lt;code&gt;pip install</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>英语单词辨析 - Principal or principle</title>
@@ -563,34 +591,6 @@
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl -X GET &lt;span class=&quot;string&quot;&gt;&amp;#x27;http://localhost:9200/_cat/indices?v&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;显示下面的结果：&lt;br&gt;
 &lt;img src=&quot;https://cdn.yunminitools.cn/blog/0307_es_index.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-    <category term="ELK" scheme="http://yunminitools.cn/tags/ELK/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Docker环境下部署 Elasticsearch 数据库(从零到一搭建ELK日志)</title>
-    <link href="http://yunminitools.cn/2024/03/07/install-elk-elasticseach-docker/"/>
-    <id>http://yunminitools.cn/2024/03/07/install-elk-elasticseach-docker/</id>
-    <published>2024-03-07T13:13:20.000Z</published>
-    <updated>2024-03-28T05:56:27.240Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;最近在玩 ELK 日志平台，它是 Elastic</summary>
-        
-      
     
     
     
