@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">419</span>
+            <span class="post-count">416</span>
         </span>
     </span>
 
@@ -144,14 +144,11 @@ var _hmt = _hmt || [];
 <li>Windows(Powershell):</li>
 </ul>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$env:NOTION_TOKEN</span> = <span class="string">&quot;&#123;your integration token key&#125;&quot;</span></span><br></pre></td></tr></table></figure>
-<pre><code>&lt;br/&gt;
-</code></pre>
 <h3 id="运行">运行</h3>
 <p>notion2md运行参数不复杂，具体可以参考：<br>
 <img src="https://cdn.yunminitools.cn/pic/0026-notion2md_options.png" alt=""></p>
 <p>满足我的需求，需要运行以下命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notion2<span class="built_in">md</span> <span class="literal">--unzipped</span> <span class="literal">-p</span> &#123;your <span class="built_in">md</span> file path&#125; <span class="literal">-u</span> &#123;your notion page url&#125;</span><br></pre></td></tr></table></figure>
-<br/>
 <h3 id="坑1：ssl问题">坑1：ssl问题</h3>
 <p>一开始运行会报错，具体如下：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR [<span class="type">SSL</span>: <span class="type">CERTIFICATE_VERIFY_FAILED</span>] certificate verify failed: self<span class="literal">-signed</span> certificate <span class="keyword">in</span> certificate chain (_ssl.c:<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
