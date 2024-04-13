@@ -45,6 +45,32 @@
   </entry>
   
   <entry>
+    <title>命令行导出Notion文章MD文件</title>
+    <link href="http://yunminitools.cn/2024/04/13/output-notion-to-MD-file-command/"/>
+    <id>http://yunminitools.cn/2024/04/13/output-notion-to-MD-file-command/</id>
+    <published>2024-04-13T09:00:46.000Z</published>
+    <updated>2024-04-13T09:27:28.721Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;痛点&quot;&gt;痛点&lt;/h2&gt;
+&lt;p&gt;我用笔记工具，很多时候都需要输出成文章发布。发布的时候，我得用 Markdown。很不幸，在 Notion 上，这个过程，从来就没有痛快过。虽然 Notion 从很早就提供 Markdown 导出，还包括子页面。但是导出来的结果，总是无法令我满意。导出的文件是个压缩包，还要手工解压，我就想找一个命令行工具来提高效率。&lt;/p&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;找到了一个开源的Github 项目，叫做 &lt;a href=&quot;https://github.com/echo724/notion2md&quot;&gt;notion2md&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;安装&quot;&gt;安装&lt;/h3&gt;
+&lt;p&gt;它已经做成了 Python 的软件包，可以调用 Notion 的 API，帮助用户导出为更妥帖的 markdown 格式。&lt;/p&gt;
+&lt;p&gt;你只需要使用pip安装即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install notion2md&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Notion" scheme="http://yunminitools.cn/tags/Notion/"/>
+    
+  </entry>
+  
+  <entry>
     <title>英语单词辨析 - Principal or principle</title>
     <link href="http://yunminitools.cn/2024/04/11/differentiation-of-principal-principle/"/>
     <id>http://yunminitools.cn/2024/04/11/differentiation-of-principal-principle/</id>
@@ -566,40 +592,6 @@
     
     
     <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ElasticSearch入门篇-操作1</title>
-    <link href="http://yunminitools.cn/2024/03/07/elasticseach-operation-1/"/>
-    <id>http://yunminitools.cn/2024/03/07/elasticseach-operation-1/</id>
-    <published>2024-03-07T13:44:55.000Z</published>
-    <updated>2024-03-07T13:45:53.057Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;如果一切正常，Elastic 就会在默认的9200端口运行。这时，打开另一个命令行窗口，请求该端口，会得到说明信息。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl localhost:9200&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;10eaed25cea5&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&amp;quot;cluster_name&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;my-es&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&amp;quot;cluster_uuid&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;dk5aq0evTjaXc2LEHIGtsA&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&amp;quot;version&amp;quot;&lt;/span&gt; : &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;number&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;7.7.1&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;build_flavor&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;default&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;build_type&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;docker&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;build_hash&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;ad56dce891c901a492bb1ee393f12dfff473a423&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;build_date&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;2020-05-28T16:30:01.040088Z&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;build_snapshot&amp;quot;&lt;/span&gt; : &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;lucene_version&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;8.5.1&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;minimum_wire_compatibility_version&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;6.8.0&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;minimum_index_compatibility_version&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;6.0.0-beta1&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&amp;quot;tagline&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;You Know, for Search&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;基本概念&quot;&gt;基本概念&lt;/h2&gt;
-&lt;h3 id=&quot;Node-与-Cluster&quot;&gt;Node 与 Cluster&lt;/h3&gt;
-&lt;p&gt;Elastic 本质上是一个分布式数据库，允许多台服务器协同工作，每台服务器可以运行多个 Elastic 实例。&lt;/p&gt;
-&lt;p&gt;单个 Elastic 实例称为一个节点（node）。一组节点构成一个集群（cluster）。&lt;/p&gt;
-&lt;h3 id=&quot;Index&quot;&gt;&lt;strong&gt;Index&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Elastic 会索引所有字段，经过处理后写入一个反向索引（Inverted Index）。查找数据的时候，直接查找该索引。&lt;/p&gt;
-&lt;p&gt;所以，Elastic 数据管理的顶层单位就叫做 Index（索引）。它是单个数据库的同义词。每个 Index （即数据库）的名字必须是小写。&lt;/p&gt;
-&lt;p&gt;下面的命令可以查看当前节点的所有 Index。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl -X GET &lt;span class=&quot;string&quot;&gt;&amp;#x27;http://localhost:9200/_cat/indices?v&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;显示下面的结果：&lt;br&gt;
-&lt;img src=&quot;https://cdn.yunminitools.cn/blog/0307_es_index.png&quot; alt=&quot; &quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-    <category term="ELK" scheme="http://yunminitools.cn/tags/ELK/"/>
     
   </entry>
   

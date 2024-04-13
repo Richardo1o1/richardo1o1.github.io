@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives |  New structure for utility</title>
+      <title>命令行导出Notion文章MD文件 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,225 +68,201 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-output-notion-to-MD-file-command"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  命令行导出Notion文章MD文件
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/13/output-notion-to-MD-file-command/" class="article-date">
+  <time datetime="2024-04-13T09:00:46.000Z" itemprop="datePublished">2024-04-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">419</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/09/Midjourney-Getting-Started-1/" class="archive-article-date">
-  <time datetime="2023-02-09T15:57:25.000Z" itemprop="datePublished">02/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/09/Midjourney-Getting-Started-1/"
-    >Midjourney 极简入门（1）</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/08/Using-ChatGPT-English-Learning-3/" class="archive-article-date">
-  <time datetime="2023-02-08T15:07:11.000Z" itemprop="datePublished">02/08</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/08/Using-ChatGPT-English-Learning-3/"
-    >使用ChatGPT来学习英文(3)</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/07/Knowledge-Management-1/" class="archive-article-date">
-  <time datetime="2023-02-07T08:57:15.000Z" itemprop="datePublished">02/07</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/07/Knowledge-Management-1/"
-    >知识管理相关-知识管理误区</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/06/Using-ChatGPT-English-Learning-2/" class="archive-article-date">
-  <time datetime="2023-02-06T08:20:49.000Z" itemprop="datePublished">02/06</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/06/Using-ChatGPT-English-Learning-2/"
-    >使用ChatGPT来学习英文(2)</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/05/Using-ChatGPT-English-Learning-1/" class="archive-article-date">
-  <time datetime="2023-02-05T14:33:27.000Z" itemprop="datePublished">02/05</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/05/Using-ChatGPT-English-Learning-1/"
-    >使用ChatGPT来学习英文(1)</a> 
-</h2>
+  <h2 id="痛点">痛点</h2>
+<p>我用笔记工具，很多时候都需要输出成文章发布。发布的时候，我得用 Markdown。很不幸，在 Notion 上，这个过程，从来就没有痛快过。虽然 Notion 从很早就提供 Markdown 导出，还包括子页面。但是导出来的结果，总是无法令我满意。导出的文件是个压缩包，还要手工解压，我就想找一个命令行工具来提高效率。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找到了一个开源的Github 项目，叫做 <a target="_blank" rel="noopener" href="https://github.com/echo724/notion2md">notion2md</a>。</p>
+<h3 id="安装">安装</h3>
+<p>它已经做成了 Python 的软件包，可以调用 Notion 的 API，帮助用户导出为更妥帖的 markdown 格式。</p>
+<p>你只需要使用pip安装即可：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install notion2md</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="获得并设置-Notion-Token">获得并设置 Notion Token</h3>
+<p>由于需要集成Notion, 在使用前需要 先获得Notion Token，你可以访问 <a target="_blank" rel="noopener" href="https://www.notion.so/my-integrations">Notion官方链接</a> 获得。</p>
+<p>用以下命令设置环境变量：</p>
+<ul>
+<li>Linux:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export NOTION_TOKEN=&quot;&#123;your integration token key&#125;&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Windows(Powershell):</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$env:NOTION_TOKEN</span> = <span class="string">&quot;&#123;your integration token key&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;br/&gt;
+</code></pre>
+<h3 id="运行">运行</h3>
+<p>notion2md运行参数不复杂，具体可以参考：<br>
+<img src="https://cdn.yunminitools.cn/pic/0026-notion2md_options.png" alt=""></p>
+<p>满足我的需求，需要运行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notion2<span class="built_in">md</span> <span class="literal">--unzipped</span> <span class="literal">-p</span> &#123;your <span class="built_in">md</span> file path&#125; <span class="literal">-u</span> &#123;your notion page url&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="坑1：ssl问题">坑1：ssl问题</h3>
+<p>一开始运行会报错，具体如下：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR [<span class="type">SSL</span>: <span class="type">CERTIFICATE_VERIFY_FAILED</span>] certificate verify failed: self<span class="literal">-signed</span> certificate <span class="keyword">in</span> certificate chain (_ssl.c:<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>研究了一下，主要是客户端的问题，需要安装一些证书相关的包：</p>
+<ul>
+<li>Linux：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pip-system-certs</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Windows：</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python<span class="literal">-certifi-win32</span></span><br></pre></td></tr></table></figure>
+<h3 id="坑2：共享权限问题">坑2：共享权限问题</h3>
+<p>一开始无法访问，发现还需要配置文章的共享权限，需要共享页面到刚才建立的connection，具体见下图：<br>
+<img src="https://cdn.yunminitools.cn/pic/0026-notion2md_options.png" alt=""></p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/04/userresearch01/" class="archive-article-date">
-  <time datetime="2023-02-04T15:10:11.000Z" itemprop="datePublished">02/04</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/04/userresearch01/"
-    >用户调研的一种方法</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/03/souKPM01/" class="archive-article-date">
-  <time datetime="2023-02-03T09:14:40.000Z" itemprop="datePublished">02/03</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/03/souKPM01/"
-    >知识管理相关-来自范冰的分享</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/02/first-post/" class="archive-article-date">
-  <time datetime="2023-02-02T15:14:40.000Z" itemprop="datePublished">02/02</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/02/first-post/"
-    >first-post</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/01/30/hello-world/" class="archive-article-date">
-  <time datetime="2023-01-30T07:33:53.000Z" itemprop="datePublished">01/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/01/30/hello-world/"
-    >Hello World</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/page/15/">上一页</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/14/">14</a><a class="page-number" href="/archives/page/15/">15</a><span class="page-number current">16</span>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/04/13/output-notion-to-MD-file-command/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notion/" rel="tag">Notion</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2024/04/13/python-virtualenv-memo/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Python管理虚拟环境安装 virtualenv
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/04/11/differentiation-of-principal-principle/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">英语单词辨析 - Principal or principle</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -423,6 +399,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

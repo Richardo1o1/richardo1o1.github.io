@@ -8407,4 +8407,58 @@ Not: <s>Are you feeling unwell since you ate too much? or … as you ate too 
         <tag>Python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>命令行导出Notion文章MD文件</title>
+    <url>/2024/04/13/output-notion-to-MD-file-command/</url>
+    <content><![CDATA[<h2 id="痛点">痛点</h2>
+<p>我用笔记工具，很多时候都需要输出成文章发布。发布的时候，我得用 Markdown。很不幸，在 Notion 上，这个过程，从来就没有痛快过。虽然 Notion 从很早就提供 Markdown 导出，还包括子页面。但是导出来的结果，总是无法令我满意。导出的文件是个压缩包，还要手工解压，我就想找一个命令行工具来提高效率。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>找到了一个开源的Github 项目，叫做 <a href="https://github.com/echo724/notion2md">notion2md</a>。</p>
+<h3 id="安装">安装</h3>
+<p>它已经做成了 Python 的软件包，可以调用 Notion 的 API，帮助用户导出为更妥帖的 markdown 格式。</p>
+<p>你只需要使用pip安装即可：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">pip install notion2md</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="获得并设置-Notion-Token">获得并设置 Notion Token</h3>
+<p>由于需要集成Notion, 在使用前需要 先获得Notion Token，你可以访问 <a href="https://www.notion.so/my-integrations">Notion官方链接</a> 获得。</p>
+<p>用以下命令设置环境变量：</p>
+<ul>
+<li>Linux:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export NOTION_TOKEN=&quot;&#123;your integration token key&#125;&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Windows(Powershell):</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$env:NOTION_TOKEN</span> = <span class="string">&quot;&#123;your integration token key&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;br/&gt;
+</code></pre>
+<h3 id="运行">运行</h3>
+<p>notion2md运行参数不复杂，具体可以参考：<br>
+<img src="https://cdn.yunminitools.cn/pic/0026-notion2md_options.png" alt=""></p>
+<p>满足我的需求，需要运行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">notion2<span class="built_in">md</span> <span class="literal">--unzipped</span> <span class="literal">-p</span> &#123;your <span class="built_in">md</span> file path&#125; <span class="literal">-u</span> &#123;your notion page url&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="坑1：ssl问题">坑1：ssl问题</h3>
+<p>一开始运行会报错，具体如下：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ERROR [<span class="type">SSL</span>: <span class="type">CERTIFICATE_VERIFY_FAILED</span>] certificate verify failed: self<span class="literal">-signed</span> certificate <span class="keyword">in</span> certificate chain (_ssl.c:<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>研究了一下，主要是客户端的问题，需要安装一些证书相关的包：</p>
+<ul>
+<li>Linux：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pip-system-certs</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Windows：</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">pip install python<span class="literal">-certifi-win32</span></span><br></pre></td></tr></table></figure>
+<h3 id="坑2：共享权限问题">坑2：共享权限问题</h3>
+<p>一开始无法访问，发现还需要配置文章的共享权限，需要共享页面到刚才建立的connection，具体见下图：<br>
+<img src="https://cdn.yunminitools.cn/pic/0026-notion2md_options.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Notion</tag>
+      </tags>
+  </entry>
 </search>
