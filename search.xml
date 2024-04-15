@@ -8658,4 +8658,30 @@ Not: <s>Are you feeling unwell since you ate too much? or … as you ate too 
         <tag>产品管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>解决Docker打包报错问题</title>
+    <url>/2024/04/15/resolve-docker-make-error-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<br/>
+<p>报错：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="attr">ERROR</span>: failed to <span class="attr">solve</span>: <span class="attr">nginx</span>: blob <span class="attr">sha256</span>:cd64407576751d9b9ba4924f758d3d39fe76a6e142c32169625b60934c95f057 expected at /media/richard/<span class="variable constant_">N1</span>/data/docker/buildkit/content/blobs/sha256/<span class="attr">cd64407576751d9b9ba4924f758d3d39fe76a6e142c32169625b60934c95f057</span>: blob not <span class="attr">found</span>: not found</span><br></pre></td></tr></table></figure>
+<br/>
+<p><a href="https://juejin.cn/post/7041119023286730782">https://juejin.cn/post/7041119023286730782</a></p>
+<br/>
+<h2 id="解决方案">解决方案</h2>
+<br/>
+<p>清除缓存：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo docker system prune -a --force</span><br></pre></td></tr></table></figure>
+<br/>
+<p>对应 -a 删除全部未使用的镜像，-f 或 --force 不经过确认强行删除。</p>
+<p>再检查一下缓存情况，使用命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo docker system df</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
 </search>

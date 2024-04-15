@@ -100,6 +100,116 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-install-elk-kibana-docker"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/03/16/install-elk-kibana-docker/"
+    >在Docker环境下部署 Kibana 可视化工具 (从零到一搭建ELK日志)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/16/install-elk-kibana-docker/" class="article-date">
+  <time datetime="2024-03-16T12:00:53.000Z" itemprop="datePublished">2024-03-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="什么是-Kibana？">什么是 Kibana？</h2>
+<p>Kibana是一个开源的分析与可视化平台，设计出来用于和Elasticsearch一起使用的。</p>
+<p>你可以用kibana搜索、查看存放在Elasticsearch中的数据。Kibana与Elasticsearch的交互方式是各种不同的图表、表格、地图等，直观的展示数据，从而达到高级的数据分析与可视化的目的。</p>
+<h2 id="部署-Kibana-可视化工具">部署 Kibana 可视化工具</h2>
+<ol>
+<li>
+<p>获取 kibana 镜像</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull kibana:7.7.1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>获取elasticsearch容器 ip</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect --format <span class="string">&#x27;&#123;&#123; .NetworkSettings.IPAddress &#125;&#125;&#x27;</span> es</span><br><span class="line">&gt; <span class="number">172.17</span><span class="number">.0</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建 kibana 配置文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/kibana/</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>配置kibana.yml</p>
+<p>elasticsearch.hosts 配置 ES 服务的地址</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.name:</span> <span class="string">kibana</span></span><br><span class="line"><span class="attr">server.host:</span> <span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="attr">elasticsearch.hosts:</span> [<span class="string">&quot;http://172.17.0.2:9200&quot;</span>]</span><br><span class="line"><span class="attr">xpack.monitoring.ui.container.elasticsearch.enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启动服务</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d --restart=always --log-driver json-file --log-opt max-size=100m --log-opt max-file=2 --name kibana -p 5601:5601 -v /data/elk/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml kibana:7.7.1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>验证</p>
+<p>在浏览器打开 <code>[服务器ip]:5601</code></p>
+<p>Kibana 控制台的界面如下所示，打开 kibana 时，首页会提示让你选择加入一些测试数据，点击 try our sample data 按钮就可以了。最后选择Dashboard，可以看到 sample data 的图表：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0001_kibana.png" alt=" "></p>
+</li>
+</ol>
+<h2 id="配置文件kibana-yml">配置文件kibana.yml</h2>
+<ol>
+<li>
+<p>服务的端口配置</p>
+<p>属性名为：server.port默认是5601</p>
+</li>
+<li>
+<p>允许远程访问的地址配置</p>
+<p>属性名为：server.host默认为本机</p>
+<p>如果我们需要把Kibana服务给远程主机访问，只需要在这个配置中填写远程的那台主机的ip地址，那如果我们希望所有的远程主机都能访问，那就填写0.0.0.0</p>
+</li>
+<li>
+<p>连接Elasticsearch服务配置</p>
+<p>属性名为：elasticsearch.url默认为连接到本机的elasticsearch，并且端口为9200，也就是为localhost:9200，如果我们Elasticsearch不是与Kibana安装在同一台主机上，或者Elasticsearch的端口号不是9200，就就需要修改这个配置了</p>
+</li>
+<li>
+<p>Elasticsearch的用户名和密码</p>
+<p>属性名为：elasticsearch.username和elasticsearch.password，默认是没有用户名和密码，如果elasticsearch是配置了用户名和密码的，那就需要配置这两行属性</p>
+</li>
+<li>
+<p>切换中文配置</p>
+<p>属性名为：i18n.locale: “zh-CN”</p>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/" rel="tag">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-python-install-venv"
   class="article article-type-post"
   itemscope
@@ -771,71 +881,13 @@ docker run ：创建并运行一个容器<br>
 </article>
 
     
-    <article
-  id="post-mac-brew-install-tmux-error"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/18/mac-brew-install-tmux-error/"
-    >Mac brew安装tmux报错“no bottle available!“</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/18/mac-brew-install-tmux-error/" class="article-date">
-  <time datetime="2024-02-18T14:14:03.000Z" itemprop="datePublished">2024-02-18</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="问题">问题</h2>
-<p>在Mac M1安装tmux时，老是报错，根据报错提示无法解决。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>执行以下命令，再安装就可以了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
   </nav>
   
 </section>

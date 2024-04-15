@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-14T02:18:41.856Z</updated>
+  <updated>2024-04-15T13:11:38.185Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决Docker打包报错问题</title>
+    <link href="http://yunminitools.cn/2024/04/15/resolve-docker-make-error-1/"/>
+    <id>http://yunminitools.cn/2024/04/15/resolve-docker-make-error-1/</id>
+    <published>2024-04-15T12:54:07.000Z</published>
+    <updated>2024-04-15T13:11:38.185Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;br/&gt;
+&lt;p&gt;报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>产品笔记：好产品与“人性原罪需求”理论</title>
@@ -570,33 +598,6 @@
     <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="Chrom插件" scheme="http://yunminitools.cn/tags/Chrom%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Docker环境下部署 Kibana 可视化工具 (从零到一搭建ELK日志)</title>
-    <link href="http://yunminitools.cn/2024/03/16/install-elk-kibana-docker/"/>
-    <id>http://yunminitools.cn/2024/03/16/install-elk-kibana-docker/</id>
-    <published>2024-03-16T12:00:53.000Z</published>
-    <updated>2024-03-16T12:02:44.989Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是-Kibana？&quot;&gt;什么是</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-    <category term="ELK" scheme="http://yunminitools.cn/tags/ELK/"/>
     
   </entry>
   
