@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Recap The TDD Process |  New structure for utility</title>
+      <title>About Comments and TDD |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-the-TDD-process"
+  id="post-about-comments-and-tdd"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Recap The TDD Process
+  About Comments and TDD
 </h1>
  
 
@@ -88,8 +88,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2024/04/15/the-TDD-process/" class="article-date">
-  <time datetime="2024-04-15T13:18:07.000Z" itemprop="datePublished">2024-04-15</time>
+      <a href="/2024/04/15/about-comments-and-tdd/" class="article-date">
+  <time datetime="2024-04-15T12:18:07.000Z" itemprop="datePublished">2024-04-15</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">329</span>
+            <span class="post-count">1.8k</span>
         </span>
     </span>
 
@@ -109,15 +109,13 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">9 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
@@ -125,44 +123,260 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
        
   <p>From《<strong>Test-Driven Development with Python, 3rd Edition</strong>》by <strong>Harry Percival</strong></p>
-<br/>
-<p>We’ve now seen all the main aspects of the TDD process, in practice:</p>
-<ul>
-<li><strong>Functional tests</strong></li>
-<li><strong>Unit tests</strong></li>
-<li><strong>The unit-test/code cycle</strong></li>
-<li><strong>Refactoring</strong></li>
-</ul>
-<br/>
-<p>What does the overall TDD process look like?</p>
-<ul>
-<li><strong>We write a test.</strong></li>
-<li><strong>We run the test and see it fail.</strong></li>
-<li><strong>We write some minimal code to get it a little further.</strong></li>
-<li><strong>We rerun the test and repeat until it passes (the unit test / code cycle)</strong></li>
-<li><strong>Then, we look for opportunities to refactor our code, using our tests to make sure we don’t break anything.</strong></li>
-<li><strong>And start again from the top!</strong></li>
-</ul>
-<p><img src="https://cdn.yunminitools.cn/pic/0170-TDD1.png" alt=""></p>
+<blockquote>
+<p><em>When I first started at Python Anywhere, I used to virtuously pepper my code with nice descriptive comments. My colleagues said to me: “Harry, we have a word for comments. We call them lies.” I was shocked! I learned in school that comments are good practice?</em></p>
+</blockquote>
+<p>当我第一次开始使用 Python Anywhere 时，我常常用漂亮的描述性注释来填充我的代码。我的同事对我说：“哈利，关于注释我们有话要说。我们称之为谎言。”我很震惊！我在学校学到注释是很好的做法？</p>
+<blockquote>
+<p><em>They were exaggerating for effect. There is definitely a place for comments that add context and intention. But my colleagues were pointing out that comments aren’t always as useful as you hope. For starters, it’s pointless to write a comment that just repeats what you’re doing with the code:</em></p>
+</blockquote>
+<p>他们为了效果而夸大其词。肯定有一个地方可以发表评论来添加上下文和意图。但我的同事指出，评论并不总是像你希望的那样有用。对于初学者来说，编写只是重复您对代码所做的事情的注释是没有意义的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># increment wibble by 1</span></span><br><span class="line">wibble += 1</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<p>It’s very common to talk about this process using the three words <em>Red, Green, Refactor</em>.</p>
-<p><img src="https://cdn.yunminitools.cn/pic/0171-TDD2.png" alt=""></p>
+<blockquote>
+<p><em>Not only is it pointless, but there’s a danger that you’ll forget to update the comments when you update the code, and they end up being misleading—lies! The ideal is to strive to make your code so readable, to use such good variable names and function names, and to structure it so well that you no longer need any comments to explain what the code is doing. Just a few here and there to explain why.</em></p>
+</blockquote>
+<p>这不仅毫无意义，而且还存在更新代码时忘记更新注释的危险，而它们最终会产生误导——谎言！理想的情况是努力使代码具有<strong>良好的可读性</strong>，使用良好的变量名称和函数名称，并将其结构得很好，以便您不再需要任何注释来解释代码的用途。只是在一些地方解释原因。</p>
+<blockquote>
+<p><em>There are other places where comments are very useful. We’ll see that Django uses them a lot in the files it generates for us to use as a way of suggesting helpful bits of its API.</em></p>
+</blockquote>
+<p>还有其他地方注释也非常有用。我们将看到 Django 在它生成的文件中大量使用它们，以便我们使用它们来建议其 API 中有用的部分。</p>
+<blockquote>
+<p><em>And, of course, we use comments to explain the User Story in our functional tests—by forcing us to make a coherent story out of the test, it makes sure we’re always testing from the point of view of the user.</em></p>
+</blockquote>
+<p>当然，我们在功能测试中使用注释来解释用户故事——通过迫使我们从测试中得出一个连贯的故事，它确保我们始终从用户的角度进行测试。</p>
+<p>一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">browser = webdriver.Firefox()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Edith has heard about a cool new online to-do app.</span></span><br><span class="line"><span class="comment"># She goes to check out its homepage</span></span><br><span class="line">browser.get(<span class="string">&quot;http://localhost:8000&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># She notices the page title and header mention to-do lists</span></span><br><span class="line"><span class="keyword">assert</span> <span class="string">&quot;To-Do&quot;</span> <span class="keyword">in</span> browser.title</span><br><span class="line"></span><br><span class="line"><span class="comment"># She is invited to enter a to-do item straight away</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># She types &quot;Buy peacock feathers&quot; into a text box</span></span><br><span class="line"><span class="comment"># (Edith&#x27;s hobby is tying fly-fishing lures)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># When she hits enter, the page updates, and now the page lists</span></span><br><span class="line"><span class="comment"># &quot;1: Buy peacock feathers&quot; as an item in a to-do list</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># There is still a text box inviting her to add another item.</span></span><br><span class="line"><span class="comment"># She enters &quot;Use peacock feathers to make a fly&quot; (Edith is very methodical)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The page updates again, and now shows both items on her list</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Satisfied, she goes back to sleep</span></span><br><span class="line"></span><br><span class="line">browser.quit()</span><br></pre></td></tr></table></figure>
+<hr>
+<p>扩展阅读：John Ousterhoudt’s 《A Philosophy of Software Design》摘要：</p>
+<p><strong>Writing Comments</strong></p>
 <ul>
 <li>
-<p><strong>We write a test, and see it fail (“Red”).</strong></p>
-</li>
-<li>
-<p><strong>We cycle between code and tests until the test passes: “Green”.</strong></p>
-</li>
-<li>
-<p><strong>Then, we look for opportunities to refactor.Repeat as required!</strong></p>
+<p>Why are comments needed?</p>
+<ul>
+<li>Code alone can’t represent cleanly all the information in the mind of the designer</li>
+<li>Even if information could be deduced from code, it might be time-consuming:</li>
+<li>Comments provide clarity that reduces complexity:
+<ul>
+<li>E.g., make abstractions more clear</li>
+</ul>
 </li>
 </ul>
-<h2 id="Double-loop-TDD"><strong>Double-loop TDD</strong></h2>
-<p>But how does this apply when we have functional tests <em>and</em> unit tests? Well, you can think of the functional test as driving a higher-level version of the same cycle, with an inner red/green/refactor loop being required to get an FT from Red to Green;</p>
-<p><img src="https://cdn.yunminitools.cn/pic/0172-TDD3.png" alt=""></p>
-<p>When a new feature or business requirement comes along, we write a new (failing) FT to capture a high level view of the requirement. It may not cover every last edge case, but it should be enough to reassure ourselves that things are working.</p>
-<p>To get that functional test to green, we then enter into the lower-level unit tests cycle, where we put together all the moving parts required, add tests for all the edge cases. Any time we get to green &amp; refactored at the unit tests level, we can pop back up to the FT level to guide us towards the next thing we need to work. Once both levels are green, we can do any extra refactoring or work on edge cases.</p>
+</li>
+<li>
+<p>Comments are still controversial (!)</p>
+<ul>
+<li>A significant fraction of all commercial code (50%?) is uncommented</li>
+<li>Excuses:
+<ul>
+<li>“This code is self-documenting”</li>
+<li>“Comments get out of date and become misleading”</li>
+<li>“I don’t have time to write comments”</li>
+<li>“The comments I have seen are worthless; why bother?”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Comments should describe things that are not obvious from the code</strong>.</p>
+</li>
+<li>
+<p>Mistake #1: comments duplicate code (see slides)</p>
+</li>
+<li>
+<p>Mistake #2: non-obvious info is not described</p>
+<ul>
+<li>Lower level details (especially for variables, arguments, return values):
+<ul>
+<li><em>Exactly</em> what is this thing?</li>
+<li>What are the units?</li>
+<li>Boundary conditions
+<ul>
+<li>Does “end” refer to the last value, or the value after the last one?</li>
+<li>Is a null value allowed? If so, what does it mean?</li>
+</ul>
+</li>
+<li>If memory is dynamically allocated, who is responsible for freeing it?</li>
+<li>Invariants?</li>
+</ul>
+</li>
+<li>Higher-level information (capture the intuition):
+<ul>
+<li>Abstractions: a higher-level description of what the code is doing.</li>
+<li>Rationale for the current design: why the code is this way.</li>
+<li>How to choose the value of a configuration parameter.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Two kinds of documentation for classes and methods:</p>
+<ul>
+<li>Interface: what someone needs to know in order to <em>use</em> this class or method</li>
+<li>Implementation: how the method or class works internally to implement the advertised interface.</li>
+<li>Important to separate these: do not describe the implementation in the interface documentation!</li>
+</ul>
+</li>
+<li>
+<p>Interface documentation:</p>
+<ul>
+<li>Put immediately before the class or method declaration</li>
+<li>Goal: create simple, intuitive model for users</li>
+<li>Simpler is better</li>
+<li>Complete: must include <em>everything</em> that any user might need to know</li>
+<li>Interface description may use totally different terms than the implementation (if they are simpler)</li>
+</ul>
+</li>
+<li>
+<p>Example: index range lookup</p>
+<ul>
+<li>
+<p>Large table of objects in a storage system, split across dozens of servers</p>
+</li>
+<li>
+<p>Table has indexes for looking up objects by certain attributes (name, salary, etc.)</p>
+</li>
+<li>
+<p>IndexLookup class retrieves a range of values in index order</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">query = new IndexLookup(table, index, key1, key2);</span><br><span class="line"><span class="keyword">while</span> (true) &#123;</span><br><span class="line">    <span class="built_in">object</span> = query.getNext();</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">object</span> == null) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>Implementation documentation (comments inside methods):</p>
+<ul>
+<li>For many methods, not needed</li>
+<li>For longer methods, document major blocks of code
+<ul>
+<li>Describe what’s happening at a higher level</li>
+<li>E.g., what does each loop iteration do?</li>
+</ul>
+</li>
+<li>Document tricky aspects, non-obvious reasons for code</li>
+<li>Document dependencies (“if you change this, you better also…”)</li>
+<li>Documenting variables is less important for method local variables (can see all of the uses), but sometimes needed for longer methods or tricky variables.</li>
+</ul>
+</li>
+<li>
+<p>Documenting cross-module design decisions:</p>
+<ul>
+<li>Example: network protocol</li>
+<li>Example: how does the system deal with zombie servers?</li>
+<li>Challenging:
+<ul>
+<li>No single rational place to put the documentation (people won’t know where to look for it)</li>
+<li>Don’t want to repeat everywhere</li>
+</ul>
+</li>
+<li>One possible approach:
+<ul>
+<li>
+<p>Create designNotes file, with various tagged sections</p>
+<ul>
+<li>“Zombies”</li>
+<li>“Timing-dependent tests”</li>
+</ul>
+</li>
+<li>
+<p>In the code, just refer to the design notes file:</p>
+<p><code>// See &quot;Zombies&quot; in designNotes.</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>To maximize value of comments:</p>
+<ul>
+<li>It must be easy for people to find the right documentation at the right time</li>
+<li>The documentation must get updated as the code changes</li>
+</ul>
+</li>
+<li>
+<p>Techniques:</p>
+<ul>
+<li>Document each thing exactly once: don’t duplicate documentation (it won’t get maintained)
+<ul>
+<li>Use references rather than repeating documentation: “See documentation for xyz method”.</li>
+</ul>
+</li>
+<li>Put documentation as close as possible to the relevant code
+<ul>
+<li>Next to variable and method declarations</li>
+<li>Push in-method documentation down to the tightest enclosing context</li>
+</ul>
+</li>
+<li>Don’t say anything more in documentation than you need to
+<ul>
+<li>e.g., don’t use comments in one place to describe design decisions elsewhere</li>
+<li>Higher-level comments are less likely to become obsolete</li>
+</ul>
+</li>
+<li>Look for “obvious” locations where people can easily find documentation (see Status example in slides)</li>
+</ul>
+</li>
+<li>
+<p>Most people put off writing comments:</p>
+<ul>
+<li>“Why waste time writing comments when the code is still changing?”</li>
+<li>“Once I get the code done, I’ll write all the comments”</li>
+</ul>
+</li>
+<li>
+<p>Problems with this approach:</p>
+<ul>
+<li>You probably won’t go back and write the comments later</li>
+<li>If you do, the comments will be bad:
+<ul>
+<li>You’re in a hurry and emotionally checked out</li>
+<li>You have forgotten many of the design decisions, subtleties</li>
+<li>Comments will be a superficial duplication of what’s obvious from the code</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Try writing comments <em>at the beginning</em>:</p>
+<ul>
+<li>I write class comments, method headers (signature and comments) before writing the bodies of methods</li>
+<li>Helps me to define the overall APIs, juggle functionality between methods</li>
+<li>As I write and test code, can revise the comments to make them better and better</li>
+</ul>
+</li>
+<li>
+<p>Eliminate unnecessary comments so you can focus on the ones that matter.</p>
+<ul>
+<li>“Feature” code needs far less documentation than infrastructure code</li>
+</ul>
+</li>
+<li>
+<p>Name choice is an important form of documentation</p>
+<ul>
+<li>Take time to think of names that are clear and unambiguous</li>
+<li>Be specific (but not too long)!</li>
+<li>Always use the same variable name for the same kind of object</li>
+<li>Avoid using the same name to refer to different kinds of things</li>
+</ul>
+</li>
+<li>
+<p>Suggestions for projects:</p>
+<ul>
+<li>Header comment blocks for every method, every class.</li>
+<li>Document every class instance variable, every method parameter, every result.</li>
+<li>Add comments inside methods if/when needed</li>
+<li>Skip comments only if you’re sure it will be obvious to readers</li>
+<li>Follow Javadoc conventions</li>
+</ul>
+</li>
+<li>
+<p>Red flags for comments:</p>
+<ul>
+<li>Hard to come up with a clear and simple name for variable?</li>
+<li>Method documentation has to document every internal feature of the algorithm in order to be complete?</li>
+<li>Interface documentation for a class or method has to be very long in order to be complete?</li>
+</ul>
+</li>
+</ul>
  
       <!-- reward -->
       
@@ -215,7 +429,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/04/15/the-TDD-process/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/04/15/about-comments-and-tdd/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -228,10 +442,19 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-    
       <a href="/2024/04/15/resolve-docker-make-error-1/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            解决Docker打包报错问题
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/04/14/human-nature-of-sins-in-product-design-area/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">解决Docker打包报错问题</div>
+        <div class="article-nav-title">产品笔记：好产品与“人性原罪需求”理论</div>
       </a>
     
   </nav>

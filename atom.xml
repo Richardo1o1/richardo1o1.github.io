@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-15T13:22:13.653Z</updated>
+  <updated>2024-04-15T13:26:38.261Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yunminitools.cn/2024/04/15/the-TDD-process/"/>
     <id>http://yunminitools.cn/2024/04/15/the-TDD-process/</id>
     <published>2024-04-15T13:18:07.000Z</published>
-    <updated>2024-04-15T13:22:13.653Z</updated>
+    <updated>2024-04-15T13:26:38.261Z</updated>
     
     
     <summary type="html">&lt;p&gt;From《&lt;strong&gt;Test-Driven Development with Python, 3rd Edition&lt;/strong&gt;》by &lt;strong&gt;Harry Percival&lt;/strong&gt;&lt;/p&gt;
@@ -43,7 +43,7 @@
 &lt;li&gt;&lt;strong&gt;Then, we look for opportunities to refactor our code, using our tests to make sure we don’t break anything.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;And start again from the top!&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0170-TDD1.png&quot; alt=&quot;0170-TDD1.png&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0170-TDD1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -83,6 +83,38 @@
     
     
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>About Comments and TDD</title>
+    <link href="http://yunminitools.cn/2024/04/15/about-comments-and-tdd/"/>
+    <id>http://yunminitools.cn/2024/04/15/about-comments-and-tdd/</id>
+    <published>2024-04-15T12:18:07.000Z</published>
+    <updated>2024-04-15T13:34:04.169Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;From《&lt;strong&gt;Test-Driven Development with Python, 3rd Edition&lt;/strong&gt;》by &lt;strong&gt;Harry Percival&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;When I first started at Python Anywhere, I used to virtuously pepper my code with nice descriptive comments. My colleagues said to me: “Harry, we have a word for comments. We call them lies.” I was shocked! I learned in school that comments are good practice?&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当我第一次开始使用 Python Anywhere 时，我常常用漂亮的描述性注释来填充我的代码。我的同事对我说：“哈利，关于注释我们有话要说。我们称之为谎言。”我很震惊！我在学校学到注释是很好的做法？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;They were exaggerating for effect. There is definitely a place for comments that add context and intention. But my colleagues were pointing out that comments aren’t always as useful as you hope. For starters, it’s pointless to write a comment that just repeats what you’re doing with the code:&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;他们为了效果而夸大其词。肯定有一个地方可以发表评论来添加上下文和意图。但我的同事指出，评论并不总是像你希望的那样有用。对于初学者来说，编写只是重复您对代码所做的事情的注释是没有意义的：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# increment wibble by 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wibble += 1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
+    
+    <category term="TDD" scheme="http://yunminitools.cn/tags/TDD/"/>
     
   </entry>
   
@@ -572,34 +604,6 @@
         
     <summary type="html">&lt;h2 id=&quot;2-How-To-Implement-Data-Warehouse-Standards&quot;&gt;2.How To Implement Data Warehouse Standards&lt;/h2&gt;
 &lt;h3 id=&quot;a-Standard-formulation&quot;&gt;a.</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Data Warehouse Construction Standards - Why</title>
-    <link href="http://yunminitools.cn/2024/03/20/Data-Warehouse-Construction-Standards-1/"/>
-    <id>http://yunminitools.cn/2024/03/20/Data-Warehouse-Construction-Standards-1/</id>
-    <published>2024-03-20T13:05:51.000Z</published>
-    <updated>2024-03-20T13:06:22.481Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-Why-We-Need-Data-Warehouse-Standards&quot;&gt;1. Why We Need Data Warehouse Standards&lt;/h2&gt;
-&lt;p&gt;The adage “No rules, no success”</summary>
         
       
     
