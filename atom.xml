@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-16T01:42:30.157Z</updated>
+  <updated>2024-04-16T01:53:46.029Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台）</title>
+    <link href="http://yunminitools.cn/2024/04/16/itsp-ppt-example-3/"/>
+    <id>http://yunminitools.cn/2024/04/16/itsp-ppt-example-3/</id>
+    <published>2024-04-16T01:58:25.000Z</published>
+    <updated>2024-04-16T01:53:46.029Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;内容&quot;&gt;内容&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0092-ITSP-MES.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="资料收集" scheme="http://yunminitools.cn/tags/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>某整车制造企业的IT咨询规划-(计划/方法论）</title>
+    <link href="http://yunminitools.cn/2024/04/16/itsp-ppt-example-4/"/>
+    <id>http://yunminitools.cn/2024/04/16/itsp-ppt-example-4/</id>
+    <published>2024-04-16T01:58:25.000Z</published>
+    <updated>2024-04-16T02:01:19.189Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;内容&quot;&gt;内容&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0116-ITSP-PLANNING.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="资料收集" scheme="http://yunminitools.cn/tags/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/"/>
+    
+  </entry>
   
   <entry>
     <title>某整车制造企业的IT咨询规划-(供应链及企业资源计划）</title>
@@ -514,93 +554,6 @@
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
     
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>查看Linux用户登录日志</title>
-    <link href="http://yunminitools.cn/2024/03/24/linux-user-login-review/"/>
-    <id>http://yunminitools.cn/2024/03/24/linux-user-login-review/</id>
-    <published>2024-03-24T09:32:49.000Z</published>
-    <updated>2024-03-24T09:33:25.336Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-lastlog&quot;&gt;1. lastlog&lt;/h2&gt;
-&lt;p&gt;使用&lt;strong&gt;lastlog&lt;/strong&gt;可以查看所有用户最近登录的信息：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Data Warehouse Construction Standards - Data Modeling Standards</title>
-    <link href="http://yunminitools.cn/2024/03/22/Data-Warehouse-Construction-Standards-4/"/>
-    <id>http://yunminitools.cn/2024/03/22/Data-Warehouse-Construction-Standards-4/</id>
-    <published>2024-03-22T14:32:42.000Z</published>
-    <updated>2024-03-28T05:07:20.085Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;3-1-Data-Modeling-Standards&quot;&gt;3.1 Data Modeling Standards&lt;/h2&gt;
-&lt;h3 id=&quot;a-Horizontal-Layering&quot;&gt;a. Horizontal Layering:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Explanation&lt;/p&gt;
-&lt;p&gt;Our layered design approach is an essential byproduct of our data architecture strategy, adhering to &lt;strong&gt;strict standards&lt;/strong&gt; during the modeling phase for optimal results.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Layer Standards&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The Operational Data Store (ODS)
-&lt;ul&gt;
-&lt;li&gt;Design Methodology:
-&lt;ul&gt;
-&lt;li&gt;Store raw data with minimal processing in the data warehouse system, maintaining a structure that is similar to the source system.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Main Functions:
-&lt;ul&gt;
-&lt;li&gt;Synchronize and store foundational data in the data warehouse to address data silo issues and ensure the integrity of data integration .&lt;/li&gt;
-&lt;li&gt;To ensure data persistence, keeping tables and data in perfect sync.&lt;/li&gt;
-&lt;li&gt;Perform regular synchronization and add synchronization timestamps to the tables to capture their temporal variability.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Data Processing:
-&lt;ul&gt;
-&lt;li&gt;Handling of anomalies and erroneous data.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Naming Convention:
-&lt;ul&gt;
-&lt;li&gt;Layer abbreviation_Source System_Source System Table Name&lt;/li&gt;
-&lt;li&gt;Example: ods_oms_order&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
     
   </entry>
   

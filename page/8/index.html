@@ -100,6 +100,206 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-provide-reference-text-strategy"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/06/08/provide-reference-text-strategy/"
+    >提供参考文本的策略</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/08/provide-reference-text-strategy/" class="article-date">
+  <time datetime="2023-06-08T06:09:37.000Z" itemprop="datePublished">2023-06-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="指示模型使用参考文本回答问题">指示模型使用参考文本回答问题</h2>
+<p>如果我们能够向模型提供与当前查询相关且可信的信息，那么我们可以指示模型使用提供的信息来组织回答。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Use the provided articles delimited by triple quotes to answer questions. If the answer cannot be found in the articles, write &quot;I could not find an answer.”</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>&lt;insert articles, each delimited by triple quotes&gt;<br>Question: <insert question here></td>
+</tr>
+</tbody>
+</table>
+<p>考虑到GPT模型的上下文窗口有限，为了应用这个策略，我们需要一种动态查找与所提问题相关的信息的方法。嵌入可以用来实现高效的知识检索。有关如何实施这一策略的详细信息，请参阅“使用基于嵌入的搜索来实现高效的知识检索”策略。</p>
+<h2 id="指示模型使用参考文本中的引用进行回答">指示模型使用参考文本中的引用进行回答</h2>
+<p>如果输入已经补充了相关知识，可以要求模型通过引用提供的文献中的段落来添加引用。请注意，可以通过在提供的文献中进行字符串匹配来对输出中的引文进行程序验证。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with a document delimited by triple quotes and a question. Your task is to answer the question using only the provided document and to cite the passage(s) of the document used to answer the question. If the document does not contain the information needed to answer this question then simply write: “Insufficient information.” If an answer to the question is provided, it must be annotated with a citation. Use the following format for to cite relevant passages ({“citation”: …}).</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>&lt;insert articles, each delimited by triple quotes&gt;<br>Question: <insert question here></td>
+</tr>
+</tbody>
+</table>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Clear-Instructions-Tactics-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/06/07/Clear-Instructions-Tactics-1/"
+    >写出明确的指引的策略</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/07/Clear-Instructions-Tactics-1/" class="article-date">
+  <time datetime="2023-06-07T04:36:06.000Z" itemprop="datePublished">2023-06-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="在查询中包含详细信息以获得更相关的答案">在查询中包含详细信息以获得更相关的答案</h2>
+<p>（Include details in your query to get more relevant answers****）****</p>
+<p>为了获得高度相关的回答，请确保请求提供任何重要的细节或背景信息。否则，你就让模型去猜你的意思了。</p>
+<table>
+<thead>
+<tr>
+<th>Worse</th>
+<th>Better</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How do I add numbers in Excel?</td>
+<td>How do I add up a row of dollar amounts in Excel? I want to do this automatically for a whole sheet of rows with all the totals ending up on the right in a column called “Total”.</td>
+</tr>
+<tr>
+<td>Who’s president?</td>
+<td>Who was the president of Mexico in 2021, and how frequently are elections held?</td>
+</tr>
+<tr>
+<td>Write code to calculate the Fibonacci sequence.</td>
+<td>Write a TypeScript function to efficiently calculate the Fibonacci sequence. Comment the code liberally to explain what each piece does and why it’s written that way.</td>
+</tr>
+<tr>
+<td>Summarize the meeting notes.</td>
+<td>Summarize the meeting notes in a single paragraph. Then write a markdown list of the speakers and each of their key points. Finally, list the next steps or action items suggested by the speakers, if any.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="要求模型采用特定的人设">要求模型采用特定的人设</h2>
+<p>（Ask the model to adopt a persona）<br>
+系统消息可以用来指定模型在回复中所使用的人设。</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
+</tr>
+</tbody>
+</table> 
+      <a class="article-more-link" href="/2023/06/07/Clear-Instructions-Tactics-1/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-GPT-best-practices-Index"
   class="article article-type-post"
   itemscope
@@ -618,131 +818,6 @@ qz = probability the attacker will ever catch up from z blocks behind<br>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;showcenter&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>show center  | 展示中心<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">a-col</span> <span class="attr">:span</span>=<span class="string">&quot;8&quot;</span> <span class="attr">:offset</span>=<span class="string">&quot;8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">a-input-search</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">v-model:value</span>=<span class="string">&quot;value&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">placeholder</span>=<span class="string">&quot;input text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">enter-button</span>=<span class="string">&quot;Search&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">size</span>=<span class="string">&quot;large&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          @<span class="attr">search</span>=<span class="string">&quot;onSearch&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">a-col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
 <p>效果：<br>
 <img src="http://cdn.yunminitools.cn/blog/0418AntDesign.png" alt=" "></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-A-Peer-to-Peer-Electronic-Cash-System-8"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/" class="article-date">
-  <time datetime="2023-04-18T14:40:00.000Z" itemprop="datePublished">2023-04-18</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="10-隐私">10 隐私</h2>
-<p>10 Privacy<br>
-The traditional banking model achieves a level of privacy by limiting access to information to the parties involved and the trusted third party. The necessity to announce all transactions publicly precludes this method, but privacy can still be maintained by breaking the flow of information in another place: by keeping public keys anonymous. The public can see that someone is sending an amount to someone else, but without information linking the transaction to anyone. This is similar to the level of information released by stock exchanges, where the time and size of individual trades, the “tape”, is made public, but without telling who the parties were.<br>
-<img src="http://cdn.yunminitools.cn/blog/0417Privacy-en.png" alt=" "><br>
-As an additional firewall, a new key pair should be used for each transaction to keep them from being linked to a common owner. Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner. The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner.</p>
-<p>传统的银行模型通过限制参与方和可信任第三方对信息的访问来达到一定级别的隐私保护。交易必须要公开发布就不能使用这个方法，但隐私仍可在其他地方通过阻断信息流的方式来保护：那就是保持公钥匿名。公众能看到有人正在发送一定量货币给其他人，但是不能将交易关联到某个人。这和证券交易所发布的信息级别类似，每笔交易的时间和交易量，即行情是公开的，但是不会显示交易双方是谁。<br>
-<img src="http://cdn.yunminitools.cn/blog/0417Privacy-zh.png" alt=" "><br>
-作为额外的防火墙，对每笔交易使用新密钥对可以防止他们被关联到一个共同的拥有者。由于多输入值交易存在，有些关联仍不可避免，因为多输入值交易必然暴露其多个输入是属于同一个拥有者的。风险就在于如果一个密钥的拥有者被暴露，关联性将暴露属于同一个拥有者的其他交易。</p>
-<p>【关注点】：</p>
-<ul>
-<li><strong>keeping public keys anonymous</strong>, 如何做到呢？</li>
-<li><strong>证券交易所发布的信息级别类似</strong>，这个类比比较有趣。</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-VUE-Exercise-3"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/17/VUE-Exercise-3/"
-    >VUE练习3 - 使用域名</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/17/VUE-Exercise-3/" class="article-date">
-  <time datetime="2023-04-17T14:45:32.000Z" itemprop="datePublished">2023-04-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-配置vue-config-js">1 配置vue.config.js</h2>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">allowedHosts</span>: <span class="string">&quot;all&quot;</span>,</span><br><span class="line">        <span class="attr">host</span>:<span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">        <span class="attr">port</span>:<span class="number">8080</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<h2 id="2-效果">2 效果</h2>
-<p>访问 <a target="_blank" rel="noopener" href="http://uric.yunminitools.cn:8080">http://uric.yunminitools.cn:8080</a> ， 当点击到展示中心后，浏览器的控制台可以返回数据：</p>
-<p><img src="http://cdn.yunminitools.cn/blog/0416axios-result.png" alt=" "></p>
  
       <!-- reward -->
       
