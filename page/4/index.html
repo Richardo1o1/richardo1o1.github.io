@@ -100,6 +100,67 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-linux-commands-collection-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/21/linux-commands-collection-1/"
+    >查看和清理Linux日志文件</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/21/linux-commands-collection-1/" class="article-date">
+  <time datetime="2024-02-21T14:15:10.000Z" itemprop="datePublished">2024-02-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1、查看目录大小"><strong>1、查看目录大小</strong></h2>
+<h3 id="du，下面命令显示当前文件夹下各个文件及文件夹大小（汇总）">du，下面命令显示当前文件夹下各个文件及文件夹大小（汇总）</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo du <span class="literal">-sh</span> <span class="literal">--</span> *</span><br></pre></td></tr></table></figure>
+<h2 id="2、清理指定大小的日志文件：">2、清理指定大小的日志文件：</h2>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl <span class="literal">--vacuum-size</span>=<span class="number">100</span>M</span><br></pre></td></tr></table></figure>
+<p>这将保留最新的 100MB 日志数据。</p>
+<h2 id="3、清理指定时间范围之前的日志：">3、清理指定时间范围之前的日志：</h2>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl <span class="literal">--vacuum-time</span>=<span class="number">10</span>d</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-master-slave-replication-docker-install"
   class="article article-type-post"
   itemscope
@@ -681,81 +742,6 @@ Syntax error in graph mermaid version 8.14.0<br>
 <p>但这种方式并不好，如果在每个文件开头都这样写一遍，第一是麻烦，第二是如果哪天要改变输出日志格式，那每个文件都要改一遍，还不累死。</p>
 <p>很显然，如果能封装成一个类，用的时候调用这个类，修改的时候也只需要修改这一个地方:</p> 
       <a class="article-more-link" href="/2024/02/05/Django-Logging-3/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Django-Logging-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/04/Django-Logging-2/"
-    >Django 的日志机制-2</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/04/Django-Logging-2/" class="article-date">
-  <time datetime="2024-02-04T13:55:49.000Z" itemprop="datePublished">2024-02-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="logging-结构">logging 结构</h2>
-<p>在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：<code>Loggers</code>、<code>Handlers</code>、<code>Filters</code> 和 <code>Formatters</code>。</p>
-<h3 id="Loggers">Loggers</h3>
-<p><code>Logger</code> 即<strong>记录器</strong>，是日志系统的入口。它有三个重要的工作：</p>
-<ul>
-<li>向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息</li>
-<li>根据传递给 <code>Logger</code> 的消息的严重性，确定消息是否需要处理</li>
-<li>将需要处理的消息传递给所有感兴趣的处理器 <code>Handler</code></li>
-</ul>
-<p>每一条写入 <code>Logger</code> 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：</p>
-<ul>
-<li><code>DEBUG</code>：排查故障时使用的低级别系统信息，通常开发时使用</li>
-<li><code>INFO</code>：一般的系统信息，并不算问题</li>
-<li><code>WARNING</code>：描述系统发生小问题的信息，但通常不影响功能</li>
-<li><code>ERROR</code>：描述系统发生大问题的信息，可能会导致功能不正常</li>
-<li><code>CRITICAL</code>：描述系统发生严重问题的信息，应用程序有崩溃的风险</li>
-</ul>
-<p>当 <code>Logger</code> 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 <code>Logger</code> 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。</p>
-<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p> 
-      <a class="article-more-link" href="/2024/02/04/Django-Logging-2/"
         >More...</a
       >
        
