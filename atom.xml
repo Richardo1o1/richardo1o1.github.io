@@ -145,7 +145,7 @@
     <link href="http://yunminitools.cn/2024/04/15/resolve-docker-make-error-1/"/>
     <id>http://yunminitools.cn/2024/04/15/resolve-docker-make-error-1/</id>
     <published>2024-04-15T12:54:07.000Z</published>
-    <updated>2024-04-15T13:14:56.721Z</updated>
+    <updated>2024-04-16T05:35:04.801Z</updated>
     
     
       
@@ -155,7 +155,8 @@
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
 &lt;br/&gt;
 &lt;p&gt;报错：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+&lt;blockquote&gt;
+&lt;p&gt;ERROR: failed to solve: nginx: blob</summary>
         
       
     
