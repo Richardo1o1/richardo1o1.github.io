@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-16T02:26:30.741Z</updated>
+  <updated>2024-04-17T08:52:30.061Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用超多案例，帮你掌握尼尔森十大可用性原则</title>
+    <link href="http://yunminitools.cn/2024/04/17/10-usability-heuristics-for-user-interface-design/"/>
+    <id>http://yunminitools.cn/2024/04/17/10-usability-heuristics-for-user-interface-design/</id>
+    <published>2024-04-17T01:58:25.000Z</published>
+    <updated>2024-04-17T08:52:30.061Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;复习一下尼尔森设计原则，&lt;a href=&quot;https://www.uisdc.com/nielsen-design-principles-4&quot;&gt;原文在此&lt;/a&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;尼尔森设计原则是人机交互学博士 Jakob Nielsen 于 1995 年发表的“&lt;a href=&quot;https://www.nngroup.com/articles/ten-usability-heuristics&quot;&gt;十大可用性原则&lt;/a&gt;”。尼尔森博士分析了两百多个可用性问题而提炼出的十项通用型原则，它是产品设计与用户体验设计的重要参考标准，值得每个交互设计师理解与思考。今天把尼尔森设计原则结合一些产品案例进行总结：&lt;/p&gt;
+&lt;h1&gt;原则一：状态可见性原则&lt;/h1&gt;
+&lt;p&gt;系统应该让用户时刻清楚当前发生了什么事情，也就是快速的让用户了解自己处于何种状态、对过去发生、当前目标、以及对未来去向有所了解，一般的方法是在合适的时间给用户适当的反馈，防止用户使用出现错误。&lt;/p&gt;
+&lt;p&gt;沟通是所有关系的基础，无论人还是设备。产品应该通过在合理时间内的适当反馈，向用户通知正在发生的事情或者当前的状态。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户知道系统在做什么&lt;/li&gt;
+&lt;li&gt;用户知道自己在什么位置&lt;/li&gt;
+&lt;li&gt;用户知道下一步操作应该去往哪里&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0173-uisdc-2.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+&lt;strong&gt;产品名称：抖音&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="资料收集" scheme="http://yunminitools.cn/tags/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/"/>
+    
+  </entry>
   
   <entry>
     <title>某整车制造企业的IT咨询规划-(计划/方法论）</title>
@@ -527,34 +558,6 @@
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
     <category term="Issue-reslove" scheme="http://yunminitools.cn/tags/Issue-reslove/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker相关命令收集（IP地址/Log地址）</title>
-    <link href="http://yunminitools.cn/2024/04/07/docker-command-collect-1/"/>
-    <id>http://yunminitools.cn/2024/04/07/docker-command-collect-1/</id>
-    <published>2024-04-07T11:52:43.000Z</published>
-    <updated>2024-04-07T11:53:29.348Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-查看Docker内IP地址&quot;&gt;1. 查看Docker内IP地址&lt;/h2&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
