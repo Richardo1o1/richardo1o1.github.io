@@ -100,6 +100,140 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-how-can-startup-improve-efficiency"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/08/how-can-startup-improve-efficiency/"
+    >卫哲：创业公司发展该如何提高效率？</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/08/how-can-startup-improve-efficiency/" class="article-date">
+  <time datetime="2024-04-08T14:03:34.000Z" itemprop="datePublished">2024-04-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>看到一篇<strong>卫哲</strong>的演讲稿，很有启发，转载学习一下。</p>
+<h2 id="原文">原文</h2>
+<p>我每年会出席各种各样的场合，但从来没有像“效率”这个题目这么令我兴奋的。为什么？</p>
+<p>做投资五年多来，收到无数的BP计划（商业计划书），永远是讲“我规模有多大”、“我今天有多大”、“我未来会做得有多大”，还有“我有多快”。</p>
+<p>但从来没有没有人在BP当中说：我效率有多高——我今天效率有多高；未来随着我多快、多大以后，我的效率有多高。</p>
+<p>互联网最大的作用就是提升效率。**一个互联网公司没有人均10万美元的利润贡献，就不是真正的互联网公司。**大和快的背后，是效率。</p>
+<p>不要被互联网这层外衣给迷惑了。<strong>商业的本质，除了增长以外还有效率。没有效率的增长，不是慢性自杀，而是加速自杀。</strong></p>
+<p>如何提高效率，我们今天会分五个环节来讲。</p> 
+      <a class="article-more-link" href="/2024/04/08/how-can-startup-improve-efficiency/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8D%E4%BA%BA%E6%BC%94%E8%AE%B2/" rel="tag">名人演讲</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/" rel="tag">团队管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-https-ssl-error-issue-resolve"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/07/https-ssl-error-issue-resolve/"
+    >Https网站不能访问问题排查</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/07/https-ssl-error-issue-resolve/" class="article-date">
+  <time datetime="2024-04-07T12:13:51.000Z" itemprop="datePublished">2024-04-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>我有一个https的网站，最近折腾了一下，发现不能访问了，用各种办法测试，逐步找到问题，这里记录一下。</p>
+<h2 id="检查证书是否正常">检查证书是否正常</h2>
+<p>首先怀疑证书，好久不检查，不知道是否过期，用下面的语句检查一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -noout -text -<span class="keyword">in</span> xxx.com.crt</span><br></pre></td></tr></table></figure>
+<p>可以看到以下结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Certificate:</span><br><span class="line">    Data:</span><br><span class="line">        Version: 3 (0x2)</span><br><span class="line">        Serial Number:</span><br><span class="line">            xxxxxxx</span><br><span class="line">        Signature Algorithm: sha384WithRSAEncryption</span><br><span class="line">        Issuer: C = CN, O = <span class="string">&quot;TrustAsia Technologies, Inc.&quot;</span>, CN = TrustAsia RSA DV TLS CA G2</span><br><span class="line">        Validity</span><br><span class="line">            Not Before: Jan 29 00:00:00 2024 GMT</span><br><span class="line">            Not After : Jan 28 23:59:59 2025 GMT</span><br></pre></td></tr></table></figure>
+<p>证书没问题，25年才过期</p>
+<h2 id="检查证书是否可以被访问">检查证书是否可以被访问</h2>
+<p>用以下语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl s_client -connect xxx.com:443 -showcerts</span><br></pre></td></tr></table></figure>
+<p>这时报错了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4087E3AE1B7F0000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:</span><br></pre></td></tr></table></figure>
+<p>查到这基本可以确认是网络问题，仔细排查了一下，原来是frp的配置忘改为https协议，导致网络转发不通。改完重启frp，问题解决。</p>
+<h2 id="查看SSL详细信息">查看SSL详细信息</h2>
+<p>问题解决后，可以再用 [<a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a>](<a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/%EF%BC%89">https://www.ssllabs.com/ssltest/）</a> 这个网站测试一下，结果非常丰富。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Issue-reslove/" rel="tag">Issue-reslove</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-docker-command-collect-1"
   class="article article-type-post"
   itemscope
@@ -665,159 +799,6 @@ var _hmt = _hmt || [];
 </li>
 </ol>
  
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/" rel="tag">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-python-install-venv"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/03/08/python-install-venv/"
-    >安装 Python 虚拟环境（venv）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/03/08/python-install-venv/" class="article-date">
-  <time datetime="2024-03-08T11:44:38.000Z" itemprop="datePublished">2024-03-08</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>Python有很多虚拟环境解决方案，今天介绍一个Python自带的解决方案。</p>
-<h2 id="venv-模块">venv 模块</h2>
-<p>Python3.3 之后，可以用模块 venv 代替 virtualenv 工具，好处是不用单独安装，3.3 及之后的版本，都可以通过安装好的 Python 来创建虚拟环境:</p>
-<p><code>python -m venv myvenv</code></p>
-<p>可以在当前目录创建一个名为 myvenv 的虚拟环境</p>
-<p>venv 有些参数，不过相比 virtualenv 少了些，这里简单介绍几个：</p>
-<ul>
-<li>-without-pip: 不需要安装 pip，默认为安装</li>
-<li>-clear：如果创建虚拟环境的目录已经有了其他虚拟环境，清楚重建</li>
-</ul>
-<p>因为 venv 是依附于一个 Python 解析器创建的，所以不需要指定 Python 解释器版本</p>
-<h2 id="激活">激活</h2>
-<p>虚拟环境创建好后，需要激活才能在当前命令行中使用，可以理解成将当前命令行环境中 PATH 变量的值替换掉</p>
-<p>通过 virtualenv 和 模块 venv 创建的虚拟环境，激活方式是一样的，即运行激活脚本</p>
-<ul>
-<li>Windows 系统中，激活脚本路径是 <code>&lt;myvenv&gt;\Scripts\activate.bat</code>，如果是 powershell 命令行，脚本换成 <code>Activate.ps1</code> , 注意将 <code>&lt;myvenv&gt;</code>换成你自己的虚拟环境目录</li>
-<li>Linux 系统中，激活脚本路径是 <code>&lt;myvenv&gt;/bin/activate</code>，默认脚本没有执行权限，要么设置脚本为可执行，要么用 <code>source</code> 命令执行，例如</li>
-</ul>
-<p>$ source myvenv/bin/activate</p>
-<p>激活后，可以在命令行中看到虚拟环境标记，如上图</p>
-<p>打印 PATH，命令如下：</p>
-<p>Linux 下：</p>
-<p><code>echo $PATH</code></p>
-<p>Windows 下</p>
-<p><code>echo %PATH%</code></p>
-<p>可以看到创建的虚拟环境脚本目录被加载了最前面</p>
-<h2 id="退出">退出</h2>
-<p>退出虚拟环境很简单，只需要执行 <code>deactivate</code> 命令就行，这个命令也在虚拟环境的脚本目录下，因为激活时，将脚本目录设置到 PATH 中了，所以可以直接使用</p>
-<p>退出虚拟环境相当于将 PATH 恢复成原来的。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-elasticseach-operation-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/03/07/elasticseach-operation-1/"
-    >ElasticSearch入门篇-操作1</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/03/07/elasticseach-operation-1/" class="article-date">
-  <time datetime="2024-03-07T13:44:55.000Z" itemprop="datePublished">2024-03-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>如果一切正常，Elastic 就会在默认的9200端口运行。这时，打开另一个命令行窗口，请求该端口，会得到说明信息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:9200</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span> : <span class="string">&quot;10eaed25cea5&quot;</span>,</span><br><span class="line">  <span class="string">&quot;cluster_name&quot;</span> : <span class="string">&quot;my-es&quot;</span>,</span><br><span class="line">  <span class="string">&quot;cluster_uuid&quot;</span> : <span class="string">&quot;dk5aq0evTjaXc2LEHIGtsA&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span> : &#123;</span><br><span class="line">    <span class="string">&quot;number&quot;</span> : <span class="string">&quot;7.7.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_flavor&quot;</span> : <span class="string">&quot;default&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_type&quot;</span> : <span class="string">&quot;docker&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_hash&quot;</span> : <span class="string">&quot;ad56dce891c901a492bb1ee393f12dfff473a423&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_date&quot;</span> : <span class="string">&quot;2020-05-28T16:30:01.040088Z&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_snapshot&quot;</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="string">&quot;lucene_version&quot;</span> : <span class="string">&quot;8.5.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;minimum_wire_compatibility_version&quot;</span> : <span class="string">&quot;6.8.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;minimum_index_compatibility_version&quot;</span> : <span class="string">&quot;6.0.0-beta1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;tagline&quot;</span> : <span class="string">&quot;You Know, for Search&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="基本概念">基本概念</h2>
-<h3 id="Node-与-Cluster">Node 与 Cluster</h3>
-<p>Elastic 本质上是一个分布式数据库，允许多台服务器协同工作，每台服务器可以运行多个 Elastic 实例。</p>
-<p>单个 Elastic 实例称为一个节点（node）。一组节点构成一个集群（cluster）。</p>
-<h3 id="Index"><strong>Index</strong></h3>
-<p>Elastic 会索引所有字段，经过处理后写入一个反向索引（Inverted Index）。查找数据的时候，直接查找该索引。</p>
-<p>所以，Elastic 数据管理的顶层单位就叫做 Index（索引）。它是单个数据库的同义词。每个 Index （即数据库）的名字必须是小写。</p>
-<p>下面的命令可以查看当前节点的所有 Index。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X GET <span class="string">&#x27;http://localhost:9200/_cat/indices?v&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>显示下面的结果：<br>
-<img src="https://cdn.yunminitools.cn/blog/0307_es_index.png" alt=" "></p> 
-      <a class="article-more-link" href="/2024/03/07/elasticseach-operation-1/"
-        >More...</a
-      >
-       
       <!-- reward -->
       
     </div>

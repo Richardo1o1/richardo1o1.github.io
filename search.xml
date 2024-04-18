@@ -9267,4 +9267,139 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>资料收集</tag>
       </tags>
   </entry>
+  <entry>
+    <title>英语单词辨析 - Consider or regard</title>
+    <url>/2024/04/18/differentiation-of-consider-regard/</url>
+    <content><![CDATA[<p>ref：<a href="https://dictionary.cambridge.org/grammar/british-grammar/consider-or-regard">原文</a></p>
+<p><em>Consider</em> 和 <em>regard</em> 这两个词都可以表示“相信”、“认识到”或“理解”。当它们表示“相信”、“认识到”或“理解”时，我们通常不使用进行时态。</p>
+<br/>
+<h3 id="Consider">Consider</h3>
+<p><em>Consider</em> 有下面几种用法.</p>
+<p><em><strong>Consider</strong></em>** + **<em><strong>that 从句</strong></em></p>
+<blockquote>
+<p><em>When you</em> <em><strong>consider</strong></em> <em>that she was very scared, her story is even more remarkable</em>.</p>
+</blockquote>
+<p><em><strong>Consider</strong></em>** + 对象 + **<em><strong>to be</strong></em></p>
+<blockquote>
+<p><em>They</em> <em><strong>consider</strong></em> <em>him to be the best chef in the country</em>.</p>
+</blockquote>
+<p><em><strong>Consider</strong></em>** + 对象 + **<em><strong>to have</strong></em></p>
+<blockquote>
+<p><em>The ministry of trade</em> <em><strong>considered</strong></em> <em>the company to have the best vision for exports</em>.</p>
+</blockquote>
+<p><strong>警告:</strong></p>
+<p>我们不把 as 和 consider一起使用 :</p>
+<blockquote>
+<p>We consider this to be a very serious issue.<br>
+Not: <s>We consider this as a very serious issue.</s></p>
+</blockquote>
+<h3 id="Regard">Regard</h3>
+<p>我们经常把 <em>regard</em> 使用在 ‘regard as’ : <em>regard</em> (+ 对象) + <em>as</em> + 名词 or 形容词:</p>
+<blockquote>
+<p>The United Nations regard human rights as their main priority.<br>
+Alexander Graham Bell is regarded as the inventor of the telephone.<br>
+Do you regard their behavior as good or bad?</p>
+</blockquote>
+<h3 id="Typical-error">Typical error</h3>
+<ul>
+<li>我们不把 <em>consider</em> 和 *regard *用于进行时态:</li>
+</ul>
+<blockquote>
+<p>When you consider that he was too young, you have to blame his parents.<br>
+Not: <s>When you are considering that he was too young …</s></p>
+</blockquote>
+<blockquote>
+<p>The government regards the economy as a main priority.<br>
+Not: <s>The government is regarding the economy …</s></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>英语学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Payment Core System Design - 1</title>
+    <url>/2024/04/18/payment-core-system-design-1/</url>
+    <content><![CDATA[<p>学习支付大佬文章，参考<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;mid=2247498106&amp;idx=1&amp;sn=47801915cb46b679078039fa04152cee&amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;mpshare=1&amp;scene=1&amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd">原文</a>。</p>
+<hr>
+<p>内核是看到一个事物的底层框架，无论外界如何变化，这个内核保持稳定和灵活的兼容性</p>
+<p>内核不是一成不变的，它可以不断吸收新的知识，慢慢长大，而我们也随之不断蜕变</p>
+<p>现在我将这几年抽象沉淀出来的“内核”展示给大家，这将短时间重塑你“曾经、现在、未来”的产品之路</p>
+<h2 id="01-全局内核">01. 全局内核</h2>
+<p>认识任何事物，都可以从全局出发，从宏观上把握，心有乾坤，永不偏向</p>
+<h3 id="内核1：从业务上理解支付的关系">内核1：从业务上理解支付的关系</h3>
+<p><strong>做事情，记账务，动资金</strong>。这个内核高度概括，支付的一切无非就是做事记账，记账交钱，通过系统逻辑实现三者的完美契合，于是我画了这张图：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0188-payment-core-1.webp" alt="图1：做事情，记账务，动资金"></p>
+<span id="more"></span>
+<blockquote>
+<p>&lt;学习体会&gt; 总结的三句话很好，但这个图不是太能说明这三句话的关系，我理解是：记录业务事实（做事情），记录业务事实对应的收入/成本/费用等财务事实（记账务），最后记录资金流动的事实（动资金），这三件事情是紧密相连的，但往往不是一起开始一起结束的，由于种种原因，他们时间上可能会拉得很长，导致支付的链条很长，系统设计比较复杂。</p>
+</blockquote>
+<h3 id="内核2：支付的组织分层">内核2：支付的组织分层</h3>
+<p>这内核让我时刻提醒自己，支付不是一个人或者一个组织的事情，而是全社会的分层协作，要想理解透当前的事，就得明白当前所处的“阶层和位置”</p>
+<p>怎么分层，每层有哪些组织，于是我设计了这张图</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0184-payment-core-2-1.webp" alt="图2-1：支付的组织分层"></p>
+<p>为了深度理解每层内部和层与层之间的链接，我设计了这张更宏观更详细的架构图</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0185-payment-core-2-2.webp" alt="图2-2：支付的系统架构"></p>
+<blockquote>
+<p>&lt;学习体会&gt;这里的分层，应该是支付的全流程的系统架构，包括 商业公司内部系统、第三方支付平台、银行支付平台、二代支付平台。每一层打开，都很复杂。</p>
+</blockquote>
+<br/>
+<h3 id="内核3：拿捏信息流资金流">内核3：拿捏信息流资金流</h3>
+<p>这内核让我明白，信息流和资金流无非就是不同组织内的不同对象的不同账户通过信息通讯而推动资金流动</p>
+<p>通过下图可以看清楚，消费者、商家、平台通过交易、清算、结算产生了收款和付款业务，通过渠道方实现支付指令的传输和资金转移，这是支付的本质</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0186-payment-core-3-1.webp" alt="图3-1：支付指令流"></p>
+<p>为了一劳永逸，理解每一笔支付的信息流和资金流，得到了这张信息流、资金流分析的通用模版</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0187-payment-core-3-2.webp" alt="图3-2：支付信息流和资金流"></p>
+<blockquote>
+<p>&lt;学习体会&gt;图3-1比较有用，支付都是指令驱动的。其实还有周期性付款需求，这个图还没有覆盖。</p>
+</blockquote>
+<h3 id="内核4：企业的支付，做好业务收好钱">内核4：企业的支付，做好业务收好钱</h3>
+<p>这内核让我清楚，对于一个企业来说，业务决定了支付，理解清楚做什么比怎么做更重要，先想明白公司的事，做决定产品的决策</p>
+<p>我在做外卖业务时，绘制了这张图，来阐述外卖的业务如何推动系统：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0189-payment-core-4-1.webp" alt="图4-1：外卖业务在各个系统中的流转"></p>
+<p>通过绘制这张图，把握外卖的系统架构</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0190-payment-core-4-2.webp" alt="图4-2：外卖系统架构"></p>
+<p>做家政业务时，风格依旧，在规划清结算中台时，我设计了这张图：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0191-payment-core-4-3.webp" alt="图4-3：家政业务系统架构"></p>
+<p>同样，理解电商的系统架构也需要一张图作为内核</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0192-payment-core-4-4.webp" alt="图4-4：电商业务系统架构"></p>
+<p>我开始试图去抽象出一个企业支付全局，这张图是第一次尝试的结果：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0193-payment-core-4-5.webp" alt="图4-5：企业支付1.0"></p>
+<p>在写书时，迭代了一次，这张图诞生了，我称它为企业支付体系的2.0版本</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0194-payment-core-4-6.webp" alt="图4-6：企业支付2.0"></p>
+<p>我想着能不能更近一步，努力继续迭代，展开更大的视角，认识企业，这张残缺未完成的图也出现了，这张图会终结一切</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0195-payment-core-4-7.webp" alt="图4-7：企业支付3.0"></p>
+<blockquote>
+<p>&lt;学习体会&gt;之前没有意识到，原来不同业态，支付系统也是不一样的。我觉得笔者抽象出来的架构，最终也没法实现，每个业务还是会长出自己特色的支付系统的。</p>
+</blockquote>
+<h3 id="内核5：三方支付的产品框架">内核5：三方支付的产品框架</h3>
+<p>三方支付是一个支付时代的缩影，它有它的独特性，也是支付之所以发展成现在模样的不可磨灭的功勋，我会这么把握三方支付的全局产品，从结构上，从系统上，从整体的框架上把握，我抽象出的三方支付产品架构：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0196-payment-core-5.webp" alt="图5：三方支付产品架构"></p>
+<blockquote>
+<p>&lt;学习体会&gt;原来只是用三方支付平台，打开来看其实还是挺复杂的。我觉得风控系统还是比较重要的，只是具体如何做没有看到什么文章讲这块。</p>
+</blockquote>
+<h3 id="内核6：清算让协同成为可能">内核6：清算让协同成为可能</h3>
+<p>清算机构在整个支付体系中承担着非常重要的角色，是全社会支付业务信息和支付组织进入终极支付层“央行”的必经之路，我对他们的理解是从以下几个方面展开的，并不断深入和进化，我通过这张图把握监管与各支付角色的关系</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0197-payment-core-6-1.webp" alt="图6-1：支付角色关系"></p>
+<p>我通过这张图把握清算机构之间的关系</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0198-payment-core-6-2.webp" alt="图6-2：清算机构关系"></p>
+<p>我通过这张图把握支付的实现</p>
+<p>![图6-3：支付实现(<a href="https://cdn.yunminitools.cn/pic/0199-payment-core-6-3.webp">https://cdn.yunminitools.cn/pic/0199-payment-core-6-3.webp</a>)</p>
+<p>通过这张图把握清算机构内部对支付的处理</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0200-payment-core-6-4.webp" alt="图6-4：清算机构内部处理"></p>
+<blockquote>
+<p>&lt;学习体会&gt; 需要理解的就是网联承担了跨行结算的工作，这样用户和商家都不用考虑到底用哪家银行来付钱或收钱。（原来银联、支付宝、微信也可以部分完成这个工作，但监管加强后都收归网联了）</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>架构设计</tag>
+        <tag>支付产品</tag>
+      </tags>
+  </entry>
 </search>

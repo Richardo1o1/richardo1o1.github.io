@@ -100,6 +100,257 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Dimension-Table-Design-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/13/Dimension-Table-Design-1/"
+    >维度表设计注意事项</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/13/Dimension-Table-Design-1/" class="article-date">
+  <time datetime="2023-03-13T08:08:23.000Z" itemprop="datePublished">2023-03-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1、什么是维度表？">1、什么是维度表？</h2>
+<p>维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。<br>
+维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。</p>
+<p>例如：日期维表：</p>
+<table>
+<thead>
+<tr>
+<th>num</th>
+<th>字段名</th>
+<th>字段中文名</th>
+<th>描述</th>
+<th>数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>date</td>
+<td>日期</td>
+<td>日期 yyyMMdd格式</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>2</td>
+<td>week</td>
+<td>星期，数字型</td>
+<td>星期，数字型 0-6</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>3</td>
+<td>week_cn</td>
+<td>星期中文名</td>
+<td>星期中文名 星期一……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>4</td>
+<td>year_weeks</td>
+<td>一年中的第几周</td>
+<td>一年中的第几周 1 2 3……</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>5</td>
+<td>mon_dt</td>
+<td>本周周一日期</td>
+<td>本周周一日期</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>6</td>
+<td>sun_dt</td>
+<td>本周周日日期</td>
+<td>本周周日日期</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>7</td>
+<td>month</td>
+<td>年月</td>
+<td>年月，yyyyMM格式</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>8</td>
+<td>month_short</td>
+<td>月份简写</td>
+<td>月份简写，MM格式1~12</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>9</td>
+<td>month_cn</td>
+<td>月份中文名</td>
+<td>月份中文名 一月……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>10</td>
+<td>quarter</td>
+<td>季度</td>
+<td>季度，yyyyQ1\2\3\4</td>
+<td>string</td>
+</tr>
+<tr>
+<td>11</td>
+<td>quarter_short</td>
+<td>季度 数字型</td>
+<td>季度 数字型 1-4</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>12</td>
+<td>quarter_cn</td>
+<td>季度中文名</td>
+<td>季度中文名 第一季度……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>13</td>
+<td>year</td>
+<td>年份</td>
+<td>年份，yyyy格式</td>
+<td>bigint</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2、维度表设计原则">2、维度表设计原则</h2>
+<p>维度的作用一般是查询约束、分类汇总以及排序等，我们在进行维度表设计时，应当提前考虑：</p>
+<h3 id="（1）维度属性尽量丰富，为数据使用打下基础">（1）维度属性尽量丰富，为数据使用打下基础</h3>
+<p>比如淘宝商品维度有近百个维度属性，为下游的数据统计、分析、探查提供了良好的基础。</p>
+<h3 id="（2）给出详实的、富有意义的文字描述">（2）给出详实的、富有意义的文字描述</h3>
+<p>属性不应该是编码，而应该是真正的文字。在阿里巴巴维度建模中， 一般是编码和文字同时存在，比如商品维度中的商品 ID 和商品标题、 类目 ID 和 类目名称等。 ID 一 般用于不同表之间的关联，而名称一般用 于报表标签</p>
+<h3 id="（3）区分数值型属性和事实">（3）区分数值型属性和事实</h3>
+<p>数值型宇段是作为事实还是维度属性，可以参考字段的一般用途。 如果通常用于查询<strong>约束条件或分组统计</strong>，则是作为<strong>维度属性</strong>;如果通常用于<strong>参与度量的计算</strong>， 则是作为<strong>事实</strong>。比如商品价格，可以用于查询约 束条件或统计价格区间 的商品数量，此时是作为维度属性使用的;也可 以用于统计某类目 下商品的平均价格，此时是作为事实使用的。另外， 如果数值型字段是离散值，则作为维度属性存在的可能性较大;如果数 值型宇段是连续值 ，则作为度量存在的可能性较大，但并不绝对，需要 同时参考宇段的具体用途。</p>
+<h3 id="（4）沉淀出通用的维度属性，为建立一致性维度做好铺垫">（4）沉淀出通用的维度属性，为建立一致性维度做好铺垫</h3>
+<p>有些维度属性获取需要进行比较复杂的逻辑处理，有些需要通过多表关联得到，或者通过单表 的不同宇段混合处理得到，或者通过对单表 的某个字段进行解析得到。此时，需要将尽可能多的通用的维度属性进 行沉淀。一方 面，可以提高下游使用的方便性，减少复杂度;另一方面，可以避免下游使用解析时由于各自逻辑不同而导致口径不 一致。</p>
+<h3 id="（5）退化维度（DegenerateDimension）">（5）退化维度（DegenerateDimension）</h3>
+<p>在维度类型中，有一种重要的维度称作为退化维度。这种维度指的是直接把一些简单的维度放在事实表中。退化维度是维度建模领域中的一个非常重要的概念，它对理解维度建模有着非常重要的作用，退化维度一般在分析中可以用来做分组使用。</p>
+<h3 id="（6）缓慢变化维（Slowly-Changing-Dimensions）">（6）缓慢变化维（Slowly Changing Dimensions）</h3>
+<p>维度的属性并不是始终不变的，它会随着时间的流逝发生缓慢的变化，这种随时间发生变化的维度我们一般称之为缓慢变化维（SCD），<strong>缓慢变化维一般使用代理健作为维度表的主健。</strong></p>
+<p><strong>缓慢变化维的三种处理方式：</strong></p>
+<p>① <strong>TYPE1</strong> 直接覆盖原值<br>
+适用于：不看历史数据，简单粗暴</p>
+<p>② <strong>TYPE2</strong> 拉链表<br>
+需要在维度行再增加三列：有效日期、截止日期、行标识（可选）。<br>
+在旧的一行数据增加关链时间（end_date），新的一行数据增加<strong>开链时间</strong>和**关链时间，**多条数据加起来是一个完整的时间周期。</p>
+<p>③ <strong>TYPE3</strong> 增加属性列<br>
+保留老字段，把新增的属性放到新的字段。比如 department 变成 old_department and new_department.</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-The-iceberg-secret-revealed"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/12/The-iceberg-secret-revealed/"
+    >关于需求分析和客户沟通</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/12/The-iceberg-secret-revealed/" class="article-date">
+  <time datetime="2023-03-12T09:23:18.000Z" itemprop="datePublished">2023-03-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>关于需求分析和工期预估一直是老大难问题，Joel 的<a target="_blank" rel="noopener" href="https://www.joelonsoftware.com/2002/02/13/the-iceberg-secret-revealed/">这篇文章</a>谈到了这个问题，我挑一些记录下来。</p>
+<h2 id="客户不知道他们想要什么是问题吗？">客户不知道他们想要什么是问题吗？</h2>
+<p>通常，在定制项目中，最常见的超支、失败和悲剧的原因总是归结为，基本上，&quot;客户不知道他们想要什么？”<br>
+事实上，有一件事是每个初级BA都需要在开展工作前要知道的，那就是：<strong>客户其实不知道他们想要什么</strong>。不要再期望客户知道他们想要什么。这是不可能发生的。忘掉它吧。<br>
+相反，你要假设你将不得不制造一些东西，而客户将不得不喜欢它，但他们将有一点惊喜。你必须做研究，想出一个设计，以一种愉悦的方式解决客户的问题。<br>
+设身处地为客户想想。想象一下，你决定装修你的厨房，因此，你聘请了一位专业的设计师，指示要把它弄得高大上一些。你不知道如何完成这个任务，你不知道那些事厨房中必须要装的，哪些事提升体验的，这些都不是你擅长的，你想让设计师帮你完成这个事情，这就是你雇用他的原因。<br>
+有一种办法是让客户进入房间，让他们作为开发团队的成员参与到设计过程的每一步。我认为，这有点太 &quot;极端 &quot;了。这就好像我的设计师在设计厨房时让我出现，并要求我对每一个小细节提供意见。这对我来说很无聊，我会觉得这个设计师对我毫无价值。<br>
+假设你的客户不知道他们想要什么。根据你对这个领域的理解，你自己设计它。如果你需要花一些时间来学习这个领域，或者你需要一个领域专家来帮助你，这很好，但软件的设计是你的工作。如果你做了领域方面的功课并创造了一个好的用户界面，客户会很高兴。</p>
+<h2 id="冰山理论">冰山理论</h2>
+<p>现在，我答应告诉你一个关于在你的软件的客户（或非技术经理）的语言和程序员的语言之间进行翻译的秘密。<br>
+你知道一座冰山有90%在水下吗？那么，大多数软件也是这样的–有一个漂亮的用户界面，需要大约10%的工作，然后90%的编程工作是在盖子下面。如果你考虑到你大约一半的时间是用来修复bug的，那么用户界面只占5%的工作。如果你把自己限制在用户界面的视觉部分，即像素，也就是你在PowerPoint中看到的东西，现在我们说的是不到1%。</p> 
+      <a class="article-more-link" href="/2023/03/12/The-iceberg-secret-revealed/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" rel="tag">需求分析</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Hexo-plantuml-1"
   class="article article-type-post"
   itemscope
@@ -731,140 +982,6 @@ A(认知现状)-->B(制定策略)-->C(选择方法)-->D(监控执行)-->E(复盘
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/" rel="tag">投资管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-How-to-do-usability-test-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/02/How-to-do-usability-test-1/"
-    >如何做可用性测试？-1</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/02/How-to-do-usability-test-1/" class="article-date">
-  <time datetime="2023-03-02T15:44:35.000Z" itemprop="datePublished">2023-03-02</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="什么是可用性？"><strong><strong>什么是可用性？</strong></strong></h2>
-<p>一个产品可以被特定的用户在特定的场景中，有效、高效并且满意得达成特定目标的程度。<br>
-包括：</p>
-<ul>
-<li><strong>可学习性</strong>：初次接触这个设计时，用户完成基本任务的难易程度？</li>
-<li><strong>效率</strong>：用户了解了设计之后，能多快地完成任务？</li>
-<li><strong>可记忆性</strong>：当用户一段时间没有使用产品后，是否能轻松地恢复到之前的熟练程度？</li>
-<li><strong>错误</strong>：用户犯了多少错误，错误严重程度如何？用户能否从错误中轻易地复原？</li>
-<li><strong>满意度</strong>：用户对产品的主观满意度，这个设计让用户感觉如何？</li>
-</ul>
-<h2 id="什么是可用性测试？"><strong><strong>什么是可用性测试？</strong></strong></h2>
-<p>可用性测试就是通过观察用户使用产品完成典型任务，发现产品中存在的效率与满意度相关问题的方法。</p> 
-      <a class="article-more-link" href="/2023/03/02/How-to-do-usability-test-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-How-to-Requirements-Review"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/01/How-to-Requirements-Review/"
-    >如何做好需求评审？</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/01/How-to-Requirements-Review/" class="article-date">
-  <time datetime="2023-03-01T15:00:41.000Z" itemprop="datePublished">2023-03-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>作为一个产品经理，准备需求评审是产品设计开发的一个重要环节。那么如何做好需求评审呢？</p>
-<h2 id="一、原型准备阶段"><strong>一、原型准备阶段</strong></h2>
-<h3 id="1-需求细节尽量描述详细">(1) 需求细节尽量描述详细</h3>
-<p>详细即逻辑清晰、无遗漏、页面整洁、表达清晰等。最好能做到不清楚需求的人，通过文档也能理解要完成的任务。</p>
-<h3 id="2-对以前有的功能的修改要说明功能差异">(2) 对以前有的功能的修改要说明功能差异</h3>
-<p>如果是该功能迭代优化，那涉及其相关的需求要在会上说明：原先功能整套流程是怎么样的，现在针对哪个环节进行升级迭代。</p>
-<h3 id="3-设计功能或者逻辑一定要有根据有思考">(3) 设计功能或者逻辑一定要有根据有思考</h3>
-<p>记住我们设计的每个功能都要有理有据，不能想当然，不能做需求的搬运工。</p>
-<h3 id="4-设计过程中遇到技术难点、技术知识盲区，一定要和技术去沟通">(4) 设计过程中遇到技术难点、技术知识盲区，一定要和技术去沟通</h3>
-<p>当你遇到把握不准自家技术能不能实现自己功能，可以找到技术负责人把自己的想法提前说给他听，提前一起讨论实现过程，或许让他们评估且及时制定方案。</p> 
-      <a class="article-more-link" href="/2023/03/01/How-to-Requirements-Review/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
 
     </footer>
   </div>

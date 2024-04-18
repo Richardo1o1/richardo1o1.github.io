@@ -100,6 +100,127 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-A-Peer-to-Peer-Electronic-Cash-System-9"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/"
+    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/" class="article-date">
+  <time datetime="2023-04-23T15:15:15.000Z" itemprop="datePublished">2023-04-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="11-计算">11 计算</h2>
+<p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.<br>
+The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker’s chain being extended by one block, reducing the gap by -1. The probability of an attacker catching up from a given deficit is analogous to a Gambler’s Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:<br>
+p = probability an honest node finds the next block<br>
+q = probability the attacker finds the next block<br>
+qz = probability the attacker will ever catch up from z blocks behind<br>
+<img src="http://cdn.yunminitools.cn/blog/0423Formula1.png" alt=" "></p> 
+      <a class="article-more-link" href="/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-npm-run-serve-vue"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/20/npm-run-serve-vue/"
+    >Difference between&#34; npm run serve&#34; and &#34;npm run dev&#34; in VUE</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/20/npm-run-serve-vue/" class="article-date">
+  <time datetime="2023-04-20T15:37:22.000Z" itemprop="datePublished">2023-04-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><code>npm run serve</code> basically is just saying “npm please <strong>run</strong> the command I defined under the name <strong>serve</strong> in <strong>package.json</strong>” the same happens with <code>npm run dev</code>.</p>
+<p>Given this the commands can do the exact same thing, similar things, or very different things. Usually they are a shorthand for running a dev server on localhost, but it’s not a rule, only a convention.</p>
+<p>So you’ll need to check in your <code>package.json</code> file and look for</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;serve&quot;</span><span class="punctuation">:</span> <span class="string">&quot;[list of commands here]&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;[list of commands here]&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-VUE-Exercise-4"
   class="article article-type-post"
   itemscope
@@ -597,152 +718,6 @@ It should be noted that fan-out, where a transaction depends on several transact
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-A-Peer-to-Peer-Electronic-Cash-System-6"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/11/A-Peer-to-Peer-Electronic-Cash-System-6/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（6）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/11/A-Peer-to-Peer-Electronic-Cash-System-6/" class="article-date">
-  <time datetime="2023-04-11T15:14:37.000Z" itemprop="datePublished">2023-04-11</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="8-简化的支付验证">8.简化的支付验证</h2>
-<p>8.Simplified Payment Verification<br>
-It is possible to verify payments without running a full network node. A user only needs to keep a copy of the block headers of the longest proof-of-work chain, which he can get by querying network nodes until he’s convinced he has the longest chain, and obtain the Merkle branch linking the transaction to the block it’s timestamped in. He can’t check the transaction for himself, but by linking it to a place in the chain, he can see that a network node has accepted it, and blocks added after it further confirm the network has accepted it.<br>
-<img src="http://cdn.yunminitools.cn/blog/0410Longest-Proof-of-Work-Chain-En.png" alt=" "><br>
-As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker. While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker’s fabricated transactions for as long as the attacker can continue to overpower the network. One strategy to protect against this would be to accept alerts from network nodes when they detect an invalid block, prompting the user’s software to download the full block and alerted transactions to<br>
-confirm the inconsistency. Businesses that receive frequent payments will probably still want to run their own nodes for more independent security and quicker verification.</p>
-<p>不运行一个完整的网络节点也是可以进行支付验证的。用户只需拥有一个最长工作量证明链的区块头副本，他可以通过向其他网络节点查询以确认他拥有了最长的链，并获取链接交易到给交易打时间戳区块的默克尔分支。虽然他自己不能核实这个交易，但如果交易已经链接到链中的某个位置，就说明一个网络节点已经接受了此交易，而其后追加的区块进一步确认网络已经接受了它。<br>
-<img src="http://cdn.yunminitools.cn/blog/0410Longest-Proof-of-Work-Chain-Zh.png" alt=" "><br>
-同样地，只要诚实节点控制着网络，这种简化验证就是可靠的；如果网络被攻击者控制，简化验证会变得比较脆弱。虽然网络节点可以验证他们自己的交易，但只要攻击者持续控制网络，那么这种简化的方法就可能被攻击者的伪造交易欺骗。一种对策是接受其他网络节点发现一个无效区块时发出的警告，提醒用户软件下载整个区块和被警告的交易来检查一致性。为了更加独立的安全性以及更快的支付确认，收款频繁的公司可能仍需运行他们自己的节点。</p>
-<p>【关注点】：</p>
-<ul>
-<li>向其他网络节点查询以确认他拥有了最长的链, 如何做到？</li>
-<li>仍需运行他们自己的节点，是指要运行全节点吗？</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-A-Peer-to-Peer-Electronic-Cash-System-5"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/10/A-Peer-to-Peer-Electronic-Cash-System-5/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（5）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/10/A-Peer-to-Peer-Electronic-Cash-System-5/" class="article-date">
-  <time datetime="2023-04-10T15:20:09.000Z" itemprop="datePublished">2023-04-10</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="6-激励">6. 激励</h2>
-<p>6 Incentive<br>
-By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.<br>
-The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation. In our case, it is CPU time and electricity that is expended. The incentive can also be funded with transaction fees. If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction. Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.<br>
-The incentive may help encourage nodes to stay honest. If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins. He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.</p>
-<p>我们约定，区块中的第一笔交易是区块创建者开创一枚属于他的新货币的特殊的交易。这就加入了对支持网络的节点的激励，并提供了一种初始分发货币到流通领域的方法，因为这里没有中央机构来发行货币。新货币按固定量稳定地增加就像金矿矿工消耗资源并增加黄金到流通领域一样。对我们而言，消耗的是 CPU 时间和电力激励也可以由交易费充当。如果交易的输出值小于其输入值，差价就作为交易费被加到包含此交易的区块的激励中。一旦预定量的货币进入了流通领域，激励将变为只含有交易费，这样可以完全避免通货膨胀。<br>
-激励会有助于鼓励节点保持诚实。如果一个贪心的攻击者有能力聚集比所有诚实节点更多的 CPU 算力，他将面临是以骗回已付款的方式欺诈别人还是使用这些算力生成新货币的抉择。他将发现遵守规则比破坏系统和他自己财产的有效性更有利，因为这些规则准许他获得比所有其他人都多的新货币。</p>
-<h2 id="7-回收磁盘空间">7. 回收磁盘空间</h2>
-<ol start="7">
-<li>Reclaiming Disk Space<br>
-Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block’s hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block’s hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.<br>
-<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-en.png" alt=" "><br>
-A block header with no transactions would be about 80 bytes. If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year. With computer systems typically selling with 2GB of RAM as of 2008, and Moore’s Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.</li>
-</ol>
-<p>一旦某个货币的最新交易已经被足够多的区块覆盖，这之前的支付交易就可以被丢弃以节省磁盘空间。为便于此而又不破坏区块的哈希值，交易将被哈希进默克尔树 [7][2][5]，只有根节点被纳入到区块的哈希值。老的区块可通过剪除树枝的方式被压缩。树枝内部的哈希不需要被保存。<br>
-<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-zh.png" alt=" "><br>
-每个不包含交易的区块头大约是 80 bytes。如果每 10 分钟生成一个区块，每年生成80 bytes * 6 * 24 * 365 = 4.2 MB，2008 年在售的典型计算机有 2 GB 内存，并且摩尔定律预测目前每年内存增加 1.2 GB，所以就算区块头一定要存在内存里，存储也不是问题。</p>
-<p>【关注点】：</p>
-<ul>
-<li>If the output value of a transaction is less than its input value，这句话不是太理解，什么情况下会出现？</li>
-<li>favour him with more new coins，翻译为 有利于他 获得更多的新币。问题是当到后期新币越来越少的时候，做这个事情是否是就有利可图了？</li>
-<li>enough blocks ，多少算足够？</li>
-<li>transactions are hashed in a Merkle Tree，为什么这样就可以不改变Hash值？</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
 
     </footer>
   </div>
