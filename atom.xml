@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-18T13:08:55.077Z</updated>
+  <updated>2024-04-19T08:01:51.517Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Payment Core System Design - 2</title>
+    <link href="http://yunminitools.cn/2024/04/19/payment-core-system-design-2/"/>
+    <id>http://yunminitools.cn/2024/04/19/payment-core-system-design-2/</id>
+    <published>2024-04-19T07:54:07.000Z</published>
+    <updated>2024-04-19T08:01:51.517Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;学习支付大佬文章，参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;amp;mid=2247498106&amp;amp;idx=1&amp;amp;sn=47801915cb46b679078039fa04152cee&amp;amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd&quot;&gt;原文&lt;/a&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;02-交易内核&quot;&gt;02. 交易内核&lt;/h2&gt;
+&lt;h3 id=&quot;内核7：交易的流程性&quot;&gt;内核7：交易的流程性&lt;/h3&gt;
+&lt;p&gt;任何一次交易都是一个流程，对交易的把握先从理解流程开始，业务的流程，系统的流程，业务和系统相互推动的流程&lt;/p&gt;
+&lt;p&gt;在写交易系统时，我将交易拆分到了三层去表达，通过三层理解交易流程、处理流程和系统的关系，从这开始，我的交易观成型了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0201-payment-core-7-1.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="支付产品" scheme="http://yunminitools.cn/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/"/>
+    
+  </entry>
   
   <entry>
     <title>英语单词辨析 - Consider or regard</title>
@@ -527,34 +554,6 @@
     
     
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue中实现动态样式的几种方式</title>
-    <link href="http://yunminitools.cn/2024/04/08/implement-dynamic-styles-in-vue/"/>
-    <id>http://yunminitools.cn/2024/04/08/implement-dynamic-styles-in-vue/</id>
-    <published>2024-04-08T14:08:17.000Z</published>
-    <updated>2024-04-08T14:08:48.048Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-三元运算符判断&quot;&gt;1. 三元运算符判断&lt;/h2&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="前端技术" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="VUE" scheme="http://yunminitools.cn/tags/VUE/"/>
     
   </entry>
   

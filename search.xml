@@ -9402,4 +9402,94 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>支付产品</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Payment Core System Design - 2</title>
+    <url>/2024/04/19/payment-core-system-design-2/</url>
+    <content><![CDATA[<p>学习支付大佬文章，参考<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;mid=2247498106&amp;idx=1&amp;sn=47801915cb46b679078039fa04152cee&amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;mpshare=1&amp;scene=1&amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd">原文</a>。</p>
+<hr>
+<h2 id="02-交易内核">02. 交易内核</h2>
+<h3 id="内核7：交易的流程性">内核7：交易的流程性</h3>
+<p>任何一次交易都是一个流程，对交易的把握先从理解流程开始，业务的流程，系统的流程，业务和系统相互推动的流程</p>
+<p>在写交易系统时，我将交易拆分到了三层去表达，通过三层理解交易流程、处理流程和系统的关系，从这开始，我的交易观成型了</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0201-payment-core-7-1.webp" alt=""></p>
+<span id="more"></span>
+<p>我开始用一张图表达“在系统关系层面上交易的位置和枢纽作用”，</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0202-payment-core-7-2.webp" alt=""></p>
+<p>从流程上解析清交易的位置和枢纽作用。</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0203-payment-core-7-3.webp" alt=""></p>
+<p>然后，将交易流程细化，我终于把交易模型设计清楚了</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0204-payment-core-7-4.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 这里讲的交易流程，已经远大于狭义支付的支付平台，将支付延展到了整个交易链路，从意向到交易完成，非常值得学习，但其中履约部分，每种业务都不一样，这里只是家政业务的。</p>
+</blockquote>
+<h3 id="内核8：交易与订单形影不离">内核8：交易与订单形影不离</h3>
+<p>交易为了什么，也可以说为了让订单完结，用户付钱为了货，平台卖货为了钱，而交易通过订单实现了这个目标</p>
+<p>从订单到支付，从支付到物流，从发到收，设计这张图是我对“订单观”的表达，也构成了我的订单内核</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0205-payment-core-8.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 这里讲的交易和订单，现实中非常复杂，包括了拆单/并单，并且涉及物流/优惠卷/退货等逻辑，关系比这个还要再复杂一些。</p>
+</blockquote>
+<h2 id="03-支付内核">03. 支付内核</h2>
+<p>交易把事搞定，支付把钱搞定，而搞钱，一定是收好钱，管好钱，付好钱；收银台收钱，支付系统处理这个过程，渠道是对外界的依赖，而管钱离不开渠道的账户</p>
+<h3 id="内核9：收银台就是搞钱"><strong>内核9：收银台就是搞钱</strong></h3>
+<p>收钱付钱，都需要收银台，而收银台有不同的种类，我通过这张图把握了不同的收银台，用户用的收银台，商家用的收银台，员工用的收银台，在编写收银台课件时，我设计抽象了“收银台的种类和业务支撑”</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0206-payment-core-9-1.webp" alt="图9-1: 收银台种类和业务支撑"></p>
+<p>以及，设计了这张图，通过它去阐述收银台的功能内核</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0207-payment-core-9-2.webp" alt="图9-2:收银台功能内核"></p>
+<p>我又通过它细化了收银台的流程内核</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0208-payment-core-9-3.webp" alt="图9-3: 收银台流程内核"></p>
+<blockquote>
+<p>&lt;学习体会&gt; 写得很详细，图9-2 基本已经包括了收银台需要的大部分功能。发现有一些高级功能没有包括，比如分账，积分管理等。广义上来说，积分也是支付系统一部分，而不是营销系统。</p>
+</blockquote>
+<h3 id="内核10：支付处理，支付的核心">内核10：支付处理，支付的核心</h3>
+<p>收银台给了用户发起支付的口子，也是支付的起点，而支付请求进来以后，支付系统承担了所有</p>
+<p>先从全局流程上把握支付处理核心，知道它在每一个交易节点所做的事情</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0209-payment-core-10-1.webp" alt=""></p>
+<p>从结构上把握支付，上下游都有什么，内部包含几个部分</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0210-payment-core-10-2.webp" alt="0210-payment-core-10-2.webp"></p>
+<p>像魔术师一样剖开支付核心，看清楚每一个细胞，这是最基础的内核和框架</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0211-payment-core-10-3.webp" alt=""></p>
+<p>支付方式有很多，但支付核心的主流程可以只有一个，把握住主流程，即使有再多的差异化，都能在主线上做好兼容</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0212-payment-core-10-4.webp" alt=""></p>
+<p>这是我把握支付层的底层逻辑，从外聚合到内的方法，在写网关时绘制了这张图</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0213-payment-core-10-5.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 写得有些偏技术了，一般产品理解到内核10就可以了。网关的设计主要是考虑多渠道支付的情况。</p>
+</blockquote>
+<h3 id="内核11：单据内核，搞清关系">内核11：单据内核，搞清关系</h3>
+<p>系统多了单据就多了，用这张图把握各层单据之间正逆向的关联关系，搞清单据，永不迷路</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0214-payment-core-11-1.webp" alt=""></p>
+<p>把退款也考虑进去以后</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0215-payment-core-11-2.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 这个很重要，虽然不是正向流程，但涉及到钱，虽然发生不多，也必须支持，金额一分都不能搞错。这个流程里还没考虑记账的情况，延展出来情况更多。</p>
+</blockquote>
+<h3 id="内核12：支付逆向内核，倒着也行">内核12：支付逆向内核，倒着也行</h3>
+<p>逆向业务涉及的系统环节非常多，交易层、支付层、清结算层等；从协作机构来说也会涉及到了交易平台、支付机构、清算机构、银行等多组织</p>
+<p>可以通过下图从逆向场景出发，看清退款的全盘业务流转</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0216-payment-core-12-1.webp" alt=""></p>
+<p>退款主流程是从退款请求提交进来开始到退款中心提交渠道并获得退款处理结果应答结束的退款全流程，之所以说是主流程，还是要剔除退款渠道的差异化处理，以标准的退款中心主处理为结构，主流程框架如下图所示</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0217-payment-core-12-2.webp" alt=""></p>
+<p>可以分退款接入层、退款主处理引擎、各退款产品的处理模块、退款提交和接收层</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0218-payment-core-12-3.webp" alt=""></p>
+<p>退款的种类有多种，用这张图把握不同的退款种类</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0219-payment-core-12-4.webp" alt=""></p>
+<p>原路退不回去，那就走付款，退转付让所有的退款都能实现</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0220-payment-core-12-5.webp" alt=""></p>
+<p>退转付要处理好与支付、退款的控制关系</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0221-payment-core-12-6.webp" alt=""></p>
+<p>退款中心一个非常重要的单据就是退款单，我们可以将退款单设计成3层，第一层是基础退款单，记录退款的业务信息以及退款处理的主要信息；第2层是选择的退款方式的差异化退款信息，例如原路退时的退款信息、退转付的退款单据等；第3层是请求退款渠道的请求记录单据，以此形成退款中心最核心的单据结构</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0222-payment-core-12-7.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 只有真正处理过退款的才知道退款有多麻烦，走付款方式退款最终都要支持，你永远不知道有多少种情况导致原路退回不可用。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>架构设计</tag>
+        <tag>支付产品</tag>
+      </tags>
+  </entry>
 </search>
