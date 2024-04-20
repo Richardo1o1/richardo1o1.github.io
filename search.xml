@@ -9559,4 +9559,103 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>支付产品</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SS 显示套接字信息的工具</title>
+    <url>/2024/04/20/ss-command/</url>
+    <content><![CDATA[<p><code>ss</code> 命令是 Linux 系统上用于显示套接字信息的工具，它是 <code>netstat</code> 的替代品，提供了更多的功能和更好的性能。以下是 <code>ss</code> 命令的详细使用手册：</p>
+<p><strong>基础语法：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ss [options] [filter]</span><br></pre></td></tr></table></figure>
+<p><strong>选项（Options）：</strong></p>
+<ul>
+<li>
+<p><code>a</code>: 显示所有套接字，包括监听、已建立和关闭（not listening or closed）的套接字。默认仅显示监听或已建立的套接字。</p>
+</li>
+<li>
+<p><code>l</code>: 只显示监听套接字。</p>
+</li>
+<li>
+<p><code>e</code>: 只显示已建立的套接字。</p>
+</li>
+<li>
+<p><code>p</code> <pid>: 根据指定的进程 ID 过滤显示的套接字。</p>
+</li>
+<li>
+<p><code>u</code> <username>: 根据用户名过滤显示的套接字。</p>
+</li>
+<li>
+<p><code>n</code>: 不解析主机名称，直接显示数字形式的 IP 地址。</p>
+</li>
+<li>
+<p><code>r</code>: 按照最近使用的顺序逆向排列输出（即最近活跃的套接字先显示）。</p>
+</li>
+<li>
+<p><code>o</code>: 指定输出格式，可以是 <code>json</code>、<code>xml</code> 等格式。</p>
+</li>
+<li>
+<p><code>i</code> <iface>: 只显示特定网络接口上的套接字。</p>
+</li>
+<li>
+<p><code>m</code> <protocol>: 只显示特定协议的套接字（例如，<code>tcp</code>、<code>udp</code>）。</p>
+</li>
+<li>
+<p><code>t</code> &lt;transport_family&gt;: 指定传输层家族，如 <code>inet</code>（IPv4）、<code>inet6</code>（IPv6）或 <code>unix</code>（Unix 域套接字）。</p>
+</li>
+</ul>
+<span id="more"></span>
+<p><strong>过滤器（Filter）：</strong></p>
+<ul>
+<li>
+<p><code>protocol:port</code>: 显示特定协议和端口的套接字（例如，<code>tcp:22</code> 显示所有使用 TCP 协议且监听在端口 22 上的套接字）。</p>
+</li>
+<li>
+<p><code>ip_address:port</code>: 显示特定 IP 地址和端口的套接字（例如，<code>192.0.2.1:80</code> 显示 IP 地址 <code>192.0.2.1</code> 上监听在端口 80 上的套接字）。</p>
+</li>
+<li>
+<p><code>username</code>: 根据指定的用户名过滤显示的套接字（例如，<code>u john</code> 会显示所有由 John 使用的套接字）。</p>
+</li>
+<li>
+<p><code>interface</code>: 只显示连接到特定网络接口的套接字（例如，<code>i eth0</code> 会显示所有连接到 eth0 网络接口的套接字）。</p>
+</li>
+</ul>
+<p><strong>例子：</strong></p>
+<ol>
+<li>显示所有 TCP 套接字：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ss -t tcp</span><br></pre></td></tr></table></figure>
+<ol>
+<li>显示所有 listened 套接字：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ss -l</span><br></pre></td></tr></table></figure>
+<ol>
+<li>显示所有已建立的套接字：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ss -e</span><br></pre></td></tr></table></figure>
+<ol>
+<li>只显示 eth0 网络接口上的套接字：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ss -i eth0</span><br></pre></td></tr></table></figure>
+<ol>
+<li>只显示使用 TCP 协议的套接字：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ss -t tcp</span><br></pre></td></tr></table></figure>
+<p><strong>提示（Tips）：</strong></p>
+<ul>
+<li>
+<p><code>ss</code> 命令可以用来查看网络连接和套接字信息，包括 TCP/UDP 套接字、Unix 域套接字（SOCK）、原始套接字（RAW）等。通过适当的选项和过滤器组合，你可以获取到丰富的网络状态信息。</p>
+</li>
+<li>
+<p><code>ss</code> 命令可以用来监控网络连接和套接字的活动状态，例如，通过使用 <code>a</code> 选项和 <code>eth0</code> 过滤器，你可以查看 eth0 网络接口上的所有活动连接。</p>
+</li>
+<li>
+<p><code>ss</code> 命令还提供了一些高级的选项和过滤器，例如，使用 <code>o json</code> 或 <code>o xml</code> 可以将输出格式化为 JSON 或 XML，这对于自动化脚本或进一步分析的场景非常有用。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
