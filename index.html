@@ -100,6 +100,72 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-payment-core-system-design-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/20/payment-core-system-design-3/"
+    >Payment Core System Design - 3</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/20/payment-core-system-design-3/" class="article-date">
+  <time datetime="2024-04-20T08:31:31.000Z" itemprop="datePublished">2024-04-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>学习支付大佬文章，参考<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;mid=2247498106&amp;idx=1&amp;sn=47801915cb46b679078039fa04152cee&amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;mpshare=1&amp;scene=1&amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd">原文</a>。</p>
+<hr>
+<h2 id="04-清结算内核">04 清结算内核</h2>
+<p>我们不是一个人再战斗，任何一次交易，任何一次支付，都是大家共同参与的结果，而谁从中获利，谁为此支付，获利多少，如何交付。清结算就上场了，要想做好它，先认识它。</p>
+<h3 id="内核13：清结算在哪"><strong>内核13：清结算在哪</strong></h3>
+<p>这张图阐释了清结算的位置，以及它要干什么，这是我在规划清结算中台时设计的结构，也成为了今后我的清结算的内核</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0223-payment-core-13.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 清算是指要把账算清楚，这里需要订单信息、钱包信息、账户信息和分账规则，清分这块这里写得比较少。结算就是产生记账数据，是财务系统的前置系统，需要遵循财务的规则。</p>
+</blockquote> 
+      <a class="article-more-link" href="/2024/04/20/payment-core-system-design-3/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/" rel="tag">支付产品</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-payment-core-system-design-2"
   class="article article-type-post"
   itemscope
@@ -692,75 +758,6 @@ Not: <s>The government is regarding the economy …</s></p>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/English-Article/" rel="tag">English_Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TDD/" rel="tag">TDD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-resolve-docker-make-error-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/15/resolve-docker-make-error-1/"
-    >解决Docker打包报错问题</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/15/resolve-docker-make-error-1/" class="article-date">
-  <time datetime="2024-04-15T12:54:07.000Z" itemprop="datePublished">2024-04-15</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<br/>
-<p>报错：</p>
-<blockquote>
-<p>ERROR: failed to solve: nginx: blob sha256:cd64407576751d9b9ba4924f758d3d39fe76a6e142c32169625b60934c95f057 expected at /media/richard/N1/data/docker/buildkit/content/blobs/sha256/cd64407576751d9b9ba4924f758d3d39fe76a6e142c32169625b60934c95f057: blob not found: not found</p>
-</blockquote>
-<br/>
-<br/>
-<h2 id="解决方案">解决方案</h2>
-<br/>
-<p>清除缓存：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker system prune -a --force</span><br></pre></td></tr></table></figure>
-<br/>
-<p>对应 -a 删除全部未使用的镜像，-f 或 --force 不经过确认强行删除。</p>
-<p>再检查一下缓存情况，使用命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker system df</span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
 
     </footer>
   </div>

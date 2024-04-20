@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>当日所学 |  New structure for utility</title>
+      <title>Payment Core System Design - 3 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,252 +68,204 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-payment-core-system-design-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">当日所学</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Payment Core System Design - 3
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/20/payment-core-system-design-3/" class="article-date">
+  <time datetime="2024-04-20T08:31:31.000Z" itemprop="datePublished">2024-04-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/11/Collaboration-Approach/" class="archive-article-date">
-  <time datetime="2023-02-11T04:23:57.000Z" itemprop="datePublished">02/11</time>
-</a>
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/11/Collaboration-Approach/"
-    >Collaboration Approach of Elite Organizations</a> 
-</h2>
+  <p>学习支付大佬文章，参考<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;mid=2247498106&amp;idx=1&amp;sn=47801915cb46b679078039fa04152cee&amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;mpshare=1&amp;scene=1&amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd">原文</a>。</p>
+<hr>
+<h2 id="04-清结算内核">04 清结算内核</h2>
+<p>我们不是一个人再战斗，任何一次交易，任何一次支付，都是大家共同参与的结果，而谁从中获利，谁为此支付，获利多少，如何交付。清结算就上场了，要想做好它，先认识它。</p>
+<h3 id="内核13：清结算在哪"><strong>内核13：清结算在哪</strong></h3>
+<p>这张图阐释了清结算的位置，以及它要干什么，这是我在规划清结算中台时设计的结构，也成为了今后我的清结算的内核</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0223-payment-core-13.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 清算是指要把账算清楚，这里需要订单信息、钱包信息、账户信息和分账规则，清分这块这里写得比较少。结算就是产生记账数据，是财务系统的前置系统，需要遵循财务的规则。</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="内核14：算"><strong>内核14：算</strong></h3>
+<p>算清楚，是清结算的起点，怎么算，也是把握清结算的内核</p>
+<p>我用这张图解答算的流程</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0224-payment-core-14-1.webp" alt=""></p>
+<p>我通过这张图建立算的模型</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0225-payment-core-14-2.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 清算中心的分层概念很好，之前的我的设计是混在一块的，这样变更逻辑、查找问题都比较麻烦，值得借鉴。规则层还需要一个时效性的管理，规则是经常变化的，经常是需要按生效时间应用不同的规则。</p>
+</blockquote>
+<br/>
+<p><strong>内核15：清算系统</strong></p>
+<p>把算交给一个系统，算什么，怎么算，算完怎么办，在L3实战营里，我设计了这张图，来告诉大家清算系统的架构</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0226-payment-core-15-1.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 是内核 13 和内核 14 的总结，需要说明的是分账和入账是有先后顺序的，分完账后才能入账，这个请求分账应该是发给清分系统的。</p>
+</blockquote>
+<h3 id="内核16：给钱的系统"><strong>内核16：给钱的系统</strong></h3>
+<p>算好钱只是过程，把钱分了才是目的</p>
+<p>我通过这张图把握结算系统的功能</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0227-payment-core-16-1.webp" alt=""></p>
+<p>我通过这张图表达结算系统的流程</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0228-payment-core-16-2.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 需要理解的是，只有经过结算的过程，才能产生打款操作，打款前需要仔细的检查各个相关信息，才能最终形成结算结果。</p>
+</blockquote>
+<br/>
+<h3 id="内核17：中台化的清结算"><strong>内核17：中台化的清结算</strong></h3>
+<p>我做了3年的清结算中台，所以，一个中台化的清结算是什么样，我把他抽象成了这张图，这是我用中台思维做一个清结算平台经验的高度总结</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0229-payment-core-17.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 需要理解的是，什么是清算。是这样的，我们的收款，来源是多种多样的，有POS机，有第三方支付平台，有银行转帐，到账时间也不一样 ，有的立即到账，有的晚一天，有的有2小时的延迟，这就需要有系统收集信息，和系统中收款信息比对，确认企业是否真的收到的钱，有没有少收或者多收。（多收也很麻烦，要及时退回客户，否则最终客户发现了，也会来要，还会增加客户投诉），这个过程就是清算。</p>
+</blockquote>
+<p><strong>内核18：计费内核</strong></p>
+<p>支付机构存在大量的计费业务，如商户计费、银行通道收单成本计费、鉴权通道计费等，可以通过下图识别不同的计费场景，当然还要区分交易计价和清算环节的计费</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0230-payment-core-18-1.webp" alt=""></p>
+<p>通道成本计费以银行清算文件为基础进行</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0231-payment-core-18-2.webp" alt=""></p>
+<p>可以通过下面的业务流程实现</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0232-payment-core-18-3.webp" alt=""></p>
+<p>通过构建源数据的获取、解析，以及计费与划付的规则和业务处理，</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0233-payment-core-18-4.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 写得比较清楚了，需要说明的是，这里的计费还是指的是支付过程中的费用，包括渠道费用，手续费的，纯业务系统的计费一般不会放在支付系统里。另外，银行的输出，一般是财务系统来统一做。</p>
+</blockquote>
  
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a> / <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/">English_Article</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/09/Midjourney-Getting-Started-1/" class="archive-article-date">
-  <time datetime="2023-02-09T15:57:25.000Z" itemprop="datePublished">02/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/09/Midjourney-Getting-Started-1/"
-    >Midjourney 极简入门（1）</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/08/Using-ChatGPT-English-Learning-3/" class="archive-article-date">
-  <time datetime="2023-02-08T15:07:11.000Z" itemprop="datePublished">02/08</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/08/Using-ChatGPT-English-Learning-3/"
-    >使用ChatGPT来学习英文(3)</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/07/Knowledge-Management-1/" class="archive-article-date">
-  <time datetime="2023-02-07T08:57:15.000Z" itemprop="datePublished">02/07</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/07/Knowledge-Management-1/"
-    >知识管理相关-知识管理误区</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/06/Using-ChatGPT-English-Learning-2/" class="archive-article-date">
-  <time datetime="2023-02-06T08:20:49.000Z" itemprop="datePublished">02/06</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/06/Using-ChatGPT-English-Learning-2/"
-    >使用ChatGPT来学习英文(2)</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/05/Using-ChatGPT-English-Learning-1/" class="archive-article-date">
-  <time datetime="2023-02-05T14:33:27.000Z" itemprop="datePublished">02/05</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/05/Using-ChatGPT-English-Learning-1/"
-    >使用ChatGPT来学习英文(1)</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/04/userresearch01/" class="archive-article-date">
-  <time datetime="2023-02-04T15:10:11.000Z" itemprop="datePublished">02/04</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/04/userresearch01/"
-    >用户调研的一种方法</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/03/souKPM01/" class="archive-article-date">
-  <time datetime="2023-02-03T09:14:40.000Z" itemprop="datePublished">02/03</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/02/03/souKPM01/"
-    >知识管理相关-来自范冰的分享</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/page/9/">上一页</a><a class="page-number" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">1</a><span class="space">&hellip;</span><a class="page-number" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/page/8/">8</a><a class="page-number" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/page/9/">9</a><span class="page-number current">10</span>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/04/20/payment-core-system-design-3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/" rel="tag">支付产品</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/04/19/payment-core-system-design-2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Payment Core System Design - 2</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -450,6 +402,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

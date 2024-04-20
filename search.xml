@@ -9492,4 +9492,71 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>支付产品</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Payment Core System Design - 3</title>
+    <url>/2024/04/20/payment-core-system-design-3/</url>
+    <content><![CDATA[<p>学习支付大佬文章，参考<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;mid=2247498106&amp;idx=1&amp;sn=47801915cb46b679078039fa04152cee&amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;mpshare=1&amp;scene=1&amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd">原文</a>。</p>
+<hr>
+<h2 id="04-清结算内核">04 清结算内核</h2>
+<p>我们不是一个人再战斗，任何一次交易，任何一次支付，都是大家共同参与的结果，而谁从中获利，谁为此支付，获利多少，如何交付。清结算就上场了，要想做好它，先认识它。</p>
+<h3 id="内核13：清结算在哪"><strong>内核13：清结算在哪</strong></h3>
+<p>这张图阐释了清结算的位置，以及它要干什么，这是我在规划清结算中台时设计的结构，也成为了今后我的清结算的内核</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0223-payment-core-13.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 清算是指要把账算清楚，这里需要订单信息、钱包信息、账户信息和分账规则，清分这块这里写得比较少。结算就是产生记账数据，是财务系统的前置系统，需要遵循财务的规则。</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="内核14：算"><strong>内核14：算</strong></h3>
+<p>算清楚，是清结算的起点，怎么算，也是把握清结算的内核</p>
+<p>我用这张图解答算的流程</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0224-payment-core-14-1.webp" alt=""></p>
+<p>我通过这张图建立算的模型</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0225-payment-core-14-2.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 清算中心的分层概念很好，之前的我的设计是混在一块的，这样变更逻辑、查找问题都比较麻烦，值得借鉴。规则层还需要一个时效性的管理，规则是经常变化的，经常是需要按生效时间应用不同的规则。</p>
+</blockquote>
+<br/>
+<p><strong>内核15：清算系统</strong></p>
+<p>把算交给一个系统，算什么，怎么算，算完怎么办，在L3实战营里，我设计了这张图，来告诉大家清算系统的架构</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0226-payment-core-15-1.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 是内核 13 和内核 14 的总结，需要说明的是分账和入账是有先后顺序的，分完账后才能入账，这个请求分账应该是发给清分系统的。</p>
+</blockquote>
+<h3 id="内核16：给钱的系统"><strong>内核16：给钱的系统</strong></h3>
+<p>算好钱只是过程，把钱分了才是目的</p>
+<p>我通过这张图把握结算系统的功能</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0227-payment-core-16-1.webp" alt=""></p>
+<p>我通过这张图表达结算系统的流程</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0228-payment-core-16-2.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 需要理解的是，只有经过结算的过程，才能产生打款操作，打款前需要仔细的检查各个相关信息，才能最终形成结算结果。</p>
+</blockquote>
+<br/>
+<h3 id="内核17：中台化的清结算"><strong>内核17：中台化的清结算</strong></h3>
+<p>我做了3年的清结算中台，所以，一个中台化的清结算是什么样，我把他抽象成了这张图，这是我用中台思维做一个清结算平台经验的高度总结</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0229-payment-core-17.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 需要理解的是，什么是清算。是这样的，我们的收款，来源是多种多样的，有POS机，有第三方支付平台，有银行转帐，到账时间也不一样 ，有的立即到账，有的晚一天，有的有2小时的延迟，这就需要有系统收集信息，和系统中收款信息比对，确认企业是否真的收到的钱，有没有少收或者多收。（多收也很麻烦，要及时退回客户，否则最终客户发现了，也会来要，还会增加客户投诉），这个过程就是清算。</p>
+</blockquote>
+<p><strong>内核18：计费内核</strong></p>
+<p>支付机构存在大量的计费业务，如商户计费、银行通道收单成本计费、鉴权通道计费等，可以通过下图识别不同的计费场景，当然还要区分交易计价和清算环节的计费</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0230-payment-core-18-1.webp" alt=""></p>
+<p>通道成本计费以银行清算文件为基础进行</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0231-payment-core-18-2.webp" alt=""></p>
+<p>可以通过下面的业务流程实现</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0232-payment-core-18-3.webp" alt=""></p>
+<p>通过构建源数据的获取、解析，以及计费与划付的规则和业务处理，</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0233-payment-core-18-4.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 写得比较清楚了，需要说明的是，这里的计费还是指的是支付过程中的费用，包括渠道费用，手续费的，纯业务系统的计费一般不会放在支付系统里。另外，银行的输出，一般是财务系统来统一做。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>架构设计</tag>
+        <tag>支付产品</tag>
+      </tags>
+  </entry>
 </search>
