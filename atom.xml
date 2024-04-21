@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-20T11:03:38.404Z</updated>
+  <updated>2024-04-21T08:24:33.152Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Payment Core System Design - 4</title>
+    <link href="http://yunminitools.cn/2024/04/21/payment-core-system-design-4/"/>
+    <id>http://yunminitools.cn/2024/04/21/payment-core-system-design-4/</id>
+    <published>2024-04-21T08:23:57.000Z</published>
+    <updated>2024-04-21T08:24:33.152Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;学习支付大佬文章，参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;amp;mid=2247498106&amp;amp;idx=1&amp;amp;sn=47801915cb46b679078039fa04152cee&amp;amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd&quot;&gt;原文&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这篇是系列文章的第4篇，下面是目录：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-1/&quot;&gt;系列文章一 ： 01. 全局内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-2/&quot;&gt;系列文章二 ： 02. 交易内核 03. 支付内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-3/&quot;&gt;系列文章三 ： 04. 清结算内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;05-账户钱包内核&quot;&gt;05 账户钱包内核&lt;/h2&gt;
+&lt;p&gt;支付离不开账户，钱包更离不开账户，把握账户对于做好支付来说至关重要，账户不止是一个记账，它是资金属性、监管政策一系列支付问题的集中体现。&lt;/p&gt;
+&lt;h3 id=&quot;内核19：账户系统把握&quot;&gt;&lt;strong&gt;内核19：账户系统把握&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;我在写账户系统时，做了这个脑图，用于把握账户的基础功能&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0234-payment-core-19-1.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="支付产品" scheme="http://yunminitools.cn/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/"/>
+    
+  </entry>
   
   <entry>
     <title>SS 显示套接字信息的工具</title>
@@ -556,33 +588,6 @@
         
     <summary type="html">&lt;h2 id=&quot;As-because-or-since&quot;&gt;&lt;em&gt;As&lt;/em&gt;, &lt;em&gt;because&lt;/em&gt; or &lt;em&gt;since&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;ref：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>英语单词辨析 - &quot;above&quot; and &quot;over&quot;</title>
-    <link href="http://yunminitools.cn/2024/04/10/differentiation-of-above-and-over/"/>
-    <id>http://yunminitools.cn/2024/04/10/differentiation-of-above-and-over/</id>
-    <published>2024-04-10T15:31:59.000Z</published>
-    <updated>2024-04-10T15:32:49.396Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;发现了一个英文单词辨析的网站，写得挺清楚的，搬运过来，同时翻译一下，加深印象。&lt;/p&gt;
-&lt;h2 id=&quot;“above”-and-“over”&quot;&gt;&lt;strong&gt;“above” and</summary>
         
       
     

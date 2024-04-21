@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>SS 显示套接字信息的工具 |  New structure for utility</title>
+      <title>Payment Core System Design - 4 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-ss-command"
+  id="post-payment-core-system-design-4"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  SS 显示套接字信息的工具
+  Payment Core System Design - 4
 </h1>
  
 
@@ -88,11 +88,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2024/04/20/ss-command/" class="article-date">
-  <time datetime="2024-04-20T11:03:13.000Z" itemprop="datePublished">2024-04-20</time>
+      <a href="/2024/04/21/payment-core-system-design-4/" class="article-date">
+  <time datetime="2024-04-21T08:23:57.000Z" itemprop="datePublished">2024-04-21</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
   </div>
   
 <div class="word_count">
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">684</span>
+            <span class="post-count">1.8k</span>
         </span>
     </span>
 
@@ -109,107 +109,111 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">6 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><code>ss</code> 命令是 Linux 系统上用于显示套接字信息的工具，它是 <code>netstat</code> 的替代品，提供了更多的功能和更好的性能。以下是 <code>ss</code> 命令的详细使用手册：</p>
-<p><strong>基础语法：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss [options] [filter]</span><br></pre></td></tr></table></figure>
-<p><strong>选项（Options）：</strong></p>
-<ul>
-<li>
-<p><code>a</code>: 显示所有套接字，包括监听、已建立和关闭（not listening or closed）的套接字。默认仅显示监听或已建立的套接字。</p>
-</li>
-<li>
-<p><code>l</code>: 只显示监听套接字。</p>
-</li>
-<li>
-<p><code>e</code>: 只显示已建立的套接字。</p>
-</li>
-<li>
-<p><code>p</code> <pid>: 根据指定的进程 ID 过滤显示的套接字。</p>
-</li>
-<li>
-<p><code>u</code> <username>: 根据用户名过滤显示的套接字。</p>
-</li>
-<li>
-<p><code>n</code>: 不解析主机名称，直接显示数字形式的 IP 地址。</p>
-</li>
-<li>
-<p><code>r</code>: 按照最近使用的顺序逆向排列输出（即最近活跃的套接字先显示）。</p>
-</li>
-<li>
-<p><code>o</code>: 指定输出格式，可以是 <code>json</code>、<code>xml</code> 等格式。</p>
-</li>
-<li>
-<p><code>i</code> <iface>: 只显示特定网络接口上的套接字。</p>
-</li>
-<li>
-<p><code>m</code> <protocol>: 只显示特定协议的套接字（例如，<code>tcp</code>、<code>udp</code>）。</p>
-</li>
-<li>
-<p><code>t</code> &lt;transport_family&gt;: 指定传输层家族，如 <code>inet</code>（IPv4）、<code>inet6</code>（IPv6）或 <code>unix</code>（Unix 域套接字）。</p>
-</li>
-</ul>
+  <p>学习支付大佬文章，参考<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;mid=2247498106&amp;idx=1&amp;sn=47801915cb46b679078039fa04152cee&amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;mpshare=1&amp;scene=1&amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd">原文</a>。</p>
+<p>这篇是系列文章的第4篇，下面是目录：</p>
+<p><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/20/payment-core-system-design-1/">系列文章一 ： 01. 全局内核</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/20/payment-core-system-design-2/">系列文章二 ： 02. 交易内核 03. 支付内核</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/20/payment-core-system-design-3/">系列文章三 ： 04. 清结算内核</a></p>
+<p>系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核</p>
+<hr>
+<h2 id="05-账户钱包内核">05 账户钱包内核</h2>
+<p>支付离不开账户，钱包更离不开账户，把握账户对于做好支付来说至关重要，账户不止是一个记账，它是资金属性、监管政策一系列支付问题的集中体现。</p>
+<h3 id="内核19：账户系统把握"><strong>内核19：账户系统把握</strong></h3>
+<p>我在写账户系统时，做了这个脑图，用于把握账户的基础功能</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0234-payment-core-19-1.webp" alt=""></p>
 <span id="more"></span>
-<p><strong>过滤器（Filter）：</strong></p>
+<p>很早之前我设计了这张图向团队去阐述我的账户系统规划，这是我做好账户的底层认知：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0235-payment-core-19-2.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 账户管理，本质上是识别账户对象，围绕对象所涉及的需求开展设计。这里业务线、商家不一定需要，用户和企业是主要对象。</p>
+</blockquote>
+<h3 id="内核20：钱包三层化"><strong>内核20：钱包三层化</strong></h3>
+<p>这是一个给用户用来管钱的包包，这是我对以往钱包经验的总结归纳和抽象，我通过这张图把握钱包的产品结构和关系</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0236-payment-core-20-1.webp" alt=""></p>
+<p>我通过这张图把握钱包的业务和交互关系，所以说，钱包是众多系统能力的集成，要做好钱包，离不开强大的内部支撑</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0237-payment-core-20-2.webp" alt=""></p>
+<p>接入渠道钱包，为用户和商家提供具有资质的钱包服务，为用户提供预充值的资金管理能力，以及商家结算的合规性，可以通过下图建立全局认知</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0238-payment-core-20-3.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 这个章对钱包的功能讲得比较多，但没有涉及钱包的本质。其实，一般企业是不能沉淀用户资金的，钱包的本质还是一个个人在银行开的二类账户，只不过银行为了引流，共享了一部分能力给企业，方便用户通过企业应用访问自己的资金。</p>
+</blockquote>
+<h2 id="06-对账内核">06 对账内核</h2>
+<p>（当一份数据在多方记录时，一致性很重要）我们每天都在对账，企业也离不开对账，如何做好对账，离不开这几点的把握</p>
+<h3 id="内核21：对账的上帝视角">内核21：对账的上帝视角</h3>
+<p>这张图是我多年工作中遇到的无数个对账场景和对账系统的高度抽象，它的通用性极强，站在塔尖看对账</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0239-payment-core-21.webp" alt=""></p>
+<h3 id="内核22：对账的处理内核"><strong>内核22：对账的处理内核</strong></h3>
+<p>对账系统是怎么执行对账的，我通过这张图把握对账的处理内核</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0240-payment-core-22.webp" alt=""></p>
+<h3 id="内核23：对账的数据内核"><strong>内核23：对账的数据内核</strong></h3>
+<p>我通过这张图把握对账数据的管理内核，从数据获取到数据解析，再到数据存储</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0241-payment-core-23.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 基本很全了，要说明一下，支付通道过来的对账文件是五花八门的，大多都是需要下载而不是直接对接的，所以解析器就很重要了，完全通过配置完成解析器的可能性不大….</p>
+</blockquote>
+<h2 id="07-二清内核">07 二清内核</h2>
+<p>支付守规矩非常重要，没有牌照的企业如何做好支付的合规性，如何完成收款、管钱、付款的支付大业</p>
+<p><strong>内核24：理解合规支付的流程</strong></p>
+<p>通过一笔支付流，把对二清视角看支付理解透彻，可以从这一张图出发</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0242-payment-core-24.webp" alt=""></p>
+<p><strong>内核25：二清解决的全局观</strong></p>
+<p>通过这张图我将二清解决从全局视角进行了剖析，毕竟任何一次支付都不是一个环节的事情，而是众多参与者，众多系统，众多流程，众多环节，这张图，我抽象了这个全局：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0243-payment-core-25.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 先学习一下什么是“二清”：即二次清结算，指的是有清结算资质的机构将资金结算给入网的平台后，该平台再将资金清结算给其子商户，若该平台没有清结算资质的话，就属于二清了。如果平台的经营出现问题，资金又没有受到第三方的监管，这些“裸奔”的资金很容易被平台卷走，对于商家和客户而言，都不安全。具有代平台商户收款和结算的平台，一般不具有第三方支付公司牌照，但是基于业务需要又有给商户清结算的需要，怎么办呢？就需要借助银行或第三方支付公司为其搭建支付结算网络。</p>
+</blockquote>
+<p>管钱的原则就是“谁的钱放谁的账户里”，合规要解决的核心问题主要是：</p>
 <ul>
 <li>
-<p><code>protocol:port</code>: 显示特定协议和端口的套接字（例如，<code>tcp:22</code> 显示所有使用 TCP 协议且监听在端口 22 上的套接字）。</p>
+<p>合规的收钱——支付交易，资金归集</p>
 </li>
 <li>
-<p><code>ip_address:port</code>: 显示特定 IP 地址和端口的套接字（例如，<code>192.0.2.1:80</code> 显示 IP 地址 <code>192.0.2.1</code> 上监听在端口 80 上的套接字）。</p>
+<p>合规的管钱——监管账户以及各方子账户</p>
 </li>
 <li>
-<p><code>username</code>: 根据指定的用户名过滤显示的套接字（例如，<code>u john</code> 会显示所有由 John 使用的套接字）。</p>
-</li>
-<li>
-<p><code>interface</code>: 只显示连接到特定网络接口的套接字（例如，<code>i eth0</code> 会显示所有连接到 eth0 网络接口的套接字）。</p>
+<p>合规的分钱——清算清分</p>
 </li>
 </ul>
-<p><strong>例子：</strong></p>
-<ol>
-<li>显示所有 TCP 套接字：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -t tcp</span><br></pre></td></tr></table></figure>
-<ol>
-<li>显示所有 listened 套接字：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -l</span><br></pre></td></tr></table></figure>
-<ol>
-<li>显示所有已建立的套接字：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -e</span><br></pre></td></tr></table></figure>
-<ol>
-<li>只显示 eth0 网络接口上的套接字：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -i eth0</span><br></pre></td></tr></table></figure>
-<ol>
-<li>只显示使用 TCP 协议的套接字：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -t tcp</span><br></pre></td></tr></table></figure>
-<p><strong>提示（Tips）：</strong></p>
-<ul>
-<li>
-<p><code>ss</code> 命令可以用来查看网络连接和套接字信息，包括 TCP/UDP 套接字、Unix 域套接字（SOCK）、原始套接字（RAW）等。通过适当的选项和过滤器组合，你可以获取到丰富的网络状态信息。</p>
-</li>
-<li>
-<p><code>ss</code> 命令可以用来监控网络连接和套接字的活动状态，例如，通过使用 <code>a</code> 选项和 <code>eth0</code> 过滤器，你可以查看 eth0 网络接口上的所有活动连接。</p>
-</li>
-<li>
-<p><code>ss</code> 命令还提供了一些高级的选项和过滤器，例如，使用 <code>o json</code> 或 <code>o xml</code> 可以将输出格式化为 JSON 或 XML，这对于自动化脚本或进一步分析的场景非常有用。</p>
-</li>
-</ul>
+<h2 id="08-调拨内核">08 调拨内核</h2>
+<p>不要把鸡蛋放在一个篮子里，同样，我们也不会把钱放在一个账户里，既然钱分布在不同账户，那如何相互调动就绕不来这个系统</p>
+<h3 id="内核26：调拨功能局"><strong>内核26：调拨功能局</strong></h3>
+<p>做调拨系统要做哪些功能呢，这些功能如何联动</p>
+<p>我把做过的一个最牛逼的调拨系统，归纳成了这个图，用于理解调拨的功能全局，形成了我的调拨观</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0244-payment-core-26.webp" alt=""></p>
+<blockquote>
+<p>&lt;学习体会&gt; 调拨的本质还是规则和流程，功能不复杂。</p>
+</blockquote>
+<h2 id="09-业财内核">09 业财内核</h2>
+<p>万剑归宗，一切收敛与财务，从业务到财务，将打开另一扇大门</p>
+<h3 id="内核27：悟透业财融合"><strong>内核27：悟透业财融合</strong></h3>
+<p>这就是业财一体的链接模型，从各种形状的口转换成财务的方口，我通过这张图高度总结业财融合</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0245-payment-core-27.webp" alt=""></p>
+<h3 id="内核28：从业务层理解税票"><strong>内核28：从业务层理解税票</strong></h3>
+<p>谈到财务就绕不开税务和发票，在业务系统范畴内，我是这么理解和实现税务和发票的</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0246-payment-core-28.webp" alt=""></p>
+<h3 id="内核29：抽象5点模型"><strong>内核29：抽象5点模型</strong></h3>
+<p>从圆口到方口是从信息化系统层面对业财作用的抽象</p>
+<p>而要完整的把握业财一体，或者说是去接手一个业财一体的项目，还应该再增加2点认识，构成5点模型，这个模型就产生在前几天，这是业财观逐渐形成和丰富的起点</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0247-payment-core-29.webp" alt=""></p>
+<p>每一个内核都还在不断进化，而你我终将一起变得强大</p>
+<blockquote>
+<p>&lt;学习体会&gt; 业务财务融合是一个大的话题，跟传统ERP的概念是基本一直的，但在新的形势下，用ERP那一套跟不上业务的发展了，但理念还是一样的，要保证业务顺畅的前提下，财务数据的准确和自动化。需要提示一下的是，税务和发票，不只是获取数据那么简单，有的时候，税务和开票都是业务上的卡点，在设计整个系统的时候都需要考虑反向的控制机制。</p>
+</blockquote>
  
       <!-- reward -->
       
@@ -262,12 +266,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/04/20/ss-command/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/04/21/payment-core-system-design-4/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/" rel="tag">支付产品</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
 
     </footer>
   </div>
@@ -275,19 +279,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2024/04/21/payment-core-system-design-4/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Payment Core System Design - 4
-          
-        </div>
-      </a>
     
-    
-      <a href="/2024/04/20/payment-core-system-design-3/" class="article-nav-link">
+      <a href="/2024/04/20/ss-command/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Payment Core System Design - 3</div>
+        <div class="article-nav-title">SS 显示套接字信息的工具</div>
       </a>
     
   </nav>
