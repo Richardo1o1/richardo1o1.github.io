@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-21T08:24:33.152Z</updated>
+  <updated>2024-04-21T08:29:09.464Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://yunminitools.cn/2024/04/21/payment-core-system-design-4/"/>
     <id>http://yunminitools.cn/2024/04/21/payment-core-system-design-4/</id>
     <published>2024-04-21T08:23:57.000Z</published>
-    <updated>2024-04-21T08:24:33.152Z</updated>
+    <updated>2024-04-21T08:29:09.464Z</updated>
     
     
     <summary type="html">&lt;p&gt;学习支付大佬文章，参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;amp;mid=2247498106&amp;amp;idx=1&amp;amp;sn=47801915cb46b679078039fa04152cee&amp;amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd&quot;&gt;原文&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;这篇是系列文章的第4篇，下面是目录：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-1/&quot;&gt;系列文章一 ： 01. 全局内核&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-2/&quot;&gt;系列文章二 ： 02. 交易内核 03. 支付内核&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-3/&quot;&gt;系列文章三 ： 04. 清结算内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/18/payment-core-system-design-1/&quot;&gt;系列文章一 ： 01. 全局内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/19/payment-core-system-design-2/&quot;&gt;系列文章二 ： 02. 交易内核 03. 支付内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/21/payment-core-system-design-3/&quot;&gt;系列文章三 ： 04. 清结算内核&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;05-账户钱包内核&quot;&gt;05 账户钱包内核&lt;/h2&gt;
