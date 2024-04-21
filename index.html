@@ -153,80 +153,11 @@ var _hmt = _hmt || [];
 <li>
 <p><code>i</code>: Selects Internet sockets only (default is all types of files and sockets).</p>
 </li>
-<li>
-<p><code>k</code>: Specifies a keyword or pattern to search for in file names.</p>
-</li>
-<li>
-<p><code>n</code>: Disables hostname lookup for network addresses.</p>
-</li>
-<li>
-<p><code>p</code>: Specifies a process name or executable name to filter results by.</p>
-</li>
-<li>
-<p><code>r</code>: Reverses the order of the output (i.e., shows files and sockets most recently used first).</p>
-</li>
-<li>
-<p><code>s</code>: Shows only socket information.</p>
-</li>
-<li>
-<p><code>t</code>: Specifies a file type to search for (e.g., REGULAR, DIRECTORY, etc.).</p>
-</li>
-<li>
-<p><code>u</code>: Shows only user-level information (i.e., open files and sockets used by users).</p>
-</li>
-<li>
-<p><code>w</code>: Sets the minimum number of bytes required for an output line.</p>
-</li>
-</ul>
-<h2 id="File-Socket-Keyword"><strong>File/Socket/Keyword:</strong></h2>
-<ul>
-<li>
-<p><code>file</code>: Specifies a file name or pattern to search for.</p>
-</li>
-<li>
-<p><code>socket</code>: Specifies a socket name or pattern to search for.</p>
-</li>
-<li>
-<p><code>keyword</code>: Specifies a keyword or pattern to search for in file names, socket names, or other metadata.</p>
-</li>
-</ul>
-<h2 id="Examples"><strong>Examples:</strong></h2>
-<ol>
-<li>List all open files:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof</span><br></pre></td></tr></table></figure>
-<ol>
-<li>List all Internet sockets:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Find files and sockets used by process with PID 12345:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -c 12345</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Find files and sockets that match a specific keyword (e.g., “ssh”):</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -k ssh</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Force <code>lsof</code> to search only for FIFO files:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -f FIFO</span><br></pre></td></tr></table></figure>
-<h2 id="Tips"><strong>Tips:</strong></h2>
-<ul>
-<li>
-<p>You can combine options to create more complex queries.</p>
-</li>
-<li>
-<p>Use the <code>a</code> option with multiple keywords to find files or sockets that match all of them.</p>
-</li>
-<li>
-<p>Be careful when using <code>lsof</code>, as it may show sensitive information (e.g., password files).</p>
-</li>
-<li>
-<p>On Linux systems, you may need to use the <code>sudo</code> command to run <code>lsof</code> if you don’t have permission to access certain system resources.</p>
-</li>
-</ul>
- 
+</ul> 
+      <a class="article-more-link" href="/2024/04/21/lsof-command/"
+        >More...</a
+      >
+       
       <!-- reward -->
       
     </div>
