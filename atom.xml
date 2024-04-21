@@ -110,10 +110,15 @@
     <link href="http://yunminitools.cn/2024/04/20/payment-core-system-design-3/"/>
     <id>http://yunminitools.cn/2024/04/20/payment-core-system-design-3/</id>
     <published>2024-04-20T08:31:31.000Z</published>
-    <updated>2024-04-20T08:32:00.248Z</updated>
+    <updated>2024-04-21T08:33:13.592Z</updated>
     
     
     <summary type="html">&lt;p&gt;学习支付大佬文章，参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;amp;mid=2247498106&amp;amp;idx=1&amp;amp;sn=47801915cb46b679078039fa04152cee&amp;amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd&quot;&gt;原文&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这篇是系列文章的第3篇，下面是目录：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/18/payment-core-system-design-1/&quot;&gt;系列文章一 ： 01. 全局内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/19/payment-core-system-design-2/&quot;&gt;系列文章二 ： 02. 交易内核 03. 支付内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;系列文章三 ： 04. 清结算内核&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/21/payment-core-system-design-4/&quot;&gt;系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;04-清结算内核&quot;&gt;04 清结算内核&lt;/h2&gt;
 &lt;p&gt;我们不是一个人再战斗，任何一次交易，任何一次支付，都是大家共同参与的结果，而谁从中获利，谁为此支付，获利多少，如何交付。清结算就上场了，要想做好它，先认识它。&lt;/p&gt;
@@ -140,10 +145,15 @@
     <link href="http://yunminitools.cn/2024/04/19/payment-core-system-design-2/"/>
     <id>http://yunminitools.cn/2024/04/19/payment-core-system-design-2/</id>
     <published>2024-04-19T07:54:07.000Z</published>
-    <updated>2024-04-19T08:01:51.517Z</updated>
+    <updated>2024-04-21T08:32:14.080Z</updated>
     
     
     <summary type="html">&lt;p&gt;学习支付大佬文章，参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;amp;mid=2247498106&amp;amp;idx=1&amp;amp;sn=47801915cb46b679078039fa04152cee&amp;amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd&quot;&gt;原文&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这篇是系列文章的第2篇，下面是目录：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/18/payment-core-system-design-1/&quot;&gt;系列文章一 ： 01. 全局内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;系列文章二 ： 02. 交易内核 03. 支付内核&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-3/&quot;&gt;系列文章三 ： 04. 清结算内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/21/payment-core-system-design-4/&quot;&gt;系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;02-交易内核&quot;&gt;02. 交易内核&lt;/h2&gt;
 &lt;h3 id=&quot;内核7：交易的流程性&quot;&gt;内核7：交易的流程性&lt;/h3&gt;
@@ -192,10 +202,15 @@
     <link href="http://yunminitools.cn/2024/04/18/payment-core-system-design-1/"/>
     <id>http://yunminitools.cn/2024/04/18/payment-core-system-design-1/</id>
     <published>2024-04-18T12:54:07.000Z</published>
-    <updated>2024-04-19T07:34:05.273Z</updated>
+    <updated>2024-04-21T08:30:50.536Z</updated>
     
     
     <summary type="html">&lt;p&gt;学习支付大佬文章，参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;amp;mid=2247498106&amp;amp;idx=1&amp;amp;sn=47801915cb46b679078039fa04152cee&amp;amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd&quot;&gt;原文&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这篇是系列文章的第1篇，下面是目录：&lt;/p&gt;
+&lt;p&gt;系列文章一 ： 01. 全局内核&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/19/payment-core-system-design-2/&quot;&gt;系列文章二 ： 02. 交易内核 03. 支付内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-3/&quot;&gt;系列文章三 ： 04. 清结算内核&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/21/payment-core-system-design-4/&quot;&gt;系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;内核是看到一个事物的底层框架，无论外界如何变化，这个内核保持稳定和灵活的兼容性&lt;/p&gt;
 &lt;p&gt;内核不是一成不变的，它可以不断吸收新的知识，慢慢长大，而我们也随之不断蜕变&lt;/p&gt;
