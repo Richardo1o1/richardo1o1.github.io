@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2024/4 |  New structure for utility</title>
+      <title>Django Docker的部署方法 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,246 +68,215 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-django-docker-implement-step-by-step"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">2024/4</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Django Docker的部署方法
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/29/django-docker-implement-step-by-step/" class="article-date">
+  <time datetime="2024-04-29T01:46:31.000Z" itemprop="datePublished">2024-04-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2024" class="archive-year">2024</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">343</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/29/django-docker-implement-step-by-step/" class="archive-article-date">
-  <time datetime="2024-04-29T01:46:31.000Z" itemprop="datePublished">04/29</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/29/django-docker-implement-step-by-step/"
-    >Django Docker的部署方法</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/23/differentiation-of-in-the-way-on-the-way/" class="archive-article-date">
-  <time datetime="2024-04-23T15:26:02.000Z" itemprop="datePublished">04/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/23/differentiation-of-in-the-way-on-the-way/"
-    >英语单词辨析 - In the way or on the way</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/21/lsof-command/" class="archive-article-date">
-  <time datetime="2024-04-21T08:42:58.000Z" itemprop="datePublished">04/21</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/21/lsof-command/"
-    >lsof command</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/21/payment-core-system-design-4/" class="archive-article-date">
-  <time datetime="2024-04-21T08:23:57.000Z" itemprop="datePublished">04/21</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/21/payment-core-system-design-4/"
-    >Payment Core System Design - 4</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/20/ss-command/" class="archive-article-date">
-  <time datetime="2024-04-20T11:03:13.000Z" itemprop="datePublished">04/20</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/20/ss-command/"
-    >SS 显示套接字信息的工具</a> 
-</h2>
+  <h2 id="1-背景">1. 背景</h2>
+<p>Django 程序如何部署有各种方法，我们今天使用Docker来部署</p>
+<h2 id="2-Docker打包">2. Docker打包</h2>
+<ul>
+<li>
+<p>将Django文件都移动到 src 子目录</p>
+</li>
+<li>
+<p>编写 Dockerfile 文件，输入以下内容：</p>
+  <figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:slim</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> python -m venv /venv</span></span><br><span class="line"><span class="keyword">ENV</span> PAth=<span class="string">&#x27;/venv/bin;4path&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt requirements.txt</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> src /src</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /src</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python manage.py migrate --noinput</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python manage.py runserver 0.0.0.0:8888</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>编写 requirement.txt 文件，输入以下内容：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django==4.2.7</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+<p>superlists 为docker名</p>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-安装guicorn">3. 安装guicorn</h2>
+<ul>
+<li>
+<p>添加 guicorn 到requirement.txt 文件：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">django==4.2.7</span><br><span class="line">gunicorn==21.2.0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 Dockerfile 文件，替换最后一条语句：</p>
+  <figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CMD</span><span class="language-bash"> gunicorn --<span class="built_in">bind</span> :8888 superlists.wsgi:application</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>发现静态文件css没有加载，继续。</p>
+<h2 id="4-安装Whitenoise">4. 安装Whitenoise</h2>
+<ul>
+<li>
+<p>继续修改requirement.txt :</p>
+  <figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">django==<span class="number">4.2</span>.<span class="number">7</span></span><br><span class="line">gunicorn==<span class="number">21.2</span>.<span class="number">0</span></span><br><span class="line">whitenoise==<span class="number">6.6</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 <em>src/superlists/settings.py，添加这个中间件：</em></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&quot;django.middleware.security.SecurityMiddleware&quot;</span>,</span><br><span class="line">    <span class="string">&quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;</span>,</span><br><span class="line">    <span class="string">&quot;django.contrib.sessions.middleware.SessionMiddleware&quot;</span>,</span><br><span class="line">    [...]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+<p>superlists 为docker名</p>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>成功加载。</p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/20/payment-core-system-design-3/" class="archive-article-date">
-  <time datetime="2024-04-20T08:31:31.000Z" itemprop="datePublished">04/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/20/payment-core-system-design-3/"
-    >Payment Core System Design - 3</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/19/payment-core-system-design-2/" class="archive-article-date">
-  <time datetime="2024-04-19T07:54:07.000Z" itemprop="datePublished">04/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/19/payment-core-system-design-2/"
-    >Payment Core System Design - 2</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/18/differentiation-of-consider-regard/" class="archive-article-date">
-  <time datetime="2024-04-18T13:14:07.000Z" itemprop="datePublished">04/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/18/differentiation-of-consider-regard/"
-    >英语单词辨析 - Consider or regard</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/18/payment-core-system-design-1/" class="archive-article-date">
-  <time datetime="2024-04-18T12:54:07.000Z" itemprop="datePublished">04/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/18/payment-core-system-design-1/"
-    >Payment Core System Design - 1</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/17/10-usability-heuristics-for-user-interface-design/" class="archive-article-date">
-  <time datetime="2024-04-17T01:58:25.000Z" itemprop="datePublished">04/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/17/10-usability-heuristics-for-user-interface-design/"
-    >用超多案例，帮你掌握尼尔森十大可用性原则</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2024/04/page/2/">2</a><a class="page-number" href="/archives/2024/04/page/3/">3</a><a class="extend next" rel="next" href="/archives/2024/04/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/04/29/django-docker-implement-step-by-step/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/04/23/differentiation-of-in-the-way-on-the-way/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">英语单词辨析 - In the way or on the way</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -444,6 +413,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

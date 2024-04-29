@@ -9914,4 +9914,82 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>英语学习</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Django Docker的部署方法</title>
+    <url>/2024/04/29/django-docker-implement-step-by-step/</url>
+    <content><![CDATA[<h2 id="1-背景">1. 背景</h2>
+<p>Django 程序如何部署有各种方法，我们今天使用Docker来部署</p>
+<h2 id="2-Docker打包">2. Docker打包</h2>
+<ul>
+<li>
+<p>将Django文件都移动到 src 子目录</p>
+</li>
+<li>
+<p>编写 Dockerfile 文件，输入以下内容：</p>
+  <figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:slim</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> python -m venv /venv</span></span><br><span class="line"><span class="keyword">ENV</span> PAth=<span class="string">&#x27;/venv/bin;4path&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt requirements.txt</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> src /src</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /src</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python manage.py migrate --noinput</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python manage.py runserver 0.0.0.0:8888</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>编写 requirement.txt 文件，输入以下内容：</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">django==4.2.7</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+<p>superlists 为docker名</p>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-安装guicorn">3. 安装guicorn</h2>
+<ul>
+<li>
+<p>添加 guicorn 到requirement.txt 文件：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">django==4.2.7</span><br><span class="line">gunicorn==21.2.0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 Dockerfile 文件，替换最后一条语句：</p>
+  <figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CMD</span><span class="language-bash"> gunicorn --<span class="built_in">bind</span> :8888 superlists.wsgi:application</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>发现静态文件css没有加载，继续。</p>
+<h2 id="4-安装Whitenoise">4. 安装Whitenoise</h2>
+<ul>
+<li>
+<p>继续修改requirement.txt :</p>
+  <figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">django==<span class="number">4.2</span>.<span class="number">7</span></span><br><span class="line">gunicorn==<span class="number">21.2</span>.<span class="number">0</span></span><br><span class="line">whitenoise==<span class="number">6.6</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 <em>src/superlists/settings.py，添加这个中间件：</em></p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&quot;django.middleware.security.SecurityMiddleware&quot;</span>,</span><br><span class="line">    <span class="string">&quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;</span>,</span><br><span class="line">    <span class="string">&quot;django.contrib.sessions.middleware.SessionMiddleware&quot;</span>,</span><br><span class="line">    [...]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+<p>superlists 为docker名</p>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>成功加载。</p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Django</tag>
+      </tags>
+  </entry>
 </search>

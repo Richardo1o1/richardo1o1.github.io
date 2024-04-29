@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-23T15:26:37.041Z</updated>
+  <updated>2024-04-29T01:47:25.001Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django Docker的部署方法</title>
+    <link href="http://yunminitools.cn/2024/04/29/django-docker-implement-step-by-step/"/>
+    <id>http://yunminitools.cn/2024/04/29/django-docker-implement-step-by-step/</id>
+    <published>2024-04-29T01:46:31.000Z</published>
+    <updated>2024-04-29T01:47:25.001Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-背景&quot;&gt;1. 背景&lt;/h2&gt;
+&lt;p&gt;Django 程序如何部署有各种方法，我们今天使用Docker来部署&lt;/p&gt;
+&lt;h2 id=&quot;2-Docker打包&quot;&gt;2. Docker打包&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将Django文件都移动到 src</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+  </entry>
   
   <entry>
     <title>英语单词辨析 - In the way or on the way</title>
@@ -599,32 +631,6 @@
     
     
     <category term="Notion" scheme="http://yunminitools.cn/tags/Notion/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>英语单词辨析 - Principal or principle</title>
-    <link href="http://yunminitools.cn/2024/04/11/differentiation-of-principal-principle/"/>
-    <id>http://yunminitools.cn/2024/04/11/differentiation-of-principal-principle/</id>
-    <published>2024-04-11T12:54:07.000Z</published>
-    <updated>2024-04-11T12:54:47.225Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Principal-or-principle&quot;&gt;Principal or principle&lt;/h2&gt;
-&lt;p&gt;ref：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
