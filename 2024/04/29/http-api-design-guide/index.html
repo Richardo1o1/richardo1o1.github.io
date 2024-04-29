@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>HTTP API 设计指南 |  New structure for utility</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/web1.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?6df1890c9854cdf70d1c67b43e743c4d";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+        pre.mermaid {
+	  background: #dedede;
+	}	
+      </style>
+    <link rel="alternate" href="/atom.xml" title="New structure for utility" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-http-api-design-guide"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  HTTP API 设计指南
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/29/http-api-design-guide/" class="article-date">
+  <time datetime="2024-04-29T15:48:17.000Z" itemprop="datePublished">2024-04-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>摘录自 <a target="_blank" rel="noopener" href="https://github.com/interagent/http-api-design">HTTP API Design Guide</a></p>
+</blockquote>
+<h2 id="前言">前言</h2>
+<p>我们的目标是一致性，专注业务逻辑同时避免设计上的空想，我们一直在寻找一种良好的，统一的，显而易见的API设计方式，未必只有一种方式。</p>
+<br/>
+<h2 id="内容">内容</h2>
+<br/>
+<ul>
+<li>
+<p>返回合适的状态码</p>
+<p>为每一次的响应返回合适的HTTP状态码. 成功的HTTP响应应该使用如下的状态码:</p>
+<ul>
+<li>
+<p><code>200</code>: <code>GET</code>请求成功, 以及<code>DELETE</code>或 <code>PATCH</code> 同步请求完成</p>
+</li>
+<li>
+<p><code>201</code>: <code>POST</code> 同步请求完成</p>
+</li>
+<li>
+<p><code>202</code>: <code>POST</code>, <code>DELETE</code>, 或 <code>PATCH</code> 异步请求将要完成</p>
+</li>
+<li>
+<p><code>206</code>: <code>GET</code> 请求成功, 这里只是一部分状态码: 更多</p>
+</li>
+</ul>
+<p>参考 <a target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes">状态描述</a></p>
+</li>
+<li>
+<p>提供全部可用的资源</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>
+<p>在请求的body体使用JSON数据</p>
+</li>
+<li>
+<p>提供资源的唯一标识</p>
+</li>
+<li>
+<p>提供标准的时间戳</p>
+<p>提供默认的资源创建时间，更新时间 <code>created_at</code> and <code>updated_at</code> , e例如:</p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="attr">&quot;created_at&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2012-01-01T12:00:00Z&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;updated_at&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2012-01-01T13:00:00Z&quot;</span><span class="punctuation">,</span></span><br><span class="line">  ...</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>使用ISO8601的国际化时间格式</p>
+</li>
+<li>
+<p>使用统一的资源路径</p>
+<p><strong>资源命名</strong></p>
+<p>使用复数形式为资源命名，而不是在系统中有争议的一个单个资源 (例如，在大多数系统中，给定的用户帐户只有一个). 这种方式保持了特定资源的统一性.</p>
+<p><strong>形为</strong></p>
+<p>好的末尾展现形式不许要指定特殊的资源形为，在某些情况下，指定特殊的资源的形为是必须的,用一个标准的<code>actions</code>前缀去替代他, 清楚的描述他:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/resources/:resource/actions/:action</span><br></pre></td></tr></table></figure>
+<pre><code>例如：
+</code></pre>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/runs/&#123;run_id&#125;/actions/stop</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;br/&gt;
+</code></pre>
+<ul>
+<li>
+<p>路径和属性要用小写字母</p>
+<p>使用小写字母并用<code>-</code>短线分割路径名字,并且紧跟着主机域名 e.g:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service-api.com/users</span><br><span class="line">service-api.com/app-setups</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>同样属性也要用小写字母, 但是属性名字要用下划线`_`分割，以至于这样在javaScript语言中不用输入引号。 例如.:
+</code></pre>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service_class: &quot;first&quot;</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;br/&gt;
+</code></pre>
+<ul>
+<li>
+<p>嵌套外键关系</p>
+</li>
+<li>
+<p>支持方便的无id间接引用</p>
+<p>在某些情况下，为了方便用户使用接口，在末尾提供用id标识资源,例如，一个用户想到了他在heroku平台app的名字，但是这个app的唯一标识是id,这种情况下，你想让接口通过名字和id都能访问，例如:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://service.com/apps/&#123;app_id_or_name&#125;</span><br><span class="line">$ curl https://service.com/apps/97addcf0-c182</span><br><span class="line">$ curl https://service.com/apps/www-prod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>不要只接受使用名字而剔除了使用id。
+</code></pre>
+<ul>
+<li>
+<p>构建错误信息</p>
+<p>在网络请求响应错误的时候，返回统一的，结构化的错误信息。要包含一个机器可读的错误 <code>id</code>,一个人类能识别的错误信息 <code>message</code>, 根据情况可以添加一个<code>url</code> ，告诉客户端关于这个错误的更多信息以及如何去解决它。 例如:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 429 Too Many Requests</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:      &quot;rate_limit&quot;,</span><br><span class="line">  &quot;message&quot;: &quot;Account reached its API rate limit.&quot;,</span><br><span class="line">  &quot;url&quot;:     &quot;https://docs.service.com/rate-limits&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>把你的错误信息格式文档化，以及这些可能的错误信息`id`s 让客户端能获取到.
+</code></pre>
+<ul>
+<li>
+<p>支持Etags缓存</p>
+<p>在所有请求响应中包含一个<code>ETag</code>头,比如，标识出返回资源的指定版本. 用户能够根据他们提供的头信息<code>If-None-Match</code>，在随后的请求中检查出那些无效的。</p>
+</li>
+<li>
+<p>用id来跟踪每次的请求</p>
+<p>在每一个API响应中要包含一个<code>Request-Id</code>头信息, 通常用唯一标识UUID. 如果服务器和客户端都打印出他们的<code>Request-Id</code>, 这对我们的网络请求调试和跟踪非常有帮助.</p>
+</li>
+<li>
+<p>按范围分页</p>
+<p>对于服务器响应的大量数据我们应该为此分页。 使用<code>Content-Range</code> 头传递分页请求的数据.这里有个例子详细的说明了请求和响应头、状态码，限制条件、排序以及分页处理：<a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/platform-api-reference#ranges">Heroku Platform API on Ranges</a>.</p>
+</li>
+<li>
+<p>显示速度限制状态</p>
+<p>客户端的访问速度限制可以维护服务器的良好状态，进而为其他客户端请求提供高性的服务.你可以使用<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Token_bucket">token bucket algorithm</a>技术量化请求限制.</p>
+<p>为每一个带有<code>RateLimit-Remaining</code>响应头的请求，返回预留的请求tokens。</p>
+</li>
+<li>
+<p>指定可接受头信息的版本</p>
+<p>在开始的时候指定API版本，使用<code>Accepts</code>头传递版本信息,也可以是一个自定义的内容, 例如:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Accept: application/vnd.heroku+json; version=3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>最好不要给出一个默认的版本, 而是要求客户端明确指明他们要使用特定的版本.
+</code></pre>
+<ul>
+<li>
+<p>减少路径嵌套</p>
+<p>在一些有父路径/子路径嵌套关系的资源数据模块中, 路径可能有非常深的嵌套关系, 例如:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/orgs/&#123;org_id&#125;/apps/&#123;app_id&#125;/dynos/&#123;dyno_id&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>推荐在根(root)路径下指定资源来限制路径的嵌套深度。使用嵌套指定范围的资源，例如在下面的情况下，dyno属性app范围下，app属性org范围下:
+</code></pre>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/orgs/&#123;org_id&#125;</span><br><span class="line">/orgs/&#123;org_id&#125;/apps</span><br><span class="line">/apps/&#123;app_id&#125;</span><br><span class="line">/apps/&#123;app_id&#125;/dynos</span><br><span class="line">/dynos/&#123;dyno_id&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;br/&gt;
+</code></pre>
+<ul>
+<li>
+<p>提供机器可读的JSON概要</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/cocoajin/http-api-design-ZH_CN?tab=readme-ov-file#%E6%8F%90%E4%BE%9B%E4%BA%BA%E7%B1%BB%E5%8F%AF%E8%AF%BB%E7%9A%84%E6%96%87%E6%A1%A3">提供人类可读的文档</a></p>
+<p>提供人类可读的文档让客户端开发人员可以理解你的API。</p>
+<p>如果你用prmd创建了一个概要并且按上述要求描述，你可以很容易的生成所有结节使用<code>prmd doc</code>的Markdown文件。</p>
+<p>除此之在详细信息的结尾，提供一个关于如下信息的API摘要:</p>
+<ul>
+<li>
+<p>验证授权,包含获取及使用验证tokens.</p>
+</li>
+<li>
+<p>API 稳定性及版本控制, 包含如何选择所需要的版本.</p>
+</li>
+<li>
+<p>一般的请求和响应头信息.</p>
+</li>
+<li>
+<p>错误信息序列格式.</p>
+</li>
+<li>
+<p>不同语言客户端使用API的例子.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>提供可执行的示例</p>
+<p>提供可执行的示例让用户可以直接在终端里面看到API的调用情况,最大程度的让这些示例可以逐字的使用，以减少用户尝试使用API的工作量。例如:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ export TOKEN=... # acquire from dashboard</span><br><span class="line">$ curl -is https://$TOKEN@service.com/users</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>如果你使用[prmd](https://github.com/interagent/prmd)生成Markdown文档, 你会自动获取一些示例在结点处。
+</code></pre>
+<ul>
+<li>
+<p>描述稳定性</p>
+</li>
+<li>
+<p>要求传输通道安全</p>
+</li>
+<li>
+<p>使用友好的JSON输出</p>
+<p>用户在第一次看到你的API使用情况，很可能是在命令行下使用<code>curl</code>进行的。友好的输出会让他们非常容易的理解你的API，为好开发者们的方便,打印友好的JSON输出, 例如:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;beta&quot;: false,</span><br><span class="line">  &quot;email&quot;: &quot;alice@heroku.com&quot;,</span><br><span class="line">  &quot;id&quot;: &quot;01234567-89ab-cdef-0123-456789abcdef&quot;,</span><br><span class="line">  &quot;last_login&quot;: &quot;2012-01-01T12:00:00Z&quot;,</span><br><span class="line">  &quot;created_at&quot;: &quot;2012-01-01T12:00:00Z&quot;,</span><br><span class="line">  &quot;updated_at&quot;: &quot;2012-01-01T12:00:00Z&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>而不是这样 例如:
+</code></pre>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;beta&quot;:false,&quot;email&quot;:&quot;alice@heroku.com&quot;,&quot;id&quot;:&quot;01234567-89ab-cdef-0123-456789abcdef&quot;,&quot;last_login&quot;:&quot;2012-01-01T12:00:00Z&quot;, &quot;created_at&quot;:&quot;2012-01-01T12:00:00Z&quot;,&quot;updated_at&quot;:&quot;2012-01-01T12:00:00Z&quot;&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>记住要在每行尾部包含一个换行，这样那些使用终端测试API的输出不会被遮挡住。
+
+对于大多数的API友好的响应数据输出总会有更好的表现，你可能受到过不友好打印数据API的影响(例如:非常高的流量占用) 或者是在一些客户端上不能工作 (例如：一个随意编写的程序).
+</code></pre>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/04/29/http-api-design-guide/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/04/29/django-docker-implement-step-by-step/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Django Docker的部署方法</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2023-2024
+        <i class="ri-heart-fill heart_icon"></i> Richard Z.
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">沪ICP备15046216号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/desktopicon.png" alt="New structure for utility"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "base" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

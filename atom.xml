@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-29T01:47:25.001Z</updated>
+  <updated>2024-04-29T15:49:05.521Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP API 设计指南</title>
+    <link href="http://yunminitools.cn/2024/04/29/http-api-design-guide/"/>
+    <id>http://yunminitools.cn/2024/04/29/http-api-design-guide/</id>
+    <published>2024-04-29T15:48:17.000Z</published>
+    <updated>2024-04-29T15:49:05.521Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;摘录自 &lt;a href=&quot;https://github.com/interagent/http-api-design&quot;&gt;HTTP API Design Guide&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;我们的目标是一致性，专注业务逻辑同时避免设计上的空想，我们一直在寻找一种良好的，统一的，显而易见的API设计方式，未必只有一种方式。&lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&quot;内容&quot;&gt;内容&lt;/h2&gt;
+&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;返回合适的状态码&lt;/p&gt;
+&lt;p&gt;为每一次的响应返回合适的HTTP状态码. 成功的HTTP响应应该使用如下的状态码:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;200&lt;/code&gt;: &lt;code&gt;GET&lt;/code&gt;请求成功, 以及&lt;code&gt;DELETE&lt;/code&gt;或 &lt;code&gt;PATCH&lt;/code&gt; 同步请求完成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;201&lt;/code&gt;: &lt;code&gt;POST&lt;/code&gt; 同步请求完成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;202&lt;/code&gt;: &lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt;, 或 &lt;code&gt;PATCH&lt;/code&gt; 异步请求将要完成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;206&lt;/code&gt;: &lt;code&gt;GET&lt;/code&gt; 请求成功, 这里只是一部分状态码: 更多&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考 &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes&quot;&gt;状态描述&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;提供全部可用的资源&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>Django Docker的部署方法</title>
@@ -605,32 +655,6 @@
     
     
     <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>命令行导出Notion文章MD文件</title>
-    <link href="http://yunminitools.cn/2024/04/13/output-notion-to-MD-file-command/"/>
-    <id>http://yunminitools.cn/2024/04/13/output-notion-to-MD-file-command/</id>
-    <published>2024-04-13T09:00:46.000Z</published>
-    <updated>2024-04-13T13:02:20.693Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;痛点&quot;&gt;痛点&lt;/h2&gt;
-&lt;p&gt;我用笔记工具，很多时候都需要输出成文章发布。发布的时候，我得用 Markdown。很不幸，在 Notion 上，这个过程，从来就没有痛快过。虽然 Notion 从很早就提供 Markdown 导出，还包括子页面。但是导出来的结果，总是无法令我满意。导出的文件是个压缩包，还要手工解压，我就想找一个命令行工具来提高效率。&lt;/p&gt;
-&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
-&lt;p&gt;找到了一个开源的Github 项目，叫做 &lt;a href=&quot;https://github.com/echo724/notion2md&quot;&gt;notion2md&lt;/a&gt;。&lt;/p&gt;
-&lt;h3 id=&quot;安装&quot;&gt;安装&lt;/h3&gt;
-&lt;p&gt;它已经做成了 Python 的软件包，可以调用 Notion 的 API，帮助用户导出为更妥帖的 markdown 格式。&lt;/p&gt;
-&lt;p&gt;你只需要使用pip安装即可：&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install notion2md&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Notion" scheme="http://yunminitools.cn/tags/Notion/"/>
     
   </entry>
   
