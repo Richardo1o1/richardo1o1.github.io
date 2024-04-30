@@ -100,6 +100,147 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-docker-debug-test-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/18/docker-debug-test-1/"
+    >一次Docker应用排查过程</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/18/docker-debug-test-1/" class="article-date">
+  <time datetime="2024-02-18T14:11:46.000Z" itemprop="datePublished">2024-02-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>重新发布了一个应用，发现无法访问，把排查过程记录一下。</p>
+<h2 id="检查docker程序和开放端口">检查docker程序和开放端口</h2>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker ps</span><br></pre></td></tr></table></figure>
+<p>发现docker都在运行。</p>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunpl</span><br></pre></td></tr></table></figure>
+<p>检查开放端口，端口开放正常。</p>
+<h2 id="检查frp的状态">检查frp的状态</h2>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status frp</span><br></pre></td></tr></table></figure>
+<p>由于是通过frp穿透内网的，要看一下是否是frp问题，查看日志，没有报错。</p>
+<h2 id="检查内网网页状态">检查内网网页状态</h2>
+<p>访问内网ip，报错：<strong>502 Bad Gateway</strong></p>
+<p>运行一下语句，查看docker日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs ee86b3ee2451</span><br></pre></td></tr></table></figure>
+<p>其中 ee86b3ee2451 为容器ID</p>
+<p>运行下面语句，查看实时docker日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs -f ee86b3ee2451</span><br></pre></td></tr></table></figure>
+<h2 id="进入Docker查看">进入Docker查看</h2>
+<p>如果还是有问题，运行下面语句，查看docker内部情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker <span class="built_in">exec</span> -it ee86b3ee2451 bash</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<p>经过一番折腾，发现还是docker本身的问题，restart一下就好了，运行以下语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Django-Logging-4"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/16/Django-Logging-4/"
+    >Django 的日志机制-4</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/16/Django-Logging-4/" class="article-date">
+  <time datetime="2024-02-16T12:19:13.000Z" itemprop="datePublished">2024-02-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="进阶">进阶</h2>
+<p>其实，如果只是为了排错方便，记录一些日志，自定义类基本可以满足要求。但如果要记录访问系统的所有请求日志，那就无能为力了，因为不可能手动在每个接口代码加日志，也没必要。</p>
+<p>这个时候，很自然就能想到 Django 中间件了。</p>
+<h2 id="Django-中间件">Django 中间件</h2>
+<p>定义中间件类，包括  <strong><code>Filters</code></strong> 代码和 <strong><code>middleware</code></strong> 代码，在本地app文件夹中创建目录：<code>middlewares</code>，目录下创建文件 <code>LogMiddleware.py</code> :</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.utils.deprecation <span class="keyword">import</span> MiddlewareMixin</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">local = threading.local()</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RequestLogFilter</span>(logging.Filter):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    日志过滤器</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">filter</span>(<span class="params">self, record</span>):</span><br><span class="line">        record.sip = <span class="built_in">getattr</span>(local, <span class="string">&#x27;sip&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.dip = <span class="built_in">getattr</span>(local, <span class="string">&#x27;dip&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.body = <span class="built_in">getattr</span>(local, <span class="string">&#x27;body&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.path = <span class="built_in">getattr</span>(local, <span class="string">&#x27;path&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.method = <span class="built_in">getattr</span>(local, <span class="string">&#x27;method&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.username = <span class="built_in">getattr</span>(local, <span class="string">&#x27;username&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.status_code = <span class="built_in">getattr</span>(local, <span class="string">&#x27;status_code&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">        record.reason_phrase = <span class="built_in">getattr</span>(local, <span class="string">&#x27;reason_phrase&#x27;</span>, <span class="string">&#x27;none&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RequestLogMiddleware</span>(<span class="title class_ inherited__">MiddlewareMixin</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    将request的信息记录在当前的请求线程上。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, get_response=<span class="literal">None</span></span>):</span><br><span class="line">        self.get_response = get_response</span><br><span class="line">        self.apiLogger = logging.getLogger(<span class="string">&#x27;web.log&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, request</span>):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            body = json.loads(request.body)</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            body = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">            body.update(<span class="built_in">dict</span>(request.GET))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            body.update(<span class="built_in">dict</span>(request.POST))</span><br><span class="line"></span><br><span class="line">        local.body = body</span><br><span class="line">        local.path = request.path</span><br><span class="line">        local.method = request.method</span><br><span class="line">        local.username = request.user</span><br><span class="line">        local.sip = request.META.get(<span class="string">&#x27;REMOTE_ADDR&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        local.dip = socket.gethostbyname(socket.gethostname())</span><br><span class="line"></span><br><span class="line">        response = self.get_response(request)</span><br><span class="line">        local.status_code = response.status_code</span><br><span class="line">        local.reason_phrase = response.reason_phrase</span><br><span class="line">        self.apiLogger.info(<span class="string">&#x27;system-auto&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/02/16/Django-Logging-4/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-nowcoder-algorithm-test-bm1"
   class="article article-type-post"
   itemscope
@@ -664,149 +805,6 @@ C-->D(分析)</pre>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-50-Cognitive-Biases"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/01/50-Cognitive-Biases/"
-    >50个常见的认知偏差</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/01/50-Cognitive-Biases/" class="article-date">
-  <time datetime="2023-12-01T14:38:41.000Z" itemprop="datePublished">2023-12-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>马斯克点赞的50个常见的认知偏差，快来学习一下：</p>
-<ol>
-<li>权威偏见<br>
-典型表现：专家说可以这么做…</li>
-<li>聚类错误<br>
-典型表现：你看那朵云好像你家的猫。</li>
-<li>偏见盲点<br>
-典型表现：我没有偏见。</li>
-<li>乐观偏见<br>
-典型表现：水还有一半，一切都好好起来的。</li>
-<li>潜隐记忆<br>
-典型表现：Greg以为去过墓地是他的一个梦，其实他真的去过。<br>
-<img src="https://cdn.yunminitools.cn/blog/50Cognitive-Biases-1.jpeg" alt=" "></li>
-</ol> 
-      <a class="article-more-link" href="/2023/12/01/50-Cognitive-Biases/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4%E6%A1%86%E6%9E%B6/" rel="tag">思维框架</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-ssh-proxy-github-slow-resolve"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/11/05/ssh-proxy-github-slow-resolve/"
-    >设置ssh代理解决git pull慢的问题</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/11/05/ssh-proxy-github-slow-resolve/" class="article-date">
-  <time datetime="2023-11-05T02:34:08.000Z" itemprop="datePublished">2023-11-05</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>最近Github特别慢，应该和网络关系比较大，查了一下，用设置代理方式搞定，具体步骤如下：</p>
-<ol>
-<li>
-<p>搭建代理服务器</p>
-</li>
-<li>
-<p>安装ncat 使用以下命令</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ncat</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>设置ssh代理，编辑ssh设置文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/config</span><br></pre></td></tr></table></figure>
-<p>文件内容如下：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User git</span><br><span class="line">Port 443</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">TCPKeepAlive <span class="built_in">yes</span></span><br><span class="line">ProxyCommand /usr/local/bin/ncat --proxy 127.0.0.1:7890 --proxy-type socks5 %h %p</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>使用以下命令测试，如果返回成功则设置成功</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>

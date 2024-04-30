@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-29T15:49:05.521Z</updated>
+  <updated>2024-04-30T03:46:36.637Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Data Management Policies</title>
+    <link href="http://yunminitools.cn/2024/04/30/data-management-policies/"/>
+    <id>http://yunminitools.cn/2024/04/30/data-management-policies/</id>
+    <published>2024-04-30T03:45:44.000Z</published>
+    <updated>2024-04-30T03:46:36.637Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Policies&quot;&gt;Policies&lt;/h2&gt;
+&lt;h3 id=&quot;Appropriate-Storage-Policies&quot;&gt;Appropriate Storage Policies&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Information must only</summary>
+        
+      
+    
+    
+    
+    <category term="资源总结" scheme="http://yunminitools.cn/categories/%E8%B5%84%E6%BA%90%E6%80%BB%E7%BB%93/"/>
+    
+    
+    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Categories of Data</title>
+    <link href="http://yunminitools.cn/2024/04/30/categories-of-data/"/>
+    <id>http://yunminitools.cn/2024/04/30/categories-of-data/</id>
+    <published>2024-04-30T03:43:31.000Z</published>
+    <updated>2024-04-30T03:44:00.889Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Certain type of data created as part of normal business activities might be used enterprise wide,</summary>
+        
+      
+    
+    
+    
+    <category term="资源总结" scheme="http://yunminitools.cn/categories/%E8%B5%84%E6%BA%90%E6%80%BB%E7%BB%93/"/>
+    
+    
+    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>HTTP API 设计指南</title>
@@ -614,67 +669,6 @@
     <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
     
     <category term="TDD" scheme="http://yunminitools.cn/tags/TDD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>产品笔记：好产品与“人性原罪需求”理论</title>
-    <link href="http://yunminitools.cn/2024/04/14/human-nature-of-sins-in-product-design-area/"/>
-    <id>http://yunminitools.cn/2024/04/14/human-nature-of-sins-in-product-design-area/</id>
-    <published>2024-04-14T02:54:07.000Z</published>
-    <updated>2024-04-14T02:18:41.856Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;2018年的老文章，记录学习一下，&lt;a href=&quot;https://www.woshipm.com/pmd/976286.html&quot;&gt;原文&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;一、产品是什么（Product）&quot;&gt;一、产品是什么（Product）&lt;/h2&gt;
-&lt;p&gt;首先，我们来谈谈产品，&lt;strong&gt;“产品究竟是什么？”&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1-产品指什么&quot;&gt;&lt;strong&gt;1.产品指什么&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;（1）产品的定义&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;很多人对于产品的定义，都是什么APP啊，什么应用啊，这都是比较狭义上的对于产品的理解。外行的朋友对于产品的认知可能比较局限，产品的范围其实非常之广。&lt;/p&gt;
-&lt;p&gt;产品的广义概念可以通过很多资料得出：&lt;strong&gt;产品是指满足人们需求的载体。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;（2）产品的作用（价值）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;解决用户需求与商业需求。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;产品存在我们生活的各个角落，如：你现在正在移动的鼠标、正在看着的电脑屏幕，也是属于产品范畴。包括：你所接触的这个网站、你所打开的这个软件、你在玩的这个游戏，也归属于产品范畴。&lt;/p&gt;
-&lt;p&gt;产品存在形式多得数不胜数，可能你会说两者都不一样：一个是由实物制作而成的，一个是用代码编写而成的。&lt;/p&gt;
-&lt;p&gt;其实他们的区别在于：产品的存在形态不同，但是相同点都是**“为了满足用户需求”**。&lt;/p&gt;
-&lt;p&gt;如：电脑解决了你上网、获取知识的需求；鼠标解决了你操作的需求；而网站，为你带来了你想要的视频资源；软件，让你的办公需求得到满足；游戏，满足你的娱乐需求等等。&lt;/p&gt;
-&lt;p&gt;其实我们只需要记住两点，便可以区分。&lt;strong&gt;“需求决定了产品的存在价值，而解决方法决定了产品的存在形态”。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;而本篇文章内容主要围绕互联网产品来展开。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="产品管理" scheme="http://yunminitools.cn/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python管理虚拟环境安装 virtualenv</title>
-    <link href="http://yunminitools.cn/2024/04/13/python-virtualenv-memo/"/>
-    <id>http://yunminitools.cn/2024/04/13/python-virtualenv-memo/</id>
-    <published>2024-04-13T09:54:07.000Z</published>
-    <updated>2024-04-13T09:26:30.225Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;记录一下virtualenv安装过程，这里只介绍Windows下的情况&lt;/p&gt;
-&lt;h3 id=&quot;安装：&quot;&gt;安装：&lt;/h3&gt;
-&lt;p&gt;终端（命令行）输入：&lt;code&gt;pip install</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
     
   </entry>
   
