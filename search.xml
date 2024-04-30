@@ -9008,7 +9008,12 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
   <entry>
     <title>某整车制造企业的IT咨询规划-(产品管理）</title>
     <url>/2024/04/16/itsp-ppt-example-1/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
+    <content><![CDATA[<h2 id="目录">目录</h2>
+<p>某整车制造企业的IT咨询规划-(产品管理)<br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-2/">某整车制造企业的IT咨询规划-(供应链及企业资源计划)</a><br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-3/">某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台)</a><br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-4/">某整车制造企业的IT咨询规划-(计划/方法论)</a></p>
+<h2 id="背景">背景</h2>
 <p>收集到一个比较全的ITSP资料，记录一下</p>
 <h2 id="内容">内容</h2>
 <p><img src="https://cdn.yunminitools.cn/pic/0031-ITSP.png" alt=""></p>
@@ -9043,16 +9048,21 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <img src="https://cdn.yunminitools.cn/pic/0059-ITSP-PDM.webp" alt=""></p>
 ]]></content>
       <categories>
-        <category>有趣资源</category>
+        <category>资源总结</category>
       </categories>
       <tags>
-        <tag>资料收集</tag>
+        <tag>架构设计</tag>
       </tags>
   </entry>
   <entry>
     <title>某整车制造企业的IT咨询规划-(供应链及企业资源计划）</title>
     <url>/2024/04/16/itsp-ppt-example-2/</url>
-    <content><![CDATA[<h2 id="内容">内容</h2>
+    <content><![CDATA[<h2 id="目录">目录</h2>
+<p><a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-1/">某整车制造企业的IT咨询规划-(产品管理)</a><br>
+某整车制造企业的IT咨询规划-(供应链及企业资源计划)<br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-3/">某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台)</a><br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-4/">某整车制造企业的IT咨询规划-(计划/方法论)</a></p>
+<h2 id="内容">内容</h2>
 <p><img src="https://cdn.yunminitools.cn/pic/0060-ITSP-SCM.webp" alt=""></p>
 <span id="more"></span>
 <p><img src="https://cdn.yunminitools.cn/pic/0061-ITSP-SCM.webp" alt=""><br>
@@ -9088,16 +9098,21 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <img src="https://cdn.yunminitools.cn/pic/0091-ITSP-ERP.webp" alt=""></p>
 ]]></content>
       <categories>
-        <category>有趣资源</category>
+        <category>资源总结</category>
       </categories>
       <tags>
-        <tag>资料收集</tag>
+        <tag>架构设计</tag>
       </tags>
   </entry>
   <entry>
     <title>某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台）</title>
     <url>/2024/04/16/itsp-ppt-example-3/</url>
-    <content><![CDATA[<h2 id="内容">内容</h2>
+    <content><![CDATA[<h2 id="目录">目录</h2>
+<p><a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-1/">某整车制造企业的IT咨询规划-(产品管理)</a><br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-2/">某整车制造企业的IT咨询规划-(供应链及企业资源计划)</a><br>
+某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台)<br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-4/">某整车制造企业的IT咨询规划-(计划/方法论)</a></p>
+<h2 id="内容">内容</h2>
 <p><img src="https://cdn.yunminitools.cn/pic/0092-ITSP-MES.webp" alt=""></p>
 <span id="more"></span>
 <p><img src="https://cdn.yunminitools.cn/pic/0093-ITSP-MES.webp" alt=""><br>
@@ -9125,16 +9140,21 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <img src="https://cdn.yunminitools.cn/pic/0115-ITSP-BASE.webp" alt=""></p>
 ]]></content>
       <categories>
-        <category>有趣资源</category>
+        <category>资源总结</category>
       </categories>
       <tags>
-        <tag>资料收集</tag>
+        <tag>架构设计</tag>
       </tags>
   </entry>
   <entry>
     <title>某整车制造企业的IT咨询规划-(计划/方法论）</title>
     <url>/2024/04/16/itsp-ppt-example-4/</url>
-    <content><![CDATA[<h2 id="内容">内容</h2>
+    <content><![CDATA[<h2 id="目录">目录</h2>
+<p><a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-1/">某整车制造企业的IT咨询规划-(产品管理)</a><br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-2/">某整车制造企业的IT咨询规划-(供应链及企业资源计划)</a><br>
+<a href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-3/">某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台)</a><br>
+某整车制造企业的IT咨询规划-(计划/方法论)</p>
+<h2 id="内容">内容</h2>
 <p><img src="https://cdn.yunminitools.cn/pic/0116-ITSP-PLANNING.webp" alt=""></p>
 <span id="more"></span>
 <p><img src="https://cdn.yunminitools.cn/pic/0117-ITSP-PLANNING.webp" alt=""><br>
@@ -9188,10 +9208,10 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <img src="https://cdn.yunminitools.cn/pic/0165-ITSP-METHODOLOGY.webp" alt=""></p>
 ]]></content>
       <categories>
-        <category>有趣资源</category>
+        <category>资源总结</category>
       </categories>
       <tags>
-        <tag>资料收集</tag>
+        <tag>架构设计</tag>
       </tags>
   </entry>
   <entry>
