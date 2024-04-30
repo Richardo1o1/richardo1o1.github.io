@@ -10268,13 +10268,13 @@ Not: <s>The government is regarding the economy …</s></p>
     <content><![CDATA[<h2 id="Policies">Policies</h2>
 <h3 id="Appropriate-Storage-Policies">Appropriate Storage Policies</h3>
 <ol>
-<li>
-<p>Information must only be stored on company authorised storage media. USB sticks and other temporary storage solutions should not be used to hold corporate data.</p>
-</li>
-<li>
-<p>The appropriate storage solution for the information must be used.  This may be a structured database, Sharepoint, shared drives, document management systems, proprietary system or  archive solution.</p>
-<h3 id="Accessibility-Confidentiality-and-Privacy-Policies">Accessibility, Confidentiality and Privacy Policies</h3>
-</li>
+<li>Information must only be stored on company authorised storage media. USB sticks and other temporary storage solutions should not be used to hold corporate data.</li>
+<li>The appropriate storage solution for the information must be used.  This may be a structured database, Sharepoint, shared drives, document management systems, proprietary system or  archive solution.</li>
+</ol>
+<span id="more"></span>    
+<pre><code>### Accessibility, Confidentiality and Privacy Policies
+</code></pre>
+<ol start="3">
 <li>
 <p>Information must be appropriately classified to determine the applicable level of privacy and confidentiality that must be applied.</p>
 </li>
