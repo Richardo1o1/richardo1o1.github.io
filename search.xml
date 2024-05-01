@@ -10349,4 +10349,25 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>数据管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Django Docker的部署时如何设置环境</title>
+    <url>/2024/05/01/Django-setup-env/</url>
+    <content><![CDATA[<h2 id="1-背景">1. 背景</h2>
+<p>在部署时，程序需要根据当前环境，设置不同参数，比如数据库，DEBUG是否打开等。</p>
+<br/>
+<h2 id="2-实现方式">2. 实现方式</h2>
+<p>在构建Docker的时候设置环境变量：</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="language-bash"> python manage.py collectstatic</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> DJANGO_DEBUG_FALSE=<span class="number">1</span></span><br><span class="line"><span class="keyword">ENV</span> DJANGO_SECRET_KEY=sekrit </span><br><span class="line"><span class="keyword">ENV</span> DJANGO_ALLOWED_HOST=localhost</span><br></pre></td></tr></table></figure>
+<br/>
+<p>在<code>superlists/settings.py</code>中添加判断：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;DJANGO_DEBUG_FALSE&quot;</span> <span class="keyword">in</span> os.environ:</span><br><span class="line">    DEBUG = <span class="literal">False</span></span><br><span class="line">    SECRET_KEY = os.environ[<span class="string">&quot;DJANGO_SECRET_KEY&quot;</span>]</span><br><span class="line">    ALLOWED_HOSTS = [os.environ[<span class="string">&quot;DJANGO_ALLOWED_HOST&quot;</span>]]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br><span class="line">    SECRET_KEY = <span class="string">&quot;insecure-key-for-dev&quot;</span></span><br><span class="line">    ALLOWED_HOSTS = []</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Django</tag>
+      </tags>
+  </entry>
 </search>

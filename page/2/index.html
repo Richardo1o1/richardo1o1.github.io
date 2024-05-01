@@ -100,6 +100,74 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-payment-core-system-design-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/19/payment-core-system-design-2/"
+    >Payment Core System Design - 2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/19/payment-core-system-design-2/" class="article-date">
+  <time datetime="2024-04-19T07:54:07.000Z" itemprop="datePublished">2024-04-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>学习支付大佬文章，参考<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;mid=2247498106&amp;idx=1&amp;sn=47801915cb46b679078039fa04152cee&amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;mpshare=1&amp;scene=1&amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd">原文</a>。</p>
+<p>这篇是系列文章的第2篇，下面是目录：</p>
+<p><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/18/payment-core-system-design-1/">系列文章一 ： 01. 全局内核</a></p>
+<p>系列文章二 ： 02. 交易内核 03. 支付内核</p>
+<p><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/20/payment-core-system-design-3/">系列文章三 ： 04. 清结算内核</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/21/payment-core-system-design-4/">系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核</a></p>
+<hr>
+<h2 id="02-交易内核">02. 交易内核</h2>
+<h3 id="内核7：交易的流程性">内核7：交易的流程性</h3>
+<p>任何一次交易都是一个流程，对交易的把握先从理解流程开始，业务的流程，系统的流程，业务和系统相互推动的流程</p>
+<p>在写交易系统时，我将交易拆分到了三层去表达，通过三层理解交易流程、处理流程和系统的关系，从这开始，我的交易观成型了</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0201-payment-core-7-1.webp" alt=""></p> 
+      <a class="article-more-link" href="/2024/04/19/payment-core-system-design-2/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/" rel="tag">支付产品</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-differentiation-of-consider-regard"
   class="article article-type-post"
   itemscope
@@ -733,79 +801,13 @@ Not: <s>The government is regarding the economy …</s></p>
 </article>
 
     
-    <article
-  id="post-about-comments-and-tdd"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/15/about-comments-and-tdd/"
-    >About Comments and TDD</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/15/about-comments-and-tdd/" class="article-date">
-  <time datetime="2024-04-15T12:18:07.000Z" itemprop="datePublished">2024-04-15</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>From《<strong>Test-Driven Development with Python, 3rd Edition</strong>》by <strong>Harry Percival</strong></p>
-<blockquote>
-<p><em>When I first started at Python Anywhere, I used to virtuously pepper my code with nice descriptive comments. My colleagues said to me: “Harry, we have a word for comments. We call them lies.” I was shocked! I learned in school that comments are good practice?</em></p>
-</blockquote>
-<p>当我第一次开始使用 Python Anywhere 时，我常常用漂亮的描述性注释来填充我的代码。我的同事对我说：“哈利，关于注释我们有话要说。我们称之为谎言。”我很震惊！我在学校学到注释是很好的做法？</p>
-<blockquote>
-<p><em>They were exaggerating for effect. There is definitely a place for comments that add context and intention. But my colleagues were pointing out that comments aren’t always as useful as you hope. For starters, it’s pointless to write a comment that just repeats what you’re doing with the code:</em></p>
-</blockquote>
-<p>他们为了效果而夸大其词。肯定有一个地方可以发表评论来添加上下文和意图。但我的同事指出，评论并不总是像你希望的那样有用。对于初学者来说，编写只是重复您对代码所做的事情的注释是没有意义的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># increment wibble by 1</span></span><br><span class="line">wibble += 1</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/04/15/about-comments-and-tdd/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/English-Article/" rel="tag">English_Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TDD/" rel="tag">TDD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>

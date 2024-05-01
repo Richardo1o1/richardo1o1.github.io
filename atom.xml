@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-04-30T03:47:53.413Z</updated>
+  <updated>2024-05-01T12:33:20.349Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django Docker的部署时如何设置环境</title>
+    <link href="http://yunminitools.cn/2024/05/01/Django-setup-env/"/>
+    <id>http://yunminitools.cn/2024/05/01/Django-setup-env/</id>
+    <published>2024-05-01T12:32:44.000Z</published>
+    <updated>2024-05-01T12:33:20.349Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-背景&quot;&gt;1. 背景&lt;/h2&gt;
+&lt;p&gt;在部署时，程序需要根据当前环境，设置不同参数，比如数据库，DEBUG是否打开等。&lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&quot;2-实现方式&quot;&gt;2.</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="Django" scheme="http://yunminitools.cn/tags/Django/"/>
+    
+  </entry>
   
   <entry>
     <title>Data Management Policies</title>
@@ -632,38 +662,6 @@
     
     
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>About Comments and TDD</title>
-    <link href="http://yunminitools.cn/2024/04/15/about-comments-and-tdd/"/>
-    <id>http://yunminitools.cn/2024/04/15/about-comments-and-tdd/</id>
-    <published>2024-04-15T12:18:07.000Z</published>
-    <updated>2024-04-15T13:34:04.169Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;From《&lt;strong&gt;Test-Driven Development with Python, 3rd Edition&lt;/strong&gt;》by &lt;strong&gt;Harry Percival&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;When I first started at Python Anywhere, I used to virtuously pepper my code with nice descriptive comments. My colleagues said to me: “Harry, we have a word for comments. We call them lies.” I was shocked! I learned in school that comments are good practice?&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;当我第一次开始使用 Python Anywhere 时，我常常用漂亮的描述性注释来填充我的代码。我的同事对我说：“哈利，关于注释我们有话要说。我们称之为谎言。”我很震惊！我在学校学到注释是很好的做法？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;They were exaggerating for effect. There is definitely a place for comments that add context and intention. But my colleagues were pointing out that comments aren’t always as useful as you hope. For starters, it’s pointless to write a comment that just repeats what you’re doing with the code:&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;他们为了效果而夸大其词。肯定有一个地方可以发表评论来添加上下文和意图。但我的同事指出，评论并不总是像你希望的那样有用。对于初学者来说，编写只是重复您对代码所做的事情的注释是没有意义的：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# increment wibble by 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wibble += 1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
-    
-    <category term="TDD" scheme="http://yunminitools.cn/tags/TDD/"/>
     
   </entry>
   
