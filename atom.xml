@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-05-01T12:33:20.349Z</updated>
+  <updated>2024-05-05T14:56:25.933Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Five Principles of Prompting</title>
+    <link href="http://yunminitools.cn/2024/05/05/Five-Principles-of-Prompting/"/>
+    <id>http://yunminitools.cn/2024/05/05/Five-Principles-of-Prompting/</id>
+    <published>2024-05-05T14:55:50.000Z</published>
+    <updated>2024-05-05T14:56:25.933Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Give Direction&lt;/strong&gt;: Describe the desired style in detail, or reference a relevant</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+  </entry>
   
   <entry>
     <title>Django Docker的部署时如何设置环境</title>
@@ -633,35 +660,6 @@
     <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
     
     <category term="TDD" scheme="http://yunminitools.cn/tags/TDD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决Docker打包报错问题</title>
-    <link href="http://yunminitools.cn/2024/04/15/resolve-docker-make-error-1/"/>
-    <id>http://yunminitools.cn/2024/04/15/resolve-docker-make-error-1/</id>
-    <published>2024-04-15T12:54:07.000Z</published>
-    <updated>2024-04-16T05:35:04.801Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;br/&gt;
-&lt;p&gt;报错：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ERROR: failed to solve: nginx: blob</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
     
   </entry>
   

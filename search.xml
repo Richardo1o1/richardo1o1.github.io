@@ -10370,4 +10370,38 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>Django</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Five Principles of Prompting</title>
+    <url>/2024/05/05/Five-Principles-of-Prompting/</url>
+    <content><![CDATA[<ol>
+<li>
+<p><strong>Give Direction</strong>: Describe the desired style in detail, or reference a relevant persona.</p>
+<p>给出方向：详细描述所需的风格，或参考相关的人物角色。</p>
+</li>
+<li>
+<p><strong>Specify Format</strong>: Define what rules to follow, and the required structure of the response.</p>
+<p>指定格式：定义要遵循的规则以及所需的响应结构。</p>
+</li>
+<li>
+<p>**Provide Examples: **Insert a diverse set of test cases where the task was done correctly.</p>
+<p>提供示例：插入正确完成任务的一组不同的测试用例。</p>
+</li>
+<li>
+<p>**Evaluate Quality: **Identify errors and rate responses, testing what drives performance.</p>
+<p>评估质量：识别错误并对响应进行评级，测试驱动性能的因素。</p>
+</li>
+<li>
+<p>**Divide Labor: **Split tasks into multiple steps, chained together for complex goals.</p>
+<p>分工：将任务分成多个步骤，链接在一起以实现复杂的目标。</p>
+</li>
+</ol>
+<p><img src="https://cdn.yunminitools.cn/pic/0248-prompt-engineering-principels.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>AIGC</tag>
+      </tags>
+  </entry>
 </search>
