@@ -10072,26 +10072,24 @@ Not: <s>The government is regarding the economy …</s></p>
 <p>使用统一的资源路径</p>
 <p><strong>资源命名</strong></p>
 <p>使用复数形式为资源命名，而不是在系统中有争议的一个单个资源 (例如，在大多数系统中，给定的用户帐户只有一个). 这种方式保持了特定资源的统一性.</p>
-<p><strong>形为</strong></p>
-<p>好的末尾展现形式不许要指定特殊的资源形为，在某些情况下，指定特殊的资源的形为是必须的,用一个标准的<code>actions</code>前缀去替代他, 清楚的描述他:</p>
+<p><strong>行为</strong></p>
+<p>好的末尾展现形式不许要指定特殊的资源行为，在某些情况下，指定特殊的资源的行为是必须的,用一个标准的<code>actions</code>前缀去替代他, 清楚的描述他:</p>
 </li>
 </ul>
-<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">/resources/:resource/actions/:action</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/resources/:resource/actions/:action</span><br></pre></td></tr></table></figure>
 <pre><code>例如：
 </code></pre>
-<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">/runs/&#123;run_id&#125;/actions/stop</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;br/&gt;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/runs/&#123;run_id&#125;/actions/stop</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
 <p>路径和属性要用小写字母</p>
 <p>使用小写字母并用<code>-</code>短线分割路径名字,并且紧跟着主机域名 e.g:</p>
 </li>
 </ul>
-<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">service-api.com/users</span><br><span class="line">service-api.com/app-setups</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service-api.com/users</span><br><span class="line">service-api.com/app-setups</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <pre><code>同样属性也要用小写字母, 但是属性名字要用下划线`_`分割，以至于这样在javaScript语言中不用输入引号。 例如.:
 </code></pre>
-<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">service_class: &quot;first&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service_class: &quot;first&quot;</span><br></pre></td></tr></table></figure>
 <pre><code>&lt;br/&gt;
 </code></pre>
 <ul>
@@ -10103,7 +10101,7 @@ Not: <s>The government is regarding the economy …</s></p>
 <p>在某些情况下，为了方便用户使用接口，在末尾提供用id标识资源,例如，一个用户想到了他在heroku平台app的名字，但是这个app的唯一标识是id,这种情况下，你想让接口通过名字和id都能访问，例如:</p>
 </li>
 </ul>
-<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">$ curl https://service.com/apps/&#123;app_id_or_name&#125;</span><br><span class="line">$ curl https://service.com/apps/97addcf0-c182</span><br><span class="line">$ curl https://service.com/apps/www-prod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ curl https://service.com/apps/&#123;app_id_or_name&#125;</span><br><span class="line">$ curl https://service.com/apps/97addcf0-c182</span><br><span class="line">$ curl https://service.com/apps/www-prod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <pre><code>不要只接受使用名字而剔除了使用id。
 </code></pre>
 <ul>
@@ -10112,8 +10110,8 @@ Not: <s>The government is regarding the economy …</s></p>
 <p>在网络请求响应错误的时候，返回统一的，结构化的错误信息。要包含一个机器可读的错误 <code>id</code>,一个人类能识别的错误信息 <code>message</code>, 根据情况可以添加一个<code>url</code> ，告诉客户端关于这个错误的更多信息以及如何去解决它。 例如:</p>
 </li>
 </ul>
-<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">HTTP/1.1 429 Too Many Requests</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:      &quot;rate_limit&quot;,</span><br><span class="line">  &quot;message&quot;: &quot;Account reached its API rate limit.&quot;,</span><br><span class="line">  &quot;url&quot;:     &quot;https://docs.service.com/rate-limits&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTTP/1.1 429 Too Many Requests</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:      &quot;rate_limit&quot;,</span><br><span class="line">  &quot;message&quot;: &quot;Account reached its API rate limit.&quot;,</span><br><span class="line">  &quot;url&quot;:     &quot;https://docs.service.com/rate-limits&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <pre><code>把你的错误信息格式文档化，以及这些可能的错误信息`id`s 让客户端能获取到.
 </code></pre>
 <ul>
