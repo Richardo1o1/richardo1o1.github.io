@@ -10383,15 +10383,15 @@ Not: <s>The government is regarding the economy …</s></p>
 <p>指定格式：定义要遵循的规则以及所需的响应结构。</p>
 </li>
 <li>
-<p>**Provide Examples: **Insert a diverse set of test cases where the task was done correctly.</p>
+<p><strong>Provide Examples</strong>: Insert a diverse set of test cases where the task was done correctly.</p>
 <p>提供示例：插入正确完成任务的一组不同的测试用例。</p>
 </li>
 <li>
-<p>**Evaluate Quality: **Identify errors and rate responses, testing what drives performance.</p>
+<p><strong>Evaluate Quality</strong>: Identify errors and rate responses, testing what drives performance.</p>
 <p>评估质量：识别错误并对响应进行评级，测试驱动性能的因素。</p>
 </li>
 <li>
-<p>**Divide Labor: **Split tasks into multiple steps, chained together for complex goals.</p>
+<p><strong>Divide Labor</strong>: Split tasks into multiple steps, chained together for complex goals.</p>
 <p>分工：将任务分成多个步骤，链接在一起以实现复杂的目标。</p>
 </li>
 </ol>
