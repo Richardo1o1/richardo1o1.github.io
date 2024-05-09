@@ -100,6 +100,82 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-the-TDD-process"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/15/the-TDD-process/"
+    >Recap The TDD Process</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/15/the-TDD-process/" class="article-date">
+  <time datetime="2024-04-15T13:18:07.000Z" itemprop="datePublished">2024-04-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>From《<strong>Test-Driven Development with Python, 3rd Edition</strong>》by <strong>Harry Percival</strong></p>
+<br/>
+<p>We’ve now seen all the main aspects of the TDD process, in practice:</p>
+<ul>
+<li><strong>Functional tests</strong></li>
+<li><strong>Unit tests</strong></li>
+<li><strong>The unit-test/code cycle</strong></li>
+<li><strong>Refactoring</strong></li>
+</ul>
+<br/>
+<p>What does the overall TDD process look like?</p>
+<ul>
+<li><strong>We write a test.</strong></li>
+<li><strong>We run the test and see it fail.</strong></li>
+<li><strong>We write some minimal code to get it a little further.</strong></li>
+<li><strong>We rerun the test and repeat until it passes (the unit test / code cycle)</strong></li>
+<li><strong>Then, we look for opportunities to refactor our code, using our tests to make sure we don’t break anything.</strong></li>
+<li><strong>And start again from the top!</strong></li>
+</ul>
+<p><img src="https://cdn.yunminitools.cn/pic/0170-TDD1.png" alt=""></p> 
+      <a class="article-more-link" href="/2024/04/15/the-TDD-process/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/English-Article/" rel="tag">English_Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TDD/" rel="tag">TDD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-resolve-docker-make-error-1"
   class="article article-type-post"
   itemscope
@@ -832,68 +908,6 @@ Not: <s>Above 100 people complained about the programme.</s></p>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Fail2Ban-Network-Intrusion-Detection-and-Prevention"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/"
-    >Fail2Ban - 网络入侵防御软件</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/" class="article-date">
-  <time datetime="2024-04-10T15:26:20.000Z" itemprop="datePublished">2024-04-10</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>Fail2Ban 是一款入侵防御软件，可以保护服务器免受暴力攻击，开源在 <a target="_blank" rel="noopener" href="https://github.com/fail2ban/fail2ban">GitHub</a></p>
-<h2 id="介绍">介绍</h2>
-<p>简单来说，Fail2Ban 的功能就是可以记录登录失败（例如SSH，MySQL等服务）的次数，如果失败太多次就禁用登录的 IP，还可以邮件通知；这样可以防止短时间内有大量暴力破解。</p>
-<p>注意：Fail2Ban 能够降低错误认证尝试的速度，但是它不能消除弱认证带来的风险。假如一款服务使用了弱密码，那么别人一猜就对了，那么 Fail2Ban 也无能为力。</p>
-<h2 id="安装Fail2Ban">安装Fail2Ban</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Ubuntu</span><br><span class="line">sudo apt update &amp;&amp; apt upgrade</span><br><span class="line">sudo apt install fail2ban</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li></ul>
 
     </footer>
   </div>

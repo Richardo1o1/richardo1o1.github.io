@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-05-09T05:37:17.172Z</updated>
+  <updated>2024-05-09T06:26:05.660Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>创建自己的Status页面</title>
+    <link href="http://yunminitools.cn/2024/05/09/uptime-monitoring-service/"/>
+    <id>http://yunminitools.cn/2024/05/09/uptime-monitoring-service/</id>
+    <published>2024-05-09T06:25:36.000Z</published>
+    <updated>2024-05-09T06:26:05.660Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;很多提供网络服务的网站都有自己的Status页面，这个页面可以帮助用户了解网络服务的稳定性，如果自己要搭建的话，effort有点大。近期发现，有现成的网络服务可以很快搭建一个status的页面，要求不高的话，是免费的。介绍一下设置过程。&lt;/p&gt;
+&lt;h2 id=&quot;注册&quot;&gt;注册&lt;/h2&gt;
+&lt;p&gt;访问 &lt;a href=&quot;https://uptimerobot.com/&quot;&gt;https://uptimerobot.com&lt;/a&gt; ，注册账户：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0249-uptimerobot.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="网络服务" scheme="http://yunminitools.cn/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Five Principles of Prompting</title>
@@ -618,48 +641,6 @@
     
     
     <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Recap The TDD Process</title>
-    <link href="http://yunminitools.cn/2024/04/15/the-TDD-process/"/>
-    <id>http://yunminitools.cn/2024/04/15/the-TDD-process/</id>
-    <published>2024-04-15T13:18:07.000Z</published>
-    <updated>2024-04-15T13:26:38.261Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;From《&lt;strong&gt;Test-Driven Development with Python, 3rd Edition&lt;/strong&gt;》by &lt;strong&gt;Harry Percival&lt;/strong&gt;&lt;/p&gt;
-&lt;br/&gt;
-&lt;p&gt;We’ve now seen all the main aspects of the TDD process, in practice:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Functional tests&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Unit tests&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The unit-test/code cycle&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Refactoring&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br/&gt;
-&lt;p&gt;What does the overall TDD process look like?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;We write a test.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;We run the test and see it fail.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;We write some minimal code to get it a little further.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;We rerun the test and repeat until it passes (the unit test / code cycle)&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Then, we look for opportunities to refactor our code, using our tests to make sure we don’t break anything.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;And start again from the top!&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0170-TDD1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
-    
-    <category term="TDD" scheme="http://yunminitools.cn/tags/TDD/"/>
     
   </entry>
   

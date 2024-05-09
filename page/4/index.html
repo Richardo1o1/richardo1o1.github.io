@@ -100,6 +100,68 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Fail2Ban-Network-Intrusion-Detection-and-Prevention"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/"
+    >Fail2Ban - 网络入侵防御软件</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/" class="article-date">
+  <time datetime="2024-04-10T15:26:20.000Z" itemprop="datePublished">2024-04-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Fail2Ban 是一款入侵防御软件，可以保护服务器免受暴力攻击，开源在 <a target="_blank" rel="noopener" href="https://github.com/fail2ban/fail2ban">GitHub</a></p>
+<h2 id="介绍">介绍</h2>
+<p>简单来说，Fail2Ban 的功能就是可以记录登录失败（例如SSH，MySQL等服务）的次数，如果失败太多次就禁用登录的 IP，还可以邮件通知；这样可以防止短时间内有大量暴力破解。</p>
+<p>注意：Fail2Ban 能够降低错误认证尝试的速度，但是它不能消除弱认证带来的风险。假如一款服务使用了弱密码，那么别人一猜就对了，那么 Fail2Ban 也无能为力。</p>
+<h2 id="安装Fail2Ban">安装Fail2Ban</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Ubuntu</span><br><span class="line">sudo apt update &amp;&amp; apt upgrade</span><br><span class="line">sudo apt install fail2ban</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-online-programming-website"
   class="article article-type-post"
   itemscope
@@ -691,71 +753,6 @@ var _hmt = _hmt || [];
 <p>It is crucial to have mechanisms in place to monitor and enforce compliance with the data warehouse standards. This can include regular audits, performance reviews, and ongoing communication and support to ensure that the standards are being followed consistently.</p>
 <h3 id="e-Standard-refinement">e. Standard refinement</h3>
 <p>Data warehouse standards should be treated as living documents that are continuously reviewed and refined based on feedback, evolving business needs, and technological advancements. Regular evaluations and updates should be conducted to ensure that the standards remain relevant and effective.</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/English-Article/" rel="tag">English_Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Data-Warehouse-Construction-Standards-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/03/20/Data-Warehouse-Construction-Standards-1/"
-    >Data Warehouse Construction Standards - Why</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/03/20/Data-Warehouse-Construction-Standards-1/" class="article-date">
-  <time datetime="2024-03-20T13:05:51.000Z" itemprop="datePublished">2024-03-20</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-Why-We-Need-Data-Warehouse-Standards">1. Why We Need Data Warehouse Standards</h2>
-<p>The adage “No rules, no success” underscores the critical importance of established standards in ensuring optimal team performance and high-quality deliverables. In the absence of such standards, operational efficiency and collaboration may suffer, leading to potentially chaotic outcomes.</p>
-<p>Have you encountered similar issues in your work?</p>
-<ul>
-<li>Received a requirement and not sure which table to pull data from. Table A seems feasible, while table B also appears to work. Asked colleague A, and they said they always pull from table C. Spent a long time exploring these three tables but couldn’t match them up. Oh well, let me calculate from the source again, and then a new table D appeared.</li>
-<li>I’ve noticed that there are thousands of tables in our database, but I only use a handful. So, what’s the point of all these other ones? I asked my colleagues, but nobody seems to know. Should I just get rid of them? Nobody else is touching them anyway.</li>
-<li>I got tasked with investigating an error in our process after my boss asked me to take a look. But man, the code is a total mess! I can’t make heads or tails of it. Plus, I’ve been searching for what feels like forever but still can’t find the upstream dependencies. What a headache!</li>
-<li>My coworker bailed on our project, and now I’m stuck with their share of the work. I’ve been grinding away for weeks, but I just can’t seem to wrap my head around it. It’s like they dumped a ton of unfinished business on me, and I’m feeling pretty frustrated myself now. Maybe it’s time for me to look for a new gig too…</li>
-</ul>
-<p>Our data warehouse team’s performance has taken a hit due to all the issues we’ve faced lately. Efficiency, output quality, job satisfaction – you name it. And let me tell you, it’s usually the hardest-working and most loyal employees who bear the brunt of all these problems. It’s just not right.</p>
-<p>If you’ve ever worked in data development, you know the pain I’m talking about. I mean, who hasn’t experienced some of these frustrations, right? So, what’s going on here? In my humble opinion, it all boils down to a lack of standards or proper implementation. And hey, I get it – sometimes business demands are tight, and shortcuts gotta be taken. But, that technical debt better be paid off pronto. Blaming employees for that ain’t cool. Leadership needs to own up to it.</p>
-<p>Think of a data warehouse like a digital construction project – it’s the intangible result of our data engineers’ hard work. Data standards are like the blueprints for building this system, serving as both the instruction manual and translator for data usage. And just like how you need quality control in construction, we gotta ensure data quality too. But here’s the thing – for our data system to really thrive, we need to move away from relying on individual judgment and toward standardized, tool-driven management. That way, we can scale sustainably and keep the system healthy.</p>
  
       <!-- reward -->
       

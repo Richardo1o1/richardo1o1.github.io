@@ -10404,4 +10404,27 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>AIGC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>创建自己的Status页面</title>
+    <url>/2024/05/09/uptime-monitoring-service/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>很多提供网络服务的网站都有自己的Status页面，这个页面可以帮助用户了解网络服务的稳定性，如果自己要搭建的话，effort有点大。近期发现，有现成的网络服务可以很快搭建一个status的页面，要求不高的话，是免费的。介绍一下设置过程。</p>
+<h2 id="注册">注册</h2>
+<p>访问 <a href="https://uptimerobot.com/">https://uptimerobot.com</a> ，注册账户：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0249-uptimerobot.png" alt=""></p>
+<span id="more"></span>
+<h2 id="创建监控任务">创建监控任务</h2>
+<p>点“Create Monitor”，填入需要监控的网站</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0250-uptimerobot-add.png" alt=""></p>
+<h2 id="检查生成结果">检查生成结果</h2>
+<p>最终会生成一个Status 页面： <a href="https://stats.uptimerobot.com/vvPOAWRe0J">https://stats.uptimerobot.com/vvPOAWRe0J</a> 样式如下：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0251-uptimerobot-status.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>网络服务</tag>
+      </tags>
+  </entry>
 </search>
