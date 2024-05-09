@@ -151,7 +151,7 @@
     <link href="http://yunminitools.cn/2024/04/29/http-api-design-guide/"/>
     <id>http://yunminitools.cn/2024/04/29/http-api-design-guide/</id>
     <published>2024-04-29T15:48:17.000Z</published>
-    <updated>2024-04-29T15:49:05.521Z</updated>
+    <updated>2024-05-09T08:33:41.824Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -159,9 +159,12 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 &lt;p&gt;我们的目标是一致性，专注业务逻辑同时避免设计上的空想，我们一直在寻找一种良好的，统一的，显而易见的API设计方式，未必只有一种方式。&lt;/p&gt;
-&lt;br/&gt;
+&lt;p&gt;以下内容供参考，另外，还可以看看大厂的设计规范：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md&quot;&gt;Microsoft REST API Guidelines&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cloud.google.com/apis/design?hl=zh-cn&quot;&gt;Google API Design Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&quot;内容&quot;&gt;内容&lt;/h2&gt;
-&lt;br/&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;返回合适的状态码&lt;/p&gt;
@@ -193,6 +196,8 @@
     
     
     <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
     
   </entry>
   
