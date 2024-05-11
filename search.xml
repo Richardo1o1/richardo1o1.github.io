@@ -10429,4 +10429,54 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>网络服务</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Built Twitter Like App - 1</title>
+    <url>/2024/05/11/Built-Twitter-Like-App-1/</url>
+    <content><![CDATA[<h2 id="Install-Next-Js">Install Next.Js</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx create-next-app@13.0.0 --typescript</span><br></pre></td></tr></table></figure>
+<h2 id="Install-tailwindcss">Install tailwindcss</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -D tailwindcss postcss autoprefixer</span><br><span class="line">npx tailwindcss init -p</span><br></pre></td></tr></table></figure>
+<h2 id="Initial-page">Initial page</h2>
+<p>modify <code>pages/index.js</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> default <span class="keyword">function</span> <span class="function"><span class="title">Home</span></span>() &#123;</span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;text-3xl text-sky-500&quot;</span>&gt;</span><br><span class="line">      Hello World!</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>modify <code>sytles/globals.css</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">:root</span>&#123;</span><br><span class="line">  <span class="keyword">@apply</span> h-full bg-black</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">body&#123; de</span><br><span class="line">  <span class="keyword">@apply</span> h-full bg-black</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>modify <code>tailwind.config.js</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** @type &#123;import(&#x27;tailwindcss&#x27;).Config&#125; */</span></span><br><span class="line">module<span class="selector-class">.exports</span> = &#123;</span><br><span class="line">  <span class="attribute">content</span>: [</span><br><span class="line">    <span class="string">&quot;./app/**/*.&#123;js,ts,jsx,tsx,mdx&#125;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;./pages/**/*.&#123;js,ts,jsx,tsx,mdx&#125;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;./components/**/*.&#123;js,ts,jsx,tsx,mdx&#125;&quot;</span>,</span><br><span class="line">  ],</span><br><span class="line">  theme: &#123;</span><br><span class="line">    extend: &#123;&#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [],</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="First-Run">First Run</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>Demo Page：</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0252-helloworld.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>tailwindcss</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Built Twitter Like App - 2</title>
+    <url>/2024/05/11/Built-Twitter-Like-App-2/</url>
+    <content><![CDATA[<h2 id="Add-basic-layout">Add basic layout</h2>
+<p>Add file <code>components/Layout.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Sidebar</span> <span class="keyword">from</span> <span class="string">&quot;./layout/Siderbar&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">LayoutProps</span>&#123;</span><br><span class="line">    <span class="attr">children</span>: <span class="title class_">React</span>.<span class="property">ReactNode</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Layout</span>:<span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">LayoutProps</span>&gt; = <span class="function">(<span class="params">&#123; children &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;h-screen bg-black&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;container h-full mx-auto xl:px-30 max-w-6xl&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;grid grid-cols-4 h-full&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Sidebar</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   col-span-3</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   lg:col-span-2</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   border-x-[1px]</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   border-neutral-800</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                &quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    &#123; children &#125;</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">   );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Layout</span>;</span><br></pre></td></tr></table></figure>
+<p>Add file <code>conmponent/layout/Sidebar.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Sidebar</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Sidebar</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>modify  <code>pages/_app.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../styles/globals.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">AppProps</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;next/app&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Layout</span> <span class="keyword">from</span> <span class="string">&#x27;../components/Layout&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">App</span>(<span class="params">&#123; Component, pageProps &#125;: AppProps</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Layout</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...pageProps</span>&#125; /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Layout</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2nd-Test-Run">2nd Test Run</h2>
+<p>![](<a href="https://cdn.yunminitools.cn/pic/0254-2nd-test-run.png">https://cdn.yunminitools.cn/pic/0254-2nd-test-run.png</a></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>tailwindcss</tag>
+      </tags>
+  </entry>
 </search>
