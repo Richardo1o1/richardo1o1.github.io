@@ -10508,4 +10508,20 @@ Not: <s>The government is regarding the economy …</s></p>
         <tag>tailwindcss</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Tailwind Cheat Sheet</title>
+    <url>/2024/05/14/tailwind-cheat-sheet/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>刚刚接触Tailwind，被缩写搞得很晕，找到的一个网站，可以快速查找Tailwind的缩写。</p>
+<h2 id="网站">网站</h2>
+<p>访问 <a href="https://nerdcave.com/tailwind-cheat-sheet">tailwind-cheat-sheet</a> :</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0257-Tailwind.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>网络服务</tag>
+      </tags>
+  </entry>
 </search>
