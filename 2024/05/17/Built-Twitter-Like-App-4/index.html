@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Tailwind Cheat Sheet |  New structure for utility</title>
+      <title>Built Twitter Like App - 4 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-tailwind-cheat-sheet"
+  id="post-Built-Twitter-Like-App-4"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Tailwind Cheat Sheet
+  Built Twitter Like App - 4
 </h1>
  
 
@@ -88,11 +88,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2024/05/14/tailwind-cheat-sheet/" class="article-date">
-  <time datetime="2024-05-14T01:03:12.000Z" itemprop="datePublished">2024-05-14</time>
+      <a href="/2024/05/17/Built-Twitter-Like-App-4/" class="article-date">
+  <time datetime="2024-05-17T15:42:40.000Z" itemprop="datePublished">2024-05-17</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
   </div>
   
 <div class="word_count">
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">38</span>
+            <span class="post-count">302</span>
         </span>
     </span>
 
@@ -124,11 +124,14 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="背景">背景</h2>
-<p>刚刚接触Tailwind，被缩写搞得很晕，找到的一个网站，可以快速查找Tailwind的缩写。</p>
-<h2 id="网站">网站</h2>
-<p>访问 <a target="_blank" rel="noopener" href="https://nerdcave.com/tailwind-cheat-sheet">tailwind-cheat-sheet</a> :</p>
-<p><img src="https://cdn.yunminitools.cn/pic/0257-Tailwind.png" alt=""></p>
+  <h2 id="Add-FollowBar">Add FollowBar</h2>
+<p>Modify file <code>conmponent/Layout.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">FollowBar</span> <span class="keyword">from</span> <span class="string">&quot;./layout/FollowBar&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Sidebar</span> <span class="keyword">from</span> <span class="string">&quot;./layout/Siderbar&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">LayoutProps</span>&#123;</span><br><span class="line">    <span class="attr">children</span>: <span class="title class_">React</span>.<span class="property">ReactNode</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Layout</span>:<span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">LayoutProps</span>&gt; = <span class="function">(<span class="params">&#123; children &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;h-screen bg-black&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;container h-full mx-auto xl:px-30 max-w-6xl&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;grid grid-cols-4 h-full&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Sidebar</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   col-span-3</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   lg:col-span-2</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   border-x-[1px]</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   border-neutral-800</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                &quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    &#123; children &#125;</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">FollowBar</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">   );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Layout</span>;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>Add file <code>conmponent/layout/FollowBar.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">FollowBar</span> =(<span class="params"></span>) =&gt;&#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;px-6 py-4 hidden lg:block&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;bg-neutral-800 rounded-xl p-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h2</span> <span class="attr">className</span>=<span class="string">&quot;text-white text-xl font-semibold&quot;</span>&gt;</span>Who to follow<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-col gap-6 mt-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* TODO User List */&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">   );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">FollowBar</span></span><br></pre></td></tr></table></figure>
+<p>Add file <code>conmponent/layout/SidebarLogo.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useRouter &#125; <span class="keyword">from</span> <span class="string">&quot;next/router&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BsTwitter</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-icons/bs&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">SidebarLogo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> router = <span class="title function_">useRouter</span>();</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span> router.push(&#x27;/&#x27;)&#125; </span></span><br><span class="line"><span class="language-xml">            className=&quot;</span></span><br><span class="line"><span class="language-xml">            rounded-full</span></span><br><span class="line"><span class="language-xml">            h-14</span></span><br><span class="line"><span class="language-xml">            w-14</span></span><br><span class="line"><span class="language-xml">            p-4</span></span><br><span class="line"><span class="language-xml">            flex</span></span><br><span class="line"><span class="language-xml">            items-center</span></span><br><span class="line"><span class="language-xml">            hover:bg-sky-700</span></span><br><span class="line"><span class="language-xml">            hover:bg-opacity-10</span></span><br><span class="line"><span class="language-xml">            justify-center</span></span><br><span class="line"><span class="language-xml">            cursor-pointer</span></span><br><span class="line"><span class="language-xml">            transition</span></span><br><span class="line"><span class="language-xml">        &quot;&gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">BsTwitter</span> <span class="attr">size</span>=<span class="string">&#123;28&#125;</span> <span class="attr">color</span>= <span class="string">&quot;white&quot;</span> <span class="attr">className</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">SidebarLogo</span></span><br></pre></td></tr></table></figure>
  
       <!-- reward -->
       
@@ -181,12 +184,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/05/14/tailwind-cheat-sheet/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/05/17/Built-Twitter-Like-App-4/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" rel="tag">网络服务</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
 
     </footer>
   </div>
@@ -194,19 +197,19 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2024/05/17/Built-Twitter-Like-App-4/" class="article-nav-link">
+      <a href="/2024/05/17/Built-Twitter-Like-App-5/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Built Twitter Like App - 4
+            Built Twitter Like App - 5
           
         </div>
       </a>
     
     
-      <a href="/2024/05/11/Built-Twitter-Like-App-3/" class="article-nav-link">
+      <a href="/2024/05/14/tailwind-cheat-sheet/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Built Twitter Like App - 3</div>
+        <div class="article-nav-title">Tailwind Cheat Sheet</div>
       </a>
     
   </nav>

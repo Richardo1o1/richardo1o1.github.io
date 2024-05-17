@@ -100,6 +100,168 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-A-Peer-to-Peer-Electronic-Cash-System-5"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/10/A-Peer-to-Peer-Electronic-Cash-System-5/"
+    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（5）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/10/A-Peer-to-Peer-Electronic-Cash-System-5/" class="article-date">
+  <time datetime="2023-04-10T15:20:09.000Z" itemprop="datePublished">2023-04-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="6-激励">6. 激励</h2>
+<p>6 Incentive<br>
+By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them.<br>
+The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation. In our case, it is CPU time and electricity that is expended. The incentive can also be funded with transaction fees. If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction. Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.<br>
+The incentive may help encourage nodes to stay honest. If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins. He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.</p>
+<p>我们约定，区块中的第一笔交易是区块创建者开创一枚属于他的新货币的特殊的交易。这就加入了对支持网络的节点的激励，并提供了一种初始分发货币到流通领域的方法，因为这里没有中央机构来发行货币。新货币按固定量稳定地增加就像金矿矿工消耗资源并增加黄金到流通领域一样。对我们而言，消耗的是 CPU 时间和电力激励也可以由交易费充当。如果交易的输出值小于其输入值，差价就作为交易费被加到包含此交易的区块的激励中。一旦预定量的货币进入了流通领域，激励将变为只含有交易费，这样可以完全避免通货膨胀。<br>
+激励会有助于鼓励节点保持诚实。如果一个贪心的攻击者有能力聚集比所有诚实节点更多的 CPU 算力，他将面临是以骗回已付款的方式欺诈别人还是使用这些算力生成新货币的抉择。他将发现遵守规则比破坏系统和他自己财产的有效性更有利，因为这些规则准许他获得比所有其他人都多的新货币。</p>
+<h2 id="7-回收磁盘空间">7. 回收磁盘空间</h2>
+<ol start="7">
+<li>Reclaiming Disk Space<br>
+Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block’s hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block’s hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.<br>
+<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-en.png" alt=" "><br>
+A block header with no transactions would be about 80 bytes. If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year. With computer systems typically selling with 2GB of RAM as of 2008, and Moore’s Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.</li>
+</ol>
+<p>一旦某个货币的最新交易已经被足够多的区块覆盖，这之前的支付交易就可以被丢弃以节省磁盘空间。为便于此而又不破坏区块的哈希值，交易将被哈希进默克尔树 [7][2][5]，只有根节点被纳入到区块的哈希值。老的区块可通过剪除树枝的方式被压缩。树枝内部的哈希不需要被保存。<br>
+<img src="http://cdn.yunminitools.cn/blog/0409Merkle-Tree-zh.png" alt=" "><br>
+每个不包含交易的区块头大约是 80 bytes。如果每 10 分钟生成一个区块，每年生成80 bytes * 6 * 24 * 365 = 4.2 MB，2008 年在售的典型计算机有 2 GB 内存，并且摩尔定律预测目前每年内存增加 1.2 GB，所以就算区块头一定要存在内存里，存储也不是问题。</p>
+<p>【关注点】：</p>
+<ul>
+<li>If the output value of a transaction is less than its input value，这句话不是太理解，什么情况下会出现？</li>
+<li>favour him with more new coins，翻译为 有利于他 获得更多的新币。问题是当到后期新币越来越少的时候，做这个事情是否是就有利可图了？</li>
+<li>enough blocks ，多少算足够？</li>
+<li>transactions are hashed in a Merkle Tree，为什么这样就可以不改变Hash值？</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-A-Peer-to-Peer-Electronic-Cash-System-4"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/09/A-Peer-to-Peer-Electronic-Cash-System-4/"
+    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（4）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/09/A-Peer-to-Peer-Electronic-Cash-System-4/" class="article-date">
+  <time datetime="2023-04-09T06:08:39.000Z" itemprop="datePublished">2023-04-09</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="5-网络">5. 网络</h2>
+<p>5 Network<br>
+The steps to run the network are as follows:</p>
+<ol>
+<li>New transactions are broadcast to all nodes.</li>
+<li>Each node collects new transactions into a block.</li>
+<li>Each node works on finding a difficult proof-of-work for its block.</li>
+<li>When a node finds a proof-of-work, it broadcasts the block to all nodes.</li>
+<li>Nodes accept the block only if all transactions in it are valid and not already spent.</li>
+<li>Nodes express their acceptance of the block by working on creating the next block in the<br>
+chain, using the hash of the accepted block as the previous hash.</li>
+</ol>
+<p>Nodes always consider the longest chain to be the correct one and will keep working on extending it. If two nodes broadcast different versions of the next block simultaneously, some nodes may receive one or the other first. In that case, they work on the first one they received, but save the other branch in case it becomes longer. The tie will be broken when the next proof-of-work is found and one branch becomes longer; the nodes that were working on the other branch will then switch to the longer one.</p>
+<p>New transaction broadcasts do not necessarily need to reach all nodes. As long as they reach many nodes, they will get into a block before long. Block broadcasts are also tolerant of dropped messages. If a node does not receive a block, it will request it when it receives the next block and realizes it missed one.</p>
+<p>运行网络的步骤如下：</p>
+<ol>
+<li>新交易向所有节点广播。</li>
+<li>每个节点将新交易收集到一个区块。</li>
+<li>每个节点为它的区块寻找工作量证明（困难）。</li>
+<li>当一个节点找到了工作量证明，就向所有节点广播这个区块。</li>
+<li>节点只有在区块内所有交易都是有效的且之前没有被支付的情况下接收这个区块。</li>
+<li>节点通过使用这个区块的哈希值作为上一个哈希值，在链中创建下一个区块的方式表示对这个区块的接受。</li>
+</ol>
+<p>节点总是认为最长的链为正确的并持续致力于延长它。如果两个节点同时广播了不同的下一个区块，有些节点可能先收到其中一个而其他节点先收到另一个。这种情况，节点基于他们收到的第一个区块工作，但是也保存另一个分支以防它变为更长的链。当下一个工作量证明被找到后僵局就会被打破，从而其中一个分支变得更长；在<strong>另一个分支上工作的节点将切换到更长的链</strong>上来。</p>
+<p>新交易的广播不必到达所有的节点。只要到达一些节点，<strong>不久就会进入到一个区块</strong>。区块广播也是能容忍消息丢失的。如果一个节点没有收到某个区块，它将在收到下一个区块时发现它丢失了一个区块然后去请求这个区块。</p>
+<p>【关注点】：</p>
+<ul>
+<li>另一个分支上工作的节点将切换到更长的链，也就意味着有些交易会失效，对于这些失效的交易如何处理？</li>
+<li>不久就会进入到一个区块，这个是指这笔交易会被保存到区块里。那一个区块会包含多少笔交易呢？</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-A-Peer-to-Peer-Electronic-Cash-System-3"
   class="article article-type-post"
   itemscope
@@ -634,134 +796,6 @@ SystemChange = f(ReqirementChange)<br>
 <p>只要程序员编写模块A时，需要知道模块B的存在，需要知道模块B提供哪些功能，A对B依赖就存在。甚至就算通过所谓的依赖注入、命名查找之类的“解耦”手段，让模块A不需要import B或者include “B.h”，人脑中的依赖仍旧一点都没有变化。唯一的作用是会骗过后文会提到的代码打分工具，让工具误以为两个模块间没有依赖。</p>
 </blockquote>
 <p>代码的复杂度更主要的体现在阅读和理解，如果只是纠结于编译器所看到的依赖，实在是分错了主次，误入了歧途。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Event-Tracking-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/01/Event-Tracking-1/"
-    >初识数据埋点（一）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/01/Event-Tracking-1/" class="article-date">
-  <time datetime="2023-04-01T14:53:37.000Z" itemprop="datePublished">2023-04-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="埋点概述"><strong>埋点概述</strong></h2>
-<p>数据埋点是数据产品经理、数据运营以及数据分析师，基于业务需求（例如：CPC点击付费广告中统计每一个广告位的点击次数），产品需求（例如：推荐系统中推荐商品的曝光次数以及点击的人数）对用户行为的每一个事件对应的位置进行开发埋点，并通过SDK上报埋点的数据结果，记录数据汇总后进行分析，推动产品优化或指导运营。<br>
-埋点分析，是网站分析的一种常用的数据采集方法。数据埋点分为初级、中级、高级三种方式。数据埋点主流部署的方式有：</p>
-<ul>
-<li>私有化部署（即部署在自己公司的服务器上，如果期望提高数据安全性，或者定制化的埋点方案较多，则适合私有部署，并开发一套针对自己公司定制化的数据后台查询系统保证数据的安全性和精确性，缺点是成本较高）。</li>
-<li>接入第三方服务，比如国内的某盟和国外的GA（Google Analytics）统计，在以后的文章中会单独介绍，此处不再展开。（优点是成本较低，部分基础服务免费，缺点是：数据会存在不安全的风险，另外一个就是只能进行通用的简单分析，无法定制化埋点方案）<br>
-此处只展开初级：在产品、服务转化关键点植入统计代码，据其独立ID确保数据采集不重复（如收藏按钮点击率）；</li>
-</ul>
-<h2 id="主要的埋点事件分类："><strong>主要的埋点事件分类：</strong></h2>
-<h3 id="点击事件："><strong>点击事件：</strong></h3>
-<p>点击事件，用户点击按钮即算点击事件，不管点击后有无结果；</p>
-<h3 id="曝光事件："><strong>曝光事件：</strong></h3>
-<p>成功打开一次页面记一次，刷新页面一次记一次，加载下一页新页，加载一次记一次。home键切换到后台再进入页面，曝光事件不记；</p>
-<h3 id="页面停留时间事件："><strong>页面停留时间事件：</strong></h3>
-<p>表示一个用户在X页面的停留时长记为停留时长。例如：小明9:00访问了X网站首页，此时分析工具则开始为小明这个访问者记录1个Session（会话）。接着9:01小明又浏览了另外一个页面列表页，然后离开了网站（离开网站可以是通过关闭浏览器，或在地址栏键入一个不同的网址，或是点击了你网站上链接到其他网站的链接……）为了简单，我们把这个过程当做一个Session。<br>
-则最终小明在首页的页面停留时间：<br>
-<strong>（Time on Page，简称Tp）Tp(首页) = 9:01 – 9:00 = 1 分钟</strong></p> 
-      <a class="article-more-link" href="/2023/04/01/Event-Tracking-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Learn-Regular-expressions"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/31/Learn-Regular-expressions/"
-    >推荐：学正则表达式的网站</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/31/Learn-Regular-expressions/" class="article-date">
-  <time datetime="2023-03-31T15:04:59.000Z" itemprop="datePublished">2023-03-31</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>推荐一个从零开始学正则表达式的网站，一步步，交互式，支持中文，方便学。非常不错的网站：<a target="_blank" rel="noopener" href="https://regexlearn.com/zh-cn">regexlearn.com</a><br>
-<img src="http://cdn.yunminitools.cn/blog/0331Regexlearn.png" alt="regexlearn.com"></p>
  
       <!-- reward -->
       

@@ -100,6 +100,131 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Design-Challenges-for-the-Middle-Platform-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/"
+    >中台的设计挑战-1</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/" class="article-date">
+  <time datetime="2023-03-22T14:37:31.000Z" itemprop="datePublished">2023-03-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>在做中台设计的过程中，发现中台体系庞大，链路错综复杂，问题也很多。不过这些页面之间都存有一些共性，通过对页面特征的分析，总结出了三种典型的业务场景类型：信息列表类、规则配置类、场景联动类。</p>
+<h2 id="1-信息列表类">1.信息列表类</h2>
+<p>列表是中后台最为常见的场景之一，传统的列表无非是字段的堆叠，大量相似信息的重复出现，降低了有效信息的捕获和整合效率，加重了认知负荷。大量列表让我们有种看不清重点的错觉，这种现象统称为“看不清”，为了解决这个问题，我们将列表按照其功能分成两大类：<strong>执行类</strong>和<strong>看板类</strong>。执行类列表目的是将所有字段展示完全，方便统一管理和操作；看板类则只要展示关键信息，起到快速查看和监控的作用。</p>
+<h3 id="1-1-执行类列表"><strong>1.1 执行类列表</strong></h3>
+<p><img src="http://cdn.yunminitools.cn/blog/0322-Design-01.png" alt=" "><br>
+这里举一个营销列表的例子，营销列表的作用是对所有的活动进行一个高效的管理。</p> 
+      <a class="article-more-link" href="/2023/03/22/Design-Challenges-for-the-Middle-Platform-1/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI%E8%AE%BE%E8%AE%A1/" rel="tag">UI设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-VIM-Replace-Command"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/21/VIM-Replace-Command/"
+    >关于linux vim命令替换的使用</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/21/VIM-Replace-Command/" class="article-date">
+  <time datetime="2023-03-21T15:35:49.000Z" itemprop="datePublished">2023-03-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>vim 中可以使用 ：s 命令来替换字符串。以前只会使用一种格式来全文替换，今天发现该命令有很多种写法（linux vi命令真是强大啊，还有很多需要学习），记录几种在此，方便以后查询。</p>
+<p>：s/vivian/sky/ 替换当前行第一个 vivian 为 sky<br>
+：s/vivian/sky/g 替换当前行所有 vivian 为 sky</p>
+<p>：n，$s/vivian/sky/ 替换第 n 行开始到最后一行中每一行的第一个 vivian 为 sky<br>
+：n，$s/vivian/sky/g 替换第 n 行开始到最后一行中每一行所有 vivian 为 sky<br>
+n 为数字，若 n 为 .，表示从当前行开始到最后一行</p>
+<p>：%s/vivian/sky/（等同于 ：g/vivian/s//sky/） 替换每一行的第一个 vivian 为 sky<br>
+：%s/vivian/sky/g（等同于 ：g/vivian/s//sky/g） 替换每一行中所有 vivian 为 sky</p>
+<p>可以使用 # 作为分隔符，此时中间出现的 / 不会作为分隔符：s#vivian/#sky/# 替换当前行第一个 vivian/ 为 sky/<br>
+：%s+/oradata/apras/+/user01/apras1+ （使用+ 来 替换 / ）： /oradata/apras/替换成/user01/apras1/</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Talk-about-Enterprise-Services"
   class="article article-type-post"
   itemscope
@@ -723,138 +848,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-The-iceberg-secret-revealed"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/12/The-iceberg-secret-revealed/"
-    >关于需求分析和客户沟通</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/12/The-iceberg-secret-revealed/" class="article-date">
-  <time datetime="2023-03-12T09:23:18.000Z" itemprop="datePublished">2023-03-12</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>关于需求分析和工期预估一直是老大难问题，Joel 的<a target="_blank" rel="noopener" href="https://www.joelonsoftware.com/2002/02/13/the-iceberg-secret-revealed/">这篇文章</a>谈到了这个问题，我挑一些记录下来。</p>
-<h2 id="客户不知道他们想要什么是问题吗？">客户不知道他们想要什么是问题吗？</h2>
-<p>通常，在定制项目中，最常见的超支、失败和悲剧的原因总是归结为，基本上，&quot;客户不知道他们想要什么？”<br>
-事实上，有一件事是每个初级BA都需要在开展工作前要知道的，那就是：<strong>客户其实不知道他们想要什么</strong>。不要再期望客户知道他们想要什么。这是不可能发生的。忘掉它吧。<br>
-相反，你要假设你将不得不制造一些东西，而客户将不得不喜欢它，但他们将有一点惊喜。你必须做研究，想出一个设计，以一种愉悦的方式解决客户的问题。<br>
-设身处地为客户想想。想象一下，你决定装修你的厨房，因此，你聘请了一位专业的设计师，指示要把它弄得高大上一些。你不知道如何完成这个任务，你不知道那些事厨房中必须要装的，哪些事提升体验的，这些都不是你擅长的，你想让设计师帮你完成这个事情，这就是你雇用他的原因。<br>
-有一种办法是让客户进入房间，让他们作为开发团队的成员参与到设计过程的每一步。我认为，这有点太 &quot;极端 &quot;了。这就好像我的设计师在设计厨房时让我出现，并要求我对每一个小细节提供意见。这对我来说很无聊，我会觉得这个设计师对我毫无价值。<br>
-假设你的客户不知道他们想要什么。根据你对这个领域的理解，你自己设计它。如果你需要花一些时间来学习这个领域，或者你需要一个领域专家来帮助你，这很好，但软件的设计是你的工作。如果你做了领域方面的功课并创造了一个好的用户界面，客户会很高兴。</p>
-<h2 id="冰山理论">冰山理论</h2>
-<p>现在，我答应告诉你一个关于在你的软件的客户（或非技术经理）的语言和程序员的语言之间进行翻译的秘密。<br>
-你知道一座冰山有90%在水下吗？那么，大多数软件也是这样的–有一个漂亮的用户界面，需要大约10%的工作，然后90%的编程工作是在盖子下面。如果你考虑到你大约一半的时间是用来修复bug的，那么用户界面只占5%的工作。如果你把自己限制在用户界面的视觉部分，即像素，也就是你在PowerPoint中看到的东西，现在我们说的是不到1%。</p> 
-      <a class="article-more-link" href="/2023/03/12/The-iceberg-secret-revealed/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" rel="tag">需求分析</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Hexo-plantuml-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/11/Hexo-plantuml-1/"
-    >Hexo博客安装PlantUML</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/11/Hexo-plantuml-1/" class="article-date">
-  <time datetime="2023-03-11T08:54:13.000Z" itemprop="datePublished">2023-03-11</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>Hexo 静态 blog 支持 markdown 绘制 plantuml。</p>
-<h2 id="安装步骤">安装步骤</h2>
-<ul>
-<li>进入hexo 目录</li>
-<li>安装 <code>npm install --save hexo-tag-plantuml</code></li>
-</ul>
-<h2 id="使用示例">使用示例</h2>
-<p>简单时序图：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% plantuml %&#125;</span><br><span class="line">Alice -&gt; &quot;Bob()&quot; : Hello</span><br><span class="line">&quot;Bob()&quot; -&gt; &quot;This is very\nlong&quot; as Long</span><br><span class="line">&#x27; You can also declare:</span><br><span class="line">&#x27; &quot;Bob()&quot; -&gt; Long as &quot;This is very\nlong&quot;</span><br><span class="line">Long --&gt; &quot;Bob()&quot; : ok</span><br><span class="line">&#123;% endplantuml %&#125;</span><br></pre></td></tr></table></figure>
-<p>实现效果：</p>
-<img  src=http://www.plantuml.com/plantuml/svg/Syp9J4vLqBLJK7BAJzBGL5AmKl18pSd9vuBnGL8X6Pd52a1KbbfK6PENav-NhgIGMApW0sHmgIj4vfSg92VcAIJc5EShfAGcvoGMfLe1nP5C0Aa4wS1c4XTOKXV52VdP0000>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
 
     </footer>
   </div>
