@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-05-17T15:47:19.337Z</updated>
+  <updated>2024-05-18T14:49:39.229Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Twitter Like App - 7</title>
+    <link href="http://yunminitools.cn/2024/05/18/Built-Twitter-Like-App-7/"/>
+    <id>http://yunminitools.cn/2024/05/18/Built-Twitter-Like-App-7/</id>
+    <published>2024-05-18T14:48:06.000Z</published>
+    <updated>2024-05-18T14:49:39.229Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-Zustand&quot;&gt;Install Zustand&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install zustand&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Add-Hooks&quot;&gt;Add Hooks&lt;/h2&gt;
+&lt;p&gt;Add file &lt;code&gt;hooks/useLoginModal.ts&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; create &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;zustand&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;LoginModalStore&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;isOpen&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;boolean&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;onOpen&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;()=&amp;gt;&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;void&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;onClose&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;()=&amp;gt;&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;void&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; useLoginModal = create&amp;lt;&lt;span class=&quot;title class_&quot;&gt;LoginModalStore&lt;/span&gt;&amp;gt;(&lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;set&lt;/span&gt;) =&amp;gt;&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;isOpen&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;onOpen&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;set&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;isOpen&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&amp;#125;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;onClose&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;set&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;isOpen&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; useLoginModal;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Built Twitter Like App - 6</title>
+    <link href="http://yunminitools.cn/2024/05/18/Built-Twitter-Like-App-6/"/>
+    <id>http://yunminitools.cn/2024/05/18/Built-Twitter-Like-App-6/</id>
+    <published>2024-05-18T14:37:17.000Z</published>
+    <updated>2024-05-18T14:37:55.713Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Add-ModalBox&quot;&gt;Add ModalBox&lt;/h2&gt;
+&lt;p&gt;Modify file &lt;code&gt;pages/_app.tsx&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;../styles/globals.css&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;AppProps&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;next/app&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Layout&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;../components/Layout&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;ModalBox&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;../components/ModalBox&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;App&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&amp;#123; Component, pageProps &amp;#125;: AppProps&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;language-xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-xml&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;ModalBox&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;actionLabel&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#x27;Submit&amp;#x27;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;isOpen&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;title&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#x27;Test Modal&amp;#x27;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-xml&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;Layout&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-xml&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;Component&lt;/span&gt; &amp;#123;&lt;span class=&quot;attr&quot;&gt;...pageProps&lt;/span&gt;&amp;#125; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-xml&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;Layout&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-xml&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Twitter Like App - 5</title>
@@ -574,63 +622,6 @@
     <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
     <category term="支付产品" scheme="http://yunminitools.cn/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Payment Core System Design - 2</title>
-    <link href="http://yunminitools.cn/2024/04/19/payment-core-system-design-2/"/>
-    <id>http://yunminitools.cn/2024/04/19/payment-core-system-design-2/</id>
-    <published>2024-04-19T07:54:07.000Z</published>
-    <updated>2024-04-21T08:32:14.080Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学习支付大佬文章，参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;amp;mid=2247498106&amp;amp;idx=1&amp;amp;sn=47801915cb46b679078039fa04152cee&amp;amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd&quot;&gt;原文&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;这篇是系列文章的第2篇，下面是目录：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/18/payment-core-system-design-1/&quot;&gt;系列文章一 ： 01. 全局内核&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;系列文章二 ： 02. 交易内核 03. 支付内核&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/20/payment-core-system-design-3/&quot;&gt;系列文章三 ： 04. 清结算内核&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/21/payment-core-system-design-4/&quot;&gt;系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;02-交易内核&quot;&gt;02. 交易内核&lt;/h2&gt;
-&lt;h3 id=&quot;内核7：交易的流程性&quot;&gt;内核7：交易的流程性&lt;/h3&gt;
-&lt;p&gt;任何一次交易都是一个流程，对交易的把握先从理解流程开始，业务的流程，系统的流程，业务和系统相互推动的流程&lt;/p&gt;
-&lt;p&gt;在写交易系统时，我将交易拆分到了三层去表达，通过三层理解交易流程、处理流程和系统的关系，从这开始，我的交易观成型了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0201-payment-core-7-1.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-    <category term="支付产品" scheme="http://yunminitools.cn/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>英语单词辨析 - Consider or regard</title>
-    <link href="http://yunminitools.cn/2024/04/18/differentiation-of-consider-regard/"/>
-    <id>http://yunminitools.cn/2024/04/18/differentiation-of-consider-regard/</id>
-    <published>2024-04-18T13:14:07.000Z</published>
-    <updated>2024-04-18T13:08:55.077Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;ref：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
