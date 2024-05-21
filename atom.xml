@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-05-18T14:49:39.229Z</updated>
+  <updated>2024-05-21T15:48:39.465Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Twitter Like App - 8</title>
+    <link href="http://yunminitools.cn/2024/05/21/Built-Twitter-Like-App-8/"/>
+    <id>http://yunminitools.cn/2024/05/21/Built-Twitter-Like-App-8/</id>
+    <published>2024-05-21T15:48:01.000Z</published>
+    <updated>2024-05-21T15:48:39.465Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-Prisma&quot;&gt;Install Prisma&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -D prisma&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Init-Prisma&quot;&gt;Init Prisma&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npx prisma init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Twitter Like App - 7</title>
@@ -587,41 +611,6 @@
     
     
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Payment Core System Design - 3</title>
-    <link href="http://yunminitools.cn/2024/04/20/payment-core-system-design-3/"/>
-    <id>http://yunminitools.cn/2024/04/20/payment-core-system-design-3/</id>
-    <published>2024-04-20T08:31:31.000Z</published>
-    <updated>2024-04-21T08:33:13.592Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学习支付大佬文章，参考&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg2MTg1NTM4NA%3D%3D&amp;amp;mid=2247498106&amp;amp;idx=1&amp;amp;sn=47801915cb46b679078039fa04152cee&amp;amp;chksm=ce12728df965fb9b82c251d090088a4fbea8367c358e71186c095bdd0053d722acdc3e95e606&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=04169gt5kFWJvWVKp5i5XXx7&amp;amp;sharer_shareinfo=de2a0634e5fc5f8a8a04bcfc88bae887&amp;amp;sharer_shareinfo_first=de2a0634e5fc5f8a8a04bcfc88bae887#rd&quot;&gt;原文&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;这篇是系列文章的第3篇，下面是目录：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/18/payment-core-system-design-1/&quot;&gt;系列文章一 ： 01. 全局内核&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/19/payment-core-system-design-2/&quot;&gt;系列文章二 ： 02. 交易内核 03. 支付内核&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;系列文章三 ： 04. 清结算内核&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.yunminitools.cn/2024/04/21/payment-core-system-design-4/&quot;&gt;系列文章四 ： 05. 账户钱包内核 06. 对账内核 07. 二清内核 08. 调拨内核 09. 业财内核&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;04-清结算内核&quot;&gt;04 清结算内核&lt;/h2&gt;
-&lt;p&gt;我们不是一个人再战斗，任何一次交易，任何一次支付，都是大家共同参与的结果，而谁从中获利，谁为此支付，获利多少，如何交付。清结算就上场了，要想做好它，先认识它。&lt;/p&gt;
-&lt;h3 id=&quot;内核13：清结算在哪&quot;&gt;&lt;strong&gt;内核13：清结算在哪&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;这张图阐释了清结算的位置，以及它要干什么，这是我在规划清结算中台时设计的结构，也成为了今后我的清结算的内核&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0223-payment-core-13.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;lt;学习体会&amp;gt; 清算是指要把账算清楚，这里需要订单信息、钱包信息、账户信息和分账规则，清分这块这里写得比较少。结算就是产生记账数据，是财务系统的前置系统，需要遵循财务的规则。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-    <category term="支付产品" scheme="http://yunminitools.cn/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/"/>
     
   </entry>
   
