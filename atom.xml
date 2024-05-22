@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-05-21T15:48:39.465Z</updated>
+  <updated>2024-05-22T00:56:46.400Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Twitter Like App - 9</title>
+    <link href="http://yunminitools.cn/2024/05/22/Built-Twitter-Like-App-9/"/>
+    <id>http://yunminitools.cn/2024/05/22/Built-Twitter-Like-App-9/</id>
+    <published>2024-05-22T00:55:56.000Z</published>
+    <updated>2024-05-22T00:56:46.400Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-bcrypt-type&quot;&gt;Install bcrypt &amp;amp; type&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install bcrypt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install -D &lt;span class=&quot;meta&quot;&gt;@types&lt;/span&gt;/bcrypt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Install-next-auth&quot;&gt;Install next-auth&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install next-auth&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install &lt;span class=&quot;meta&quot;&gt;@next&lt;/span&gt;-auth/prisma-adapter&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Twitter Like App - 8</title>
@@ -554,63 +578,6 @@
     <category term="架构设计" scheme="http://yunminitools.cn/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     
     <category term="支付产品" scheme="http://yunminitools.cn/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SS 显示套接字信息的工具</title>
-    <link href="http://yunminitools.cn/2024/04/20/ss-command/"/>
-    <id>http://yunminitools.cn/2024/04/20/ss-command/</id>
-    <published>2024-04-20T11:03:13.000Z</published>
-    <updated>2024-04-20T11:03:38.404Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;code&gt;ss&lt;/code&gt; 命令是 Linux 系统上用于显示套接字信息的工具，它是 &lt;code&gt;netstat&lt;/code&gt; 的替代品，提供了更多的功能和更好的性能。以下是 &lt;code&gt;ss&lt;/code&gt; 命令的详细使用手册：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;基础语法：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ss [options] [filter]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;选项（Options）：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;a&lt;/code&gt;: 显示所有套接字，包括监听、已建立和关闭（not listening or closed）的套接字。默认仅显示监听或已建立的套接字。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;l&lt;/code&gt;: 只显示监听套接字。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;e&lt;/code&gt;: 只显示已建立的套接字。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;p&lt;/code&gt; &lt;pid&gt;: 根据指定的进程 ID 过滤显示的套接字。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;u&lt;/code&gt; &lt;username&gt;: 根据用户名过滤显示的套接字。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;n&lt;/code&gt;: 不解析主机名称，直接显示数字形式的 IP 地址。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;r&lt;/code&gt;: 按照最近使用的顺序逆向排列输出（即最近活跃的套接字先显示）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;o&lt;/code&gt;: 指定输出格式，可以是 &lt;code&gt;json&lt;/code&gt;、&lt;code&gt;xml&lt;/code&gt; 等格式。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;i&lt;/code&gt; &lt;iface&gt;: 只显示特定网络接口上的套接字。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;m&lt;/code&gt; &lt;protocol&gt;: 只显示特定协议的套接字（例如，&lt;code&gt;tcp&lt;/code&gt;、&lt;code&gt;udp&lt;/code&gt;）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;t&lt;/code&gt; &amp;lt;transport_family&amp;gt;: 指定传输层家族，如 &lt;code&gt;inet&lt;/code&gt;（IPv4）、&lt;code&gt;inet6&lt;/code&gt;（IPv6）或 &lt;code&gt;unix&lt;/code&gt;（Unix 域套接字）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
