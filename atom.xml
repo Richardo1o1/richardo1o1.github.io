@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-05-22T01:57:21.396Z</updated>
+  <updated>2024-05-23T11:33:08.288Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Twitter Like App - 11</title>
+    <link href="http://yunminitools.cn/2024/05/23/Built-Twitter-Like-App-11/"/>
+    <id>http://yunminitools.cn/2024/05/23/Built-Twitter-Like-App-11/</id>
+    <published>2024-05-23T11:32:34.000Z</published>
+    <updated>2024-05-23T11:33:08.288Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Install-SWR-axios&quot;&gt;Install SWR &amp;amp; axios&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Twitter Like App - 10</title>
@@ -117,7 +145,7 @@
     <link href="http://yunminitools.cn/2024/05/18/Built-Twitter-Like-App-6/"/>
     <id>http://yunminitools.cn/2024/05/18/Built-Twitter-Like-App-6/</id>
     <published>2024-05-18T14:37:17.000Z</published>
-    <updated>2024-05-18T14:37:55.713Z</updated>
+    <updated>2024-05-24T13:42:38.110Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Add-ModalBox&quot;&gt;Add ModalBox&lt;/h2&gt;
@@ -528,47 +556,6 @@
     
     
     <category term="英语学习" scheme="http://yunminitools.cn/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lsof command</title>
-    <link href="http://yunminitools.cn/2024/04/21/lsof-command/"/>
-    <id>http://yunminitools.cn/2024/04/21/lsof-command/</id>
-    <published>2024-04-21T08:42:58.000Z</published>
-    <updated>2024-04-21T08:44:06.484Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Basic-Syntax&quot;&gt;&lt;strong&gt;Basic Syntax:&lt;/strong&gt;&lt;/h2&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;lsof [options] [file|socket|keyword]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;Options&quot;&gt;&lt;strong&gt;Options:&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;a&lt;/code&gt;: Selects files or sockets that match all of the specified keywords.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;c&lt;/code&gt;: Specifies a process ID (PID) to filter results by. For example, &lt;code&gt;lsof -c 12345&lt;/code&gt; would show only files and sockets used by process with PID 12345.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;d&lt;/code&gt;: Specifies a directory to search for open files or sockets.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;e&lt;/code&gt;: Excludes files or sockets that match the specified keyword(s).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;f&lt;/code&gt;: Forces &lt;code&gt;lsof&lt;/code&gt; to use a specific file type (e.g., FIFO, socket, etc.).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;i&lt;/code&gt;: Selects Internet sockets only (default is all types of files and sockets).&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
   </entry>
   
