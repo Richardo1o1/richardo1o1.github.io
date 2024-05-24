@@ -100,6 +100,197 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-django-docker-implement-step-by-step"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/29/django-docker-implement-step-by-step/"
+    >Django Docker的部署方法</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/29/django-docker-implement-step-by-step/" class="article-date">
+  <time datetime="2024-04-29T01:46:31.000Z" itemprop="datePublished">2024-04-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-背景">1. 背景</h2>
+<p>Django 程序如何部署有各种方法，我们今天使用Docker来部署</p>
+<h2 id="2-Docker打包">2. Docker打包</h2>
+<ul>
+<li>
+<p>将Django文件都移动到 src 子目录</p>
+</li>
+<li>
+<p>编写 Dockerfile 文件，输入以下内容：</p>
+  <figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:slim</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> python -m venv /venv</span></span><br><span class="line"><span class="keyword">ENV</span> PAth=<span class="string">&#x27;/venv/bin;4path&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt requirements.txt</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> src /src</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /src</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python manage.py migrate --noinput</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python manage.py runserver 0.0.0.0:8888</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>编写 requirement.txt 文件，输入以下内容：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django==4.2.7</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+<p>superlists 为docker名</p>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-安装guicorn">3. 安装guicorn</h2>
+<ul>
+<li>
+<p>添加 guicorn 到requirement.txt 文件：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">django==4.2.7</span><br><span class="line">gunicorn==21.2.0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 Dockerfile 文件，替换最后一条语句：</p>
+  <figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CMD</span><span class="language-bash"> gunicorn --<span class="built_in">bind</span> :8888 superlists.wsgi:application</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>发现静态文件css没有加载，继续。</p>
+<h2 id="4-安装Whitenoise">4. 安装Whitenoise</h2>
+<ul>
+<li>
+<p>继续修改requirement.txt :</p>
+  <figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">django==<span class="number">4.2</span>.<span class="number">7</span></span><br><span class="line">gunicorn==<span class="number">21.2</span>.<span class="number">0</span></span><br><span class="line">whitenoise==<span class="number">6.6</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 <em>src/superlists/settings.py，添加这个中间件：</em></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&quot;django.middleware.security.SecurityMiddleware&quot;</span>,</span><br><span class="line">    <span class="string">&quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;</span>,</span><br><span class="line">    <span class="string">&quot;django.contrib.sessions.middleware.SessionMiddleware&quot;</span>,</span><br><span class="line">    [...]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打包docker文件：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker build -t superlists .</span><br></pre></td></tr></table></figure>
+<p>superlists 为docker名</p>
+</li>
+<li>
+<p>用前台方式运行docker：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 8888:8888 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=./src/db.sqlite3,target=/src/db.sqlite3 -it superlists</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>成功加载。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-differentiation-of-in-the-way-on-the-way"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/23/differentiation-of-in-the-way-on-the-way/"
+    >英语单词辨析 - In the way or on the way</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/23/differentiation-of-in-the-way-on-the-way/" class="article-date">
+  <time datetime="2024-04-23T15:26:02.000Z" itemprop="datePublished">2024-04-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="In-the-way-or-on-the-way">In the way or on the way</h2>
+<p>ref：<a target="_blank" rel="noopener" href="https://dictionary.cambridge.org/grammar/british-grammar/in-the-way-or-on-the-way">原文</a></p>
+<h3 id="In-the-way">In the way</h3>
+<p>如果某物或某人“in the way”或“in my/his/our way”，意味着它占据了某人在特定动作或行动中所需的空间。</p>
+<blockquote>
+<p><em>She can’t do her dance because the table is <strong><strong>in the way</strong></strong>. Can you help me move it?</em></p>
+</blockquote>
+<h3 id="On-the-way"><em><strong>On the way</strong></em></h3>
+<p>当我们谈论去某个地方的路线、方向或路径时，我们使用“on the way”或“on my/his/our way (to)”。</p>
+<blockquote>
+<p>We could leave early and have breakfast on the way. (during our journey to somewhere)</p>
+</blockquote>
+<blockquote>
+<p>I was on my way to Peter’s house when I met him in the street. (I was going to Peter’s house when I met him)</p>
+</blockquote>
+<p>我们可以使用“on the way to”（加上名词或动词的-ing形式）来表示接近做某事或完成某事。</p>
+<blockquote>
+<p>Brazil is on the way to becoming one of the world’s strongest economies.</p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-lsof-command"
   class="article article-type-post"
   itemscope
@@ -705,132 +896,6 @@ Not: <s>The government is regarding the economy …</s></p>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/" rel="tag">资料收集</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-itsp-ppt-example-4"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/16/itsp-ppt-example-4/"
-    >某整车制造企业的IT咨询规划-(计划/方法论）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/16/itsp-ppt-example-4/" class="article-date">
-  <time datetime="2024-04-16T02:10:25.000Z" itemprop="datePublished">2024-04-16</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%B5%84%E6%BA%90%E6%80%BB%E7%BB%93/">资源总结</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="目录">目录</h2>
-<p><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-1/">某整车制造企业的IT咨询规划-(产品管理)</a><br>
-<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-2/">某整车制造企业的IT咨询规划-(供应链及企业资源计划)</a><br>
-<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-3/">某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台)</a><br>
-某整车制造企业的IT咨询规划-(计划/方法论)</p>
-<h2 id="内容">内容</h2>
-<p><img src="https://cdn.yunminitools.cn/pic/0116-ITSP-PLANNING.webp" alt=""></p> 
-      <a class="article-more-link" href="/2024/04/16/itsp-ppt-example-4/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-itsp-ppt-example-3"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/16/itsp-ppt-example-3/"
-    >某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/16/itsp-ppt-example-3/" class="article-date">
-  <time datetime="2024-04-16T01:58:25.000Z" itemprop="datePublished">2024-04-16</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%B5%84%E6%BA%90%E6%80%BB%E7%BB%93/">资源总结</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="目录">目录</h2>
-<p><a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-1/">某整车制造企业的IT咨询规划-(产品管理)</a><br>
-<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-2/">某整车制造企业的IT咨询规划-(供应链及企业资源计划)</a><br>
-某整车制造企业的IT咨询规划-(生产作业管控/营销管理/基础平台)<br>
-<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2024/04/16/itsp-ppt-example-4/">某整车制造企业的IT咨询规划-(计划/方法论)</a></p>
-<h2 id="内容">内容</h2>
-<p><img src="https://cdn.yunminitools.cn/pic/0092-ITSP-MES.webp" alt=""></p> 
-      <a class="article-more-link" href="/2024/04/16/itsp-ppt-example-3/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
 
     </footer>
   </div>
