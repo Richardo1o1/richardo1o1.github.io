@@ -100,6 +100,132 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-https-ssl-error-issue-resolve"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/07/https-ssl-error-issue-resolve/"
+    >Https网站不能访问问题排查</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/07/https-ssl-error-issue-resolve/" class="article-date">
+  <time datetime="2024-04-07T12:13:51.000Z" itemprop="datePublished">2024-04-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>我有一个https的网站，最近折腾了一下，发现不能访问了，用各种办法测试，逐步找到问题，这里记录一下。</p>
+<h2 id="检查证书是否正常">检查证书是否正常</h2>
+<p>首先怀疑证书，好久不检查，不知道是否过期，用下面的语句检查一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -noout -text -<span class="keyword">in</span> xxx.com.crt</span><br></pre></td></tr></table></figure>
+<p>可以看到以下结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Certificate:</span><br><span class="line">    Data:</span><br><span class="line">        Version: 3 (0x2)</span><br><span class="line">        Serial Number:</span><br><span class="line">            xxxxxxx</span><br><span class="line">        Signature Algorithm: sha384WithRSAEncryption</span><br><span class="line">        Issuer: C = CN, O = <span class="string">&quot;TrustAsia Technologies, Inc.&quot;</span>, CN = TrustAsia RSA DV TLS CA G2</span><br><span class="line">        Validity</span><br><span class="line">            Not Before: Jan 29 00:00:00 2024 GMT</span><br><span class="line">            Not After : Jan 28 23:59:59 2025 GMT</span><br></pre></td></tr></table></figure>
+<p>证书没问题，25年才过期</p>
+<h2 id="检查证书是否可以被访问">检查证书是否可以被访问</h2>
+<p>用以下语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl s_client -connect xxx.com:443 -showcerts</span><br></pre></td></tr></table></figure>
+<p>这时报错了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4087E3AE1B7F0000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:</span><br></pre></td></tr></table></figure>
+<p>查到这基本可以确认是网络问题，仔细排查了一下，原来是frp的配置忘改为https协议，导致网络转发不通。改完重启frp，问题解决。</p>
+<h2 id="查看SSL详细信息">查看SSL详细信息</h2>
+<p>问题解决后，可以再用 [<a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a>](<a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/%EF%BC%89">https://www.ssllabs.com/ssltest/）</a> 这个网站测试一下，结果非常丰富。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Issue-reslove/" rel="tag">Issue-reslove</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-docker-command-collect-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/07/docker-command-collect-1/"
+    >Docker相关命令收集（IP地址/Log地址）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/07/docker-command-collect-1/" class="article-date">
+  <time datetime="2024-04-07T11:52:43.000Z" itemprop="datePublished">2024-04-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-查看Docker内IP地址">1. 查看Docker内IP地址</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> YOUR_CONTAINER</span><br></pre></td></tr></table></figure>
+<h2 id="2-查看Log文件地址">2. 查看Log文件地址</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect --format=<span class="string">&#x27;&#123;&#123;.LogPath&#125;&#125;&#x27;</span> YOUR_CONTAINER</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-linux-user-login-review"
   class="article article-type-post"
   itemscope
@@ -701,177 +827,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-elasticseach-operation-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/03/07/elasticseach-operation-1/"
-    >ElasticSearch入门篇-操作1</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/03/07/elasticseach-operation-1/" class="article-date">
-  <time datetime="2024-03-07T13:44:55.000Z" itemprop="datePublished">2024-03-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>如果一切正常，Elastic 就会在默认的9200端口运行。这时，打开另一个命令行窗口，请求该端口，会得到说明信息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ curl localhost:9200</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span> : <span class="string">&quot;10eaed25cea5&quot;</span>,</span><br><span class="line">  <span class="string">&quot;cluster_name&quot;</span> : <span class="string">&quot;my-es&quot;</span>,</span><br><span class="line">  <span class="string">&quot;cluster_uuid&quot;</span> : <span class="string">&quot;dk5aq0evTjaXc2LEHIGtsA&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span> : &#123;</span><br><span class="line">    <span class="string">&quot;number&quot;</span> : <span class="string">&quot;7.7.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_flavor&quot;</span> : <span class="string">&quot;default&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_type&quot;</span> : <span class="string">&quot;docker&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_hash&quot;</span> : <span class="string">&quot;ad56dce891c901a492bb1ee393f12dfff473a423&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_date&quot;</span> : <span class="string">&quot;2020-05-28T16:30:01.040088Z&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_snapshot&quot;</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="string">&quot;lucene_version&quot;</span> : <span class="string">&quot;8.5.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;minimum_wire_compatibility_version&quot;</span> : <span class="string">&quot;6.8.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;minimum_index_compatibility_version&quot;</span> : <span class="string">&quot;6.0.0-beta1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;tagline&quot;</span> : <span class="string">&quot;You Know, for Search&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="基本概念">基本概念</h2>
-<h3 id="Node-与-Cluster">Node 与 Cluster</h3>
-<p>Elastic 本质上是一个分布式数据库，允许多台服务器协同工作，每台服务器可以运行多个 Elastic 实例。</p>
-<p>单个 Elastic 实例称为一个节点（node）。一组节点构成一个集群（cluster）。</p>
-<h3 id="Index"><strong>Index</strong></h3>
-<p>Elastic 会索引所有字段，经过处理后写入一个反向索引（Inverted Index）。查找数据的时候，直接查找该索引。</p>
-<p>所以，Elastic 数据管理的顶层单位就叫做 Index（索引）。它是单个数据库的同义词。每个 Index （即数据库）的名字必须是小写。</p>
-<p>下面的命令可以查看当前节点的所有 Index。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X GET <span class="string">&#x27;http://localhost:9200/_cat/indices?v&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>显示下面的结果：<br>
-<img src="https://cdn.yunminitools.cn/blog/0307_es_index.png" alt=" "></p> 
-      <a class="article-more-link" href="/2024/03/07/elasticseach-operation-1/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/" rel="tag">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-install-elk-elasticseach-docker"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/03/07/install-elk-elasticseach-docker/"
-    >在Docker环境下部署 Elasticsearch 数据库(从零到一搭建ELK日志)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/03/07/install-elk-elasticseach-docker/" class="article-date">
-  <time datetime="2024-03-07T13:13:20.000Z" itemprop="datePublished">2024-03-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>最近在玩 ELK 日志平台，它是 Elastic 公司推出的一整套日志收集、分析和展示的解决方案。只有学习了，操作了才能算真正的学会使用了，虽然看起来简单，但是里面的流程步骤还是很多的，将步骤和遇到的问题记录和总结下，今天主要分享下在Docker环境下部署 Elasticsearch 数据库。</p>
-<h2 id="什么是Elasticsearch？">什么是Elasticsearch？</h2>
-<p>ElasticStack简称为ES， 是一个分布式、高扩展、高实时的搜索与数据分析引擎，是整个ELK架构的核心。</p>
-<p>它能很方便的使大量数据具有搜索、分析和探索的能力。充分利用Elasticsearch的水平伸缩性，能使数据在生产环境变得更有价值。</p>
-<p>Elasticsearch 的实现原理主要分为以下几个步骤，首先用户将数据提交到Elasticsearch 数据库中，再通过分词控制器去将对应的语句分词，将其权重和分词结果一并存入数据，当用户搜索数据时候，再根据权重将结果排名，打分，再将返回结果呈现给用户。</p>
-<h2 id="主要优点">主要优点</h2>
-<ul>
-<li><strong>处理方式灵活：</strong> elasticsearch是实时全文索引，具有强大的搜索功能；</li>
-<li><strong>配置相对简单：</strong> elasticsearch全部使用JSON接口，logstash使用模块配置，kibana的配置文件部分更简单；</li>
-<li><strong>检索性能高效：</strong> 基于优秀的设计，虽然每次查询都是实时，但是也可以达到百亿级数据的查询秒级响应；</li>
-<li><strong>集群线性扩展：</strong> elasticsearch和logstash都可以灵活线性扩展。</li>
-</ul>
-<h2 id="常用场景">常用场景</h2>
-<ul>
-<li>全文搜索</li>
-</ul>
-<p>Elasticsearch提供了全文搜索的功能，适用于电商商品搜索、App搜索、企业内部信息搜索、IT系统搜索等。</p>
-<ul>
-<li>日志分析</li>
-</ul>
-<p>Elasticsearch能够借助Beats、Logstash等快速对接各种常见的数据源，并通过集成的Kibana高效地完成日志的可视化分析，让日志产生价值。</p>
-<ul>
-<li>运维监控</li>
-</ul>
-<p>使用Elasticsearch结合Beats、Logstash或ElasticFlow将所有日志实时集中并构建索引，然后通过集成的Kibana灵活地运用数据构建可视化运维看板</p>
-<ul>
-<li>安全分析</li>
-</ul>
-<p>通过日志解决公司内部繁杂的安全审计工作，可通过Elasticsearch分析、检索海量历史日志，高效地完成安全审计工作</p>
-<h2 id="部署ES数据库">部署ES数据库</h2>
-<h3 id="1-获取es镜像">1.获取es镜像</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull elasticsearch:7.7.1</span><br></pre></td></tr></table></figure>
-<h3 id="2-创造挂载目录">2. 创造挂载目录</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/config</span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/data</span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/es/logs</span><br></pre></td></tr></table></figure>
-<h3 id="3-赋予权限">3.赋予权限</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> -R 1000:1000 /data/elk/es</span><br></pre></td></tr></table></figure>
-<h3 id="4-进入config创建配置文件">4.进入config创建配置文件</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/elk/es/config</span><br><span class="line">sudo vim elasticsearch.yml</span><br></pre></td></tr></table></figure>
-<p>编辑 elasticsearch.yml 文件：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cluster.name:</span> <span class="string">&quot;my-es&quot;</span></span><br><span class="line"><span class="attr">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">http.port:</span> <span class="number">9200</span></span><br></pre></td></tr></table></figure>
-<h3 id="5-启动服务">5.启动服务</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -it  -d -p 9200:9200 -p 9300:9300 --name es -e ES_JAVA_OPTS=<span class="string">&quot;-Xms84m -Xmx512m&quot;</span> -e <span class="string">&quot;discovery.type=single-node&quot;</span> --restart=always -v /data/elk/es/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /data/elk/es/data:/usr/share/elasticsearch/data -v /data/elk/es/logs:/usr/share/elasticsearch/logs elasticsearch:7.7.1</span><br></pre></td></tr></table></figure>
-<p>这里我们需要特别注意的是，做好容器内的文件与第二步创建的挂载目录进行文件夹的映射。</p>
-<h2 id="6-验证服务">6.验证服务</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 127.0.0.1:9200</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.yunminitools.cn/blog/0229_curl_result.png" alt=" "></p>
-<p>看到这个，就表示我们已经安装成功了!</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/" rel="tag">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>

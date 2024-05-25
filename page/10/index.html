@@ -100,6 +100,147 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-U-Theory-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/30/U-Theory-2/"
+    >U型思考介绍-2-问挖破立</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/30/U-Theory-2/" class="article-date">
+  <time datetime="2023-07-30T08:30:32.000Z" itemprop="datePublished">2023-07-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <pre class="mermaid">graph LR
+  U型思考 --> 问
+  U型思考 --> 挖
+  U型思考 --> 破
+  U型思考 --> 立
+
+  问--> 认知差定胜负
+  问--> 透视U型思考
+  问--> 好问题的力量
+
+  挖--> 追问法
+  挖--> 框架法
+  挖--> 类推法与假设法
+
+  破--> 破界法
+  破--> 升维法
+  破--> 优势法
+
+  立--> 飞轮法
+  立--> 价值网法与画布法
+  立--> 跨越未知之墙</pre>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/" rel="tag">工具框架</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Docker-hub-creation-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/29/Docker-hub-creation-1/"
+    >Docker如何搭建私有Registry镜像仓库</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/29/Docker-hub-creation-1/" class="article-date">
+  <time datetime="2023-07-29T14:46:42.000Z" itemprop="datePublished">2023-07-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="概述">概述</h2>
+<p>仓库（Repository）是集中存放镜像的地方。<br>
+一个容易混淆的概念是注册服务器（Registry）。实际上注册服务器是管理仓库的具体服务器，每个服务器上可以有多个仓库，而每个仓库下面有多个镜像。从这方面来说，仓库可以被认为是一个具体的项目或目录。例如对于仓库地址 <a target="_blank" rel="noopener" href="http://docker.io/ubuntu">docker.io/ubuntu</a> 来说，<a target="_blank" rel="noopener" href="http://docker.io">docker.io</a> 是注册服务器地址，ubuntu 是仓库名。<br>
+大部分时候，并不需要严格区分这两者的概念。</p>
+<h2 id="私有仓库搭建">私有仓库搭建</h2>
+<p>有时候使用 Docker Hub 这样的公共仓库可能不方便，用户可以创建一个本地仓库供私人使用。<br>
+docker-registry 是官方提供的工具，可以用于构建私有的镜像仓库。</p>
+<h2 id="获取镜像-启动服务">获取镜像/启动服务</h2>
+<p>说明：registry 镜像选择 registry:2 和 registry:2.4.1 都可以。<br>
+拉取私有镜像仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry:2</span><br><span class="line">docker run -d -v /opt/registry:/var/lib/registry -p 5000:5000 --name myregistry registry:2</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2023/07/29/Docker-hub-creation-1/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Methods-of-reducing-coupling"
   class="article article-type-post"
   itemscope
@@ -686,165 +827,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 </tbody>
 </table>
  
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Give-GPTs-time-to-think-strategy"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/14/Give-GPTs-time-to-think-strategy/"
-    >给GPTs一些时间来“思考”的策略</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/14/Give-GPTs-time-to-think-strategy/" class="article-date">
-  <time datetime="2023-06-14T15:14:55.000Z" itemprop="datePublished">2023-06-14</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="指示模型在草率得出结论之前自己解决问题">指示模型在草率得出结论之前自己解决问题</h2>
-<p>有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>Determine if the student’s solution is correct or not.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Problem Statement: I’m building a solar power installation and I need help working out the financials.<br>- Land costs $100 / square foot<br>- I can buy solar panels for $250 / square foot<br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot<br>What is the total cost for the first year of operations as a function of the number of square feet.<br>Student’s Solution: Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 100x<br>Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
-</tr>
-<tr>
-<td>ASSISTANT</td>
-<td>The student’s solution is correct.</td>
-</tr>
-</tbody>
-</table>
-<p>但学生的解答实际上是不正确的！我们可以通过提示模型首先生成自己的解答来成功让模型注意到这一点。</p> 
-      <a class="article-more-link" href="/2023/06/14/Give-GPTs-time-to-think-strategy/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Split-complex-tasks-into-simpler-subtasks-strategy"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"
-    >将复杂任务分解为简单的子任务的策略</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/" class="article-date">
-  <time datetime="2023-06-13T14:35:13.000Z" itemprop="datePublished">2023-06-13</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="使用意图分类来识别用户查询的最相关指令">使用意图分类来识别用户查询的最相关指令</h2>
-<p>对于需要处理不同情况的大量独立指令的任务，首先对查询类型进行分类，并使用该分类确定所需的指令，可以带来一些好处。这可以通过定义固定的类别和硬编码与处理给定类别任务相关的指令来实现。该过程还可以递归应用于将任务分解为一系列阶段。这种方法的优点在于每个查询只包含执行任务的下一个阶段所需的指令，这可能导致与使用单个查询执行整个任务相比较低的错误率。这还可以降低成本，因为较大的提示运行成本更高（请参阅定价信息）。</p>
-<p>例如，假设对于客户服务应用程序，查询可以有以下有用的分类方式：</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You will be provided with customer service queries. Classify each query into a primary category and a secondary category. Provide your output in json format with the keys: primary and secondary.<br>Primary categories: Billing, Technical Support, Account Management, or General Inquiry.<br>Billing secondary categories:<br>- Unsubscribe or upgrade<br>- Add a payment method<br>- Explanation for charge<br>- Dispute a charge<br>Technical Support secondary categories:<br>- Troubleshooting<br>- Device compatibility<br>- Software updates<br>Account Management secondary categories:<br>- Password reset<br>- Update personal information<br>- Close account<br>- Account security<br>General Inquiry secondary categories:<br>- Product information<br>- Pricing<br>- Feedback<br>- Speak to a human</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>I need to get my internet working again.</td>
-</tr>
-</tbody>
-</table>
-<p>根据客户查询的分类，可以为GPT模型提供一组更具体的指令来处理下一步操作。例如，假设客户需要“故障排除”的帮助。</p> 
-      <a class="article-more-link" href="/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"
-        >More...</a
-      >
-       
       <!-- reward -->
       
     </div>

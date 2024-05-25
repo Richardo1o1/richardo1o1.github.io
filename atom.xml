@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-05-24T13:48:13.666Z</updated>
+  <updated>2024-05-25T06:37:15.306Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Twitter Like App - 15</title>
+    <link href="http://yunminitools.cn/2024/05/25/Built-Twitter-Like-App-15/"/>
+    <id>http://yunminitools.cn/2024/05/25/Built-Twitter-Like-App-15/</id>
+    <published>2024-05-25T06:36:29.000Z</published>
+    <updated>2024-05-25T06:37:15.306Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Add-Avatar-Component&quot;&gt;Add Avatar Component&lt;/h2&gt;
+&lt;p&gt;Add file &lt;code&gt;components/Avatar.tsx&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;react&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;AvatarProps&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;userId&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;isLarge&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;boolean&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;hasBorder&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;boolean&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Avatar&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;React&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;FC&lt;/span&gt;&amp;lt;&lt;span class=&quot;title class_&quot;&gt;AvatarProps&lt;/span&gt;&amp;gt; =&lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;function&quot;&gt;  userId,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;function&quot;&gt;  isLarge,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;function&quot;&gt;  hasBorder&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;function&quot;&gt;&amp;#125;&lt;/span&gt;) =&amp;gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;language-xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Avatar&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Built Twitter Like App - 14</title>
+    <link href="http://yunminitools.cn/2024/05/25/Built-Twitter-Like-App-14/"/>
+    <id>http://yunminitools.cn/2024/05/25/Built-Twitter-Like-App-14/</id>
+    <published>2024-05-25T06:34:14.000Z</published>
+    <updated>2024-05-25T06:35:01.262Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Add-User-API&quot;&gt;Add User API&lt;/h2&gt;
+&lt;p&gt;Add file &lt;code&gt;pages/api/users/index.tsx&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;NextApiRequest&lt;/span&gt;, &lt;span class=&quot;title class_&quot;&gt;NextApiResponse&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;next&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; prisma &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;../../../libs/prismadb&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;handler&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;  req: NextApiRequest,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;  res: NextApiResponse&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;( req.&lt;span class=&quot;property&quot;&gt;method&lt;/span&gt; !==&lt;span class=&quot;string&quot;&gt;&amp;#x27;GET&amp;#x27;&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;405&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;end&lt;/span&gt;(); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; users = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; prisma.&lt;span class=&quot;property&quot;&gt;user&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;findMany&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;orderBy&lt;/span&gt;:&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;createdAt&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&amp;#x27;desc&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(users);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; &lt;span class=&quot;keyword&quot;&gt;catch&lt;/span&gt;(error)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(error);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;end&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Twitter Like App - 13</title>
@@ -465,87 +511,6 @@
     
     
     <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Categories of Data</title>
-    <link href="http://yunminitools.cn/2024/04/30/categories-of-data/"/>
-    <id>http://yunminitools.cn/2024/04/30/categories-of-data/</id>
-    <published>2024-04-30T03:43:31.000Z</published>
-    <updated>2024-04-30T03:44:00.889Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;Background&lt;/h2&gt;
-&lt;p&gt;Certain type of data created as part of normal business activities might be used enterprise wide,</summary>
-        
-      
-    
-    
-    
-    <category term="资源总结" scheme="http://yunminitools.cn/categories/%E8%B5%84%E6%BA%90%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="数据管理" scheme="http://yunminitools.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP API 设计指南</title>
-    <link href="http://yunminitools.cn/2024/04/29/http-api-design-guide/"/>
-    <id>http://yunminitools.cn/2024/04/29/http-api-design-guide/</id>
-    <published>2024-04-29T15:48:17.000Z</published>
-    <updated>2024-05-09T08:51:16.872Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;摘录自 &lt;a href=&quot;https://github.com/interagent/http-api-design&quot;&gt;HTTP API Design Guide&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
-&lt;p&gt;我们的目标是一致性，专注业务逻辑同时避免设计上的空想，我们一直在寻找一种良好的，统一的，显而易见的API设计方式，未必只有一种方式。&lt;/p&gt;
-&lt;p&gt;以下内容供参考，另外，还可以看看大厂的设计规范：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md&quot;&gt;Microsoft REST API Guidelines&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://cloud.google.com/apis/design?hl=zh-cn&quot;&gt;Google API Design Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;内容&quot;&gt;内容&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;返回合适的状态码&lt;/p&gt;
-&lt;p&gt;为每一次的响应返回合适的HTTP状态码. 成功的HTTP响应应该使用如下的状态码:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;200&lt;/code&gt;: &lt;code&gt;GET&lt;/code&gt;请求成功, 以及&lt;code&gt;DELETE&lt;/code&gt;或 &lt;code&gt;PATCH&lt;/code&gt; 同步请求完成&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;201&lt;/code&gt;: &lt;code&gt;POST&lt;/code&gt; 同步请求完成&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;202&lt;/code&gt;: &lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt;, 或 &lt;code&gt;PATCH&lt;/code&gt; 异步请求将要完成&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;206&lt;/code&gt;: &lt;code&gt;GET&lt;/code&gt; 请求成功, 这里只是一部分状态码: 更多&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;参考 &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes&quot;&gt;状态描述&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;提供全部可用的资源&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="编程技巧" scheme="http://yunminitools.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
     
   </entry>
   
