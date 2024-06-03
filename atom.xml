@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-06-02T03:48:41.696Z</updated>
+  <updated>2024-06-03T15:34:05.721Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Twitter Like App - 18</title>
+    <link href="http://yunminitools.cn/2024/06/03/Built-Twitter-Like-App-18/"/>
+    <id>http://yunminitools.cn/2024/06/03/Built-Twitter-Like-App-18/</id>
+    <published>2024-06-03T15:33:38.000Z</published>
+    <updated>2024-06-03T15:34:05.721Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-Date-fns&quot;&gt;Install Date-fns&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install date-fns&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Modify-User-Profile-Page&quot;&gt;Modify User Profile Page&lt;/h2&gt;
+&lt;p&gt;Modify file &lt;code&gt;pages/users/[userId].tsx&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;UserBio&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@/components/users/UserBio&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;&lt;span class=&quot;title class_&quot;&gt;UserHero&lt;/span&gt; userId=&amp;#123; userId &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; &amp;#125; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&lt;span class=&quot;language-xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;UserBio&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;userId&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;userId&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;string&lt;/span&gt; &amp;#125; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;UserView&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Twitter Like App - 17</title>
@@ -478,33 +503,6 @@
     
     
     <category term="网络服务" scheme="http://yunminitools.cn/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Five Principles of Prompting</title>
-    <link href="http://yunminitools.cn/2024/05/05/Five-Principles-of-Prompting/"/>
-    <id>http://yunminitools.cn/2024/05/05/Five-Principles-of-Prompting/</id>
-    <published>2024-05-05T14:55:50.000Z</published>
-    <updated>2024-05-09T05:37:17.172Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Give Direction&lt;/strong&gt;: Describe the desired style in detail, or reference a relevant</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
     
   </entry>
   
