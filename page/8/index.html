@@ -100,6 +100,74 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-master-slave-replication-docker-install"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/21/master-slave-replication-docker-install/"
+    >docker安装MySQL主从复制</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/21/master-slave-replication-docker-install/" class="article-date">
+  <time datetime="2024-02-21T14:12:19.000Z" itemprop="datePublished">2024-02-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>以下是步骤：</p>
+<h2 id="1-拉取MySQL的镜像"><strong>1.拉取MySQL的镜像</strong></h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull mysql:8.0.25</span><br></pre></td></tr></table></figure>
+<h2 id="2-新建MySQL主服务器的容器实例，端口为3307">2.新建MySQL主服务器的容器实例，端口为3307</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 3501:3306 --name mysql-master \</span><br><span class="line">-v /mnt/n1/data/mysql-master/log:/var/log/mysql \</span><br><span class="line">-v /mnt/n1/data/mysql-master/data:/var/lib/mysql \</span><br><span class="line">-v /mnt/n1/data/mysql-master/conf:/etc/mysql \</span><br><span class="line">-v /mnt/n1/data/mysql-master/mysql-files:/var/lib/mysql-files \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">-d mysql:8.0.25</span><br></pre></td></tr></table></figure>
+<p>命令解读：<br>
+docker run ：创建并运行一个容器<br>
+–name : 给容器起一个名字，比如叫做 mysql-master<br>
+-p ：将宿主机端口与容器端口映射，冒号左侧是宿主机端口，右侧是容器端口<br>
+-d：后台运行容器<br>
+-e：环境变量，如密码什么的<br>
+-v：挂载一个数据卷到某个容器内目录，上面分别配置了日志、数据、配置的数据卷</p> 
+      <a class="article-more-link" href="/2024/02/21/master-slave-replication-docker-install/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-windows-domain-commands-collection-1"
   class="article article-type-post"
   itemscope
@@ -701,70 +769,6 @@ Syntax error in graph mermaid version 8.14.0<br>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-VS-Code-Remote-Development"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/03/VS-Code-Remote-Development/"
-    >远程开发的VS Code方法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/03/VS-Code-Remote-Development/" class="article-date">
-  <time datetime="2024-02-03T12:07:20.000Z" itemprop="datePublished">2024-02-03</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>远程开发并非仅仅是直接在服务器上编辑代码，远程开发侧重的不应该是是“远程”，而是“开发”，至于“远程”对用户而言应该是无感的，除了代码是在远程服务器上存储和运行，其他体验应该和本地开发一致，撰写代码时能享受到 IDE 带来的便利，运行代码时不必额外去上传下载——这似乎看起来很容易，但在VS Code Remote 出现之前，没有工具能做到。</p>
-<p>使用 VS Code Remote，你可以无缝的从一台设备切换到另一台设备，开会前在台式机上写代码，开会时拿起笔记本连上远程服务器就能继续，下班可以直接关掉公司的电脑，回到家打开家里的电脑就可以继续，设备切换从来没有如此方便，你不必关心这一切是如何实现的，只要使用就好，因为大部分时间你并不会觉得这和以前的本地开发有什么区别。</p>
-<h2 id="安装及配置流程">安装及配置流程</h2>
-<h3 id="远程开发必备扩展安装">远程开发必备扩展安装</h3>
-<p>在扩展中搜索 remote ，找到 Remote Development，安装即可，会为你安装包括 Remote-SSH 等全部远程开发使用的扩展。</p>
-<p><img src="https://cdn.yunminitools.cn/blog/0203-remote_dev_0.png" alt=" "></p>
-<p>安装完成后，你会发现左下角多了一个小图标，点击就可以看到用来连接远程开发的菜单了。</p> 
-      <a class="article-more-link" href="/2024/02/03/VS-Code-Remote-Development/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
 
     </footer>
   </div>
