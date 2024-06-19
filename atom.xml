@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-06-19T14:01:28.214Z</updated>
+  <updated>2024-06-19T14:13:33.474Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS布局教程</title>
+    <link href="http://yunminitools.cn/2024/06/19/css-interactiv/"/>
+    <id>http://yunminitools.cn/2024/06/19/css-interactiv/</id>
+    <published>2024-06-19T14:13:05.000Z</published>
+    <updated>2024-06-19T14:13:33.474Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;推荐一下 Josh Comeau 的经典三篇教程，我有搞不懂的属性经常拿出来看看，常看常新，我认为是最好的交互式教程，比MDN等都要好，可以按顺序阅读：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flexbox 交互式指南：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="CSS" scheme="http://yunminitools.cn/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>Cloudflare服务的开源工具</title>
@@ -497,30 +524,6 @@ Awesome Cloudflare - 为白嫖 Cloudflare</summary>
     <summary type="html">&lt;h2 id=&quot;Add-Register-Function-Code&quot;&gt;Add Register Function Code&lt;/h2&gt;
 &lt;p&gt;Add file &lt;code&gt;pages/api/register.ts&lt;/code&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; bcrypt, &amp;#123; compareSync &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;bcrypt&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; prisma &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;../../libs/prismadb&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;NextApiRequest&lt;/span&gt;, &lt;span class=&quot;title class_&quot;&gt;NextApiResponse&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;next&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;handler&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;    req: NextApiRequest,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;    res: NextApiResponse&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ( req.&lt;span class=&quot;property&quot;&gt;method&lt;/span&gt; !== &lt;span class=&quot;string&quot;&gt;&amp;#x27;POST&amp;#x27;&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;405&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;end&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; email,username, name, password &amp;#125; = req.&lt;span class=&quot;property&quot;&gt;body&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; hashedPassword = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; bcrypt.&lt;span class=&quot;title function_&quot;&gt;hash&lt;/span&gt;(password, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; user = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; prisma.&lt;span class=&quot;property&quot;&gt;user&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;create&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;data&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            email,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            username,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            name,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            hashedPassword&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(user)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; &lt;span class=&quot;keyword&quot;&gt;catch&lt;/span&gt; (error)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(error);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;end&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Twitter Like App - 9</title>
-    <link href="http://yunminitools.cn/2024/05/22/Built-Twitter-Like-App-9/"/>
-    <id>http://yunminitools.cn/2024/05/22/Built-Twitter-Like-App-9/</id>
-    <published>2024-05-22T00:55:56.000Z</published>
-    <updated>2024-05-22T00:56:46.400Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Install-bcrypt-type&quot;&gt;Install bcrypt &amp;amp; type&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install bcrypt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install -D &lt;span class=&quot;meta&quot;&gt;@types&lt;/span&gt;/bcrypt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;Install-next-auth&quot;&gt;Install next-auth&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install next-auth&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install &lt;span class=&quot;meta&quot;&gt;@next&lt;/span&gt;-auth/prisma-adapter&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

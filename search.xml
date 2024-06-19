@@ -11227,4 +11227,22 @@ Awesome Cloudflare - 为白嫖 Cloudflare 提供一个省心省时的资源工�
         <tag>开源工具</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CSS布局教程</title>
+    <url>/2024/06/19/css-interactiv/</url>
+    <content><![CDATA[<p>推荐一下 Josh Comeau 的经典三篇教程，我有搞不懂的属性经常拿出来看看，常看常新，我认为是最好的交互式教程，比MDN等都要好，可以按顺序阅读：</p>
+<ul>
+<li>Flexbox 交互式指南：<a href="https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/">link</a></li>
+<li>CSS Grid 交互式指南：<a href="https://www.joshwcomeau.com/css/interactive-guide-to-grid/">link</a></li>
+<li>CSS 居中终极指南：<a href="https://www.joshwcomeau.com/css/center-a-div/">link</a></li>
+</ul>
+<p>看了这三篇对于现代 CSS 最关键的知识点之一：布局就几乎搞定了。</p>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
 </search>
