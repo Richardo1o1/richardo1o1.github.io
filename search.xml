@@ -11245,4 +11245,23 @@ Awesome Cloudflare - 为白嫖 Cloudflare 提供一个省心省时的资源工�
         <tag>CSS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>学习总结 Build and Deploy TWITTER clone Application</title>
+    <url>/2024/06/21/twitter-clone-code/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>最近看到一个很棒的视频教程，从0开的搭建一个类似Twitter的应用，用到了 React, Tailwind, Next, Prisma, Mongo, NextAuth &amp; Vercel 等技术，都是最近比较流行的技术<br>
+<a href="https://www.youtube.com/watch?v=ytkG7RT6SvU&amp;list=PLZDnqHjgGO-wiDXcT5EWLp_6fACQACL8H&amp;index=3">视频地址</a></p>
+<h2 id="学习过程">学习过程</h2>
+<p>一开始学习时遇到不少困难，比如Next的版本和视频不一样，MongoDB不好用，非Get的环境拿不到Session等，最后都被我克服了，换用了mysql和一些方法，实现了类似效果。<br>
+后来我又根据最新的NextJS版本，重新自己写了一个，放到了Github上，并部署到了Vercel。果然很简单。</p>
+<h3 id="GitHub地址">GitHub地址</h3>
+<p>最新可以运行的程序源码： <a href="https://github.com/Richardo1o1/micropost">link</a></p>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+      </tags>
+  </entry>
 </search>
