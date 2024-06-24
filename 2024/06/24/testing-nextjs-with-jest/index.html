@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>学习总结 Build and Deploy TWITTER clone Application |  New structure for utility</title>
+      <title>使用 Next.js 设置 Jest 完成单元测试 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-twitter-clone-code"
+  id="post-testing-nextjs-with-jest"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  学习总结 Build and Deploy TWITTER clone Application
+  使用 Next.js 设置 Jest 完成单元测试
 </h1>
  
 
@@ -88,11 +88,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2024/06/21/twitter-clone-code/" class="article-date">
-  <time datetime="2024-06-21T13:53:57.000Z" itemprop="datePublished">2024-06-21</time>
+      <a href="/2024/06/24/testing-nextjs-with-jest/" class="article-date">
+  <time datetime="2024-06-24T12:55:22.000Z" itemprop="datePublished">2024-06-24</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
   </div>
   
 <div class="word_count">
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">173</span>
+            <span class="post-count">774</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -125,13 +125,43 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="背景">背景</h2>
-<p>最近看到一个很棒的视频教程，从0开的搭建一个类似Twitter的应用，用到了 React, Tailwind, Next, Prisma, Mongo, NextAuth &amp; Vercel 等技术，都是最近比较流行的技术<br>
-<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ytkG7RT6SvU&amp;list=PLZDnqHjgGO-wiDXcT5EWLp_6fACQACL8H&amp;index=3">视频地址</a></p>
-<h2 id="学习过程">学习过程</h2>
-<p>一开始学习时遇到不少困难，比如Next的版本和视频不一样，MongoDB不好用，非Get的环境拿不到Session等，最后都被我克服了，换用了mysql和一些方法，实现了类似效果。<br>
-后来我又根据最新的NextJS版本，重新自己写了一个，放到了Github上，并部署到了Vercel。果然很简单。</p>
-<h3 id="GitHub地址">GitHub地址</h3>
-<p>最新可以运行的程序源码： <a target="_blank" rel="noopener" href="https://github.com/Richardo1o1/micropost">link</a></p>
+<p>Jest 和 React 测试库经常一起用于单元测试和快照测试。本指南将向您展示如何使用 Next.js 设置 Jest 并编写您的第一个测试。</p>
+<h2 id="快速开始">快速开始</h2>
+<p>您可以将 <code>create-next-app</code> 与 Next.js with-jest 示例结合使用来快速入门：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-next-app<span class="meta">@latest</span> --example <span class="keyword">with</span>-jest <span class="keyword">with</span>-jest-app</span><br></pre></td></tr></table></figure>
+<h2 id="手动设置">手动设置</h2>
+<p>要设置 Jest，请安装 <code>jest</code> 和以下软件包作为开发依赖项：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D jest jest-environment-jsdom <span class="meta">@testing</span>-library/react <span class="meta">@testing</span>-library/jest-dom</span><br></pre></td></tr></table></figure>
+<p>通过运行以下命令生成基本的 Jest 配置文件：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init jest<span class="meta">@latest</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>这将引导您完成一系列提示，为您的项目设置 Jest，包括自动创建 <code>jest.config.ts|js</code> 文件。更新您的配置文件以使用 <code>next/jest</code> 。该转换器具有 Jest 与 Next.js 配合使用所需的所有配置选项：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">Config</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;jest&#x27;</span></span><br><span class="line"><span class="keyword">import</span> nextJest <span class="keyword">from</span> <span class="string">&#x27;next/jest.js&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> createJestConfig = <span class="title function_">nextJest</span>(&#123;</span><br><span class="line">  <span class="comment">// Provide the path to your Next.js app to load next.config.js and .env files in your test environment</span></span><br><span class="line">  <span class="attr">dir</span>: <span class="string">&#x27;./&#x27;</span>,</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Add any custom config to be passed to Jest</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">config</span>: <span class="title class_">Config</span> = &#123;</span><br><span class="line">  <span class="attr">coverageProvider</span>: <span class="string">&#x27;v8&#x27;</span>,</span><br><span class="line">  <span class="attr">testEnvironment</span>: <span class="string">&#x27;jsdom&#x27;</span>,</span><br><span class="line">  <span class="comment">// Add more setup options before each test is run</span></span><br><span class="line">  <span class="comment">// setupFilesAfterEnv: [&#x27;&lt;rootDir&gt;/jest.setup.ts&#x27;],</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">createJestConfig</span>(config)</span><br></pre></td></tr></table></figure>
+<p>在后台， <code>next/jest</code> 会自动为您配置 Jest，包括：</p>
+<ul>
+<li>使用 Next.js 编译器设置 <code>transform</code></li>
+<li>自动模拟样式表（ <code>.css</code> 、 <code>.module.css</code> 及其 scss 变体）、图像导入和 <code>next/font</code></li>
+<li>将 <code>.env</code> （和所有变体）加载到 <code>process.env</code> 中</li>
+<li>从测试解析和转换中忽略 <code>node_modules</code></li>
+<li>从测试解析中忽略 <code>.next</code></li>
+<li>加载启用 SWC 转换的标志的 <code>next.config.js</code></li>
+</ul>
+<h2 id="将测试脚本添加到-package-json"><strong>将测试脚本添加到 package.json</strong></h2>
+<p>最后，将 Jest <code>test</code> 脚本添加到您的 <code>package.json</code> 文件中：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;dev&quot;</span>: <span class="string">&quot;next dev&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;next build&quot;</span>,</span><br><span class="line">    <span class="string">&quot;start&quot;</span>: <span class="string">&quot;next start&quot;</span>,</span><br><span class="line">    <span class="string">&quot;test&quot;</span>: <span class="string">&quot;jest&quot;</span>,</span><br><span class="line">    <span class="string">&quot;test:watch&quot;</span>: <span class="string">&quot;jest --watch&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>jest --watch</code> 将在文件更改时重新运行测试。有关更多 Jest CLI 选项，请参阅 Jest 文档。</p>
+<h2 id="创建您的第一个测试："><strong>创建您的第一个测试：</strong></h2>
+<p>您的项目现在已准备好运行测试。在项目的根目录中创建一个名为 <code>__tests__</code> 的文件夹。</p>
+<p>例如，我们可以添加一个测试来检查 <code>&lt;Page /&gt;</code> 组件是否成功呈现标题：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Link</span> <span class="keyword">from</span> <span class="string">&#x27;next/link&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">href</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>About<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>**<code>tests**/page.test.jsx</code>：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@testing-library/jest-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; render, screen &#125; <span class="keyword">from</span> <span class="string">&#x27;@testing-library/react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Page</span> <span class="keyword">from</span> <span class="string">&#x27;../app/page&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&#x27;Page&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&#x27;renders a heading&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">Page</span> /&gt;</span></span>)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">const</span> heading = screen.<span class="title function_">getByRole</span>(<span class="string">&#x27;heading&#x27;</span>, &#123; <span class="attr">level</span>: <span class="number">1</span> &#125;)</span><br><span class="line"> </span><br><span class="line">    <span class="title function_">expect</span>(heading).<span class="title function_">toBeInTheDocument</span>()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>（可选）添加快照测试来跟踪组件中的任何意外更改：</p>
+<p><code>__tests__/snapshot.js __测试__/snapshot.js</code> ：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">&#x27;@testing-library/react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Page</span> <span class="keyword">from</span> <span class="string">&#x27;../app/page&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="title function_">it</span>(<span class="string">&#x27;renders homepage unchanged&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; container &#125; = <span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">Page</span> /&gt;</span></span>)</span><br><span class="line">  <span class="title function_">expect</span>(container).<span class="title function_">toMatchSnapshot</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="运行你的测试"><strong>运行你的测试</strong></h2>
+<p>运行以下命令来运行测试：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run test</span><br></pre></td></tr></table></figure>
  
       <!-- reward -->
       
@@ -184,7 +214,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/06/21/twitter-clone-code/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/06/24/testing-nextjs-with-jest/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -197,19 +227,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2024/06/24/testing-nextjs-with-jest/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            使用 Next.js 设置 Jest 完成单元测试
-          
-        </div>
-      </a>
     
-    
-      <a href="/2024/06/19/css-interactiv/" class="article-nav-link">
+      <a href="/2024/06/21/twitter-clone-code/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CSS布局教程</div>
+        <div class="article-nav-title">学习总结 Build and Deploy TWITTER clone Application</div>
       </a>
     
   </nav>
