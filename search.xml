@@ -11392,4 +11392,76 @@ Awesome Cloudflare - 为白嫖 Cloudflare 提供一个省心省时的资源工�
         <tag>NextJS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Docker 设置代理</title>
+    <url>/2024/07/17/docker-set-proxy/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>使用 proxychains 企图让 docker pull使用代理来拉取镜像，实际上没有走代理，依然很慢</p>
+<p>对于镜像， 可以使用国内的加速镜像， 也可以用自己的代理服务器访问 dockerhub</p>
+<p>国内镜像加速<br>
+对于国内加速镜像，直接设置镜像地址就好了：<br>
+编辑/etc/docker/daemon.json添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;[https://docker.mirrors.ustc.edu.cn](https://docker.mirrors.ustc.edu.cn/)&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以用其它镜像比如阿里云 或者 daocloud 等等。</p>
+<h2 id="设置代理的方法">设置代理的方法</h2>
+<span id="more"></span>
+<p>docker pull 拉取镜像时设置代理<br>
+docker 的代理设置是一件比较麻烦的事情，很容易出问题，但是弄懂了也还是比较清楚。</p>
+<p>首先， docker pull 和 docker build/docker run 使用代理的方式不一样！</p>
+<p>docker pull 的代理被 systemd 接管，所以需要设置 systemd…</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/systemd/system/docker.service.d/</span><br><span class="line">sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf</span><br></pre></td></tr></table></figure>
+<p>加上以下内容：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;HTTP_PROXY=http://127.0.0.1:8123&quot;</span></span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;HTTPS_PROXY=http://127.0.0.1:8123&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这里的127.0.0.1是直接用了本机的 http 代理，然后重启服务才能生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p>可以通过<code>sudo systemctl show --property=Environment docker</code>看到设置的环境变量。</p>
+<p>然后docker pull就会使用代理啦！</p>
+<p>这里 HTTP 代理可以通过你的代理软件开出来，如果你的代理软件只能开出来 socks5 代理的话，你可以用 polipo 开一个 http 代理使用。</p>
+<p>build 镜像时使用代理<br>
+在 build 时添加 --build-arg 参数来设置生成镜像时使用的环境变量</p>
+<p>docker build --build-arg http_proxy=<a href="http://172.17.0.1:8123">http://172.17.0.1:8123</a> --build-arg https_proxy=<a href="http://172.17.0.1:8123">http://172.17.0.1:8123</a> -t image_name .<br>
+这里需要注意的是 ip 地址用了默认虚拟网卡docker0 的地址172.17.0.1，因为build的时候network参数默认为bridge，即docker内部会使用这个网段，因为要访问到宿主机的代理只能这样访问；<br>
+另外，也可以设置参数–network=host 来直接和宿主机共用网络，就能直接使用127.0.0.1来访问到宿主机了</p>
+<p>设置 docker 全局代理<br>
+设置方法参考官方文档： <a href="https://docs.docker.com/network/proxy/">https://docs.docker.com/network/proxy/</a></p>
+<p>注意新版和旧版本(17.07以前)设置方法不一样，比旧版更简单而且不需要重启服务,网上文章基本都是针对旧版本的,可能未来又变化了,所以多看官方文档~<br>
+以及这种设置方法只对 build 和 run 的容易有用， docker pull 要按照上面的方法设置。</p>
+<p>vim ~/.docker/config.json</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;proxies&quot;</span>:</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">&quot;default&quot;</span>:</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;httpProxy&quot;</span>: <span class="string">&quot;[http://172.17.0.1:8123](http://172.17.0.1:8123/)&quot;</span>,</span><br><span class="line">			<span class="string">&quot;httpsProxy&quot;</span>: <span class="string">&quot;[http://172.17.0.1:8123](http://172.17.0.1:8123/)&quot;</span>,</span><br><span class="line">			<span class="string">&quot;noProxy&quot;</span>: <span class="string">&quot;localhost,127.0.0.1,.daocloud.io&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样设置后，build和run都会将http_proxy和https_proxy ftp_proxy变量设置成对应的代理地址，如果你在容器里面不想使用这个代理了，需要export http_proxy= 和 export https_proxy= 将两个变量设置为空</p>
+<p><strong>注意:</strong></p>
+<p>仅支持 http https ftp 协议，不支持 socks5 协议（2022.3.24，未来不一定，官方文档为准），可以使用polipo创建一个http代理服务，参考<a href="https://neucrack.com/p/275">https://neucrack.com/p/275</a></p>
+<p>这里使用了172.17.0.1(docker 虚拟网卡地址), 而不是127.0.0.1, 这是因为这是从容器内部的角度来看的, 容器内部要使用代理,默认情况下只能访问这个虚拟网卡的地址, 127.0.0.1是容器内部, 如果代理在宿主机, 要使用 虚拟网卡的地址才能访问到.</p>
+<p>这个文件一旦存在, docker就会使用这里面的代理, 包括创建的容器都会使用它。 所以不需要代理了, 需要关闭代理, 就是把文件重命名一下就好了, 这点用起来确实挺麻烦，也许未来会优化体验吧。</p>
+<p>注意， 一个容器一旦生成， 这些环境变量（http_proxy https_proxy ftp_proxy no_proxy）就会被继承到容器中， 就算把config.json删除， 这个容器依然使用创建时的环境变量，可以手动在容器内重新设置这些环境变量， 这点也挺容易让人头疼的， 一定要注意。</p>
+<p>比如 有个镜像叫 imageA, 现在设置~/.docker/config.json也就是有代理， 然后docker run创建容器 A, 然后再重命名config.json， 创建容器B， 然后会发现无论现在怎么修改config.json， 容器A B都会使用它被创建时的代理设置，即容器A使用代理， 容器B不使用代理</p>
+<h2 id="容器使用宿主机的代理的几种方法总结">容器使用宿主机的代理的几种方法总结</h2>
+<p>和 build 时类似，只需要在 生成容器时（run -e http_proxy=…） 或者 容器中 设置环境变量http_proxy和https_proxy变量即可，同样需要注意容易使用的网络类型是bridge还是host，根据类别设置正确的代理 ip 地址</p>
+<p>方法一： 直接在容器内使用（推荐）<br>
+export ALL_PROXY=‘socks5://172.17.0.1:1080’<br>
+这里ip地址使用的是宿主机的ip</p>
+<p>方法二： 与宿主机共享网络时直接在容器内使用<br>
+创建容器时使用–network=host参数</p>
+<p>然后在docker内设置代理，比如全局代理</p>
+<p>export ALL_PROXY=‘socks5://127.0.0.1:1080’<br>
+这样就可以使用宿主机的代理了</p>
+<p>但是要注意， 如果是用–network=host，这样的话使用 -p 参数映射端口就没用了， 即所有端口都是开放和宿主机共享的</p>
+<p>方法三： 映射代理端口后直接在容器内使用<br>
+docker run时带参数-p映射代理的端口到容器， 在容器里面使用即可，比如：</p>
+<p>docker run  -p 1080:1080 …<br>
+export ALL_PROXY=‘socks5://127.0.0.1:1080’<br>
+方法四： docker配置全局代理，以在生成容器时自动设置代理变量<br>
+设置 docker 全局代理，比如设置了<a href="http://172.17.0.1:8123">http://172.17.0.1:8123</a>， 容器内全都会走这个代理，除了配置文件中的白名单里面的地址以外</p>
+<p>注意： 全局代理和 --network=host 参数只能用一个，不然就容易混乱</p>
+<p>版权声明：本文为 neucrack 的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：<a href="https://neucrack.com/p/286">https://neucrack.com/p/286</a></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
 </search>
