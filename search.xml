@@ -11503,4 +11503,28 @@ export ALL_PROXY=‘socks5://127.0.0.1:1080’<br>
         <tag>tailwindcss</tag>
       </tags>
   </entry>
+  <entry>
+    <title>docker安装MySQL主从复制</title>
+    <url>/2024/07/20/Mysql-Windows-Docker-Setup/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>我发现在window上直接装mysql ，比在虚拟机上要方便。</p>
+<h2 id="步骤">步骤</h2>
+<p>首先先下载docker for windows：在<a href="https://www.docker.com/">官网</a> 下载即可。安装完毕后，打开命令行，执行以下语句。</p>
+<h3 id="Pull-Image">Pull Image</h3>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">docker pull <span class="attr">mysql</span>:<span class="number">8.0</span><span class="number">.34</span></span><br></pre></td></tr></table></figure>
+<p>这里8.0.34为mysql的版本，你可以选择你喜欢的版本，不建议直接用最新版</p>
+<h3 id="Create-Volume">Create Volume</h3>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">docker volume create --driver local --opt device=<span class="attr">C</span>:\<span class="number">10.</span><span class="variable constant_">VM</span>\data\mysql01 --opt type=none --opt o=bind mysql01 </span><br></pre></td></tr></table></figure>
+<h3 id="Start-Container">Start Container</h3>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">docker run --restart=always -p <span class="number">3501</span>:<span class="number">3306</span> --name mysql01 -v <span class="attr">mysql01</span>:<span class="regexp">/var/</span>lib/mysql -e <span class="variable constant_">MYSQL_ROOT_PASSWORD</span>=xxxxxx -d <span class="attr">mysql</span>:<span class="number">8.0</span><span class="number">.34</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Linux</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
 </search>
