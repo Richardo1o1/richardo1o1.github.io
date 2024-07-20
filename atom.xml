@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-07-17T12:12:36.960Z</updated>
+  <updated>2024-07-20T08:41:37.879Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Portfolio Page -1（搭建框架）</title>
+    <link href="http://yunminitools.cn/2024/07/20/built-portfolio-page-1/"/>
+    <id>http://yunminitools.cn/2024/07/20/built-portfolio-page-1/</id>
+    <published>2024-07-20T07:09:33.000Z</published>
+    <updated>2024-07-20T08:41:37.879Z</updated>
+    
+    
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;Create nextjs project&lt;/li&gt;
+&lt;li&gt;Add page.tsx&lt;/li&gt;
+&lt;li&gt;Add header component&lt;/li&gt;
+&lt;li&gt;Install framer motion package&lt;/li&gt;
+&lt;li&gt;Add Motion div&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Create-nextjs-project&quot;&gt;Create nextjs project&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker 设置代理</title>
@@ -228,34 +256,6 @@ Awesome Cloudflare - 为白嫖 Cloudflare</summary>
 &lt;li&gt;Add notification content in Comments API&lt;/li&gt;
 &lt;li&gt;Add notification content in Follow API&lt;/li&gt;
 &lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Portfolio Page -1（搭建框架）</title>
-    <link href="http://yunminitools.cn/2024/06/17/built-portfolio-page-1/"/>
-    <id>http://yunminitools.cn/2024/06/17/built-portfolio-page-1/</id>
-    <published>2024-06-17T15:09:33.000Z</published>
-    <updated>2024-07-20T08:40:44.355Z</updated>
-    
-    
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;Create nextjs project&lt;/li&gt;
-&lt;li&gt;Add page.tsx&lt;/li&gt;
-&lt;li&gt;Add header component&lt;/li&gt;
-&lt;li&gt;Install framer motion package&lt;/li&gt;
-&lt;li&gt;Add Motion div&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Create-nextjs-project&quot;&gt;Create nextjs project&lt;/h2&gt;</summary>
     
     
     
