@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-07-22T08:23:35.956Z</updated>
+  <updated>2024-07-22T10:08:04.872Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Portfolio Page -4 (Scroll effect)</title>
+    <link href="http://yunminitools.cn/2024/07/22/built-portfolio-page-4/"/>
+    <id>http://yunminitools.cn/2024/07/22/built-portfolio-page-4/</id>
+    <published>2024-07-22T10:07:25.000Z</published>
+    <updated>2024-07-22T10:08:04.872Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Steps&quot;&gt;Steps:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;move project code to project component&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;useScroll-Memo&quot;&gt;useScroll Memo:&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; ref = useRef&amp;lt;&lt;span class=&quot;title class_&quot;&gt;HTMLElement&lt;/span&gt;&amp;gt;(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; scrollYProgress  &amp;#125; = &lt;span class=&quot;title function_&quot;&gt;useScroll&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;target&lt;/span&gt;: ref,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;offset&lt;/span&gt;:[&lt;span class=&quot;string&quot;&gt;&amp;quot;0 1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;1.33 1&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个 ref,用于引用某个 DOM 元素(可能在JSX中通过 &lt;code&gt;ref=&amp;#123;ref&amp;#125;&lt;/code&gt; 绑定到一个元素上)。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;useScroll&lt;/code&gt; 来监听这个被引用元素的滚动情况。&lt;/li&gt;
+&lt;li&gt;设置滚动动画的触发范围:从元素开始进入视口底部(“0 1”)到元素完全离开视口底部 33% 的位置(“1.33 1”)。&lt;/li&gt;
+&lt;li&gt;获取 &lt;code&gt;scrollYProgress&lt;/code&gt; 值,这个值可能随着元素的滚动而变化,范围可能是 0 到 1。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Add-project-component&quot;&gt;Add project component&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Portfolio Page -3 (Projects Component)</title>
@@ -532,36 +565,6 @@ Awesome Cloudflare - 为白嫖 Cloudflare</summary>
 &lt;/ol&gt;
 &lt;h2 id=&quot;Install-Dropzone&quot;&gt;Install Dropzone&lt;/h2&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install react-dropzone&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Twitter Like App - 19</title>
-    <link href="http://yunminitools.cn/2024/06/04/Built-Twitter-Like-App-19/"/>
-    <id>http://yunminitools.cn/2024/06/04/Built-Twitter-Like-App-19/</id>
-    <published>2024-06-04T12:08:46.000Z</published>
-    <updated>2024-06-04T12:09:20.676Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Add-Edit-Function&quot;&gt;Add Edit Function&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Add edit API&lt;/li&gt;
-&lt;li&gt;Add EditModal&lt;/li&gt;
-&lt;li&gt;Add Hook&lt;/li&gt;
-&lt;li&gt;Add EditModal to App.ts&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Add-edit-API&quot;&gt;Add edit API&lt;/h2&gt;
-&lt;p&gt;Add file &lt;code&gt;pages/api/edit.ts&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;NextApiRequest&lt;/span&gt;, &lt;span class=&quot;title class_&quot;&gt;NextApiResponse&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;next&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; prisma &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;@/libs/prismadb&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;handler&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;    req: NextApiRequest,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;    res: NextApiResponse&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ( req.&lt;span class=&quot;property&quot;&gt;method&lt;/span&gt; !== &lt;span class=&quot;string&quot;&gt;&amp;#x27;PATCH&amp;#x27;&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;405&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;end&lt;/span&gt;(); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; name, username, bio, profileImage, coverImage,userId &amp;#125; = req.&lt;span class=&quot;property&quot;&gt;body&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;user username:&amp;#x27;&lt;/span&gt;, name, username, bio )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!name || !username )&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;Missing fields!&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; updatedUser = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; prisma.&lt;span class=&quot;property&quot;&gt;user&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;update&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;where&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: userId&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;data&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        name,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        username,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        bio,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        profileImage,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        coverImage&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(updatedUser);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125; &lt;span class=&quot;keyword&quot;&gt;catch&lt;/span&gt; (error)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(error);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;status&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;end&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
