@@ -100,6 +100,140 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-move-docker-data-folder"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/09/06/move-docker-data-folder/"
+    >Docker迁移默认的/var/lib/docker 目录（避坑指南）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/09/06/move-docker-data-folder/" class="article-date">
+  <time datetime="2023-09-06T08:17:12.000Z" itemprop="datePublished">2023-09-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>最近在做docker 数据文件的迁移，按指引创建，遇到了一些问题，把步骤和解决方案记录一下。</p>
+<h2 id="1-停止docker服务">1. 停止docker服务</h2>
+<p><code>systemctl stop docker</code></p>
+<h2 id="2-创建docker新目录">2.创建docker新目录</h2>
+<p><code>mkdir -p /data/docker/lib</code></p>
+<h2 id="3-安装迁移软件包">3.安装迁移软件包</h2>
+<p><code>yum install rsync -y</code></p>
+<p>或者</p>
+<p><code>sudo apt-get install rsync</code></p>
+<h2 id="4-开始迁移">4.开始迁移</h2>
+<p><code>rsync -avzP /var/lib/docker /data/docker/lib/</code></p>
+<p>注：这个不是必须的，也可以用<code>mv</code>命令</p>
+<h2 id="5-修改docker配置文件">5.修改docker配置文件</h2>
+<p><code>vim /lib/systemd/system/docker.service</code></p>
+<p>在<code>ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</code>后添加<code>--graph=/data/docker/lib</code></p>
+<p>注意：这里有个坑，最新的docker版本（≥ version 23.0.0 ) 这个参数（–graph）要改为 --data-root ，也就是： <code>--data-root=/data/docker/lib</code></p>
+<h2 id="6-重启docker">6.重启docker</h2>
+<p><code>systemctl daemon-reload</code><br>
+<code>systemctl restart docker</code></p>
+<h2 id="7-确认docker没有问题，删除原目录">7.确认docker没有问题，删除原目录</h2>
+<p><code>rm -rf /var/lib/docker</code></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Django-APIView-usage"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/08/07/Django-APIView-usage/"
+    >Django -APIView的使用</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/08/07/Django-APIView-usage/" class="article-date">
+  <time datetime="2023-08-07T01:05:29.000Z" itemprop="datePublished">2023-08-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-APIView的使用：">1.APIView的使用：</h2>
+<h3 id="1-1-在-user-urls-py-中添加路由">1.1 在 user/urls.py 中添加路由</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> bookapp.views <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;book/cate/&#x27;</span>, CateView.as_view()),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="1-2创建user-serializers-py写序列化器">1.2创建user/serializers.py写序列化器</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cateser</span>(serializers.ModelSerializer):</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Cate	  <span class="comment">#数据库表名</span></span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span> <span class="comment">#序列化所有字段      </span></span><br><span class="line">        <span class="comment">#depth = 1  # 外键序列化 添加了这个关联的外键都会查询出来*class Bookser(serializers.ModelSerializer):</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Book</span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-在-user-views-py-中添加视图函数">1.3 在 user/views.py 中添加视图函数</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"><span class="keyword">from</span> .sers <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CateView</span>(<span class="title class_ inherited__">APIView</span>):</span><br><span class="line">    <span class="comment"># get是查询数据  post是添加数据</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        cate = Cate.objects.<span class="built_in">all</span>()  <span class="comment"># 查询所有数据 他是一个查询集</span></span><br><span class="line">        ser = Cateser(cate, many=<span class="literal">True</span>)  <span class="comment"># 因为查询的是一个查询集 所以需要些many=True</span></span><br><span class="line">        <span class="keyword">return</span> Response(ser.data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        ser = Cateser(data=request.data)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.data</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(ser.errors)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.errors</span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, request</span>):  <span class="comment"># put 修改数据 完全修改数据  patch 部分修改数据# 想要修改的话 需要知道要修改谁 还要知道最新的数据 data=xxx 传递的新的值</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        <span class="comment"># first是从查询集中 获取一个model对象</span></span><br><span class="line">        cate = Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).first()  </span><br><span class="line">        <span class="comment"># 传递 两个参数 参数1是要修改的数据  参数2是要赋予的新值</span></span><br><span class="line">        ser = Cateser(instance=cate, data=request.data)  </span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 需要知道删除谁</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).delete()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Avoid-pip-docker-build"
   class="article article-type-post"
   itemscope
@@ -636,150 +770,6 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-4S-System-Design-Methodology"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/28/4S-System-Design-Methodology/"
-    >4S方法设计系统</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/28/4S-System-Design-Methodology/" class="article-date">
-  <time datetime="2023-07-28T07:05:58.000Z" itemprop="datePublished">2023-07-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="概述">概述</h2>
-<p>所谓4S分析法中的4S是指：<br>
-Scenario（场景），Service（服务），Storage（存储），Scale（扩展）。<br>
-接下来，我们结合4S分析法来具体回答一道常见系统设计题：如何设计一个推特？</p>
-<h2 id="第一步：Scenario-场景">第一步：Scenario 场景</h2>
-<p>在这一步，需要考虑：需要设计哪些功能（也可以自己想），需要承受多大的访问量？<br>
-首先可以把Twitter的功能一个个罗列出来，很显然你无法在45分钟的面试中完成所有功能的设计，所以需要筛选出核心功能（Post a Tweet，Timeline，News Feed，Follow/Unfollow a user，Register/Login）。<br>
-然后需要继续考虑系统承受的QPS大概是多少？需要考虑并发用户，读频率（Read QPS）以及写频率（Write QPS）。记住重要的是你的思考和计算过程而不是计算结果。</p>
-<h2 id="第二步，Service服务">第二步，Service服务</h2>
-<p>所谓服务可以认为是逻辑处理的整合，对于同一类问题的逻辑处理可以归并到一个服务中。这一步实际上就是将整个系统细分为若干个小的服务。<br>
-根据第一步选出的核心功能，我们可以将推特拆分成如下的几个服务：<br>
-<img src="http://cdn.yunminitools.cn/blog/0728Service.png" alt=""></p>
-<h2 id="第三步，Storage-存储">第三步，Storage 存储</h2>
-<p>接下来就是4S分析法中最重要的一部分，存储。根据每个服务的数据特性选择合适的存储结构，然后细化数据表结构。<br>
-系统设计中可以选择的存储结构一般有三大类：数据库系统，文件系统，缓存系统。其中数据库系统又分为关系型数据库（SQL Database）和 非关系型数据库（NoSQL Database）。<br>
-<img src="http://cdn.yunminitools.cn/blog/0728Storage.png" alt=""></p>
-<p>确定存储结构后，我们需要细化数据表结构，面试中可以通过画图展示数据存储和读取的流程。<br>
-<img src="http://cdn.yunminitools.cn/blog/0728DataStructure.png" alt=""></p>
-<p>用过前3个步骤的分析，我们已经得到了一个可行方案，注意是Work Solution而不是Perfect Solution，这个方案可以存在很多待解决的缺陷。</p>
-<h2 id="第四步，Scale-扩展">第四步，Scale 扩展</h2>
-<p>这一步主要分两部分：</p>
-<ul>
-<li>一个是优化和迭代设计，包括解决设计缺陷，更多功能设计，后台管理功能以及一些特殊情况如何处理；</li>
-<li>另一个是维护，包括系统的鲁棒性和扩展性，比如有一台服务器/数据库挂了怎么办？如果有流量暴增，如何扩展？</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-U-Theory-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/27/U-Theory-1/"
-    >U型思考介绍-1</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/27/U-Theory-1/" class="article-date">
-  <time datetime="2023-07-27T02:22:18.000Z" itemprop="datePublished">2023-07-27</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>什么是U型思维呢？</p>
-<p>U型思维是指先向下挖掘出问题本质，然后基于本质再来做决策的思考方式。它与上面直线式的思考相对应，因为思维链路有点像U，所以叫它U型思维，也可以叫它本质思考或者第二性思考。</p>
-<p><img src="http://cdn.yunminitools.cn/blog/0727U-Theory-1.png" alt="U-Theory"></p>
-<p>既然 U 型思维这么好，那么我们又如何能由直线思考升级到U型思考，从而拥有一眼洞穿本质的能力呢？</p>
-<p>其实和学习其他新生事物一样的道理，我们首先需要掌握科学系统的训练方法，其次通过刻意练习，让U型思考这种思维方式形成习惯以后，存储到我们潜意识层，它也就变成了我们操作系统上又一个常用的<strong>思维框架</strong> 。后续每当你遇到方向性问题时，U型思维这个 <strong>思维框架</strong> 就会自动运转起来，它就是专门用来解决战略方向性问题的，帮助我们确立前行方向。所以擅长U型思考的人，往往也是战略高手。</p>
-<p>具体的训练步骤可以分为以下三步：</p>
-<ol>
-<li>找核心问题</li>
-<li>找本质原因</li>
-<li>找解决方案</li>
-</ol>
-<p>助记词：<br>
-<strong>先问后挖，不破不立</strong></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/" rel="tag">工具框架</a></li></ul>
 
     </footer>
   </div>

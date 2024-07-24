@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-07-22T10:08:04.872Z</updated>
+  <updated>2024-07-24T03:45:11.367Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Portfolio Page - 6 (Navigation bar effect)</title>
+    <link href="http://yunminitools.cn/2024/07/24/built-portfolio-page-6/"/>
+    <id>http://yunminitools.cn/2024/07/24/built-portfolio-page-6/</id>
+    <published>2024-07-24T03:44:40.000Z</published>
+    <updated>2024-07-24T03:45:11.367Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Steps&quot;&gt;Steps:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Modify Header.tsx&lt;/li&gt;
+&lt;li&gt;Add motion effect&lt;/li&gt;
+&lt;li&gt;Install react-intersection-observer&lt;/li&gt;
+&lt;li&gt;Add ActiveSectionContext to pass context&lt;/li&gt;
+&lt;li&gt;Add ActiveSectionContextProvider to Layout&lt;/li&gt;
+&lt;li&gt;Consume context&lt;/li&gt;
+&lt;li&gt;Add more control to make movement smoothly&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Modify-Header-tsx&quot;&gt;Modify Header.tsx:&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Built Portfolio Page - 5 (Link scroll)</title>
+    <link href="http://yunminitools.cn/2024/07/24/built-portfolio-page-5/"/>
+    <id>http://yunminitools.cn/2024/07/24/built-portfolio-page-5/</id>
+    <published>2024-07-24T03:27:08.000Z</published>
+    <updated>2024-07-24T03:27:36.259Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Steps&quot;&gt;Steps:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Add id to different element&lt;/li&gt;
+&lt;li&gt;Add scroll-mt propriety to classman&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Modify</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Portfolio Page -4 (Scroll effect)</title>
@@ -510,61 +573,6 @@ Awesome Cloudflare - 为白嫖 Cloudflare</summary>
 &lt;li&gt;Add component PostItem&lt;/li&gt;
 &lt;li&gt;Add PostFeed to Home Page&lt;/li&gt;
 &lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Twitter Like App - 21</title>
-    <link href="http://yunminitools.cn/2024/06/09/Built-Twitter-Like-App-21/"/>
-    <id>http://yunminitools.cn/2024/06/09/Built-Twitter-Like-App-21/</id>
-    <published>2024-06-09T03:55:59.000Z</published>
-    <updated>2024-06-09T03:56:49.349Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Post-Tweet&quot;&gt;Post Tweet&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Add post API&lt;/li&gt;
-&lt;li&gt;Add hook&lt;/li&gt;
-&lt;li&gt;Add component Form&lt;/li&gt;
-&lt;li&gt;Add Form to Home page&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Twitter Like App - 20</title>
-    <link href="http://yunminitools.cn/2024/06/08/Built-Twitter-Like-App-20/"/>
-    <id>http://yunminitools.cn/2024/06/08/Built-Twitter-Like-App-20/</id>
-    <published>2024-06-08T14:37:41.000Z</published>
-    <updated>2024-06-08T14:38:20.001Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Add-Image-Upload-Function&quot;&gt;Add Image Upload Function&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Install dropzone&lt;/li&gt;
-&lt;li&gt;Add component ImageUpload&lt;/li&gt;
-&lt;li&gt;Modify EditModal&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Install-Dropzone&quot;&gt;Install Dropzone&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install react-dropzone&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

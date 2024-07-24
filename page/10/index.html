@@ -100,6 +100,163 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-windows-package-management-chocolatey"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/26/windows-package-management-chocolatey/"
+    >Window上用包管理应用安装软件 — Chocolatey</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/26/windows-package-management-chocolatey/" class="article-date">
+  <time datetime="2024-02-26T13:32:55.000Z" itemprop="datePublished">2024-02-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="前言">前言</h2>
+<p>在经历了多次重装系统、重新安装各种常用软件后，我突然萌生了一个想法，难道 Window 就没有一个像 Linux 一样可以使用一行命令安装软件的包管理器吗？</p>
+<p>答案是：有的。</p>
+<p>这里主要是介绍 Chocolatey，对其他包管理器感兴趣的可以自行查看。</p>
+<h2 id="安装使用">安装使用</h2>
+<p>安装 Chocolatey 前，你需要对检查一下自身系统是否达到所需的要求。</p>
+<ul>
+<li>Windows 7+ / Windows Server 2003+</li>
+<li>PowerShell v2+</li>
+<li>.NET Framework 4+</li>
+</ul>
+<p>如果已经满足要求，就可以打开命令行 copy 下面的命令执行。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@powershell <span class="literal">-NoProfile</span> <span class="literal">-ExecutionPolicy</span> unrestricted <span class="literal">-Command</span> <span class="string">&quot;(iex ((new-object net.webclient).DownloadString(&#x27;https://chocolatey.org/install.ps1&#x27;))) &gt;<span class="variable">$null</span> 2&gt;&amp;1&quot;</span> &amp;&amp; <span class="built_in">SET</span> PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果没报红字错误，应该是安装成功了。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">choco <span class="literal">-v</span></span><br><span class="line"><span class="comment"># 0.10.11</span></span><br></pre></td></tr></table></figure>
+<p>接下来你可以打开下方的链接，查看一下可以安装的软件列表。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.chocolatey.org/en-us/">chocolatey.org/docs</a></p>
+<p>比如，安装 Git</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install git</span><br></pre></td></tr></table></figure>
+<p>安装 Node</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">choco install nodejs.install</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>也可以加上<code>-y</code>，安装时就不需要等待确认了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">choco install firefox -y</span><br></pre></td></tr></table></figure>
+<h3 id="基本用法">基本用法</h3>
+<ol>
+<li>安装 <code>choco install baretail</code></li>
+<li>升级 <code>choco upgrade baretail</code></li>
+<li>卸载 <code>choco uninstall baretail</code></li>
+<li>搜索 <code>choco search something</code></li>
+<li>列出已安装 <code>choco list -lo</code></li>
+</ol>
+<p>关于更多用法可点击以下链接查看：<br>
+<a target="_blank" rel="noopener" href="https://docs.chocolatey.org/en-us/">chocolatey.org/docs</a></p>
+<h2 id="修改默认安装目录">修改默认安装目录</h2>
+<p>但是，Chocolatey 安装的软件默认存放在 C 盘，对于我这种不太喜欢把软件装到 C 盘的人来说是不能忍的。</p>
+<p>虽然 Chocolatey 自己提供了一个修改默认安装目录的命令，但是需要注册（收费），对于资金充裕的同学我还是建议使用这种方法。</p>
+<p>这里我提供另外一个思路，既然他存到默认安装目录，那我们把这个默认安装目录改一下就好了。</p>
+<p>比如我要默认存放到<code>E</code>盘，打开注册表，把 <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion</code> 下的：</p>
+<ol>
+<li><code>ProgramFilesDir</code>的值改为：<code>E:\Program Files</code></li>
+<li><code>ProgramFilesDir (x86)</code>的值改为：<code>E:\Program Files (x86)</code></li>
+</ol>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903782854164487">https://juejin.cn/post/6844903782854164487</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-linux-commands-collection-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/21/linux-commands-collection-1/"
+    >查看和清理Linux日志文件</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/21/linux-commands-collection-1/" class="article-date">
+  <time datetime="2024-02-21T14:15:10.000Z" itemprop="datePublished">2024-02-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1、查看目录大小"><strong>1、查看目录大小</strong></h2>
+<h3 id="du，下面命令显示当前文件夹下各个文件及文件夹大小（汇总）">du，下面命令显示当前文件夹下各个文件及文件夹大小（汇总）</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo du <span class="literal">-sh</span> <span class="literal">--</span> *</span><br></pre></td></tr></table></figure>
+<h2 id="2、清理指定大小的日志文件：">2、清理指定大小的日志文件：</h2>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl <span class="literal">--vacuum-size</span>=<span class="number">100</span>M</span><br></pre></td></tr></table></figure>
+<p>这将保留最新的 100MB 日志数据。</p>
+<h2 id="3、清理指定时间范围之前的日志：">3、清理指定时间范围之前的日志：</h2>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl <span class="literal">--vacuum-time</span>=<span class="number">10</span>d</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-master-slave-replication-docker-install"
   class="article article-type-post"
   itemscope
@@ -633,142 +790,6 @@ Syntax error in graph mermaid version 8.14.0<br>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Django-Logging-3"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/05/Django-Logging-3/"
-    >Django 的日志机制-3</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/05/Django-Logging-3/" class="article-date">
-  <time datetime="2024-02-05T14:18:12.000Z" itemprop="datePublished">2024-02-05</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="实现方式">实现方式</h2>
-<p>其实最简单的方式就是直接在文件开头 <strong><code>import</code></strong>，然后程序中调用，像下面这样：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import the logging library</span></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="comment"># Get an instance of a logger</span></span><br><span class="line">logging.basicConfig(</span><br><span class="line">    <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(pathname)s[%(lineno)d] - %(levelname)s: %(message)s&#x27;</span>,</span><br><span class="line">    level=logging.INFO)</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">my_view</span>(<span class="params">request, arg1, arg</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span> bad_mojo:</span><br><span class="line">        <span class="comment"># Log an error message</span></span><br><span class="line">	logger.error(<span class="string">&#x27;Something went wrong!&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>但这种方式并不好，如果在每个文件开头都这样写一遍，第一是麻烦，第二是如果哪天要改变输出日志格式，那每个文件都要改一遍，还不累死。</p>
-<p>很显然，如果能封装成一个类，用的时候调用这个类，修改的时候也只需要修改这一个地方:</p> 
-      <a class="article-more-link" href="/2024/02/05/Django-Logging-3/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Django-Logging-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/04/Django-Logging-2/"
-    >Django 的日志机制-2</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/04/Django-Logging-2/" class="article-date">
-  <time datetime="2024-02-04T13:55:49.000Z" itemprop="datePublished">2024-02-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="logging-结构">logging 结构</h2>
-<p>在 Django 中使用 Python 的标准库 logging 模块来记录日志，关于 logging 的配置，我这里不做过多介绍，只写其中最重要的四个部分：<code>Loggers</code>、<code>Handlers</code>、<code>Filters</code> 和 <code>Formatters</code>。</p>
-<h3 id="Loggers">Loggers</h3>
-<p><code>Logger</code> 即<strong>记录器</strong>，是日志系统的入口。它有三个重要的工作：</p>
-<ul>
-<li>向应用程序（也就是你的项目）公开几种方法，以便运行时记录消息</li>
-<li>根据传递给 <code>Logger</code> 的消息的严重性，确定消息是否需要处理</li>
-<li>将需要处理的消息传递给所有感兴趣的处理器 <code>Handler</code></li>
-</ul>
-<p>每一条写入 <code>Logger</code> 的消息都是一条日志记录，每一条日志记录都包含级别，代表对应消息的严重程度。常用的级别如下：</p>
-<ul>
-<li><code>DEBUG</code>：排查故障时使用的低级别系统信息，通常开发时使用</li>
-<li><code>INFO</code>：一般的系统信息，并不算问题</li>
-<li><code>WARNING</code>：描述系统发生小问题的信息，但通常不影响功能</li>
-<li><code>ERROR</code>：描述系统发生大问题的信息，可能会导致功能不正常</li>
-<li><code>CRITICAL</code>：描述系统发生严重问题的信息，应用程序有崩溃的风险</li>
-</ul>
-<p>当 <code>Logger</code> 处理一条消息时，会将自己的日志级别和这条消息配置的级别做对比。如果消息的级别匹配或者高于 <code>Logger</code> 的日志级别，它就会被进一步处理，否则这条消息就会被忽略掉。</p>
-<p>当 <code>Logger</code> 确定了一条消息需要处理之后，会把它传给 <code>Handler</code>。</p> 
-      <a class="article-more-link" href="/2024/02/04/Django-Logging-2/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
 
     </footer>
   </div>
