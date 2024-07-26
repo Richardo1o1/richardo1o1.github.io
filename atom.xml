@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-07-24T03:45:11.367Z</updated>
+  <updated>2024-07-26T09:21:04.899Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为nextjs项目添加日志</title>
+    <link href="http://yunminitools.cn/2024/07/26/add-log-to-nextjs-project/"/>
+    <id>http://yunminitools.cn/2024/07/26/add-log-to-nextjs-project/</id>
+    <published>2024-07-26T09:20:35.000Z</published>
+    <updated>2024-07-26T09:21:04.899Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;经常做全栈项目或者做过正式后端项目的开发者都知道，日志记录是一个项目不可或缺的功能。不过，经常看Next.js开源项目的朋友会发现，几乎没什么项目集成了日志模块。&lt;/p&gt;
+&lt;p&gt;但是，根据我的经验看，Next.js项目还是比较需要日志模块的，根据实际经验总结出来的原因如下有几个：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Serverless 平台和自己购买的服务器环境是有区别的，这就带来Next.js项目运行时不同，例如在Serverless 平台里，Next.js使用的是edge运行时，它相比于Node环境来说，缺少了一些API，这会导致偶尔出现本地运行正常，部署到Serverless 平台发现报错了。&lt;/li&gt;
+&lt;li&gt;调用了第三方平台的API，当出现连接错误的情况，你去排查是第三方服务不稳定还是你的API额度用完，这都是比较麻烦了，但是如果有日志文件直接查看，定位问题就可以更快速。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;安装必要Package：&quot;&gt;安装必要Package：&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install winston winston-daily-rotate-file &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;添加通用函数：&quot;&gt;添加通用函数：&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Portfolio Page - 6 (Navigation bar effect)</title>
@@ -546,32 +574,6 @@ Awesome Cloudflare - 为白嫖 Cloudflare</summary>
 &lt;li&gt;Add Follow API&lt;/li&gt;
 &lt;li&gt;Add hook&lt;/li&gt;
 &lt;li&gt;Modify component UserBio&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Twitter Like App - 22</title>
-    <link href="http://yunminitools.cn/2024/06/10/Built-Twitter-Like-App-22/"/>
-    <id>http://yunminitools.cn/2024/06/10/Built-Twitter-Like-App-22/</id>
-    <published>2024-06-10T14:45:26.000Z</published>
-    <updated>2024-06-10T14:45:58.901Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Add-PostFeed&quot;&gt;Add PostFeed&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Add component PostFeed&lt;/li&gt;
-&lt;li&gt;Add component PostItem&lt;/li&gt;
-&lt;li&gt;Add PostFeed to Home Page&lt;/li&gt;
 &lt;/ol&gt;</summary>
     
     
