@@ -11742,4 +11742,56 @@ export ALL_PROXY=‘socks5://127.0.0.1:1080’<br>
         <tag>NextJS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Built Portfolio Page - 7 (Code Cleaning)</title>
+    <url>/2024/08/07/built-portfolio-page-7/</url>
+    <content><![CDATA[<h2 id="Steps">Steps:</h2>
+<ol>
+<li>Extract same logic and put it to a hook</li>
+<li>Replace code with the hook function</li>
+</ol>
+<h2 id="Extract-same-logic-and-put-it-to-a-hook">Extract same logic and put it to a hook</h2>
+<span id="more"></span>
+<p>Add src/hooks/useSectionInView.ts</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useInView &#125; <span class="keyword">from</span> <span class="string">&quot;react-intersection-observer&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useActiveSectionContext &#125; <span class="keyword">from</span> <span class="string">&quot;@/context/ActiveSectionContext&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">SectionName</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/libs/types&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">useSectionInView</span>(<span class="params">sectionName:SectionName, threshold = <span class="number">0.75</span></span>)&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; ref, inView&#125; = <span class="title function_">useInView</span>(&#123;</span><br><span class="line">    threshold,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">const</span> &#123; setActiveSection, timeOfLastClick &#125; = <span class="title function_">useActiveSectionContext</span>();</span><br><span class="line"></span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( inView &amp;&amp; <span class="title class_">Date</span>.<span class="title function_">now</span>() - timeOfLastClick &gt; <span class="number">1000</span> ) &#123;</span><br><span class="line">      <span class="title function_">setActiveSection</span>(sectionName);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,[inView, setActiveSection,timeOfLastClick,sectionName]); </span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    ref,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Replace-code-with-the-hook-function">Replace code with the hook function</h2>
+<p>Intro.tsx</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; useSectionInView &#125; <span class="keyword">from</span> <span class="string">&#x27;@/hooks/useSectionInView&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Intro</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; ref &#125; = <span class="title function_">useSectionInView</span>(<span class="string">&quot;Home&quot;</span>,<span class="number">0.5</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>About.tsx:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; useSectionInView &#125; <span class="keyword">from</span> <span class="string">&#x27;@/hooks/useSectionInView&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">About</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; ref &#125; = <span class="title function_">useSectionInView</span>(<span class="string">&quot;About&quot;</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>Project.tsx:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Projects</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; ref &#125; = <span class="title function_">useSectionInView</span>(<span class="string">&quot;Projects&quot;</span>,<span class="number">0.5</span>);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>tailwindcss</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何用Prisma为数据库添加初始化数据</title>
+    <url>/2024/08/07/how-to-add-initial-data-to-database-via-prisma/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>到目前为止，数据库还是为空的，因此，我们需要创建一个种子脚本，填充一些初始数据进入数据库，有些初始数据是程序必不可少的，比如货币语言信息等，有时候开发需要重置数据库，因此为数据库播种也很有必要。</p>
+<p>首先，创建一个名为<code>prisma/seed.ts</code>。 然后粘贴以下模板代码：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PrismaClient</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@prisma/client&quot;</span>;</span><br><span class="line"><span class="comment">// 初始化 Prisma Client</span></span><br><span class="line"><span class="keyword">const</span> prisma = <span class="keyword">new</span> <span class="title class_">PrismaClient</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//在此编写 Prisma Client 查询</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>()</span><br><span class="line">  .<span class="title function_">catch</span>(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(e);</span><br><span class="line">    process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">finally</span>(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 关闭 Prisma Client</span></span><br><span class="line">    <span class="keyword">await</span> prisma.$disconnect();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>为了能够让 nodejs 运行 typescript，我们需要安装<code>ts-node</code></p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">npm i -D ts-node </span><br></pre></td></tr></table></figure>
+<p>然后在 <code>tsconfig.json</code> 中指定输出格式为 <code>commonjs</code></p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;ts-node&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;compilerOptions&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;module&quot;</span>: <span class="string">&quot;commonjs&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来，我们在 <code>main</code> 函数中创建一个用户:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> user = <span class="keyword">await</span> prisma.<span class="property">user</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;小马&quot;</span>,</span><br><span class="line">      <span class="attr">avatar</span>:</span><br><span class="line">        <span class="string">&quot;https://p3-passport.byteimg.com/img/user-avatar/585e1491713363bc8f67d06c485e8260~100x100.awebp&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(user)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">npx ts-node ./prisma/seed.<span class="property">ts</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>prisma</tag>
+      </tags>
+  </entry>
 </search>

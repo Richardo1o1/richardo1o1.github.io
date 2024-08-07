@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-07-26T09:21:04.899Z</updated>
+  <updated>2024-08-07T15:12:21.068Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Portfolio Page - 7 (Code Cleaning)</title>
+    <link href="http://yunminitools.cn/2024/08/07/built-portfolio-page-7/"/>
+    <id>http://yunminitools.cn/2024/08/07/built-portfolio-page-7/</id>
+    <published>2024-08-07T15:11:04.000Z</published>
+    <updated>2024-08-07T15:12:21.068Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Steps&quot;&gt;Steps:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Extract same logic and put it to a hook&lt;/li&gt;
+&lt;li&gt;Replace code with the hook function&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Extract-same-logic-and-put-it-to-a-hook&quot;&gt;Extract same logic and put it to a hook&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何用Prisma为数据库添加初始化数据</title>
+    <link href="http://yunminitools.cn/2024/08/07/how-to-add-initial-data-to-database-via-prisma/"/>
+    <id>http://yunminitools.cn/2024/08/07/how-to-add-initial-data-to-database-via-prisma/</id>
+    <published>2024-08-07T15:06:49.000Z</published>
+    <updated>2024-08-07T15:07:26.612Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="prisma" scheme="http://yunminitools.cn/tags/prisma/"/>
+    
+  </entry>
   
   <entry>
     <title>为nextjs项目添加日志</title>
@@ -522,58 +575,6 @@ Awesome Cloudflare - 为白嫖 Cloudflare</summary>
 &lt;li&gt;Add Like API&lt;/li&gt;
 &lt;li&gt;Add Hooks&lt;/li&gt;
 &lt;li&gt;Modify PostItem Page&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Twitter Like App - 24</title>
-    <link href="http://yunminitools.cn/2024/06/12/Built-Twitter-Like-App-24/"/>
-    <id>http://yunminitools.cn/2024/06/12/Built-Twitter-Like-App-24/</id>
-    <published>2024-06-12T14:39:46.000Z</published>
-    <updated>2024-06-12T14:40:14.120Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Add-Post-Page&quot;&gt;Add Post Page&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Add Post API&lt;/li&gt;
-&lt;li&gt;Add Hooks&lt;/li&gt;
-&lt;li&gt;Add Post Page&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Twitter Like App - 23</title>
-    <link href="http://yunminitools.cn/2024/06/11/Built-Twitter-Like-App-23/"/>
-    <id>http://yunminitools.cn/2024/06/11/Built-Twitter-Like-App-23/</id>
-    <published>2024-06-11T14:56:28.000Z</published>
-    <updated>2024-06-11T14:57:00.181Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Add-Follow-Function&quot;&gt;Add Follow Function&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Add Follow API&lt;/li&gt;
-&lt;li&gt;Add hook&lt;/li&gt;
-&lt;li&gt;Modify component UserBio&lt;/li&gt;
 &lt;/ol&gt;</summary>
     
     

@@ -100,6 +100,135 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-docker-set-proxy"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/07/17/docker-set-proxy/"
+    >Docker 设置代理</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/07/17/docker-set-proxy/" class="article-date">
+  <time datetime="2024-07-17T12:11:27.000Z" itemprop="datePublished">2024-07-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>使用 proxychains 企图让 docker pull使用代理来拉取镜像，实际上没有走代理，依然很慢</p>
+<p>对于镜像， 可以使用国内的加速镜像， 也可以用自己的代理服务器访问 dockerhub</p>
+<p>国内镜像加速<br>
+对于国内加速镜像，直接设置镜像地址就好了：<br>
+编辑/etc/docker/daemon.json添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;[https://docker.mirrors.ustc.edu.cn](https://docker.mirrors.ustc.edu.cn/)&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以用其它镜像比如阿里云 或者 daocloud 等等。</p>
+<h2 id="设置代理的方法">设置代理的方法</h2> 
+      <a class="article-more-link" href="/2024/07/17/docker-set-proxy/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-customize-next-auth-login-field"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/06/26/customize-next-auth-login-field/"
+    >自定义Next auth的登陆字段</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/06/26/customize-next-auth-login-field/" class="article-date">
+  <time datetime="2024-06-26T13:39:42.000Z" itemprop="datePublished">2024-06-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>用next auth可以方便的编写用户登陆逻辑，但如果我们不想用email作为登陆主字段，就要做一些定制化开发。<br>
+使用 CredentialsProvider 时，你可以完全自定义认证逻辑，包括不使用 email。你可以设置一个只使用用户名和密码的认证系统，而不需要 email。以下是如何实现这一点的步骤：</p>
+<h2 id="1-配置-CredentialsProvider：">1. 配置 CredentialsProvider：</h2>
+<p>在你的 NextAuth.js 配置文件中（通常是 <code>pages/api/auth/[...nextauth].js</code> 或 <code>app/api/auth/[...nextauth]/route.js</code>），你可以这样设置 CredentialsProvider：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">NextAuth</span> <span class="keyword">from</span> <span class="string">&quot;next-auth&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">CredentialsProvider</span> <span class="keyword">from</span> <span class="string">&quot;next-auth/providers/credentials&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">NextAuth</span>(&#123;</span><br><span class="line">  <span class="attr">providers</span>: [</span><br><span class="line">    <span class="title class_">CredentialsProvider</span>(&#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Credentials&#x27;</span>,</span><br><span class="line">      <span class="attr">credentials</span>: &#123;</span><br><span class="line">        <span class="attr">username</span>: &#123; <span class="attr">label</span>: <span class="string">&quot;Username&quot;</span>, <span class="attr">type</span>: <span class="string">&quot;text&quot;</span>, <span class="attr">placeholder</span>: <span class="string">&quot;jsmith&quot;</span> &#125;,</span><br><span class="line">        <span class="attr">password</span>: &#123; <span class="attr">label</span>: <span class="string">&quot;Password&quot;</span>, <span class="attr">type</span>: <span class="string">&quot;password&quot;</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="keyword">async</span> <span class="title function_">authorize</span>(<span class="params">credentials, req</span>) &#123;</span><br><span class="line">        <span class="comment">// 这里添加你的认证逻辑</span></span><br><span class="line">        <span class="keyword">const</span> user = <span class="keyword">await</span> <span class="title function_">authenticateUser</span>(credentials.<span class="property">username</span>, credentials.<span class="property">password</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (user) &#123;</span><br><span class="line">          <span class="comment">// 返回的对象将被保存在 JWT 的 user 属性中</span></span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">id</span>: user.<span class="property">id</span>,</span><br><span class="line">            <span class="attr">username</span>: user.<span class="property">username</span>,</span><br><span class="line">            <span class="comment">// 不包含 email 字段</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">callbacks</span>: &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">jwt</span>(<span class="params">&#123; token, user &#125;</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (user) &#123;</span><br><span class="line">        token.<span class="property">id</span> = user.<span class="property">id</span></span><br><span class="line">        token.<span class="property">username</span> = user.<span class="property">username</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> token</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">session</span>(<span class="params">&#123; session, token &#125;</span>) &#123;</span><br><span class="line">      session.<span class="property">user</span> = &#123;</span><br><span class="line">        <span class="attr">id</span>: token.<span class="property">id</span>,</span><br><span class="line">        <span class="attr">username</span>: token.<span class="property">username</span>,</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> session</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 其他配置...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="2-修改类型定义：">2. 修改类型定义：</h2>
+<p>如果你使用 TypeScript，你可能需要修改类型定义以反映这种变化。创建或编辑 <code>types/next-auth.d.ts</code> 文件：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;next-auth&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="variable language_">module</span> <span class="string">&quot;next-auth&quot;</span> &#123;</span><br><span class="line">  <span class="keyword">interface</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="built_in">string</span></span><br><span class="line">    <span class="attr">username</span>: <span class="built_in">string</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">interface</span> <span class="title class_">Session</span> &#123;</span><br><span class="line">    <span class="attr">user</span>: <span class="title class_">User</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="variable language_">module</span> <span class="string">&quot;next-auth/jwt&quot;</span> &#123;</span><br><span class="line">  <span class="keyword">interface</span> JWT &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="built_in">string</span></span><br><span class="line">    <span class="attr">username</span>: <span class="built_in">string</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-实现认证逻辑：">3. 实现认证逻辑：</h2>
+<p>你需要实现 <code>authenticateUser</code> 函数来验证用户名和密码。这可能涉及检查数据库或其他认证服务。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-how-to-use-jest-nextjs-app-route-test-api"
   class="article article-type-post"
   itemscope
@@ -587,130 +716,6 @@ Awesome Cloudflare - 为白嫖 Cloudflare 提供一个省心省时的资源工�
 <li>Modify PostItem Page</li>
 </ol> 
       <a class="article-more-link" href="/2024/06/13/Built-Twitter-Like-App-25/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Built-Twitter-Like-App-24"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/06/12/Built-Twitter-Like-App-24/"
-    >Built Twitter Like App - 24</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/06/12/Built-Twitter-Like-App-24/" class="article-date">
-  <time datetime="2024-06-12T14:39:46.000Z" itemprop="datePublished">2024-06-12</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Add-Post-Page">Add Post Page</h2>
-<ol>
-<li>Add Post API</li>
-<li>Add Hooks</li>
-<li>Add Post Page</li>
-</ol> 
-      <a class="article-more-link" href="/2024/06/12/Built-Twitter-Like-App-24/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Built-Twitter-Like-App-23"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/06/11/Built-Twitter-Like-App-23/"
-    >Built Twitter Like App - 23</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/06/11/Built-Twitter-Like-App-23/" class="article-date">
-  <time datetime="2024-06-11T14:56:28.000Z" itemprop="datePublished">2024-06-11</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Add-Follow-Function">Add Follow Function</h2>
-<ol>
-<li>Add Follow API</li>
-<li>Add hook</li>
-<li>Modify component UserBio</li>
-</ol> 
-      <a class="article-more-link" href="/2024/06/11/Built-Twitter-Like-App-23/"
         >More...</a
       >
        

@@ -100,6 +100,137 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Hexo-plantuml-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/11/Hexo-plantuml-1/"
+    >Hexo博客安装PlantUML</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/11/Hexo-plantuml-1/" class="article-date">
+  <time datetime="2023-03-11T08:54:13.000Z" itemprop="datePublished">2023-03-11</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Hexo 静态 blog 支持 markdown 绘制 plantuml。</p>
+<h2 id="安装步骤">安装步骤</h2>
+<ul>
+<li>进入hexo 目录</li>
+<li>安装 <code>npm install --save hexo-tag-plantuml</code></li>
+</ul>
+<h2 id="使用示例">使用示例</h2>
+<p>简单时序图：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% plantuml %&#125;</span><br><span class="line">Alice -&gt; &quot;Bob()&quot; : Hello</span><br><span class="line">&quot;Bob()&quot; -&gt; &quot;This is very\nlong&quot; as Long</span><br><span class="line">&#x27; You can also declare:</span><br><span class="line">&#x27; &quot;Bob()&quot; -&gt; Long as &quot;This is very\nlong&quot;</span><br><span class="line">Long --&gt; &quot;Bob()&quot; : ok</span><br><span class="line">&#123;% endplantuml %&#125;</span><br></pre></td></tr></table></figure>
+<p>实现效果：</p>
+<img  src=http://www.plantuml.com/plantuml/svg/Syp9J4vLqBLJK7BAJzBGL5AmKl18pSd9vuBnGL8X6Pd52a1KbbfK6PENav-NhgIGMApW0sHmgIj4vfSg92VcAIJc5EShfAGcvoGMfLe1nP5C0Aa4wS1c4XTOKXV52VdP0000>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Fact-Table-Design-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/09/Fact-Table-Design-1/"
+    >事实表设计注意事项</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/09/Fact-Table-Design-1/" class="article-date">
+  <time datetime="2023-03-09T02:58:56.000Z" itemprop="datePublished">2023-03-09</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="概述">概述</h2>
+<p>在设计事实表的时候，和设计普通的数据库有一些差异，有以下一些注意事项：</p>
+<pre class="mermaid">graph LR
+B(包含完整业务事实)---A(事实表设计)
+C(去除多余业务事实)---A
+D(分解不可加事实)---A
+E(先声明粒度)---A
+A---F(避免不同粒度)
+A---G(保持单位一致)
+A---H(处理null 值)
+A---I(退化维度)</pre> 
+      <a class="article-more-link" href="/2023/03/09/Fact-Table-Design-1/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Three-Fact-Table"
   class="article article-type-post"
   itemscope
@@ -734,144 +865,6 @@ A(认知现状)-->B(制定策略)-->C(选择方法)-->D(监控执行)-->E(复盘
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-uric2022"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/01/uric2022/"
-    >Uric组件2022文档</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/01/uric2022/" class="article-date">
-  <time datetime="2023-03-01T12:32:50.000Z" itemprop="datePublished">2023-03-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>Uric组件2022文档</h1>
-<p>预备知识点：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Python基础</span><br><span class="line">Mysql</span><br><span class="line">前端</span><br><span class="line">Django</span><br><span class="line">DRF组件+VUE3</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2023/03/01/uric2022/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Network-Effects"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/28/Network-Effects/"
-    >什么是网络效应？</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/28/Network-Effects/" class="article-date">
-  <time datetime="2023-02-28T15:11:08.000Z" itemprop="datePublished">2023-02-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="网络效应的特点">网络效应的特点</h2>
-<p>有网络效应的伟大产品有什么共同之处？<br>
-网络效应的最大价值在于<strong>获客</strong>。任何公司最重要的任务之一都是获客。没有用户和收入，公司就会倒闭。而网络效应和“病毒传播”是用户增长的两个关键战略。<br>
-对于一般公司，随着市场饱和，<strong>CAC</strong> （用户获取成本）会进一步上升。而对于拥有网络效应的公司来说，情况刚好相反，随着网络的不断延展，所有参与者都能受益，<strong>CAC</strong> 保持不变，甚至可能会下降。</p>
-<h2 id="网络效应的类型">网络效应的类型</h2>
-<p>总的来看，网络效应可以分为以下五种（每一种都有长处和短处），它们是：</p>
-<h3 id="1-双边网络（平台）">1.<strong>双边网络（平台）</strong></h3>
-<p>这是一种最明显的网络效应。本质上是<strong>交易平台：</strong><br>
-有人想卖东西，有人想买东西，平台围绕人类的需求和欲望而出现。</p>
-<p><strong>优势</strong>：</p>
-<blockquote>
-<p>① 达到临界规模之后容易<strong>自行正向增长</strong>。</p>
-<p>② 垄断带来了<strong>定价权</strong>，于是可以抽取更多佣金。</p>
-<p>③ 一旦建立，<strong>维护和运营成本低</strong>（除非像 Amazon 一样，做物流）。</p>
-<p>④ 估值倍数很高。</p>
-</blockquote>
-<p><strong>劣势</strong>：</p>
-<blockquote>
-<p>① 一开始很难获得客户/用户。</p>
-<p>② 需要实现供求的动态平衡。</p>
-<p>③ 很烧钱。</p>
-<p>④ 收入增长往往比较滞后</p>
-</blockquote> 
-      <a class="article-more-link" href="/2023/02/28/Network-Effects/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/" rel="tag">投资管理</a></li></ul>
 
     </footer>
   </div>
