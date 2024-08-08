@@ -100,6 +100,85 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-docker-debug-test-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/18/docker-debug-test-1/"
+    >一次Docker应用排查过程</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/18/docker-debug-test-1/" class="article-date">
+  <time datetime="2024-02-18T14:11:46.000Z" itemprop="datePublished">2024-02-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>重新发布了一个应用，发现无法访问，把排查过程记录一下。</p>
+<h2 id="检查docker程序和开放端口">检查docker程序和开放端口</h2>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker ps</span><br></pre></td></tr></table></figure>
+<p>发现docker都在运行。</p>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunpl</span><br></pre></td></tr></table></figure>
+<p>检查开放端口，端口开放正常。</p>
+<h2 id="检查frp的状态">检查frp的状态</h2>
+<p>运行下面语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status frp</span><br></pre></td></tr></table></figure>
+<p>由于是通过frp穿透内网的，要看一下是否是frp问题，查看日志，没有报错。</p>
+<h2 id="检查内网网页状态">检查内网网页状态</h2>
+<p>访问内网ip，报错：<strong>502 Bad Gateway</strong></p>
+<p>运行一下语句，查看docker日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs ee86b3ee2451</span><br></pre></td></tr></table></figure>
+<p>其中 ee86b3ee2451 为容器ID</p>
+<p>运行下面语句，查看实时docker日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs -f ee86b3ee2451</span><br></pre></td></tr></table></figure>
+<h2 id="进入Docker查看">进入Docker查看</h2>
+<p>如果还是有问题，运行下面语句，查看docker内部情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker <span class="built_in">exec</span> -it ee86b3ee2451 bash</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<p>经过一番折腾，发现还是docker本身的问题，restart一下就好了，运行以下语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Django-Logging-4"
   class="article article-type-post"
   itemscope
@@ -726,76 +805,6 @@ C-->D(分析)</pre>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-50-Cognitive-Biases"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/01/50-Cognitive-Biases/"
-    >50个常见的认知偏差</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/01/50-Cognitive-Biases/" class="article-date">
-  <time datetime="2023-12-01T14:38:41.000Z" itemprop="datePublished">2023-12-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>马斯克点赞的50个常见的认知偏差，快来学习一下：</p>
-<ol>
-<li>权威偏见<br>
-典型表现：专家说可以这么做…</li>
-<li>聚类错误<br>
-典型表现：你看那朵云好像你家的猫。</li>
-<li>偏见盲点<br>
-典型表现：我没有偏见。</li>
-<li>乐观偏见<br>
-典型表现：水还有一半，一切都好好起来的。</li>
-<li>潜隐记忆<br>
-典型表现：Greg以为去过墓地是他的一个梦，其实他真的去过。<br>
-<img src="https://cdn.yunminitools.cn/blog/50Cognitive-Biases-1.jpeg" alt=" "></li>
-</ol> 
-      <a class="article-more-link" href="/2023/12/01/50-Cognitive-Biases/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4%E6%A1%86%E6%9E%B6/" rel="tag">思维框架</a></li></ul>
 
     </footer>
   </div>
