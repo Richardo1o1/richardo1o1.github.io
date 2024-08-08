@@ -11794,4 +11794,172 @@ export ALL_PROXY=‘socks5://127.0.0.1:1080’<br>
         <tag>prisma</tag>
       </tags>
   </entry>
+  <entry>
+    <title>背单词提示词</title>
+    <url>/2024/08/08/prompt-for-English-word-meaning/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>背单词总是背不下来，缺少相关背景，可以利用下面的提示词给GPT提问</p>
+<h2 id="提示词">提示词</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">下面我将输入英文单词或词组，请按下面格式返回，看懂了回答“明白了”：</span><br><span class="line"># [用户输入的单词]</span><br><span class="line">- 基本释义：确保标题清晰突出，音标准确（美式与英式），并提供简洁明了的中文释义。</span><br><span class="line">---</span><br><span class="line">### 记忆方法</span><br><span class="line">在以下记忆方法旁，请随机选择一个emoji图标进行标记，以增强学习的趣味性和视觉记忆。</span><br><span class="line"><span class="number">1.</span> 方法一：[描述]</span><br><span class="line"><span class="number">2.</span> 方法二：[描述]</span><br><span class="line"><span class="number">3.</span> 方法三：[描述]</span><br><span class="line"><span class="number">4.</span> 场景记忆法：将单词放入一个具体的日常生活场景中，帮助形成更加鲜明的记忆印象。</span><br><span class="line"><span class="number">5.</span> 动作记忆法：为每个单词创造一个特定的动作，通过动作帮助记忆单词。</span><br><span class="line"><span class="number">6.</span> 情感联结法：将单词与个人的情感经历或感受联系起来，通过情感经历加深记忆。</span><br><span class="line"><span class="number">7.</span> 分组分类法：将学习的单词按主题或类别分组，帮助大脑更有效地组织和记忆信息。</span><br><span class="line">- 词根词源：[如果有]</span><br><span class="line">---</span><br><span class="line">### 常用词组</span><br><span class="line">选择与日常生活和学习贴近的词组，以增加其实际应用的可能性。</span><br><span class="line">| 词组 | 使用场景说明 |</span><br><span class="line">|---|---|</span><br><span class="line">| 词组<span class="number">1</span> | 场景说明 |</span><br><span class="line">| 词组<span class="number">2</span> | 场景说明 |</span><br><span class="line">| 词组<span class="number">3</span> | 场景说明 |</span><br><span class="line">| 词组<span class="number">4</span> | 场景说明 |</span><br><span class="line">---</span><br><span class="line">### 联想记忆</span><br><span class="line">- 近义词：[列表]</span><br><span class="line">- 反义词：[列表]</span><br><span class="line">- 联想词：[列表]</span><br><span class="line">- 同根词：[列表]</span><br><span class="line">- 反义连词：[列表]</span><br><span class="line">- 形近词：[列表]</span><br><span class="line">- 情态词汇：[列表]</span><br><span class="line">- 反义连词：[列表]</span><br><span class="line">---</span><br><span class="line">### 台词记忆</span><br><span class="line">选择富有画面感和情感色彩的电影台词，使记忆过程更加有趣。</span><br><span class="line">&gt; <span class="string">&quot;英文台词&quot;</span> - 电影名</span><br><span class="line">中文翻译</span><br><span class="line">---</span><br><span class="line">### 结合记忆宫殿</span><br><span class="line">尝试将单词与个人经历或熟悉的地点结合，创建更个性化的记忆桥梁。</span><br><span class="line">- 中英结合短句<span class="number">1</span>：[描述]</span><br><span class="line">- 中英结合短句<span class="number">2</span>：[描述]</span><br><span class="line">- 中英结合短句<span class="number">3</span>：[描述]</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="例子">例子</h2>
+<h2 id="Servile">Servile</h2>
+<ul>
+<li>基本释义：过于顺从的，奴性的
+<ul>
+<li>美式发音：[ˈsɜːrvəl]</li>
+<li>英式发音：[ˈsɜːvaɪl]</li>
+<li>中文释义：过于顺从的，表现得像奴隶一样，过度屈从</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="记忆方法">记忆方法</h3>
+<p>🌟 1. 方法一：联想到“奴隶”（slave）这一词根，使其与“servile”之间的联系更加明显。<br>
+2. 方法二：想象一个过度谄媚的仆人，他的所有行为都是为了取悦主人，这样的形象有助于记住这个词。<br>
+3. 方法三：记住“servile”与“服务”（service）的关系，服务有时会表现出过度的顺从。<br>
+4. 场景记忆法：设想一个角色在电影中为自己的老板做各种过分的事情，来描绘其奴性的特质。<br>
+5. 动作记忆法：为“servile”创建一个低头谄媚的动作，帮助记忆这个词的意义。<br>
+6. 情感联结法：回忆自己在某些情况下因为过度的谦卑而感到不舒服，将这种感觉与“servile”联系起来。<br>
+7. 分组分类法：将“servile”与其他描述过度顺从的词汇（如“obsequious”）进行分类。</p>
+<ul>
+<li>词根词源：源自拉丁语“servilis”，意为“奴隶的”。</li>
+</ul>
+<hr>
+<h3 id="常用词组">常用词组</h3>
+<table>
+<thead>
+<tr>
+<th>词组</th>
+<th>使用场景说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servile attitude</td>
+<td>描述一个人过度谄媚的态度</td>
+</tr>
+<tr>
+<td>Servile obedience</td>
+<td>描述对命令的过度顺从</td>
+</tr>
+<tr>
+<td>Servile behavior</td>
+<td>描述表现出的奴性行为</td>
+</tr>
+<tr>
+<td>Servile nature</td>
+<td>形容人的奴性本质</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="联想记忆">联想记忆</h3>
+<ul>
+<li>近义词：[submissive, obsequious, sycophantic]</li>
+<li>反义词：[assertive, dominant, independent]</li>
+<li>联想词：[slave, submissive, obedient]</li>
+<li>同根词：[servitude, service]</li>
+<li>反义连词：[rebellious, resistant]</li>
+<li>形近词：[service, servile]</li>
+<li>情态词汇：[deferential, ingratiating]</li>
+<li>反义连词：[assertive, independent]</li>
+</ul>
+<hr>
+<h3 id="台词记忆">台词记忆</h3>
+<blockquote>
+<p>“I am not your servant.” - 电影《随风而逝》<br>
+中文翻译：我不是你的仆人。</p>
+</blockquote>
+<hr>
+<h3 id="结合记忆宫殿">结合记忆宫殿</h3>
+<ul>
+<li>中英结合短句1：Imagine a servant who is always too eager to please, which is the essence of being servile. (想象一个总是过于热衷于取悦别人的仆人，这就是“servile”的本质。)</li>
+<li>中英结合短句2：In the palace of memories, see yourself as a servant forced to follow every command without question, which reflects a servile nature. (在记忆宫殿中，想象自己是一个被迫无条件遵循每一个命令的仆人，这反映了“servile”的本质。)</li>
+<li>中英结合短句3：Visualize a person in a formal setting acting excessively humble and submissive, which is a perfect example of servile behavior. (想象一个人在正式场合表现得过度谦卑和顺从，这正是“servile”行为的一个完美例子。)</li>
+</ul>
+<h2 id="Enzyme">Enzyme</h2>
+<ul>
+<li>基本释义：酶，生物催化剂
+<ul>
+<li>美式发音：[ˈɛnzaɪm]</li>
+<li>英式发音：[ˈɛnzaɪm]</li>
+<li>中文释义：一种生物催化剂，能加速化学反应而自身不被消耗</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="记忆方法-v2">记忆方法</h3>
+<p>🧪 1. 方法一：联想到“酵母”（yeast）这种含有大量酶的食材，以帮助记住“enzyme”。<br>
+2. 方法二：将“enzyme”与“能量”（energy）联系起来，因为酶在生物反应中起到重要作用，提供了“能量”的概念。<br>
+3. 方法三：记住“enzyme”与“催化”（catalyst）的关系，酶作为生物催化剂加速反应。<br>
+4. 场景记忆法：想象一个实验室里，科学家在使用酶来加速化学反应，这样可以帮助记住这个词的功能。<br>
+5. 动作记忆法：做一个搅拌动作，象征酶加速反应的过程，帮助记忆“enzyme”的作用。<br>
+6. 情感联结法：回忆在厨房使用发酵剂或酵母时，感受其加速发酵的过程，将这种感受与“enzyme”联系起来。<br>
+7. 分组分类法：将“enzyme”与其他生物学相关词汇（如“catalyst”）进行分类，以帮助记忆。</p>
+<ul>
+<li>词根词源：源自希腊语“enzymos”，意思是“发酵的”，由“en-”（在…中）和“zyme”（酵母）构成。</li>
+</ul>
+<hr>
+<h3 id="常用词组-v2">常用词组</h3>
+<table>
+<thead>
+<tr>
+<th>词组</th>
+<th>使用场景说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Digestive enzyme</td>
+<td>描述帮助消化的酶</td>
+</tr>
+<tr>
+<td>Enzyme activity</td>
+<td>描述酶的活性或反应速率</td>
+</tr>
+<tr>
+<td>Enzyme catalysis</td>
+<td>描述酶催化化学反应的过程</td>
+</tr>
+<tr>
+<td>Enzyme inhibitor</td>
+<td>描述抑制酶活性的物质</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="联想记忆-v2">联想记忆</h3>
+<ul>
+<li>近义词：[catalyst, biocatalyst]</li>
+<li>反义词：[inhibitor, suppressant]</li>
+<li>联想词：[catalyst, ferment]</li>
+<li>同根词：[enzymatic, enzymology]</li>
+<li>反义连词：[inhibitor, blocker]</li>
+<li>形近词：[enzyme, catalytic]</li>
+<li>情态词汇：[catalytic, reactive]</li>
+<li>反义连词：[stagnant, inactive]</li>
+</ul>
+<hr>
+<h3 id="台词记忆-v2">台词记忆</h3>
+<blockquote>
+<p>“Enzymes are the workers in the biochemical world.” - 生命科学讲座<br>
+中文翻译：酶是生物化学世界中的工人。</p>
+</blockquote>
+<hr>
+<h3 id="结合记忆宫殿-v2">结合记忆宫殿</h3>
+<ul>
+<li>中英结合短句1：Imagine enzymes as tiny workers in your body, speeding up all the necessary processes. (想象酶是你体内的小工人，加速所有必要的过程。)</li>
+<li>中英结合短句2：In the memory palace, visualize enzymes as catalysts that make chemical reactions happen faster. (在记忆宫殿中，想象酶作为催化剂，使化学反应更快发生。)</li>
+<li>中英结合短句3：Picture a kitchen where enzymes are speeding up the fermentation process, similar to how they work in the body. (想象一个厨房，酶加速发酵过程，这类似于它们在体内的工作方式。)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>英语学习</tag>
+        <tag>提示词</tag>
+      </tags>
+  </entry>
 </search>
