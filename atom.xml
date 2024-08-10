@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-08-09T09:30:42.368Z</updated>
+  <updated>2024-08-10T14:52:37.260Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用工具类方法总结</title>
+    <link href="http://yunminitools.cn/2024/08/10/useful-typescript-snippets/"/>
+    <id>http://yunminitools.cn/2024/08/10/useful-typescript-snippets/</id>
+    <published>2024-08-10T14:51:50.000Z</published>
+    <updated>2024-08-10T14:52:37.260Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;from: &lt;a href=&quot;https://submara.com/posts/utils/&quot;&gt;https://submara.com/posts/utils/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;存储localStorage&quot;&gt;&lt;strong&gt;存储localStorage&lt;/strong&gt;&lt;/h3&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;setStorage&lt;/span&gt; = (&lt;span class=&quot;params&quot;&gt;name, content&lt;/span&gt;) =&amp;gt; &amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!name) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (content) &amp;#123;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		 content = &lt;span class=&quot;title class_&quot;&gt;JSON&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;stringify&lt;/span&gt;(content);  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;variable language_&quot;&gt;window&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;localStorage&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;setItem&lt;/span&gt;(name, content);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;获取localStorage&quot;&gt;&lt;strong&gt;获取localStorage&lt;/strong&gt;&lt;/h3&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;getStorage&lt;/span&gt; = name =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!name) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; data = &lt;span class=&quot;variable language_&quot;&gt;window&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;localStorage&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;getItem&lt;/span&gt;(name);  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (data) &amp;#123;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;JSON&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;parse&lt;/span&gt;(data);  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="资料总结" scheme="http://yunminitools.cn/categories/%E8%B5%84%E6%96%99%E6%80%BB%E7%BB%93/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Portfolio Page - 9（Experience）</title>
@@ -555,33 +578,6 @@
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS布局教程</title>
-    <link href="http://yunminitools.cn/2024/06/19/css-interactiv/"/>
-    <id>http://yunminitools.cn/2024/06/19/css-interactiv/</id>
-    <published>2024-06-19T14:13:05.000Z</published>
-    <updated>2024-06-19T14:13:33.474Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;推荐一下 Josh Comeau 的经典三篇教程，我有搞不懂的属性经常拿出来看看，常看常新，我认为是最好的交互式教程，比MDN等都要好，可以按顺序阅读：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Flexbox 交互式指南：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
-    
-    
-    <category term="CSS" scheme="http://yunminitools.cn/tags/CSS/"/>
     
   </entry>
   
