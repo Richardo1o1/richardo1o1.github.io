@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-08-10T14:52:37.260Z</updated>
+  <updated>2024-08-10T14:56:18.776Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Portfolio Page - 10（send email）</title>
+    <link href="http://yunminitools.cn/2024/08/10/built-portfolio-page-10/"/>
+    <id>http://yunminitools.cn/2024/08/10/built-portfolio-page-10/</id>
+    <published>2024-08-10T14:55:33.000Z</published>
+    <updated>2024-08-10T14:56:18.776Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Register-Resend&quot;&gt;Register Resend&lt;/h2&gt;
+&lt;p&gt;To send email, we need Register a account in &lt;a href=&quot;http://resend.com&quot;&gt;resend.com&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.yunminitools.cn/pic/0292-resend1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Click APIKey:&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>常用工具类方法总结</title>
@@ -549,32 +573,6 @@
     
     
     <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>学习总结 Build and Deploy TWITTER clone Application</title>
-    <link href="http://yunminitools.cn/2024/06/21/twitter-clone-code/"/>
-    <id>http://yunminitools.cn/2024/06/21/twitter-clone-code/</id>
-    <published>2024-06-21T13:53:57.000Z</published>
-    <updated>2024-06-21T13:56:11.693Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;最近看到一个很棒的视频教程，从0开的搭建一个类似Twitter的应用，用到了 React, Tailwind, Next, Prisma, Mongo, NextAuth &amp;amp; Vercel</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
