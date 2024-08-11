@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-08-10T14:56:18.776Z</updated>
+  <updated>2024-08-11T15:22:51.727Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Portfolio Page - 11（email with format）</title>
+    <link href="http://yunminitools.cn/2024/08/11/built-portfolio-page-11/"/>
+    <id>http://yunminitools.cn/2024/08/11/built-portfolio-page-11/</id>
+    <published>2024-08-11T15:22:24.000Z</published>
+    <updated>2024-08-11T15:22:51.727Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-email-package&quot;&gt;Install email package&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i &lt;span class=&quot;meta&quot;&gt;@react&lt;/span&gt;-email/components &lt;span class=&quot;meta&quot;&gt;@react&lt;/span&gt;-email/tailwind&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Add-email-format-component&quot;&gt;Add email format component&lt;/h2&gt;
+&lt;p&gt;add email/contact-form-email.tsx:&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Portfolio Page - 10（send email）</title>
@@ -541,34 +565,6 @@
 &lt;p&gt;📁&lt;code&gt;app/api/items/route.ts&lt;/code&gt;:&lt;/p&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;NextResponse&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;next/server&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;GET&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; items = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;Item 1&amp;#x27;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;Item 2&amp;#x27;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;NextResponse&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(items, &amp;#123; &lt;span class=&quot;attr&quot;&gt;status&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt; &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;这是一个简单的 GET 端点，它将返回一些项目的 json 对象。在您的情况下，这可能会从数据库或其他一些 API 调用获取数据，然后将其返回给客户端。本文的最后一个示例将介绍这一点。也就是说，让我们看看这个测试会是什么样子：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 Next.js 设置 Jest 完成单元测试</title>
-    <link href="http://yunminitools.cn/2024/06/24/testing-nextjs-with-jest/"/>
-    <id>http://yunminitools.cn/2024/06/24/testing-nextjs-with-jest/</id>
-    <published>2024-06-24T12:55:22.000Z</published>
-    <updated>2024-06-24T12:56:11.352Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;Jest 和 React 测试库经常一起用于单元测试和快照测试。本指南将向您展示如何使用 Next.js 设置 Jest 并编写您的第一个测试。&lt;/p&gt;
-&lt;h2 id=&quot;快速开始&quot;&gt;快速开始&lt;/h2&gt;
-&lt;p&gt;您可以将 &lt;code&gt;create-next-app&lt;/code&gt; 与 Next.js with-jest 示例结合使用来快速入门：&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npx create-next-app&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; --example &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt;-jest &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt;-jest-app&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;手动设置&quot;&gt;手动设置&lt;/h2&gt;
-&lt;p&gt;要设置 Jest，请安装 &lt;code&gt;jest&lt;/code&gt; 和以下软件包作为开发依赖项：&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -D jest jest-environment-jsdom &lt;span class=&quot;meta&quot;&gt;@testing&lt;/span&gt;-library/react &lt;span class=&quot;meta&quot;&gt;@testing&lt;/span&gt;-library/jest-dom&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;通过运行以下命令生成基本的 Jest 配置文件：&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm init jest&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
