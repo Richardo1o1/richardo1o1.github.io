@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-08-11T15:22:51.727Z</updated>
+  <updated>2024-08-12T12:33:44.507Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Commit书写规范</title>
+    <link href="http://yunminitools.cn/2024/08/12/commit-writting-standard/"/>
+    <id>http://yunminitools.cn/2024/08/12/commit-writting-standard/</id>
+    <published>2024-08-12T12:32:37.000Z</published>
+    <updated>2024-08-12T12:33:44.507Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;git提交的commit的书写之前比较随意，看到了一个规范：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.conventionalcommits.org/zh-hans/v1.0.0/?mode=light&quot;&gt;约定式提交&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我顺便总结了一下，自己以后可以选用。&lt;/p&gt;
+&lt;h2 id=&quot;总体规范&quot;&gt;总体规范&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt;&amp;gt;[optional scope]: &amp;lt;description&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[optional body]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[optional &lt;span class=&quot;title function_&quot;&gt;footer&lt;/span&gt;(s)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;详细解释：&quot;&gt;详细解释：&lt;/h2&gt;
+&lt;h3 id=&quot;Type：&quot;&gt;Type：&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;fix:&lt;/strong&gt; &lt;em&gt;类型&lt;/em&gt; 为 &lt;code&gt;fix&lt;/code&gt; 的提交表示在代码库中修复了一个bug。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;feat:&lt;/strong&gt; &lt;em&gt;类型&lt;/em&gt; 为 &lt;code&gt;feat&lt;/code&gt; 的提交表示在代码库中新增了一个功能。&lt;/li&gt;
+&lt;li&gt;build: 用于修改项目构建系统，例如修改依赖库、外部接口或者升级 Node 版本等；&lt;/li&gt;
+&lt;li&gt;chore: 用于对非业务性代码进行修改，例如修改构建流程或者工具配置等；&lt;/li&gt;
+&lt;li&gt;ci: 用于修改持续集成流程，例如修改 Travis、Jenkins 等工作流配置；&lt;/li&gt;
+&lt;li&gt;docs: 用于修改文档，例如修改 README 文件、API 文档等；&lt;/li&gt;
+&lt;li&gt;style: 用于修改代码的样式，例如调整缩进、空格、空行等；&lt;/li&gt;
+&lt;li&gt;refactor: 用于重构代码，例如修改代码结构、变量名、函数名等但不修改功能逻辑；&lt;/li&gt;
+&lt;li&gt;perf: 用于优化性能，例如提升代码的性能、减少内存占用等；&lt;/li&gt;
+&lt;li&gt;test: 用于修改测试用例，例如添加、删除、修改代码的测试用例等。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>Built Portfolio Page - 11（email with format）</title>
@@ -536,35 +574,6 @@
 使用 CredentialsProvider 时，你可以完全自定义认证逻辑，包括不使用</summary>
         
       
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用 Jest 和 React-Testing-Library 对 Next.js 13+ App Router API 路由进行单元测试</title>
-    <link href="http://yunminitools.cn/2024/06/25/how-to-use-jest-nextjs-app-route-test-api/"/>
-    <id>http://yunminitools.cn/2024/06/25/how-to-use-jest-nextjs-app-route-test-api/</id>
-    <published>2024-06-25T12:58:55.000Z</published>
-    <updated>2024-06-25T12:59:23.545Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
-&lt;p&gt;本文中使用的所有示例都在此&lt;a href=&quot;https://github.com/Dforrunner/next-with-jest&quot;&gt;存储库&lt;/a&gt;中。&lt;/p&gt;
-&lt;p&gt;将介绍以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;单元测试 Next.js API GET 路由&lt;/li&gt;
-&lt;li&gt;单元测试 Next.js API POST/PUT/DELETE 路由&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;单元测试-Next-js-GET-路由&quot;&gt;&lt;strong&gt;单元测试 Next.js GET 路由&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;📁&lt;code&gt;app/api/items/route.ts&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;NextResponse&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;next/server&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;GET&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; items = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;Item 1&amp;#x27;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;Item 2&amp;#x27;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;NextResponse&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(items, &amp;#123; &lt;span class=&quot;attr&quot;&gt;status&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt; &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这是一个简单的 GET 端点，它将返回一些项目的 json 对象。在您的情况下，这可能会从数据库或其他一些 API 调用获取数据，然后将其返回给客户端。本文的最后一个示例将介绍这一点。也就是说，让我们看看这个测试会是什么样子：&lt;/p&gt;</summary>
     
     
     

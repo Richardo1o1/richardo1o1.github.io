@@ -12139,4 +12139,53 @@ export ALL_PROXY=‘socks5://127.0.0.1:1080’<br>
         <tag>tailwindcss</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Commit书写规范</title>
+    <url>/2024/08/12/commit-writting-standard/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>git提交的commit的书写之前比较随意，看到了一个规范：</p>
+<p><a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/?mode=light">约定式提交</a></p>
+<p>我顺便总结了一下，自己以后可以选用。</p>
+<h2 id="总体规范">总体规范</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">type</span>&gt;[optional scope]: &lt;description&gt;</span><br><span class="line"></span><br><span class="line">[optional body]</span><br><span class="line"></span><br><span class="line">[optional <span class="title function_">footer</span>(s)]</span><br></pre></td></tr></table></figure>
+<h2 id="详细解释：">详细解释：</h2>
+<h3 id="Type：">Type：</h3>
+<ol>
+<li><strong>fix:</strong> <em>类型</em> 为 <code>fix</code> 的提交表示在代码库中修复了一个bug。</li>
+<li><strong>feat:</strong> <em>类型</em> 为 <code>feat</code> 的提交表示在代码库中新增了一个功能。</li>
+<li>build: 用于修改项目构建系统，例如修改依赖库、外部接口或者升级 Node 版本等；</li>
+<li>chore: 用于对非业务性代码进行修改，例如修改构建流程或者工具配置等；</li>
+<li>ci: 用于修改持续集成流程，例如修改 Travis、Jenkins 等工作流配置；</li>
+<li>docs: 用于修改文档，例如修改 README 文件、API 文档等；</li>
+<li>style: 用于修改代码的样式，例如调整缩进、空格、空行等；</li>
+<li>refactor: 用于重构代码，例如修改代码结构、变量名、函数名等但不修改功能逻辑；</li>
+<li>perf: 用于优化性能，例如提升代码的性能、减少内存占用等；</li>
+<li>test: 用于修改测试用例，例如添加、删除、修改代码的测试用例等。</li>
+</ol>
+<span id="more"></span>
+<h3 id="脚标：">脚标：</h3>
+<p><strong>BREAKING CHANGE:</strong> 在脚注中包含 <code>BREAKING CHANGE:</code> 或 &lt;类型&gt;(范围) 后面有一个 <code>!</code> 的提交，表示引入了破坏性 API 变更。 破坏性变更可以是任意 <em>类型</em> 提交的一部分。</p>
+<h2 id="示例">示例</h2>
+<h3 id="包含了描述并且脚注中有破坏性变更的提交说明"><strong>包含了描述并且脚注中有破坏性变更的提交说明</strong></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">feat: allow provided config object to extend other configs</span><br><span class="line"></span><br><span class="line">BREAKING CHANGE: `extends` key in config file is now used for extending other config files</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="包含了范围的修复代码"><strong>包含了范围的修复代码</strong></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">**fix(api): fix convert error**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="包含了范围和破坏性变更-的提交說明"><strong>包含了范围和破坏性变更 <code>!</code> 的提交說明</strong></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">feat(api)!: send an email to the customer when a product is shipped</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="包含了-和-BREAKING-CHANGE-脚注的提交说明"><strong>包含了 <code>!</code> 和 BREAKING CHANGE 脚注的提交说明</strong></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chore!: drop support for Node 6</span><br><span class="line"></span><br><span class="line">BREAKING CHANGE: use JavaScript features not available in Node 6.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="不包含正文的提交说明"><strong>不包含正文的提交说明</strong></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docs: correct spelling of CHANGELOG</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="包含范围的提交说明"><strong>包含范围的提交说明</strong></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">feat(lang): add polish language</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="包含多行正文和多行脚注的提交说明"><strong>包含多行正文和多行脚注的提交说明</strong></h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fix: prevent racing of requests</span><br><span class="line"></span><br><span class="line">Introduce a request id and a reference to latest request. Dismiss</span><br><span class="line">incoming responses other than from latest request.</span><br><span class="line"></span><br><span class="line">Remove timeouts which were used to mitigate the racing issue but are</span><br><span class="line">obsolete now.</span><br><span class="line"></span><br><span class="line">Reviewed-by: Z</span><br><span class="line">Refs: #123</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
 </search>
