@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-08-12T12:33:44.507Z</updated>
+  <updated>2024-08-14T06:35:54.086Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在Windows上安装Photoprism</title>
+    <link href="http://yunminitools.cn/2024/08/14/how-to-Install-photoprism-on-windows/"/>
+    <id>http://yunminitools.cn/2024/08/14/how-to-Install-photoprism-on-windows/</id>
+    <published>2024-08-14T06:35:09.000Z</published>
+    <updated>2024-08-14T06:35:54.086Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;开源的软件photoprism, 可以帮助你很好的管理你的相册及视频. 我们在Windows上安装一下这个开源软件。&lt;/p&gt;
+&lt;h2 id=&quot;参考资料&quot;&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.photoprism.app/&quot;&gt;PhotoPrism - Features&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[PhotoPrism - Github]&lt;a href=&quot;https://github.com/photoprism/photoprism&quot;&gt;https://github.com/photoprism/photoprism&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前提条件&quot;&gt;前提条件&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;有充足空间的Windows环境&lt;/li&gt;
+&lt;li&gt;安装了Docker Desktop并正常启动&lt;/li&gt;
+&lt;li&gt;有一定的Linus操作知识（可选）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;安装photoprism&quot;&gt;安装photoprism&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="开源工具" scheme="http://yunminitools.cn/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Commit书写规范</title>
@@ -554,33 +584,6 @@
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
     
     <category term="linux" scheme="http://yunminitools.cn/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义Next auth的登陆字段</title>
-    <link href="http://yunminitools.cn/2024/06/26/customize-next-auth-login-field/"/>
-    <id>http://yunminitools.cn/2024/06/26/customize-next-auth-login-field/</id>
-    <published>2024-06-26T13:39:42.000Z</published>
-    <updated>2024-06-26T13:40:06.952Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;用next auth可以方便的编写用户登陆逻辑，但如果我们不想用email作为登陆主字段，就要做一些定制化开发。&lt;br&gt;
-使用 CredentialsProvider 时，你可以完全自定义认证逻辑，包括不使用</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
   </entry>
   

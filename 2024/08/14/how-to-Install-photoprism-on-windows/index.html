@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>如何在Windows上安装Photoprism |  New structure for utility</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/web1.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?6df1890c9854cdf70d1c67b43e743c4d";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+        pre.mermaid {
+	  background: #dedede;
+	}	
+      </style>
+    <link rel="alternate" href="/atom.xml" title="New structure for utility" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-how-to-Install-photoprism-on-windows"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  如何在Windows上安装Photoprism
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/08/14/how-to-Install-photoprism-on-windows/" class="article-date">
+  <time datetime="2024-08-14T06:35:09.000Z" itemprop="datePublished">2024-08-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">9 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>开源的软件photoprism, 可以帮助你很好的管理你的相册及视频. 我们在Windows上安装一下这个开源软件。</p>
+<h2 id="参考资料">参考资料</h2>
+<p><a target="_blank" rel="noopener" href="https://docs.photoprism.app/">PhotoPrism - Features</a></p>
+<p>[PhotoPrism - Github]<a target="_blank" rel="noopener" href="https://github.com/photoprism/photoprism">https://github.com/photoprism/photoprism</a></p>
+<h2 id="前提条件">前提条件</h2>
+<ol>
+<li>有充足空间的Windows环境</li>
+<li>安装了Docker Desktop并正常启动</li>
+<li>有一定的Linus操作知识（可选）</li>
+</ol>
+<h2 id="安装photoprism">安装photoprism</h2>
+<span id="more"></span>
+<h3 id="创建一个空目录">创建一个空目录</h3>
+<p>在合适的地方创建一个空目录, 比如名为**<code>photo</code>**, 我们会把配置以及数据存储在这个目录下.</p>
+<p>同时,在这个目录下创建三个子目录,分别是**<code>import</code><strong>,</strong><code>originals</code><strong>,</strong><code>storage</code><strong>,以及一个空文件</strong><code>docker-compose.yml</code>**</p>
+<p>目录的整体结构大致如下:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">D</span>:\photo</span><br><span class="line">├── docker-compose.<span class="property">yml</span></span><br><span class="line">├── <span class="keyword">import</span></span><br><span class="line">├── originals</span><br><span class="line">└── storage</span><br></pre></td></tr></table></figure>
+<h3 id="创建docker-compose-yml文件">创建docker-compose.yml文件</h3>
+<p>在刚才创建的目录下创建文件<code>docker-compose.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example Docker Compose config file for PhotoPrism (Windows / AMD64)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># <span class="doctag">Note:</span></span></span><br><span class="line"><span class="comment"># - Running PhotoPrism on a server with less than 4 GB of swap space or setting a memory/swap limit can cause unexpected</span></span><br><span class="line"><span class="comment">#   restarts (&quot;crashes&quot;), for example, when the indexer temporarily needs more memory to process large files.</span></span><br><span class="line"><span class="comment"># - Windows Pro users should disable the WSL 2 based engine in Docker Settings &gt; General so that</span></span><br><span class="line"><span class="comment">#   they can mount drives other than C:. This will enable Hyper-V, which Microsoft doesn&#x27;t offer</span></span><br><span class="line"><span class="comment">#   to its Windows Home customers. Docker Desktop uses dynamic memory allocation with WSL 2.</span></span><br><span class="line"><span class="comment">#   It&#x27;s important to explicitly increase the Docker memory limit to 4 GB or more when using Hyper-V.</span></span><br><span class="line"><span class="comment">#   The default of 2 GB may reduce indexing performance and cause unexpected restarts.</span></span><br><span class="line"><span class="comment"># - If you install PhotoPrism on a public server outside your home network, please always run it behind a secure</span></span><br><span class="line"><span class="comment">#   HTTPS reverse proxy such as Traefik or Caddy. Your files and passwords will otherwise be transmitted</span></span><br><span class="line"><span class="comment">#   in clear text and can be intercepted by anyone, including your provider, hackers, and governments:</span></span><br><span class="line"><span class="comment">#   https://docs.photoprism.app/getting-started/proxies/traefik/</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Setup Guide:</span></span><br><span class="line"><span class="comment"># - https://docs.photoprism.app/getting-started/docker-compose/</span></span><br><span class="line"><span class="comment"># - https://www.photoprism.app/kb/activation</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Troubleshooting Checklists:</span></span><br><span class="line"><span class="comment"># - https://docs.photoprism.app/getting-started/troubleshooting/</span></span><br><span class="line"><span class="comment"># - https://docs.photoprism.app/getting-started/troubleshooting/docker/</span></span><br><span class="line"><span class="comment"># - https://docs.photoprism.app/getting-started/troubleshooting/mariadb/</span></span><br><span class="line"><span class="comment"># - https://docs.photoprism.app/getting-started/troubleshooting/windows/</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># CLI Commands:</span></span><br><span class="line"><span class="comment"># - https://docs.photoprism.app/getting-started/docker-compose/#command-line-interface</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">photoprism:</span></span><br><span class="line">    <span class="comment">## Use photoprism/photoprism:preview for testing preview builds:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">photoprism/photoprism:latest</span></span><br><span class="line">    <span class="comment">## Don&#x27;t enable automatic restarts until PhotoPrism has been properly configured and tested!</span></span><br><span class="line">    <span class="comment">## If the service gets stuck in a restart loop, this points to a memory, filesystem, network, or database issue:</span></span><br><span class="line">    <span class="comment">## https://docs.photoprism.app/getting-started/troubleshooting/#fatal-server-errors</span></span><br><span class="line">    <span class="comment"># restart: unless-stopped</span></span><br><span class="line">    <span class="attr">stop_grace_period:</span> <span class="string">10s</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mariadb</span></span><br><span class="line">    <span class="attr">security_opt:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">seccomp:unconfined</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">apparmor:unconfined</span></span><br><span class="line">    <span class="comment">## Server port mapping in the format &quot;Host:Container&quot;. To use a different port, change the host port on</span></span><br><span class="line">    <span class="comment">## the left-hand side and keep the container port, e.g. &quot;80:2342&quot; (for HTTP) or &quot;443:2342 (for HTTPS):</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;2342:2342&quot;</span></span><br><span class="line">    <span class="comment">## Before you start the service, please check the following config options (and change them as needed):</span></span><br><span class="line">    <span class="comment">## https://docs.photoprism.app/getting-started/config-options/</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_ADMIN_USER:</span> <span class="string">&quot;admin&quot;</span>                 <span class="comment"># admin login username</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_ADMIN_PASSWORD:</span> <span class="string">&quot;insecure&quot;</span>          <span class="comment"># initial admin password (8-72 characters)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_AUTH_MODE:</span> <span class="string">&quot;password&quot;</span>               <span class="comment"># authentication mode (public, password)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_SITE_URL:</span> <span class="string">&quot;http://localhost:2342/&quot;</span>  <span class="comment"># server URL in the format &quot;http(s)://domain.name(:port)/(path)&quot;</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_TLS:</span> <span class="string">&quot;false&quot;</span>                <span class="comment"># disables HTTPS/TLS even if the site URL starts with https:// and a certificate is available</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DEFAULT_TLS:</span> <span class="string">&quot;true&quot;</span>                 <span class="comment"># defaults to a self-signed HTTPS/TLS certificate if no other certificate is available</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_ORIGINALS_LIMIT:</span> <span class="number">5000</span>               <span class="comment"># file size limit for originals in MB (increase for high-res video)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_HTTP_COMPRESSION:</span> <span class="string">&quot;gzip&quot;</span>            <span class="comment"># improves transfer speed and bandwidth utilization (none or gzip)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DEBUG:</span> <span class="string">&quot;false&quot;</span>                      <span class="comment"># run in debug mode, shows additional log messages</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_READONLY:</span> <span class="string">&quot;false&quot;</span>                   <span class="comment"># do not modify originals folder; disables import, upload, and delete</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_EXPERIMENTAL:</span> <span class="string">&quot;false&quot;</span>               <span class="comment"># enables experimental features</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_CHOWN:</span> <span class="string">&quot;false&quot;</span>              <span class="comment"># disables updating storage permissions via chmod and chown on startup</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_WEBDAV:</span> <span class="string">&quot;false&quot;</span>             <span class="comment"># disables built-in WebDAV server</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_SETTINGS:</span> <span class="string">&quot;false&quot;</span>           <span class="comment"># disables settings UI and API</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_TENSORFLOW:</span> <span class="string">&quot;false&quot;</span>         <span class="comment"># disables all features depending on TensorFlow</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_FACES:</span> <span class="string">&quot;false&quot;</span>              <span class="comment"># disables face detection and recognition (requires TensorFlow)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_CLASSIFICATION:</span> <span class="string">&quot;false&quot;</span>     <span class="comment"># disables image classification (requires TensorFlow)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_VECTORS:</span> <span class="string">&quot;false&quot;</span>            <span class="comment"># disables vector graphics support</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DISABLE_RAW:</span> <span class="string">&quot;false&quot;</span>                <span class="comment"># disables indexing and conversion of RAW images</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_RAW_PRESETS:</span> <span class="string">&quot;false&quot;</span>                <span class="comment"># enables applying user presets when converting RAW images (reduces performance)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_SIDECAR_YAML:</span> <span class="string">&quot;true&quot;</span>                <span class="comment"># creates YAML sidecar files to back up picture metadata</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_BACKUP_ALBUMS:</span> <span class="string">&quot;true&quot;</span>               <span class="comment"># creates YAML files to back up album metadata</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_BACKUP_DATABASE:</span> <span class="string">&quot;true&quot;</span>             <span class="comment"># creates regular backups based on the configured schedule</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_BACKUP_SCHEDULE:</span> <span class="string">&quot;daily&quot;</span>            <span class="comment"># backup SCHEDULE in cron format (e.g. &quot;0 12 * * *&quot; for daily at noon) or at a random time (daily, weekly)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_INDEX_SCHEDULE:</span> <span class="string">&quot;&quot;</span>                  <span class="comment"># indexing SCHEDULE in cron format (e.g. &quot;@every 3h&quot; for every 3 hours; &quot;&quot; to disable)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_AUTO_INDEX:</span> <span class="number">300</span>                     <span class="comment"># delay before automatically indexing files in SECONDS when uploading via WebDAV (-1 to disable)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_AUTO_IMPORT:</span> <span class="number">-1</span>                     <span class="comment"># delay before automatically importing files in SECONDS when uploading via WebDAV (-1 to disable)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DETECT_NSFW:</span> <span class="string">&quot;false&quot;</span>                <span class="comment"># automatically flags photos as private that MAY be offensive (requires TensorFlow)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_UPLOAD_NSFW:</span> <span class="string">&quot;true&quot;</span>                 <span class="comment"># allows uploads that MAY be offensive (no effect without TensorFlow)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DATABASE_DRIVER:</span> <span class="string">&quot;mysql&quot;</span>            <span class="comment"># MariaDB 10.5.12+ (MySQL successor) offers significantly better performance compared to SQLite</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DATABASE_SERVER:</span> <span class="string">&quot;mariadb:3306&quot;</span>     <span class="comment"># MariaDB database server hostname (:port is optional)</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DATABASE_NAME:</span> <span class="string">&quot;photoprism&quot;</span>         <span class="comment"># MariaDB database schema name</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DATABASE_USER:</span> <span class="string">&quot;photoprism&quot;</span>         <span class="comment"># MariaDB database user name</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_DATABASE_PASSWORD:</span> <span class="string">&quot;insecure&quot;</span>       <span class="comment"># MariaDB database user password</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_SITE_CAPTION:</span> <span class="string">&quot;AI-Powered Photos App&quot;</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_SITE_DESCRIPTION:</span> <span class="string">&quot;&quot;</span>                <span class="comment"># meta site description</span></span><br><span class="line">      <span class="attr">PHOTOPRISM_SITE_AUTHOR:</span> <span class="string">&quot;&quot;</span>                     <span class="comment"># meta site author</span></span><br><span class="line">      <span class="comment">## Video Transcoding (https://docs.photoprism.app/getting-started/advanced/transcoding/):</span></span><br><span class="line">      <span class="comment"># PHOTOPRISM_FFMPEG_ENCODER: &quot;software&quot;        # H.264/AVC encoder (software, intel, nvidia, apple, raspberry, or vaapi)</span></span><br><span class="line">      <span class="comment"># PHOTOPRISM_FFMPEG_SIZE: &quot;1920&quot;               # video size limit in pixels (720-7680) (default: 3840)</span></span><br><span class="line">      <span class="comment"># PHOTOPRISM_FFMPEG_BITRATE: &quot;32&quot;              # video bitrate limit in Mbit/s (default: 50)</span></span><br><span class="line">    <span class="attr">working_dir:</span> <span class="string">&quot;/photoprism&quot;</span> <span class="comment"># do not change or remove</span></span><br><span class="line">    <span class="comment">## Storage Folders: use &quot;/&quot; not &quot;\&quot; as separator, &quot;~&quot; is a shortcut for C:/user/&#123;username&#125;, &quot;.&quot; for the current directory</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;D:/Photo/originals:/photoprism/originals&quot;</span>                 <span class="comment"># original media files (photos and videos)</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;D:/Photo/import:/photoprism/import&quot;</span>                         <span class="comment"># *optional* base folder from which files can be imported to originals</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;D:/Photo/storage:/photoprism/storage&quot;</span>                    <span class="comment"># *writable* storage folder for cache, database, and sidecar files (never remove)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">## MariaDB Database Server (recommended)</span></span><br><span class="line">  <span class="comment">## see https://docs.photoprism.app/getting-started/faq/#should-i-use-sqlite-mariadb-or-mysql</span></span><br><span class="line">  <span class="attr">mariadb:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mariadb:11</span></span><br><span class="line">    <span class="comment">## If MariaDB gets stuck in a restart loop, this points to a memory or filesystem issue:</span></span><br><span class="line">    <span class="comment">## https://docs.photoprism.app/getting-started/troubleshooting/#fatal-server-errors</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">stop_grace_period:</span> <span class="string">5s</span></span><br><span class="line">    <span class="attr">security_opt:</span> <span class="comment"># see https://github.com/MariaDB/mariadb-docker/issues/434#issuecomment-1136151239</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">seccomp:unconfined</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">apparmor:unconfined</span></span><br><span class="line">    <span class="comment">## --lower-case-table-names=1 stores tables in lowercase and compares names in a case-insensitive manner</span></span><br><span class="line">    <span class="comment">## see https://mariadb.com/kb/en/server-system-variables/#lower_case_table_names</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">--innodb-buffer-pool-size=512M</span> <span class="string">--lower-case-table-names=1</span> <span class="string">--transaction-isolation=READ-COMMITTED</span> <span class="string">--character-set-server=utf8mb4</span> <span class="string">--collation-server=utf8mb4_unicode_ci</span> <span class="string">--max-connections=512</span> <span class="string">--innodb-rollback-on-timeout=OFF</span> <span class="string">--innodb-lock-wait-timeout=120</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;database:/var/lib/mysql&quot;</span> <span class="comment"># Named volume &quot;database&quot; is defined at the bottom (DO NOT REMOVE)</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MARIADB_AUTO_UPGRADE:</span> <span class="string">&quot;1&quot;</span></span><br><span class="line">      <span class="attr">MARIADB_INITDB_SKIP_TZINFO:</span> <span class="string">&quot;1&quot;</span></span><br><span class="line">      <span class="attr">MARIADB_DATABASE:</span> <span class="string">&quot;photoprism&quot;</span></span><br><span class="line">      <span class="attr">MARIADB_USER:</span> <span class="string">&quot;photoprism&quot;</span></span><br><span class="line">      <span class="attr">MARIADB_PASSWORD:</span> <span class="string">&quot;insecure&quot;</span></span><br><span class="line">      <span class="attr">MARIADB_ROOT_PASSWORD:</span> <span class="string">&quot;insecure&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">## Watchtower upgrades services automatically (optional)</span></span><br><span class="line">  <span class="comment">## see https://docs.photoprism.app/getting-started/updates/#watchtower</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># watchtower:</span></span><br><span class="line">  <span class="comment">#   restart: unless-stopped</span></span><br><span class="line">  <span class="comment">#   image: containrrr/watchtower</span></span><br><span class="line">  <span class="comment">#   environment:</span></span><br><span class="line">  <span class="comment">#     WATCHTOWER_CLEANUP: &quot;true&quot;</span></span><br><span class="line">  <span class="comment">#     WATCHTOWER_POLL_INTERVAL: 7200 # checks for updates every two hours</span></span><br><span class="line">  <span class="comment">#   volumes:</span></span><br><span class="line">  <span class="comment">#     - &quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">  <span class="comment">#     - &quot;~/.docker/config.json:/config.json&quot; # optional, for authentication if you have a Docker Hub account</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Create named volumes, advanced users may remove this if they mount a regular host folder</span></span><br><span class="line"><span class="comment">## for the database or use SQLite instead (never remove otherwise)</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">database:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">local</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动服务">启动服务</h3>
+<p>进入**<code>photo</code>**目录,使用如下命令启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<p>第一次启动会下载镜像需要一些时间, 启动完成没有问题就可以使用了.</p>
+<p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:2342/"><strong>http://127.0.0.1:2342</strong></a> , 如果没有意外,你就能看到登录页面了</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0298-login-photoprism.png" alt=""></p>
+<h3 id="如何重启服务">如何重启服务</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker-compose stop</span><br><span class="line">//...编辑参数</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<h2 id="第一次导入及索引">第一次导入及索引</h2>
+<p>但你现在会发现,你还没有任何照片视频. 你现在的需求其实是两个:</p>
+<ul>
+<li>导入旧有的存在的相片</li>
+<li>后续如何同步新的相片</li>
+</ul>
+<p>先讲下如何导入旧的存在的相片并完成索引. 所谓索引是指对照片的信息元数据,比如地点,大小,拍摄时间等做提取, 同时对照片生成各种大小的缩略图照片. (你在UI上看到的小图,其实是缩略图,而不是原照片)</p>
+<h3 id="如何导入你存在的相片并完成索引呢">如何导入你存在的相片并完成索引呢?</h3>
+<p>我的做法是将需要导入的相片放到 import目录，这里是 D:\photo\import, 然后在<strong>资料库</strong>的<strong>导入</strong>页中, 选择你的目录, 导入你的照片.</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0299-photoprism-import-photo.webp" alt=""></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/08/14/how-to-Install-photoprism-on-windows/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/08/12/commit-writting-standard/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Commit书写规范</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2023-2024
+        <i class="ri-heart-fill heart_icon"></i> Richard Z.
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">沪ICP备15046216号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/desktopicon.png" alt="New structure for utility"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "base" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
