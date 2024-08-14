@@ -12238,4 +12238,58 @@ export ALL_PROXY=‘socks5://127.0.0.1:1080’<br>
         <tag>开源工具</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Git 使用 --depth</title>
+    <url>/2024/08/14/git-use-depth-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在我们拉取 <code>Git repo</code> 时，如果不需要大量的日志记录，只想获取某个分支或者某次提交下的文件状态，可以借助 <code>depth=1</code> 参数实现。</p>
+<h2 id="使用">使用</h2>
+<p>在使用 <code>git clone</code> 时直接携带 <code>depth</code>:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">*<span class="comment"># 实现默认分支的拉取*</span></span><br><span class="line">git <span class="built_in">clone</span> --depth **1** xxx.git</span><br><span class="line"></span><br><span class="line">*<span class="comment"># 某个分支/标签*</span></span><br><span class="line">git <span class="built_in">clone</span> --depth **1** -b <span class="string">&quot;branch_name/tag_name&quot;</span> xxx.git</span><br></pre></td></tr></table></figure>
+<p>其中 <code>depth</code> 指定的是 <code>commit</code> 的深度，指定 <code>1</code> 则表示只拉取一次 <code>commit</code>，就是某次提交的完整状态。如果指定 <code>2</code>，就表示只想更深一层的 <code>commit</code>。</p>
+<span id="more"></span>
+<p>此处借助 <a href="https://github.com/vuejs/vue.git"><code>vue</code></a> 仓库作为参考:</p>
+<h3 id="默认状态">默认状态</h3>
+<p>默认拉取主分支：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth **1** https://github.com/vuejs/vue.git</span><br></pre></td></tr></table></figure>
+<p>进入 <code>vue</code>，查看日志:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --all</span><br></pre></td></tr></table></figure>
+<hr>
+<p>只有一次提交:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">commit c1740aca77170d0bc5ff7972bd05933ed307321c (grafted, HEAD -&gt; dev, origin/dev, origin/HEAD)</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>但实际上其有多次提交，我们还可以针对某次提交进行拉取。</p>
+<h2 id="拉取某次提交">拉取某次提交</h2>
+<blockquote>
+<p>实际上此操作与 depth 参数无关，只做案例。</p>
+</blockquote>
+<ul>
+<li><code>-branch</code> 接受 <code>Tag Name</code> 参数，需要对 <code>commit</code> 打标签才可以直接操作，如果需要直接使用 <code>commit</code>，可能需要全量拉取后在 <code>git checkout</code> 获取。</li>
+</ul>
+<p>此处我们尝试使用拉取 <a href="https://github.com/vuejs/vue/commit/85548310f19975745c83ac173f700f8b2f1e8e3e"><code>v2.6.0</code></a> ，该分支的 <code>commit id</code> 为 <code>8554831</code>:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth **1** -b v2.6.0 https://github.com/vuejs/vue.git</span><br></pre></td></tr></table></figure>
+<h2 id="获取其他内容">获取其他内容</h2>
+<p>在使用了 <code>git clone --depth 1</code> 拉取仓库的前提下，可以通过 <code>git pull --depth x</code> 或者 <code>git fetch --depth x</code> 可以获取当前提交之前的 <code>x</code> 层日志。</p>
+<p>但如果使用 <code>git branch -a</code> 并不能查看到远程的分支，如果我们需要使用到远程的所有分支，或者说获取到某个远程的分支，应该怎么操作呢?</p>
+<h3 id="获取全部分支">获取全部分支</h3>
+<p>需要从远程拉取当前分支或提交之前的所有记录，同时还会将远程的分支信息以及标签信息都同步到本地来，以便进行后续操作。</p>
+<p>其实该需求就是将单一记录的仓库转换成完整的仓库，<code>git</code> 提供 <code>unshallow</code> 参数用以实现该功能。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull --unshallow</span><br><span class="line">*<span class="comment"># or*</span></span><br><span class="line">git fetch  --unshallow</span><br></pre></td></tr></table></figure>
+<p>此时将会成远程拉取完整信息，<code>git pull --unshallow</code> 最终的结果与默认使用 <code>git clone</code> 仓库的效果一致。</p>
+<blockquote>
+<p>当然这个过程也会十分漫长。</p>
+</blockquote>
+<h2 id="小结">小结</h2>
+<p>参数 <code>depth</code> 与 <code>branch</code> 可以用于 <code>git</code> 拉取代码包括但不限于 <code>clone</code> 与 <code>submodule add</code> 操作当中，有时候我们需要定制些其他操作，需要执行获取其他分支或者抓取其他记录，都需要借用 <code>git</code> 相关的参数实现。</p>
+<p>然而这些指令不不存在某个文档当中，哪怕你用 <code>man git-clone</code> 都没看见相应的提示。(当然那是文档，不是教程。)</p>
+<p>此处做了一部分记录:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">*<span class="comment"># 转换为完整仓库*</span></span><br><span class="line">git pull --unshallow</span><br><span class="line"></span><br><span class="line">*<span class="comment"># 获取某个分支# 在本地声明远程有一个分支叫做 dev / 或其他名称*</span></span><br><span class="line">git remote set-branches origin <span class="string">&#x27;dev&#x27;</span></span><br><span class="line">*<span class="comment"># 同步该分支*</span></span><br><span class="line">git fetch --depth **1** origin dev</span><br><span class="line">*<span class="comment"># 迁出分支*</span></span><br><span class="line">git checkout -b dev origin/dev</span><br></pre></td></tr></table></figure>
+<p>原始链接：<a href="https://blog.gemo.one/2021/11/git-depth-1-unshallow/">Git 使用 --depth 之后</a></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
 </search>
