@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives |  New structure for utility</title>
+      <title>自建 Nextcloud 高性能安全私有云盘 |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -68,246 +68,164 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-build-nextcloud-private-cloud-drive-tutorial"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  自建 Nextcloud 高性能安全私有云盘
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/" class="article-date">
+  <time datetime="2024-08-15T13:00:28.000Z" itemprop="datePublished">2024-08-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">147</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/01/Event-Tracking-1/" class="archive-article-date">
-  <time datetime="2023-04-01T14:53:37.000Z" itemprop="datePublished">04/01</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/01/Event-Tracking-1/"
-    >初识数据埋点（一）</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/31/Learn-Regular-expressions/" class="archive-article-date">
-  <time datetime="2023-03-31T15:04:59.000Z" itemprop="datePublished">03/31</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/31/Learn-Regular-expressions/"
-    >推荐：学正则表达式的网站</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/30/37-how-we-make-decisions/" class="archive-article-date">
-  <time datetime="2023-03-30T14:51:25.000Z" itemprop="datePublished">03/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/30/37-how-we-make-decisions/"
-    >37signals的决策原则</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/29/AI-articles/" class="archive-article-date">
-  <time datetime="2023-03-29T14:55:00.000Z" itemprop="datePublished">03/29</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/29/AI-articles/"
-    >AI 论文速递</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/28/Prompts-Resource-1/" class="archive-article-date">
-  <time datetime="2023-03-28T15:47:56.000Z" itemprop="datePublished">03/28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/28/Prompts-Resource-1/"
-    >推荐：Prompts 收集网站</a> 
-</h2>
+  <h2 id="Nextcloud-搭建步骤（Windows环境）">Nextcloud 搭建步骤（Windows环境）</h2>
+<p>假设是安装在Windows环境并已经安装好了Docker。</p>
+<h3 id="拉取NextCloud镜像">拉取NextCloud镜像</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nextcloud</span><br></pre></td></tr></table></figure>
+<h3 id="创建数据卷">创建数据卷</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --driver <span class="built_in">local</span> --opt device=F:\Nextcloud\data --opt <span class="built_in">type</span>=none --opt o=<span class="built_in">bind</span> nextcloud </span><br></pre></td></tr></table></figure>
+<p>其中F:\Nextcloud\data 为你要保持数据的目录</p>
+<h3 id="启动NextCloud容器">启动NextCloud容器</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always --name nextcloud -p 9000:80 -v nextcloud:/var/www/html nextcloud</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="访问NextCloud">访问NextCloud</h3>
+<p>打开浏览器,访问 <a target="_blank" rel="noopener" href="http://xn--ip-fr5c86lx7z:8080/">http://服务器IP:</a>9000, （注意，docker启动后并不能马上访问，需要等10分钟左右）可看到NextCloud的安装向导。按照提示完成安装和配置。</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0300-iShot_0.webp" alt=""></p>
+<p><img src="https://cdn.yunminitools.cn/pic/0301-liShot_1.webp" alt=""></p>
+<p><img src="https://cdn.yunminitools.cn/pic/0302-iShot_2.webp" alt=""></p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/27/Sparks-of-Artificial-General-Intelligence/" class="archive-article-date">
-  <time datetime="2023-03-27T15:05:20.000Z" itemprop="datePublished">03/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/27/Sparks-of-Artificial-General-Intelligence/"
-    >转载：《GPT-4 ，通用人工智能的火花》论文内容精选与翻译</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/26/Concept-map-1/" class="archive-article-date">
-  <time datetime="2023-03-26T12:11:58.000Z" itemprop="datePublished">03/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/26/Concept-map-1/"
-    >概念地图介绍</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/25/Tools-for-better-thinking/" class="archive-article-date">
-  <time datetime="2023-03-25T02:33:05.000Z" itemprop="datePublished">03/25</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/25/Tools-for-better-thinking/"
-    >思考问题的工具和框架</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/" class="archive-article-date">
-  <time datetime="2023-03-24T15:10:15.000Z" itemprop="datePublished">03/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/24/Design-Challenges-for-the-Middle-Platform-3/"
-    >中台的设计挑战-3</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/" class="archive-article-date">
-  <time datetime="2023-03-23T14:53:36.000Z" itemprop="datePublished">03/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/03/23/Design-Challenges-for-the-Middle-Platform-2/"
-    >中台的设计挑战-2</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/page/17/">上一页</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/16/">16</a><a class="page-number" href="/archives/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/archives/page/19/">19</a><a class="page-number" href="/archives/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/24/">24</a><a class="extend next" rel="next" href="/archives/page/19/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/08/14/git-use-depth-1/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Git 使用 --depth</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -444,6 +362,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

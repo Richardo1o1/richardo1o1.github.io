@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-08-14T06:41:24.306Z</updated>
+  <updated>2024-08-15T13:01:49.471Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自建 Nextcloud 高性能安全私有云盘</title>
+    <link href="http://yunminitools.cn/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/"/>
+    <id>http://yunminitools.cn/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/</id>
+    <published>2024-08-15T13:00:28.000Z</published>
+    <updated>2024-08-15T13:01:49.471Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Nextcloud-搭建步骤（Windows环境）&quot;&gt;Nextcloud 搭建步骤（Windows环境）&lt;/h2&gt;
+&lt;p&gt;假设是安装在Windows环境并已经安装好了Docker。&lt;/p&gt;
+&lt;h3 id=&quot;拉取NextCloud镜像&quot;&gt;拉取NextCloud镜像&lt;/h3&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker pull nextcloud&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;创建数据卷&quot;&gt;创建数据卷&lt;/h3&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker volume create --driver &lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt; --opt device=F:\Nextcloud\data --opt &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;=none --opt o=&lt;span class=&quot;built_in&quot;&gt;bind&lt;/span&gt; nextcloud &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其中F:\Nextcloud\data 为你要保持数据的目录&lt;/p&gt;
+&lt;h3 id=&quot;启动NextCloud容器&quot;&gt;启动NextCloud容器&lt;/h3&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run -d --restart=always --name nextcloud -p 9000:80 -v nextcloud:/var/www/html nextcloud&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="开源工具" scheme="http://yunminitools.cn/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Git 使用 --depth</title>
@@ -551,34 +578,6 @@
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
     
     <category term="Mysql" scheme="http://yunminitools.cn/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Portfolio Page -1（搭建框架）</title>
-    <link href="http://yunminitools.cn/2024/07/20/built-portfolio-page-1/"/>
-    <id>http://yunminitools.cn/2024/07/20/built-portfolio-page-1/</id>
-    <published>2024-07-20T07:09:33.000Z</published>
-    <updated>2024-07-20T08:41:37.879Z</updated>
-    
-    
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;Create nextjs project&lt;/li&gt;
-&lt;li&gt;Add page.tsx&lt;/li&gt;
-&lt;li&gt;Add header component&lt;/li&gt;
-&lt;li&gt;Install framer motion package&lt;/li&gt;
-&lt;li&gt;Add Motion div&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Create-nextjs-project&quot;&gt;Create nextjs project&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
     
   </entry>
   

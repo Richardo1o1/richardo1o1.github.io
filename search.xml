@@ -12292,4 +12292,30 @@ export ALL_PROXY=‘socks5://127.0.0.1:1080’<br>
         <tag>Github</tag>
       </tags>
   </entry>
+  <entry>
+    <title>自建 Nextcloud 高性能安全私有云盘</title>
+    <url>/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/</url>
+    <content><![CDATA[<h2 id="Nextcloud-搭建步骤（Windows环境）">Nextcloud 搭建步骤（Windows环境）</h2>
+<p>假设是安装在Windows环境并已经安装好了Docker。</p>
+<h3 id="拉取NextCloud镜像">拉取NextCloud镜像</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull nextcloud</span><br></pre></td></tr></table></figure>
+<h3 id="创建数据卷">创建数据卷</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker volume create --driver <span class="built_in">local</span> --opt device=F:\Nextcloud\data --opt <span class="built_in">type</span>=none --opt o=<span class="built_in">bind</span> nextcloud </span><br></pre></td></tr></table></figure>
+<p>其中F:\Nextcloud\data 为你要保持数据的目录</p>
+<h3 id="启动NextCloud容器">启动NextCloud容器</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --restart=always --name nextcloud -p 9000:80 -v nextcloud:/var/www/html nextcloud</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="访问NextCloud">访问NextCloud</h3>
+<p>打开浏览器,访问 <a href="http://xn--ip-fr5c86lx7z:8080/">http://服务器IP:</a>9000, （注意，docker启动后并不能马上访问，需要等10分钟左右）可看到NextCloud的安装向导。按照提示完成安装和配置。</p>
+<p><img src="https://cdn.yunminitools.cn/pic/0300-iShot_0.webp" alt=""></p>
+<p><img src="https://cdn.yunminitools.cn/pic/0301-liShot_1.webp" alt=""></p>
+<p><img src="https://cdn.yunminitools.cn/pic/0302-iShot_2.webp" alt=""></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>开源工具</tag>
+      </tags>
+  </entry>
 </search>
