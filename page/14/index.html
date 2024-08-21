@@ -100,6 +100,132 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Local-project-link-github"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/08/01/Local-project-link-github/"
+    >本地项目连接Github</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/08/01/Local-project-link-github/" class="article-date">
+  <time datetime="2023-08-01T06:17:13.000Z" itemprop="datePublished">2023-08-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="概述">概述</h2>
+<p>本地有一些程序文件用Vim 编辑有点不方便，打算上传到github后，用网页编辑器编辑。下面是具体步骤</p>
+<h2 id="一、建立本地仓库">一、建立本地仓库</h2>
+<h3 id="1-初始化本地仓库">1.初始化本地仓库</h3>
+<p>git init</p>
+<h3 id="2-添加所有文件">2.添加所有文件</h3>
+<p>git add .</p> 
+      <a class="article-more-link" href="/2023/08/01/Local-project-link-github/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Django-Docker-Release-Script"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/30/Django-Docker-Release-Script/"
+    >Django 简版 Docker 发布流程</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/30/Django-Docker-Release-Script/" class="article-date">
+  <time datetime="2023-07-30T13:12:16.000Z" itemprop="datePublished">2023-07-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="概述">概述</h2>
+<p>想实现通过开发系统打包Docker，上传到私有部署的Hub。生产系统下载更新包，发布新版本，以下是对应的脚本文件。</p>
+<h2 id="开发系统打包上传">开发系统打包上传</h2>
+<p>脚本文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker build . -t my-app:latest</span><br><span class="line">sudo docker tag my-app:latest 192.168.50.188:5000/my-app:v1</span><br><span class="line">sudo docker push 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
+<p>其中 192.168.50.188:5000 是私有仓库地址</p>
+<h2 id="生产系统下载发布">生产系统下载发布</h2>
+<p>脚本文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull 192.168.50.188:5000/my-app:v1</span><br><span class="line">sudo docker stop my-app</span><br><span class="line">sudo docker <span class="built_in">rm</span> /my-app</span><br><span class="line">sudo docker run -it -d -p 8000:8000 --name my-app 192.168.50.188:5000/my-app:v1</span><br></pre></td></tr></table></figure>
+<p>测试成功，记录一下。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-U-Theory-2"
   class="article article-type-post"
   itemscope
@@ -672,188 +798,13 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 </article>
 
     
-    <article
-  id="post-test-changes-systematically-strategy"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/16/test-changes-systematically-strategy/"
-    >系统地测试变化的策略</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/16/test-changes-systematically-strategy/" class="article-date">
-  <time datetime="2023-06-16T13:10:48.000Z" itemprop="datePublished">2023-06-16</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>有时很难确定一个改变（例如，新的指示或新的设计）是使系统变得更好还是更糟。通过查看一些示例可能可以暗示哪个更好，但是对于小样本量来说，很难区分是真正的改进还是随机运气。也许这个改变对某些输入的性能有所帮助，但对其他输入的性能有所损害。<br>
-评估程序（或“评估”）对于优化系统设计是有用的。好的评估具备以下特点：</p>
-<ul>
-<li>代表真实世界的使用情况（或至少具备多样性）</li>
-<li>包含许多测试案例以获得更大的统计能力（请参考下表以获取指导方针）</li>
-<li>易于自动化或重复执行</li>
-</ul>
-<p>输出的评估可以由计算机、人类或二者结合来进行。计算机可以通过客观标准（例如，具有单一正确答案的问题）自动化评估，也可以通过一些主观或模糊标准进行评估，其中模型的输出由其他模型查询来评估。OpenAI Evals是一个开源软件框架，提供了创建自动评估的工具。<br>
-基于模型的评估在存在一系列可能的输出，且这些输出在质量上被认为是相等的情况下（例如，对于需要长答案的问题）是有用的。基于模型的评估与需要人类进行评估的情况之间的界限是模糊的，并且随着模型能力的提升，这个界限不断变化。我们鼓励进行实验，以确定基于模型的评估在您的用例中的效果如何。</p>
-<h2 id="通过与黄金标准答案对比评估模型输出结果">通过与黄金标准答案对比评估模型输出结果</h2>
-<p>假设我们已知问题的正确答案应该涉及到一组特定的已知事实。然后我们可以使用模型查询来计算答案中包含的必要事实的数量。</p>
-<p>例如，使用以下系统消息：</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You will be provided with text delimited by triple quotes that is supposed to be the answer to a question. Check if the following pieces of information are directly contained in the answer:<br>- Neil Armstrong was the first person to walk on the moon.<br>- The date Neil Armstrong first walked on the moon was July 21, 1969.<br>For each of these points perform the following steps:<br>1 - Restate the point.<br>2 - Provide a citation from the answer which is closest to this point.<br>3 - Consider if someone reading the citation who doesn’t know the topic could directly infer the point. Explain why or why not before making up your mind.<br>4 - Write “yes” if the answer to 3 was yes, otherwise write “no”.<br>Finally, provide a count of how many “yes” answers there are. Provide this count as {“count”: <insert count here>}.</td>
-</tr>
-</tbody>
-</table> 
-      <a class="article-more-link" href="/2023/06/16/test-changes-systematically-strategy/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Use-external-tools-strategy"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/15/Use-external-tools-strategy/"
-    >使用外部工具的策略</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/15/Use-external-tools-strategy/" class="article-date">
-  <time datetime="2023-06-15T15:13:54.000Z" itemprop="datePublished">2023-06-15</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="使用基于嵌入的搜索实现高效的知识检索">使用基于嵌入的搜索实现高效的知识检索</h2>
-<p>有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确</p>
-<p>如果提供外部信息作为模型输入的一部分，模型可以利用这些信息。这可以帮助模型生成更具见解和最新的回答。例如，如果用户问一个关于特定电影的问题，将关于电影的高质量信息（如演员、导演等）添加到模型的输入中可能会很有用。可以使用嵌入（embeddings）来实现高效的知识检索，以便在运行时动态地将相关信息添加到模型输入中。</p>
-<p>文本嵌入是可以衡量文本字符串之间关联性的向量。相似或相关的字符串之间的距离比不相关的字符串更近。这一事实，加上存在快速向量搜索算法，意味着可以利用嵌入来实现高效的知识检索。具体而言，可以将文本语料库分割成多个块，然后对每个块进行嵌入和存储。然后，可以对给定的查询进行嵌入，执行向量搜索以找到与查询最相关的文本块（即在嵌入空间中最接近的文本块）。</p>
-<p>在<a target="_blank" rel="noopener" href="https://github.com/openai/openai-cookbook">OpenAI Cookbook</a>中可以找到<a target="_blank" rel="noopener" href="https://github.com/openai/openai-cookbook/blob/main/examples/vector_databases/Using_vector_databases_for_embeddings_search.ipynb">示例实现</a>。参考“<a target="_blank" rel="noopener" href="https://www.yunminitools.cn/2023/06/15/Use-external-tools-strategy/#%E4%BD%BF%E7%94%A8%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E6%90%9C%E7%B4%A2%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E7%9A%84%E7%9F%A5%E8%AF%86%E6%A3%80%E7%B4%A2">指示模型使用检索到的知识来回答查询</a>”策略，了解如何使用知识检索来最大程度地减少模型捏造不正确事实的可能性的示例。</p>
-<h2 id="使用代码执行进行更准确的计算或调用外部API">使用代码执行进行更准确的计算或调用外部API</h2>
-<p>GPT模型本身不能可靠地执行算术或长时间计算。在需要进行这类计算的情况下，可以指示模型编写和运行代码，而不是进行自己的计算。特别是，可以指示模型将需要运行的代码放入指定的格式，例如三个反引号（triple backtics）。在生成输出后，可以提取并运行代码。最后，如果需要的话，可以将代码执行引擎（例如Python解释器）的输出作为下一个查询的模型输入。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You can write and execute Python code by enclosing it in triple backticks, e.g. <code>code goes here</code>. Use this to perform calculations.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Find all real-valued roots of the following polynomial: 3x**5 - 5x4 - 3<em>x3 - 7</em>x - 10.</td>
-</tr>
-</tbody>
-</table>
-<p>另一个代码执行的良好用例是调用外部API。如果向模型传授API的正确使用方法，它可以编写使用该API的代码。通过向模型提供API的文档和/或代码示例，可以告诉它如何使用该API。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You can write and execute Python code by enclosing it in triple backticks. Also note that you have access to the following module to help users send messages to their friends:<br>‘’‘python<br>import message<br>message.write(to=“John”, message=“Hey, want to meetup after work?”) ‘’’</td>
-</tr>
-</tbody>
-</table>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/13/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/15/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/13/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/15/">下一页</a>
   </nav>
   
 </section>
