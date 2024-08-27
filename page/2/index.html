@@ -100,6 +100,67 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-useful-typescript-snippets"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/08/10/useful-typescript-snippets/"
+    >常用工具类方法总结</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/08/10/useful-typescript-snippets/" class="article-date">
+  <time datetime="2024-08-10T14:51:50.000Z" itemprop="datePublished">2024-08-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%B5%84%E6%96%99%E6%80%BB%E7%BB%93/">资料总结</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>from: <a target="_blank" rel="noopener" href="https://submara.com/posts/utils/">https://submara.com/posts/utils/</a></p>
+<h3 id="存储localStorage"><strong>存储localStorage</strong></h3>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">setStorage</span> = (<span class="params">name, content</span>) =&gt; &#123; </span><br><span class="line"> <span class="keyword">if</span> (!name) <span class="keyword">return</span>;  </span><br><span class="line"> <span class="keyword">if</span> (content) &#123;    </span><br><span class="line">		 content = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(content);  </span><br><span class="line"> &#125;  </span><br><span class="line"> <span class="variable language_">window</span>.<span class="property">localStorage</span>.<span class="title function_">setItem</span>(name, content);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="获取localStorage"><strong>获取localStorage</strong></h3>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">getStorage</span> = name =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!name) <span class="keyword">return</span>;  </span><br><span class="line">  <span class="keyword">const</span> data = <span class="variable language_">window</span>.<span class="property">localStorage</span>.<span class="title function_">getItem</span>(name);  </span><br><span class="line">  <span class="keyword">if</span> (data) &#123;    </span><br><span class="line">	  <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data);  </span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">null</span>;  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/08/10/useful-typescript-snippets/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-built-portfolio-page-9"
   class="article article-type-post"
   itemscope
@@ -661,75 +722,6 @@ var _hmt = _hmt || [];
 <p>Modify layout.tsx:</p>
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">RootLayout</span>(<span class="params">&#123;</span></span><br><span class="line"><span class="params">  children,</span></span><br><span class="line"><span class="params">&#125;: &#123;</span></span><br><span class="line"><span class="params">  children: React.ReactNode</span></span><br><span class="line"><span class="params">&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">className</span>=<span class="string">&#x27;!scroll-smooth&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">...</span></span><br></pre></td></tr></table></figure>
  
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-built-portfolio-page-4"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/07/22/built-portfolio-page-4/"
-    >Built Portfolio Page -4 (Scroll effect)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/07/22/built-portfolio-page-4/" class="article-date">
-  <time datetime="2024-07-22T10:07:25.000Z" itemprop="datePublished">2024-07-22</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Steps">Steps:</h2>
-<ol>
-<li>move project code to project component</li>
-</ol>
-<h2 id="useScroll-Memo">useScroll Memo:</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ref = useRef&lt;<span class="title class_">HTMLElement</span>&gt;(<span class="literal">null</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; scrollYProgress  &#125; = <span class="title function_">useScroll</span>(&#123;</span><br><span class="line">  <span class="attr">target</span>: ref,</span><br><span class="line">  <span class="attr">offset</span>:[<span class="string">&quot;0 1&quot;</span>, <span class="string">&quot;1.33 1&quot;</span>]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建一个 ref,用于引用某个 DOM 元素(可能在JSX中通过 <code>ref=&#123;ref&#125;</code> 绑定到一个元素上)。</li>
-<li>使用 <code>useScroll</code> 来监听这个被引用元素的滚动情况。</li>
-<li>设置滚动动画的触发范围:从元素开始进入视口底部(“0 1”)到元素完全离开视口底部 33% 的位置(“1.33 1”)。</li>
-<li>获取 <code>scrollYProgress</code> 值,这个值可能随着元素的滚动而变化,范围可能是 0 到 1。</li>
-</ul>
-<h2 id="Add-project-component">Add project component</h2> 
-      <a class="article-more-link" href="/2024/07/22/built-portfolio-page-4/"
-        >More...</a
-      >
-       
       <!-- reward -->
       
     </div>

@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-08-23T09:24:50.020Z</updated>
+  <updated>2024-08-27T14:28:43.651Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -4 (Navigation Bar)</title>
+    <link href="http://yunminitools.cn/2024/08/27/built-finance-dashboard-page-4/"/>
+    <id>http://yunminitools.cn/2024/08/27/built-finance-dashboard-page-4/</id>
+    <published>2024-08-27T14:27:10.000Z</published>
+    <updated>2024-08-27T14:28:43.651Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-Sheet&quot;&gt;Install Sheet&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npx shadcn-ui&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; add sheet&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Install-react-use&quot;&gt;Install react-use&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i react-use&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform -3 (Header)</title>
@@ -521,39 +545,6 @@
 &lt;p&gt;Modify</summary>
         
       
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Portfolio Page -4 (Scroll effect)</title>
-    <link href="http://yunminitools.cn/2024/07/22/built-portfolio-page-4/"/>
-    <id>http://yunminitools.cn/2024/07/22/built-portfolio-page-4/</id>
-    <published>2024-07-22T10:07:25.000Z</published>
-    <updated>2024-07-22T10:08:04.872Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Steps&quot;&gt;Steps:&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;move project code to project component&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;useScroll-Memo&quot;&gt;useScroll Memo:&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; ref = useRef&amp;lt;&lt;span class=&quot;title class_&quot;&gt;HTMLElement&lt;/span&gt;&amp;gt;(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; scrollYProgress  &amp;#125; = &lt;span class=&quot;title function_&quot;&gt;useScroll&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;target&lt;/span&gt;: ref,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;offset&lt;/span&gt;:[&lt;span class=&quot;string&quot;&gt;&amp;quot;0 1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;1.33 1&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;创建一个 ref,用于引用某个 DOM 元素(可能在JSX中通过 &lt;code&gt;ref=&amp;#123;ref&amp;#125;&lt;/code&gt; 绑定到一个元素上)。&lt;/li&gt;
-&lt;li&gt;使用 &lt;code&gt;useScroll&lt;/code&gt; 来监听这个被引用元素的滚动情况。&lt;/li&gt;
-&lt;li&gt;设置滚动动画的触发范围:从元素开始进入视口底部(“0 1”)到元素完全离开视口底部 33% 的位置(“1.33 1”)。&lt;/li&gt;
-&lt;li&gt;获取 &lt;code&gt;scrollYProgress&lt;/code&gt; 值,这个值可能随着元素的滚动而变化,范围可能是 0 到 1。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Add-project-component&quot;&gt;Add project component&lt;/h2&gt;</summary>
     
     
     
