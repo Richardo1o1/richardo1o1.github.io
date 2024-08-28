@@ -100,6 +100,79 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Things-you-should-never-do-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/06/Things-you-should-never-do-1/"
+    >反思：那些你不该做的事情</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/06/Things-you-should-never-do-1/" class="article-date">
+  <time datetime="2023-03-06T15:58:15.000Z" itemprop="datePublished">2023-03-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>最近在重新看 <strong>Joel on Software</strong> 的blog，时隔二十年，很多错误还在重复发生，很有感触，比如<a target="_blank" rel="noopener" href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/">这篇</a>，翻译过来，引以为戒。</p>
+<h2 id="网景发生了什么？">网景发生了什么？</h2>
+<p>网景6.0终于要进入第一个公开测试版了。实际上，从来没有5.0版本。上一个主要发布版本4.0已经发布了将近三年。在互联网世界，三年是相当长的时间。在此期间，网景无助地坐视其市场份额大幅下降。批评网景发布版本之间的等待时间如此之长似乎有点伪善。他们不是有意这么做的，对吧？其实是的。他们犯下了任何软件公司都会犯的最糟糕的战略错误：<strong>他们决定从头开始重写代码</strong>。</p>
+<h2 id="程序员在想什么？">程序员在想什么？</h2>
+<p>程序员的内心是建筑师，当他们到达一个地方时，首先想做的事情就是将其铲平，建造一些宏伟的东西。程序员对逐步翻新、改进和种花园不感兴趣。程序员总是想要扔掉代码重新开始有一个微妙的原因。原因是他们认为旧的代码很糟糕。这里有一个有趣的观察：他们可能是错的。他们认为旧代码很糟糕的原因是基于程序设计的一个基本法则：<br>
+<strong>阅读代码比编写代码更困难。</strong><br>
+这就是为什么代码再利用非常困难的原因。这就是为什么你团队中的每个人都喜欢用不同的函数将字符串分割成字符串数组。他们编写自己的函数，因为这比弄清楚旧函数如何工作更容易、更有趣。</p>
+<h2 id="这样做的问题是什么？">这样做的问题是什么？</h2>
+<p>新代码比旧代码更好这种想法显然是荒谬的。旧代码已经被使用过了。它已经经过了测试。已经发现了许多错误，并对其进行了修复。它没有任何问题。它不会只是因为闲置在你的硬盘上而产生错误。恰恰相反，它会变得更加完善！<br>
+比如，一个程序员在分析旧代码时会说：“看一下这个函数，它有两页长！里面的这些东西都不应该放在这里！我不知道这些API调用的一半是干什么用的。“<br>
+这个API只是一个简单的用来显示窗口的函数，但它变得越来越复杂，无人知晓。其实，原因是：那些复杂的代码都是为了修复bug。一个修复了Nancy在试图在没有安装Internet Explorer的电脑上安装应用时遇到的问题。另一个修复了在低内存情况下出现的bug。还有一个修复了当这个文件在软盘上且用户在重要时刻拔出软盘时出现的bug。而那个丑陋的LoadLibrary调用，却可以让代码在旧版本的Windows 95上正常运行。<br>
+每一个bug都需要经过几周的现实世界使用才能被发现。程序员可能花了几天时间在实验室里重现bug并修复它。如果像很多bug一样，修复可能只需一行代码，甚至可能只需要几个字符，但这几个字符需要付出大量的工作和时间。<br>
+当你丢弃代码并从头开始时，你也在丢失所有那些<strong>知识</strong>、所有那些收集到的<strong>bug修复</strong>，以及多年的<strong>编程工作</strong>。</p>
+<h2 id="正确的做法是什么？">正确的做法是什么？</h2>
+<p>当程序员说他们的代码一团糟时（他们总是这么说），代码可能存在三方面问题。<br>
+<strong>首先</strong>，存在架构问题。代码的分配不正确。网络代码突然跳出自己的对话框，这些应该由UI代码处理。这些问题可以逐一解决，通过仔细地移动代码、重构、更改接口。这可以由一个程序员仔细地工作，并一次性检查他的改变，以便不会干扰其他人。即使在不丢弃现有代码的情况下，也可以进行相当大规模的架构变更。在Juno项目中，我们曾经花了几个月时间进行重新架构：只是移动代码、清理它们、创建有意义的基类，并在模块之间创建尖锐的接口。但我们以现有的代码库仔细进行，没有引入新的bug或扔掉正在工作的代码。<br>
+<strong>第二</strong>个原因是代码效率低下。据说，Netscape的渲染代码很慢。但这只影响了项目的一小部分，您可以进行优化甚至重写它。您不必重写整个项目。优化速度时，1%的工作可以让您获得99%的成果。<br>
+<strong>第三</strong>，代码可能很丑陋。我曾经参与的某个项目实际上有一种叫做FuckedString的数据类型。另一个项目开始时使用了以下划线开头的成员变量命名规则，但后来转为更标准的“m_”。因此，一半的函数以“<em>”开头，另一半以“m</em>”开头，看起来很丑。老实说，这种问题可以在Emacs中使用宏几分钟内解决，而不是从头开始。</p>
+<h2 id="总结">总结</h2>
+<p>重要的是要记住，当你从头开始时，没有任何理由相信你会比第一次做得更好。你可能没有与原版本一起工作的相同编程团队，因此您实际上没有“更多经验”。您只会再次犯许多旧的错误，并引入一些原版本中没有的新问题。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%8D%E7%9B%98%E5%8F%8D%E6%80%9D/" rel="tag">复盘反思</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-User-Profile-2"
   class="article article-type-post"
   itemscope
@@ -744,75 +817,6 @@ B5-->B52(特性)</pre>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86/" rel="tag">投资管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Hexo-Use-emoji"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/26/Hexo-Use-emoji/"
-    >Hexo中使用emoji表情</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/26/Hexo-Use-emoji/" class="article-date">
-  <time datetime="2023-02-26T03:17:27.000Z" itemprop="datePublished">2023-02-26</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>上一篇文章我想在文章中使用emoj来丰富页面，发现Hexo默认的markdown渲染引擎不支持将Github emoji渲染到静态的html页面。我们需要换一个支持emoji的引擎，再增加一个emoji插件即可。</p>
-<h2 id="Markdown-引擎安装">Markdown 引擎安装</h2>
-<p>命令行如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-**it** --save</span><br><span class="line">npm install markdown-**it**-emoji --save</span><br></pre></td></tr></table></figure>
-<h2 id="Markdown-引擎配置">Markdown 引擎配置</h2>
-<p>完成插件安装后还需要修改Hexo站点配置文件<code>_config.yml</code>(不是主题配置)</p>
-<p>加入下列代码：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## markdown 渲染引擎配置，默认是hexo-renderer-marked，这个插件渲染速度更快，且有新特性</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">quotes:</span> <span class="string">&#x27;“”‘’&#x27;</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-footnote</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sup</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sub</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-abbr</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-emoji</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&#x27;v&#x27;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">header-anchor</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">¶</span></span><br></pre></td></tr></table></figure>
-<p>这里需要注意<code>render:</code>下的<code>html:</code>配置项，它的作用是控制<code>Markdown</code>渲染引擎是否转移文档中出现的<code>html</code>标签，默认为<code>false</code>，这里要设置为<code>true</code>，否则会导致<code>&lt;!--more--&gt;</code>渲染失败。</p>
-<p><code>plugins:</code>中的最后一项<code>- markdown-it-emoji</code>是手动添加的，官方Github Wiki中给出的配置不包含这一项，其他配置参照的Github Wiki中的默认配置。</p>
-<h2 id="使用方法">使用方法</h2>
-<p>输入对应的emoji编码</p>
-<p>例如：输入笑脸对应的emoji编码<code>:smile:</code>就可以得到😄</p>
-<h2 id="emoji编码合集"><strong><strong>emoji编码合集</strong></strong></h2>
-<p>可以查阅这篇<a target="_blank" rel="noopener" href="https://dognew0126.github.io/2022/05/22/Hexo%E4%B8%AD%E4%BD%BF%E7%94%A8emoji%E8%A1%A8%E6%83%85/#emoji%E7%BC%96%E7%A0%81%E5%90%88%E9%9B%86">文章</a>。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
 
     </footer>
   </div>
