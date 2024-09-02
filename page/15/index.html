@@ -100,6 +100,81 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-System-performance-tuning"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/28/System-performance-tuning/"
+    >系统性能调优-学习笔记1</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/28/System-performance-tuning/" class="article-date">
+  <time datetime="2023-07-28T07:50:13.000Z" itemprop="datePublished">2023-07-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="基本知识">基本知识</h2>
+<p>大型网站架构设计必备的三板斧：</p>
+<ul>
+<li><strong>高性能架构设计</strong>： 熟悉系统常见性能优化手段比如引入 读写分离、缓存、负载均衡、异步 等等。</li>
+<li><strong>高可用架构设计</strong> ：CAP理论和BASE理论、通过集群来提高系统整体稳定性、超时和重试机制、应对接口级故障：降级、熔断、限流、排队。</li>
+<li><strong>高扩展架构设计</strong> ：如何拆分系统。按照不同的思路来拆分软件系统，就会得到不同的架构。</li>
+</ul>
+<h2 id="基本原则">基本原则</h2>
+<p>合适优于先进 &gt; 演化优于一步到位 &gt; 简单优于复杂</p>
+<h2 id="常见的性能优化策略">常见的性能优化策略</h2>
+<p>性能优化之前我们需要对请求经历的各个环节进行分析，排查出可能出现性能瓶颈的地方，定位问题。</p>
+<p>下面是一些性能优化时常见问题：</p>
+<ol>
+<li>当前系统的SQL语句是否存在问题？</li>
+<li>当前系统是否需要升级硬件？</li>
+<li>系统是否需要缓存？</li>
+<li>系统架构本身是不是就有问题？</li>
+<li>系统是否存在死锁的地方？</li>
+<li>数据库索引使用是否合理？</li>
+<li>系统是否存在内存泄漏？</li>
+<li>系统的耗时操作进行了异步处理？</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-4S-System-Design-Methodology"
   class="article article-type-post"
   itemscope
@@ -782,112 +857,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
 </tbody>
 </table>
  
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Clear-Instructions-Tactics-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/07/Clear-Instructions-Tactics-1/"
-    >写出明确的指引的策略</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/07/Clear-Instructions-Tactics-1/" class="article-date">
-  <time datetime="2023-06-07T04:36:06.000Z" itemprop="datePublished">2023-06-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="在查询中包含详细信息以获得更相关的答案">在查询中包含详细信息以获得更相关的答案</h2>
-<p>（Include details in your query to get more relevant answers****）****</p>
-<p>为了获得高度相关的回答，请确保请求提供任何重要的细节或背景信息。否则，你就让模型去猜你的意思了。</p>
-<table>
-<thead>
-<tr>
-<th>Worse</th>
-<th>Better</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>How do I add numbers in Excel?</td>
-<td>How do I add up a row of dollar amounts in Excel? I want to do this automatically for a whole sheet of rows with all the totals ending up on the right in a column called “Total”.</td>
-</tr>
-<tr>
-<td>Who’s president?</td>
-<td>Who was the president of Mexico in 2021, and how frequently are elections held?</td>
-</tr>
-<tr>
-<td>Write code to calculate the Fibonacci sequence.</td>
-<td>Write a TypeScript function to efficiently calculate the Fibonacci sequence. Comment the code liberally to explain what each piece does and why it’s written that way.</td>
-</tr>
-<tr>
-<td>Summarize the meeting notes.</td>
-<td>Summarize the meeting notes in a single paragraph. Then write a markdown list of the speakers and each of their key points. Finally, list the next steps or action items suggested by the speakers, if any.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="要求模型采用特定的人设">要求模型采用特定的人设</h2>
-<p>（Ask the model to adopt a persona）<br>
-系统消息可以用来指定模型在回复中所使用的人设。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>Write a thank you note to my steel bolt vendor for getting the delivery in on time and in short notice. This made it possible for us to deliver an important order.</td>
-</tr>
-</tbody>
-</table> 
-      <a class="article-more-link" href="/2023/06/07/Clear-Instructions-Tactics-1/"
-        >More...</a
-      >
-       
       <!-- reward -->
       
     </div>
