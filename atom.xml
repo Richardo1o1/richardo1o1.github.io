@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-09-02T14:55:14.272Z</updated>
+  <updated>2024-09-04T14:33:35.595Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -7 （Post Method）</title>
+    <link href="http://yunminitools.cn/2024/09/04/built-finance-dashboard-page-7/"/>
+    <id>http://yunminitools.cn/2024/09/04/built-finance-dashboard-page-7/</id>
+    <published>2024-09-04T14:32:06.000Z</published>
+    <updated>2024-09-04T14:33:35.595Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Install-drizzle-zod&quot;&gt;Install drizzle-zod&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform -6 (Database Connection)</title>
@@ -519,33 +547,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何用Prisma为数据库添加初始化数据</title>
-    <link href="http://yunminitools.cn/2024/08/07/how-to-add-initial-data-to-database-via-prisma/"/>
-    <id>http://yunminitools.cn/2024/08/07/how-to-add-initial-data-to-database-via-prisma/</id>
-    <published>2024-08-07T15:06:49.000Z</published>
-    <updated>2024-08-07T15:07:26.612Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="prisma" scheme="http://yunminitools.cn/tags/prisma/"/>
     
   </entry>
   
