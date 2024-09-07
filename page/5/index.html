@@ -100,6 +100,68 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Built-Twitter-Like-App-25"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/06/13/Built-Twitter-Like-App-25/"
+    >Built Twitter Like App - 25</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/06/13/Built-Twitter-Like-App-25/" class="article-date">
+  <time datetime="2024-06-13T14:22:12.000Z" itemprop="datePublished">2024-06-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Add-Like-Function">Add Like Function</h2>
+<ol>
+<li>Add Like API</li>
+<li>Add Hooks</li>
+<li>Modify PostItem Page</li>
+</ol> 
+      <a class="article-more-link" href="/2024/06/13/Built-Twitter-Like-App-25/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Built-Twitter-Like-App-24"
   class="article article-type-post"
   itemscope
@@ -636,65 +698,6 @@ var _hmt = _hmt || [];
 <p>modify <code>components/layout/FollowBar.tsx</code></p>
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> useUsers <span class="keyword">from</span> <span class="string">&quot;../../hooks/useUsers&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Avatar</span> <span class="keyword">from</span> <span class="string">&quot;../Avatar&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">FollowBar</span> =(<span class="params"></span>) =&gt;&#123;</span><br><span class="line">   <span class="keyword">const</span> &#123; <span class="attr">data</span>: users = [] &#125; = <span class="title function_">useUsers</span>();</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span>(users.<span class="property">length</span> === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;px-6 py-4 hidden lg:block&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;bg-neutral-800 rounded-xl p-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h2</span> <span class="attr">className</span>=<span class="string">&quot;text-white text-xl font-semibold&quot;</span>&gt;</span>Who to follow<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-col gap-6 mt-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;users.map((user:Record&lt;string,any&gt;) =&gt; (</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">key</span>=<span class="string">&#123;user.id&#125;</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-row gap-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">Avatar</span> <span class="attr">userId</span>=<span class="string">&#123;user.id&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-col&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   text-white </span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   font-semibold </span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   text-m</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                &quot;</span>&gt;</span>&#123;user.name&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;text-neutral-400 text-sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                  @&#123;user.username&#125;</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          ))&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">   );</span></span><br><span class="line"><span class="language-xml">&#125;</span></span><br><span class="line"><span class="language-xml"> </span></span><br><span class="line"><span class="language-xml">export default FollowBar</span></span><br></pre></td></tr></table></figure> 
       <a class="article-more-link" href="/2024/06/01/Built-Twitter-Like-App-16/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Built-Twitter-Like-App-15"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/25/Built-Twitter-Like-App-15/"
-    >Built Twitter Like App - 15</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/25/Built-Twitter-Like-App-15/" class="article-date">
-  <time datetime="2024-05-25T06:36:29.000Z" itemprop="datePublished">2024-05-25</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Add-Avatar-Component">Add Avatar Component</h2>
-<p>Add file <code>components/Avatar.tsx</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">AvatarProps</span> &#123;</span><br><span class="line">  <span class="attr">userId</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">isLarge</span>: <span class="built_in">boolean</span>;</span><br><span class="line">  <span class="attr">hasBorder</span>: <span class="built_in">boolean</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Avatar</span>: <span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">AvatarProps</span>&gt; =<span class="function">(<span class="params">&#123;</span></span></span><br><span class="line"><span class="params"><span class="function">  userId,</span></span></span><br><span class="line"><span class="params"><span class="function">  isLarge,</span></span></span><br><span class="line"><span class="params"><span class="function">  hasBorder</span></span></span><br><span class="line"><span class="params"><span class="function">&#125;</span>) =&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">   <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">   );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Avatar</span>;</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/05/25/Built-Twitter-Like-App-15/"
         >More...</a
       >
        

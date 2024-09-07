@@ -100,6 +100,67 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-built-finance-dashboard-page-9"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/09/07/built-finance-dashboard-page-9/"
+    >Build a Finance SaaS Platform -9 (Accounts Page)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/09/07/built-finance-dashboard-page-9/" class="article-date">
+  <time datetime="2024-09-07T15:30:41.000Z" itemprop="datePublished">2024-09-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Install-Card">Install Card</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx shadcn<span class="meta">@latest</span> add card</span><br></pre></td></tr></table></figure>
+<h2 id="Add-Accounts-Page">Add Accounts Page</h2>
+<p>Add <code>app/(dashboard)/accounts/page.tsx</code>：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Plus</span> &#125; <span class="keyword">from</span> <span class="string">&quot;lucide-react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useNewAccount &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/accounts/hooks/use-new-account&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/button&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">Card</span>,</span><br><span class="line">  <span class="title class_">CardContent</span>,</span><br><span class="line">  <span class="title class_">CardHeader</span>,</span><br><span class="line">  <span class="title class_">CardTitle</span>,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/card&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Payment</span>, columns &#125; <span class="keyword">from</span> <span class="string">&quot;./columns&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DataTable</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/data-table&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">data</span>: <span class="title class_">Payment</span>[] = [</span><br><span class="line">  &#123; </span><br><span class="line">    <span class="attr">id</span>: <span class="string">&quot;728ed52f&quot;</span>,</span><br><span class="line">    <span class="attr">amount</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="attr">status</span>: <span class="string">&quot;pending&quot;</span>,</span><br><span class="line">    <span class="attr">email</span>: <span class="string">&quot;m@example.com&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AccountsPage</span> = (<span class="params"></span>)=&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> newAccount = <span class="title function_">useNewAccount</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;max-w-screen-2xl mx-auto w-full pb-10 -mt-24&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Card</span> <span class="attr">className</span>=<span class="string">&quot;border-none drop-shadow-sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CardHeader</span> <span class="attr">className</span>=<span class="string">&quot;gap-y-2 lg:flex-row lg:items-center lg:justify-between&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">CardTitle</span> <span class="attr">className</span>=<span class="string">&quot;text-xl line-clamp-1&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            Account Page</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">CardTitle</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Button</span> <span class="attr">onClick</span>=<span class="string">&#123;newAccount.onOpen&#125;</span> <span class="attr">size</span>=<span class="string">&quot;sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Plus</span> <span class="attr">className</span>=<span class="string">&quot;size-4 mr-2&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            Add New</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">CardHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">DataTable</span> <span class="attr">columns</span>=<span class="string">&#123;columns&#125;</span> <span class="attr">data</span>=<span class="string">&#123;data&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">AccountsPage</span>;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/09/07/built-finance-dashboard-page-9/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DemoProjects/" rel="tag">DemoProjects</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-built-finance-dashboard-page-8"
   class="article article-type-post"
   itemscope
@@ -643,71 +704,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DemoProjects/" rel="tag">DemoProjects</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-build-nextcloud-private-cloud-drive-tutorial"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/"
-    >自建 Nextcloud 高性能安全私有云盘</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/" class="article-date">
-  <time datetime="2024-08-15T13:00:28.000Z" itemprop="datePublished">2024-08-15</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Nextcloud-搭建步骤（Windows环境）">Nextcloud 搭建步骤（Windows环境）</h2>
-<p>假设是安装在Windows环境并已经安装好了Docker。</p>
-<h3 id="拉取NextCloud镜像">拉取NextCloud镜像</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nextcloud</span><br></pre></td></tr></table></figure>
-<h3 id="创建数据卷">创建数据卷</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --driver <span class="built_in">local</span> --opt device=F:\Nextcloud\data --opt <span class="built_in">type</span>=none --opt o=<span class="built_in">bind</span> nextcloud </span><br></pre></td></tr></table></figure>
-<p>其中F:\Nextcloud\data 为你要保持数据的目录</p>
-<h3 id="启动NextCloud容器">启动NextCloud容器</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always --name nextcloud -p 9000:80 -v nextcloud:/var/www/html nextcloud</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li></ul>
 
     </footer>
   </div>
