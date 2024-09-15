@@ -100,6 +100,75 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-implement-dynamic-styles-in-vue"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/08/implement-dynamic-styles-in-vue/"
+    >Vue中实现动态样式的几种方式</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/08/implement-dynamic-styles-in-vue/" class="article-date">
+  <time datetime="2024-04-08T14:08:17.000Z" itemprop="datePublished">2024-04-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-三元运算符判断">1. 三元运算符判断</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span> <span class="attr">:style</span>=<span class="string">&quot;&#123;color:state?&#x27;#ff9933&#x27;:&#x27;#ff0000&#x27;&#125;&quot;</span>&gt;</span>hello world <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">state</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-动态设置class">2. 动态设置class</h2>
+<h3 id="2-1-主要运用于：实现循环列表中点击时，相应的元素高亮；（默认首个元素高亮）"><strong>2.1 主要运用于：实现循环列表中点击时，相应的元素高亮；（默认首个元素高亮）</strong></h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span> <span class="attr">v-for</span>=<span class="string">&quot;(item,index) in houseList&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;rightTap(index)&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;houseTitle&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;&#123;&#x27;active&#x27; : index === rightIndex&#125;&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123;item.name&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">rightIndex</span>:<span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">houseList</span>:[]</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript"> <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"> <span class="title function_">rightTap</span>(<span class="params">index</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">this</span>.<span class="property">rightIndex</span> = index</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">   &#125;</span></span><br><span class="line"><span class="language-javascript"> &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.wrapper</span>&#123;</span></span><br><span class="line"><span class="language-css"> <span class="attribute">width</span>: <span class="number">118px</span>;</span></span><br><span class="line"><span class="language-css"> <span class="attribute">height</span>: <span class="number">60px</span>;</span></span><br><span class="line"><span class="language-css"> <span class="attribute">margin</span>: <span class="number">6px</span> auto <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.houseTitle</span>&#123;</span></span><br><span class="line"><span class="language-css"><span class="attribute">font-size</span>: <span class="number">22px</span>;</span></span><br><span class="line"><span class="language-css"><span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css"><span class="attribute">white-space</span>: nowrap;</span></span><br><span class="line"><span class="language-css"><span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css"><span class="attribute">text-overflow</span>: ellipsis;</span></span><br><span class="line"><span class="language-css">   &#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.active</span>&#123;</span></span><br><span class="line"><span class="language-css"><span class="attribute">color</span>:<span class="number">#2a7ffa</span>;</span></span><br><span class="line"><span class="language-css"><span class="attribute">background-color</span>: pink;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-主要运用于：为特定数值设置相应样式；"><strong>2.2 主要运用于：为特定数值设置相应样式；</strong></h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;activeId === item.id?&#x27;activeStyle&#x27;:&#x27;machineBar&#x27;&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-for</span>=<span class="string">&quot;(item,index) in List&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;clickEvent&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-方法判断">3. 方法判断</h2>
+<h3 id="3-1-主要运用于：为不同的数据值设置相应的样式；"><strong>3.1 主要运用于：为不同的数据值设置相应的样式；</strong></h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;(item,index) in houseList&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span>&gt;</span>             </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;getStyle(item.status)&quot;</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123; </span></span><br><span class="line"><span class="language-javascript"><span class="title function_">data</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">houseList</span>:[</span></span><br><span class="line"><span class="language-javascript">        &#123; </span></span><br><span class="line"><span class="language-javascript"><span class="attr">id</span>:<span class="number">1</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>:<span class="number">1</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">status</span>:<span class="string">&#x27;a&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        &#125;,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">id</span>:<span class="number">2</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>:<span class="number">2</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">status</span>:<span class="string">&#x27;b&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        &#125;,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">id</span>:<span class="number">3</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>:<span class="number">3</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">status</span>:<span class="string">&#x27;c&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      ]</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">getStyle</span>(<span class="params">e</span>)&#123;        </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;值&#x27;</span>,e)        </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(e === <span class="string">&#x27;a&#x27;</span>)&#123;            </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span> &#123;                </span></span><br><span class="line"><span class="language-javascript"><span class="attr">width</span>:<span class="string">&#x27;60px&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">height</span>:<span class="string">&#x27;60px&#x27;</span>,                </span></span><br><span class="line"><span class="language-javascript"><span class="attr">background</span>:<span class="string">&#x27;yellow&#x27;</span>,                 </span></span><br><span class="line"><span class="language-javascript"><span class="attr">margin</span>: <span class="string">&#x27;10px auto&#x27;</span>             </span></span><br><span class="line"><span class="language-javascript">        &#125;        </span></span><br><span class="line"><span class="language-javascript">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(e === <span class="string">&#x27;b&#x27;</span>)&#123;            </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span> &#123;                </span></span><br><span class="line"><span class="language-javascript"><span class="attr">width</span>:<span class="string">&#x27;60px&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">height</span>:<span class="string">&#x27;60px&#x27;</span>,                  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">background</span>:<span class="string">&#x27;red&#x27;</span>,                 </span></span><br><span class="line"><span class="language-javascript"><span class="attr">margin</span>: <span class="string">&#x27;10px auto&#x27;</span>            </span></span><br><span class="line"><span class="language-javascript">        &#125;        </span></span><br><span class="line"><span class="language-javascript">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(e === <span class="string">&#x27;c&#x27;</span>)&#123;            </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span> &#123;                </span></span><br><span class="line"><span class="language-javascript"><span class="attr">width</span>:<span class="string">&#x27;60px&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">height</span>:<span class="string">&#x27;60px&#x27;</span>,                 </span></span><br><span class="line"><span class="language-javascript"><span class="attr">background</span>:<span class="string">&#x27;pink&#x27;</span>,                 </span></span><br><span class="line"><span class="language-javascript"><span class="attr">margin</span>: <span class="string">&#x27;10px auto&#x27;</span>             </span></span><br><span class="line"><span class="language-javascript">        &#125;        </span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-主要运用于：在元素多从事件下，显示相应的样式；"><strong>3.2 主要运用于：在元素多从事件下，显示相应的样式；</strong></h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> </span></span><br><span class="line"><span class="tag"><span class="attr">class</span>=<span class="string">&quot;homeWrap&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;&#123;&#x27;select&#x27;: selected === 1,&#x27;click&#x27;: clicked === 1&#125;&quot;</span> </span></span><br><span class="line"><span class="tag">@<span class="attr">click</span>=<span class="string">&quot;handleClick(1)&quot;</span> @<span class="attr">mousedown</span>=<span class="string">&quot;menuOnSelect(1)&quot;</span>&gt;</span></span><br><span class="line">     主页</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">selected</span>: <span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">clicked</span>: <span class="number">0</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">menuOnSelect</span>(<span class="params">value</span>)&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">this</span>.<span class="property">selected</span> = value;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">handleClick</span>(<span class="params">value</span>)&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">this</span>.<span class="property">selected</span> = <span class="number">0</span></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">this</span>.<span class="property">clicked</span> = value</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"> &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;stylus&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.homeWrap</span><span class="selector-class">.select</span> </span></span><br><span class="line"><span class="language-css"><span class="attribute">background</span> red</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.homeWrap</span><span class="selector-class">.click</span> </span></span><br><span class="line"><span class="language-css"><span class="attribute">background</span> yellow</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-数组绑定">4. 数组绑定</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;[isActive,isSort]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">// 数组与三元运算符结合判断选择需要的class</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;[item.name? &#x27;lg&#x27;:&#x27;sm&#x27;]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;[item.age&lt;18? &#x27;gray&#x27;:&#x27;&#x27;]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">// 数组对象结合</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;[&#123; active: isActive &#125;, &#x27;sort&#x27;]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">  return&#123;</span><br><span class="line">    isActive:&#x27;active&#x27;,</span><br><span class="line">    isSort:&#x27;sort&#x27;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">// css</span><br><span class="line">.active&#123;</span><br><span class="line">    /*这里写需要设置的第一种样式*/</span><br><span class="line">  &#125; </span><br><span class="line">.sort&#123;</span><br><span class="line">    /*这里写需要设置的第二种样式*/</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-computed结合es6对象的计算属性名方法">5. computed结合es6对象的计算属性名方法</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classObject&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">isActive</span>:<span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">computed</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">classObject</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">class_a</span>:<span class="variable language_">this</span>.<span class="property">isActive</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">class_b</span>:!<span class="variable language_">this</span>.<span class="property">isActive</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//  这里要结合自身项目情况修改填写</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">// css</span><br><span class="line">.class_a&#123;</span><br><span class="line">    /*这里写需要设置的第一种样式*/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.class_b&#123;</span><br><span class="line">   /*这里写需要设置的第二种样式*/</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-how-can-startup-improve-efficiency"
   class="article article-type-post"
   itemscope
@@ -709,123 +778,13 @@ var _hmt = _hmt || [];
 </article>
 
     
-    <article
-  id="post-install-elk-kibana-docker"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/03/16/install-elk-kibana-docker/"
-    >在Docker环境下部署 Kibana 可视化工具 (从零到一搭建ELK日志)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/03/16/install-elk-kibana-docker/" class="article-date">
-  <time datetime="2024-03-16T12:00:53.000Z" itemprop="datePublished">2024-03-16</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="什么是-Kibana？">什么是 Kibana？</h2>
-<p>Kibana是一个开源的分析与可视化平台，设计出来用于和Elasticsearch一起使用的。</p>
-<p>你可以用kibana搜索、查看存放在Elasticsearch中的数据。Kibana与Elasticsearch的交互方式是各种不同的图表、表格、地图等，直观的展示数据，从而达到高级的数据分析与可视化的目的。</p>
-<h2 id="部署-Kibana-可视化工具">部署 Kibana 可视化工具</h2>
-<ol>
-<li>
-<p>获取 kibana 镜像</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull kibana:7.7.1</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>获取elasticsearch容器 ip</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker inspect --format <span class="string">&#x27;&#123;&#123; .NetworkSettings.IPAddress &#125;&#125;&#x27;</span> es</span><br><span class="line">&gt; <span class="number">172.17</span><span class="number">.0</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>创建 kibana 配置文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /data/elk/kibana/</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>配置kibana.yml</p>
-<p>elasticsearch.hosts 配置 ES 服务的地址</p>
- <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.name:</span> <span class="string">kibana</span></span><br><span class="line"><span class="attr">server.host:</span> <span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="attr">elasticsearch.hosts:</span> [<span class="string">&quot;http://172.17.0.2:9200&quot;</span>]</span><br><span class="line"><span class="attr">xpack.monitoring.ui.container.elasticsearch.enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>启动服务</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d --restart=always --log-driver json-file --log-opt max-size=100m --log-opt max-file=2 --name kibana -p 5601:5601 -v /data/elk/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml kibana:7.7.1</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>验证</p>
-<p>在浏览器打开 <code>[服务器ip]:5601</code></p>
-<p>Kibana 控制台的界面如下所示，打开 kibana 时，首页会提示让你选择加入一些测试数据，点击 try our sample data 按钮就可以了。最后选择Dashboard，可以看到 sample data 的图表：</p>
-<p><img src="https://cdn.yunminitools.cn/pic/0001_kibana.png" alt=" "></p>
-</li>
-</ol>
-<h2 id="配置文件kibana-yml">配置文件kibana.yml</h2>
-<ol>
-<li>
-<p>服务的端口配置</p>
-<p>属性名为：server.port默认是5601</p>
-</li>
-<li>
-<p>允许远程访问的地址配置</p>
-<p>属性名为：server.host默认为本机</p>
-<p>如果我们需要把Kibana服务给远程主机访问，只需要在这个配置中填写远程的那台主机的ip地址，那如果我们希望所有的远程主机都能访问，那就填写0.0.0.0</p>
-</li>
-<li>
-<p>连接Elasticsearch服务配置</p>
-<p>属性名为：elasticsearch.url默认为连接到本机的elasticsearch，并且端口为9200，也就是为localhost:9200，如果我们Elasticsearch不是与Kibana安装在同一台主机上，或者Elasticsearch的端口号不是9200，就就需要修改这个配置了</p>
-</li>
-<li>
-<p>Elasticsearch的用户名和密码</p>
-<p>属性名为：elasticsearch.username和elasticsearch.password，默认是没有用户名和密码，如果elasticsearch是配置了用户名和密码的，那就需要配置这两行属性</p>
-</li>
-<li>
-<p>切换中文配置</p>
-<p>属性名为：i18n.locale: “zh-CN”</p>
-</li>
-</ol>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/" rel="tag">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
   </nav>
   
 </section>

@@ -100,6 +100,67 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Built-Twitter-Like-App-7"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/05/18/Built-Twitter-Like-App-7/"
+    >Built Twitter Like App - 7</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/05/18/Built-Twitter-Like-App-7/" class="article-date">
+  <time datetime="2024-05-18T14:48:06.000Z" itemprop="datePublished">2024-05-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Install-Zustand">Install Zustand</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install zustand</span><br></pre></td></tr></table></figure>
+<h2 id="Add-Hooks">Add Hooks</h2>
+<p>Add file <code>hooks/useLoginModal.ts</code></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; create &#125; <span class="keyword">from</span> <span class="string">&quot;zustand&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">LoginModalStore</span>&#123;</span><br><span class="line">  <span class="attr">isOpen</span>: <span class="built_in">boolean</span>;</span><br><span class="line">  <span class="attr">onOpen</span>: <span class="function">()=&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">  <span class="attr">onClose</span>: <span class="function">()=&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> useLoginModal = create&lt;<span class="title class_">LoginModalStore</span>&gt;(<span class="function">(<span class="params">set</span>) =&gt;</span>(&#123;</span><br><span class="line">  <span class="attr">isOpen</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">onOpen</span>: <span class="function">() =&gt;</span> <span class="title function_">set</span>(&#123; <span class="attr">isOpen</span>: <span class="literal">true</span>&#125;),</span><br><span class="line">  <span class="attr">onClose</span>: <span class="function">() =&gt;</span> <span class="title function_">set</span>(&#123; <span class="attr">isOpen</span>: <span class="literal">false</span>&#125;)</span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useLoginModal;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/05/18/Built-Twitter-Like-App-7/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Built-Twitter-Like-App-6"
   class="article article-type-post"
   itemscope
@@ -656,75 +717,13 @@ var _hmt = _hmt || [];
 </article>
 
     
-    <article
-  id="post-Django-setup-env"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/01/Django-setup-env/"
-    >Django Docker的部署时如何设置环境</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/01/Django-setup-env/" class="article-date">
-  <time datetime="2024-05-01T12:32:44.000Z" itemprop="datePublished">2024-05-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-背景">1. 背景</h2>
-<p>在部署时，程序需要根据当前环境，设置不同参数，比如数据库，DEBUG是否打开等。</p>
-<br/>
-<h2 id="2-实现方式">2. 实现方式</h2>
-<p>在构建Docker的时候设置环境变量：</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="language-bash"> python manage.py collectstatic</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> DJANGO_DEBUG_FALSE=<span class="number">1</span></span><br><span class="line"><span class="keyword">ENV</span> DJANGO_SECRET_KEY=sekrit </span><br><span class="line"><span class="keyword">ENV</span> DJANGO_ALLOWED_HOST=localhost</span><br></pre></td></tr></table></figure>
-<br/>
-<p>在<code>superlists/settings.py</code>中添加判断：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;DJANGO_DEBUG_FALSE&quot;</span> <span class="keyword">in</span> os.environ:</span><br><span class="line">    DEBUG = <span class="literal">False</span></span><br><span class="line">    SECRET_KEY = os.environ[<span class="string">&quot;DJANGO_SECRET_KEY&quot;</span>]</span><br><span class="line">    ALLOWED_HOSTS = [os.environ[<span class="string">&quot;DJANGO_ALLOWED_HOST&quot;</span>]]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br><span class="line">    SECRET_KEY = <span class="string">&quot;insecure-key-for-dev&quot;</span></span><br><span class="line">    ALLOWED_HOSTS = []</span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
   </nav>
   
 </section>
