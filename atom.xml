@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-09-15T09:04:11.655Z</updated>
+  <updated>2024-09-25T13:12:25.578Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -12（Edit Sheet）</title>
+    <link href="http://yunminitools.cn/2024/09/25/built-finance-dashboard-page-12/"/>
+    <id>http://yunminitools.cn/2024/09/25/built-finance-dashboard-page-12/</id>
+    <published>2024-09-25T13:10:53.000Z</published>
+    <updated>2024-09-25T13:12:25.578Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Add-get-id-API-Server&quot;&gt;Add get id API(Server)&lt;/h2&gt;
+&lt;p&gt;Modify &lt;code&gt;app/api/[[...route]]/accounts.ts&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.&lt;span class=&quot;title function_&quot;&gt;get&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;/:id&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title function_&quot;&gt;zValidator&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;param&amp;quot;&lt;/span&gt;,z.&lt;span class=&quot;title function_&quot;&gt;object&lt;/span&gt;(&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;string&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;optional&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;)),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title function_&quot;&gt;clerkMiddleware&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; (c) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; auth = &lt;span class=&quot;title function_&quot;&gt;getAuth&lt;/span&gt;(c);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; id &amp;#125; = c.&lt;span class=&quot;property&quot;&gt;req&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;valid&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;param&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!id) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; c.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;error&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;Missing id!&amp;quot;&lt;/span&gt; &amp;#125;, &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!auth?.&lt;span class=&quot;property&quot;&gt;userId&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; c.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;error&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;Unauthorized!&amp;quot;&lt;/span&gt; &amp;#125;, &lt;span class=&quot;number&quot;&gt;401&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; [data] = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; db&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .&lt;span class=&quot;title function_&quot;&gt;select&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: accounts.&lt;span class=&quot;property&quot;&gt;id&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: accounts.&lt;span class=&quot;property&quot;&gt;name&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .&lt;span class=&quot;title function_&quot;&gt;from&lt;/span&gt;(accounts)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .&lt;span class=&quot;title function_&quot;&gt;where&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;title function_&quot;&gt;and&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;title function_&quot;&gt;eq&lt;/span&gt;(accounts.&lt;span class=&quot;property&quot;&gt;userId&lt;/span&gt;, auth.&lt;span class=&quot;property&quot;&gt;userId&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;title function_&quot;&gt;eq&lt;/span&gt;(accounts.&lt;span class=&quot;property&quot;&gt;id&lt;/span&gt;, id)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!data) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; c.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;error&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;Not Found!&amp;quot;&lt;/span&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;404&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; c.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(&amp;#123; data &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform -11 (Delete API)</title>
@@ -509,31 +532,6 @@
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Built Portfolio Page - 9（Experience）</title>
-    <link href="http://yunminitools.cn/2024/08/09/built-portfolio-page-9/"/>
-    <id>http://yunminitools.cn/2024/08/09/built-portfolio-page-9/</id>
-    <published>2024-08-09T09:30:17.000Z</published>
-    <updated>2024-08-09T09:30:42.368Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;1-Install-timeline-package&quot;&gt;1. Install timeline package&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i react-vertical-timeline-component&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;2-Add-Margin-Bottom&quot;&gt;2.  Add Margin Bottom&lt;/h2&gt;
-&lt;p&gt;Projects.tsx&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;section id=&lt;span class=&quot;string&quot;&gt;&amp;quot;projects&amp;quot;&lt;/span&gt; className=&lt;span class=&quot;string&quot;&gt;&amp;#x27;scroll-mt-28 mb-28&amp;#x27;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="tailwindcss" scheme="http://yunminitools.cn/tags/tailwindcss/"/>
     
   </entry>
   
