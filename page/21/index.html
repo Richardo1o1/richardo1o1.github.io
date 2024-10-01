@@ -100,6 +100,67 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-B-design-resource"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/19/B-design-resource/"
+    >推荐网站资源：B端观止</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/19/B-design-resource/" class="article-date">
+  <time datetime="2023-03-19T15:19:16.000Z" itemprop="datePublished">2023-03-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="介绍">介绍</h2>
+<p>很久以前就注意到了这个网站：<a target="_blank" rel="noopener" href="https://www.yuque.com/u1003394/fn574a">B端观止</a>,有很多有关于B端设计的文章，对于产品设计也很有借鉴意义。最近又看了一下，比较可贵的是，一直在更新。推荐查看。</p>
+<h2 id="推荐文章">推荐文章</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/u1003394/fn574a/21f9947a-55da-498d-b6c1-d56ea5f399ab">权限设计指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/u1003394/fn574a/72a18cdb-2b55-4c35-aeaf-18a5f840700a">低代码开发平台设计初探索</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/u1003394/fn574a/8af44d16-241e-40f0-a034-25f1ae5d3887">场景理解模糊？看完这篇就够了！</a></li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI%E8%AE%BE%E8%AE%A1/" rel="tag">UI设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-DDD-domain-model-1"
   class="article article-type-post"
   itemscope
@@ -781,124 +842,6 @@ A---I(退化维度)</pre>
         >More...</a
       >
        
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Three-Fact-Table"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/08/Three-Fact-Table/"
-    >三种事实表</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/08/Three-Fact-Table/" class="article-date">
-  <time datetime="2023-03-08T07:19:04.000Z" itemprop="datePublished">2023-03-08</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="什么是事实表？">什么是事实表？</h2>
-<p>事实表作为数据仓库维度建模的核心，紧紧围绕着业务过程来设计，通过获取描述业务过程的度量来表达业务过程，包含了引用的维度 和与业务过程有关的度量。</p>
-<p>每个数据仓库都包含一个或者多个事实数据表。事实数据表可能包含业务销售数据，如现金登记事务所产生的数据，事实数据表通常包含大量的行。事实数据表的主要特点是包含数字数据（事实），并且这些数字信息可以汇总，以提供有关单位作为历史的数据。事实数据表<strong>不应该包含描述性的信息</strong>，也不应该包含除数字度量字段及使事实与纬度表中对应项的相关索引字段之外的任何数据。</p>
-<h2 id="事实表的三种类型">事实表的三种类型</h2>
-<p>事实表有三种类型 : 事务事实表、周期快照事实表和累积快照事实表。</p>
-<h3 id="事务事实表"><strong><strong>事务事实表</strong></strong></h3>
-<p>事务事实表记录的事务层面的事实，保存的是最原子的数据，也称“原子事实表”。事务事实表中的数据在事务事件发生后产生，数据的粒度通常是每个事务记录一条记录。一旦事务被提交，事实表数据被插入，数据就不再进行更改，其更新方式为增量更新。</p>
-<h3 id="周期快照事实表">周期快照事实表</h3>
-<p>周期快照事实表以具有规律性的、可预见的时间间隔来记录事实，时间间隔如每天、每月、每年等等。典型的例子如销售日快照表、库存日快照表等。它统计的是间隔周期内的度量统计，如历史至今、自然年至今、季度至今等等。周期快照表没有粒度的概念，取而代之的是周期+状态度量的组合，如历史至今的订单总数，其中历史至今是一个周期，订单总数是度量。</p>
-<p>周期快照事实表的粒度是每个时间段一条记录，通常比事务事实表的粒度要粗，是在事务事实表之上建立的聚集表，比如说时间周期是1周，那么这个周期快照事实表的一条记录就是这一周的对于某个度量的统计值（我理解的）。</p>
-<h3 id="累积快照事实表">累积快照事实表</h3>
-<p>累积快照事实表和周期快照事实表有些相似之处，它们存储的都是事务数据的快照信息。但是它们之间也有着很大的不同，周期快照事实表记录的确定的周期的数据，而累积快照事实表记录的不确定的周期的数据。累积快照事实表代表的是完全覆盖一个事务或产品的生命周期的时间跨度，它通常具有多个日期字段，用来记录整个生命周期中的关键时间点。例如订单累计快照事实表会有付款日期，发货日期，收货日期等时间点。</p>
-<p>事务事实表中一条交易记录会每天有一条数据来记录整个交易过程；而累积快照事实表只会有一条记录，数据会一致更新直到过程结束。</p>
-<p>累积快照事实表代表的是完全覆盖一个事务或产品的生命周期的时间跨度，它通常具有多个日期字段，用来记录整个生命周期中的关键时间点。另外，它还会有一个用于指示最后更新日期的附加日期字段。由于事实表中许多日期在首次加载时是不知道的，所以必须使用代理关键字来处理未定义的日期，而且这类事实表在数据加载完后，是可以对它进行更新的，来补充随后知道的日期信息。</p>
-<p><strong>周期快照事实表记录的是重复的可预测到的时间间隔的事实</strong>，例如帐户月结余事实表，用来记录每个月末的帐户结余信息。一般周期快照的数据会按报表需要的周期进行记录，比较适合周期长一些的情况。</p>
-<p>而<strong>累计快照适用于较短周期，有着明确的开始和结束状态的过程</strong>，如一个订单执行的过程，并记录过程中每个步骤的执行时间，使分析人员对执行的过程有整体的把握。周期快照事实表记录上每个步骤的执行时间是逐步建立的，随着执行的过程逐步更新的事实表中。</p>
-<h3 id="类型比较">类型比较</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>事务事实表</th>
-<th>周期快照事实表</th>
-<th>累积快照事实表</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>时期/时间</td>
-<td>离散事务时间点</td>
-<td>以有规律的、可预测的</td>
-<td>用于时间跨度不确定的不断变化的工作流</td>
-</tr>
-<tr>
-<td>日期维度</td>
-<td>事务日期</td>
-<td>快照日期</td>
-<td>相关业务过程涉及的多个日期</td>
-</tr>
-<tr>
-<td>粒度</td>
-<td>每行代表实体的一个事务</td>
-<td>每行代表某时间周期的一个实体</td>
-<td>每行代表一个实体的生命周期</td>
-</tr>
-<tr>
-<td>事实</td>
-<td>事务事实</td>
-<td>累积事实</td>
-<td>相关业务过程事实和时间间隔事实</td>
-</tr>
-<tr>
-<td>事实表加载</td>
-<td>插入</td>
-<td>插入</td>
-<td>插入与更新</td>
-</tr>
-<tr>
-<td>事实表更新</td>
-<td>不更新</td>
-<td>不更新</td>
-<td>业务过程变更时更新</td>
-</tr>
-</tbody>
-</table>
- 
       <!-- reward -->
       
     </div>

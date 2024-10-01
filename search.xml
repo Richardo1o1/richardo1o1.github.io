@@ -12843,4 +12843,27 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>DemoProjects</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Build a Finance SaaS Platform -16 (Change to Local PG database）</title>
+    <url>/2024/10/01/built-finance-dashboard-page-16/</url>
+    <content><![CDATA[<h2 id="Background">Background</h2>
+<p>Neon is too slow and sometime can not reach, I decided to change to Local database</p>
+<p>BTW, I tried to switch to Mysql but failed, too differences with PG. So, I still use PG.</p>
+<h2 id="Don’t-use-edge">Don’t use edge</h2>
+<p>Modify app/api/[[…route]]/route.ts：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">// export const runtime = &#x27;edge&#x27;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="Change-Connenct-String">Change Connenct String</h2>
+<p>Modify <code>db/drizzle.ts</code></p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; drizzle &#125; <span class="keyword">from</span> <span class="string">&#x27;drizzle-orm/postgres-js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> postgres <span class="keyword">from</span> <span class="string">&#x27;postgres&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sql = <span class="title function_">postgres</span>(process.<span class="property">env</span>.<span class="property">DATABASE_URL</span>!);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> db = <span class="title function_">drizzle</span>(sql);</span><br></pre></td></tr></table></figure>
+<p>Modify <code>scripts/migrate.ts</code></p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; config &#125; <span class="keyword">from</span> <span class="string">&quot;dotenv&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; drizzle &#125; <span class="keyword">from</span> <span class="string">&#x27;drizzle-orm/postgres-js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; migrate &#125; <span class="keyword">from</span> <span class="string">&#x27;drizzle-orm/postgres-js/migrator&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> postgres <span class="keyword">from</span> <span class="string">&#x27;postgres&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">config</span>(&#123; <span class="attr">path</span>:<span class="string">&quot;.env.local&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sql = <span class="title function_">postgres</span>(process.<span class="property">env</span>.<span class="property">DATABASE_URL</span>!);</span><br><span class="line"><span class="keyword">const</span> db = <span class="title function_">drizzle</span>(sql);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">main</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;<span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">migrate</span>(db, &#123; <span class="attr">migrationsFolder</span>: <span class="string">&quot;drizzle&quot;</span> &#125;);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error during migration:&quot;</span>, error );</span><br><span class="line">    process.<span class="title function_">exit</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>();</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>DemoProjects</tag>
+      </tags>
+  </entry>
 </search>

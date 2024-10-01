@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-09-30T02:23:11.289Z</updated>
+  <updated>2024-10-01T09:22:50.153Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -16 (Change to Local PG database）</title>
+    <link href="http://yunminitools.cn/2024/10/01/built-finance-dashboard-page-16/"/>
+    <id>http://yunminitools.cn/2024/10/01/built-finance-dashboard-page-16/</id>
+    <published>2024-10-01T07:31:06.000Z</published>
+    <updated>2024-10-01T09:22:50.153Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Neon is too slow and sometime can not reach, I decided to change to Local database&lt;/p&gt;
+&lt;p&gt;BTW, I</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform -15（Transaction Form）</title>
@@ -493,44 +522,6 @@
     
     
     <category term="开源工具" scheme="http://yunminitools.cn/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Commit书写规范</title>
-    <link href="http://yunminitools.cn/2024/08/12/commit-writting-standard/"/>
-    <id>http://yunminitools.cn/2024/08/12/commit-writting-standard/</id>
-    <published>2024-08-12T12:32:37.000Z</published>
-    <updated>2024-08-12T12:33:44.507Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;git提交的commit的书写之前比较随意，看到了一个规范：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.conventionalcommits.org/zh-hans/v1.0.0/?mode=light&quot;&gt;约定式提交&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;我顺便总结了一下，自己以后可以选用。&lt;/p&gt;
-&lt;h2 id=&quot;总体规范&quot;&gt;总体规范&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt;&amp;gt;[optional scope]: &amp;lt;description&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[optional body]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[optional &lt;span class=&quot;title function_&quot;&gt;footer&lt;/span&gt;(s)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;详细解释：&quot;&gt;详细解释：&lt;/h2&gt;
-&lt;h3 id=&quot;Type：&quot;&gt;Type：&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;fix:&lt;/strong&gt; &lt;em&gt;类型&lt;/em&gt; 为 &lt;code&gt;fix&lt;/code&gt; 的提交表示在代码库中修复了一个bug。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;feat:&lt;/strong&gt; &lt;em&gt;类型&lt;/em&gt; 为 &lt;code&gt;feat&lt;/code&gt; 的提交表示在代码库中新增了一个功能。&lt;/li&gt;
-&lt;li&gt;build: 用于修改项目构建系统，例如修改依赖库、外部接口或者升级 Node 版本等；&lt;/li&gt;
-&lt;li&gt;chore: 用于对非业务性代码进行修改，例如修改构建流程或者工具配置等；&lt;/li&gt;
-&lt;li&gt;ci: 用于修改持续集成流程，例如修改 Travis、Jenkins 等工作流配置；&lt;/li&gt;
-&lt;li&gt;docs: 用于修改文档，例如修改 README 文件、API 文档等；&lt;/li&gt;
-&lt;li&gt;style: 用于修改代码的样式，例如调整缩进、空格、空行等；&lt;/li&gt;
-&lt;li&gt;refactor: 用于重构代码，例如修改代码结构、变量名、函数名等但不修改功能逻辑；&lt;/li&gt;
-&lt;li&gt;perf: 用于优化性能，例如提升代码的性能、减少内存占用等；&lt;/li&gt;
-&lt;li&gt;test: 用于修改测试用例，例如添加、删除、修改代码的测试用例等。&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
     
   </entry>
   
