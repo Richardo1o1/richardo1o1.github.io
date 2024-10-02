@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Build a Finance SaaS Platform -17 (Transaction Page) |  New structure for utility</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/web1.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?6df1890c9854cdf70d1c67b43e743c4d";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+        pre.mermaid {
+	  background: #dedede;
+	}	
+      </style>
+    <link rel="alternate" href="/atom.xml" title="New structure for utility" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-built-finance-dashboard-page-17"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Build a Finance SaaS Platform -17 (Transaction Page)
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/10/02/built-finance-dashboard-page-17/" class="article-date">
+  <time datetime="2024-10-02T14:15:50.000Z" itemprop="datePublished">2024-10-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">9 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Add-Transaction-Page">Add Transaction Page</h2>
+<p>Add  <code>app/(dashboard)/transactions/page.tsx</code></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Loader2</span>, <span class="title class_">Plus</span> &#125; <span class="keyword">from</span> <span class="string">&quot;lucide-react&quot;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/button&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">Card</span>,</span><br><span class="line">  <span class="title class_">CardContent</span>,</span><br><span class="line">  <span class="title class_">CardHeader</span>,</span><br><span class="line">  <span class="title class_">CardTitle</span>,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/card&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Skeleton</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/skeleton&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; columns &#125; <span class="keyword">from</span> <span class="string">&quot;./columns&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DataTable</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/data-table&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useNewTransaction &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/transactions/hooks/use-new-transaction&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useBulkDeleteTransactions &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/transactions/api/use-bulk-delete-transactions&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useGetTransactions &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/transactions/api/use-get-transactions&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">TransactionsPage</span> = (<span class="params"></span>)=&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> newTransaction = <span class="title function_">useNewTransaction</span>();</span><br><span class="line">  <span class="keyword">const</span> deleteTransaction = <span class="title function_">useBulkDeleteTransactions</span>();</span><br><span class="line">  <span class="keyword">const</span> <span class="title class_">TransactionQuery</span> = <span class="title function_">useGetTransactions</span>();</span><br><span class="line">  <span class="keyword">const</span> <span class="title class_">Transactions</span> = <span class="title class_">TransactionQuery</span>.<span class="property">data</span> || [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> isDisabled = <span class="title class_">TransactionQuery</span>.<span class="property">isLoading</span> || deleteTransaction.<span class="property">isPending</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>( <span class="title class_">TransactionQuery</span>.<span class="property">isLoading</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;max-w-screen-2xl max-auto w-full pb-10 -mt-24&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Card</span> <span class="attr">className</span>=<span class="string">&quot;border-none drop-shadow-sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">CardHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Skeleton</span> <span class="attr">className</span>=<span class="string">&quot;h-8 w-48&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">CardHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;h-[500px] w-full flex items-center&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">Loader2</span> <span class="attr">className</span>=<span class="string">&quot;size-6 text-slate-300 animate-spin&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;max-w-screen-2xl mx-auto w-full pb-10 -mt-24&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Card</span> <span class="attr">className</span>=<span class="string">&quot;border-none drop-shadow-sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CardHeader</span> <span class="attr">className</span>=<span class="string">&quot;gap-y-2 lg:flex-row lg:items-center lg:justify-between&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">CardTitle</span> <span class="attr">className</span>=<span class="string">&quot;text-xl line-clamp-1&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            Transaction History</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">CardTitle</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Button</span> <span class="attr">onClick</span>=<span class="string">&#123;newTransaction.onOpen&#125;</span> <span class="attr">size</span>=<span class="string">&quot;sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Plus</span> <span class="attr">className</span>=<span class="string">&quot;size-4 mr-2&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            Add New</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">CardHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">DataTable</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">filterKey</span> = <span class="string">&quot;name&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">columns</span>=<span class="string">&#123;columns&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">data</span>=<span class="string">&#123;</span> <span class="attr">Transactions</span> &#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">onDelete</span>=<span class="string">&#123;(rows)</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-xml">              const ids = rows.map((r) =&gt; r.id)</span></span><br><span class="line"><span class="language-xml">              deleteTransaction.mutate(&#123; ids &#125;);</span></span><br><span class="line"><span class="language-xml">            &#125;&#125;</span></span><br><span class="line"><span class="language-xml">            disabled=&#123;isDisabled&#125;</span></span><br><span class="line"><span class="language-xml">          /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">TransactionsPage</span>;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="Add-Column-and-Column-Components">Add Column and Column Components</h2>
+<p>Add <code>app/(dashboard)/transactions/account-column.tsx</code></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useOpenAccount &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/accounts/hooks/use-open-account&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; cn &#125; <span class="keyword">from</span> <span class="string">&quot;@/lib/utils&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Props</span> = &#123;</span><br><span class="line">  <span class="attr">account</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">accountId</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">AccountColumn</span> = (<span class="params">&#123; account, accountId &#125;: Props</span>) =&gt;&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; <span class="attr">onOpen</span>: onOpenAccount &#125; = <span class="title function_">useOpenAccount</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">onClick</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="title function_">onOpenAccount</span>(accountId);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">onClick</span>=<span class="string">&#123;onClick&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&quot;flex items-center course-pointer hover:underline&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;account&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Add <code>app/(dashboard)/transactions/category-column.tsx</code></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">TriangleAlert</span> &#125; <span class="keyword">from</span> <span class="string">&quot;lucide-react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useOpenCategory &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/categories/hooks/use-open-category&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useOpenTransaction &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/transactions/hooks/use-open-transaction&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; cn &#125; <span class="keyword">from</span> <span class="string">&quot;@/lib/utils&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Props</span> = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">category</span>: <span class="built_in">string</span> | <span class="literal">null</span>;</span><br><span class="line">  <span class="attr">categoryId</span>: <span class="built_in">string</span>| <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">CategoryColumn</span> = (<span class="params">&#123; id, category, categoryId &#125;: Props</span>) =&gt;&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; <span class="attr">onOpen</span>: onOpenCategory &#125; = <span class="title function_">useOpenCategory</span>();</span><br><span class="line">  <span class="keyword">const</span> &#123; <span class="attr">onOpen</span>: onOpenTransaction &#125; = <span class="title function_">useOpenTransaction</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">onClick</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (categoryId)&#123;</span><br><span class="line">      <span class="title function_">onOpenCategory</span>(categoryId);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="title function_">onOpenTransaction</span>(id);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">onClick</span>=<span class="string">&#123;onClick&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&#123;cn(</span>&quot;<span class="attr">flex</span> <span class="attr">items-center</span> <span class="attr">course-pointer</span> <span class="attr">hover:underline</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        !<span class="attr">category</span> &amp;&amp; &quot;<span class="attr">text-rose-500</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      )&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;!category &amp;&amp; <span class="tag">&lt;<span class="name">TriangleAlert</span> <span class="attr">className</span>=<span class="string">&quot;mr-2 size-4 shrink-0&quot;</span> /&gt;</span>&#125;</span></span><br><span class="line"><span class="language-xml">      &#123;category || &quot;Uncategorized&quot;&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Add <code>app/(dashboard)/transactions/actions.tsx</code></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Edit</span>, <span class="title class_">MoreHorizontal</span>, <span class="title class_">Trash</span> &#125; <span class="keyword">from</span> <span class="string">&quot;lucide-react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/button&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">DropdownMenu</span>,</span><br><span class="line">  <span class="title class_">DropdownMenuContent</span>,</span><br><span class="line">  <span class="title class_">DropdownMenuItem</span>,</span><br><span class="line">  <span class="title class_">DropdownMenuTrigger</span>,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/dropdown-menu&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useOpenTransaction &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/transactions/hooks/use-open-transaction&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useDeleteTransaction &#125; <span class="keyword">from</span> <span class="string">&quot;@/features/transactions/api/use-delete-transaction&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useConfirm &#125; <span class="keyword">from</span> <span class="string">&quot;@/hooks/use-confirm&quot;</span>;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Props</span> = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">Actions</span> = (<span class="params">&#123; id &#125;: Props</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [<span class="title class_">ConfirmDialog</span>, confirm] = <span class="title function_">useConfirm</span>(</span><br><span class="line">    <span class="string">&quot;Are you sure?&quot;</span>,</span><br><span class="line">    <span class="string">&quot;You are about to delete this transaction&quot;</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> deleteMutation = <span class="title function_">useDeleteTransaction</span>(id);</span><br><span class="line">  <span class="keyword">const</span> &#123; onOpen &#125; = <span class="title function_">useOpenTransaction</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleDelete</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> ok = <span class="keyword">await</span> <span class="title function_">confirm</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ok) &#123;</span><br><span class="line">      deleteMutation.<span class="title function_">mutate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">ConfirmDialog</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">DropdownMenu</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">DropdownMenuTrigger</span> <span class="attr">asChild</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Button</span> <span class="attr">variant</span>=<span class="string">&quot;ghost&quot;</span> <span class="attr">className</span>=<span class="string">&quot;size-8 p-0&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">MoreHorizontal</span> <span class="attr">className</span>=<span class="string">&quot;size-4&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">DropdownMenuTrigger</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">DropdownMenuContent</span> <span class="attr">align</span>=<span class="string">&quot;end&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">DropdownMenuItem</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">disabled</span>=<span class="string">&#123;deleteMutation.isPending&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> onOpen(id)&#125;</span></span><br><span class="line"><span class="language-xml">          &gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Edit</span> <span class="attr">className</span>=<span class="string">&quot;size-4 mr-2&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">            Edit</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">DropdownMenuItem</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">DropdownMenuItem</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">disabled</span>=<span class="string">&#123;deleteMutation.isPending&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">onClick</span>=<span class="string">&#123;handleDelete&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          &gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Trash</span> <span class="attr">className</span>=<span class="string">&quot;size-4 mr-2&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">            Delete</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">DropdownMenuItem</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">DropdownMenuContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">DropdownMenu</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Add <code>app/(dashboard)/transactions/columns.tsx</code></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">InferResponseType</span> &#125; <span class="keyword">from</span> <span class="string">&quot;hono&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ColumnDef</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@tanstack/react-table&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ArrowUpDown</span> &#125; <span class="keyword">from</span> <span class="string">&quot;lucide-react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; format &#125; <span class="keyword">from</span> <span class="string">&quot;date-fns&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/button&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Checkbox</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/checkbox&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Badge</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/badge&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Actions</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./actions&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; client &#125; <span class="keyword">from</span> <span class="string">&quot;@/lib/hono&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; formatCurrency &#125; <span class="keyword">from</span> <span class="string">&quot;@/lib/utils&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AccountColumn</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./account-column&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">CategoryColumn</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./category-column&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">ResponsType</span> = <span class="title class_">InferResponseType</span>&lt;<span class="keyword">typeof</span> client.<span class="property">api</span>.<span class="property">transactions</span>.<span class="property">$get</span>, <span class="number">200</span>&gt;[<span class="string">&quot;data&quot;</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="attr">columns</span>: <span class="title class_">ColumnDef</span>&lt;<span class="title class_">ResponsType</span>&gt;[] = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&quot;select&quot;</span>,</span><br><span class="line">    <span class="attr">header</span>: <span class="function">(<span class="params">&#123; table &#125;</span>) =&gt;</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">Checkbox</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">checked</span>=<span class="string">&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">table.getIsAllPageRowsSelected</span>() ||</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          (<span class="attr">table.getIsSomePageRowsSelected</span>() &amp;&amp; &quot;<span class="attr">indeterminate</span>&quot;)</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onCheckedChange</span>=<span class="string">&#123;(value)</span> =&gt;</span> table.toggleAllPageRowsSelected(!!value)&#125;</span></span><br><span class="line"><span class="language-xml">        aria-label=&quot;Select all&quot;</span></span><br><span class="line"><span class="language-xml">      /&gt;</span></span><br><span class="line">    ),</span><br><span class="line">    <span class="attr">cell</span>: <span class="function">(<span class="params">&#123; row &#125;</span>) =&gt;</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">Checkbox</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">checked</span>=<span class="string">&#123;row.getIsSelected()&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onCheckedChange</span>=<span class="string">&#123;(value)</span> =&gt;</span> row.toggleSelected(!!value)&#125;</span></span><br><span class="line"><span class="language-xml">        aria-label=&quot;Select row&quot;</span></span><br><span class="line"><span class="language-xml">      /&gt;</span></span><br><span class="line">    ),</span><br><span class="line">    <span class="attr">enableSorting</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">enableHiding</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">accessorKey</span>: <span class="string">&quot;date&quot;</span>,</span><br><span class="line">    <span class="attr">header</span>: <span class="function">(<span class="params">&#123; column &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">variant</span>=<span class="string">&quot;ghost&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> column.toggleSorting(column.getIsSorted() === &quot;asc&quot;)&#125;</span></span><br><span class="line"><span class="language-xml">        &gt;</span></span><br><span class="line"><span class="language-xml">          Date</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ArrowUpDown</span> <span class="attr">className</span>=<span class="string">&quot;ml-2 h-4 w-4&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">cell</span>: <span class="function">(<span class="params">&#123; row &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> date = row.<span class="title function_">getValue</span>(<span class="string">&quot;date&quot;</span>) <span class="keyword">as</span> <span class="title class_">Date</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;format(date, &quot;dd MMMM,yyyy&quot;)&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">accessorKey</span>: <span class="string">&quot;category&quot;</span>,</span><br><span class="line">    <span class="attr">header</span>: <span class="function">(<span class="params">&#123; column &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">variant</span>=<span class="string">&quot;ghost&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> column.toggleSorting(column.getIsSorted() === &quot;asc&quot;)&#125;</span></span><br><span class="line"><span class="language-xml">        &gt;</span></span><br><span class="line"><span class="language-xml">          Category</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ArrowUpDown</span> <span class="attr">className</span>=<span class="string">&quot;ml-2 h-4 w-4&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">cell</span>: <span class="function">(<span class="params">&#123; row &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">CategoryColumn</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">id</span> = <span class="string">&#123;row.original.id&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">category</span>=<span class="string">&#123;row.original.category&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">categoryId</span>=<span class="string">&#123;row.original.categoryId&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,  </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">accessorKey</span>: <span class="string">&quot;payee&quot;</span>,</span><br><span class="line">    <span class="attr">header</span>: <span class="function">(<span class="params">&#123; column &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">variant</span>=<span class="string">&quot;ghost&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> column.toggleSorting(column.getIsSorted() === &quot;asc&quot;)&#125;</span></span><br><span class="line"><span class="language-xml">        &gt;</span></span><br><span class="line"><span class="language-xml">          Payee</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ArrowUpDown</span> <span class="attr">className</span>=<span class="string">&quot;ml-2 h-4 w-4&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">accessorKey</span>: <span class="string">&quot;amount&quot;</span>,</span><br><span class="line">    <span class="attr">header</span>: <span class="function">(<span class="params">&#123; column &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">variant</span>=<span class="string">&quot;ghost&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> column.toggleSorting(column.getIsSorted() === &quot;asc&quot;)&#125;</span></span><br><span class="line"><span class="language-xml">        &gt;</span></span><br><span class="line"><span class="language-xml">          Amount</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ArrowUpDown</span> <span class="attr">className</span>=<span class="string">&quot;ml-2 h-4 w-4&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">cell</span>: <span class="function">(<span class="params">&#123; row &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> amount = <span class="built_in">parseFloat</span>(row.<span class="title function_">getValue</span>(<span class="string">&quot;amount&quot;</span>));</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Badge</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">variant</span>=<span class="string">&#123;amount</span> &gt;</span> 0 ? &quot;primary&quot; : &quot;destructive&quot;&#125;</span></span><br><span class="line"><span class="language-xml">          className=&quot;text-xs font-medium px-3.5 py-2.5&quot;</span></span><br><span class="line"><span class="language-xml">        &gt;</span></span><br><span class="line"><span class="language-xml">          &#123;formatCurrency(amount)&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Badge</span>&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,     </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">accessorKey</span>: <span class="string">&quot;account&quot;</span>,</span><br><span class="line">    <span class="attr">header</span>: <span class="function">(<span class="params">&#123; column &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">variant</span>=<span class="string">&quot;ghost&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> column.toggleSorting(column.getIsSorted() === &quot;asc&quot;)&#125;</span></span><br><span class="line"><span class="language-xml">        &gt;</span></span><br><span class="line"><span class="language-xml">          Account</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">ArrowUpDown</span> <span class="attr">className</span>=<span class="string">&quot;ml-2 h-4 w-4&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">cell</span>: <span class="function">(<span class="params">&#123; row &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">AccountColumn</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">account</span>= <span class="string">&#123;</span> <span class="attr">row.original.account</span>&#125; </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">accountId</span> = <span class="string">&#123;</span> <span class="attr">row.original.accountId</span> &#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,  </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&quot;actions&quot;</span>,</span><br><span class="line">    <span class="attr">cell</span>: <span class="function">(<span class="params">&#123; row &#125;</span>) =&gt;</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Actions</span> <span class="attr">id</span>=<span class="string">&#123;row.original.id&#125;</span> /&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2024/10/02/built-finance-dashboard-page-17/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DemoProjects/" rel="tag">DemoProjects</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/10/01/built-finance-dashboard-page-16/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Build a Finance SaaS Platform -16 (Change to Local PG database）</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2023-2024
+        <i class="ri-heart-fill heart_icon"></i> Richard Z.
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">沪ICP备15046216号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/desktopicon.png" alt="New structure for utility"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "base" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

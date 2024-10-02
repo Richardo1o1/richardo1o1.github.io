@@ -100,6 +100,69 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-difference-of-list-tuple-set-dict"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/27/difference-of-list-tuple-set-dict/"
+    >Python的列表，字典，元组，集合的区别和各自使用方法</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/27/difference-of-list-tuple-set-dict/" class="article-date">
+  <time datetime="2024-02-27T15:10:04.000Z" itemprop="datePublished">2024-02-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>我在学习Python的时候，经常把 几个数据类型搞混，下面就对 list，tuple，set，dict总结区别：<br>
+<img src="https://cdn.yunminitools.cn/blog/0227_diff.png" alt=" "></p>
+<h2 id="1-列表list">1.列表list []</h2>
+<p>列表是处理一组有序的数据结构，可以读写，添加和删除，或者搜索列表里的元素。因为可以添加和删除，所以称为可变的数据类型，即这种类型是可以被改变的，并且列表可以嵌套。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">res = [<span class="number">1</span>,<span class="number">2</span>,<span class="string">&#x27;yihang&#x27;</span>]</span><br><span class="line"><span class="comment">#增加元素：extend和append</span></span><br><span class="line">res.append(<span class="number">1</span>)</span><br><span class="line">res.extend(<span class="string">&#x27;6&#x27;</span>)</span><br><span class="line"><span class="comment">#删除元素：del，pop，切片，remove</span></span><br><span class="line"><span class="keyword">del</span> res[<span class="number">1</span>]</span><br><span class="line">res.pop(<span class="number">1</span>)<span class="comment">#删除该位置上的元素，没有指定则是最后一个元素</span></span><br><span class="line">res = res[:<span class="number">2</span>]+res[<span class="number">3</span>:]<span class="comment">#切片</span></span><br><span class="line">res.remove(<span class="number">2</span>)<span class="comment">#删除指定值的元素</span></span><br><span class="line"><span class="comment">#更改元素</span></span><br><span class="line">res[<span class="number">1</span>] = <span class="number">100</span> <span class="comment">#</span></span><br><span class="line"><span class="comment">#查元素</span></span><br><span class="line"><span class="built_in">print</span>(res[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(res[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>注意：如果想添加的一个元素是一个列表，那么append是将这个这个列表作为一个元素添加进来，而extend是将列中的元素一个一个添加进去</p> 
+      <a class="article-more-link" href="/2024/02/27/difference-of-list-tuple-set-dict/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-nowcoder-algorithm-test-bm2"
   class="article article-type-post"
   itemscope
@@ -698,93 +761,6 @@ docker run ：创建并运行一个容器<br>
         >More...</a
       >
        
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-nowcoder-algorithm-test-101"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/12/nowcoder-algorithm-test-101/"
-    >牛客网 面试必刷TOP101 算法题</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/12/nowcoder-algorithm-test-101/" class="article-date">
-  <time datetime="2024-02-12T15:48:40.000Z" itemprop="datePublished">2024-02-12</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="介绍">介绍</h2>
-<p>发现一个除了Leecode以外比较好的刷算法的网站：</p>
-<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/exam/oj?page=1&amp;tab=%E7%AE%97%E6%B3%95%E7%AF%87&amp;topicId=295">牛客网在线编程_算法篇_面试必刷TOP101 (nowcoder.com)</a></p>
-<p>据说是收集了很多面试题精选的题目</p>
-<h2 id="题目例子">题目例子</h2>
-<p><strong>BM83 字符串变形</strong></p>
-<p><strong>描述</strong></p>
-<p>对于一个长度为 n 字符串，我们需要对它做一些变形。</p>
-<p>首先这个字符串中包含着一些空格，就像&quot;Hello World&quot;一样，然后我们要做的是把这个字符串中由空格隔开的单词反序，同时反转每个字符的大小写。</p>
-<p>比如&quot;Hello World&quot;变形后就变成了&quot;wORLD hELLO&quot;。</p>
-<p>数据范围: 1≤n≤1061≤<em>n</em>≤106 , 字符串中包括大写英文字母、小写英文字母、空格。</p>
-<p>进阶：空间复杂度 O(n) ， 时间复杂度 O(n)</p>
-<p><strong>输入描述：</strong></p>
-<p>给定一个字符串s以及它的长度n(1 ≤ n ≤ 10^6)</p>
-<p><strong>返回值描述：</strong></p>
-<p>请返回变形后的字符串。题目保证给定的字符串均由大小写字母和空格构成。</p>
-<p><strong>示例1</strong></p>
-<p>输入：<br>
-<code>&quot;This is a sample&quot;,16</code></p>
-<p>返回值：<br>
-<code>&quot;SAMPLE A IS tHIS&quot;</code></p>
-<h2 id="Python实现">Python实现</h2>
-<p>参考了答案，我的代码实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">trans</span>(<span class="params">self, s: <span class="built_in">str</span>, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        word_list = <span class="built_in">list</span>(s.split(<span class="string">&quot; &quot;</span>))[::-<span class="number">1</span>]</span><br><span class="line">        new_str = <span class="string">&quot; &quot;</span>.join(word_list)</span><br><span class="line">        res = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> new_str[i] &lt;= <span class="string">&quot;Z&quot;</span> <span class="keyword">and</span> new_str[i] &gt;= <span class="string">&quot;A&quot;</span>:</span><br><span class="line">                res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(new_str[i]) - <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>) + <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>))</span><br><span class="line">            <span class="keyword">elif</span> new_str[i] &lt;= <span class="string">&quot;z&quot;</span> <span class="keyword">and</span> new_str[i] &gt;= <span class="string">&quot;a&quot;</span>:</span><br><span class="line">                res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(new_str[i]) - <span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>) + <span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res += new_str[i]</span><br><span class="line">        <span class="built_in">print</span>(res)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-<p>其中以下写法值得借鉴：</p>
-<ol>
-<li>倒序的实现为 list(s.split(&quot; &quot;))[::-1]</li>
-<li>字母变为小写：chr(ord(new_str[i]) - ord(“A”) + ord(“a”))</li>
-<li>另外 用 swapcase() 函数更简洁</li>
-</ol>
-<h2 id="界面和操作">界面和操作</h2>
-<p>界面如下：</p>
-<p><img src="https://cdn.yunminitools.cn/blog/0212_nowcoder_101.png" alt=" "></p>
-<p>操作还比较方便，有语法提示，有调试界面。</p>
- 
       <!-- reward -->
       
     </div>
