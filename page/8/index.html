@@ -100,6 +100,124 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Built-Twitter-Like-App-5"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/05/17/Built-Twitter-Like-App-5/"
+    >Built Twitter Like App - 5</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/05/17/Built-Twitter-Like-App-5/" class="article-date">
+  <time datetime="2024-05-17T15:46:46.000Z" itemprop="datePublished">2024-05-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Add-Header">Add Header</h2>
+<p>Modify file <code>pages/index.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Header</span> <span class="keyword">from</span> <span class="string">&quot;../components/Header&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Header</span> <span class="attr">showBackArrow</span> <span class="attr">label</span>=<span class="string">&quot;Home&quot;</span>/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/05/17/Built-Twitter-Like-App-5/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Built-Twitter-Like-App-4"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/05/17/Built-Twitter-Like-App-4/"
+    >Built Twitter Like App - 4</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/05/17/Built-Twitter-Like-App-4/" class="article-date">
+  <time datetime="2024-05-17T15:42:40.000Z" itemprop="datePublished">2024-05-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Add-FollowBar">Add FollowBar</h2>
+<p>Modify file <code>conmponent/Layout.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">FollowBar</span> <span class="keyword">from</span> <span class="string">&quot;./layout/FollowBar&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Sidebar</span> <span class="keyword">from</span> <span class="string">&quot;./layout/Siderbar&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">LayoutProps</span>&#123;</span><br><span class="line">    <span class="attr">children</span>: <span class="title class_">React</span>.<span class="property">ReactNode</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Layout</span>:<span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">LayoutProps</span>&gt; = <span class="function">(<span class="params">&#123; children &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;h-screen bg-black&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;container h-full mx-auto xl:px-30 max-w-6xl&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;grid grid-cols-4 h-full&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Sidebar</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   col-span-3</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   lg:col-span-2</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   border-x-[1px]</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                   border-neutral-800</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                &quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    &#123; children &#125;</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">FollowBar</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">   );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Layout</span>;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/05/17/Built-Twitter-Like-App-4/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-tailwind-cheat-sheet"
   class="article article-type-post"
   itemscope
@@ -593,187 +711,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-categories-of-data"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/30/categories-of-data/"
-    >Categories of Data</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/30/categories-of-data/" class="article-date">
-  <time datetime="2024-04-30T03:43:31.000Z" itemprop="datePublished">2024-04-30</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%B5%84%E6%BA%90%E6%80%BB%E7%BB%93/">资源总结</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Background">Background</h2>
-<p>Certain type of data created as part of normal business activities might be used enterprise wide, whilst others may only be useful locally within a department or geographic region.  The data maybe structured, for example an order held in the SAP system, or unstructured such as design document. The data can also differ from a retention and usage and perspective.   Taking this into account different categories of data exist that have different management requirements.</p>
-<h2 id="Categories">Categories</h2>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Analytical Data</td>
-<td>Created by transforming operational, unstructured, master and reference data to address specific decision support or reporting requirements.</td>
-</tr>
-<tr>
-<td>Operational Data</td>
-<td>Generated from business activities and is given context by Master data and reference data, for example purchase orders, or sales orders.  It is subdivided into structured and unstructured data.</td>
-</tr>
-<tr>
-<td>Enterprise Structure Data</td>
-<td>Represents the key structures of the enterprise and is particularly used for reporting business activity by responsibility.  Examples are Chart of Accounts and organisational structures.  Changes to enterprise structure data can have a high impact of historical reporting.</td>
-</tr>
-<tr>
-<td>Master Data</td>
-<td>Refers to the core business data entities such as customer, product, vendor or parts.  It is used to provide context to operational data, for example the master data related to a Purchase Order would be the supplier, the goods or service types being supplied and the employee who raised the order.</td>
-</tr>
-<tr>
-<td>Reference Data</td>
-<td>Any kind of data that is only used to categorise other data in a database and normally values have to confirm to one of several allowed values.  For eample the classification of an employee may be hourly paid, salaries or agency</td>
-</tr>
-<tr>
-<td>Metadata</td>
-<td>The information used to describe the characteristics of a piece of corporate data, for example the meaning, format, and security classification.</td>
-</tr>
-</tbody>
-</table>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-http-api-design-guide"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/29/http-api-design-guide/"
-    >HTTP API 设计指南</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/29/http-api-design-guide/" class="article-date">
-  <time datetime="2024-04-29T15:48:17.000Z" itemprop="datePublished">2024-04-29</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <blockquote>
-<p>摘录自 <a target="_blank" rel="noopener" href="https://github.com/interagent/http-api-design">HTTP API Design Guide</a></p>
-</blockquote>
-<h2 id="前言">前言</h2>
-<p>我们的目标是一致性，专注业务逻辑同时避免设计上的空想，我们一直在寻找一种良好的，统一的，显而易见的API设计方式，未必只有一种方式。</p>
-<p>以下内容供参考，另外，还可以看看大厂的设计规范：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md">Microsoft REST API Guidelines</a></li>
-<li><a target="_blank" rel="noopener" href="https://cloud.google.com/apis/design?hl=zh-cn">Google API Design Guide</a></li>
-</ul>
-<h2 id="内容">内容</h2>
-<ul>
-<li>
-<p>返回合适的状态码</p>
-<p>为每一次的响应返回合适的HTTP状态码. 成功的HTTP响应应该使用如下的状态码:</p>
-<ul>
-<li>
-<p><code>200</code>: <code>GET</code>请求成功, 以及<code>DELETE</code>或 <code>PATCH</code> 同步请求完成</p>
-</li>
-<li>
-<p><code>201</code>: <code>POST</code> 同步请求完成</p>
-</li>
-<li>
-<p><code>202</code>: <code>POST</code>, <code>DELETE</code>, 或 <code>PATCH</code> 异步请求将要完成</p>
-</li>
-<li>
-<p><code>206</code>: <code>GET</code> 请求成功, 这里只是一部分状态码: 更多</p>
-</li>
-</ul>
-<p>参考 <a target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes">状态描述</a></p>
-</li>
-<li>
-<p>提供全部可用的资源</p>
-</li>
-</ul> 
-      <a class="article-more-link" href="/2024/04/29/http-api-design-guide/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
 
     </footer>
   </div>

@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-10-02T14:17:31.354Z</updated>
+  <updated>2024-10-04T14:58:38.510Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -19 (Import Function)</title>
+    <link href="http://yunminitools.cn/2024/10/04/built-finance-dashboard-page-19/"/>
+    <id>http://yunminitools.cn/2024/10/04/built-finance-dashboard-page-19/</id>
+    <published>2024-10-04T14:57:08.000Z</published>
+    <updated>2024-10-04T14:58:38.510Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-Package&quot;&gt;Install Package&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i react-papaparse&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npx shadcn&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; add select&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -18 (Transaction Sheet)</title>
+    <link href="http://yunminitools.cn/2024/10/03/built-finance-dashboard-page-18/"/>
+    <id>http://yunminitools.cn/2024/10/03/built-finance-dashboard-page-18/</id>
+    <published>2024-10-03T09:40:30.000Z</published>
+    <updated>2024-10-03T09:43:08.114Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Add-Transaction-Sheet&quot;&gt;Add Transaction Sheet&lt;/h2&gt;
+&lt;p&gt;Add  &lt;code&gt;features/transactions/components/transaction-form.tsx&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform -17 (Transaction Page)</title>
@@ -464,57 +508,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自建 Nextcloud 高性能安全私有云盘</title>
-    <link href="http://yunminitools.cn/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/"/>
-    <id>http://yunminitools.cn/2024/08/15/build-nextcloud-private-cloud-drive-tutorial/</id>
-    <published>2024-08-15T13:00:28.000Z</published>
-    <updated>2024-08-15T13:01:49.471Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Nextcloud-搭建步骤（Windows环境）&quot;&gt;Nextcloud 搭建步骤（Windows环境）&lt;/h2&gt;
-&lt;p&gt;假设是安装在Windows环境并已经安装好了Docker。&lt;/p&gt;
-&lt;h3 id=&quot;拉取NextCloud镜像&quot;&gt;拉取NextCloud镜像&lt;/h3&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker pull nextcloud&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;创建数据卷&quot;&gt;创建数据卷&lt;/h3&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker volume create --driver &lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt; --opt device=F:\Nextcloud\data --opt &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;=none --opt o=&lt;span class=&quot;built_in&quot;&gt;bind&lt;/span&gt; nextcloud &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;其中F:\Nextcloud\data 为你要保持数据的目录&lt;/p&gt;
-&lt;h3 id=&quot;启动NextCloud容器&quot;&gt;启动NextCloud容器&lt;/h3&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run -d --restart=always --name nextcloud -p 9000:80 -v nextcloud:/var/www/html nextcloud&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="开源工具" scheme="http://yunminitools.cn/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git 使用 --depth</title>
-    <link href="http://yunminitools.cn/2024/08/14/git-use-depth-1/"/>
-    <id>http://yunminitools.cn/2024/08/14/git-use-depth-1/</id>
-    <published>2024-08-14T06:40:19.000Z</published>
-    <updated>2024-08-14T06:41:24.306Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;在我们拉取 &lt;code&gt;Git repo&lt;/code&gt; 时，如果不需要大量的日志记录，只想获取某个分支或者某次提交下的文件状态，可以借助 &lt;code&gt;depth=1&lt;/code&gt; 参数实现。&lt;/p&gt;
-&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
-&lt;p&gt;在使用 &lt;code&gt;git clone&lt;/code&gt; 时直接携带 &lt;code&gt;depth&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;*&lt;span class=&quot;comment&quot;&gt;# 实现默认分支的拉取*&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; --depth **1** xxx.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*&lt;span class=&quot;comment&quot;&gt;# 某个分支/标签*&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; --depth **1** -b &lt;span class=&quot;string&quot;&gt;&amp;quot;branch_name/tag_name&amp;quot;&lt;/span&gt; xxx.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;其中 &lt;code&gt;depth&lt;/code&gt; 指定的是 &lt;code&gt;commit&lt;/code&gt; 的深度，指定 &lt;code&gt;1&lt;/code&gt; 则表示只拉取一次 &lt;code&gt;commit&lt;/code&gt;，就是某次提交的完整状态。如果指定 &lt;code&gt;2&lt;/code&gt;，就表示只想更深一层的 &lt;code&gt;commit&lt;/code&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
     
   </entry>
   

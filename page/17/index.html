@@ -100,6 +100,165 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Give-GPTs-time-to-think-strategy"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/06/14/Give-GPTs-time-to-think-strategy/"
+    >给GPTs一些时间来“思考”的策略</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/14/Give-GPTs-time-to-think-strategy/" class="article-date">
+  <time datetime="2023-06-14T15:14:55.000Z" itemprop="datePublished">2023-06-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="指示模型在草率得出结论之前自己解决问题">指示模型在草率得出结论之前自己解决问题</h2>
+<p>有时候，当我们明确指示模型在得出结论之前从基本原理进行推理时，我们可以获得更好的结果。例如，假设我们希望模型评估学生对一个数学问题的解答。最直接的方法是简单地问模型学生的解答是否正确</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>Determine if the student’s solution is correct or not.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Problem Statement: I’m building a solar power installation and I need help working out the financials.<br>- Land costs $100 / square foot<br>- I can buy solar panels for $250 / square foot<br>- I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot<br>What is the total cost for the first year of operations as a function of the number of square feet.<br>Student’s Solution: Let x be the size of the installation in square feet.<br>1. Land cost: 100x<br>2. Solar panel cost: 250x<br>3. Maintenance cost: 100,000 + 100x<br>Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000</td>
+</tr>
+<tr>
+<td>ASSISTANT</td>
+<td>The student’s solution is correct.</td>
+</tr>
+</tbody>
+</table>
+<p>但学生的解答实际上是不正确的！我们可以通过提示模型首先生成自己的解答来成功让模型注意到这一点。</p> 
+      <a class="article-more-link" href="/2023/06/14/Give-GPTs-time-to-think-strategy/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Split-complex-tasks-into-simpler-subtasks-strategy"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"
+    >将复杂任务分解为简单的子任务的策略</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/" class="article-date">
+  <time datetime="2023-06-13T14:35:13.000Z" itemprop="datePublished">2023-06-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="使用意图分类来识别用户查询的最相关指令">使用意图分类来识别用户查询的最相关指令</h2>
+<p>对于需要处理不同情况的大量独立指令的任务，首先对查询类型进行分类，并使用该分类确定所需的指令，可以带来一些好处。这可以通过定义固定的类别和硬编码与处理给定类别任务相关的指令来实现。该过程还可以递归应用于将任务分解为一系列阶段。这种方法的优点在于每个查询只包含执行任务的下一个阶段所需的指令，这可能导致与使用单个查询执行整个任务相比较低的错误率。这还可以降低成本，因为较大的提示运行成本更高（请参阅定价信息）。</p>
+<p>例如，假设对于客户服务应用程序，查询可以有以下有用的分类方式：</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SYSTEM</td>
+<td>You will be provided with customer service queries. Classify each query into a primary category and a secondary category. Provide your output in json format with the keys: primary and secondary.<br>Primary categories: Billing, Technical Support, Account Management, or General Inquiry.<br>Billing secondary categories:<br>- Unsubscribe or upgrade<br>- Add a payment method<br>- Explanation for charge<br>- Dispute a charge<br>Technical Support secondary categories:<br>- Troubleshooting<br>- Device compatibility<br>- Software updates<br>Account Management secondary categories:<br>- Password reset<br>- Update personal information<br>- Close account<br>- Account security<br>General Inquiry secondary categories:<br>- Product information<br>- Pricing<br>- Feedback<br>- Speak to a human</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>I need to get my internet working again.</td>
+</tr>
+</tbody>
+</table>
+<p>根据客户查询的分类，可以为GPT模型提供一组更具体的指令来处理下一步操作。例如，假设客户需要“故障排除”的帮助。</p> 
+      <a class="article-more-link" href="/2023/06/13/Split-complex-tasks-into-simpler-subtasks-strategy/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-provide-reference-text-strategy"
   class="article article-type-post"
   itemscope
@@ -708,127 +867,6 @@ qz = probability the attacker will ever catch up from z blocks behind<br>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-npm-run-serve-vue"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/20/npm-run-serve-vue/"
-    >Difference between&#34; npm run serve&#34; and &#34;npm run dev&#34; in VUE</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/20/npm-run-serve-vue/" class="article-date">
-  <time datetime="2023-04-20T15:37:22.000Z" itemprop="datePublished">2023-04-20</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><code>npm run serve</code> basically is just saying “npm please <strong>run</strong> the command I defined under the name <strong>serve</strong> in <strong>package.json</strong>” the same happens with <code>npm run dev</code>.</p>
-<p>Given this the commands can do the exact same thing, similar things, or very different things. Usually they are a shorthand for running a dev server on localhost, but it’s not a rule, only a convention.</p>
-<p>So you’ll need to check in your <code>package.json</code> file and look for</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;serve&quot;</span><span class="punctuation">:</span> <span class="string">&quot;[list of commands here]&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;[list of commands here]&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-VUE-Exercise-4"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/19/VUE-Exercise-4/"
-    >VUE练习4 - 使用Ant Design</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/19/VUE-Exercise-4/" class="article-date">
-  <time datetime="2023-04-19T15:49:43.000Z" itemprop="datePublished">2023-04-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-安装">1 安装</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save ant-design-vue@3.2.16</span><br></pre></td></tr></table></figure>
-<p>不要装最新版，变化比较大。</p>
-<h2 id="2-注册">2 注册</h2>
-<p>**全局完整注册：**修改 main.js:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Antd</span> <span class="keyword">from</span> <span class="string">&quot;ant-design-vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;ant-design-vue/dist/antd.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> settings <span class="keyword">from</span> <span class="string">&#x27;@/settings&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(store).<span class="title function_">use</span>(router).<span class="title function_">use</span>(<span class="title class_">Antd</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line">app.<span class="property">config</span>.<span class="property">globalProperties</span>.<span class="property">$settings</span> = settings</span><br></pre></td></tr></table></figure>
-<h2 id="3-测试">3 测试</h2>
-<p>修改 ShowCenterView.vue</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;showcenter&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>show center  | 展示中心<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">a-col</span> <span class="attr">:span</span>=<span class="string">&quot;8&quot;</span> <span class="attr">:offset</span>=<span class="string">&quot;8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">a-input-search</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">v-model:value</span>=<span class="string">&quot;value&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">placeholder</span>=<span class="string">&quot;input text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">enter-button</span>=<span class="string">&quot;Search&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">size</span>=<span class="string">&quot;large&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          @<span class="attr">search</span>=<span class="string">&quot;onSearch&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">a-col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">a-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<p>效果：<br>
-<img src="http://cdn.yunminitools.cn/blog/0418AntDesign.png" alt=" "></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
 
     </footer>
   </div>
