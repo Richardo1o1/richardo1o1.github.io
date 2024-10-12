@@ -100,6 +100,130 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Django-APIView-usage"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/08/07/Django-APIView-usage/"
+    >Django -APIView的使用</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/08/07/Django-APIView-usage/" class="article-date">
+  <time datetime="2023-08-07T01:05:29.000Z" itemprop="datePublished">2023-08-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-APIView的使用：">1.APIView的使用：</h2>
+<h3 id="1-1-在-user-urls-py-中添加路由">1.1 在 user/urls.py 中添加路由</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> bookapp.views <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;book/cate/&#x27;</span>, CateView.as_view()),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="1-2创建user-serializers-py写序列化器">1.2创建user/serializers.py写序列化器</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cateser</span>(serializers.ModelSerializer):</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Cate	  <span class="comment">#数据库表名</span></span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span> <span class="comment">#序列化所有字段      </span></span><br><span class="line">        <span class="comment">#depth = 1  # 外键序列化 添加了这个关联的外键都会查询出来*class Bookser(serializers.ModelSerializer):</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Book</span><br><span class="line">        fields = <span class="string">&quot;__all__&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-在-user-views-py-中添加视图函数">1.3 在 user/views.py 中添加视图函数</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> APIView</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"><span class="keyword">from</span> .sers <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CateView</span>(<span class="title class_ inherited__">APIView</span>):</span><br><span class="line">    <span class="comment"># get是查询数据  post是添加数据</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        cate = Cate.objects.<span class="built_in">all</span>()  <span class="comment"># 查询所有数据 他是一个查询集</span></span><br><span class="line">        ser = Cateser(cate, many=<span class="literal">True</span>)  <span class="comment"># 因为查询的是一个查询集 所以需要些many=True</span></span><br><span class="line">        <span class="keyword">return</span> Response(ser.data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">post</span>(<span class="params">self, request</span>):</span><br><span class="line">        ser = Cateser(data=request.data)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.data</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(ser.errors)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = ser.errors</span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, request</span>):  <span class="comment"># put 修改数据 完全修改数据  patch 部分修改数据# 想要修改的话 需要知道要修改谁 还要知道最新的数据 data=xxx 传递的新的值</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        <span class="comment"># first是从查询集中 获取一个model对象</span></span><br><span class="line">        cate = Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).first()  </span><br><span class="line">        <span class="comment"># 传递 两个参数 参数1是要修改的数据  参数2是要赋予的新值</span></span><br><span class="line">        ser = Cateser(instance=cate, data=request.data)  </span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> ser.is_valid():</span><br><span class="line">            ser.save()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="comment"># 需要知道删除谁</span></span><br><span class="line">        <span class="built_in">id</span> = request.GET.get(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">        resp = &#123;&#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            Cate.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="built_in">id</span>).delete()</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">200</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            resp[<span class="string">&#x27;code&#x27;</span>] = <span class="number">400</span></span><br><span class="line">        <span class="keyword">return</span> Response(resp)</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Avoid-pip-docker-build"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/08/02/Avoid-pip-docker-build/"
+    >避免每次更新代码后Docker都重新安装依赖</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/08/02/Avoid-pip-docker-build/" class="article-date">
+  <time datetime="2023-08-02T04:49:28.000Z" itemprop="datePublished">2023-08-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>最简单的Dockerfile指令打包一个项目（以某python项目为例）：</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择一个基础镜像</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.6</span> </span><br><span class="line"><span class="comment"># 设置虚拟机中的工作路径 </span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /qqzone</span></span><br><span class="line"><span class="comment"># 将当前目录下所有文件拷贝到工作路径中  </span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . /qqzone  </span></span><br><span class="line"><span class="comment"># 执行命令，安装依赖</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -r requirements.txt</span></span><br><span class="line"><span class="comment"># 执行命令，启动服务</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python src/web/server.py</span></span><br></pre></td></tr></table></figure>
+<p>但是这样存在一个巨大的问题，每次更新代码后重新build镜像都会重新安装依赖，会浪费大量时间。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>有两种途径可以解决这个问题，一是将安装依赖后的环境打包为一个镜像，但是这样做显然有点麻烦，并且每次更新依赖后都得重新打包，因此推荐下面这种方式：使用缓存</p>
+<p><img src="http://cdn.yunminitools.cn/blog/0802Docker-build.jpg" alt=""></p>
+<p><strong>先安装依赖再拷贝代码时就会显示Using cache</strong></p>
+<p>只需要更改上面的Dockerfile命令如下：</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.6</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /qqzone</span></span><br><span class="line"><span class="comment"># 先将依赖文件拷贝到项目中</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt /qqzone</span></span><br><span class="line"><span class="comment"># 执行指令，安装依赖</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -i -r requirements.txt</span></span><br><span class="line"><span class="comment"># 拷贝项目文件和代码</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . /qqzone</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> python src/web/server.py</span></span><br></pre></td></tr></table></figure>
+<p>与之前代码不同的是，先单独拷贝依赖文件（requirements.txt）到docker中，再立即安装依赖。由于通常在更新代码之后，依赖文件并没有改变（改变的代码部分在下一步才会被拷贝到镜像中），因此docker在build中会显示“using cache”（调用缓存），从而避免了重新安装依赖。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-issue-resolve-1"
   class="article article-type-post"
   itemscope
@@ -650,142 +774,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-U-Theory-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/27/U-Theory-1/"
-    >U型思考介绍-1</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/27/U-Theory-1/" class="article-date">
-  <time datetime="2023-07-27T02:22:18.000Z" itemprop="datePublished">2023-07-27</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>什么是U型思维呢？</p>
-<p>U型思维是指先向下挖掘出问题本质，然后基于本质再来做决策的思考方式。它与上面直线式的思考相对应，因为思维链路有点像U，所以叫它U型思维，也可以叫它本质思考或者第二性思考。</p>
-<p><img src="http://cdn.yunminitools.cn/blog/0727U-Theory-1.png" alt="U-Theory"></p>
-<p>既然 U 型思维这么好，那么我们又如何能由直线思考升级到U型思考，从而拥有一眼洞穿本质的能力呢？</p>
-<p>其实和学习其他新生事物一样的道理，我们首先需要掌握科学系统的训练方法，其次通过刻意练习，让U型思考这种思维方式形成习惯以后，存储到我们潜意识层，它也就变成了我们操作系统上又一个常用的<strong>思维框架</strong> 。后续每当你遇到方向性问题时，U型思维这个 <strong>思维框架</strong> 就会自动运转起来，它就是专门用来解决战略方向性问题的，帮助我们确立前行方向。所以擅长U型思考的人，往往也是战略高手。</p>
-<p>具体的训练步骤可以分为以下三步：</p>
-<ol>
-<li>找核心问题</li>
-<li>找本质原因</li>
-<li>找解决方案</li>
-</ol>
-<p>助记词：<br>
-<strong>先问后挖，不破不立</strong></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E6%A1%86%E6%9E%B6/" rel="tag">工具框架</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-conda-command-create-activate"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/25/conda-command-create-activate/"
-    >conda 创建、激活、退出、删除虚拟环境 (Anaconda)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/25/conda-command-create-activate/" class="article-date">
-  <time datetime="2023-07-25T03:39:55.000Z" itemprop="datePublished">2023-07-25</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>在Anaconda中conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。所以对虚拟环境进行创建、删除等操作需要使用conda命令。</p>
-<h1>conda 本地环境常用操作</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取版本号</span></span><br><span class="line">conda --version 或 conda -V</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查更新当前conda</span></span><br><span class="line">conda update conda</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看当前存在哪些虚拟环境</span></span><br><span class="line">conda <span class="built_in">env</span> list 或 conda info -e</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看--安装--更新--删除包</span></span><br><span class="line"></span><br><span class="line">conda list：</span><br><span class="line">conda search package_name<span class="comment"># 查询包</span></span><br><span class="line">conda install package_name</span><br><span class="line">conda install package_name=1.5.0</span><br><span class="line">conda update package_name</span><br><span class="line">conda remove package_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1>conda创建虚拟环境</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建名为your_env_name的环境</span></span><br><span class="line">conda create --name your_env_name</span><br><span class="line"><span class="comment">#创建制定python版本的环境</span></span><br><span class="line">conda create --name your_env_name python=2.7</span><br><span class="line">conda create --name your_env_name python=3.6</span><br><span class="line"><span class="comment">#创建包含某些包（如numpy，scipy）的环境</span></span><br><span class="line">conda create --name your_env_name numpy scipy</span><br><span class="line"><span class="comment">#创建指定python版本下包含某些包的环境</span></span><br><span class="line">conda create --name your_env_name python=3.6 numpy scipy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1>激活虚拟环境</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Linux</span></span><br><span class="line"><span class="built_in">source</span> activate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#Windows</span></span><br><span class="line">activate your_env_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1>退出虚拟环境</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Linux</span></span><br><span class="line"><span class="built_in">source</span> deactivate your_env_name</span><br><span class="line"></span><br><span class="line"><span class="comment">#Windows</span></span><br><span class="line">deactivate env_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1>删除虚拟环境</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n your_env_name --all</span><br><span class="line">conda remove --name your_env_name --all</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1>复制某个环境</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name new_env_name --<span class="built_in">clone</span> old_env_name</span><br></pre></td></tr></table></figure>
-<h1>在指定环境中管理包</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda list -n your_env_name</span><br><span class="line">conda install --name myenv package_name</span><br><span class="line">conda remove --name myenv package_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1>使用国内 conda 软件源加速</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>

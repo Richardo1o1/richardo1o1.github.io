@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-10-07T15:26:56.778Z</updated>
+  <updated>2024-10-12T06:18:32.118Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -24 (Data Charts)</title>
+    <link href="http://yunminitools.cn/2024/10/12/built-finance-dashboard-page-24/"/>
+    <id>http://yunminitools.cn/2024/10/12/built-finance-dashboard-page-24/</id>
+    <published>2024-10-12T06:17:24.000Z</published>
+    <updated>2024-10-12T06:18:32.118Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-Package&quot;&gt;Install Package&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i recharts&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -23 (Summary Page)</title>
+    <link href="http://yunminitools.cn/2024/10/11/built-finance-dashboard-page-23/"/>
+    <id>http://yunminitools.cn/2024/10/11/built-finance-dashboard-page-23/</id>
+    <published>2024-10-11T13:32:56.000Z</published>
+    <updated>2024-10-11T13:34:48.177Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-Package&quot;&gt;Install Package&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i react-icons&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm i react-countup&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform -22 (Seed Function)</title>
@@ -457,58 +501,6 @@
     <category term="Python" scheme="http://yunminitools.cn/tags/Python/"/>
     
     <category term="算法" scheme="http://yunminitools.cn/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -5 (Database Neon)</title>
-    <link href="http://yunminitools.cn/2024/08/28/built-finance-dashboard-page-5/"/>
-    <id>http://yunminitools.cn/2024/08/28/built-finance-dashboard-page-5/</id>
-    <published>2024-08-28T14:44:11.000Z</published>
-    <updated>2024-08-28T14:45:36.851Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Sign-up-Neon&quot;&gt;Sign up Neon&lt;/h2&gt;
-&lt;p&gt;Go to &lt;a href=&quot;https://neon.tech/&quot;&gt;https://neon.tech/&lt;/a&gt; ，Sign up，and get sql connetion string and add it to .env:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;DATABASE_URL&lt;/span&gt;=&lt;span class=&quot;attr&quot;&gt;postgresql&lt;/span&gt;:&lt;span class=&quot;comment&quot;&gt;//xxxx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;Install-drizzle-orm&quot;&gt;Install &lt;strong&gt;drizzle-orm&lt;/strong&gt;&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i drizzle-orm &lt;span class=&quot;meta&quot;&gt;@neondatabase&lt;/span&gt;/serverless&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm i -D drizzle-kit&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;Add-Drizzle-config&quot;&gt;Add Drizzle config&lt;/h2&gt;
-&lt;p&gt;Add &lt;code&gt;db/drizzle.ts&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; neon &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;@neondatabase/serverless&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; drizzle &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;drizzle-orm/neon-http&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; sql = &lt;span class=&quot;title function_&quot;&gt;neon&lt;/span&gt;(process.&lt;span class=&quot;property&quot;&gt;env&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;DATABASE_URL&lt;/span&gt;!);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; db = &lt;span class=&quot;title function_&quot;&gt;drizzle&lt;/span&gt;(sql);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -4 (Navigation Bar)</title>
-    <link href="http://yunminitools.cn/2024/08/27/built-finance-dashboard-page-4/"/>
-    <id>http://yunminitools.cn/2024/08/27/built-finance-dashboard-page-4/</id>
-    <published>2024-08-27T14:27:10.000Z</published>
-    <updated>2024-08-27T14:28:43.651Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Install-Sheet&quot;&gt;Install Sheet&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npx shadcn-ui&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; add sheet&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;Install-react-use&quot;&gt;Install react-use&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i react-use&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
     
   </entry>
   
