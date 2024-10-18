@@ -100,6 +100,72 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-add-log-to-nextjs-project"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/07/26/add-log-to-nextjs-project/"
+    >为nextjs项目添加日志</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/07/26/add-log-to-nextjs-project/" class="article-date">
+  <time datetime="2024-07-26T09:20:35.000Z" itemprop="datePublished">2024-07-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>经常做全栈项目或者做过正式后端项目的开发者都知道，日志记录是一个项目不可或缺的功能。不过，经常看Next.js开源项目的朋友会发现，几乎没什么项目集成了日志模块。</p>
+<p>但是，根据我的经验看，Next.js项目还是比较需要日志模块的，根据实际经验总结出来的原因如下有几个：</p>
+<ul>
+<li>Serverless 平台和自己购买的服务器环境是有区别的，这就带来Next.js项目运行时不同，例如在Serverless 平台里，Next.js使用的是edge运行时，它相比于Node环境来说，缺少了一些API，这会导致偶尔出现本地运行正常，部署到Serverless 平台发现报错了。</li>
+<li>调用了第三方平台的API，当出现连接错误的情况，你去排查是第三方服务不稳定还是你的API额度用完，这都是比较麻烦了，但是如果有日志文件直接查看，定位问题就可以更快速。</li>
+</ul>
+<h2 id="安装必要Package：">安装必要Package：</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install winston winston-daily-rotate-file </span><br></pre></td></tr></table></figure>
+<h2 id="添加通用函数：">添加通用函数：</h2> 
+      <a class="article-more-link" href="/2024/07/26/add-log-to-nextjs-project/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-built-portfolio-page-6"
   class="article article-type-post"
   itemscope
@@ -668,73 +734,6 @@ var _hmt = _hmt || [];
 <h2 id="3-实现认证逻辑：">3. 实现认证逻辑：</h2>
 <p>你需要实现 <code>authenticateUser</code> 函数来验证用户名和密码。这可能涉及检查数据库或其他认证服务。</p>
  
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-how-to-use-jest-nextjs-app-route-test-api"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/06/25/how-to-use-jest-nextjs-app-route-test-api/"
-    >如何使用 Jest 和 React-Testing-Library 对 Next.js 13+ App Router API 路由进行单元测试</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/06/25/how-to-use-jest-nextjs-app-route-test-api/" class="article-date">
-  <time datetime="2024-06-25T12:58:55.000Z" itemprop="datePublished">2024-06-25</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="简介">简介</h2>
-<p>本文中使用的所有示例都在此<a target="_blank" rel="noopener" href="https://github.com/Dforrunner/next-with-jest">存储库</a>中。</p>
-<p>将介绍以下内容：</p>
-<ul>
-<li>单元测试 Next.js API GET 路由</li>
-<li>单元测试 Next.js API POST/PUT/DELETE 路由</li>
-</ul>
-<h2 id="单元测试-Next-js-GET-路由"><strong>单元测试 Next.js GET 路由</strong></h2>
-<p>📁<code>app/api/items/route.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;next/server&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">GET</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> items = [</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;Item 1&#x27;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&#x27;Item 2&#x27;</span> &#125;,</span><br><span class="line">  ];</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(items, &#123; <span class="attr">status</span>: <span class="number">200</span> &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是一个简单的 GET 端点，它将返回一些项目的 json 对象。在您的情况下，这可能会从数据库或其他一些 API 调用获取数据，然后将其返回给客户端。本文的最后一个示例将介绍这一点。也就是说，让我们看看这个测试会是什么样子：</p> 
-      <a class="article-more-link" href="/2024/06/25/how-to-use-jest-nextjs-app-route-test-api/"
-        >More...</a
-      >
-       
       <!-- reward -->
       
     </div>

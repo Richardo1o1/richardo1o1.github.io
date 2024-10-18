@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-10-14T14:08:35.718Z</updated>
+  <updated>2024-10-18T03:44:59.883Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build a Finance SaaS Platform -26 (Account/Date Filter)(End)</title>
+    <link href="http://yunminitools.cn/2024/10/18/built-finance-dashboard-page-26/"/>
+    <id>http://yunminitools.cn/2024/10/18/built-finance-dashboard-page-26/</id>
+    <published>2024-10-18T03:43:07.000Z</published>
+    <updated>2024-10-18T03:44:59.883Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Install-Package&quot;&gt;Install Package&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i query-&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Add-Filter&quot;&gt;Add Filter&lt;/h2&gt;
+&lt;p&gt;Add &lt;code&gt;components/filters.tsx&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;react&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;AccountFilter&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;@/components/account-filter&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;DateFilter&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;@/components/date-filter&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;Filters&lt;/span&gt; = (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;language-xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;className&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;flex flex-col lg:flex-row items-center gap-y-2 lg:gap-y-0 lg:gap-x-2&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-xml&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;AccountFilter&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-xml&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;DateFilter&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-xml&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform -25 (Spending Pie)</title>
@@ -460,30 +485,6 @@
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
         
       
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -6 (Database Connection)</title>
-    <link href="http://yunminitools.cn/2024/09/02/built-finance-dashboard-page-6/"/>
-    <id>http://yunminitools.cn/2024/09/02/built-finance-dashboard-page-6/</id>
-    <published>2024-09-02T14:53:50.000Z</published>
-    <updated>2024-09-02T14:55:14.272Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Install-react-query&quot;&gt;Install react-query&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i &lt;span class=&quot;meta&quot;&gt;@tanstack&lt;/span&gt;/react-query&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;Add-Provider&quot;&gt;Add Provider&lt;/h2&gt;
-&lt;p&gt;Add &lt;code&gt;providers/query-provider.tsx&lt;/code&gt;&lt;/p&gt;</summary>
     
     
     
