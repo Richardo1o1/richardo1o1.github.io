@@ -100,6 +100,88 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Methods-of-reducing-coupling"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/28/Methods-of-reducing-coupling/"
+    >耦合度以及降低耦合度的方法</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/28/Methods-of-reducing-coupling/" class="article-date">
+  <time datetime="2023-07-28T07:52:11.000Z" itemprop="datePublished">2023-07-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="一、耦合度"><strong>一、耦合度</strong></h2>
+<p>模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系。模块间联系越多，其耦合性越强，同时表明其独立性越差。<br>
+降低模块间的耦合度能减少模块间的影响，防止对某一模块修改所引起的“牵一发动全身”的水波效应，保证系统设计顺利进行</p>
+<h2 id="二、紧密耦合的系统在开发阶段有以下的缺点"><strong>二、紧密耦合的系统在开发阶段有以下的缺点</strong></h2>
+<p>一个模块的修改会产生涟漪效应，其他模块也需随之修改。<br>
+由于模块之间的相依性，模块的组合会需要更多的精力及时间。<br>
+由于一个模块有许多的相依模块，模块的可复用性低。</p>
+<h2 id="三、降低耦合度的方法"><strong>三、降低耦合度的方法</strong></h2>
+<ol>
+<li>少使用类的继承，多用接口隐藏实现的细节。 java面向对象编程引入接口除了支持多态外， 隐藏实现细节也是其中一个目的。</li>
+<li>模块的功能化分尽可能的单一。道理也很简单，功能单一的模块供其它模块调用的机会就少。</li>
+<li>遵循一个定义只在一个地方出现。（对一个功能、类只定义在一个地方）。
+<ul>
+<li>修改时永远只修改这一个地方。</li>
+<li>增加功能时也只在一个地方修改。</li>
+<li>将变动只缩小到一个地方。</li>
+<li>一处修改，所有用它的地方都生效。</li>
+</ul>
+</li>
+<li>少使用全局变量。
+<ul>
+<li>由于全局变量，程序运行期间，始终占有那块存储区，所以空间利用率比较低，大量的全局变量，很快就会把内存用光</li>
+<li>全局变量由于每个函数都可以使用，所以任何一个函数的修改，如果修改了全局变量，都有可能影响到其他函数，所以不利于调试</li>
+</ul>
+</li>
+<li>类属性和方法的声明少用public，多用private关键字（公共的就有可能被到处调用，到处new对象）</li>
+<li>多用设计模式，比如采用MVC的设计模式就可以降低界面与业务逻辑的耦合度。</li>
+<li>尽量不用“硬编码”的方式写程序，同时也尽量避免直接用SQL语句操作数据库。</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-System-performance-tuning"
   class="article article-type-post"
   itemscope
@@ -763,100 +845,6 @@ Scenario（场景），Service（服务），Storage（存储），Scale（扩�
         >More...</a
       >
        
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-provide-reference-text-strategy"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/06/08/provide-reference-text-strategy/"
-    >提供参考文本的策略</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/06/08/provide-reference-text-strategy/" class="article-date">
-  <time datetime="2023-06-08T06:09:37.000Z" itemprop="datePublished">2023-06-08</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="指示模型使用参考文本回答问题">指示模型使用参考文本回答问题</h2>
-<p>如果我们能够向模型提供与当前查询相关且可信的信息，那么我们可以指示模型使用提供的信息来组织回答。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>Use the provided articles delimited by triple quotes to answer questions. If the answer cannot be found in the articles, write &quot;I could not find an answer.”</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>&lt;insert articles, each delimited by triple quotes&gt;<br>Question: <insert question here></td>
-</tr>
-</tbody>
-</table>
-<p>考虑到GPT模型的上下文窗口有限，为了应用这个策略，我们需要一种动态查找与所提问题相关的信息的方法。嵌入可以用来实现高效的知识检索。有关如何实施这一策略的详细信息，请参阅“使用基于嵌入的搜索来实现高效的知识检索”策略。</p>
-<h2 id="指示模型使用参考文本中的引用进行回答">指示模型使用参考文本中的引用进行回答</h2>
-<p>如果输入已经补充了相关知识，可以要求模型通过引用提供的文献中的段落来添加引用。请注意，可以通过在提供的文献中进行字符串匹配来对输出中的引文进行程序验证。</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Prompt</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SYSTEM</td>
-<td>You will be provided with a document delimited by triple quotes and a question. Your task is to answer the question using only the provided document and to cite the passage(s) of the document used to answer the question. If the document does not contain the information needed to answer this question then simply write: “Insufficient information.” If an answer to the question is provided, it must be annotated with a citation. Use the following format for to cite relevant passages ({“citation”: …}).</td>
-</tr>
-<tr>
-<td>USER</td>
-<td>&lt;insert articles, each delimited by triple quotes&gt;<br>Question: <insert question here></td>
-</tr>
-</tbody>
-</table>
- 
       <!-- reward -->
       
     </div>

@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-10-18T03:44:59.883Z</updated>
+  <updated>2024-11-05T13:58:07.771Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac OS 下修改 Google Chrome 显示语言的方法</title>
+    <link href="http://yunminitools.cn/2024/11/05/change-chrome-language/"/>
+    <id>http://yunminitools.cn/2024/11/05/change-chrome-language/</id>
+    <published>2024-11-05T13:57:41.000Z</published>
+    <updated>2024-11-05T13:58:07.771Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;由于调试程序需要，希望把Chrome的语言改成英文，发现在Mac下Chrome的语言是跟随系统语言的，通过菜单无法修改。&lt;/p&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;英文 -&amp;gt;</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Mac" scheme="http://yunminitools.cn/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform -26 (Account/Date Filter)(End)</title>
@@ -457,34 +485,6 @@
 &lt;h2 id=&quot;Install-Zustand&quot;&gt;Install Zustand&lt;/h2&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i zustand&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;Add-Create-API&quot;&gt;Add Create API&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -7 （Post Method）</title>
-    <link href="http://yunminitools.cn/2024/09/04/built-finance-dashboard-page-7/"/>
-    <id>http://yunminitools.cn/2024/09/04/built-finance-dashboard-page-7/</id>
-    <published>2024-09-04T14:32:06.000Z</published>
-    <updated>2024-09-04T14:33:35.595Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Install-drizzle-zod&quot;&gt;Install drizzle-zod&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
     
     
     

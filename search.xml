@@ -13142,4 +13142,24 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>DemoProjects</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Mac OS 下修改 Google Chrome 显示语言的方法</title>
+    <url>/2024/11/05/change-chrome-language/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>由于调试程序需要，希望把Chrome的语言改成英文，发现在Mac下Chrome的语言是跟随系统语言的，通过菜单无法修改。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>英文 -&gt; 简体中文</p>
+<p><code>defaults write com.google.Chrome AppleLanguages '(zh-CN)'</code></p>
+<p>简体中文 -&gt; 英文</p>
+<p><code>defaults write com.google.Chrome AppleLanguages '(en-US)'</code></p>
+<p>英文优先，简体中文第二。反之改一下顺序</p>
+<p><code>defaults write com.google.Chrome AppleLanguages &quot;(en-US,zh-CN)&quot;</code></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
 </search>

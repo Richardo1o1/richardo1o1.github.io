@@ -100,6 +100,69 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-A-Peer-to-Peer-Electronic-Cash-System-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/08/A-Peer-to-Peer-Electronic-Cash-System-3/"
+    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（3）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/08/A-Peer-to-Peer-Electronic-Cash-System-3/" class="article-date">
+  <time datetime="2023-04-08T05:58:57.000Z" itemprop="datePublished">2023-04-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>比特币：一个点对点的电子货币系统</h1>
+<h2 id="3-时间戳服务器">3. 时间戳服务器</h2>
+<p>3  Timestamp Server<br>
+The solution we propose begins with a timestamp server. A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post [2-5]. The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.<br>
+<img src="http://cdn.yunminitools.cn/blog/0407Timestamp-en.png" alt=" "><br>
+我们提出的方案从时间戳服务器开始。时间戳服务器计算包含多个需要被打时间戳的数据项的区块的哈希值并广泛地发布这个哈希值，就像在报纸或新闻组帖子里 [2-5]。时间戳能证明要得到这个哈希值，显然这些数据当时一定是存在的。每个时间戳的哈希值都纳入了上一个时间戳，形成一条链，后面的时间戳进一步增强前一个时间戳。<br>
+<img src="http://cdn.yunminitools.cn/blog/0407Timestamp-zh.png" alt=" "></p> 
+      <a class="article-more-link" href="/2023/04/08/A-Peer-to-Peer-Electronic-Cash-System-3/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Hash-Function-Digital-Signature"
   class="article article-type-post"
   itemscope
@@ -710,73 +773,6 @@ SystemChange = f(ReqirementChange)<br>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-37-how-we-make-decisions"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/30/37-how-we-make-decisions/"
-    >37signals的决策原则</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/03/30/37-how-we-make-decisions/" class="article-date">
-  <time datetime="2023-03-30T14:51:25.000Z" itemprop="datePublished">2023-03-30</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>37signals 是一间芝加哥互联网应用公司，著名产品如 Basecamp，并以开发 Rails 框架著称。下面是他们公司公布的<a target="_blank" rel="noopener" href="https://37signals.com/how-we-make-decisions">决策原则</a>。</p>
-<h2 id="决策原则">决策原则</h2>
-<p>以下是我们在37signals做决定时努力牢记的一些一般原则。它们不是要求，这也不是我们在面临选择时的全面清单，但它们可以作为我们在做每天都需要做的一件事时的框架、考虑和共同做法：决定。</p>
-<ol>
-<li>为什么我们要做这个决定，为什么要现在做这个决定? Why are we deciding anything at all? Does a decision actually need to be made here?</li>
-<li>是否是正确的人来做这个决定？谁是拥有正确信息、背景和洞察里的正确人选（不是角色）？谁只是在插嘴？ Is the right person making this decision? Not the right role, but the right person with the right information, context, and insight? Who’s merely chiming in?</li>
-<li>如果忽略眼前利益，我们一年以后还会对这个决定有什么感觉？ If we remove the immediate impact, how do we think we’ll feel about this decision a year from now?</li>
-<li>为什么还没有做出决定？为什么我们之前没有决定？ Why hasn’t this decision been made already? Why didn’t we decide before?</li>
-<li>为什么我们要花这么长时间做这个决定，我们在犹豫什么？这说明什么？ What’s taking so long to make this decision? Why are we hesitating? What does that reveal?</li>
-</ol> 
-      <a class="article-more-link" href="/2023/03/30/37-how-we-make-decisions/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%8D%E7%9B%98%E5%8F%8D%E6%80%9D/" rel="tag">复盘反思</a></li></ul>
 
     </footer>
   </div>
