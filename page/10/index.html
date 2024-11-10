@@ -100,6 +100,97 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-http-api-design-guide"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/29/http-api-design-guide/"
+    >HTTP API 设计指南</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/29/http-api-design-guide/" class="article-date">
+  <time datetime="2024-04-29T15:48:17.000Z" itemprop="datePublished">2024-04-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>摘录自 <a target="_blank" rel="noopener" href="https://github.com/interagent/http-api-design">HTTP API Design Guide</a></p>
+</blockquote>
+<h2 id="前言">前言</h2>
+<p>我们的目标是一致性，专注业务逻辑同时避免设计上的空想，我们一直在寻找一种良好的，统一的，显而易见的API设计方式，未必只有一种方式。</p>
+<p>以下内容供参考，另外，还可以看看大厂的设计规范：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md">Microsoft REST API Guidelines</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/apis/design?hl=zh-cn">Google API Design Guide</a></li>
+</ul>
+<h2 id="内容">内容</h2>
+<ul>
+<li>
+<p>返回合适的状态码</p>
+<p>为每一次的响应返回合适的HTTP状态码. 成功的HTTP响应应该使用如下的状态码:</p>
+<ul>
+<li>
+<p><code>200</code>: <code>GET</code>请求成功, 以及<code>DELETE</code>或 <code>PATCH</code> 同步请求完成</p>
+</li>
+<li>
+<p><code>201</code>: <code>POST</code> 同步请求完成</p>
+</li>
+<li>
+<p><code>202</code>: <code>POST</code>, <code>DELETE</code>, 或 <code>PATCH</code> 异步请求将要完成</p>
+</li>
+<li>
+<p><code>206</code>: <code>GET</code> 请求成功, 这里只是一部分状态码: 更多</p>
+</li>
+</ul>
+<p>参考 <a target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes">状态描述</a></p>
+</li>
+<li>
+<p>提供全部可用的资源</p>
+</li>
+</ul> 
+      <a class="article-more-link" href="/2024/04/29/http-api-design-guide/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-django-docker-implement-step-by-step"
   class="article article-type-post"
   itemscope
@@ -827,75 +918,6 @@ Not: <s>The government is regarding the economy …</s></p>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%94%AF%E4%BB%98%E4%BA%A7%E5%93%81/" rel="tag">支付产品</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-10-usability-heuristics-for-user-interface-design"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/17/10-usability-heuristics-for-user-interface-design/"
-    >用超多案例，帮你掌握尼尔森十大可用性原则</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/17/10-usability-heuristics-for-user-interface-design/" class="article-date">
-  <time datetime="2024-04-17T01:58:25.000Z" itemprop="datePublished">2024-04-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>复习一下尼尔森设计原则，<a target="_blank" rel="noopener" href="https://www.uisdc.com/nielsen-design-principles-4">原文在此</a>。</p>
-<hr>
-<p>尼尔森设计原则是人机交互学博士 Jakob Nielsen 于 1995 年发表的“<a target="_blank" rel="noopener" href="https://www.nngroup.com/articles/ten-usability-heuristics">十大可用性原则</a>”。尼尔森博士分析了两百多个可用性问题而提炼出的十项通用型原则，它是产品设计与用户体验设计的重要参考标准，值得每个交互设计师理解与思考。今天把尼尔森设计原则结合一些产品案例进行总结：</p>
-<h1>原则一：状态可见性原则</h1>
-<p>系统应该让用户时刻清楚当前发生了什么事情，也就是快速的让用户了解自己处于何种状态、对过去发生、当前目标、以及对未来去向有所了解，一般的方法是在合适的时间给用户适当的反馈，防止用户使用出现错误。</p>
-<p>沟通是所有关系的基础，无论人还是设备。产品应该通过在合理时间内的适当反馈，向用户通知正在发生的事情或者当前的状态。</p>
-<ol>
-<li>用户知道系统在做什么</li>
-<li>用户知道自己在什么位置</li>
-<li>用户知道下一步操作应该去往哪里</li>
-</ol>
-<p><img src="https://cdn.yunminitools.cn/pic/0173-uisdc-2.jpg" alt=""><br>
-<strong>产品名称：抖音</strong></p> 
-      <a class="article-more-link" href="/2024/04/17/10-usability-heuristics-for-user-interface-design/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/" rel="tag">资料收集</a></li></ul>
 
     </footer>
   </div>

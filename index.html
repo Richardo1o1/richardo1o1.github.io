@@ -100,6 +100,71 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-postgresql-windows-docker-setup"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/11/10/postgresql-windows-docker-setup/"
+    >PostgreSQL Windows Docker Setup</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/11/10/postgresql-windows-docker-setup/" class="article-date">
+  <time datetime="2024-11-10T15:11:33.000Z" itemprop="datePublished">2024-11-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>项目需要使用PG, 尝试安装一下</p>
+<h2 id="Create-Volume">Create Volume</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --driver local --opt device=<span class="attr">C</span>:\<span class="number">10.</span><span class="variable constant_">VM</span>\data\pg01 --opt <span class="keyword">type</span>=none --opt o=bind pg01</span><br></pre></td></tr></table></figure>
+<h2 id="Pull-Image">Pull Image</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull postgres</span><br></pre></td></tr></table></figure>
+<h2 id="Start-Container">Start Container</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgsql --privileged -e <span class="variable constant_">POSTGRES_PASSWORD</span>=xxxxx -p <span class="number">15333</span>:<span class="number">5432</span> -v <span class="attr">pg01</span>:<span class="regexp">/var/</span>lib/postgresql/data -d postgres</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="连接数据库，创建用户">连接数据库，创建用户</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create user fintest01 <span class="keyword">with</span> password <span class="string">&#x27;xxxxxx&#x27;</span>;</span><br><span class="line">create database fintest01 <span class="keyword">with</span> owner fintest01; </span><br></pre></td></tr></table></figure>
+<h2 id="切换数据库连接">切换数据库连接</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="attr">postgresql</span>:<span class="comment">//fintest01:fin1234@192.xx.xx.xx:15333/fintest01</span></span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/" rel="tag">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-change-chrome-language"
   class="article article-type-post"
   itemscope
@@ -611,64 +676,6 @@ var _hmt = _hmt || [];
   <h2 id="Install-Package">Install Package</h2>
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i react-papaparse</span><br><span class="line">npx shadcn<span class="meta">@latest</span> add select</span><br></pre></td></tr></table></figure> 
       <a class="article-more-link" href="/2024/10/04/built-finance-dashboard-page-19/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DemoProjects/" rel="tag">DemoProjects</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-built-finance-dashboard-page-18"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/10/03/built-finance-dashboard-page-18/"
-    >Build a Finance SaaS Platform -18 (Transaction Sheet)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/10/03/built-finance-dashboard-page-18/" class="article-date">
-  <time datetime="2024-10-03T09:40:30.000Z" itemprop="datePublished">2024-10-03</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Add-Transaction-Sheet">Add Transaction Sheet</h2>
-<p>Add  <code>features/transactions/components/transaction-form.tsx</code></p> 
-      <a class="article-more-link" href="/2024/10/03/built-finance-dashboard-page-18/"
         >More...</a
       >
        

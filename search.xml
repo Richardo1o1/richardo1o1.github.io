@@ -13162,4 +13162,29 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Mac</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PostgreSQL Windows Docker Setup</title>
+    <url>/2024/11/10/postgresql-windows-docker-setup/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>项目需要使用PG, 尝试安装一下</p>
+<h2 id="Create-Volume">Create Volume</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">docker volume create --driver local --opt device=<span class="attr">C</span>:\<span class="number">10.</span><span class="variable constant_">VM</span>\data\pg01 --opt <span class="keyword">type</span>=none --opt o=bind pg01</span><br></pre></td></tr></table></figure>
+<h2 id="Pull-Image">Pull Image</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">docker pull postgres</span><br></pre></td></tr></table></figure>
+<h2 id="Start-Container">Start Container</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">docker run --name pgsql --privileged -e <span class="variable constant_">POSTGRES_PASSWORD</span>=xxxxx -p <span class="number">15333</span>:<span class="number">5432</span> -v <span class="attr">pg01</span>:<span class="regexp">/var/</span>lib/postgresql/data -d postgres</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="连接数据库，创建用户">连接数据库，创建用户</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">create user fintest01 <span class="keyword">with</span> password <span class="string">&#x27;xxxxxx&#x27;</span>;</span><br><span class="line">create database fintest01 <span class="keyword">with</span> owner fintest01; </span><br></pre></td></tr></table></figure>
+<h2 id="切换数据库连接">切换数据库连接</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="attr">postgresql</span>:<span class="comment">//fintest01:fin1234@192.xx.xx.xx:15333/fintest01</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Windows</tag>
+        <tag>PostgreSQL</tag>
+      </tags>
+  </entry>
 </search>
