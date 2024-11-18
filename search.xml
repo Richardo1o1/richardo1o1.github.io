@@ -13187,4 +13187,21 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>PostgreSQL</tag>
       </tags>
   </entry>
+  <entry>
+    <title>bun 换源 国内阿里源加速下载</title>
+    <url>/2024/11/18/how-to-change-bun-source/</url>
+    <content><![CDATA[<h2 id="安装Bun">安装Bun</h2>
+<p>本机有 nodejs 环境,</p>
+<p>可以 <code>npm install -g bun</code> 安装</p>
+<h2 id="换源">换源</h2>
+<p>全局换源就是在<code>$Home</code>这个路径下创建一个 <code>.bunfig.toml</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[install]</span><br><span class="line">registry = <span class="string">&quot;https://registry.npmmirror.com/&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+      </tags>
+  </entry>
 </search>
