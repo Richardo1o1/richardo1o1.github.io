@@ -100,6 +100,71 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-windows-domain-commands-collection-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/20/windows-domain-commands-collection-1/"
+    >Windows命令-域内信息收集</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/20/windows-domain-commands-collection-1/" class="article-date">
+  <time datetime="2024-02-20T14:03:02.000Z" itemprop="datePublished">2024-02-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="判断是否存在域">判断是否存在域</h2>
+<h3 id="ipconfig">ipconfig</h3>
+<p>查看网关 IP 地址、DNS 的 IP 地址、域名、本机是否和 DNS 服务器处于同一网段。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /all</span><br><span class="line">C:\Users\daniel10&gt; ipconfig /all</span><br><span class="line"></span><br><span class="line">Windows IP 配置</span><br><span class="line">   主 DNS 后缀 . . . . . . . . . .  : teamssix.com</span><br><span class="line">   DNS 后缀搜索列表  . . . . . . . . : teamssix.com</span><br><span class="line"></span><br><span class="line">以太网适配器 Ethernet0:</span><br><span class="line">   IPv4 地址 . . . . . . . . . . .. : <span class="number">192.168</span>.<span class="number">7.110</span></span><br><span class="line">   子网掩码  . . . . . . . . . . . . : <span class="number">255.255</span>.<span class="number">255.0</span></span><br><span class="line">   默认网关. . . . . . . . . . . . . : <span class="number">192.168</span>.<span class="number">7.1</span></span><br><span class="line">   DNS 服务器  . . . . . . . . . . . : <span class="number">192.168</span>.<span class="number">7.7</span></span><br></pre></td></tr></table></figure>
+<p>接着使用 nslookup 解析域名的 IP 地址，查看是否与 DNS 服务器为同一 IP</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nslookup teamssix.com</span><br><span class="line">C:\Users\daniel10&gt; nslookup teamssix.com</span><br><span class="line">服务器:  UnKnown</span><br><span class="line">Address:  <span class="number">192.168</span>.<span class="number">7.7</span></span><br><span class="line">名称:    teamssix.com</span><br><span class="line">Address:  <span class="number">192.168</span>.<span class="number">7.7</span></span><br></pre></td></tr></table></figure>
+<h3 id="系统详细信息">系统详细信息</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systeminfo</span><br><span class="line">C:\Users\daniel10&gt; systeminfo | findstr 域</span><br><span class="line">域: teamssix.com</span><br></pre></td></tr></table></figure>
+<h3 id="当前登录域与域用户">当前登录域与域用户</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">net config workstation</span><br><span class="line">C:\Users\daniel10&gt; net config workstation | findstr 域</span><br><span class="line">工作站域                    TEAMSSIX</span><br><span class="line">工作站域 DNS 名称            teamssix.com</span><br><span class="line">登录域                      TEAMSSIX</span><br></pre></td></tr></table></figure>
+<h3 id="判断主域">判断主域</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">net time /domain</span><br><span class="line">C:\Users\daniel10&gt; net time /domain</span><br><span class="line">\\dc.teamssix.com 的当前时间是 <span class="number">2021</span>/<span class="number">2</span>/<span class="number">13</span> <span class="number">20</span>:<span class="number">49</span>:<span class="number">56</span></span><br><span class="line">命令成功完成。</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-mac-brew-install-tmux-error"
   class="article article-type-post"
   itemscope
@@ -700,71 +765,6 @@ Syntax error in graph mermaid version 8.14.0<br>
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-SSH-Key-Based-Authentication-on-a-Linux-Server"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/03/SSH-Key-Based-Authentication-on-a-Linux-Server/"
-    >免密远程登录Linux服务方法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/03/SSH-Key-Based-Authentication-on-a-Linux-Server/" class="article-date">
-  <time datetime="2024-02-03T12:03:23.000Z" itemprop="datePublished">2024-02-03</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="问题">问题</h2>
-<p>经常需要访问Linux服务器，每次都要输密码很麻烦，查询了资料，可以通过密钥对配置来实现免密登录，每次都查完就忘，这次记录一下。</p>
-<h2 id="客户端配置">客户端配置</h2>
-<p>如果你使用的是 macOS，那么直接打开终端，输入<code>ssh-keygen -t rsa</code>，回车确认即可，默认会存储在用户名录下的 .ssh 目录；</p>
-<p>如果使用的是 Windows，那么需要安装 Git，然后在任意位置点击鼠标右键，选择“Git Bash Here”，然后输入<code>ssh-keygen -t rsa</code>，直接回车确认即可，默认也会存储在当前用户目录下的 .ssh 目录。</p>
-<h2 id="服务器端配置">服务器端配置</h2>
-<p>使用<code>ssh-copy-id root@服务器IP</code>，需要输入密码进行确认，之后再登录就可以直接通过<code>ssh root@服务器IP</code>即可。</p>
-<p><em>注意，如果你的帐号不是root，可以把root换为你平时登陆的帐号。</em></p>
-<p>一些资料：</p>
-<p><a target="_blank" rel="noopener" href="https://rem486.top/server/env/ssh-password-free-login.html#%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE">https://rem486.top/server/env/ssh-password-free-login.html#免密登录配置</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c80e063d61f6">https://www.jianshu.com/p/c80e063d61f6</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.xshellv.com/2021/04/28/mac%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86centos%E6%9C%8D%E5%8A%A1%E5%99%A8/">https://www.xshellv.com/2021/04/28/mac免密登陆centos服务器/</a></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>

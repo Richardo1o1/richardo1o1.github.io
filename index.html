@@ -100,6 +100,77 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-how-to-sync-pg-database"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/12/10/how-to-sync-pg-database/"
+    >同步数据库工具</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/12/10/how-to-sync-pg-database/" class="article-date">
+  <time datetime="2024-12-10T14:52:41.000Z" itemprop="datePublished">2024-12-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>之前开发时就发现，mysql和pg数据库 没有合适的数据库同步工具，只能用dump将数据库dump下来，再重新upload到新的库</p>
+<h2 id="解决方案">解决方案</h2>
+<p>最近发现一个比较好的工具：<a target="_blank" rel="noopener" href="https://pgloader.readthedocs.io/en/latest/intro.html">Pgloader</a> ，下面是具体步骤：</p>
+<ol>
+<li>
+<p>安装： <code>sudo apt-get install pgloader</code></p>
+</li>
+<li>
+<p>编辑同步配置 <code>pg.load</code></p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">load database</span><br><span class="line"> <span class="keyword">from</span> <span class="attr">pgsql</span>:<span class="comment">//localhost/pgloader</span></span><br><span class="line"> into <span class="attr">pgsql</span>:<span class="comment">//localhost/copy;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>运行</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pgloader pg.<span class="property">load</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行成功，目前看起来还是十分简单好用的。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-how-to-use-component-to-double-confirm"
   class="article article-type-post"
   itemscope
@@ -626,67 +697,6 @@ var _hmt = _hmt || [];
         >More...</a
       >
        
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DemoProjects/" rel="tag">DemoProjects</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-built-finance-dashboard-page-22"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/10/07/built-finance-dashboard-page-22/"
-    >Build a Finance SaaS Platform -22 (Seed Function)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/10/07/built-finance-dashboard-page-22/" class="article-date">
-  <time datetime="2024-10-07T15:25:21.000Z" itemprop="datePublished">2024-10-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Add-Seed-Function">Add Seed Function</h2>
-<p>Add  <code>scripts/seed.ts</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; config &#125; <span class="keyword">from</span> <span class="string">&quot;dotenv&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; drizzle &#125; <span class="keyword">from</span> <span class="string">&#x27;drizzle-orm/postgres-js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> postgres <span class="keyword">from</span> <span class="string">&#x27;postgres&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; eachDayOfInterval,format, subDays &#125; <span class="keyword">from</span> <span class="string">&quot;date-fns&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; categories,accounts,transactions &#125; <span class="keyword">from</span> <span class="string">&quot;@/db/schema&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;  convertAmountToMilliunits &#125; <span class="keyword">from</span> <span class="string">&quot;@/lib/utils&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">config</span>(&#123; <span class="attr">path</span>: <span class="string">&quot;.env.local&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sql = <span class="title function_">postgres</span>(process.<span class="property">env</span>.<span class="property">DATABASE_URL</span>!);</span><br><span class="line"><span class="keyword">const</span> db = <span class="title function_">drizzle</span>(sql);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">SEED_USER_ID</span> = <span class="string">&quot;user_2krYMtZimxyJTWl7HDsA1FrAwYC&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">SEED_CATEGORIES</span> = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;category_1&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Food&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;category_2&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Transportation&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;category_3&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Utilities&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;category_4&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Entertainment&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;category_5&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Clothing&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;category_6&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Miscellaneous&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;category_7&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Rent&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span> &#125;,  </span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> <span class="attr">SEED_TRANSACTIONS</span>: <span class="keyword">typeof</span> transactions.<span class="property">$inferInsert</span>[] = [];</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">SEED_ACCOUNTS</span> = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;account_1&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Cash&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">&quot;account_2&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;Saving&quot;</span>, <span class="attr">userId</span>: <span class="variable constant_">SEED_USER_ID</span>, <span class="attr">plaidId</span>: <span class="literal">null</span>&#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> defaultTo = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="keyword">const</span> defaultFrom = <span class="title function_">subDays</span>(defaultTo, <span class="number">90</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">generateRandomAmount</span> = (<span class="params">category: <span class="keyword">typeof</span> categories.$inferInsert</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">switch</span>( category.<span class="property">name</span>)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;Transportation&quot;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;Miscellaneous&quot;</span>:  </span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">random</span>()* <span class="number">50</span> + <span class="number">15</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;Utilities&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">random</span>()* <span class="number">200</span> + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;Food&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">random</span>()* <span class="number">30</span> + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;Entertainment&quot;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;Clothing&quot;</span>:  </span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">random</span>()* <span class="number">100</span> + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;Rent&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">random</span>()* <span class="number">400</span> + <span class="number">90</span>;    </span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">random</span>()* <span class="number">50</span> + <span class="number">10</span>; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">generateTransactionsForDay</span> = (<span class="params">day: <span class="built_in">Date</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> numTransactions = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*<span class="number">9</span>) + <span class="number">1</span> <span class="comment">// 1 to 9 transactions per day</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numTransactions; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> category = <span class="variable constant_">SEED_CATEGORIES</span>[<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()* <span class="variable constant_">SEED_CATEGORIES</span>.<span class="property">length</span>)];</span><br><span class="line">    <span class="keyword">const</span> isExpense = <span class="title class_">Math</span>.<span class="title function_">random</span>() &gt; <span class="number">0.6</span>; <span class="comment">// 60% chance of being an expense</span></span><br><span class="line">    <span class="keyword">const</span> amount = <span class="title function_">generateRandomAmount</span>(category);</span><br><span class="line">    <span class="keyword">const</span> formattedAmount = <span class="title function_">convertAmountToMilliunits</span>(isExpense ? -amount : amount);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//console.log(i + &quot; &quot; + formattedAmount);</span></span><br><span class="line"></span><br><span class="line">    <span class="variable constant_">SEED_TRANSACTIONS</span>.<span class="title function_">push</span>(&#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="string">`transaction_<span class="subst">$&#123;format(day,<span class="string">&quot;yyyy-MM-dd&quot;</span>)&#125;</span>_<span class="subst">$&#123;i&#125;</span>`</span>,</span><br><span class="line">      <span class="attr">accountId</span>: <span class="variable constant_">SEED_ACCOUNTS</span>[<span class="number">0</span>].<span class="property">id</span>, <span class="comment">//Always use first Account</span></span><br><span class="line">      <span class="attr">categoryId</span>: category.<span class="property">id</span>,</span><br><span class="line">      <span class="attr">date</span>: day,</span><br><span class="line">      <span class="attr">amount</span>: formattedAmount,</span><br><span class="line">      <span class="attr">payee</span>: <span class="string">&quot;Merchant&quot;</span>,</span><br><span class="line">      <span class="attr">notes</span>: <span class="string">&quot;Random transaction&quot;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">generateTransactions</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> days = <span class="title function_">eachDayOfInterval</span>( &#123; <span class="attr">start</span>: defaultFrom, <span class="attr">end</span>: defaultTo &#125;);</span><br><span class="line">  days.<span class="title function_">forEach</span>( <span class="function"><span class="params">day</span> =&gt;</span> <span class="title function_">generateTransactionsForDay</span>(day));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">generateTransactions</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">main</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt;&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// Reset database</span></span><br><span class="line">    <span class="keyword">await</span> db.<span class="title function_">delete</span>(transactions).<span class="title function_">execute</span>();</span><br><span class="line">    <span class="keyword">await</span> db.<span class="title function_">delete</span>(accounts).<span class="title function_">execute</span>();</span><br><span class="line">    <span class="keyword">await</span> db.<span class="title function_">delete</span>(categories).<span class="title function_">execute</span>();</span><br><span class="line">    <span class="comment">// Seed categories</span></span><br><span class="line">    <span class="keyword">await</span> db.<span class="title function_">insert</span>(categories).<span class="title function_">values</span>(<span class="variable constant_">SEED_CATEGORIES</span>).<span class="title function_">execute</span>();</span><br><span class="line">    <span class="comment">// Seed accounts</span></span><br><span class="line">    <span class="keyword">await</span> db.<span class="title function_">insert</span>(accounts).<span class="title function_">values</span>(<span class="variable constant_">SEED_ACCOUNTS</span>).<span class="title function_">execute</span>();</span><br><span class="line">    <span class="comment">// Seed transactions</span></span><br><span class="line">    <span class="keyword">await</span> db.<span class="title function_">insert</span>(transactions).<span class="title function_">values</span>(<span class="variable constant_">SEED_TRANSACTIONS</span>).<span class="title function_">execute</span>();</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error during seed:&quot;</span>, error);</span><br><span class="line">    process.<span class="title function_">exit</span>(<span class="number">1</span>)</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>();</span><br></pre></td></tr></table></figure>
-<h2 id="Add-Seed-Command">Add Seed Command:</h2>
-<p>Modify <code>package.json</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">...</span><br><span class="line"><span class="string">&quot;db:seed&quot;</span>: <span class="string">&quot;tsx ./scripts/seed.ts&quot;</span>,</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Run-Seed">Run Seed</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run <span class="attr">db</span>:seed</span><br></pre></td></tr></table></figure>
- 
       <!-- reward -->
       
     </div>

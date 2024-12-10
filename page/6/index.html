@@ -100,6 +100,69 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-built-portfolio-page-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/07/22/built-portfolio-page-3/"
+    >Built Portfolio Page -3 (Projects Component)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/07/22/built-portfolio-page-3/" class="article-date">
+  <time datetime="2024-07-22T08:21:55.000Z" itemprop="datePublished">2024-07-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Steps">Steps:</h2>
+<ol>
+<li>Add project component</li>
+</ol>
+<h2 id="Add-projects-component">Add projects component</h2>
+<p>add src/components/Projects.tsx</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">SectionHeading</span> <span class="keyword">from</span> <span class="string">&#x27;./Section-heading&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; projectsData &#125; <span class="keyword">from</span> <span class="string">&#x27;@/libs/data&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Image</span> <span class="keyword">from</span> <span class="string">&#x27;next/image&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Projects</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">SectionHeading</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        My Projects</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">SectionHeading</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;projectsData.map((project, index)=&gt;( </span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">React.Fragment</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Project</span>  &#123;<span class="attr">...project</span>&#125; /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">React.Fragment</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        ))&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">ProjectProps</span> = (<span class="keyword">typeof</span> projectsData)[<span class="built_in">number</span>]; </span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Project</span>(<span class="params">&#123;title,description,tags,imageUrl &#125; : </span></span><br><span class="line"><span class="params">ProjectProps</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span>(</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">section</span> <span class="attr">className</span>=<span class="string">&quot;group bg-gray-100 max-w-[42rem] border border-black/5</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    overflow-hidden sm:pr-8 relative sm:h-[20rem] mb-3 sm:mb-8 last:mb-0 even:pl-8</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    hover:bg-gray-200 transition&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#x27;py-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] </span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">      flex flex-col h-full group-even:ml-[18rem]&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">className</span>=<span class="string">&#x27;text-2xl font-semibold&#x27;</span>&gt;</span>&#123;title&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&#x27;mt-2 leading-relaxed text-gray-700&#x27;</span>&gt;</span>&#123;description&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">className</span>=<span class="string">&#x27;flex flex-wrap mt-4 gap-2 sm:mt-auto&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;tags.map((tag,index) =&gt; (</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">className</span>=<span class="string">&#x27;bg-black/[0.7] px-3 py-1 text-[0.7rem] upppercase</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            tracking-wider text-white rounded-full&#x27;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">key</span>=<span class="string">&#123;index&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &gt;</span></span></span><br><span class="line"><span class="language-xml">              &#123;tag&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          ))&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Image</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">src</span>=<span class="string">&#123;imageUrl&#125;</span> <span class="attr">alt</span>=<span class="string">&quot;Project I worked on&quot;</span> <span class="attr">quality</span>=<span class="string">&#123;95&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">className</span>=<span class="string">&#x27;absolute top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        transition</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        group-hover:scale-[1.05]</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        group-hover:-translate-x-3</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        group-hover:translate-y-3</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        group-hover:-rotate-2</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        group-even:group-hover:translate-x-3</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        group-even:group-hover:-translate-y-3</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        group-even:group-hover:rotate-2</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        group-even:right-[inital] group-even:-left-40&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/07/22/built-portfolio-page-3/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-built-portfolio-page-2"
   class="article article-type-post"
   itemscope
@@ -666,70 +729,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-cloudflare-opensource-tools"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/06/19/cloudflare-opensource-tools/"
-    >Cloudflare服务的开源工具</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/06/19/cloudflare-opensource-tools/" class="article-date">
-  <time datetime="2024-06-19T14:00:51.000Z" itemprop="datePublished">2024-06-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>不用到处找基于  Cloudflare 服务的开源工具了，来看看这个超赞列表，我看里面已经收集不少的免费项目。<br>
-Awesome Cloudflare - 为白嫖 Cloudflare 提供一个省心省时的资源工具清单。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zhuima/awesome-cloudflare">awesome-cloudflare</a></p>
-<h2 id="介绍">介绍</h2>
-<p>选几个我感兴趣的介绍一下：</p>
-<ul>
-<li>免费图床 <a target="_blank" rel="noopener" href="https://github.com/ifyour/cf-image-hosting">cf-image-hosting</a> ：在 Telegraph 上免费无限制地托管图像，部署在 Cloudflare 上。试用地址：<a target="_blank" rel="noopener" href="https://images.mingming.dev/">https://images.mingming.dev</a></li>
-<li>网站分析 <a target="_blank" rel="noopener" href="https://github.com/yestool/analytics_with_cloudflare">analytics_with_cloudflare</a> ：免费开源网页访客计数器, Webviso 是一个基于Cloudflare worker服务+Cloudflare D1数据库实现的完全免费的在线web访客统计服务。 功能与目前常用的 不蒜子 - 极简网页计数器 相同。Webviso完全开源，你可以实现自定义需求。 基于Cloudflare的微服务架构可快速自行部署上线。</li>
-<li>免费<a target="_blank" rel="noopener" href="https://igdux.com/workers">Workers</a>： Cloudflare Workers优秀项目收集。</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li></ul>
 
     </footer>
   </div>

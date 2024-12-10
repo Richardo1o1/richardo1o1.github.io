@@ -13254,4 +13254,33 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>前端代码</tag>
       </tags>
   </entry>
+  <entry>
+    <title>同步数据库工具</title>
+    <url>/2024/12/10/how-to-sync-pg-database/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>之前开发时就发现，mysql和pg数据库 没有合适的数据库同步工具，只能用dump将数据库dump下来，再重新upload到新的库</p>
+<h2 id="解决方案">解决方案</h2>
+<p>最近发现一个比较好的工具：<a href="https://pgloader.readthedocs.io/en/latest/intro.html">Pgloader</a> ，下面是具体步骤：</p>
+<ol>
+<li>
+<p>安装： <code>sudo apt-get install pgloader</code></p>
+</li>
+<li>
+<p>编辑同步配置 <code>pg.load</code></p>
+ <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">load database</span><br><span class="line"> <span class="keyword">from</span> <span class="attr">pgsql</span>:<span class="comment">//localhost/pgloader</span></span><br><span class="line"> into <span class="attr">pgsql</span>:<span class="comment">//localhost/copy;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>运行</p>
+ <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">pgloader pg.<span class="property">load</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行成功，目前看起来还是十分简单好用的。</p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
