@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2024-12-10T14:54:15.571Z</updated>
+  <updated>2025-02-16T12:06:03.411Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何利用Cloudflare搭建图床（+ Piclist快速上传）- Bearalise</title>
+    <link href="http://yunminitools.cn/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/"/>
+    <id>http://yunminitools.cn/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/</id>
+    <published>2025-02-16T11:57:04.000Z</published>
+    <updated>2025-02-16T12:06:03.411Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;写博客就要有图床，之前搭了一个国内版的，今天尝试用Cloudflare搭建一个海外版的。&lt;/p&gt;
+&lt;h2 id=&quot;开通Cloudflare-R2&quot;&gt;开通Cloudflare R2&lt;/h2&gt;
+&lt;p&gt;R2 是 Cloudflare 推出的免费对象存储服务，需要免费注册一个&lt;a href=&quot;https://www.cloudflare.com&quot;&gt;Cloudflare 账号&lt;/a&gt;才能使用，注册登录后，点击左侧边栏的 R2 访问服务，但需要注意的是开通 R2 服务需要绑定信用卡（国内外主流信用卡皆可），但并不会扣费，主要是为了验证用户身份使用：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/R2-2025-02-13_14-11-33.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;创建图床-Bucket&quot;&gt;创建图床 Bucket&lt;/h2&gt;
+&lt;p&gt;Bucket即为存储桶，所有的资源的是需要放在存储桶中。开通 R2 服务后，点击右上角「创建存储桶」按钮进行创建：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/R2-2025-02-13_14-15-53.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;起一个名字，其他选项如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/R2-2025-02-13_14-23-18.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;开通后显示以下信息：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/R2-2025-02-13_14-25-02.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>同步数据库工具</title>
@@ -476,31 +506,6 @@
     <summary type="html">&lt;p&gt;Create transaction API and Hook API&lt;/p&gt;
 &lt;h2 id=&quot;Add-Transaction-API&quot;&gt;Add Transaction API&lt;/h2&gt;
 &lt;p&gt;Add app/api/[[…route]]/transactions.ts:&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -13 (Category Page)</title>
-    <link href="http://yunminitools.cn/2024/09/27/built-finance-dashboard-page-13/"/>
-    <id>http://yunminitools.cn/2024/09/27/built-finance-dashboard-page-13/</id>
-    <published>2024-09-27T03:12:25.000Z</published>
-    <updated>2024-09-27T03:15:07.430Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Modify-DB-Schema&quot;&gt;Modify DB Schema&lt;/h2&gt;
-&lt;p&gt;Modify &lt;code&gt;db/schema.ts&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; categories = &lt;span class=&quot;title function_&quot;&gt;pgTable&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;categories&amp;quot;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;primaryKey&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;plaidId&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;plaid_id&amp;quot;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;notNull&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;userId&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;user_id&amp;quot;&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;notNull&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; insertCategoriesSchema = &lt;span class=&quot;title function_&quot;&gt;createInsertSchema&lt;/span&gt;(categories);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;run script:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm run &lt;span class=&quot;attr&quot;&gt;db&lt;/span&gt;:generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm run &lt;span class=&quot;attr&quot;&gt;db&lt;/span&gt;:migrate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm run &lt;span class=&quot;attr&quot;&gt;db&lt;/span&gt;:studio  &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
