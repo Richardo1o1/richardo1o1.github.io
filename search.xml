@@ -13265,7 +13265,7 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       </tags>
   </entry>
   <entry>
-    <title>同步数据库工具</title>
+    <title>如何用pgloader同步数据库 - Bearalise</title>
     <url>/2024/12/10/how-to-sync-pg-database/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
 <p>之前开发时就发现，mysql和pg数据库 没有合适的数据库同步工具，只能用dump将数据库dump下来，再重新upload到新的库</p>
@@ -13285,6 +13285,13 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 </li>
 </ol>
 <p>运行成功，目前看起来还是十分简单好用的。</p>
+<span id="more"></span>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="https://blog.952005.xyz/2024/12/10/how-to-sync-pg-database/">https://blog.952005.xyz/2024/12/10/how-to-sync-pg-database/</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -13417,6 +13424,12 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <p><img src="https://image.952005.xyz/2025/02/piclist4.jpg" alt=""></p>
 </li>
 </ol>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="https://blog.952005.xyz/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/">https://blog.952005.xyz/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>日常练习</category>
