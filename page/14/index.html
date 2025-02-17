@@ -100,6 +100,70 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Data-Warehouse-Construction-Standards-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/03/20/Data-Warehouse-Construction-Standards-2/"
+    >Data Warehouse Construction Standards - How</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/20/Data-Warehouse-Construction-Standards-2/" class="article-date">
+  <time datetime="2024-03-20T13:08:45.000Z" itemprop="datePublished">2024-03-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="2-How-To-Implement-Data-Warehouse-Standards">2.How To Implement Data Warehouse Standards</h2>
+<h3 id="a-Standard-formulation">a. Standard formulation</h3>
+<p>This involves defining and documenting the specific rules, guidelines, and best practices that will govern the data warehouse. It is essential to involve stakeholders from different teams and departments to ensure comprehensive coverage and alignment with business requirements.</p>
+<h3 id="b-Standard-discussion">b. Standard discussion</h3>
+<p>Once the standards are formulated, it is important to engage in discussions with relevant teams and individuals. This can include conducting workshops, training sessions, or meetings to explain the standards, address any questions or concerns, and gather feedback.</p>
+<h3 id="c-Standard-implementation">c. Standard implementation</h3>
+<p>After the standards have been discussed and finalized, they need to be effectively communicated and implemented across the organization. This can involve creating documentation, providing training, and establishing processes and tools to support adherence to the standards.</p>
+<h3 id="d-Standard-enforcement-and-supervision">d. Standard enforcement and supervision</h3>
+<p>It is crucial to have mechanisms in place to monitor and enforce compliance with the data warehouse standards. This can include regular audits, performance reviews, and ongoing communication and support to ensure that the standards are being followed consistently.</p>
+<h3 id="e-Standard-refinement">e. Standard refinement</h3>
+<p>Data warehouse standards should be treated as living documents that are continuously reviewed and refined based on feedback, evolving business needs, and technological advancements. Regular evaluations and updates should be conducted to ensure that the standards remain relevant and effective.</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/English-Article/" rel="tag">English_Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag">数据管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Data-Warehouse-Construction-Standards-1"
   class="article article-type-post"
   itemscope
@@ -804,67 +868,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-linux-commands-collection-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/21/linux-commands-collection-1/"
-    >查看和清理Linux日志文件</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/21/linux-commands-collection-1/" class="article-date">
-  <time datetime="2024-02-21T14:15:10.000Z" itemprop="datePublished">2024-02-21</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1、查看目录大小"><strong>1、查看目录大小</strong></h2>
-<h3 id="du，下面命令显示当前文件夹下各个文件及文件夹大小（汇总）">du，下面命令显示当前文件夹下各个文件及文件夹大小（汇总）</h3>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo du <span class="literal">-sh</span> <span class="literal">--</span> *</span><br></pre></td></tr></table></figure>
-<h2 id="2、清理指定大小的日志文件：">2、清理指定大小的日志文件：</h2>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl <span class="literal">--vacuum-size</span>=<span class="number">100</span>M</span><br></pre></td></tr></table></figure>
-<p>这将保留最新的 100MB 日志数据。</p>
-<h2 id="3、清理指定时间范围之前的日志：">3、清理指定时间范围之前的日志：</h2>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl <span class="literal">--vacuum-time</span>=<span class="number">10</span>d</span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>

@@ -100,6 +100,65 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-built-finance-dashboard-page-14"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/09/28/built-finance-dashboard-page-14/"
+    >Build a Finance SaaS Platform -14（Transaction API）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/09/28/built-finance-dashboard-page-14/" class="article-date">
+  <time datetime="2024-09-28T08:30:51.000Z" itemprop="datePublished">2024-09-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Create transaction API and Hook API</p>
+<h2 id="Add-Transaction-API">Add Transaction API</h2>
+<p>Add app/api/[[…route]]/transactions.ts:</p> 
+      <a class="article-more-link" href="/2024/09/28/built-finance-dashboard-page-14/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DemoProjects/" rel="tag">DemoProjects</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-built-finance-dashboard-page-13"
   class="article article-type-post"
   itemscope
@@ -637,70 +696,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-built-finance-dashboard-page-5"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/08/28/built-finance-dashboard-page-5/"
-    >Build a Finance SaaS Platform -5 (Database Neon)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/08/28/built-finance-dashboard-page-5/" class="article-date">
-  <time datetime="2024-08-28T14:44:11.000Z" itemprop="datePublished">2024-08-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Sign-up-Neon">Sign up Neon</h2>
-<p>Go to <a target="_blank" rel="noopener" href="https://neon.tech/">https://neon.tech/</a> ，Sign up，and get sql connetion string and add it to .env:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="attr">postgresql</span>:<span class="comment">//xxxx</span></span><br></pre></td></tr></table></figure>
-<h2 id="Install-drizzle-orm">Install <strong>drizzle-orm</strong></h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i drizzle-orm <span class="meta">@neondatabase</span>/serverless</span><br><span class="line">npm i -D drizzle-kit</span><br></pre></td></tr></table></figure>
-<h2 id="Add-Drizzle-config">Add Drizzle config</h2>
-<p>Add <code>db/drizzle.ts</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; neon &#125; <span class="keyword">from</span> <span class="string">&#x27;@neondatabase/serverless&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; drizzle &#125; <span class="keyword">from</span> <span class="string">&#x27;drizzle-orm/neon-http&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sql = <span class="title function_">neon</span>(process.<span class="property">env</span>.<span class="property">DATABASE_URL</span>!);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> db = <span class="title function_">drizzle</span>(sql);</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/08/28/built-finance-dashboard-page-5/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DemoProjects/" rel="tag">DemoProjects</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
 
     </footer>
   </div>

@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>如何利用Cloudflare搭建图床（+ Piclist快速上传）- Bearalise |  New structure for utility</title>
+      <title>OpenAPI 规范（OAS）介绍 - Bearalise |  New structure for utility</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-how-to-use-cloudflare-to-build-image-hosting"
+  id="post-openapi-introduction"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何利用Cloudflare搭建图床（+ Piclist快速上传）- Bearalise
+  OpenAPI 规范（OAS）介绍 - Bearalise
 </h1>
  
 
@@ -88,11 +88,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/" class="article-date">
-  <time datetime="2025-02-16T11:57:04.000Z" itemprop="datePublished">2025-02-16</time>
+      <a href="/2025/02/17/openapi-introduction/" class="article-date">
+  <time datetime="2025-02-17T12:42:34.000Z" itemprop="datePublished">2025-02-17</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
   </div>
   
 <div class="word_count">
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">942</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -125,126 +125,36 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="背景">背景</h2>
-<p>写博客就要有图床，之前搭了一个国内版的，今天尝试用Cloudflare搭建一个海外版的。</p>
-<h2 id="开通Cloudflare-R2">开通Cloudflare R2</h2>
-<p>R2 是 Cloudflare 推出的免费对象存储服务，需要免费注册一个<a target="_blank" rel="noopener" href="https://www.cloudflare.com">Cloudflare 账号</a>才能使用，注册登录后，点击左侧边栏的 R2 访问服务，但需要注意的是开通 R2 服务需要绑定信用卡（国内外主流信用卡皆可），但并不会扣费，主要是为了验证用户身份使用：</p>
-<p><img src="https://image.952005.xyz/R2-2025-02-13_14-11-33.png" alt=""></p>
-<h2 id="创建图床-Bucket">创建图床 Bucket</h2>
-<p>Bucket即为存储桶，所有的资源的是需要放在存储桶中。开通 R2 服务后，点击右上角「创建存储桶」按钮进行创建：</p>
-<p><img src="https://image.952005.xyz/R2-2025-02-13_14-15-53.png" alt=""></p>
-<p>起一个名字，其他选项如图：</p>
-<p><img src="https://image.952005.xyz/R2-2025-02-13_14-23-18.png" alt=""></p>
-<p>开通后显示以下信息：</p>
-<p><img src="https://image.952005.xyz/R2-2025-02-13_14-25-02.png" alt=""></p>
+<p>作为一名开发者，都需要编写程序的 API 文档。现代开发框架，都需要API的协作，有时完成一个操作，需要调用多个API才能完成，所以，一个好的 API 文档能够大大提高协作效率，降低沟通成本。为解决API文本规范的问题，我们聊聊如何使用 OpenAPI 构建 HTTP 接口文档。</p>
+<h2 id="OpenAPI-规范（OAS）介绍">OpenAPI 规范（OAS）介绍</h2>
+<p>OpenAPI 是规范化描述 API 领域应用最广泛的行业标准，由 OpenAPI Initiative(OAI) 定义并维护，同时也是 Linux 基金会下的一个开源项目。通常我们所说的 OpenAPI 全称应该是 OpenAPI Specification(OpenAPI 规范，简称 OSA)，它使用规定的格式来描述 HTTP RESTful API 的定义，以此来规范 RESTful 服务开发过程。使用 JSON 或 YAML 来描述一个标准的、与编程语言无关的 HTTP API 接口。OpenAPI 规范最初基于 SmartBear Software 在 2015 年捐赠的 Swagger 规范演变而来，目前最新的版本是 <a target="_blank" rel="noopener" href="https://spec.openapis.org/oas/latest.html">v3.1.1</a>。本文参考了apifox 发布的一个 <a target="_blank" rel="noopener" href="https://openapi.apifox.cn/">中文版</a>。</p>
+<h2 id="OpenAPI-规范基本信息">OpenAPI 规范基本信息</h2>
+<h3 id="文档结构">文档结构</h3>
+<p>一份 OpenAPI 文档可以是单个文件也可以被拆分为多个文件， 连接的部分由用户自行决定。在后一种情形下，必须如 <a target="_blank" rel="noopener" href="http://json-schema.org/">JSON Schema</a> 中定义的那样使用 <code>$ref</code> 字段来相互引用。</p>
+<p>推荐将根 OpenAPI 文档命名为<code>openapi.json</code> 或 <code>openapi.yaml</code>。</p>
 <span id="more"></span>
-<h2 id="添加自定义域名">添加自定义域名</h2>
-<p>点击设置，找到自定义域名，填写需要的域名：<br>
-<img src="https://image.952005.xyz/R2-2025-02-13_14-29-05.png" alt=""></p>
-<p>如果你的域名是托管在cloudflare的，会显示如下提示，点连接域即可：</p>
-<p><img src="https://image.952005.xyz/R2-2025-02-13_14-29-41.png" alt=""></p>
-<p>配置完成后显示：</p>
-<p><img src="https://image.952005.xyz/R2-2025-02-13_14-30-48.png" alt=""></p>
-<p>回到存储桶页面，显示以下信息，说明已经配置好了：</p>
-<p><img src="https://image.952005.xyz/R2-2025-02-13_14-31-29.png" alt=""></p>
-<p>当我们完成上述配置后，可以回到存储桶「对象」界面，上传一张示例图片，点开详情则会显示该图片的访问地址，此时我们就拥有了一个可访问的图床服务了。</p>
-<h2 id="配置-Bucket-访问-API">配置 Bucket 访问 API</h2>
-<p>每次都要打开 Cloudflare 页面手动上传图片的方式显然不够便捷。R2 提供了 S3 兼容的 API，可以方便地使用一些客户端/命令行工具进行上传、删除等操作。</p>
-<p><img src="https://image.952005.xyz/R2-2025-02-14%2018.30.55.png" alt=""></p>
-<p>需要在接下来的页面记录以下信息，请务必记录，出于安全考虑，下面的信息只出现一次：<br>
-<strong>访问密钥 ID</strong></p>
-<p><strong>机密访问密钥</strong></p>
-<p><strong>终结点：</strong></p>
-<h2 id="安装Piclist">安装Piclist</h2>
-<p>PicGo 和 Piclist 都是用于快速上传并获取图片 URL 的工具软件，有着较为丰富的插件生态，支持多种图床服务，但我试用了PicGo，发现不支持S3，Mac安装也麻烦，后来改用Piclist，发现这些问题都得到了很好的解决，以下是安装步骤。</p>
-<ol>
-<li>
-<p>到<a target="_blank" rel="noopener" href="https://piclist.cn/">piclist 官网</a> 下载安装最新版</p>
-</li>
-<li>
-<p>运行piclist，会在顶部栏位有图标:  <img src="https://image.952005.xyz/2025/02/piclist1.jpg" alt=""></p>
-</li>
-<li>
-<p>点击图标打开主窗口：</p>
-<p><img src="https://image.952005.xyz/2025/02/piclist2.jpg" alt=""></p>
-</li>
-<li>
-<p>选择AWS S3</p>
-<p><img src="https://image.952005.xyz/2025/02/piclist3.jpg" alt=""></p>
-</li>
-<li>
-<p>按下面方法配置：</p>
-<p>accessKeyID和secretAccessKey是API访问密钥，用于访问S3对象存储。请根据您的对象存储的官方文档获取。</p>
-<h3 id="bucketName-存储桶名称">bucketName/存储桶名称</h3>
-<p>存储桶名称是您在对象存储中创建的存储桶的名称。</p>
-<h3 id="uploadPath-上传路径">uploadPath/上传路径</h3>
-<p>上传路径支持占位符，可用的占位符有：</p>
-<table>
-<thead>
-<tr>
-<th><strong>payload</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&#123;year&#125;</code></td>
-<td>当前日期 - 年</td>
-</tr>
-<tr>
-<td><code>&#123;month&#125;</code></td>
-<td>当前日期 - 月</td>
-</tr>
-<tr>
-<td><code>&#123;day&#125;</code></td>
-<td>当前日期 - 日</td>
-</tr>
-<tr>
-<td><code>&#123;fullName&#125;</code></td>
-<td>完整文件名（含扩展名）</td>
-</tr>
-<tr>
-<td><code>&#123;fileName&#125;</code></td>
-<td>文件名（不含扩展名）</td>
-</tr>
-<tr>
-<td><code>&#123;extName&#125;</code></td>
-<td>扩展名（不含.）</td>
-</tr>
-<tr>
-<td><code>&#123;md5&#125;</code></td>
-<td>图片 MD5 计算值</td>
-</tr>
-<tr>
-<td><code>&#123;sha1&#125;</code></td>
-<td>图片 SHA1 计算值</td>
-</tr>
-<tr>
-<td><code>&#123;sha256&#125;</code></td>
-<td>图片 SHA256 计算值</td>
-</tr>
-<tr>
-<td><code>&#123;timestamp&#125;</code></td>
-<td>Unix 时间戳</td>
-</tr>
-<tr>
-<td><code>&#123;timestampMS&#125;</code></td>
-<td>Unix 时间戳（毫秒）</td>
-</tr>
-</tbody>
-</table>
-<p>例如，如果您的上传路径为 <code>images/&#123;year&#125;/&#123;month&#125;/&#123;day&#125;/&#123;fullName&#125;</code>，则图片将会按照日期存储在对应的文件夹中。</p>
-<h3 id="region-区域">region/区域</h3>
-<p>请根据实际情况填写，例如 <code>us-east-1</code>, 如果是cloudflare R2，请填写 <code>auto</code>。</p>
-<h3 id="endpoint-自定义终端节点">endpoint/自定义终端节点</h3>
-<p>请根据实际情况填写，例如 <code>https://s3.us-east-1.amazonaws.com</code>。</p>
-<h3 id="urlPrefix-自定义域名">urlPrefix/自定义域名</h3>
-<p>自定义域名为可选项，如果不填写，则在复制链接、预览图片等操作时，将使用上面的终端节点。</p>
-</li>
-<li>
-<p>回到上传界面，选择刚才配置好的项目，并上传图片,图片会显示在下拉列表中：</p>
-<p><img src="https://image.952005.xyz/2025/02/piclist4.jpg" alt=""></p>
-</li>
-</ol>
+<h3 id="示例">示例</h3>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">openapi:</span> <span class="number">3.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">info:</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">示例</span> <span class="string">API</span></span><br><span class="line">  <span class="attr">description:</span> <span class="string">这是一个简单的示例</span> <span class="string">API</span> <span class="string">文档。</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">1.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">servers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">url:</span> <span class="string">https://api.example.com/v1</span></span><br><span class="line">    <span class="attr">description:</span> <span class="string">主服务器</span></span><br><span class="line"></span><br><span class="line"><span class="attr">paths:</span></span><br><span class="line">  <span class="string">/users:</span></span><br><span class="line">    <span class="attr">get:</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">获取用户列表</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">返回所有用户的列表。</span></span><br><span class="line">      <span class="attr">responses:</span></span><br><span class="line">        <span class="attr">&#x27;200&#x27;:</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">成功获取用户列表</span></span><br><span class="line">          <span class="attr">content:</span></span><br><span class="line">            <span class="attr">application/json:</span></span><br><span class="line">              <span class="attr">schema:</span></span><br><span class="line">                <span class="attr">type:</span> <span class="string">array</span></span><br><span class="line">                <span class="attr">items:</span></span><br><span class="line">                  <span class="string">$ref:</span> <span class="string">&#x27;#/components/schemas/User&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="string">/users/&#123;userId&#125;:</span></span><br><span class="line">    <span class="attr">get:</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">获取特定用户</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">根据用户ID返回特定用户的信息。</span></span><br><span class="line">      <span class="attr">parameters:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">userId</span></span><br><span class="line">          <span class="attr">in:</span> <span class="string">path</span></span><br><span class="line">          <span class="attr">required:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">用户的唯一标识符</span></span><br><span class="line">          <span class="attr">schema:</span></span><br><span class="line">            <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">      <span class="attr">responses:</span></span><br><span class="line">        <span class="attr">&#x27;200&#x27;:</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">成功获取用户信息</span></span><br><span class="line">          <span class="attr">content:</span></span><br><span class="line">            <span class="attr">application/json:</span></span><br><span class="line">              <span class="attr">schema:</span></span><br><span class="line">                <span class="string">$ref:</span> <span class="string">&#x27;#/components/schemas/User&#x27;</span></span><br><span class="line">        <span class="attr">&#x27;404&#x27;:</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">未找到用户</span></span><br><span class="line"></span><br><span class="line"><span class="attr">components:</span></span><br><span class="line">  <span class="attr">schemas:</span></span><br><span class="line">    <span class="attr">User:</span></span><br><span class="line">      <span class="attr">type:</span> <span class="string">object</span></span><br><span class="line">      <span class="attr">properties:</span></span><br><span class="line">        <span class="attr">id:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">用户ID</span></span><br><span class="line">        <span class="attr">name:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">用户名</span></span><br><span class="line">        <span class="attr">email:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">          <span class="attr">format:</span> <span class="string">email</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">用户电子邮箱地址</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>以上为示例，具体语法可参考官网，只需要大概了解就可以了，实际上日常我们会搭建工具，自动生成此文档。</p>
+<p>另外还推荐访问 <a target="_blank" rel="noopener" href="https://openapi-map.apihandyman.io/">OpenAPI Map</a> 网站来掌握 OpenAPI 规范，该网站以思维导图的形式展现规范的格式以及说明。</p>
+<p><img src="https://image.952005.xyz/2025/02/openapi1.jpg" alt=""></p>
+<h2 id="相关工具">相关工具</h2>
+<p>现在我们知道了 OpenAPI 规范，接下来介绍一下<a target="_blank" rel="noopener" href="https://openapi.tools/">OpenAPI.Tools</a> 的网站，它分类整理并记录了社区围绕 OpenAPI 规范开发的流行工具。</p>
+<p><img src="https://image.952005.xyz/2025/02/openapi2.jpg" alt=""></p>
+<p>可以看到列表中有很多分类，在我们日常开发中，最经常使用的有三类：</p>
+<h3 id="文档编辑器">文档编辑器</h3>
+<p>文本编辑器推荐使用在线的 <a target="_blank" rel="noopener" href="https://editor.swagger.io/">Swagger Editor</a>，能够实现格式校验和实时预览 Swagger 交互式 API 文档功能，效果如下图所示：</p>
+<p><img src="https://image.952005.xyz/2025/02/openapi3.jpg" alt=""></p>
+<h3 id="Mock-服务器">Mock 服务器</h3>
+<p>当我们使用 OpenAPI 规范来进行接口开发时，往往采用文档先行的策略，也就是前后端在开发代码前，先定义好接口文档，再进行代码的编写。此时前端如果想测试接口可用性，而后端代码还没有编写完成，Mock 服务器就派上用场了。Mock 服务器能够根据所提供的 OpenAPI 接口文档，自动生成一个模拟的 Web Server。使用 Mock 服务器能够轻松模拟真实的后端接口，方便前端同学进行接口调试，这方面的SaaS服务很多，可以试试 <a target="_blank" rel="noopener" href="https://app.apigit.com/">APIGit</a> 。</p>
+<h3 id="代码生成器">代码生成器</h3>
+<p>还有一种很实用的工具是代码生成器，代码生成器有两种类型：一种是从代码/注释生成 OpenAPI 文档，另一种是从 OpenAPI 文档生成代码。可以试试 <a target="_blank" rel="noopener" href="https://swagger.io/tools/swagger-codegen/">Swagger Codegen</a> 和 <a target="_blank" rel="noopener" href="https://github.com/openapitools/openapi-generator">OpenAPI Generator</a> 这类工具，支持几乎所有主流编程语言。</p>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a target="_blank" rel="noopener" href="https://blog.952005.xyz/2025/02/17/openapi-introduction/">https://blog.952005.xyz/2025/02/17/openapi-introduction/</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明；必须在文章中给出原文连接。</em></p>
+</blockquote>
  
       <!-- reward -->
       
@@ -297,12 +207,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/02/17/openapi-introduction/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li></ul>
 
     </footer>
   </div>
@@ -310,19 +220,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2025/02/17/openapi-introduction/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            OpenAPI 规范（OAS）介绍 - Bearalise
-          
-        </div>
-      </a>
     
-    
-      <a href="/2024/12/10/how-to-sync-pg-database/" class="article-nav-link">
+      <a href="/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">同步数据库工具</div>
+        <div class="article-nav-title">如何利用Cloudflare搭建图床（+ Piclist快速上传）- Bearalise</div>
       </a>
     
   </nav>

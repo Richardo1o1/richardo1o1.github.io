@@ -13415,4 +13415,46 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>博客管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>OpenAPI 规范（OAS）介绍 - Bearalise</title>
+    <url>/2025/02/17/openapi-introduction/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>作为一名开发者，都需要编写程序的 API 文档。现代开发框架，都需要API的协作，有时完成一个操作，需要调用多个API才能完成，所以，一个好的 API 文档能够大大提高协作效率，降低沟通成本。为解决API文本规范的问题，我们聊聊如何使用 OpenAPI 构建 HTTP 接口文档。</p>
+<h2 id="OpenAPI-规范（OAS）介绍">OpenAPI 规范（OAS）介绍</h2>
+<p>OpenAPI 是规范化描述 API 领域应用最广泛的行业标准，由 OpenAPI Initiative(OAI) 定义并维护，同时也是 Linux 基金会下的一个开源项目。通常我们所说的 OpenAPI 全称应该是 OpenAPI Specification(OpenAPI 规范，简称 OSA)，它使用规定的格式来描述 HTTP RESTful API 的定义，以此来规范 RESTful 服务开发过程。使用 JSON 或 YAML 来描述一个标准的、与编程语言无关的 HTTP API 接口。OpenAPI 规范最初基于 SmartBear Software 在 2015 年捐赠的 Swagger 规范演变而来，目前最新的版本是 <a href="https://spec.openapis.org/oas/latest.html">v3.1.1</a>。本文参考了apifox 发布的一个 <a href="https://openapi.apifox.cn/">中文版</a>。</p>
+<h2 id="OpenAPI-规范基本信息">OpenAPI 规范基本信息</h2>
+<h3 id="文档结构">文档结构</h3>
+<p>一份 OpenAPI 文档可以是单个文件也可以被拆分为多个文件， 连接的部分由用户自行决定。在后一种情形下，必须如 <a href="http://json-schema.org/">JSON Schema</a> 中定义的那样使用 <code>$ref</code> 字段来相互引用。</p>
+<p>推荐将根 OpenAPI 文档命名为<code>openapi.json</code> 或 <code>openapi.yaml</code>。</p>
+<span id="more"></span>
+<h3 id="示例">示例</h3>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">openapi:</span> <span class="number">3.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">info:</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">示例</span> <span class="string">API</span></span><br><span class="line">  <span class="attr">description:</span> <span class="string">这是一个简单的示例</span> <span class="string">API</span> <span class="string">文档。</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">1.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">servers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">url:</span> <span class="string">https://api.example.com/v1</span></span><br><span class="line">    <span class="attr">description:</span> <span class="string">主服务器</span></span><br><span class="line"></span><br><span class="line"><span class="attr">paths:</span></span><br><span class="line">  <span class="string">/users:</span></span><br><span class="line">    <span class="attr">get:</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">获取用户列表</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">返回所有用户的列表。</span></span><br><span class="line">      <span class="attr">responses:</span></span><br><span class="line">        <span class="attr">&#x27;200&#x27;:</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">成功获取用户列表</span></span><br><span class="line">          <span class="attr">content:</span></span><br><span class="line">            <span class="attr">application/json:</span></span><br><span class="line">              <span class="attr">schema:</span></span><br><span class="line">                <span class="attr">type:</span> <span class="string">array</span></span><br><span class="line">                <span class="attr">items:</span></span><br><span class="line">                  <span class="string">$ref:</span> <span class="string">&#x27;#/components/schemas/User&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="string">/users/&#123;userId&#125;:</span></span><br><span class="line">    <span class="attr">get:</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">获取特定用户</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">根据用户ID返回特定用户的信息。</span></span><br><span class="line">      <span class="attr">parameters:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">userId</span></span><br><span class="line">          <span class="attr">in:</span> <span class="string">path</span></span><br><span class="line">          <span class="attr">required:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">用户的唯一标识符</span></span><br><span class="line">          <span class="attr">schema:</span></span><br><span class="line">            <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">      <span class="attr">responses:</span></span><br><span class="line">        <span class="attr">&#x27;200&#x27;:</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">成功获取用户信息</span></span><br><span class="line">          <span class="attr">content:</span></span><br><span class="line">            <span class="attr">application/json:</span></span><br><span class="line">              <span class="attr">schema:</span></span><br><span class="line">                <span class="string">$ref:</span> <span class="string">&#x27;#/components/schemas/User&#x27;</span></span><br><span class="line">        <span class="attr">&#x27;404&#x27;:</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">未找到用户</span></span><br><span class="line"></span><br><span class="line"><span class="attr">components:</span></span><br><span class="line">  <span class="attr">schemas:</span></span><br><span class="line">    <span class="attr">User:</span></span><br><span class="line">      <span class="attr">type:</span> <span class="string">object</span></span><br><span class="line">      <span class="attr">properties:</span></span><br><span class="line">        <span class="attr">id:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">用户ID</span></span><br><span class="line">        <span class="attr">name:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">用户名</span></span><br><span class="line">        <span class="attr">email:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">          <span class="attr">format:</span> <span class="string">email</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">用户电子邮箱地址</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>以上为示例，具体语法可参考官网，只需要大概了解就可以了，实际上日常我们会搭建工具，自动生成此文档。</p>
+<p>另外还推荐访问 <a href="https://openapi-map.apihandyman.io/">OpenAPI Map</a> 网站来掌握 OpenAPI 规范，该网站以思维导图的形式展现规范的格式以及说明。</p>
+<p><img src="https://image.952005.xyz/2025/02/openapi1.jpg" alt=""></p>
+<h2 id="相关工具">相关工具</h2>
+<p>现在我们知道了 OpenAPI 规范，接下来介绍一下<a href="https://openapi.tools/">OpenAPI.Tools</a> 的网站，它分类整理并记录了社区围绕 OpenAPI 规范开发的流行工具。</p>
+<p><img src="https://image.952005.xyz/2025/02/openapi2.jpg" alt=""></p>
+<p>可以看到列表中有很多分类，在我们日常开发中，最经常使用的有三类：</p>
+<h3 id="文档编辑器">文档编辑器</h3>
+<p>文本编辑器推荐使用在线的 <a href="https://editor.swagger.io/">Swagger Editor</a>，能够实现格式校验和实时预览 Swagger 交互式 API 文档功能，效果如下图所示：</p>
+<p><img src="https://image.952005.xyz/2025/02/openapi3.jpg" alt=""></p>
+<h3 id="Mock-服务器">Mock 服务器</h3>
+<p>当我们使用 OpenAPI 规范来进行接口开发时，往往采用文档先行的策略，也就是前后端在开发代码前，先定义好接口文档，再进行代码的编写。此时前端如果想测试接口可用性，而后端代码还没有编写完成，Mock 服务器就派上用场了。Mock 服务器能够根据所提供的 OpenAPI 接口文档，自动生成一个模拟的 Web Server。使用 Mock 服务器能够轻松模拟真实的后端接口，方便前端同学进行接口调试，这方面的SaaS服务很多，可以试试 <a href="https://app.apigit.com/">APIGit</a> 。</p>
+<h3 id="代码生成器">代码生成器</h3>
+<p>还有一种很实用的工具是代码生成器，代码生成器有两种类型：一种是从代码/注释生成 OpenAPI 文档，另一种是从 OpenAPI 文档生成代码。可以试试 <a href="https://swagger.io/tools/swagger-codegen/">Swagger Codegen</a> 和 <a href="https://github.com/openapitools/openapi-generator">OpenAPI Generator</a> 这类工具，支持几乎所有主流编程语言。</p>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="https://blog.952005.xyz/2025/02/17/openapi-introduction/">https://blog.952005.xyz/2025/02/17/openapi-introduction/</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明；必须在文章中给出原文连接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>API</tag>
+      </tags>
+  </entry>
 </search>
