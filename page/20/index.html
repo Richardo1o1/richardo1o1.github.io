@@ -100,6 +100,70 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-VUE-Exercise-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/04/16/VUE-Exercise-2/"
+    >VUE练习2 - 使用axios模块</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/16/VUE-Exercise-2/" class="article-date">
+  <time datetime="2023-04-16T07:22:34.000Z" itemprop="datePublished">2023-04-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-安装axios">1 安装axios</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">项目根目录下执行如下指令</span><br><span class="line">npm install -S axios --registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h2 id="2-修改模块代码">2 修改模块代码</h2>
+<p>在开发过程中，我们可能经常会在前端项目的业务里面使用到某些变量，我们可以添加到配置文件中，比如我们在src目录下创建一个settings.js文件：</p>
+<blockquote>
+<p>/settings.js</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; <span class="comment">// 注意，对象要抛出后，其他文件中才能引入使用</span></span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;http://api.yunminitools.cn:8000&#x27;</span> <span class="comment">// 我们的后台项目将来就通过这个域名和端口来启动</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2023/04/16/VUE-Exercise-2/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-VUE-Exercise-1"
   class="article article-type-post"
   itemscope
@@ -716,69 +780,6 @@ The solution we propose begins with a timestamp server. A timestamp server works
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" rel="tag">数据安全</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-A-Peer-to-Peer-Electronic-Cash-System-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（2）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/" class="article-date">
-  <time datetime="2023-04-06T14:31:16.000Z" itemprop="datePublished">2023-04-06</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>比特币：一个点对点的电子货币系统</h1>
-<h2 id="2-交易">2. 交易</h2>
-<p>II. Transactions<br>
-We define an electronic coin as a chain of digital signatures. Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin. A payee can verify the signatures to verify the chain of ownership.<br>
-<img src="http://cdn.yunminitools.cn/blog/0406Bitcoin1en.png" alt=" "><br>
-The problem of course is the payee can’t verify that one of the owners did not double-spend the coin. A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending. After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent. The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.<br>
-We need a way for the payee to know that the previous owners did not sign any earlier transactions. For our purposes, the earliest transaction is the one that counts, so we don’t care about later attempts to double-spend. The only way to confirm <strong>the absence of a transaction</strong> is to be aware of all transactions. In the mint based model, the mint was aware of all transactions and decided which arrived first. To accomplish this without a trusted party, transactions must be publicly announced [1], and we need a system for participants to agree on a single history of the order in which they were received. The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.</p> 
-      <a class="article-more-link" href="/2023/04/06/A-Peer-to-Peer-Electronic-Cash-System-2/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" rel="tag">论文学习</a></li></ul>
 
     </footer>
   </div>

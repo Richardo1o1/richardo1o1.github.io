@@ -13487,4 +13487,59 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>API</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(1) 创建项目/Eslint设置 - Bearalise</title>
+    <url>/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>你是否曾经遇到过这样的 API 文档，其中每一个端点(endpoint)都被详细记录，你可以深入了解所有可能的响应类型，并查看它们的示例。同时，它们还包含模式（schemas），你甚至可以进入并测试这些特定的端点，实际运行并访问 API，设置请求头和其他细节。从这个文档开始，我将从头开始构建一个使用 Hono 的 API，并使用 OpenAPI 规范来全面记录我们的 API。因此，如果你访问 /doc，你会看到每一个端点都被记录在案。OpenAPI 实际上是一个工具生态系统，可以利用这些文档创建互动文档，或者生成客户端库及其他类似的东西。我一直在使用 Hono 构建应用程序，特别是我一直在使用他们的中间件 Zod OpenAPI，该中间件基本上允许你使用 Zod 来定义所有的模式（schemas），然后定义你的路由合约，并使用这些路由合约在定义请求处理程序时获得类型安全。所有这些最终都被转化为完全互动的文档。</p>
+<h2 id="技术实现简介">技术实现简介</h2>
+<p>首先，我会使用NextJS和Hono搭建后台API。<a href="https://nextjscn.org/docs/">NextJS</a>不用多介绍，它是一个用于构建全栈Web 应用的React 框架。<a href="https://hono.dev/docs/">Hono</a>是一个小巧、简单且超快速的 Web 框架，构建在 Web 标准之上，号称可以在任何 JavaScript 运行时环境中运行，包括 Cloudflare Workers、Fastly Compute、Deno、Bun、Vercel、Netlify、AWS Lambda、Lambda@Edge 和 Node.js。</p>
+<ul>
+<li>
+<p>在设置 OpenAPI 时，我们也可以以一种可扩展的方式进行。例如，我们可以在一个地方设置所有的路由定义，然后在另一个地方设置所有的处理程序，但一切依然是类型安全的。我们实际上会导出这些路由定义的类型，并且可以使用它们来定义我们的请求处理程序。这样，我们可以在一个单独的文件中定义我们的处理程序，但仍然具有完整的类型安全性，这意味着我们准确知道对于这个特定的方法基于这个特定的路由我们应该响应什么。</p>
+</li>
+<li>
+<p>除此之外，Hono 使得测试这些端点变得非常容易，因为他们有一个内置的测试客户端，本质上类似于 Hono RPC 客户端，可以在客户端代码中使用，并具有完全的类型安全性，但它也是一个非常好的测试体验。</p>
+</li>
+<li>
+<p>此外，我们可以将其与 Drizzle 连接起来，Drizzle Zod 基本上允许我们定义我们的表，然后使用这些表定义来定义我们的 Zod 模式（schemas），然后我们可以直接在我们的 OpenAPI 定义中使用这些模式。因此，我们基本上有一个单一的事实来源，我们可以定义我们的表，得到我们的模式，然后在我们的路由定义中使用这些模式，从那时起，当我们定义处理程序时，所有类型都会流转。</p>
+</li>
+</ul>
+<p>其次，我使用了一些现成的库 <a href="https://www.npmjs.com/package/stoker">stoker</a> 和样板库 <a href="https://github.com/w3cj/hono-open-api-starter">hono-open-api-starter</a> 来减少代码量，当然你也可以直接自己实现。</p>
+<span id="more"></span>
+<h2 id="创建项目">创建项目</h2>
+<p>首先，使用命令创建测试项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bunx create-next-app@latest</span><br><span class="line">bun add hono</span><br><span class="line">bun add -D typescript @types/node</span><br></pre></td></tr></table></figure>
+<h2 id="Eslint设置">Eslint设置</h2>
+<p>ESLint 是一个可配置的 JavaScript 代码检查工具。它可以帮助你发现并修复 JavaScript 代码中的问题。这些问题可以是潜在的运行时错误、未遵循最佳实践，或者是样式问题。ESLint 有很多配置，我们这里可以选用一个现成的：<a href="https://github.com/antfu/eslint-config">antfu/eslint-config</a>,下面是实施步骤：</p>
+<ul>
+<li>
+<p>安装依赖</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun add i -D eslint @antfu/eslint-config</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改eslint.config.mjs</p>
+  <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// eslint.config.mjs</span></span><br><span class="line"><span class="keyword">import</span> antfu <span class="keyword">from</span> <span class="string">&#x27;@antfu/eslint-config&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">antfu</span>(&#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">  <span class="attr">typescript</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">formatters</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">stylistic</span>: &#123;</span><br><span class="line">    <span class="attr">indent</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">semi</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">quotes</span>: <span class="string">&quot;double&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">ignores</span>: [<span class="string">&quot;**/migrations/*&quot;</span>],</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&quot;no-console&quot;</span>: [<span class="string">&quot;warn&quot;</span>],</span><br><span class="line">    <span class="string">&quot;antfu/no-top-level-await&quot;</span>: [<span class="string">&quot;off&quot;</span>],</span><br><span class="line">    <span class="string">&quot;node/prefer-global/process&quot;</span>: [<span class="string">&quot;off&quot;</span>],</span><br><span class="line">    <span class="string">&quot;node/no-process-env&quot;</span>: [<span class="string">&quot;error&quot;</span>],</span><br><span class="line">    <span class="string">&quot;perfectionist/sort-imports&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123;</span><br><span class="line">      <span class="attr">tsconfigRootDir</span>: <span class="string">&quot;.&quot;</span>,</span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="string">&quot;unicorn/filename-case&quot;</span>: [<span class="string">&quot;error&quot;</span>, &#123;</span><br><span class="line">      <span class="attr">case</span>: <span class="string">&quot;kebabCase&quot;</span>,</span><br><span class="line">      <span class="attr">ignore</span>: [<span class="string">&quot;README.md&quot;</span>],</span><br><span class="line">    &#125;],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改package.json</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;lint&quot;: &quot;eslint .&quot;,</span><br><span class="line">    &quot;lint:fix&quot;: &quot;eslint . --fix&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(1) 创建项目&#x2F;Eslint设置 - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(1) 创建项目&#x2F;Eslint设置 - Bearalise</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+      </tags>
+  </entry>
 </search>

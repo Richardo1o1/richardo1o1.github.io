@@ -100,6 +100,72 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Hexo-image-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/02/19/Hexo-image-1/"
+    >Hexo博客插入图片后如何控制图片大小和样式</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/02/19/Hexo-image-1/" class="article-date">
+  <time datetime="2023-02-19T03:48:25.000Z" itemprop="datePublished">2023-02-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>在用Hexo写博客时，发现有时原始图片过大，直接引用不太美观，需要缩小一下，研究了一下，Hexo md语法并不支持这样的功能，我在网上找到了方法，纪录一下。</p>
+<h2 id="方法">方法</h2>
+<p>有两个方法：</p>
+<ol>
+<li>使用img 标记来控制图片显示大小：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;/images/xxx.png&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用div 加上css 来控制图片的显示和大小：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;width: 40%; margin: 10px&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;/images/xxx.png“&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>其中<code>/images/xxx.png</code>为图片实际地址。经过试用，我选择了方法2，原因是用css可以控制的属性更多，后续也可以做统一的美化修改。关于CSS样式的说明，可以参考<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/css/css3_images.asp">这篇文章</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-The-Six-Counterintuitive-Rules-Summary"
   class="article article-type-post"
   itemscope
@@ -710,68 +776,6 @@ A hypsolebias fish jumping out of a pond, trying to catch a bug in the air. The 
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-The-Six-Counterintuitive-Rules-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/02/15/The-Six-Counterintuitive-Rules-2/"
-    >Reflections on &#39;The Six Counterintuitive Rules&#39; - 2</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/02/15/The-Six-Counterintuitive-Rules-2/" class="article-date">
-  <time datetime="2023-02-15T02:22:14.000Z" itemprop="datePublished">2023-02-15</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a> / <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/English-Article/">English_Article</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="RULE-2-DON’T-TRY-TO-CREATE-ROBOTS-FOCUS-ON-MANAGING-THE-WHAT-NOT-THE-HOW">RULE #2: DON’T TRY TO CREATE ROBOTS. FOCUS ON MANAGING THE WHAT, NOT THE HOW.</h2>
-<p>Generally speaking, high-performing teams are not made up of robots. They’re made up of humans who are able to <strong>independently meet a goal</strong>. It’s just a huge amount of wasted energy to try to create robots out of humans.<br>
-You often see people trying to direct their team in terms of exactly how they would have done it. I see so many managers getting really bogged down in the literal process that someone is going through in order to achieve a goal. But at the end of the day, there’s only one thing that matters: <strong>Did they achieve the goal?</strong><br>
-The best managers set expectations at the “what” level, not the “how” level.</p>
-<h3 id="Inspiration-2：Set-expectation-at-the-“What”-and-Avoid-“Micromanager”">Inspiration 2：Set expectation at the “What” and Avoid “Micromanager”</h3>
-<p>When it comes to selecting and hiring people, I used to prefer individuals who have similar personalities or work methods to my own. However, in doing so, I overlooked the types of people needed to achieve our goals. Subconsciously, I tend to resist people whose ideas differ greatly from my own. One reason for this is that I lack confidence in working with such individuals and am unsure whether they can complete tasks effectively. Another reason is that I worry about managing such individuals and lack confidence in my own management abilities.</p>
-<p>I have a tendency to micromanage, especially when it comes to product design. I can’t tolerate colleagues who have significantly different ideas from my own, which causes everyone to feel apprehensive and indecisive when it comes to proposing design solutions. Looking back, I realize that my own growth came from learning from my mistakes, and I thought I was doing my colleagues a favor by being overly controlling, but in reality, I was depriving them of the opportunity to grow. By focusing too much on “how to do things,” it’s challenging to cultivate their ability to identify “what should be done.” Essentially, I am creating robots rather than encouraging creativity and independent thinking among my team. I need to trust my colleagues more and give them the freedom to propose new ideas and make mistakes.</p>
-<hr>
-<p>To Be Continue…</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86/" rel="tag">团队管理</a></li></ul>
 
     </footer>
   </div>

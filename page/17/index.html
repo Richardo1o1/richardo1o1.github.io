@@ -100,6 +100,80 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-move-docker-data-folder"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/09/06/move-docker-data-folder/"
+    >Docker迁移默认的/var/lib/docker 目录（避坑指南）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/09/06/move-docker-data-folder/" class="article-date">
+  <time datetime="2023-09-06T08:17:12.000Z" itemprop="datePublished">2023-09-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>最近在做docker 数据文件的迁移，按指引创建，遇到了一些问题，把步骤和解决方案记录一下。</p>
+<h2 id="1-停止docker服务">1. 停止docker服务</h2>
+<p><code>systemctl stop docker</code></p>
+<h2 id="2-创建docker新目录">2.创建docker新目录</h2>
+<p><code>mkdir -p /data/docker/lib</code></p>
+<h2 id="3-安装迁移软件包">3.安装迁移软件包</h2>
+<p><code>yum install rsync -y</code></p>
+<p>或者</p>
+<p><code>sudo apt-get install rsync</code></p>
+<h2 id="4-开始迁移">4.开始迁移</h2>
+<p><code>rsync -avzP /var/lib/docker /data/docker/lib/</code></p>
+<p>注：这个不是必须的，也可以用<code>mv</code>命令</p>
+<h2 id="5-修改docker配置文件">5.修改docker配置文件</h2>
+<p><code>vim /lib/systemd/system/docker.service</code></p>
+<p>在<code>ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</code>后添加<code>--graph=/data/docker/lib</code></p>
+<p>注意：这里有个坑，最新的docker版本（≥ version 23.0.0 ) 这个参数（–graph）要改为 --data-root ，也就是： <code>--data-root=/data/docker/lib</code></p>
+<h2 id="6-重启docker">6.重启docker</h2>
+<p><code>systemctl daemon-reload</code><br>
+<code>systemctl restart docker</code></p>
+<h2 id="7-确认docker没有问题，删除原目录">7.确认docker没有问题，删除原目录</h2>
+<p><code>rm -rf /var/lib/docker</code></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Django-APIView-usage"
   class="article article-type-post"
   itemscope
@@ -685,84 +759,6 @@ docker-registry 是官方提供的工具，可以用于构建私有的镜像仓�
 <li>系统是否存在内存泄漏？</li>
 <li>系统的耗时操作进行了异步处理？</li>
 </ol>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag">架构设计</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-4S-System-Design-Methodology"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/07/28/4S-System-Design-Methodology/"
-    >4S方法设计系统</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/07/28/4S-System-Design-Methodology/" class="article-date">
-  <time datetime="2023-07-28T07:05:58.000Z" itemprop="datePublished">2023-07-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="概述">概述</h2>
-<p>所谓4S分析法中的4S是指：<br>
-Scenario（场景），Service（服务），Storage（存储），Scale（扩展）。<br>
-接下来，我们结合4S分析法来具体回答一道常见系统设计题：如何设计一个推特？</p>
-<h2 id="第一步：Scenario-场景">第一步：Scenario 场景</h2>
-<p>在这一步，需要考虑：需要设计哪些功能（也可以自己想），需要承受多大的访问量？<br>
-首先可以把Twitter的功能一个个罗列出来，很显然你无法在45分钟的面试中完成所有功能的设计，所以需要筛选出核心功能（Post a Tweet，Timeline，News Feed，Follow/Unfollow a user，Register/Login）。<br>
-然后需要继续考虑系统承受的QPS大概是多少？需要考虑并发用户，读频率（Read QPS）以及写频率（Write QPS）。记住重要的是你的思考和计算过程而不是计算结果。</p>
-<h2 id="第二步，Service服务">第二步，Service服务</h2>
-<p>所谓服务可以认为是逻辑处理的整合，对于同一类问题的逻辑处理可以归并到一个服务中。这一步实际上就是将整个系统细分为若干个小的服务。<br>
-根据第一步选出的核心功能，我们可以将推特拆分成如下的几个服务：<br>
-<img src="http://cdn.yunminitools.cn/blog/0728Service.png" alt=""></p>
-<h2 id="第三步，Storage-存储">第三步，Storage 存储</h2>
-<p>接下来就是4S分析法中最重要的一部分，存储。根据每个服务的数据特性选择合适的存储结构，然后细化数据表结构。<br>
-系统设计中可以选择的存储结构一般有三大类：数据库系统，文件系统，缓存系统。其中数据库系统又分为关系型数据库（SQL Database）和 非关系型数据库（NoSQL Database）。<br>
-<img src="http://cdn.yunminitools.cn/blog/0728Storage.png" alt=""></p>
-<p>确定存储结构后，我们需要细化数据表结构，面试中可以通过画图展示数据存储和读取的流程。<br>
-<img src="http://cdn.yunminitools.cn/blog/0728DataStructure.png" alt=""></p>
-<p>用过前3个步骤的分析，我们已经得到了一个可行方案，注意是Work Solution而不是Perfect Solution，这个方案可以存在很多待解决的缺陷。</p>
-<h2 id="第四步，Scale-扩展">第四步，Scale 扩展</h2>
-<p>这一步主要分两部分：</p>
-<ul>
-<li>一个是优化和迭代设计，包括解决设计缺陷，更多功能设计，后台管理功能以及一些特殊情况如何处理；</li>
-<li>另一个是维护，包括系统的鲁棒性和扩展性，比如有一台服务器/数据库挂了怎么办？如果有流量暴增，如何扩展？</li>
-</ul>
  
       <!-- reward -->
       

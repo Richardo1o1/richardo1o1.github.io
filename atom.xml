@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-17T13:58:01.086Z</updated>
+  <updated>2025-02-18T15:23:10.931Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(1) 创建项目/Eslint设置 - Bearalise</title>
+    <link href="http://yunminitools.cn/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/"/>
+    <id>http://yunminitools.cn/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/</id>
+    <published>2025-02-18T15:19:19.000Z</published>
+    <updated>2025-02-18T15:23:10.931Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;你是否曾经遇到过这样的 API 文档，其中每一个端点(endpoint)都被详细记录，你可以深入了解所有可能的响应类型，并查看它们的示例。同时，它们还包含模式（schemas），你甚至可以进入并测试这些特定的端点，实际运行并访问 API，设置请求头和其他细节。从这个文档开始，我将从头开始构建一个使用 Hono 的 API，并使用 OpenAPI 规范来全面记录我们的 API。因此，如果你访问 /doc，你会看到每一个端点都被记录在案。OpenAPI 实际上是一个工具生态系统，可以利用这些文档创建互动文档，或者生成客户端库及其他类似的东西。我一直在使用 Hono 构建应用程序，特别是我一直在使用他们的中间件 Zod OpenAPI，该中间件基本上允许你使用 Zod 来定义所有的模式（schemas），然后定义你的路由合约，并使用这些路由合约在定义请求处理程序时获得类型安全。所有这些最终都被转化为完全互动的文档。&lt;/p&gt;
+&lt;h2 id=&quot;技术实现简介&quot;&gt;技术实现简介&lt;/h2&gt;
+&lt;p&gt;首先，我会使用NextJS和Hono搭建后台API。&lt;a href=&quot;https://nextjscn.org/docs/&quot;&gt;NextJS&lt;/a&gt;不用多介绍，它是一个用于构建全栈Web 应用的React 框架。&lt;a href=&quot;https://hono.dev/docs/&quot;&gt;Hono&lt;/a&gt;是一个小巧、简单且超快速的 Web 框架，构建在 Web 标准之上，号称可以在任何 JavaScript 运行时环境中运行，包括 Cloudflare Workers、Fastly Compute、Deno、Bun、Vercel、Netlify、AWS Lambda、Lambda@Edge 和 Node.js。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在设置 OpenAPI 时，我们也可以以一种可扩展的方式进行。例如，我们可以在一个地方设置所有的路由定义，然后在另一个地方设置所有的处理程序，但一切依然是类型安全的。我们实际上会导出这些路由定义的类型，并且可以使用它们来定义我们的请求处理程序。这样，我们可以在一个单独的文件中定义我们的处理程序，但仍然具有完整的类型安全性，这意味着我们准确知道对于这个特定的方法基于这个特定的路由我们应该响应什么。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;除此之外，Hono 使得测试这些端点变得非常容易，因为他们有一个内置的测试客户端，本质上类似于 Hono RPC 客户端，可以在客户端代码中使用，并具有完全的类型安全性，但它也是一个非常好的测试体验。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;此外，我们可以将其与 Drizzle 连接起来，Drizzle Zod 基本上允许我们定义我们的表，然后使用这些表定义来定义我们的 Zod 模式（schemas），然后我们可以直接在我们的 OpenAPI 定义中使用这些模式。因此，我们基本上有一个单一的事实来源，我们可以定义我们的表，得到我们的模式，然后在我们的路由定义中使用这些模式，从那时起，当我们定义处理程序时，所有类型都会流转。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其次，我使用了一些现成的库 &lt;a href=&quot;https://www.npmjs.com/package/stoker&quot;&gt;stoker&lt;/a&gt; 和样板库 &lt;a href=&quot;https://github.com/w3cj/hono-open-api-starter&quot;&gt;hono-open-api-starter&lt;/a&gt; 来减少代码量，当然你也可以直接自己实现。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenAPI 规范（OAS）介绍 - Bearalise</title>
@@ -506,28 +544,6 @@
 &lt;p&gt;BTW, I</summary>
         
       
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -15（Transaction Form）</title>
-    <link href="http://yunminitools.cn/2024/09/30/built-finance-dashboard-page-15/"/>
-    <id>http://yunminitools.cn/2024/09/30/built-finance-dashboard-page-15/</id>
-    <published>2024-09-30T02:21:36.000Z</published>
-    <updated>2024-09-30T02:23:11.289Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Install-Package：&quot;&gt;Install Package：&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i react-select&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm i date-fns@&lt;span class=&quot;number&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm i react-day-picker&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm i react-currency-input-field&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npx shadcn&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; add calender&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npx shadcn&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; add popover &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npx shadcn&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; add textarea &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npx shadcn&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; add tooltip&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

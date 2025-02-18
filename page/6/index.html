@@ -100,6 +100,73 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-built-portfolio-page-6"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/07/24/built-portfolio-page-6/"
+    >Built Portfolio Page - 6 (Navigation bar effect)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/07/24/built-portfolio-page-6/" class="article-date">
+  <time datetime="2024-07-24T03:44:40.000Z" itemprop="datePublished">2024-07-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Steps">Steps:</h2>
+<ol>
+<li>Modify Header.tsx</li>
+<li>Add motion effect</li>
+<li>Install react-intersection-observer</li>
+<li>Add ActiveSectionContext to pass context</li>
+<li>Add ActiveSectionContextProvider to Layout</li>
+<li>Consume context</li>
+<li>Add more control to make movement smoothly</li>
+</ol>
+<h2 id="Modify-Header-tsx">Modify Header.tsx:</h2> 
+      <a class="article-more-link" href="/2024/07/24/built-portfolio-page-6/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-built-portfolio-page-5"
   class="article article-type-post"
   itemscope
@@ -665,72 +732,6 @@ var _hmt = _hmt || [];
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;next/server&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">GET</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> items = [</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;Item 1&#x27;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&#x27;Item 2&#x27;</span> &#125;,</span><br><span class="line">  ];</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(items, &#123; <span class="attr">status</span>: <span class="number">200</span> &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这是一个简单的 GET 端点，它将返回一些项目的 json 对象。在您的情况下，这可能会从数据库或其他一些 API 调用获取数据，然后将其返回给客户端。本文的最后一个示例将介绍这一点。也就是说，让我们看看这个测试会是什么样子：</p> 
       <a class="article-more-link" href="/2024/06/25/how-to-use-jest-nextjs-app-route-test-api/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-testing-nextjs-with-jest"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/06/24/testing-nextjs-with-jest/"
-    >使用 Next.js 设置 Jest 完成单元测试</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/06/24/testing-nextjs-with-jest/" class="article-date">
-  <time datetime="2024-06-24T12:55:22.000Z" itemprop="datePublished">2024-06-24</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>Jest 和 React 测试库经常一起用于单元测试和快照测试。本指南将向您展示如何使用 Next.js 设置 Jest 并编写您的第一个测试。</p>
-<h2 id="快速开始">快速开始</h2>
-<p>您可以将 <code>create-next-app</code> 与 Next.js with-jest 示例结合使用来快速入门：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-next-app<span class="meta">@latest</span> --example <span class="keyword">with</span>-jest <span class="keyword">with</span>-jest-app</span><br></pre></td></tr></table></figure>
-<h2 id="手动设置">手动设置</h2>
-<p>要设置 Jest，请安装 <code>jest</code> 和以下软件包作为开发依赖项：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D jest jest-environment-jsdom <span class="meta">@testing</span>-library/react <span class="meta">@testing</span>-library/jest-dom</span><br></pre></td></tr></table></figure>
-<p>通过运行以下命令生成基本的 Jest 配置文件：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init jest<span class="meta">@latest</span></span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/06/24/testing-nextjs-with-jest/"
         >More...</a
       >
        
