@@ -138,11 +138,11 @@
   </entry>
   
   <entry>
-    <title>如何修改上传按钮组件样式</title>
+    <title>如何修改HTML默认上传按钮组件样式 - Bearalis</title>
     <link href="http://yunminitools.cn/2024/11/21/how-to-customize-upload-button/"/>
     <id>http://yunminitools.cn/2024/11/21/how-to-customize-upload-button/</id>
     <published>2024-11-21T12:25:41.000Z</published>
-    <updated>2024-11-21T12:26:16.311Z</updated>
+    <updated>2025-02-18T01:41:21.350Z</updated>
     
     
       
@@ -162,6 +162,8 @@
     
     
     <category term="前端代码" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
     
   </entry>
   

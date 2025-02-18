@@ -13205,7 +13205,7 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       </tags>
   </entry>
   <entry>
-    <title>如何修改上传按钮组件样式</title>
+    <title>如何修改HTML默认上传按钮组件样式 - Bearalis</title>
     <url>/2024/11/21/how-to-customize-upload-button/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
 <p>系统自带的上传按钮有点丑，并且大的样式无法修改，想了个方法用Tailwind的按钮包装了系统自带的按钮，实现了样式的统一</p>
@@ -13221,12 +13221,19 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <li>定义handleFileChange函数，绑定原始上传控件的onChange事件</li>
 <li>在handleFileChange函数，用 await file.text() 得到文件内容，并处理加工，把结果通过onUpload 函数，传输给外部调用者</li>
 </ol>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+*出处：/2024/11/21/how-to-customize-upload-button/<br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>日常练习</category>
       </categories>
       <tags>
         <tag>前端代码</tag>
+        <tag>React</tag>
       </tags>
   </entry>
   <entry>
