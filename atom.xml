@@ -234,23 +234,25 @@
   </entry>
   
   <entry>
-    <title>PostgreSQL Windows Docker Setup</title>
+    <title>PostgreSQL 在Windows环境下使用 Docker 安装 - Bearalise</title>
     <link href="http://yunminitools.cn/2024/11/10/postgresql-windows-docker-setup/"/>
     <id>http://yunminitools.cn/2024/11/10/postgresql-windows-docker-setup/</id>
     <published>2024-11-10T15:11:33.000Z</published>
-    <updated>2024-11-10T15:12:03.103Z</updated>
+    <updated>2025-02-19T02:23:03.622Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
 &lt;p&gt;项目需要使用PG, 尝试安装一下&lt;/p&gt;
 &lt;h2 id=&quot;Create-Volume&quot;&gt;Create Volume&lt;/h2&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker volume create --driver local --opt device=&lt;span class=&quot;attr&quot;&gt;C&lt;/span&gt;:\&lt;span class=&quot;number&quot;&gt;10.&lt;/span&gt;&lt;span class=&quot;variable constant_&quot;&gt;VM&lt;/span&gt;\data\pg01 --opt &lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt;=none --opt o=bind pg01&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Pull-Image&quot;&gt;Pull Image&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker pull postgres&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Start-Container&quot;&gt;Start Container&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run --name pgsql --privileged -e &lt;span class=&quot;variable constant_&quot;&gt;POSTGRES_PASSWORD&lt;/span&gt;=xxxxx -p &lt;span class=&quot;number&quot;&gt;15333&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;5432&lt;/span&gt; -v &lt;span class=&quot;attr&quot;&gt;pg01&lt;/span&gt;:&lt;span class=&quot;regexp&quot;&gt;/var/&lt;/span&gt;lib/postgresql/data -d postgres&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;连接数据库，创建用户&quot;&gt;连接数据库，创建用户&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;create user fintest01 &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; password &lt;span class=&quot;string&quot;&gt;&amp;#x27;xxxxxx&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;create database fintest01 &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; owner fintest01; &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;切换数据库连接&quot;&gt;切换数据库连接&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;DATABASE_URL&lt;/span&gt;=&lt;span class=&quot;attr&quot;&gt;postgresql&lt;/span&gt;:&lt;span class=&quot;comment&quot;&gt;//fintest01:fin1234@192.xx.xx.xx:15333/fintest01&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

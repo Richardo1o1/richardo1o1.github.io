@@ -607,7 +607,7 @@ var _hmt = _hmt || [];
        
 <h2 itemprop="name">
   <a class="article-title" href="/2024/11/10/postgresql-windows-docker-setup/"
-    >PostgreSQL Windows Docker Setup</a> 
+    >PostgreSQL 在Windows环境下使用 Docker 安装 - Bearalise</a> 
 </h2>
  
 
@@ -637,8 +637,11 @@ var _hmt = _hmt || [];
 <h2 id="连接数据库，创建用户">连接数据库，创建用户</h2>
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create user fintest01 <span class="keyword">with</span> password <span class="string">&#x27;xxxxxx&#x27;</span>;</span><br><span class="line">create database fintest01 <span class="keyword">with</span> owner fintest01; </span><br></pre></td></tr></table></figure>
 <h2 id="切换数据库连接">切换数据库连接</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="attr">postgresql</span>:<span class="comment">//fintest01:fin1234@192.xx.xx.xx:15333/fintest01</span></span><br></pre></td></tr></table></figure>
- 
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="attr">postgresql</span>:<span class="comment">//fintest01:fin1234@192.xx.xx.xx:15333/fintest01</span></span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/11/10/postgresql-windows-docker-setup/"
+        >More...</a
+      >
+       
       <!-- reward -->
       
     </div>

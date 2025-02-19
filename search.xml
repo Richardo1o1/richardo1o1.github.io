@@ -11534,7 +11534,7 @@ Syntax error in graph mermaid version 8.14.0<br>
       </tags>
   </entry>
   <entry>
-    <title>PostgreSQL Windows Docker Setup</title>
+    <title>PostgreSQL 在Windows环境下使用 Docker 安装 - Bearalise</title>
     <url>/2024/11/10/postgresql-windows-docker-setup/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
 <p>项目需要使用PG, 尝试安装一下</p>
@@ -11548,6 +11548,13 @@ Syntax error in graph mermaid version 8.14.0<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">create user fintest01 <span class="keyword">with</span> password <span class="string">&#x27;xxxxxx&#x27;</span>;</span><br><span class="line">create database fintest01 <span class="keyword">with</span> owner fintest01; </span><br></pre></td></tr></table></figure>
 <h2 id="切换数据库连接">切换数据库连接</h2>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="attr">postgresql</span>:<span class="comment">//fintest01:fin1234@192.xx.xx.xx:15333/fintest01</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2024/11/10/postgresql-windows-docker-setup/" title="PostgreSQL 在Windows环境下使用 Docker 安装 - Bearalise">PostgreSQL 在Windows环境下使用 Docker 安装 - Bearalise</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>日常练习</category>
