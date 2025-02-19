@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
 <span id="more"></span>
 <h2 id="创建项目">创建项目</h2>
 <p>首先，使用命令创建测试项目：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bunx create-next-app@latest</span><br><span class="line">bun add hono</span><br><span class="line">bun add -D typescript @types/node</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bunx create-next-app@latest</span><br><span class="line">bun add hono</span><br><span class="line">bun add -D typescript @types/node</span><br><span class="line">bun add @hono/node-server</span><br></pre></td></tr></table></figure>
 <h2 id="Eslint设置">Eslint设置</h2>
 <p>ESLint 是一个可配置的 JavaScript 代码检查工具。它可以帮助你发现并修复 JavaScript 代码中的问题。这些问题可以是潜在的运行时错误、未遵循最佳实践，或者是样式问题。ESLint 有很多配置，我们这里可以选用一个现成的：<a target="_blank" rel="noopener" href="https://github.com/antfu/eslint-config">antfu/eslint-config</a>,下面是实施步骤：</p>
 <ul>
@@ -158,6 +158,13 @@ var _hmt = _hmt || [];
 <li>
 <p>修改package.json</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;lint&quot;: &quot;eslint .&quot;,</span><br><span class="line">    &quot;lint:fix&quot;: &quot;eslint . --fix&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>执行 lint:fix</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun run lint:fix</span><br></pre></td></tr></table></figure>
+<p>命令会自动修正代码中不符合格式的问题。执行结果如下：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/home/richard/bunproject/opeonapidemo/app/api/index.ts</span><br><span class="line"> 11:1  warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console</span><br><span class="line"> ✖ 1 problem (0 errors, 1 warning)</span><br></pre></td></tr></table></figure>
+<p>这个报警是指有console.log语句，后续我们会移除这个语句，当前报警是正常的。</p>
 </li>
 </ul>
 <blockquote>
