@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-20T01:15:12.070Z</updated>
+  <updated>2025-02-21T05:23:45.003Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(4) 启用Zod/代码重组/文档生成</title>
+    <link href="http://yunminitools.cn/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/"/>
+    <id>http://yunminitools.cn/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/</id>
+    <published>2025-02-21T05:23:03.000Z</published>
+    <updated>2025-02-21T05:23:45.003Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;启用Zod&quot;&gt;启用Zod&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://zod.dev/&quot;&gt;Zod&lt;/a&gt; 是一个 TypeScript 优先的模式声明和验证库。我使用术语 “模式” 来广义地指任何数据类型，从简单的 字符串 到复杂的嵌套对象。Zod</summary>
+        
+      
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(3) 日志搭建 - Bearalise</title>
@@ -537,28 +569,6 @@
     
     <summary type="html">&lt;h2 id=&quot;Install-Package&quot;&gt;Install Package&lt;/h2&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i react-papaparse&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npx shadcn&lt;span class=&quot;meta&quot;&gt;@latest&lt;/span&gt; add select&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -18 (Transaction Sheet)</title>
-    <link href="http://yunminitools.cn/2024/10/03/built-finance-dashboard-page-18/"/>
-    <id>http://yunminitools.cn/2024/10/03/built-finance-dashboard-page-18/</id>
-    <published>2024-10-03T09:40:30.000Z</published>
-    <updated>2024-10-03T09:43:08.114Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Add-Transaction-Sheet&quot;&gt;Add Transaction Sheet&lt;/h2&gt;
-&lt;p&gt;Add  &lt;code&gt;features/transactions/components/transaction-form.tsx&lt;/code&gt;&lt;/p&gt;</summary>
     
     
     

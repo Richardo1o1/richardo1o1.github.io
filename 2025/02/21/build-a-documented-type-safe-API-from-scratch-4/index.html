@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>从头开始创建一个自动产生文档/类型安全的现代API(3) 日志搭建 - Bearalise |  Bearalise&#39;s Blog</title>
+      <title>从头开始创建一个自动产生文档/类型安全的现代API(4) 启用Zod/代码重组/文档生成 |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-build-a-documented-type-safe-API-from-scratch-3"
+  id="post-build-a-documented-type-safe-API-from-scratch-4"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -89,7 +89,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  从头开始创建一个自动产生文档/类型安全的现代API(3) 日志搭建 - Bearalise
+  从头开始创建一个自动产生文档/类型安全的现代API(4) 启用Zod/代码重组/文档生成
 </h1>
  
 
@@ -97,8 +97,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/" class="article-date">
-  <time datetime="2025-02-20T01:14:31.000Z" itemprop="datePublished">2025-02-20</time>
+      <a href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" class="article-date">
+  <time datetime="2025-02-21T05:23:03.000Z" itemprop="datePublished">2025-02-21</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">830</span>
+            <span class="post-count">736</span>
         </span>
     </span>
 
@@ -133,49 +133,33 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="搭建日志平台Pino">搭建日志平台Pino</h2>
-<p><a target="_blank" rel="noopener" href="https://getpino.io/">Pino</a> 是一个非常快速且简洁的 Node.js 日志库，其设计宗旨在于提供最小的开销以及高性能的日志记录功能。下面我们来在项目中搭建它。<br>
-安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add hono-pino pino</span><br></pre></td></tr></table></figure>
-<p>代码实现：<br>
-添加文件：<code>middlewares/pino-logger.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; pinoLogger &#125; <span class="keyword">from</span> <span class="string">&#x27;hono-pino&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">pnLogger</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">pinoLogger</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行程序：<code>bun run dev</code><br>
-访问localhost，返回 “Hello Hono”，同时控制台显示：<br>
-<img src="https://image.952005.xyz/2025/02/apidemo4.jpg" alt="apidemo4"></p>
-<span id="more"></span>
-<h2 id="安装pino-pretty">安装pino-pretty</h2>
-<p>可以看到，log的显示格式不大友好，不方便debug，可以安装<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/pino-pretty">pino-pretty</a>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add pino-pretty</span><br></pre></td></tr></table></figure>
-<p>代码实现，修改文件<code>pino-logger.ts</code> :</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; pinoLogger &#125; <span class="keyword">from</span> <span class="string">&#x27;hono-pino&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PinoPretty</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;pino-pretty&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; pino &#125; <span class="keyword">from</span> <span class="string">&#x27;pino&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">pnLogger</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">pinoLogger</span>(&#123;</span><br><span class="line">    <span class="attr">pino</span>: <span class="title function_">pino</span>(<span class="title class_">PinoPretty</span>()),</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行程序：<code>bun run dev</code><br>
-访问localhost，返回 “Hello Hono”，同时控制台显示，可以看出格式已经更新：<br>
-<img src="https://image.952005.xyz/2025/02/apidemo5.jpg" alt="apidemo5"></p>
-<h2 id="定制请求ID">定制请求ID</h2>
-<p>当你查看这些日志时，如果出现问题，你希望请求 ID 是唯一的。你可以看到，默认情况下，这些 ID 只是从 1 开始递增的。所以，如果你在一个无服务器环境中，或者服务器上下线，这些请求 ID 会重置。我们希望这些 ID 是全局唯一的，为此，我们实际上可以传递一些选项给日志记录器。这里有一些 HTTP 选项，其中有一个请求 ID 选项，我们可以传递一个自定义函数。我会在这里使用 crypto API，crypto 是内置于 Web 标准中的，然后我们可以使用 randomUUID。<br>
-修改后的代码：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; pinoLogger &#125; <span class="keyword">from</span> <span class="string">&#x27;hono-pino&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PinoPretty</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;pino-pretty&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; pino &#125; <span class="keyword">from</span> <span class="string">&#x27;pino&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">pnLogger</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">pinoLogger</span>(&#123;</span><br><span class="line">    <span class="attr">pino</span>: <span class="title function_">pino</span>(<span class="title class_">PinoPretty</span>()),</span><br><span class="line">    <span class="attr">http</span>: &#123;</span><br><span class="line">      <span class="attr">reqId</span>: <span class="function">()=&gt;</span> crypto.<span class="title function_">randomUUID</span>(),</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>修改后返回:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reqId: &quot;a1227e0e-c18b-4275-b05f-24f7e3d5be2e&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="主动记录日志">主动记录日志</h2>
-<p>可以看到使用middleware，系统已经可以捕捉系统调用的日志，如果想主动记录日志，可以用以下方式：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">AppBinding</span> &#123;</span><br><span class="line">  <span class="title class_">Variables</span>: &#123;</span><br><span class="line">    <span class="attr">logger</span>: <span class="title class_">PinoLogger</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">OpenAPIHono</span>&lt;<span class="title class_">AppBinding</span>&gt;().<span class="title function_">basePath</span>(<span class="string">&#x27;/api&#x27;</span>);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/error&quot;</span>, <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  c.<span class="title function_">status</span>(<span class="number">422</span>);</span><br><span class="line">  <span class="comment">//add a custom error message to logger</span></span><br><span class="line">  c.<span class="property">var</span>.<span class="property">logger</span>.<span class="title function_">info</span>(<span class="string">&quot;Wow! Log here&quot;</span>);</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;This is an error&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>效果是，会在Console里显示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[22:42:53.749] INFO (11157): Wow! Log here</span><br></pre></td></tr></table></figure>
-<h2 id="根据环境确定输出日志内容和格式">根据环境确定输出日志内容和格式</h2>
-<p>有时我们希望能通过环境参数，控制日志的输出格式，我们可以这样做：<br>
-修改<code>middlewares/pino-logger.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">pnLogger</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">pinoLogger</span>(&#123;</span><br><span class="line">    <span class="attr">pino</span>: <span class="title function_">pino</span>(&#123;</span><br><span class="line">      <span class="attr">level</span>: process.<span class="property">env</span>.<span class="property">LOG_LEVEL</span> || <span class="string">&quot;info&quot;</span></span><br><span class="line">    &#125;, process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&quot;production&quot;</span> ? <span class="attr">undefined</span>:<span class="title class_">PinoPretty</span>()),</span><br><span class="line">    <span class="attr">http</span>: &#123;</span><br><span class="line">      <span class="attr">reqId</span>: <span class="function">()=&gt;</span> crypto.<span class="title function_">randomUUID</span>(),</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这样我们通过判断 LOG_LEVEL 和 NODE_ENV 的值，就可以确定输出日志的等级和格式。</p>
-<h2 id="安装dotenv，支持从-env中读取参数">安装dotenv，支持从.env中读取参数</h2>
-<p>安装dotenv包</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add dotenv dotenv-expand</span><br></pre></td></tr></table></figure>
-<p>修改<code>middlewares/pino-logger.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; expand &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv-expand&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; config &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">expand</span>(<span class="title function_">config</span>());</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+  <h2 id="启用Zod">启用Zod</h2>
+<p><a target="_blank" rel="noopener" href="https://zod.dev/">Zod</a> 是一个 TypeScript 优先的模式声明和验证库。我使用术语 “模式” 来广义地指任何数据类型，从简单的 字符串 到复杂的嵌套对象。Zod 围绕尽可能友好的开发体验而设计。其目的是消除重复的类型声明。使用 Zod，你只需声明 一次 验证器，Zod 就会自动推断出静态 TypeScript 类型。将简单类型组合成复杂的数据结构非常容易。我的理解，它补足了 Typescript 在动态类型检查上的缺陷，让程序可以更稳定的运行，减少因为类型不匹配导致的问题。<br>
+可以用 <code>bun add zod</code> 安装，但实际上我们之前因为依赖，已经安装过了。</p>
+<h2 id="创建Zod-Schema">创建Zod Schema</h2>
+<p>创建文件 <code>utility/env.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; z &#125; <span class="keyword">from</span> <span class="string">&quot;zod&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; expand &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv-expand&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; config &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">expand</span>(<span class="title function_">config</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">EnvSchema</span> = z.<span class="title function_">object</span>(&#123;</span><br><span class="line">    <span class="attr">NODE_ENV</span>: z.<span class="title function_">string</span>().<span class="title function_">default</span>(<span class="string">&quot;development&quot;</span>),</span><br><span class="line">    <span class="attr">PORT</span>: z.<span class="property">coerce</span>.<span class="title function_">number</span>().<span class="title function_">default</span>(<span class="number">9999</span>),</span><br><span class="line">    <span class="attr">LOG_LEVEL</span>: z.<span class="title function_">enum</span>([<span class="string">&quot;fatal&quot;</span>,<span class="string">&quot;error&quot;</span>,<span class="string">&quot;warn&quot;</span>, <span class="string">&quot;info&quot;</span>, <span class="string">&quot;debug&quot;</span>,<span class="string">&quot;trace&quot;</span>]),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> env = z.<span class="property">infer</span>&lt;<span class="keyword">typeof</span> <span class="title class_">EnvSchema</span>&gt;;</span><br><span class="line"><span class="comment">// eslint-disable-next-line ts/no-redeclare</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">data</span>: env, error &#125; = <span class="title class_">EnvSchema</span>.<span class="title function_">safeParse</span>(process.<span class="property">env</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (error) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;❌ Invalid env:&quot;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(error.<span class="title function_">flatten</span>().<span class="property">fieldErrors</span>, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">  process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> env;</span><br></pre></td></tr></table></figure>
+<p>其他代码中用到 <code>process.env.xxx</code> 都改成 <code>env.xxx</code></p>
+<h3 id="测试Zod">测试Zod</h3>
+<p>我们可以测试一下Zod的校验功能，在.env 中注释掉LOG_LEVEL：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NODE_ENV=development</span><br><span class="line">PORT=3001</span><br><span class="line"># LOG_LEVEL=debug</span><br></pre></td></tr></table></figure>
+<p>运行结果Zod会报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">❌ Invalid env:</span><br><span class="line">&#123;</span><br><span class="line">  &quot;LOG_LEVEL&quot;: [</span><br><span class="line">    &quot;Required&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码重组">代码重组</h2>
+<p>将代码分拆到不同文件，降低代码复杂度。</p>
+<h3 id="types-ts">types.ts</h3>
+<p>将定义都放到 <code>utility/types.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">OpenAPIHono</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@hono/zod-openapi&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PinoLogger</span> &#125; <span class="keyword">from</span> <span class="string">&quot;hono-pino&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">AppBinding</span> &#123;</span><br><span class="line">    <span class="title class_">Variables</span>: &#123;</span><br><span class="line">        <span class="attr">logger</span>: <span class="title class_">PinoLogger</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">AppOpenAPI</span> = <span class="title class_">OpenAPIHono</span>&lt;<span class="title class_">AppBinding</span>&gt;;</span><br></pre></td></tr></table></figure>
+<h3 id="create-app-ts">create-app.ts</h3>
+<p>将app定义放到 <code>app/api/[[...route]]/lab/create-app.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">OpenAPIHono</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@hono/zod-openapi&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; notFound, onError &#125; <span class="keyword">from</span> <span class="string">&quot;stoker/middlewares&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;  pnLogger &#125; <span class="keyword">from</span> <span class="string">&quot;@/middlewares/pino-logger&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">AppBinding</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/utility/types&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">createApp</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">OpenAPIHono</span>&lt;<span class="title class_">AppBinding</span>&gt;(&#123;</span><br><span class="line">        <span class="attr">strict</span>: <span class="literal">false</span>,</span><br><span class="line">    &#125;).<span class="title function_">basePath</span>(<span class="string">&#x27;/api&#x27;</span>);</span><br><span class="line">    app.<span class="title function_">use</span>(<span class="title function_">pnLogger</span>());</span><br><span class="line"></span><br><span class="line">    app.<span class="title function_">notFound</span>(notFound);</span><br><span class="line">    app.<span class="title function_">onError</span>(onError);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> app;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="修改-route-ts">修改 route.ts</h3>
+<p>修改 <code>app/api/[[...route]]/route.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; handle &#125; <span class="keyword">from</span> <span class="string">&#x27;hono/vercel&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> createApp <span class="keyword">from</span> <span class="string">&quot;./lab/create-app&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> c.<span class="title function_">text</span>(<span class="string">&quot;Hello Hono&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/error&quot;</span>, <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  c.<span class="title function_">status</span>(<span class="number">422</span>);</span><br><span class="line">  <span class="comment">//add a custom error message to logger</span></span><br><span class="line">  c.<span class="property">var</span>.<span class="property">logger</span>.<span class="title function_">info</span>(<span class="string">&quot;Wow! Log here&quot;</span>);</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;This is an error&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">GET</span> = <span class="title function_">handle</span>(app);</span><br></pre></td></tr></table></figure>
+<p>运行程序：<code>bun run dev</code>，测试一下，结果与之前一致。</p>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(3) 日志搭建 - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(3) 日志搭建 - Bearalise</a></em><br>
+<em>出处：<a href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组&#x2F;文档生成">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组&#x2F;文档生成</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -231,7 +215,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -244,19 +228,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            从头开始创建一个自动产生文档/类型安全的现代API(4) 启用Zod/代码重组/文档生成
-          
-        </div>
-      </a>
     
-    
-      <a href="/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/" class="article-nav-link">
+      <a href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">从头开始创建一个自动产生文档/类型安全的现代API(2) 安装Zod OpenAPI Hono/stoker - Bearalise</div>
+        <div class="article-nav-title">从头开始创建一个自动产生文档/类型安全的现代API(3) 日志搭建 - Bearalise</div>
       </a>
     
   </nav>

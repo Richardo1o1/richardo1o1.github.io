@@ -109,6 +109,89 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-documented-type-safe-API-from-scratch-4"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/"
+    >从头开始创建一个自动产生文档/类型安全的现代API(4) 启用Zod/代码重组/文档生成</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" class="article-date">
+  <time datetime="2025-02-21T05:23:03.000Z" itemprop="datePublished">2025-02-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="启用Zod">启用Zod</h2>
+<p><a target="_blank" rel="noopener" href="https://zod.dev/">Zod</a> 是一个 TypeScript 优先的模式声明和验证库。我使用术语 “模式” 来广义地指任何数据类型，从简单的 字符串 到复杂的嵌套对象。Zod 围绕尽可能友好的开发体验而设计。其目的是消除重复的类型声明。使用 Zod，你只需声明 一次 验证器，Zod 就会自动推断出静态 TypeScript 类型。将简单类型组合成复杂的数据结构非常容易。我的理解，它补足了 Typescript 在动态类型检查上的缺陷，让程序可以更稳定的运行，减少因为类型不匹配导致的问题。<br>
+可以用 <code>bun add zod</code> 安装，但实际上我们之前因为依赖，已经安装过了。</p>
+<h2 id="创建Zod-Schema">创建Zod Schema</h2>
+<p>创建文件 <code>utility/env.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; z &#125; <span class="keyword">from</span> <span class="string">&quot;zod&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; expand &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv-expand&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; config &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">expand</span>(<span class="title function_">config</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">EnvSchema</span> = z.<span class="title function_">object</span>(&#123;</span><br><span class="line">    <span class="attr">NODE_ENV</span>: z.<span class="title function_">string</span>().<span class="title function_">default</span>(<span class="string">&quot;development&quot;</span>),</span><br><span class="line">    <span class="attr">PORT</span>: z.<span class="property">coerce</span>.<span class="title function_">number</span>().<span class="title function_">default</span>(<span class="number">9999</span>),</span><br><span class="line">    <span class="attr">LOG_LEVEL</span>: z.<span class="title function_">enum</span>([<span class="string">&quot;fatal&quot;</span>,<span class="string">&quot;error&quot;</span>,<span class="string">&quot;warn&quot;</span>, <span class="string">&quot;info&quot;</span>, <span class="string">&quot;debug&quot;</span>,<span class="string">&quot;trace&quot;</span>]),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> env = z.<span class="property">infer</span>&lt;<span class="keyword">typeof</span> <span class="title class_">EnvSchema</span>&gt;;</span><br><span class="line"><span class="comment">// eslint-disable-next-line ts/no-redeclare</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">data</span>: env, error &#125; = <span class="title class_">EnvSchema</span>.<span class="title function_">safeParse</span>(process.<span class="property">env</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (error) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;❌ Invalid env:&quot;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(error.<span class="title function_">flatten</span>().<span class="property">fieldErrors</span>, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">  process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> env;</span><br></pre></td></tr></table></figure>
+<p>其他代码中用到 <code>process.env.xxx</code> 都改成 <code>env.xxx</code></p>
+<h3 id="测试Zod">测试Zod</h3>
+<p>我们可以测试一下Zod的校验功能，在.env 中注释掉LOG_LEVEL：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NODE_ENV=development</span><br><span class="line">PORT=3001</span><br><span class="line"># LOG_LEVEL=debug</span><br></pre></td></tr></table></figure>
+<p>运行结果Zod会报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">❌ Invalid env:</span><br><span class="line">&#123;</span><br><span class="line">  &quot;LOG_LEVEL&quot;: [</span><br><span class="line">    &quot;Required&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码重组">代码重组</h2>
+<p>将代码分拆到不同文件，降低代码复杂度。</p>
+<h3 id="types-ts">types.ts</h3>
+<p>将定义都放到 <code>utility/types.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">OpenAPIHono</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@hono/zod-openapi&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PinoLogger</span> &#125; <span class="keyword">from</span> <span class="string">&quot;hono-pino&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">AppBinding</span> &#123;</span><br><span class="line">    <span class="title class_">Variables</span>: &#123;</span><br><span class="line">        <span class="attr">logger</span>: <span class="title class_">PinoLogger</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">AppOpenAPI</span> = <span class="title class_">OpenAPIHono</span>&lt;<span class="title class_">AppBinding</span>&gt;;</span><br></pre></td></tr></table></figure>
+<h3 id="create-app-ts">create-app.ts</h3>
+<p>将app定义放到 <code>app/api/[[...route]]/lab/create-app.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">OpenAPIHono</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@hono/zod-openapi&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; notFound, onError &#125; <span class="keyword">from</span> <span class="string">&quot;stoker/middlewares&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;  pnLogger &#125; <span class="keyword">from</span> <span class="string">&quot;@/middlewares/pino-logger&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">AppBinding</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/utility/types&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">createApp</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">OpenAPIHono</span>&lt;<span class="title class_">AppBinding</span>&gt;(&#123;</span><br><span class="line">        <span class="attr">strict</span>: <span class="literal">false</span>,</span><br><span class="line">    &#125;).<span class="title function_">basePath</span>(<span class="string">&#x27;/api&#x27;</span>);</span><br><span class="line">    app.<span class="title function_">use</span>(<span class="title function_">pnLogger</span>());</span><br><span class="line"></span><br><span class="line">    app.<span class="title function_">notFound</span>(notFound);</span><br><span class="line">    app.<span class="title function_">onError</span>(onError);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> app;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="修改-route-ts">修改 route.ts</h3>
+<p>修改 <code>app/api/[[...route]]/route.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; handle &#125; <span class="keyword">from</span> <span class="string">&#x27;hono/vercel&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> createApp <span class="keyword">from</span> <span class="string">&quot;./lab/create-app&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> c.<span class="title function_">text</span>(<span class="string">&quot;Hello Hono&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/error&quot;</span>, <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  c.<span class="title function_">status</span>(<span class="number">422</span>);</span><br><span class="line">  <span class="comment">//add a custom error message to logger</span></span><br><span class="line">  c.<span class="property">var</span>.<span class="property">logger</span>.<span class="title function_">info</span>(<span class="string">&quot;Wow! Log here&quot;</span>);</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;This is an error&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">GET</span> = <span class="title function_">handle</span>(app);</span><br></pre></td></tr></table></figure>
+<p>运行程序：<code>bun run dev</code>，测试一下，结果与之前一致。</p>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组&#x2F;文档生成">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组&#x2F;文档生成</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-documented-type-safe-API-from-scratch-3"
   class="article article-type-post"
   itemscope
@@ -713,74 +796,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-postgresql-windows-docker-setup"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/11/10/postgresql-windows-docker-setup/"
-    >PostgreSQL 在Windows环境下使用 Docker 安装 - Bearalise</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/11/10/postgresql-windows-docker-setup/" class="article-date">
-  <time datetime="2024-11-10T15:11:33.000Z" itemprop="datePublished">2024-11-10</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>项目需要使用PG, 尝试安装一下</p>
-<h2 id="Create-Volume">Create Volume</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --driver local --opt device=<span class="attr">C</span>:\<span class="number">10.</span><span class="variable constant_">VM</span>\data\pg01 --opt <span class="keyword">type</span>=none --opt o=bind pg01</span><br></pre></td></tr></table></figure>
-<h2 id="Pull-Image">Pull Image</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull postgres</span><br></pre></td></tr></table></figure>
-<h2 id="Start-Container">Start Container</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgsql --privileged -e <span class="variable constant_">POSTGRES_PASSWORD</span>=xxxxx -p <span class="number">15333</span>:<span class="number">5432</span> -v <span class="attr">pg01</span>:<span class="regexp">/var/</span>lib/postgresql/data -d postgres</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="连接数据库，创建用户">连接数据库，创建用户</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create user fintest01 <span class="keyword">with</span> password <span class="string">&#x27;xxxxxx&#x27;</span>;</span><br><span class="line">create database fintest01 <span class="keyword">with</span> owner fintest01; </span><br></pre></td></tr></table></figure>
-<h2 id="切换数据库连接">切换数据库连接</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="attr">postgresql</span>:<span class="comment">//fintest01:fin1234@192.xx.xx.xx:15333/fintest01</span></span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/11/10/postgresql-windows-docker-setup/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/" rel="tag">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
 
     </footer>
   </div>
