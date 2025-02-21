@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-21T05:23:45.003Z</updated>
+  <updated>2025-02-21T05:37:54.451Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API(4) 启用Zod/代码重组/文档生成</title>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(4) 启用Zod/代码重组</title>
     <link href="http://yunminitools.cn/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/"/>
     <id>http://yunminitools.cn/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/</id>
     <published>2025-02-21T05:23:03.000Z</published>
-    <updated>2025-02-21T05:23:45.003Z</updated>
+    <updated>2025-02-21T05:37:54.451Z</updated>
     
     
       
