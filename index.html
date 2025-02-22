@@ -109,6 +109,67 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-documented-type-safe-API-from-scratch-6"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/"
+    >从头开始创建一个自动产生文档/类型安全的现代API(6) 创建子路径</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/" class="article-date">
+  <time datetime="2025-02-22T09:16:10.000Z" itemprop="datePublished">2025-02-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="创建子路径">创建子路径</h2>
+<p>上一篇我们创建了 api/节点，这次我们继续创建子节点，通过在Routes路径下创建子目录和文件实现。<br>
+首先， 添加 <code>app/api/[[...route]]/routes/tasks/tasks.index.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter &#125; <span class="keyword">from</span> <span class="string">&quot;../../lib/create-app&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> handlers <span class="keyword">from</span> <span class="string">&quot;./tasks.handlers&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> routes <span class="keyword">from</span> <span class="string">&quot;./tasks.routes&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>()</span><br><span class="line">  .<span class="title function_">openapi</span>(routes.<span class="property">list</span>, handlers.<span class="property">list</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router;</span><br></pre></td></tr></table></figure>
+<p>这个文件作为索引文件，链接了handler和router两个文件，我们来创建它们。</p> 
+      <a class="article-more-link" href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-documented-type-safe-API-from-scratch-5"
   class="article article-type-post"
   itemscope
@@ -146,37 +207,11 @@ var _hmt = _hmt || [];
 <p>修改 <code>app/api/[[...route]]/route.ts</code>,添加调用:</p>
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> configureOpenAPI <span class="keyword">from</span> <span class="string">&#x27;./lab/configure-openapi&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_">configureOpenAPI</span>(app);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>访问 网址 localhost:3001/api/doc,显示如下：<br>
-<img src="https://image.952005.xyz/2025/02/apidemo6.jpg" alt=""></p>
-<h2 id="添加路径内容">添加路径内容</h2>
-<p>首先改造 <code>app/api/[[...route]]/lib/create-app.ts</code>, 添加 createRouter():</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createRouter</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">OpenAPIHono</span>&lt;<span class="title class_">AppBindings</span>&gt;(&#123;</span><br><span class="line">        <span class="attr">strict</span>: <span class="literal">false</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>添加文件 <code>app/api/[[...route]]/routes/index.route.ts</code>， 定义了对/节点访问的信息，同时定义了相应内容和注释：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRoute &#125; <span class="keyword">from</span> <span class="string">&quot;@hono/zod-openapi&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="title class_">HttpStatusCodes</span> <span class="keyword">from</span> <span class="string">&quot;stoker/http-status-codes&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; jsonContent &#125; <span class="keyword">from</span> <span class="string">&quot;stoker/openapi/helpers&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createMessageObjectSchema &#125; <span class="keyword">from</span> <span class="string">&quot;stoker/openapi/schemas&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createRouter &#125; <span class="keyword">from</span> <span class="string">&quot;../lib/create-app&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>()</span><br><span class="line">  .<span class="title function_">openapi</span>(</span><br><span class="line">    <span class="title function_">createRoute</span>(&#123;</span><br><span class="line">      <span class="attr">tags</span>: [<span class="string">&quot;Index&quot;</span>],</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&quot;get&quot;</span>,</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&quot;/&quot;</span>,</span><br><span class="line">      <span class="attr">responses</span>: &#123;</span><br><span class="line">        [<span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">          <span class="title function_">createMessageObjectSchema</span>(<span class="string">&quot;Tasks API&quot;</span>),</span><br><span class="line">          <span class="string">&quot;OpenAPI Demo API Index&quot;</span>,</span><br><span class="line">        ),</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> c.<span class="title function_">json</span>(&#123;</span><br><span class="line">        <span class="attr">message</span>: <span class="string">&quot;OpenAPI Demo API&quot;</span>,</span><br><span class="line">      &#125;, <span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router;</span><br></pre></td></tr></table></figure>
-<p>同时修改 <code>app/api/[[...route]]/route.ts</code>,添加路径：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; handle &#125; <span class="keyword">from</span> <span class="string">&#x27;hono/vercel&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> createApp <span class="keyword">from</span> <span class="string">&quot;./lib/create-app&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> configureOpenAPI <span class="keyword">from</span> <span class="string">&#x27;./lib/configure-openapi&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> index <span class="keyword">from</span> <span class="string">&quot;./routes/index.route&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_">configureOpenAPI</span>(app);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  index,</span><br><span class="line">] <span class="keyword">as</span> <span class="keyword">const</span>;</span><br><span class="line"></span><br><span class="line">routes.<span class="title function_">forEach</span>(<span class="function">(<span class="params">route</span>) =&gt;</span> &#123;</span><br><span class="line">  app.<span class="title function_">route</span>(<span class="string">&quot;/&quot;</span>, route);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">GET</span> = <span class="title function_">handle</span>(app);</span><br></pre></td></tr></table></figure>
-<p>这时我们访问 localhost:3001/api/doc ,显示如下：<br>
-<img src="https://image.952005.xyz/2025/02/apidemo7.jpg" alt=""></p>
-<h2 id="让API文档显示更友好">让API文档显示更友好</h2>
-<p>以上显示还不够友好，我们来安装一个工具：<a target="_blank" rel="noopener" href="https://scalar.com/">scalar</a> 是一个功能强大、易于使用的API客户端和文档生成工具，适用于各种规模的API项目，支持多种编程语言和平台。</p>
-<h3 id="安装scalar">安装scalar</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add @scalar/nextjs-api-reference</span><br></pre></td></tr></table></figure>
-<h3 id="添加页面">添加页面</h3>
-<p>添加文件 <code>app/reference/route.js</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ApiReference</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@scalar/nextjs-api-reference&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">  <span class="attr">spec</span>: &#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;/api/doc&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">GET</span> = <span class="title class_">ApiReference</span>(config);</span><br></pre></td></tr></table></figure>
-<p>这时我们访问 localhost:3001/reference ,显示如下：<br>
-<img src="https://image.952005.xyz/2025/02/apidemo8.jpg" alt=""></p>
-<h2 id="切换主题和布局">切换主题和布局</h2>
-<p>还可以根据喜好切换主题和布局，修改文件 <code>app/reference/route.js</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ApiReference</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@scalar/nextjs-api-reference&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">  <span class="attr">theme</span>: <span class="string">&quot;kepler&quot;</span>,</span><br><span class="line">  <span class="attr">layout</span>: <span class="string">&quot;classic&quot;</span>,</span><br><span class="line">  <span class="attr">defaultHttpClient</span>: &#123;</span><br><span class="line">    <span class="attr">targetKey</span>: <span class="string">&quot;js&quot;</span>,</span><br><span class="line">    <span class="attr">clientKey</span>: <span class="string">&quot;fetch&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">spec</span>: &#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;/api/doc&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">GET</span> = <span class="title class_">ApiReference</span>(config);</span><br></pre></td></tr></table></figure>
-<p>以下是效果：<br>
-<img src="https://image.952005.xyz/2025/02/apidemo9.jpg" alt=""></p>
-<blockquote>
-<p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成</a></em><br>
-<em>版权：本文版权归作者所有</em><br>
-<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
-</blockquote>
- 
+<img src="https://image.952005.xyz/2025/02/apidemo6.jpg" alt=""></p> 
+      <a class="article-more-link" href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/"
+        >More...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -719,79 +754,6 @@ var _hmt = _hmt || [];
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a target="_blank" rel="noopener" href="https://blog.952005.xyz/2024/11/22/how-to-use-component-to-double-confirm/">https://blog.952005.xyz/2024/11/22/how-to-use-component-to-double-confirm/</a></em><br>
-<em>版权：本文版权归作者所有</em><br>
-<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
-</blockquote>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/" rel="tag">前端代码</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-how-to-customize-upload-button"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/11/21/how-to-customize-upload-button/"
-    >如何修改HTML默认上传按钮组件样式 - Bearalis</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/11/21/how-to-customize-upload-button/" class="article-date">
-  <time datetime="2024-11-21T12:25:41.000Z" itemprop="datePublished">2024-11-21</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>系统自带的上传按钮有点丑，并且大的样式无法修改，想了个方法用Tailwind的按钮包装了系统自带的按钮，实现了样式的统一</p>
-<h2 id="解决方案">解决方案</h2>
-<p>建立Uploadbutton 组件：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">ChangeEvent</span>,useRef &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/ui/button&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">TreeDataItem</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/lib/utils&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Question</span> &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Option</span> &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Props</span> = &#123;</span><br><span class="line">  <span class="attr">disabled</span>: <span class="built_in">boolean</span>;</span><br><span class="line">  <span class="attr">onUpload</span>: <span class="function">(<span class="params"> result: <span class="built_in">any</span> </span>) =&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">UploadButton</span> = (<span class="params"> &#123; disabled, onUpload &#125;: Props </span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> fileInputRef = useRef&lt;<span class="title class_">HTMLInputElement</span> | <span class="literal">null</span>&gt;(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleButtonClick</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (fileInputRef.<span class="property">current</span>) &#123;</span><br><span class="line">      fileInputRef.<span class="property">current</span>.<span class="title function_">click</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> parseQuestions = (<span class="attr">content</span>: <span class="built_in">string</span>): &#123; <span class="attr">questions</span>: <span class="title class_">Question</span>[] &#125; =&gt; &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> generateTreeData = ( <span class="attr">questions</span>:  <span class="title class_">Question</span>[]) : &#123; <span class="attr">data</span>: <span class="title class_">TreeDataItem</span>[] &#125; =&gt; &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleFileChange</span> = <span class="keyword">async</span> (<span class="params">e: ChangeEvent&lt;HTMLInputElement&gt;</span>) =&gt; &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> file = e.<span class="property">target</span>.<span class="property">files</span>?.[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span> (!file) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> content = <span class="keyword">await</span> file.<span class="title function_">text</span>();</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">const</span> &#123; questions &#125; = <span class="title function_">parseQuestions</span>(content);</span><br><span class="line">      <span class="keyword">const</span> &#123; data &#125; = <span class="title function_">generateTreeData</span>(questions);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> results = &#123;</span><br><span class="line">        <span class="attr">data</span>: data,</span><br><span class="line">        <span class="attr">jsondata</span>: questions</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">      <span class="title function_">onUpload</span>( results );</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error processing file:&#x27;</span>, error);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;w-full lg:w-auto&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">type</span>=<span class="string">&quot;file&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">ref</span>=<span class="string">&#123;fileInputRef&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">accept</span>=<span class="string">&quot;.txt&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onChange</span>=<span class="string">&#123;handleFileChange&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">className</span>=<span class="string">&quot;hidden&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">disabled</span>=<span class="string">&#123;disabled&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;handleButtonClick&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">size</span>=<span class="string">&quot;sm&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">className</span>=<span class="string">&quot;w-full lg:w-auto&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &gt;</span></span></span><br><span class="line"><span class="language-xml">        Import TXT</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">UploadButton</span>;</span><br></pre></td></tr></table></figure>
-<p>分解来说，</p>
-<ol>
-<li>定义组件，并定义onUpload 函数作为组件参数</li>
-<li>定义 fileInputRef ，绑定给原始上传控件</li>
-<li>再定义 handleButtonClick 函数，函数里调用上传控件的Click方法</li>
-<li>定义Button控件，将点击事件绑定给handleButtonClick</li>
-<li>定义handleFileChange函数，绑定原始上传控件的onChange事件</li>
-<li>在handleFileChange函数，用 await file.text() 得到文件内容，并处理加工，把结果通过onUpload 函数，传输给外部调用者</li>
-</ol>
-<blockquote>
-<p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2024/11/21/how-to-customize-upload-button/" title="如何修改HTML默认上传按钮组件样式 - Bearalis">如何修改HTML默认上传按钮组件样式 - Bearalis</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>

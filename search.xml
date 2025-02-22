@@ -13719,6 +13719,7 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> configureOpenAPI <span class="keyword">from</span> <span class="string">&#x27;./lab/configure-openapi&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_">configureOpenAPI</span>(app);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>访问 网址 localhost:3001/api/doc,显示如下：<br>
 <img src="https://image.952005.xyz/2025/02/apidemo6.jpg" alt=""></p>
+<span id="more"></span>
 <h2 id="添加路径内容">添加路径内容</h2>
 <p>首先改造 <code>app/api/[[...route]]/lib/create-app.ts</code>, 添加 createRouter():</p>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createRouter</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">OpenAPIHono</span>&lt;<span class="title class_">AppBindings</span>&gt;(&#123;</span><br><span class="line">        <span class="attr">strict</span>: <span class="literal">false</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
@@ -13745,6 +13746,47 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(6) 创建子路径</title>
+    <url>/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/</url>
+    <content><![CDATA[<h2 id="创建子路径">创建子路径</h2>
+<p>上一篇我们创建了 api/节点，这次我们继续创建子节点，通过在Routes路径下创建子目录和文件实现。<br>
+首先， 添加 <code>app/api/[[...route]]/routes/tasks/tasks.index.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter &#125; <span class="keyword">from</span> <span class="string">&quot;../../lib/create-app&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> handlers <span class="keyword">from</span> <span class="string">&quot;./tasks.handlers&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> routes <span class="keyword">from</span> <span class="string">&quot;./tasks.routes&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>()</span><br><span class="line">  .<span class="title function_">openapi</span>(routes.<span class="property">list</span>, handlers.<span class="property">list</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router;</span><br></pre></td></tr></table></figure>
+<p>这个文件作为索引文件，链接了handler和router两个文件，我们来创建它们。</p>
+<span id="more"></span>
+<p>创建 <code>app/api/[[...route]]/routes/tasks/tasks.routes.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRoute, z &#125; <span class="keyword">from</span> <span class="string">&quot;@hono/zod-openapi&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="title class_">HttpStatusCodes</span> <span class="keyword">from</span> <span class="string">&quot;stoker/http-status-codes&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; jsonContent &#125; <span class="keyword">from</span> <span class="string">&quot;stoker/openapi/helpers&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> list = <span class="title function_">createRoute</span>(&#123;</span><br><span class="line">  <span class="attr">tags</span>: [<span class="string">&quot;Tasks&quot;</span>],</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&quot;/tasks&quot;</span>,</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&quot;get&quot;</span>,</span><br><span class="line">  <span class="attr">responses</span>: &#123;</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      z.<span class="title function_">array</span>(z.<span class="title function_">object</span>(&#123;</span><br><span class="line">        <span class="attr">name</span>: z.<span class="title function_">string</span>(),</span><br><span class="line">        <span class="attr">done</span>: z.<span class="title function_">boolean</span>(),</span><br><span class="line">      &#125;)),</span><br><span class="line">      <span class="string">&quot;List of tasks&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">ListRoute</span> = <span class="keyword">typeof</span> list;</span><br></pre></td></tr></table></figure>
+<p>这个文件定义了task子路径下的路径及描述。</p>
+<p>创建 <code>app/api/[[...route]]/routes/tasks/tasks.handlers.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppRouteHandler</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/utility/types&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">ListRoute</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./tasks.routes&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="attr">list</span>: <span class="title class_">AppRouteHandler</span>&lt;<span class="title class_">ListRoute</span>&gt; = <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> c.<span class="title function_">json</span>([</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;Learn OpenAPI&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;Learn Hono&quot;</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  ]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>同时，用到了一个新的类型，修改 <code>utility/types.ts</code>：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">OpenAPIHono</span>,<span class="title class_">RouteHandler</span>,<span class="title class_">RouteConfig</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@hono/zod-openapi&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PinoLogger</span> &#125; <span class="keyword">from</span> <span class="string">&quot;hono-pino&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">AppBindings</span> &#123;</span><br><span class="line">    <span class="title class_">Variables</span>: &#123;</span><br><span class="line">        <span class="attr">logger</span>: <span class="title class_">PinoLogger</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">AppOpenAPI</span> = <span class="title class_">OpenAPIHono</span>&lt;<span class="title class_">AppBindings</span>&gt;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">AppRouteHandler</span>&lt;R <span class="keyword">extends</span> <span class="title class_">RouteConfig</span>&gt; = <span class="title class_">RouteHandler</span>&lt;R, <span class="title class_">AppBindings</span>&gt;;</span><br></pre></td></tr></table></figure>
+<h2 id="用-scalar-测试-API">用 scalar 测试 API</h2>
+<p>访问 localhost:3000/reference, 可以看到新定义的子路径：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo10.jpg" alt=""></p>
+<p>点击 Test Request，可以显示接口的测试界面：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo11.jpg" alt=""></p>
+<p>点击 Send，可以看到执行结果：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo12.jpg" alt=""></p>
+<p>可以看到执行结果就是我们预先定义在Handler代码中的。</p>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(6) 创建子路径">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(6) 创建子路径</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
