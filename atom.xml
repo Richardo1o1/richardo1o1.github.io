@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-22T09:17:51.094Z</updated>
+  <updated>2025-02-23T04:18:18.997Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(7) 读数据库</title>
+    <link href="http://yunminitools.cn/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/"/>
+    <id>http://yunminitools.cn/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/</id>
+    <published>2025-02-23T04:17:45.000Z</published>
+    <updated>2025-02-23T04:18:18.997Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;之前API的实现只是简单的返回固定值，本章开始实行数据库读写。&lt;/p&gt;
+&lt;h2 id=&quot;安装Drizzle&quot;&gt;安装Drizzle&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://orm.drizzle.team/docs/overview&quot;&gt;Drizzle ORM&lt;/a&gt; 是用于 SQL 数据库的 TypeScript ORM，在设计时考虑到了最大的类型安全性。它带有用于自动生成 SQL 迁移的 drizzle-kit CLI 。Drizzle ORM 是一个库，而不是一个框架，它的主要哲学是 “如果你知道 SQL，你就知道 Drizzle ORM”，因此设计的时候尽可能遵循类似 SQL 的语法，强类型化并在编译时就会失败，而不是在运行时。&lt;br&gt;
+安装 Drizzle, Drizzle 的安装根据支持的数据库，命令略有不同，这里我们采用 SQLite ， 命令如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun add drizzle-orm @libsql/client dotenv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bun add -D drizzle-kit tsx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bun add drizzle-zod&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注：drizzle-zod 是Zod搭配drizzle的一个包，后面会用到。&lt;/p&gt;
+&lt;h2 id=&quot;定义环境变量&quot;&gt;定义环境变量&lt;/h2&gt;
+&lt;p&gt;修改 &lt;code&gt;utility/env.ts&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; z &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;zod&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; expand &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;dotenv-expand&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; config &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;dotenv&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;expand&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;config&lt;/span&gt;());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt; = z.&lt;span class=&quot;title function_&quot;&gt;object&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;NODE_ENV&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;string&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;development&amp;quot;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;PORT&lt;/span&gt;: z.&lt;span class=&quot;property&quot;&gt;coerce&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;number&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;9999&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;LOG_LEVEL&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;enum&lt;/span&gt;([&lt;span class=&quot;string&quot;&gt;&amp;quot;fatal&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;error&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;warn&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;info&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;debug&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;trace&amp;quot;&lt;/span&gt;]),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;DATABASE_URL&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;string&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;url&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;DATABASE_AUTH_TOKEN&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;string&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;optional&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; env = z.&lt;span class=&quot;property&quot;&gt;infer&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt;&amp;gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// eslint-disable-next-line ts/no-redeclare&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; parsedEnv = &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;safeParse&lt;/span&gt;(process.&lt;span class=&quot;property&quot;&gt;env&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ( parsedEnv.&lt;span class=&quot;property&quot;&gt;success&lt;/span&gt; === &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;❌ Invalid env:&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;error&lt;/span&gt;(&lt;span class=&quot;title class_&quot;&gt;JSON&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;stringify&lt;/span&gt;(parsedEnv.&lt;span class=&quot;property&quot;&gt;error&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;flatten&lt;/span&gt;().&lt;span class=&quot;property&quot;&gt;fieldErrors&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  process.&lt;span class=&quot;title function_&quot;&gt;exit&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; env = parsedEnv.&lt;span class=&quot;property&quot;&gt;data&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; env;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(6) 创建子路径</title>
@@ -560,29 +593,6 @@
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
         
       
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -21 (Summary API)</title>
-    <link href="http://yunminitools.cn/2024/10/06/built-finance-dashboard-page-21/"/>
-    <id>http://yunminitools.cn/2024/10/06/built-finance-dashboard-page-21/</id>
-    <published>2024-10-06T07:05:10.000Z</published>
-    <updated>2024-10-06T07:06:24.381Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Modify-API-Route&quot;&gt;Modify API Route&lt;/h2&gt;
-&lt;p&gt;Modify  &lt;code&gt;app/api/[[...route]]/route.ts&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; summary &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;./summary&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; routes = app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;span class=&quot;title function_&quot;&gt;route&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;/accounts&amp;quot;&lt;/span&gt;, accounts)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;span class=&quot;title function_&quot;&gt;route&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;/categories&amp;quot;&lt;/span&gt;, categories)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;span class=&quot;title function_&quot;&gt;route&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;/transactions&amp;quot;&lt;/span&gt;, transactions)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;span class=&quot;title function_&quot;&gt;route&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;/summary&amp;quot;&lt;/span&gt;, summary);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
