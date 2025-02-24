@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-23T04:18:18.997Z</updated>
+  <updated>2025-02-24T06:37:12.866Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何设置 Drizzle Schema 让 SQLite 支持自动填入创建时间</title>
+    <link href="http://yunminitools.cn/2025/02/24/how-to-set-drizzle-schema-support-create-time-for-SQLite/"/>
+    <id>http://yunminitools.cn/2025/02/24/how-to-set-drizzle-schema-support-create-time-for-SQLite/</id>
+    <published>2025-02-24T06:36:39.000Z</published>
+    <updated>2025-02-24T06:37:12.866Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;之前用下面的Schema创建了表：&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; tasks = &lt;span class=&quot;title function_&quot;&gt;sqliteTable&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;tasks&amp;quot;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;integer&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;, &amp;#123; &lt;span class=&quot;attr&quot;&gt;mode&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;number&amp;quot;&lt;/span&gt; &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;primaryKey&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;autoIncrement&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; &amp;#125;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;notNull&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;done&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;integer&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;done&amp;quot;&lt;/span&gt;, &amp;#123; &lt;span class=&quot;attr&quot;&gt;mode&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;boolean&amp;quot;&lt;/span&gt; &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;notNull&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;createdAt&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;integer&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;created_at&amp;quot;&lt;/span&gt;, &amp;#123; &lt;span class=&quot;attr&quot;&gt;mode&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt; &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .$defaultFn(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;()),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;updatedAt&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;integer&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;updated_at&amp;quot;&lt;/span&gt;, &amp;#123; &lt;span class=&quot;attr&quot;&gt;mode&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt; &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .$defaultFn(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .$onUpdate(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;()),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;发现这个创建时间和更新时间并没有生效，研究了一下，这样写可能有问题。&lt;/p&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;查询了一下，修改为下面的语句：&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; sql &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;drizzle-orm&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; integer, sqliteTable, text &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;drizzle-orm/sqlite-core&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; createSelectSchema &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;drizzle-zod&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; tasks = &lt;span class=&quot;title function_&quot;&gt;sqliteTable&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;tasks&amp;quot;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;integer&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;, &amp;#123; &lt;span class=&quot;attr&quot;&gt;mode&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;number&amp;quot;&lt;/span&gt; &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;primaryKey&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;autoIncrement&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; &amp;#125;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;notNull&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;done&lt;/span&gt;: &lt;span class=&quot;title function_&quot;&gt;integer&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;done&amp;quot;&lt;/span&gt;, &amp;#123; &lt;span class=&quot;attr&quot;&gt;mode&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;boolean&amp;quot;&lt;/span&gt; &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;notNull&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;createdAt&lt;/span&gt;:  &lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;created_at&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;notNull&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(sql&lt;span class=&quot;string&quot;&gt;`(current_timestamp)`&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;updatedAt&lt;/span&gt;:&lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;updated_at&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;notNull&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(sql&lt;span class=&quot;string&quot;&gt;`(current_timestamp)`&lt;/span&gt;)   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; selectTasksSchema = &lt;span class=&quot;title function_&quot;&gt;createSelectSchema&lt;/span&gt;(tasks);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;updateAt字段无效，需要更新时主动更新。&lt;/p&gt;
+&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;修改完后，利用 drizzle-kit 重新生成数据库：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun drizzle-kit generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bun drizzle-kit push&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;试了一下，插入数据后自动产生了时间：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1|Hello Hone|0|2025-02-24 06:13:34|2025-02-24 06:13:34&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Drizzle" scheme="http://yunminitools.cn/tags/Drizzle/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(7) 读数据库</title>
@@ -564,35 +595,6 @@
     
     <summary type="html">&lt;h2 id=&quot;Install-Package&quot;&gt;Install Package&lt;/h2&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i react-icons&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm i react-countup&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="DemoProjects" scheme="http://yunminitools.cn/tags/DemoProjects/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform -22 (Seed Function)</title>
-    <link href="http://yunminitools.cn/2024/10/07/built-finance-dashboard-page-22/"/>
-    <id>http://yunminitools.cn/2024/10/07/built-finance-dashboard-page-22/</id>
-    <published>2024-10-07T15:25:21.000Z</published>
-    <updated>2024-10-07T15:26:56.778Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Add-Seed-Function&quot;&gt;Add Seed Function&lt;/h2&gt;
-&lt;p&gt;Add  &lt;code&gt;scripts/seed.ts&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
     
     
     
