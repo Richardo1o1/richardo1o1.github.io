@@ -13894,4 +13894,57 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Drizzle</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(8) 创建数据</title>
+    <url>/2025/02/24/build-a-documented-type-safe-API-from-scratch-8/</url>
+    <content><![CDATA[<p>下面我们给API添加创建功能。</p>
+<h2 id="添加路径">添加路径</h2>
+<p>修改文件 <code>app/api/[[...route]]/routes/tasks/tasks.routes.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> create = <span class="title function_">createRoute</span>(&#123;</span><br><span class="line">  <span class="attr">tags</span>: [<span class="string">&quot;Tasks&quot;</span>],</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&quot;/tasks&quot;</span>,</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&quot;post&quot;</span>,</span><br><span class="line">  <span class="attr">request</span>: &#123;</span><br><span class="line">    <span class="attr">body</span>: <span class="title function_">jsonContentRequired</span>(</span><br><span class="line">      insertTasksSchema,</span><br><span class="line">      <span class="string">&quot;The task to create&quot;</span>,</span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">responses</span>: &#123;</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      selectTasksSchema,</span><br><span class="line">      <span class="string">&quot;The created task&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">CreateRoute</span> = <span class="keyword">typeof</span> create;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>添加类型定义，修改<code>db/schema.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; createInsertSchema, createSelectSchema &#125; <span class="keyword">from</span> <span class="string">&quot;drizzle-zod&quot;</span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> insertTasksSchema = <span class="title function_">createInsertSchema</span>(tasks)</span><br><span class="line">  .required(&#123;</span><br><span class="line">    <span class="attr">done</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">omit</span>(&#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">createdAt</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">updatedAt</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>添加POST方法，修改<code>app/api/[[...route]]/route.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">POST</span> = <span class="title function_">handle</span>(app);</span><br></pre></td></tr></table></figure>
+<h2 id="添加实现">添加实现</h2>
+<p>修改文件 <code>app/api/[[...route]]/routes/tasks/tasks.handlers.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; tasks &#125; <span class="keyword">from</span> <span class="string">&quot;@/db/schema&quot;</span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="attr">create</span>: <span class="title class_">AppRouteHandler</span>&lt;<span class="title class_">CreateRoute</span>&gt; = <span class="keyword">async</span> (c) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> task = c.<span class="property">req</span>.<span class="title function_">valid</span>(<span class="string">&quot;json&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [inserted] = <span class="keyword">await</span> db.<span class="title function_">insert</span>(tasks).<span class="title function_">values</span>(task).<span class="title function_">returning</span>();</span><br><span class="line">  <span class="keyword">return</span> c.<span class="title function_">json</span>(inserted);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="添加index引用">添加index引用</h2>
+<p>修改文件 <code>app/api/[[...route]]/routes/tasks/tasks.index.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>()</span><br><span class="line">  .<span class="title function_">openapi</span>(routes.<span class="property">list</span>, handlers.<span class="property">list</span>)</span><br><span class="line">  .<span class="title function_">openapi</span>(routes.<span class="property">create</span>, handlers.<span class="property">create</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="用-scalar-测试-API">用 scalar 测试 API</h2>
+<p>访问 localhost:3000/reference, 可以看到API已更新：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo19.jpg" alt=""></p>
+<p>点击测试，可以看到API运行成功：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo18.jpg" alt=""></p>
+<p>同时我们也可以运行get，测试一下是否成功插入：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo20.jpg" alt=""></p>
+<p>如果我们接口少传一个参数，接口会直接报错，效果如下：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo21.jpg" alt=""></p>
+<h2 id="添加报错状态">添加报错状态</h2>
+<p>我们刚才测试了报错，发现报错代码并没有显示在文档中，现在我们添加一下。<br>
+修改<code>app/api/[[...route]]/routes/tasks/tasks.routes.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">  <span class="attr">responses</span>: &#123;</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      selectTasksSchema,</span><br><span class="line">      <span class="string">&quot;The created task&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">UNPROCESSABLE_ENTITY</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      <span class="title function_">createErrorSchema</span>(insertTasksSchema),</span><br><span class="line">      <span class="string">&quot;The validation error&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">  &#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>由于添加了一个返回值，也需要修改一下实现，修改<code>app/api/[[...route]]/routes/tasks/tasks.handlers.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="title class_">HttpStatusCodes</span> <span class="keyword">from</span> <span class="string">&quot;stoker/http-status-codes&quot;</span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> c.<span class="title function_">json</span>(inserted, <span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>这样，再查看文档，就可以看到返回错误返回值：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo22.jpg" alt=""></p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/02/24/build-a-documented-type-safe-API-from-scratch-8/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(8) 创建数据">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(8) 创建数据</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+      </tags>
+  </entry>
 </search>
