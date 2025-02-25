@@ -109,6 +109,78 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-documented-type-safe-API-from-scratch-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/"
+    >从头开始创建一个自动产生文档/类型安全的现代API(1) 创建项目/Eslint设置 - Bearalise</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/" class="article-date">
+  <time datetime="2025-02-18T15:19:19.000Z" itemprop="datePublished">2025-02-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>你是否曾经遇到过这样的 API 文档，其中每一个端点(endpoint)都被详细记录，你可以深入了解所有可能的响应类型，并查看它们的示例。同时，它们还包含模式（schemas），你甚至可以进入并测试这些特定的端点，实际运行并访问 API，设置请求头和其他细节。从这个文档开始，我将从头开始构建一个使用 Hono 的 API，并使用 OpenAPI 规范来全面记录我们的 API。因此，如果你访问 /doc，你会看到每一个端点都被记录在案。OpenAPI 实际上是一个工具生态系统，可以利用这些文档创建互动文档，或者生成客户端库及其他类似的东西。我一直在使用 Hono 构建应用程序，特别是我一直在使用他们的中间件 Zod OpenAPI，该中间件基本上允许你使用 Zod 来定义所有的模式（schemas），然后定义你的路由合约，并使用这些路由合约在定义请求处理程序时获得类型安全。所有这些最终都被转化为完全互动的文档。</p>
+<h2 id="技术实现简介">技术实现简介</h2>
+<p>首先，我会使用NextJS和Hono搭建后台API。<a target="_blank" rel="noopener" href="https://nextjscn.org/docs/">NextJS</a>不用多介绍，它是一个用于构建全栈Web 应用的React 框架。<a target="_blank" rel="noopener" href="https://hono.dev/docs/">Hono</a>是一个小巧、简单且超快速的 Web 框架，构建在 Web 标准之上，号称可以在任何 JavaScript 运行时环境中运行，包括 Cloudflare Workers、Fastly Compute、Deno、Bun、Vercel、Netlify、AWS Lambda、Lambda@Edge 和 Node.js。</p>
+<ul>
+<li>
+<p>在设置 OpenAPI 时，我们也可以以一种可扩展的方式进行。例如，我们可以在一个地方设置所有的路由定义，然后在另一个地方设置所有的处理程序，但一切依然是类型安全的。我们实际上会导出这些路由定义的类型，并且可以使用它们来定义我们的请求处理程序。这样，我们可以在一个单独的文件中定义我们的处理程序，但仍然具有完整的类型安全性，这意味着我们准确知道对于这个特定的方法基于这个特定的路由我们应该响应什么。</p>
+</li>
+<li>
+<p>除此之外，Hono 使得测试这些端点变得非常容易，因为他们有一个内置的测试客户端，本质上类似于 Hono RPC 客户端，可以在客户端代码中使用，并具有完全的类型安全性，但它也是一个非常好的测试体验。</p>
+</li>
+<li>
+<p>此外，我们可以将其与 Drizzle 连接起来，Drizzle Zod 基本上允许我们定义我们的表，然后使用这些表定义来定义我们的 Zod 模式（schemas），然后我们可以直接在我们的 OpenAPI 定义中使用这些模式。因此，我们基本上有一个单一的事实来源，我们可以定义我们的表，得到我们的模式，然后在我们的路由定义中使用这些模式，从那时起，当我们定义处理程序时，所有类型都会流转。</p>
+</li>
+</ul>
+<p>其次，我使用了一些现成的库 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/stoker">stoker</a> 和样板库 <a target="_blank" rel="noopener" href="https://github.com/w3cj/hono-open-api-starter">hono-open-api-starter</a> 来减少代码量，当然你也可以直接自己实现。</p> 
+      <a class="article-more-link" href="/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-openapi-introduction"
   class="article article-type-post"
   itemscope
@@ -690,65 +762,6 @@ var _hmt = _hmt || [];
 <p>Add <code>components/filters.tsx</code></p>
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AccountFilter</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/account-filter&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DateFilter</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/date-filter&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">Filters</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-col lg:flex-row items-center gap-y-2 lg:gap-y-0 lg:gap-x-2&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AccountFilter</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">DateFilter</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
       <a class="article-more-link" href="/2024/10/18/built-finance-dashboard-page-26/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DemoProjects/" rel="tag">DemoProjects</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-built-finance-dashboard-page-25"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/10/14/built-finance-dashboard-page-25/"
-    >Build a Finance SaaS Platform -25 (Spending Pie)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/10/14/built-finance-dashboard-page-25/" class="article-date">
-  <time datetime="2024-10-14T14:07:16.000Z" itemprop="datePublished">2024-10-14</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Add-Spending-Pie-Component">Add Spending Pie Component</h2>
-<p>Add <code>components/spending-pie.tsx</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FileSearch</span>, <span class="title class_">Loader2</span>, <span class="title class_">PieChart</span>, <span class="title class_">Radar</span>, <span class="title class_">Target</span>  &#125; <span class="keyword">from</span> <span class="string">&quot;lucide-react&quot;</span>;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">Select</span>,</span><br><span class="line">  <span class="title class_">SelectContent</span>,</span><br><span class="line">  <span class="title class_">SelectItem</span>,</span><br><span class="line">  <span class="title class_">SelectTrigger</span>,</span><br><span class="line">  <span class="title class_">SelectValue</span>,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/select&quot;</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">Card</span>,</span><br><span class="line">  <span class="title class_">CardContent</span>,</span><br><span class="line">  <span class="title class_">CardHeader</span>,</span><br><span class="line">  <span class="title class_">CardTitle</span>,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/card&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PieVariant</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/pie-variant&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">RadialVariant</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/radial-variant&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">RadarVariant</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./radar-variant&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Skeleton</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./ui/skeleton&quot;</span>;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Props</span> = &#123;</span><br><span class="line">  data?: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">value</span>: <span class="built_in">number</span>;</span><br><span class="line">  &#125;[];</span><br><span class="line">&#125;;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">SpendingPie</span> = (<span class="params"> &#123; data = []&#125; : Props</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [chartType, setChartType] = <span class="title function_">useState</span>(<span class="string">&quot;pie&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">onTypeChange</span> = (<span class="params"> <span class="keyword">type</span>: <span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> Add paywall</span></span><br><span class="line">    <span class="title function_">setChartType</span>(<span class="keyword">type</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Card</span> <span class="attr">className</span>=<span class="string">&quot;border-none drop-shadow-sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">CardHeader</span> <span class="attr">className</span>=<span class="string">&quot;flex space-y-2 lg:space-y-0 lg:flex-row lg:items-center justify-between&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CardTitle</span> <span class="attr">className</span>=<span class="string">&quot;text-xl line-clamp-1&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          Categories</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">CardTitle</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Select</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">defaultValue</span>=<span class="string">&#123;chartType&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onValueChange</span>=<span class="string">&#123;onTypeChange&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">SelectTrigger</span> <span class="attr">className</span>=<span class="string">&quot;lg:w-auto h-9 rounded-md px-3&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">SelectValue</span> <span class="attr">placeholder</span>=<span class="string">&quot;Chart type&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">SelectTrigger</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">SelectContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">SelectItem</span> <span class="attr">value</span>=<span class="string">&quot;pie&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex items-center&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">PieChart</span> <span class="attr">className</span>=<span class="string">&quot;size-4 mr-2 shrink-0&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;line-clamp-1&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                  Pie chart</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">SelectItem</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">SelectItem</span> <span class="attr">value</span>=<span class="string">&quot;radar&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex items-center&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Radar</span> <span class="attr">className</span>=<span class="string">&quot;size-4 mr-2 shrink-0&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;line-clamp-1&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                  Radar chart</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">SelectItem</span>&gt;</span> </span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">SelectItem</span> <span class="attr">value</span>=<span class="string">&quot;radial&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex items-center&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Target</span> <span class="attr">className</span>=<span class="string">&quot;size-4 mr-2 shrink-0&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;line-clamp-1&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                  Radial chart</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">SelectItem</span>&gt;</span>            </span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">SelectContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Select</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">CardHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;data.length === 0 ? (</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;felx flex-col gap-y-4 items-center justify-center h-[350px] w-full&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">FileSearch</span> <span class="attr">className</span>=<span class="string">&quot;size-6 text-muted-foreground&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;text-muted-foreground text-sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              No data for this period</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        ) :  (</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123; chartType === &quot;pie&quot; &amp;&amp; <span class="tag">&lt;<span class="name">PieVariant</span> <span class="attr">data</span>=<span class="string">&#123;data&#125;</span> /&gt;</span> &#125;</span></span><br><span class="line"><span class="language-xml">            &#123; chartType === &quot;radar&quot; &amp;&amp; <span class="tag">&lt;<span class="name">RadarVariant</span> <span class="attr">data</span>=<span class="string">&#123;data&#125;</span> /&gt;</span> &#125; </span></span><br><span class="line"><span class="language-xml">            &#123; chartType === &quot;radial&quot; &amp;&amp; <span class="tag">&lt;<span class="name">RadialVariant</span> <span class="attr">data</span>=<span class="string">&#123;data&#125;</span> /&gt;</span> &#125; </span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/&gt;</span></span></span><br><span class="line"><span class="language-xml">        )&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line">    &lt;/<span class="title class_">Card</span>&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">SpendingPieLoading</span> =(<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Card</span> <span class="attr">className</span>=<span class="string">&quot;border-none drop-shadow-sm&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">CardHeader</span> <span class="attr">className</span>=<span class="string">&quot;flex space-y-2 lg:space-y-0 lg:flex-row lg:items-center justify-between&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Skeleton</span> <span class="attr">className</span>=<span class="string">&quot;h-8 w-48&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Skeleton</span> <span class="attr">className</span>=<span class="string">&quot;h-8 lg:w-[120px] w-full&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">CardHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;h-[350px] w-full flex items-center justify-center&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Loader2</span> <span class="attr">className</span>=<span class="string">&quot;h-6 w-6 text-slate-300 animate-spin&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/10/14/built-finance-dashboard-page-25/"
         >More...</a
       >
        
