@@ -13994,7 +13994,7 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
       </tags>
   </entry>
   <entry>
-    <title>如何修改最近一次 commit 的描述</title>
+    <title>如何修改 git 最近一次 commit 的描述</title>
     <url>/2025/02/25/how-to-change-git-commit-description/</url>
     <content><![CDATA[<p>首先，确保你的工作树是干净的（即，所有更改都已经被提交或暂存）。</p>
 <ol>
@@ -14014,7 +14014,7 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <span id="more"></span>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/02/25/how-to-change-git-commit-description/" title="如何修改最近一次 commit 的描述">如何修改最近一次 commit 的描述</a></em><br>
+<em>出处：<a href="/2025/02/25/how-to-change-git-commit-description/" title="如何修改 git 最近一次 commit 的描述">如何修改 git 最近一次 commit 的描述</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>

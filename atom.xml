@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-25T07:18:24.097Z</updated>
+  <updated>2025-02-25T07:21:33.985Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何修改最近一次 commit 的描述</title>
+    <title>如何修改 git 最近一次 commit 的描述</title>
     <link href="http://yunminitools.cn/2025/02/25/how-to-change-git-commit-description/"/>
     <id>http://yunminitools.cn/2025/02/25/how-to-change-git-commit-description/</id>
     <published>2025-02-25T07:17:03.000Z</published>
-    <updated>2025-02-25T07:18:24.097Z</updated>
+    <updated>2025-02-25T07:21:33.985Z</updated>
     
     
     <summary type="html">&lt;p&gt;首先，确保你的工作树是干净的（即，所有更改都已经被提交或暂存）。&lt;/p&gt;
