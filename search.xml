@@ -14026,4 +14026,54 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Github</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(10) 按id修改任务</title>
+    <url>/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/</url>
+    <content><![CDATA[<p>下面我们给 API 添加按id修改任务。</p>
+<h2 id="添加根据-ID-修改任务">添加根据 ID 修改任务</h2>
+<h3 id="添加路径">添加路径</h3>
+<p>添加路径，修改<code>app/api/[[...route]]/routes/tasks/tasks.routes.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; notFoundSchema, <span class="title class_">IdParamsSchema</span>, badRequestSchema &#125; <span class="keyword">from</span> <span class="string">&quot;@/utility/constants&quot;</span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> patch = <span class="title function_">createRoute</span>(&#123;</span><br><span class="line">  <span class="attr">tags</span>: [<span class="string">&quot;Tasks&quot;</span>],</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&quot;/tasks/&#123;id&#125;&quot;</span>,</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&quot;patch&quot;</span>,</span><br><span class="line">  <span class="attr">request</span>: &#123;</span><br><span class="line">    <span class="attr">params</span>: <span class="title class_">IdParamsSchema</span>,</span><br><span class="line">    <span class="attr">body</span>: <span class="title function_">jsonContentRequired</span>(</span><br><span class="line">      patchTasksSchema,</span><br><span class="line">      <span class="string">&quot;The task to be changed&quot;</span>,</span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">responses</span>: &#123;</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      selectTasksSchema,</span><br><span class="line">      <span class="string">&quot;The changed task&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">NOT_FOUND</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      notFoundSchema,</span><br><span class="line">      <span class="string">&quot;The task id was not found&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">BAD_REQUEST</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      badRequestSchema,</span><br><span class="line">      <span class="string">&quot;Update data is empty&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">UNPROCESSABLE_ENTITY</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      <span class="title function_">createErrorSchema</span>(<span class="title class_">IdParamsSchema</span>)</span><br><span class="line">        .<span class="title function_">or</span>(<span class="title function_">createErrorSchema</span>(patchTasksSchema)),</span><br><span class="line">      <span class="string">&quot;The validation errors&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">PatchRoute</span> = <span class="keyword">typeof</span> patch;</span><br></pre></td></tr></table></figure>
+<p>添加类型，添加<code>utility/constants.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> badRequestSchema = <span class="title function_">createMessageObjectSchema</span>(<span class="title class_">HttpStatusPhrases</span>.<span class="property">BAD_REQUEST</span>);</span><br></pre></td></tr></table></figure>
+<p>修改 <code>db/schema.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> patchTasksSchema = insertTasksSchema.<span class="title function_">partial</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="添加实现">添加实现</h3>
+<p>添加实现，修改 <code>app/api/[[...route]]/routes/tasks/tasks.handlers.ts</code> :</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="attr">patch</span>: <span class="title class_">AppRouteHandler</span>&lt;<span class="title class_">PatchRoute</span>&gt; = <span class="keyword">async</span> (c) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; id &#125; = c.<span class="property">req</span>.<span class="title function_">valid</span>(<span class="string">&quot;param&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> updates = c.<span class="property">req</span>.<span class="title function_">valid</span>(<span class="string">&quot;json&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (updates.<span class="property">name</span> === <span class="literal">undefined</span> &amp;&amp; updates.<span class="property">done</span> === <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> c.<span class="title function_">json</span>(&#123; <span class="attr">message</span>: <span class="title class_">HttpstatusPhase</span>.<span class="property">BAD_REQUEST</span> &#125;, <span class="title class_">HttpStatusCodes</span>.<span class="property">BAD_REQUEST</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [task] = <span class="keyword">await</span> db.<span class="title function_">update</span>(tasks)</span><br><span class="line">    .<span class="title function_">set</span>(&#123;</span><br><span class="line">      ...updates,</span><br><span class="line">      <span class="attr">updatedAt</span>: sql<span class="string">`(current_timestamp)`</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">where</span>(<span class="title function_">eq</span>(tasks.<span class="property">id</span>,id))</span><br><span class="line">    .<span class="title function_">returning</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> ( !task ) &#123;</span><br><span class="line">    <span class="keyword">return</span> c.<span class="title function_">json</span>(&#123; <span class="attr">message</span>: <span class="title class_">HttpstatusPhase</span>.<span class="property">NOT_FOUND</span> &#125;, <span class="title class_">HttpStatusCodes</span>.<span class="property">NOT_FOUND</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> c.<span class="title function_">json</span>(task, <span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>);</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>注意，我们这里实现了更新记录时同时更新 updatedAt 字段。</p>
+<h3 id="添加引用">添加引用</h3>
+<p>添加引用，修改 `` :</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">.<span class="title function_">openapi</span>(routes.<span class="property">patch</span>, handlers.<span class="property">patch</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="测试">测试</h2>
+<p>访问 localhost:3000/reference, 可以看到API已更新：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo26.jpg" alt=""></p>
+<p>测试一下，用 2 去修改，可以成功修改 name 和 done ：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo27.jpg" alt=""></p>
+<p>测试一下传空值，可以看到会返回错误 400：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo28.jpg" alt=""></p>
+<p>测试一下传不存在的ID，可以看到会返回错误 404：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo29.jpg" alt=""></p>
+<p>测试一下id不为数字，可以看到会返回错误 422：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo30.jpg" alt=""></p>
+<p>测试一下请求体不符合格式，可以看到会返回错误 422：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo31.jpg" alt=""></p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(10) 按id修改任务">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(10) 按id修改任务</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+      </tags>
+  </entry>
 </search>
