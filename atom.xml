@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-26T01:45:21.614Z</updated>
+  <updated>2025-02-27T01:49:21.447Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(11) 按id删除任务</title>
+    <link href="http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/"/>
+    <id>http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/</id>
+    <published>2025-02-27T01:48:13.000Z</published>
+    <updated>2025-02-27T01:49:21.447Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;下面我们给 API 添加按id删除任务。&lt;/p&gt;
+&lt;h2 id=&quot;添加根据-ID-修改任务&quot;&gt;添加根据 ID 修改任务&lt;/h2&gt;
+&lt;h3 id=&quot;添加路径&quot;&gt;添加路径&lt;/h3&gt;
+&lt;p&gt;添加路径，修改&lt;code&gt;app/api/[[...route]]/routes/tasks/tasks.routes.ts&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; deleteById = &lt;span class=&quot;title function_&quot;&gt;createRoute&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;tags&lt;/span&gt;: [&lt;span class=&quot;string&quot;&gt;&amp;quot;Tasks&amp;quot;&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;/tasks/&amp;#123;id&amp;#125;&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;method&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;delete&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;request&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;params&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;IdParamsSchema&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;responses&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;title class_&quot;&gt;HttpStatusCodes&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;NO_CONTENT&lt;/span&gt;]: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;description&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;Task deleted&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;title class_&quot;&gt;HttpStatusCodes&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;NOT_FOUND&lt;/span&gt;]: &lt;span class=&quot;title function_&quot;&gt;jsonContent&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      notFoundSchema,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&amp;quot;The task was not found&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;title class_&quot;&gt;HttpStatusCodes&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;UNPROCESSABLE_ENTITY&lt;/span&gt;]: &lt;span class=&quot;title function_&quot;&gt;jsonContent&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;title function_&quot;&gt;createErrorSchema&lt;/span&gt;(&lt;span class=&quot;title class_&quot;&gt;IdParamsSchema&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&amp;quot;Invalid id error&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;DeleteByIdRoute&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; deleteById;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;添加实现&quot;&gt;添加实现&lt;/h3&gt;
+&lt;p&gt;添加实现，修改 &lt;code&gt;app/api/[[...route]]/routes/tasks/tasks.handlers.ts&lt;/code&gt; :&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;deleteById&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;AppRouteHandler&lt;/span&gt;&amp;lt;&lt;span class=&quot;title class_&quot;&gt;DeleteByIdRoute&lt;/span&gt;&amp;gt; = &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; (c) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; id &amp;#125; = c.&lt;span class=&quot;property&quot;&gt;req&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;valid&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;param&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; result = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; db&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;delete&lt;/span&gt;(tasks)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .&lt;span class=&quot;title function_&quot;&gt;where&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;eq&lt;/span&gt;(tasks.&lt;span class=&quot;property&quot;&gt;id&lt;/span&gt;, id));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ( result.&lt;span class=&quot;property&quot;&gt;rowsAffected&lt;/span&gt; === &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; c.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;message&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;HttpstatusPhase&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;NOT_FOUND&lt;/span&gt; &amp;#125;, &lt;span class=&quot;title class_&quot;&gt;HttpStatusCodes&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;NOT_FOUND&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; c.&lt;span class=&quot;title function_&quot;&gt;body&lt;/span&gt;(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;, &lt;span class=&quot;title class_&quot;&gt;HttpStatusCodes&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;NO_CONTENT&lt;/span&gt; );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;添加引用&quot;&gt;添加引用&lt;/h3&gt;
+&lt;p&gt;添加引用，修改 `` :&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;span class=&quot;title function_&quot;&gt;openapi&lt;/span&gt;(routes.&lt;span class=&quot;property&quot;&gt;deleteById&lt;/span&gt;, handlers.&lt;span class=&quot;property&quot;&gt;deleteById&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(10) 按id修改任务</title>
@@ -605,34 +640,6 @@
     <category term="Windows" scheme="http://yunminitools.cn/tags/Windows/"/>
     
     <category term="PostgreSQL" scheme="http://yunminitools.cn/tags/PostgreSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac OS 下修改 Google Chrome 显示语言的方法</title>
-    <link href="http://yunminitools.cn/2024/11/05/change-chrome-language/"/>
-    <id>http://yunminitools.cn/2024/11/05/change-chrome-language/</id>
-    <published>2024-11-05T13:57:41.000Z</published>
-    <updated>2024-11-05T13:58:07.771Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;由于调试程序需要，希望把Chrome的语言改成英文，发现在Mac下Chrome的语言是跟随系统语言的，通过菜单无法修改。&lt;/p&gt;
-&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
-&lt;p&gt;英文 -&amp;gt;</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Mac" scheme="http://yunminitools.cn/tags/Mac/"/>
     
   </entry>
   
