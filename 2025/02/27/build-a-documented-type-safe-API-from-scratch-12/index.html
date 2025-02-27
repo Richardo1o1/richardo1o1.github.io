@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>从头开始创建一个自动产生文档/类型安全的现代API(11) 按id删除任务 |  Bearalise&#39;s Blog</title>
+      <title>从头开始创建一个自动产生文档/类型安全的现代API(12) 单元测试 |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-build-a-documented-type-safe-API-from-scratch-11"
+  id="post-build-a-documented-type-safe-API-from-scratch-12"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -89,7 +89,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  从头开始创建一个自动产生文档/类型安全的现代API(11) 按id删除任务
+  从头开始创建一个自动产生文档/类型安全的现代API(12) 单元测试
 </h1>
  
 
@@ -97,8 +97,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/" class="article-date">
-  <time datetime="2025-02-27T01:48:13.000Z" itemprop="datePublished">2025-02-27</time>
+      <a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/" class="article-date">
+  <time datetime="2025-02-27T03:11:08.000Z" itemprop="datePublished">2025-02-27</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">290</span>
+            <span class="post-count">503</span>
         </span>
     </span>
 
@@ -118,7 +118,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -133,25 +133,42 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>下面我们给 API 添加按id删除任务。</p>
-<h2 id="添加根据-ID-修改任务">添加根据 ID 修改任务</h2>
-<h3 id="添加路径">添加路径</h3>
-<p>添加路径，修改<code>app/api/[[...route]]/routes/tasks/tasks.routes.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> deleteById = <span class="title function_">createRoute</span>(&#123;</span><br><span class="line">  <span class="attr">tags</span>: [<span class="string">&quot;Tasks&quot;</span>],</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&quot;/tasks/&#123;id&#125;&quot;</span>,</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&quot;delete&quot;</span>,</span><br><span class="line">  <span class="attr">request</span>: &#123;</span><br><span class="line">    <span class="attr">params</span>: <span class="title class_">IdParamsSchema</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">responses</span>: &#123;</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">NO_CONTENT</span>]: &#123;</span><br><span class="line">      <span class="attr">description</span>: <span class="string">&quot;Task deleted&quot;</span>,</span><br><span class="line">     &#125;,</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">NOT_FOUND</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      notFoundSchema,</span><br><span class="line">      <span class="string">&quot;The task was not found&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">    [<span class="title class_">HttpStatusCodes</span>.<span class="property">UNPROCESSABLE_ENTITY</span>]: <span class="title function_">jsonContent</span>(</span><br><span class="line">      <span class="title function_">createErrorSchema</span>(<span class="title class_">IdParamsSchema</span>),</span><br><span class="line">      <span class="string">&quot;Invalid id error&quot;</span>,</span><br><span class="line">    ),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">DeleteByIdRoute</span> = <span class="keyword">typeof</span> deleteById;</span><br></pre></td></tr></table></figure>
-<h3 id="添加实现">添加实现</h3>
-<p>添加实现，修改 <code>app/api/[[...route]]/routes/tasks/tasks.handlers.ts</code> :</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="attr">deleteById</span>: <span class="title class_">AppRouteHandler</span>&lt;<span class="title class_">DeleteByIdRoute</span>&gt; = <span class="keyword">async</span> (c) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; id &#125; = c.<span class="property">req</span>.<span class="title function_">valid</span>(<span class="string">&quot;param&quot;</span>);</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> db</span><br><span class="line">    .<span class="title function_">delete</span>(tasks)</span><br><span class="line">    .<span class="title function_">where</span>(<span class="title function_">eq</span>(tasks.<span class="property">id</span>, id));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> ( result.<span class="property">rowsAffected</span> === <span class="number">0</span> ) &#123;</span><br><span class="line">    <span class="keyword">return</span> c.<span class="title function_">json</span>(&#123; <span class="attr">message</span>: <span class="title class_">HttpstatusPhase</span>.<span class="property">NOT_FOUND</span> &#125;, <span class="title class_">HttpStatusCodes</span>.<span class="property">NOT_FOUND</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> c.<span class="title function_">body</span>(<span class="literal">null</span>, <span class="title class_">HttpStatusCodes</span>.<span class="property">NO_CONTENT</span> );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="添加引用">添加引用</h3>
-<p>添加引用，修改 `` :</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">  .<span class="title function_">openapi</span>(routes.<span class="property">deleteById</span>, handlers.<span class="property">deleteById</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+  <p>下面我们给 API 添加单元测试。</p>
+<h2 id="安装vitest">安装vitest</h2>
+<p>安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add -D vitest</span><br></pre></td></tr></table></figure>
+<h2 id="配置-VITEST">配置 VITEST</h2>
+<p>添加文件 <code>vitest.config.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&quot;node:path&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;vitest/config&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&quot;@&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;./src&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="测试">测试</h2>
-<p>访问 localhost:3000/reference, 可以看到API已更新：<br>
-<img src="https://image.952005.xyz/2025/02/apidemo32.jpg" alt=""></p>
+<h2 id="编写第一个测试脚本">编写第一个测试脚本</h2>
+<p>添加文件 <code>app/api/[[...route]]/routes/tasks/tasks.test.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; describe, expect, it &#125; <span class="keyword">from</span> <span class="string">&quot;vitest&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&quot;./tasks.index&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;Task List&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;responds with an array&quot;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> responds = <span class="keyword">await</span> router.<span class="title function_">request</span>(<span class="string">&quot;/list&quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> responds.<span class="title function_">text</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">    <span class="title function_">expect</span>(<span class="literal">false</span>).<span class="title function_">toBe</span>(<span class="literal">true</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>运行:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun run test</span><br></pre></td></tr></table></figure>
+<p>可以看到以下执行结果：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo33.jpg" alt=""></p>
+<h2 id="修正错误，第一次通过测试">修正错误，第一次通过测试</h2>
+<p>修改 <code>app/api/[[...route]]/lib/create-app.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createTestApp</span>(<span class="params">router: AppOpenAPI</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> testApp = <span class="title function_">createApp</span>();</span><br><span class="line">    testApp.<span class="title function_">route</span>(<span class="string">&quot;/&quot;</span>,router);</span><br><span class="line">    <span class="keyword">return</span> testApp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改 <code>app/api/[[...route]]/routes/tasks/tasks.test.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;Task List&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;responds with an array&quot;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> testRouter = <span class="title function_">createTestApp</span>(router);</span><br><span class="line">    <span class="keyword">const</span> responds = <span class="keyword">await</span> testRouter.<span class="title function_">request</span>(<span class="string">&quot;/api/tasks&quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> responds.<span class="title function_">json</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">    <span class="comment">// @ts-expect-error</span></span><br><span class="line">    <span class="title function_">expectTypeOf</span>(result).<span class="title function_">toBeArray</span>();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>再次测试，测试通过：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo34.jpg" alt=""></p>
+<h2 id="采用-Hono-提供的-testclient-测试">采用 Hono 提供的 testclient 测试</h2>
+<p>修改 <code>app/api/[[...route]]/routes/tasks/tasks.test.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;Task List&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;responds with an array again&quot;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> client = <span class="title function_">testClient</span>(<span class="title function_">createApp</span>().<span class="title function_">route</span>(<span class="string">&quot;/&quot;</span>,router));</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> client.<span class="property">api</span>.<span class="property">tasks</span>.$get();</span><br><span class="line">    <span class="keyword">const</span> json = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line"></span><br><span class="line">    <span class="title function_">expectTypeOf</span>(json).<span class="title function_">toBeArray</span>();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以看到，用 clientTest 更方便。再次测试，测试通过。</p>
+<h2 id="测试时关闭log">测试时关闭log</h2>
+<p>可以在跑测试时将 LOG LEVEL 设置为 silent， 修改<code>package.json</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&quot;test&quot;: &quot;LOG_LEVEL=silent vitest&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>同时添加这个等级到 env.ts:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">LOG_LEVEL: z.enum([&quot;fatal&quot;,&quot;error&quot;,&quot;warn&quot;, &quot;info&quot;, &quot;debug&quot;,&quot;trace&quot;,&quot;silent&quot;]),</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>再次运行测试，可以发现日志不出现了。</p>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(11) 按id删除任务">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(11) 按id删除任务</a></em><br>
+<em>出处：<a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(12) 单元测试">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(12) 单元测试</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -207,7 +224,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -220,19 +237,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            从头开始创建一个自动产生文档/类型安全的现代API(12) 单元测试
-          
-        </div>
-      </a>
     
-    
-      <a href="/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/" class="article-nav-link">
+      <a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">从头开始创建一个自动产生文档/类型安全的现代API(10) 按id修改任务</div>
+        <div class="article-nav-title">从头开始创建一个自动产生文档/类型安全的现代API(11) 按id删除任务</div>
       </a>
     
   </nav>

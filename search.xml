@@ -14136,4 +14136,57 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Hono</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(12) 单元测试</title>
+    <url>/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/</url>
+    <content><![CDATA[<p>下面我们给 API 添加单元测试。</p>
+<h2 id="安装vitest">安装vitest</h2>
+<p>安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun add -D vitest</span><br></pre></td></tr></table></figure>
+<h2 id="配置-VITEST">配置 VITEST</h2>
+<p>添加文件 <code>vitest.config.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&quot;node:path&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;vitest/config&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&quot;@&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;./src&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="编写第一个测试脚本">编写第一个测试脚本</h2>
+<p>添加文件 <code>app/api/[[...route]]/routes/tasks/tasks.test.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; describe, expect, it &#125; <span class="keyword">from</span> <span class="string">&quot;vitest&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&quot;./tasks.index&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;Task List&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;responds with an array&quot;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> responds = <span class="keyword">await</span> router.<span class="title function_">request</span>(<span class="string">&quot;/list&quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> responds.<span class="title function_">text</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">    <span class="title function_">expect</span>(<span class="literal">false</span>).<span class="title function_">toBe</span>(<span class="literal">true</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>运行:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun run test</span><br></pre></td></tr></table></figure>
+<p>可以看到以下执行结果：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo33.jpg" alt=""></p>
+<h2 id="修正错误，第一次通过测试">修正错误，第一次通过测试</h2>
+<p>修改 <code>app/api/[[...route]]/lib/create-app.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createTestApp</span>(<span class="params">router: AppOpenAPI</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> testApp = <span class="title function_">createApp</span>();</span><br><span class="line">    testApp.<span class="title function_">route</span>(<span class="string">&quot;/&quot;</span>,router);</span><br><span class="line">    <span class="keyword">return</span> testApp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改 <code>app/api/[[...route]]/routes/tasks/tasks.test.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;Task List&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;responds with an array&quot;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> testRouter = <span class="title function_">createTestApp</span>(router);</span><br><span class="line">    <span class="keyword">const</span> responds = <span class="keyword">await</span> testRouter.<span class="title function_">request</span>(<span class="string">&quot;/api/tasks&quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> responds.<span class="title function_">json</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">    <span class="comment">// @ts-expect-error</span></span><br><span class="line">    <span class="title function_">expectTypeOf</span>(result).<span class="title function_">toBeArray</span>();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>再次测试，测试通过：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo34.jpg" alt=""></p>
+<h2 id="采用-Hono-提供的-testclient-测试">采用 Hono 提供的 testclient 测试</h2>
+<p>修改 <code>app/api/[[...route]]/routes/tasks/tasks.test.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;Task List&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&quot;responds with an array again&quot;</span>, <span class="title function_">async</span>() =&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> client = <span class="title function_">testClient</span>(<span class="title function_">createApp</span>().<span class="title function_">route</span>(<span class="string">&quot;/&quot;</span>,router));</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> client.<span class="property">api</span>.<span class="property">tasks</span>.$get();</span><br><span class="line">    <span class="keyword">const</span> json = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line"></span><br><span class="line">    <span class="title function_">expectTypeOf</span>(json).<span class="title function_">toBeArray</span>();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以看到，用 clientTest 更方便。再次测试，测试通过。</p>
+<h2 id="测试时关闭log">测试时关闭log</h2>
+<p>可以在跑测试时将 LOG LEVEL 设置为 silent， 修改<code>package.json</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">&quot;test&quot;: &quot;LOG_LEVEL=silent vitest&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>同时添加这个等级到 env.ts:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">LOG_LEVEL: z.enum([&quot;fatal&quot;,&quot;error&quot;,&quot;warn&quot;, &quot;info&quot;, &quot;debug&quot;,&quot;trace&quot;,&quot;silent&quot;]),</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>再次运行测试，可以发现日志不出现了。</p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(12) 单元测试">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(12) 单元测试</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+      </tags>
+  </entry>
 </search>
