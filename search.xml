@@ -14189,4 +14189,40 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Hono</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(13) 设置测试环境</title>
+    <url>/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/</url>
+    <content><![CDATA[<p>下面我们设置一下单元测试的环境，避免测试影响正常环境的数据。</p>
+<h2 id="添加测试环境配置文件">添加测试环境配置文件</h2>
+<p>添加文件 <code>.env.test</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">NODE_ENV</span>=development</span><br><span class="line"><span class="variable constant_">PORT</span>=<span class="number">3001</span></span><br><span class="line"><span class="variable constant_">LOG_LEVEL</span>=silent</span><br><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="attr">file</span>:./test.<span class="property">db</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改环境变量读取程序">修改环境变量读取程序</h2>
+<p>修改文件 <code>utility/env.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&quot;node:path&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">expand</span>(<span class="title function_">config</span>(&#123;</span><br><span class="line">  <span class="attr">path</span>: path.<span class="title function_">resolve</span>(</span><br><span class="line">    process.<span class="title function_">cwd</span>(),</span><br><span class="line">    process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&quot;test&quot;</span> ? <span class="string">&quot;.env.test&quot;</span> : <span class="string">&quot;.env&quot;</span>,</span><br><span class="line">  ),</span><br><span class="line">&#125;));</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="修改测试命令">修改测试命令</h2>
+<p>修改<code>package.json</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">    &quot;test&quot;: &quot;NODE_ENV=test vitest&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="修改测试脚本">修改测试脚本</h2>
+<p>修改 <code>app/api/[[...route]]/routes/tasks/tasks.test.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (env.<span class="property">NODE_ENV</span> !== <span class="string">&quot;test&quot;</span>) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;NODE_ENV must be &#x27;test&#x27;&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;Task List&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">beforeAll</span>(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="title function_">execSync</span>(<span class="string">&quot;bun drizzle-kit push&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">afterAll</span>(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    fs.<span class="title function_">rmSync</span>(<span class="string">&quot;test.db&quot;</span>, &#123; <span class="attr">force</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>测试了一下，成功通过测试。</p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(13) 设置测试环境">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(13) 设置测试环境</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+      </tags>
+  </entry>
 </search>

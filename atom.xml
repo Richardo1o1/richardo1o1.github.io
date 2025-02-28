@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-27T03:11:48.354Z</updated>
+  <updated>2025-02-28T01:29:05.414Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(13) 设置测试环境</title>
+    <link href="http://yunminitools.cn/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/"/>
+    <id>http://yunminitools.cn/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/</id>
+    <published>2025-02-28T01:27:46.000Z</published>
+    <updated>2025-02-28T01:29:05.414Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;下面我们设置一下单元测试的环境，避免测试影响正常环境的数据。&lt;/p&gt;
+&lt;h2 id=&quot;添加测试环境配置文件&quot;&gt;添加测试环境配置文件&lt;/h2&gt;
+&lt;p&gt;添加文件 &lt;code&gt;.env.test&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;NODE_ENV&lt;/span&gt;=development&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;PORT&lt;/span&gt;=&lt;span class=&quot;number&quot;&gt;3001&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;LOG_LEVEL&lt;/span&gt;=silent&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;DATABASE_URL&lt;/span&gt;=&lt;span class=&quot;attr&quot;&gt;file&lt;/span&gt;:./test.&lt;span class=&quot;property&quot;&gt;db&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;修改环境变量读取程序&quot;&gt;修改环境变量读取程序&lt;/h2&gt;
+&lt;p&gt;修改文件 &lt;code&gt;utility/env.ts&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; path &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;node:path&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;expand&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;config&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: path.&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    process.&lt;span class=&quot;title function_&quot;&gt;cwd&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    process.&lt;span class=&quot;property&quot;&gt;env&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;NODE_ENV&lt;/span&gt; === &lt;span class=&quot;string&quot;&gt;&amp;quot;test&amp;quot;&lt;/span&gt; ? &lt;span class=&quot;string&quot;&gt;&amp;quot;.env.test&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;.env&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(12) 单元测试</title>
@@ -609,34 +640,6 @@
     <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
     
     <category term="前端代码" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bun 换源 国内阿里源加速下载</title>
-    <link href="http://yunminitools.cn/2024/11/18/how-to-change-bun-source/"/>
-    <id>http://yunminitools.cn/2024/11/18/how-to-change-bun-source/</id>
-    <published>2024-11-18T15:35:29.000Z</published>
-    <updated>2024-11-18T15:35:51.986Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;安装Bun&quot;&gt;安装Bun&lt;/h2&gt;
-&lt;p&gt;本机有 nodejs 环境,&lt;/p&gt;
-&lt;p&gt;可以 &lt;code&gt;npm install -g bun&lt;/code&gt; 安装&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
   </entry>
   
