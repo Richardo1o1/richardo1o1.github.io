@@ -109,6 +109,72 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-documented-type-safe-API-from-scratch-15"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/"
+    >从头开始创建一个自动产生文档/类型安全的现代API(15) 创建前端页面</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/" class="article-date">
+  <time datetime="2025-03-01T09:04:11.000Z" itemprop="datePublished">2025-03-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>现在我们开始创建前端页面。</p>
+<h2 id="利用-v0-快速输出前端页面">利用 v0 快速输出前端页面</h2>
+<p>打开 <a target="_blank" rel="noopener" href="https://v0.dev/">v0</a> 输入以下提示词：</p>
+<blockquote>
+<p>帮忙编写一个网页，风格为现代偏科技，支持显示task list，task有name 和 done 两个属性，用户可以添加/修改/删除 task。<br>
+未完成的任务 最好显示为方框，完成后显示为打勾。<br>
+任务清单支持拖曳 调整 顺序。</p>
+</blockquote>
+<p>通过几轮调整，页面基本符合要求。<br>
+<img src="https://image.952005.xyz/2025/02/apidemo36.jpg" alt=""></p> 
+      <a class="article-more-link" href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-documented-type-safe-API-from-scratch-14"
   class="article article-type-post"
   itemscope
@@ -684,78 +750,13 @@ var _hmt = _hmt || [];
 </article>
 
     
-    <article
-  id="post-build-a-documented-type-safe-API-from-scratch-7"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/"
-    >从头开始创建一个自动产生文档/类型安全的现代API(7) 读数据库</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/" class="article-date">
-  <time datetime="2025-02-23T04:17:45.000Z" itemprop="datePublished">2025-02-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>之前API的实现只是简单的返回固定值，本章开始实行数据库读写。</p>
-<h2 id="安装Drizzle">安装Drizzle</h2>
-<p><a target="_blank" rel="noopener" href="https://orm.drizzle.team/docs/overview">Drizzle ORM</a> 是用于 SQL 数据库的 TypeScript ORM，在设计时考虑到了最大的类型安全性。它带有用于自动生成 SQL 迁移的 drizzle-kit CLI 。Drizzle ORM 是一个库，而不是一个框架，它的主要哲学是 “如果你知道 SQL，你就知道 Drizzle ORM”，因此设计的时候尽可能遵循类似 SQL 的语法，强类型化并在编译时就会失败，而不是在运行时。<br>
-安装 Drizzle, Drizzle 的安装根据支持的数据库，命令略有不同，这里我们采用 SQLite ， 命令如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bun add drizzle-orm @libsql/client dotenv</span><br><span class="line">bun add -D drizzle-kit tsx</span><br><span class="line">bun add drizzle-zod</span><br></pre></td></tr></table></figure>
-<p>注：drizzle-zod 是Zod搭配drizzle的一个包，后面会用到。</p>
-<h2 id="定义环境变量">定义环境变量</h2>
-<p>修改 <code>utility/env.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; z &#125; <span class="keyword">from</span> <span class="string">&quot;zod&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; expand &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv-expand&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; config &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">expand</span>(<span class="title function_">config</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">EnvSchema</span> = z.<span class="title function_">object</span>(&#123;</span><br><span class="line">    <span class="attr">NODE_ENV</span>: z.<span class="title function_">string</span>().<span class="title function_">default</span>(<span class="string">&quot;development&quot;</span>),</span><br><span class="line">    <span class="attr">PORT</span>: z.<span class="property">coerce</span>.<span class="title function_">number</span>().<span class="title function_">default</span>(<span class="number">9999</span>),</span><br><span class="line">    <span class="attr">LOG_LEVEL</span>: z.<span class="title function_">enum</span>([<span class="string">&quot;fatal&quot;</span>,<span class="string">&quot;error&quot;</span>,<span class="string">&quot;warn&quot;</span>, <span class="string">&quot;info&quot;</span>, <span class="string">&quot;debug&quot;</span>,<span class="string">&quot;trace&quot;</span>]),</span><br><span class="line">    <span class="attr">DATABASE_URL</span>: z.<span class="title function_">string</span>().<span class="title function_">url</span>(),</span><br><span class="line">    <span class="attr">DATABASE_AUTH_TOKEN</span>: z.<span class="title function_">string</span>().<span class="title function_">optional</span>(),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> env = z.<span class="property">infer</span>&lt;<span class="keyword">typeof</span> <span class="title class_">EnvSchema</span>&gt;;</span><br><span class="line"><span class="comment">// eslint-disable-next-line ts/no-redeclare</span></span><br><span class="line"><span class="keyword">const</span> parsedEnv = <span class="title class_">EnvSchema</span>.<span class="title function_">safeParse</span>(process.<span class="property">env</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( parsedEnv.<span class="property">success</span> === <span class="literal">false</span> ) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;❌ Invalid env:&quot;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(parsedEnv.<span class="property">error</span>.<span class="title function_">flatten</span>().<span class="property">fieldErrors</span>, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">  process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> env = parsedEnv.<span class="property">data</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> env;</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>

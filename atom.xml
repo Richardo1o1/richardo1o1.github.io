@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-01T05:13:29.035Z</updated>
+  <updated>2025-03-01T09:05:02.360Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(15) 创建前端页面</title>
+    <link href="http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/"/>
+    <id>http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/</id>
+    <published>2025-03-01T09:04:11.000Z</published>
+    <updated>2025-03-01T09:05:02.360Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;现在我们开始创建前端页面。&lt;/p&gt;
+&lt;h2 id=&quot;利用-v0-快速输出前端页面&quot;&gt;利用 v0 快速输出前端页面&lt;/h2&gt;
+&lt;p&gt;打开 &lt;a href=&quot;https://v0.dev/&quot;&gt;v0&lt;/a&gt; 输入以下提示词：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;帮忙编写一个网页，风格为现代偏科技，支持显示task list，task有name 和 done 两个属性，用户可以添加/修改/删除 task。&lt;br&gt;
+未完成的任务 最好显示为方框，完成后显示为打勾。&lt;br&gt;
+任务清单支持拖曳 调整 顺序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;通过几轮调整，页面基本符合要求。&lt;br&gt;
+&lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo36.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(14) 完整测试脚本</title>
@@ -608,35 +642,6 @@
     
     
     <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用AlertDialog实现二次确认按钮 - Bearalise</title>
-    <link href="http://yunminitools.cn/2024/11/22/how-to-use-component-to-double-confirm/"/>
-    <id>http://yunminitools.cn/2024/11/22/how-to-use-component-to-double-confirm/</id>
-    <published>2024-11-22T08:14:17.000Z</published>
-    <updated>2025-02-17T13:59:04.082Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;在用户点击某个按钮后弹出 AlertDialog，如果用户确认，则执行原本的点击动作；如果用户取消，则不执行该动作。这是一个很常见的模式，用于防止用户误操作。这里给出用AlertDialog组件的一个实现。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="前端代码" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/"/>
     
   </entry>
   
