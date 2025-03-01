@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-02-28T01:29:05.414Z</updated>
+  <updated>2025-03-01T05:13:29.035Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(14) 完整测试脚本</title>
+    <link href="http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-14/"/>
+    <id>http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-14/</id>
+    <published>2025-03-01T05:12:53.000Z</published>
+    <updated>2025-03-01T05:13:29.035Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;测试脚本脑图&quot;&gt;测试脚本脑图&lt;/h2&gt;
+&lt;p&gt;根据需要测试的功能点，我画了以下脑图：&lt;br&gt;
+&lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo35.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(13) 设置测试环境</title>
@@ -599,36 +626,6 @@
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
 &lt;p&gt;在用户点击某个按钮后弹出 AlertDialog，如果用户确认，则执行原本的点击动作；如果用户取消，则不执行该动作。这是一个很常见的模式，用于防止用户误操作。这里给出用AlertDialog组件的一个实现。&lt;/p&gt;
 &lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="前端代码" scheme="http://yunminitools.cn/tags/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何修改HTML默认上传按钮组件样式 - Bearalis</title>
-    <link href="http://yunminitools.cn/2024/11/21/how-to-customize-upload-button/"/>
-    <id>http://yunminitools.cn/2024/11/21/how-to-customize-upload-button/</id>
-    <published>2024-11-21T12:25:41.000Z</published>
-    <updated>2025-02-18T02:06:00.614Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;系统自带的上传按钮有点丑，并且大的样式无法修改，想了个方法用Tailwind的按钮包装了系统自带的按钮，实现了样式的统一&lt;/p&gt;
-&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
-&lt;p&gt;建立Uploadbutton</summary>
         
       
     
