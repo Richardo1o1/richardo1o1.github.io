@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>从头开始创建一个自动产生文档/类型安全的现代API(16) 添加字段 |  Bearalise&#39;s Blog</title>
+      <title>从头开始创建一个自动产生文档/类型安全的现代API(17) 添加数据读取功能 |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-build-a-documented-type-safe-API-from-scratch-16"
+  id="post-build-a-documented-type-safe-API-from-scratch-17"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -89,7 +89,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  从头开始创建一个自动产生文档/类型安全的现代API(16) 添加字段
+  从头开始创建一个自动产生文档/类型安全的现代API(17) 添加数据读取功能
 </h1>
  
 
@@ -97,8 +97,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/" class="article-date">
-  <time datetime="2025-03-02T08:14:06.000Z" itemprop="datePublished">2025-03-02</time>
+      <a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/" class="article-date">
+  <time datetime="2025-03-02T09:19:43.000Z" itemprop="datePublished">2025-03-02</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">406</span>
+            <span class="post-count">431</span>
         </span>
     </span>
 
@@ -118,7 +118,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -133,31 +133,37 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>我们发现“顺序”这个字段缺失了，我们添加一下，顺便看一下如何变更数据结构。</p>
-<h2 id="修改数据结构">修改数据结构</h2>
-<p>修改 <code>db/schema.ts</code>:<br>
-<img src="https://image.952005.xyz/2025/02/apidemo38.jpg" alt=""></p>
-<h2 id="重新生成数据库">重新生成数据库</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bun drizzle-kit generate</span><br><span class="line">bun drizzle-kit push</span><br></pre></td></tr></table></figure>
-<h2 id="修改page-tsx">修改page.tsx</h2>
-<p>修改interface：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Task</span> &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">number</span></span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">done</span>: <span class="built_in">boolean</span></span><br><span class="line">  <span class="attr">order</span>: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>修改 add 逻辑，点击 order：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">&quot;added&quot;</span>: &#123;</span><br><span class="line">     <span class="keyword">return</span> [</span><br><span class="line">       ...tasks,</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="attr">id</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>(),</span><br><span class="line">         <span class="attr">name</span>: action.<span class="property">name</span>,</span><br><span class="line">         <span class="attr">done</span>: <span class="literal">false</span>,</span><br><span class="line">         <span class="attr">order</span>: tasks.<span class="property">length</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">     ]</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+  <h2 id="添加读取数据的Hooks">添加读取数据的Hooks</h2>
+<p>首先安装依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add @tanstack/react-query</span><br></pre></td></tr></table></figure>
+<p>添加 <code>hooks/use-get-tasks-list.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useQuery &#125; <span class="keyword">from</span> <span class="string">&quot;@tanstack/react-query&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; client &#125; <span class="keyword">from</span> <span class="string">&quot;@/lib/hono&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">useGetTasksList</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> query = <span class="title function_">useQuery</span>(&#123;</span><br><span class="line">    <span class="attr">queryKey</span>: [<span class="string">&quot;tasks&quot;</span> ],</span><br><span class="line">    <span class="attr">queryFn</span>: <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> res = <span class="keyword">await</span> client.<span class="property">tasks</span>.$get();</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">if</span>(!res.<span class="property">ok</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;Failed to fetch tasks list&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> data  = <span class="keyword">await</span> res.<span class="title function_">json</span>();</span><br><span class="line">      <span class="keyword">return</span> data;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> query;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>添加支持模块 <code>lib/hono.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; hc &#125; <span class="keyword">from</span> <span class="string">&quot;hono/client&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppType</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/app/api/[[...route]]/route&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> client = hc&lt;<span class="title class_">AppType</span>&gt;(<span class="string">&#x27;/api&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>注意：‘/api’ 是对应于 API 所在路径的。</p>
 <span id="more"></span>
-<p>修改 reordered 逻辑，根据 index 修改order：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">&quot;reordered&quot;</span>: &#123;</span><br><span class="line">  <span class="keyword">return</span> action.<span class="property">tasks</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">task, index</span>) =&gt;</span> (&#123;</span><br><span class="line">    ...task,</span><br><span class="line">    <span class="attr">order</span>: index, </span><br><span class="line">  &#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="修改-单元测试文件">修改 单元测试文件</h2>
-<p>逻辑修改了，我们也添加一些单元测试的 case，校验 order：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&quot;patch /tasks/&#123;id&#125; validates the order param&quot;</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> client.<span class="property">api</span>.<span class="property">tasks</span>[<span class="string">&quot;:id&quot;</span>].$patch(&#123;</span><br><span class="line">      <span class="attr">param</span>: &#123;</span><br><span class="line">        id,</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">json</span>: &#123;</span><br><span class="line">        <span class="comment">// @ts-expect-error</span></span><br><span class="line">        <span class="attr">order</span>: <span class="string">&quot;wat&quot;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="title function_">expect</span>(response.<span class="property">status</span>).<span class="title function_">toBe</span>(<span class="number">422</span>);</span><br><span class="line">    <span class="keyword">if</span> (response.<span class="property">status</span> === <span class="number">422</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> json = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">      <span class="title function_">expect</span>(json.<span class="property">error</span>.<span class="property">issues</span>[<span class="number">0</span>].<span class="property">path</span>[<span class="number">0</span>]).<span class="title function_">toBe</span>(<span class="string">&quot;order&quot;</span>);</span><br><span class="line">      <span class="title function_">expect</span>(json.<span class="property">error</span>.<span class="property">issues</span>[<span class="number">0</span>].<span class="property">message</span>).<span class="title function_">toBe</span>(<span class="variable constant_">ZOD_ERROR_MESSAGES</span>.<span class="property">EXPECTED_NUMBER_1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<p>校验是否成功插入：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> order = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">it</span>(<span class="string">&quot;post /tasks creates a task&quot;</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> client.<span class="property">api</span>.<span class="property">tasks</span>.$post(&#123;</span><br><span class="line">    <span class="attr">json</span>: &#123;</span><br><span class="line">      name,</span><br><span class="line">      <span class="attr">done</span>: <span class="literal">false</span>,</span><br><span class="line">      order</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">expect</span>(response.<span class="property">status</span>).<span class="title function_">toBe</span>(<span class="number">200</span>);</span><br><span class="line">  <span class="keyword">if</span> (response.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> json = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">    <span class="title function_">expect</span>(json.<span class="property">name</span>).<span class="title function_">toBe</span>(name);</span><br><span class="line">    <span class="title function_">expect</span>(json.<span class="property">done</span>).<span class="title function_">toBe</span>(<span class="literal">false</span>);</span><br><span class="line">    <span class="title function_">expect</span>(json.<span class="property">order</span>).<span class="title function_">toBe</span>(order);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="测试">测试</h2>
-<p>安装成功后，运行 <code>bun run test</code>,成功通过测试。</p>
+<h2 id="修改page-tsx">修改page.tsx</h2>
+<h3 id="添加-action">添加 action</h3>
+<p>先添加定义：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">TaskAction</span> =</span><br><span class="line">  | &#123; <span class="attr">type</span>: <span class="string">&quot;loaded&quot;</span>; <span class="attr">tasks</span>: <span class="title class_">Task</span>[] &#125;</span><br></pre></td></tr></table></figure>
+<p>再添加实现：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">&quot;loaded&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// Sort tasks by order</span></span><br><span class="line">    <span class="keyword">return</span> action.<span class="property">tasks</span>.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.<span class="property">order</span> - b.<span class="property">order</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现页面加载时加载数据">实现页面加载时加载数据</h3>
+<p>加载数据：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [dataLoaded, setDataLoaded] = <span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tasksQuery = <span class="title function_">useGetTasksList</span>();</span><br><span class="line"><span class="keyword">const</span> isLoading = tasksQuery.<span class="property">isLoading</span>;</span><br></pre></td></tr></table></figure>
+<p>使用useEffect处理数据加载，避免无限循环</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">React</span>.<span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (tasksQuery.<span class="property">data</span> &amp;&amp; tasksQuery.<span class="property">data</span>.<span class="property">length</span> &gt; <span class="number">0</span> &amp;&amp; !dataLoaded) &#123;</span><br><span class="line">    <span class="keyword">const</span> tasksData = tasksQuery.<span class="property">data</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; createdAt, updatedAt, ...rest &#125;</span>) =&gt;</span> rest);</span><br><span class="line">    <span class="title function_">dispatch</span>(&#123; <span class="attr">type</span>: <span class="string">&quot;loaded&quot;</span>, <span class="attr">tasks</span>: tasksData &#125;);</span><br><span class="line">    <span class="title function_">setDataLoaded</span>(<span class="literal">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, [tasksQuery.<span class="property">data</span>, dataLoaded]);</span><br></pre></td></tr></table></figure>
+<h3 id="处理-Loading-状态">处理 Loading 状态</h3>
+<p>添加以下逻辑：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;isLoading ? (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex justify-center p-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Loader2</span> <span class="attr">className</span>=<span class="string">&quot;h-8 w-8 animate-spin text-muted-foreground&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">) : (</span><br></pre></td></tr></table></figure>
+<h2 id="测试效果">测试效果</h2>
+<p>运行程序，可以看到数据成功加载：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo40.jpg" alt=""></p>
+<p><img src="https://image.952005.xyz/2025/02/apidemo39.jpg" alt=""></p>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(16) 添加字段">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(16) 添加字段</a></em><br>
+<em>出处：<a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(17) 添加数据读取功能">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(17) 添加数据读取功能</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -213,7 +219,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -226,19 +232,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            从头开始创建一个自动产生文档/类型安全的现代API(17) 添加数据读取功能
-          
-        </div>
-      </a>
     
-    
-      <a href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/" class="article-nav-link">
+      <a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">从头开始创建一个自动产生文档/类型安全的现代API(15) 创建前端页面</div>
+        <div class="article-nav-title">从头开始创建一个自动产生文档/类型安全的现代API(16) 添加字段</div>
       </a>
     
   </nav>

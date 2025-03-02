@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-02T08:14:45.247Z</updated>
+  <updated>2025-03-02T09:21:14.244Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(17) 添加数据读取功能</title>
+    <link href="http://yunminitools.cn/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/"/>
+    <id>http://yunminitools.cn/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/</id>
+    <published>2025-03-02T09:19:43.000Z</published>
+    <updated>2025-03-02T09:21:14.244Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;添加读取数据的Hooks&quot;&gt;添加读取数据的Hooks&lt;/h2&gt;
+&lt;p&gt;首先安装依赖：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun add @tanstack/react-query&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;添加 &lt;code&gt;hooks/use-get-tasks-list.ts&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; useQuery &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@tanstack/react-query&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; client &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@/lib/hono&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;useGetTasksList&lt;/span&gt; = (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; query = &lt;span class=&quot;title function_&quot;&gt;useQuery&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;queryKey&lt;/span&gt;: [&lt;span class=&quot;string&quot;&gt;&amp;quot;tasks&amp;quot;&lt;/span&gt; ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;queryFn&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; () =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; res = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; client.&lt;span class=&quot;property&quot;&gt;tasks&lt;/span&gt;.$get();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!res.&lt;span class=&quot;property&quot;&gt;ok&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;Failed to fetch tasks list&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; data  = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; res.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; data;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; query;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;添加支持模块 &lt;code&gt;lib/hono.ts&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; hc &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;hono/client&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;AppType&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@/app/api/[[...route]]/route&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; client = hc&amp;lt;&lt;span class=&quot;title class_&quot;&gt;AppType&lt;/span&gt;&amp;gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;/api&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意：‘/api’ 是对应于 API 所在路径的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(16) 添加字段</title>
@@ -611,36 +643,6 @@
     
     
     <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何利用Cloudflare搭建图床（+ Piclist快速上传）- Bearalise</title>
-    <link href="http://yunminitools.cn/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/"/>
-    <id>http://yunminitools.cn/2025/02/16/how-to-use-cloudflare-to-build-image-hosting/</id>
-    <published>2025-02-16T11:57:04.000Z</published>
-    <updated>2025-02-17T14:56:43.446Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;写博客就要有图床，之前搭了一个国内版的，今天尝试用Cloudflare搭建一个海外版的。&lt;/p&gt;
-&lt;h2 id=&quot;开通Cloudflare-R2&quot;&gt;开通Cloudflare R2&lt;/h2&gt;
-&lt;p&gt;R2 是 Cloudflare 推出的免费对象存储服务，需要免费注册一个&lt;a href=&quot;https://www.cloudflare.com&quot;&gt;Cloudflare 账号&lt;/a&gt;才能使用，注册登录后，点击左侧边栏的 R2 访问服务，但需要注意的是开通 R2 服务需要绑定信用卡（国内外主流信用卡皆可），但并不会扣费，主要是为了验证用户身份使用：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/R2-2025-02-13_14-11-33.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;创建图床-Bucket&quot;&gt;创建图床 Bucket&lt;/h2&gt;
-&lt;p&gt;Bucket即为存储桶，所有的资源的是需要放在存储桶中。开通 R2 服务后，点击右上角「创建存储桶」按钮进行创建：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/R2-2025-02-13_14-15-53.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;起一个名字，其他选项如图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/R2-2025-02-13_14-23-18.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;开通后显示以下信息：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/R2-2025-02-13_14-25-02.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="博客管理" scheme="http://yunminitools.cn/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   

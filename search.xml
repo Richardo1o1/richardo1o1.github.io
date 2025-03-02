@@ -14338,4 +14338,52 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Hono</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(17) 添加数据读取功能</title>
+    <url>/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/</url>
+    <content><![CDATA[<h2 id="添加读取数据的Hooks">添加读取数据的Hooks</h2>
+<p>首先安装依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun add @tanstack/react-query</span><br></pre></td></tr></table></figure>
+<p>添加 <code>hooks/use-get-tasks-list.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useQuery &#125; <span class="keyword">from</span> <span class="string">&quot;@tanstack/react-query&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; client &#125; <span class="keyword">from</span> <span class="string">&quot;@/lib/hono&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">useGetTasksList</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> query = <span class="title function_">useQuery</span>(&#123;</span><br><span class="line">    <span class="attr">queryKey</span>: [<span class="string">&quot;tasks&quot;</span> ],</span><br><span class="line">    <span class="attr">queryFn</span>: <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> res = <span class="keyword">await</span> client.<span class="property">tasks</span>.$get();</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">if</span>(!res.<span class="property">ok</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;Failed to fetch tasks list&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> data  = <span class="keyword">await</span> res.<span class="title function_">json</span>();</span><br><span class="line">      <span class="keyword">return</span> data;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> query;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>添加支持模块 <code>lib/hono.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; hc &#125; <span class="keyword">from</span> <span class="string">&quot;hono/client&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AppType</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/app/api/[[...route]]/route&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> client = hc&lt;<span class="title class_">AppType</span>&gt;(<span class="string">&#x27;/api&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>注意：‘/api’ 是对应于 API 所在路径的。</p>
+<span id="more"></span>
+<h2 id="修改page-tsx">修改page.tsx</h2>
+<h3 id="添加-action">添加 action</h3>
+<p>先添加定义：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">TaskAction</span> =</span><br><span class="line">  | &#123; <span class="attr">type</span>: <span class="string">&quot;loaded&quot;</span>; <span class="attr">tasks</span>: <span class="title class_">Task</span>[] &#125;</span><br></pre></td></tr></table></figure>
+<p>再添加实现：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">&quot;loaded&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// Sort tasks by order</span></span><br><span class="line">    <span class="keyword">return</span> action.<span class="property">tasks</span>.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.<span class="property">order</span> - b.<span class="property">order</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现页面加载时加载数据">实现页面加载时加载数据</h3>
+<p>加载数据：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> [dataLoaded, setDataLoaded] = <span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tasksQuery = <span class="title function_">useGetTasksList</span>();</span><br><span class="line"><span class="keyword">const</span> isLoading = tasksQuery.<span class="property">isLoading</span>;</span><br></pre></td></tr></table></figure>
+<p>使用useEffect处理数据加载，避免无限循环</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="title class_">React</span>.<span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (tasksQuery.<span class="property">data</span> &amp;&amp; tasksQuery.<span class="property">data</span>.<span class="property">length</span> &gt; <span class="number">0</span> &amp;&amp; !dataLoaded) &#123;</span><br><span class="line">    <span class="keyword">const</span> tasksData = tasksQuery.<span class="property">data</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">&#123; createdAt, updatedAt, ...rest &#125;</span>) =&gt;</span> rest);</span><br><span class="line">    <span class="title function_">dispatch</span>(&#123; <span class="attr">type</span>: <span class="string">&quot;loaded&quot;</span>, <span class="attr">tasks</span>: tasksData &#125;);</span><br><span class="line">    <span class="title function_">setDataLoaded</span>(<span class="literal">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, [tasksQuery.<span class="property">data</span>, dataLoaded]);</span><br></pre></td></tr></table></figure>
+<h3 id="处理-Loading-状态">处理 Loading 状态</h3>
+<p>添加以下逻辑：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">&#123;isLoading ? (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex justify-center p-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Loader2</span> <span class="attr">className</span>=<span class="string">&quot;h-8 w-8 animate-spin text-muted-foreground&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">) : (</span><br></pre></td></tr></table></figure>
+<h2 id="测试效果">测试效果</h2>
+<p>运行程序，可以看到数据成功加载：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo40.jpg" alt=""></p>
+<p><img src="https://image.952005.xyz/2025/02/apidemo39.jpg" alt=""></p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(17) 添加数据读取功能">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(17) 添加数据读取功能</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+      </tags>
+  </entry>
 </search>
