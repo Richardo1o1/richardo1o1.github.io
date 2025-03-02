@@ -14296,4 +14296,46 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Hono</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(16) 添加字段</title>
+    <url>/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/</url>
+    <content><![CDATA[<p>我们发现“顺序”这个字段缺失了，我们添加一下，顺便看一下如何变更数据结构。</p>
+<h2 id="修改数据结构">修改数据结构</h2>
+<p>修改 <code>db/schema.ts</code>:<br>
+<img src="https://image.952005.xyz/2025/02/apidemo38.jpg" alt=""></p>
+<h2 id="重新生成数据库">重新生成数据库</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun drizzle-kit generate</span><br><span class="line">bun drizzle-kit push</span><br></pre></td></tr></table></figure>
+<h2 id="修改page-tsx">修改page.tsx</h2>
+<p>修改interface：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Task</span> &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">number</span></span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">done</span>: <span class="built_in">boolean</span></span><br><span class="line">  <span class="attr">order</span>: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改 add 逻辑，点击 order：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">&quot;added&quot;</span>: &#123;</span><br><span class="line">     <span class="keyword">return</span> [</span><br><span class="line">       ...tasks,</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="attr">id</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>(),</span><br><span class="line">         <span class="attr">name</span>: action.<span class="property">name</span>,</span><br><span class="line">         <span class="attr">done</span>: <span class="literal">false</span>,</span><br><span class="line">         <span class="attr">order</span>: tasks.<span class="property">length</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">     ]</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>修改 reordered 逻辑，根据 index 修改order：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">&quot;reordered&quot;</span>: &#123;</span><br><span class="line">  <span class="keyword">return</span> action.<span class="property">tasks</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">task, index</span>) =&gt;</span> (&#123;</span><br><span class="line">    ...task,</span><br><span class="line">    <span class="attr">order</span>: index, </span><br><span class="line">  &#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="修改-单元测试文件">修改 单元测试文件</h2>
+<p>逻辑修改了，我们也添加一些单元测试的 case，校验 order：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&quot;patch /tasks/&#123;id&#125; validates the order param&quot;</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> client.<span class="property">api</span>.<span class="property">tasks</span>[<span class="string">&quot;:id&quot;</span>].$patch(&#123;</span><br><span class="line">      <span class="attr">param</span>: &#123;</span><br><span class="line">        id,</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">json</span>: &#123;</span><br><span class="line">        <span class="comment">// @ts-expect-error</span></span><br><span class="line">        <span class="attr">order</span>: <span class="string">&quot;wat&quot;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="title function_">expect</span>(response.<span class="property">status</span>).<span class="title function_">toBe</span>(<span class="number">422</span>);</span><br><span class="line">    <span class="keyword">if</span> (response.<span class="property">status</span> === <span class="number">422</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> json = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">      <span class="title function_">expect</span>(json.<span class="property">error</span>.<span class="property">issues</span>[<span class="number">0</span>].<span class="property">path</span>[<span class="number">0</span>]).<span class="title function_">toBe</span>(<span class="string">&quot;order&quot;</span>);</span><br><span class="line">      <span class="title function_">expect</span>(json.<span class="property">error</span>.<span class="property">issues</span>[<span class="number">0</span>].<span class="property">message</span>).<span class="title function_">toBe</span>(<span class="variable constant_">ZOD_ERROR_MESSAGES</span>.<span class="property">EXPECTED_NUMBER_1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>校验是否成功插入：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> order = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">it</span>(<span class="string">&quot;post /tasks creates a task&quot;</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> client.<span class="property">api</span>.<span class="property">tasks</span>.$post(&#123;</span><br><span class="line">    <span class="attr">json</span>: &#123;</span><br><span class="line">      name,</span><br><span class="line">      <span class="attr">done</span>: <span class="literal">false</span>,</span><br><span class="line">      order</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">expect</span>(response.<span class="property">status</span>).<span class="title function_">toBe</span>(<span class="number">200</span>);</span><br><span class="line">  <span class="keyword">if</span> (response.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> json = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">    <span class="title function_">expect</span>(json.<span class="property">name</span>).<span class="title function_">toBe</span>(name);</span><br><span class="line">    <span class="title function_">expect</span>(json.<span class="property">done</span>).<span class="title function_">toBe</span>(<span class="literal">false</span>);</span><br><span class="line">    <span class="title function_">expect</span>(json.<span class="property">order</span>).<span class="title function_">toBe</span>(order);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="测试">测试</h2>
+<p>安装成功后，运行 <code>bun run test</code>,成功通过测试。</p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(16) 添加字段">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(16) 添加字段</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+      </tags>
+  </entry>
 </search>
