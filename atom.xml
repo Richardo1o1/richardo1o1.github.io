@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-03T02:01:57.095Z</updated>
+  <updated>2025-03-03T02:47:13.903Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yunminitools.cn/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/"/>
     <id>http://yunminitools.cn/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/</id>
     <published>2025-03-03T01:58:37.000Z</published>
-    <updated>2025-03-03T02:01:57.095Z</updated>
+    <updated>2025-03-03T02:47:13.903Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;添加更新数据的Hooks&quot;&gt;添加更新数据的Hooks&lt;/h2&gt;
@@ -31,7 +31,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -49,7 +49,7 @@
     <link href="http://yunminitools.cn/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/"/>
     <id>http://yunminitools.cn/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/</id>
     <published>2025-03-02T09:19:43.000Z</published>
-    <updated>2025-03-02T09:21:14.244Z</updated>
+    <updated>2025-03-03T02:47:03.147Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;添加读取数据的Hooks&quot;&gt;添加读取数据的Hooks&lt;/h2&gt;
@@ -63,7 +63,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -81,7 +81,7 @@
     <link href="http://yunminitools.cn/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/"/>
     <id>http://yunminitools.cn/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/</id>
     <published>2025-03-02T08:14:06.000Z</published>
-    <updated>2025-03-02T08:14:45.247Z</updated>
+    <updated>2025-03-03T02:46:46.771Z</updated>
     
     
     <summary type="html">&lt;p&gt;我们发现“顺序”这个字段缺失了，我们添加一下，顺便看一下如何变更数据结构。&lt;/p&gt;
@@ -98,7 +98,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -116,7 +116,7 @@
     <link href="http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/"/>
     <id>http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/</id>
     <published>2025-03-01T09:04:11.000Z</published>
-    <updated>2025-03-01T09:05:02.360Z</updated>
+    <updated>2025-03-03T02:46:33.415Z</updated>
     
     
     <summary type="html">&lt;p&gt;现在我们开始创建前端页面。&lt;/p&gt;
@@ -132,7 +132,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -150,7 +150,7 @@
     <link href="http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-14/"/>
     <id>http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-14/</id>
     <published>2025-03-01T05:12:53.000Z</published>
-    <updated>2025-03-01T05:13:29.035Z</updated>
+    <updated>2025-03-03T02:46:21.783Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;测试脚本脑图&quot;&gt;测试脚本脑图&lt;/h2&gt;
@@ -159,7 +159,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -177,7 +177,7 @@
     <link href="http://yunminitools.cn/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/"/>
     <id>http://yunminitools.cn/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/</id>
     <published>2025-02-28T01:27:46.000Z</published>
-    <updated>2025-02-28T01:29:05.414Z</updated>
+    <updated>2025-03-03T02:46:09.375Z</updated>
     
     
     <summary type="html">&lt;p&gt;下面我们设置一下单元测试的环境，避免测试影响正常环境的数据。&lt;/p&gt;
@@ -190,7 +190,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -208,7 +208,7 @@
     <link href="http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/"/>
     <id>http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/</id>
     <published>2025-02-27T03:11:08.000Z</published>
-    <updated>2025-02-27T03:11:48.354Z</updated>
+    <updated>2025-03-03T02:45:57.871Z</updated>
     
     
     <summary type="html">&lt;p&gt;下面我们给 API 添加单元测试。&lt;/p&gt;
@@ -221,7 +221,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -239,7 +239,7 @@
     <link href="http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/"/>
     <id>http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/</id>
     <published>2025-02-27T01:48:13.000Z</published>
-    <updated>2025-02-27T01:49:21.447Z</updated>
+    <updated>2025-03-03T02:45:43.667Z</updated>
     
     
     <summary type="html">&lt;p&gt;下面我们给 API 添加按id删除任务。&lt;/p&gt;
@@ -256,7 +256,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -274,7 +274,7 @@
     <link href="http://yunminitools.cn/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/"/>
     <id>http://yunminitools.cn/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/</id>
     <published>2025-02-26T01:23:52.000Z</published>
-    <updated>2025-02-26T01:45:21.614Z</updated>
+    <updated>2025-03-03T02:45:31.183Z</updated>
     
     
     <summary type="html">&lt;p&gt;下面我们给 API 添加按id修改任务。&lt;/p&gt;
@@ -285,7 +285,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -336,7 +336,7 @@
     <link href="http://yunminitools.cn/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/"/>
     <id>http://yunminitools.cn/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/</id>
     <published>2025-02-25T03:41:27.000Z</published>
-    <updated>2025-02-25T03:42:03.530Z</updated>
+    <updated>2025-03-03T02:45:18.387Z</updated>
     
     
     <summary type="html">&lt;p&gt;下面我们给 API 参数添加校验功能。&lt;/p&gt;
@@ -349,7 +349,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -367,7 +367,7 @@
     <link href="http://yunminitools.cn/2025/02/24/build-a-documented-type-safe-API-from-scratch-8/"/>
     <id>http://yunminitools.cn/2025/02/24/build-a-documented-type-safe-API-from-scratch-8/</id>
     <published>2025-02-24T09:07:13.000Z</published>
-    <updated>2025-02-24T09:08:13.404Z</updated>
+    <updated>2025-03-03T02:45:01.879Z</updated>
     
     
     <summary type="html">&lt;p&gt;下面我们给API添加创建功能。&lt;/p&gt;
@@ -377,7 +377,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -426,7 +426,7 @@
     <link href="http://yunminitools.cn/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/"/>
     <id>http://yunminitools.cn/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/</id>
     <published>2025-02-23T04:17:45.000Z</published>
-    <updated>2025-02-23T04:18:18.997Z</updated>
+    <updated>2025-03-03T02:44:47.723Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前API的实现只是简单的返回固定值，本章开始实行数据库读写。&lt;/p&gt;
@@ -441,7 +441,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -459,7 +459,7 @@
     <link href="http://yunminitools.cn/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/"/>
     <id>http://yunminitools.cn/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/</id>
     <published>2025-02-22T09:16:10.000Z</published>
-    <updated>2025-02-22T09:17:51.094Z</updated>
+    <updated>2025-03-03T02:42:02.427Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;创建子路径&quot;&gt;创建子路径&lt;/h2&gt;
@@ -470,7 +470,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -488,7 +488,7 @@
     <link href="http://yunminitools.cn/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/"/>
     <id>http://yunminitools.cn/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/</id>
     <published>2025-02-22T04:19:54.000Z</published>
-    <updated>2025-02-22T08:53:30.802Z</updated>
+    <updated>2025-03-03T02:41:36.791Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;添加Doc支持&quot;&gt;添加Doc支持&lt;/h2&gt;
@@ -501,7 +501,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -519,7 +519,7 @@
     <link href="http://yunminitools.cn/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/"/>
     <id>http://yunminitools.cn/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/</id>
     <published>2025-02-21T05:23:03.000Z</published>
-    <updated>2025-02-21T05:42:52.683Z</updated>
+    <updated>2025-03-03T02:41:17.491Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;启用Zod&quot;&gt;启用Zod&lt;/h2&gt;
@@ -532,7 +532,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -550,7 +550,7 @@
     <link href="http://yunminitools.cn/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/"/>
     <id>http://yunminitools.cn/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/</id>
     <published>2025-02-20T01:14:31.000Z</published>
-    <updated>2025-02-20T01:15:12.070Z</updated>
+    <updated>2025-03-03T02:41:00.939Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;搭建日志平台Pino&quot;&gt;搭建日志平台Pino&lt;/h2&gt;
@@ -566,7 +566,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -584,7 +584,7 @@
     <link href="http://yunminitools.cn/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/"/>
     <id>http://yunminitools.cn/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/</id>
     <published>2025-02-19T06:48:36.000Z</published>
-    <updated>2025-02-19T06:49:05.089Z</updated>
+    <updated>2025-03-03T02:40:48.407Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;搭建API路径并运行&quot;&gt;搭建API路径并运行&lt;/h2&gt;
@@ -597,7 +597,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
@@ -615,7 +615,7 @@
     <link href="http://yunminitools.cn/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/"/>
     <id>http://yunminitools.cn/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/</id>
     <published>2025-02-18T15:19:19.000Z</published>
-    <updated>2025-02-19T01:53:23.678Z</updated>
+    <updated>2025-03-03T02:40:33.363Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
@@ -637,7 +637,7 @@
     
     
     
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
     
     
     <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
