@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-03T05:35:00.383Z</updated>
+  <updated>2025-03-03T07:35:35.352Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -17,11 +17,76 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Built Twitter Like App - Index Page</title>
+    <link href="http://yunminitools.cn/2025/03/03/Built-Twitter-Like-App-index/"/>
+    <id>http://yunminitools.cn/2025/03/03/Built-Twitter-Like-App-index/</id>
+    <published>2025-03-03T07:34:46.000Z</published>
+    <updated>2025-03-03T07:35:35.352Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Index&quot;&gt;Index&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/11/Built-Twitter-Like-App-1/&quot; title=&quot;Built Twitter Like App - 1&quot;&gt;Built Twitter Like App - 1&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/11/Built-Twitter-Like-App-2/&quot; title=&quot;Built Twitter Like App - 2&quot;&gt;Built Twitter Like App - 2&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/11/Built-Twitter-Like-App-3/&quot; title=&quot;Built Twitter Like App - 3&quot;&gt;Built Twitter Like App - 3&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/17/Built-Twitter-Like-App-4/&quot; title=&quot;Built Twitter Like App - 4&quot;&gt;Built Twitter Like App - 4&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/17/Built-Twitter-Like-App-5/&quot; title=&quot;Built Twitter Like App - 5&quot;&gt;Built Twitter Like App - 5&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/18/Built-Twitter-Like-App-6/&quot; title=&quot;Built Twitter Like App - 6&quot;&gt;Built Twitter Like App - 6&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/18/Built-Twitter-Like-App-7/&quot; title=&quot;Built Twitter Like App - 7&quot;&gt;Built Twitter Like App - 7&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/21/Built-Twitter-Like-App-8/&quot; title=&quot;Built Twitter Like App - 8&quot;&gt;Built Twitter Like App - 8&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/22/Built-Twitter-Like-App-9/&quot; title=&quot;Built Twitter Like App - 9&quot;&gt;Built Twitter Like App - 9&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/22/Built-Twitter-Like-App-10/&quot; title=&quot;Built Twitter Like App - 10&quot;&gt;Built Twitter Like App - 10&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/23/Built-Twitter-Like-App-11/&quot; title=&quot;Built Twitter Like App - 11&quot;&gt;Built Twitter Like App - 11&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/24/Built-Twitter-Like-App-12/&quot; title=&quot;Built Twitter Like App - 12&quot;&gt;Built Twitter Like App - 12&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/24/Built-Twitter-Like-App-13/&quot; title=&quot;Built Twitter Like App - 13&quot;&gt;Built Twitter Like App - 13&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/05/25/Built-Twitter-Like-App-14/&quot; title=&quot;Built Twitter Like App - 14&quot;&gt;Built Twitter Like App - 14&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Index-Page" scheme="http://yunminitools.cn/tags/Index-Page/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Built Portfolio Page - Index Page</title>
     <link href="http://yunminitools.cn/2025/03/03/built-portfolio-page-index/"/>
     <id>http://yunminitools.cn/2025/03/03/built-portfolio-page-index/</id>
     <published>2025-03-03T05:34:25.000Z</published>
-    <updated>2025-03-03T05:35:00.383Z</updated>
+    <updated>2025-03-03T07:36:38.392Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Index&quot;&gt;Index&lt;/h2&gt;
@@ -686,40 +751,6 @@
 &lt;p&gt;创建文件 &lt;code&gt;utility/env.ts&lt;/code&gt;:&lt;/p&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; z &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;zod&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; expand &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;dotenv-expand&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; config &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;dotenv&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;expand&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;config&lt;/span&gt;());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt; = z.&lt;span class=&quot;title function_&quot;&gt;object&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;NODE_ENV&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;string&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;development&amp;quot;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;PORT&lt;/span&gt;: z.&lt;span class=&quot;property&quot;&gt;coerce&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;number&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;9999&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;LOG_LEVEL&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;enum&lt;/span&gt;([&lt;span class=&quot;string&quot;&gt;&amp;quot;fatal&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;error&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;warn&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;info&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;debug&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;trace&amp;quot;&lt;/span&gt;]),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; env = z.&lt;span class=&quot;property&quot;&gt;infer&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt;&amp;gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// eslint-disable-next-line ts/no-redeclare&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; &lt;span class=&quot;attr&quot;&gt;data&lt;/span&gt;: env, error &amp;#125; = &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;safeParse&lt;/span&gt;(process.&lt;span class=&quot;property&quot;&gt;env&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (error) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;❌ Invalid env:&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;error&lt;/span&gt;(&lt;span class=&quot;title class_&quot;&gt;JSON&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;stringify&lt;/span&gt;(error.&lt;span class=&quot;title function_&quot;&gt;flatten&lt;/span&gt;().&lt;span class=&quot;property&quot;&gt;fieldErrors&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  process.&lt;span class=&quot;title function_&quot;&gt;exit&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; env;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;其他代码中用到 &lt;code&gt;process.env.xxx&lt;/code&gt; 都改成 &lt;code&gt;env.xxx&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API(3) 日志搭建 - Bearalise</title>
-    <link href="http://yunminitools.cn/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/"/>
-    <id>http://yunminitools.cn/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/</id>
-    <published>2025-02-20T01:14:31.000Z</published>
-    <updated>2025-03-03T02:41:00.939Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;搭建日志平台Pino&quot;&gt;搭建日志平台Pino&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://getpino.io/&quot;&gt;Pino&lt;/a&gt; 是一个非常快速且简洁的 Node.js 日志库，其设计宗旨在于提供最小的开销以及高性能的日志记录功能。下面我们来在项目中搭建它。&lt;br&gt;
-安装：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun add hono-pino pino&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;代码实现：&lt;br&gt;
-添加文件：&lt;code&gt;middlewares/pino-logger.ts&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; pinoLogger &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;hono-pino&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;pnLogger&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;pinoLogger&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;运行程序：&lt;code&gt;bun run dev&lt;/code&gt;&lt;br&gt;
-访问localhost，返回 “Hello Hono”，同时控制台显示：&lt;br&gt;
-&lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo4.jpg&quot; alt=&quot;apidemo4&quot;&gt;&lt;/p&gt;</summary>
     
     
     
