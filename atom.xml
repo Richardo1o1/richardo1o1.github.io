@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-02T09:21:14.244Z</updated>
+  <updated>2025-03-03T02:01:57.095Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API(18) 添加数据更新功能</title>
+    <link href="http://yunminitools.cn/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/"/>
+    <id>http://yunminitools.cn/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/</id>
+    <published>2025-03-03T01:58:37.000Z</published>
+    <updated>2025-03-03T02:01:57.095Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;添加更新数据的Hooks&quot;&gt;添加更新数据的Hooks&lt;/h2&gt;
+&lt;p&gt;为了能够方便调用 Hooks 修改数据，我对接口做了改造，body 参数加上了id，这样我们就可以在页面初始化时，不用指定 id，等调用时再根据 body 的 id 调用后台。&lt;br&gt;
+添加 &lt;code&gt;hooks/use-update-task.ts&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;InferRequestType&lt;/span&gt;,&lt;span class=&quot;title class_&quot;&gt;InferResponseType&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;hono&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; useMutation, useQueryClient &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@tanstack/react-query&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; client &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@/lib/hono&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;ResponseType&lt;/span&gt; = &lt;span class=&quot;title class_&quot;&gt;InferResponseType&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; client.&lt;span class=&quot;property&quot;&gt;tasks&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&amp;quot;:id&amp;quot;&lt;/span&gt;][&lt;span class=&quot;string&quot;&gt;&amp;quot;$patch&amp;quot;&lt;/span&gt;]&amp;gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;RequestType&lt;/span&gt; = &lt;span class=&quot;title class_&quot;&gt;InferRequestType&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; client.&lt;span class=&quot;property&quot;&gt;tasks&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&amp;quot;:id&amp;quot;&lt;/span&gt;][&lt;span class=&quot;string&quot;&gt;&amp;quot;$patch&amp;quot;&lt;/span&gt;]&amp;gt;[&lt;span class=&quot;string&quot;&gt;&amp;quot;json&amp;quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;UpdateTaskPayload&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name?: &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  done?: &lt;span class=&quot;built_in&quot;&gt;boolean&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  order?: &lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;useUpdateTask&lt;/span&gt; = (&lt;span class=&quot;params&quot;&gt; &lt;/span&gt;) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; queryClient = &lt;span class=&quot;title function_&quot;&gt;useQueryClient&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; mutation = useMutation&amp;lt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title class_&quot;&gt;ResponseType&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title class_&quot;&gt;Error&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title class_&quot;&gt;RequestType&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;mutationFn&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; (json) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; response = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; client.&lt;span class=&quot;property&quot;&gt;tasks&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&amp;quot;:id&amp;quot;&lt;/span&gt;][&lt;span class=&quot;string&quot;&gt;&amp;quot;$patch&amp;quot;&lt;/span&gt;](&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        json,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;param&lt;/span&gt;: &amp;#123; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;: json.&lt;span class=&quot;property&quot;&gt;id&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; response.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;onSuccess&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      queryClient.&lt;span class=&quot;title function_&quot;&gt;invalidateQueries&lt;/span&gt;(&amp;#123; &lt;span class=&quot;attr&quot;&gt;queryKey&lt;/span&gt;:[&lt;span class=&quot;string&quot;&gt;&amp;quot;tasks&amp;quot;&lt;/span&gt;]&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;onError&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;task update failed&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; mutation;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(17) 添加数据读取功能</title>
@@ -617,32 +645,6 @@
     <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
     
     <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OpenAPI 规范（OAS）介绍 - Bearalise</title>
-    <link href="http://yunminitools.cn/2025/02/17/openapi-introduction/"/>
-    <id>http://yunminitools.cn/2025/02/17/openapi-introduction/</id>
-    <published>2025-02-17T12:42:34.000Z</published>
-    <updated>2025-02-17T13:58:01.086Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;作为一名开发者，都需要编写程序的 API 文档。现代开发框架，都需要API的协作，有时完成一个操作，需要调用多个API才能完成，所以，一个好的 API 文档能够大大提高协作效率，降低沟通成本。为解决API文本规范的问题，我们聊聊如何使用 OpenAPI 构建 HTTP 接口文档。&lt;/p&gt;
-&lt;h2 id=&quot;OpenAPI-规范（OAS）介绍&quot;&gt;OpenAPI 规范（OAS）介绍&lt;/h2&gt;
-&lt;p&gt;OpenAPI 是规范化描述 API 领域应用最广泛的行业标准，由 OpenAPI Initiative(OAI) 定义并维护，同时也是 Linux 基金会下的一个开源项目。通常我们所说的 OpenAPI 全称应该是 OpenAPI Specification(OpenAPI 规范，简称 OSA)，它使用规定的格式来描述 HTTP RESTful API 的定义，以此来规范 RESTful 服务开发过程。使用 JSON 或 YAML 来描述一个标准的、与编程语言无关的 HTTP API 接口。OpenAPI 规范最初基于 SmartBear Software 在 2015 年捐赠的 Swagger 规范演变而来，目前最新的版本是 &lt;a href=&quot;https://spec.openapis.org/oas/latest.html&quot;&gt;v3.1.1&lt;/a&gt;。本文参考了apifox 发布的一个 &lt;a href=&quot;https://openapi.apifox.cn/&quot;&gt;中文版&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;OpenAPI-规范基本信息&quot;&gt;OpenAPI 规范基本信息&lt;/h2&gt;
-&lt;h3 id=&quot;文档结构&quot;&gt;文档结构&lt;/h3&gt;
-&lt;p&gt;一份 OpenAPI 文档可以是单个文件也可以被拆分为多个文件， 连接的部分由用户自行决定。在后一种情形下，必须如 &lt;a href=&quot;http://json-schema.org/&quot;&gt;JSON Schema&lt;/a&gt; 中定义的那样使用 &lt;code&gt;$ref&lt;/code&gt; 字段来相互引用。&lt;/p&gt;
-&lt;p&gt;推荐将根 OpenAPI 文档命名为&lt;code&gt;openapi.json&lt;/code&gt; 或 &lt;code&gt;openapi.yaml&lt;/code&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
     
   </entry>
   
