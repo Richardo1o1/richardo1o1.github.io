@@ -1030,7 +1030,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0252-helloworld.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1051,7 +1051,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextApiRequest</span>, <span class="title class_">NextApiResponse</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;next&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> serverAuth <span class="keyword">from</span> <span class="string">&#x27;../../libs/serverAuth&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">handler</span>(<span class="params"></span></span><br><span class="line"><span class="params">    req: NextApiRequest,</span></span><br><span class="line"><span class="params">    res: NextApiResponse</span></span><br><span class="line"><span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> ( req.<span class="property">method</span> !== <span class="string">&#x27;GET&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">405</span>).<span class="title function_">end</span>(); </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; currentUser &#125; = <span class="keyword">await</span> <span class="title function_">serverAuth</span>(req);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">200</span>).<span class="title function_">json</span>(currentUser);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span><br><span class="line">    <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">400</span>).<span class="title function_">end</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1070,7 +1070,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> useSWR <span class="keyword">from</span> <span class="string">&#x27;swr&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> fetcher <span class="keyword">from</span> <span class="string">&#x27;../libs/fetcher&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">useCurrentUser</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; data, error, isLoading, mutate &#125; = <span class="title function_">useSWR</span>(<span class="string">&#x27;/api/current&#x27;</span>, fetcher)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      data,</span><br><span class="line">      error,</span><br><span class="line">      isLoading,</span><br><span class="line">      mutate</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useCurrentUser;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1094,7 +1094,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p>Check mysql, the record have been created.</p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1122,7 +1122,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0262-Login1.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1145,7 +1145,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> useSWR <span class="keyword">from</span> <span class="string">&#x27;swr&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> fetcher <span class="keyword">from</span> <span class="string">&#x27;../libs/fetcher&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">useUser</span> = (<span class="params">userId:<span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; </span><br><span class="line">      data, </span><br><span class="line">      error, </span><br><span class="line">      isLoading, </span><br><span class="line">      mutate </span><br><span class="line">    &#125; = <span class="title function_">useSWR</span>(<span class="string">&#x27;/api/users/$&#123;userId&#125;&#x27;</span>, fetcher)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      data,</span><br><span class="line">      error,</span><br><span class="line">      isLoading,</span><br><span class="line">      mutate</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useUser;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1168,7 +1168,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> useSWR <span class="keyword">from</span> <span class="string">&#x27;swr&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> fetcher <span class="keyword">from</span> <span class="string">&#x27;../libs/fetcher&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">useUser</span> = (<span class="params">userId:<span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; </span><br><span class="line">      data, </span><br><span class="line">      error, </span><br><span class="line">      isLoading, </span><br><span class="line">      mutate </span><br><span class="line">    &#125; = <span class="title function_">useSWR</span>(<span class="string">&#x27;/api/users/$&#123;userId&#125;&#x27;</span>, fetcher)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      data,</span><br><span class="line">      error,</span><br><span class="line">      isLoading,</span><br><span class="line">      mutate</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useUser;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1190,7 +1190,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0265-FollowBar1.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1214,7 +1214,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0266-UserProfile1.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1241,7 +1241,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0268-UserProfile3-Follow.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1283,7 +1283,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0271-EditProfile-3.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1305,7 +1305,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0254-2nd-test-run.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1338,7 +1338,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0274-UploadImage-3.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1372,7 +1372,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0275-Tweet-1.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1408,7 +1408,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0277-PostFeed-2.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1442,7 +1442,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0280-Follow-3.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1472,7 +1472,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0281-PostPage-1.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1502,7 +1502,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0282-Like-1.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1540,7 +1540,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0283-Comments-1.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1587,7 +1587,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0286-Notification-3.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1616,7 +1616,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0256-lg-test-run-3.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1634,7 +1634,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">FollowBar</span> =(<span class="params"></span>) =&gt;&#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;px-6 py-4 hidden lg:block&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;bg-neutral-800 rounded-xl p-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h2</span> <span class="attr">className</span>=<span class="string">&quot;text-white text-xl font-semibold&quot;</span>&gt;</span>Who to follow<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-col gap-6 mt-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* TODO User List */&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">   );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">FollowBar</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1652,7 +1652,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useRouter &#125; <span class="keyword">from</span> <span class="string">&quot;next/router&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useCallback &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BiArrowBack</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react-icons/bi&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">HeaderProps</span> &#123;</span><br><span class="line">   <span class="attr">label</span>: <span class="built_in">string</span>;</span><br><span class="line">   showBackArrow?: <span class="built_in">boolean</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Header</span>:<span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">HeaderProps</span>&gt; =<span class="function">(<span class="params"> &#123;label, showBackArrow&#125; </span>) =&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">const</span> router = <span class="title function_">useRouter</span>();</span><br><span class="line"></span><br><span class="line">   <span class="keyword">const</span> handleBack = <span class="title function_">useCallback</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      router.<span class="title function_">back</span>();</span><br><span class="line">   &#125;, [router])</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">   <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;border-b-[1px] border-neutral-800 p-5&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-row items-center gap-2&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">         &#123;</span></span><br><span class="line"><span class="language-xml">            showBackArrow &amp;&amp; (</span></span><br><span class="line"><span class="language-xml">               <span class="tag">&lt;<span class="name">BiArrowBack</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                  <span class="attr">onClick</span>=<span class="string">&#123;handleBack&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                  <span class="attr">color</span>=<span class="string">&quot;white&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                  <span class="attr">size</span>=<span class="string">&#123;20&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                  <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                    cursor-pointer</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                    hover:opacity-70</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                    transition</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                  &quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               /&gt;</span></span></span><br><span class="line"><span class="language-xml">            )</span></span><br><span class="line"><span class="language-xml">         &#125;</span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">&quot;text-white text-xl font-semibold&quot;</span>&gt;</span>&#123; label &#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">   );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Header</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1673,7 +1673,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useCallback &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AiOutlineClose</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-icons/ai&#x27;</span> </span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Button</span> <span class="keyword">from</span> <span class="string">&#x27;./Button&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">ModalBoxProps</span> &#123;</span><br><span class="line">  isOpen?: <span class="built_in">boolean</span>;</span><br><span class="line">  <span class="attr">onClose</span>: <span class="function">()=&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">  <span class="attr">onSubmit</span>: <span class="function">()=&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">  title?: <span class="built_in">string</span>;</span><br><span class="line">  body?: <span class="title class_">React</span>.<span class="property">ReactElement</span>;</span><br><span class="line">  footer?: <span class="title class_">React</span>.<span class="property">ReactElement</span>;</span><br><span class="line">  <span class="attr">actionLabel</span>: <span class="built_in">string</span>;</span><br><span class="line">  disabled?: <span class="built_in">boolean</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ModalBox</span>: <span class="title class_">React</span>.<span class="property">FC</span>&lt;<span class="title class_">ModalBoxProps</span>&gt; =<span class="function">(<span class="params">&#123;</span></span></span><br><span class="line"><span class="params"><span class="function">  isOpen,</span></span></span><br><span class="line"><span class="params"><span class="function">  onClose,</span></span></span><br><span class="line"><span class="params"><span class="function">  onSubmit,</span></span></span><br><span class="line"><span class="params"><span class="function">  title,</span></span></span><br><span class="line"><span class="params"><span class="function">  body,</span></span></span><br><span class="line"><span class="params"><span class="function">  footer,</span></span></span><br><span class="line"><span class="params"><span class="function">  actionLabel,</span></span></span><br><span class="line"><span class="params"><span class="function">  disabled</span></span></span><br><span class="line"><span class="params"><span class="function">&#125;</span>) =&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> handleClose = <span class="title function_">useCallback</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (disabled)&#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">onClose</span>();</span><br><span class="line">  &#125;,[disabled, onClose]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleSubmit = <span class="title function_">useCallback</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (disabled)&#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">onSubmit</span>();</span><br><span class="line">    &#125;,[disabled, onSubmit]);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(!isOpen) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         justify-center</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         items-center</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         flex</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         overflow-x-hidden</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         overflow-y-auto</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         fixed</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         inset-0</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         z-50</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         outline-none</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         focus:outline-none</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         bg-neutral-800</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">         bg-opactiy-70</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            relative</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            w-full</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            lg:w-3/6</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            my-6</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            mx-auto</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            lg:max-w-3xl</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            h-full</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            lg:h-auto</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">          &quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">          &#123;/* Content */&#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">div</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              h-full</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              lg:h-auto</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              border-0</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              rounded-lg</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              shadow-lg</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              relative</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              flex</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              flex-col</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              w-full</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              bg-black</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              outline-none</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              focus:outline-none </span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">          &quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* Header */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                flex</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                item-center</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                justify-between</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                p-10</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                rounded-t</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            &quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">h3</span> <span class="attr">className</span>=<span class="string">&quot;text-3xl font-semibold text-white&quot;</span>&gt;</span>&#123;title&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">onClick</span>=<span class="string">&#123;handleClose&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">className</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                  p-1</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                  ml-auto</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                  border-0</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                  text-white</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                  hover:opacity-70</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                  transition</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">              &quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">AiOutlineClose</span> <span class="attr">size</span>=<span class="string">&#123;20&#125;/</span>&gt;</span> </span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* Body */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;relative p-10 flex-auto&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              &#123;body&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* Footer */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-col gap-2 p-10&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">Button</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">disabled</span>=<span class="string">&#123;disabled&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">label</span>=<span class="string">&#123;actionLabel&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">secondary</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">fullwidth</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">large</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">onClick</span>=<span class="string">&#123;handleSubmit&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;footer&#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>        </span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">ModalBox</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1707,7 +1707,7 @@ There are several measures I specifically recommend avoiding:<br>
 <p><img src="https://cdn.yunminitools.cn/pic/0259-Newaccount-twitter-like.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1739,7 +1739,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PrismaClient</span>  &#125; <span class="keyword">from</span> <span class="string">&quot;@prisma/client&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="variable language_">global</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="attr">prisma</span>: <span class="title class_">PrismaClient</span> | <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> client = globalThis.<span class="property">prisma</span> || <span class="keyword">new</span> <span class="title class_">PrismaClient</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( process.<span class="property">env</span>.<span class="property">NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span>) globalThis.<span class="property">prisma</span> = client;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> client;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -1761,7 +1761,7 @@ There are several measures I specifically recommend avoiding:<br>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=<span class="string">&quot;mysql://&lt;user&gt;:&lt;password&gt;@192.168.50.188:3501/TWDB&quot;</span></span><br><span class="line"><span class="variable constant_">NEXTAUTH_JWT_SECRET</span>=<span class="string">&quot;NEXTAUTH_JWT_SECRET&quot;</span></span><br><span class="line"><span class="variable constant_">NEXTAUTH_SECRET</span>=<span class="string">&quot;NEXTAUTH_SECRET&quot;</span></span><br><span class="line"><span class="variable constant_">NEXTAUTH_URL</span> =<span class="string">&quot;http://192.168.50.199:3000/&quot;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
