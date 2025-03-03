@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-03T03:31:54.598Z</updated>
+  <updated>2025-03-03T05:35:00.383Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Built Portfolio Page - Index Page</title>
+    <link href="http://yunminitools.cn/2025/03/03/built-portfolio-page-index/"/>
+    <id>http://yunminitools.cn/2025/03/03/built-portfolio-page-index/</id>
+    <published>2025-03-03T05:34:25.000Z</published>
+    <updated>2025-03-03T05:35:00.383Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Index&quot;&gt;Index&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/07/20/built-portfolio-page-1/&quot; title=&quot;Built Portfolio Page -1（搭建框架）&quot;&gt;Built Portfolio Page -1（搭建框架）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/07/21/built-portfolio-page-2/&quot; title=&quot;Built Portfolio Page -2（创建Intro组件）&quot;&gt;Built Portfolio Page -2（创建Intro组件）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/07/22/built-portfolio-page-3/&quot; title=&quot;Built Portfolio Page -3 (Projects Component)&quot;&gt;Built Portfolio Page -3 (Projects Component)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/07/22/built-portfolio-page-4/&quot; title=&quot;Built Portfolio Page -4 (Scroll effect)&quot;&gt;Built Portfolio Page -4 (Scroll effect)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/07/24/built-portfolio-page-5/&quot; title=&quot;Built Portfolio Page - 5 (Link scroll)&quot;&gt;Built Portfolio Page - 5 (Link scroll)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/07/24/built-portfolio-page-6/&quot; title=&quot;Built Portfolio Page - 6 (Navigation bar effect)&quot;&gt;Built Portfolio Page - 6 (Navigation bar effect)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/08/07/built-portfolio-page-7/&quot; title=&quot;Built Portfolio Page - 7 (Code Cleaning)&quot;&gt;Built Portfolio Page - 7 (Code Cleaning)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/08/08/built-portfolio-page-8/&quot; title=&quot;Built Portfolio Page - 8 (Skills Component)&quot;&gt;Built Portfolio Page - 8 (Skills Component)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/08/09/built-portfolio-page-9/&quot; title=&quot;Built Portfolio Page - 9（Experience）&quot;&gt;Built Portfolio Page - 9（Experience）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/08/10/built-portfolio-page-10/&quot; title=&quot;Built Portfolio Page - 10（send email）&quot;&gt;Built Portfolio Page - 10（send email）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2024/08/11/built-portfolio-page-11/&quot; title=&quot;Built Portfolio Page - 11（email with format）&quot;&gt;Built Portfolio Page - 11（email with format）&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Index-Page" scheme="http://yunminitools.cn/tags/Index-Page/"/>
+    
+  </entry>
   
   <entry>
     <title>Build a Finance SaaS Platform - Index Page</title>
@@ -664,37 +720,6 @@
 &lt;p&gt;运行程序：&lt;code&gt;bun run dev&lt;/code&gt;&lt;br&gt;
 访问localhost，返回 “Hello Hono”，同时控制台显示：&lt;br&gt;
 &lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo4.jpg&quot; alt=&quot;apidemo4&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API(2) 安装Zod OpenAPI Hono/stoker - Bearalise</title>
-    <link href="http://yunminitools.cn/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/"/>
-    <id>http://yunminitools.cn/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/</id>
-    <published>2025-02-19T06:48:36.000Z</published>
-    <updated>2025-03-03T02:40:48.407Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;搭建API路径并运行&quot;&gt;搭建API路径并运行&lt;/h2&gt;
-&lt;p&gt;在项目目录下创建文件：&lt;code&gt;app/api/[[...route]]/route.ts&lt;/code&gt;:&lt;br&gt;
-&lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo1.jpg&quot; alt=&quot;apidemo1&quot;&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;Hono&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;hono&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; handle &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;hono/vercel&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; app = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Hono&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;basePath&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;/api&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;app.&lt;span class=&quot;title function_&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;c&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; c.&lt;span class=&quot;title function_&quot;&gt;text&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;Hello Hono&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; port = &lt;span class=&quot;number&quot;&gt;3001&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;`Server running on port &lt;span class=&quot;subst&quot;&gt;$&amp;#123;port&amp;#125;&lt;/span&gt;`&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;variable constant_&quot;&gt;GET&lt;/span&gt; = &lt;span class=&quot;title function_&quot;&gt;handle&lt;/span&gt;(app);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;运行程序：&lt;code&gt;bun run dev&lt;/code&gt;&lt;br&gt;
-访问localhost，返回 “Hello Hono”，同时控制台显示：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Server running on port 3001&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

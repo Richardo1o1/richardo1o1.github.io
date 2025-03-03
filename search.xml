@@ -7820,11 +7820,12 @@ F(router/index.js 配置路由)-->C</pre>
 <p>可以实现一个向下出现的动画。</p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
         <tag>tailwindcss</tag>
+        <tag>framer-motion</tag>
       </tags>
   </entry>
   <entry>
@@ -7852,7 +7853,7 @@ F(router/index.js 配置路由)-->C</pre>
 <p><img src="https://cdn.yunminitools.cn/pic/0295-resend4.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -7874,7 +7875,7 @@ F(router/index.js 配置路由)-->C</pre>
 <p><img src="https://cdn.yunminitools.cn/pic/0297-resend6.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -7916,11 +7917,10 @@ F(router/index.js 配置路由)-->C</pre>
 <p><img src="https://cdn.yunminitools.cn/pic/0287-Portfolio1.png" alt="Demo Page"></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
-        <tag>tailwindcss</tag>
       </tags>
   </entry>
   <entry>
@@ -7948,7 +7948,7 @@ F(router/index.js 配置路由)-->C</pre>
 <p><img src="https://cdn.yunminitools.cn/pic/0288-Portfolio2.png" alt="Demo Page"></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -7978,7 +7978,7 @@ F(router/index.js 配置路由)-->C</pre>
 <p><img src="https://cdn.yunminitools.cn/pic/0289-ScrollEffect.gif" alt="Demo Page"></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -8004,7 +8004,7 @@ F(router/index.js 配置路由)-->C</pre>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">RootLayout</span>(<span class="params">&#123;</span></span><br><span class="line"><span class="params">  children,</span></span><br><span class="line"><span class="params">&#125;: &#123;</span></span><br><span class="line"><span class="params">  children: React.ReactNode</span></span><br><span class="line"><span class="params">&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">className</span>=<span class="string">&#x27;!scroll-smooth&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">...</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -8062,7 +8062,7 @@ F(router/index.js 配置路由)-->C</pre>
 <p><img src="https://cdn.yunminitools.cn/pic/0290-ScrollEffect-Bar.gif" alt="Demo"></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -8090,7 +8090,7 @@ F(router/index.js 配置路由)-->C</pre>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Projects</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; ref &#125; = <span class="title function_">useSectionInView</span>(<span class="string">&quot;Projects&quot;</span>,<span class="number">0.5</span>);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -8128,7 +8128,7 @@ F(router/index.js 配置路由)-->C</pre>
 <p><img src="https://cdn.yunminitools.cn/pic/0291-skills-animation.gif" alt=""></p>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -8149,7 +8149,7 @@ F(router/index.js 配置路由)-->C</pre>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">VerticalTimeline</span>,</span><br><span class="line">  <span class="title class_">VerticalTimelineElement</span>,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;react-vertical-timeline-component&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;react-vertical-timeline-component/style.min.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">SectionHeading</span> <span class="keyword">from</span> <span class="string">&quot;./Section-heading&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useSectionInView &#125; <span class="keyword">from</span> <span class="string">&quot;@/hooks/useSectionInView&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; experiencesData &#125; <span class="keyword">from</span> <span class="string">&quot;@/libs/data&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Experience</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; ref &#125; = <span class="title function_">useSectionInView</span>(<span class="string">&quot;Experience&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">&quot;experience&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;ref&#125;</span> <span class="attr">className</span>=<span class="string">&quot;scroll-mt-28 mb-28 sm:mb-40&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">SectionHeading</span>&gt;</span>My experience<span class="tag">&lt;/<span class="name">SectionHeading</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">VerticalTimeline</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;experiencesData.map((item, index) =&gt; (</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">React.Fragment</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">VerticalTimelineElement</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">contentStyle</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">background:</span> &quot;#<span class="attr">f3f4f6</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">boxShadow:</span> &quot;<span class="attr">none</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">border:</span> &quot;<span class="attr">1px</span> <span class="attr">solid</span> <span class="attr">rgba</span>(<span class="attr">0</span>, <span class="attr">0</span>, <span class="attr">0</span>, <span class="attr">0.05</span>)&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">textAlign:</span> &quot;<span class="attr">left</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">padding:</span> &quot;<span class="attr">1.3rem</span> <span class="attr">2rem</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">contentArrowStyle</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">borderRight:</span> &quot;<span class="attr">0.4rem</span> <span class="attr">solid</span> #<span class="attr">9ca3af</span>&quot;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">date</span>=<span class="string">&#123;item.date&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">icon</span>=<span class="string">&#123;item.icon&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">iconStyle</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">background:</span> &quot;<span class="attr">white</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">fontSize:</span> &quot;<span class="attr">1.5rem</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">visible</span>=<span class="string">&#123;true&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">h3</span> <span class="attr">className</span>=<span class="string">&quot;font-semibold capitalize&quot;</span>&gt;</span>&#123;item.title&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;font-normal !mt-0&quot;</span>&gt;</span>&#123;item.location&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;!mt-1 !font-normal text-gray-700&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                &#123;item.description&#125;</span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">VerticalTimelineElement</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">React.Fragment</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        ))&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">VerticalTimeline</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>日常练习</category>
+        <category>从零搭建</category>
       </categories>
       <tags>
         <tag>NextJS</tag>
@@ -14480,6 +14480,62 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 </li>
 <li>
 <a href="/2024/10/18/built-finance-dashboard-page-26/" title="Build a Finance SaaS Platform -26 (Account&#x2F;Date Filter)(End)">Build a Finance SaaS Platform -26 (Account&#x2F;Date Filter)(End)</a>
+</li>
+</ul>
+<span id="more"></span>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/03/built-finance-dashboard-page-index/" title="Build a Finance SaaS Platform - Index Page">Build a Finance SaaS Platform - Index Page</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>从零搭建</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>Index-Page</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Built Portfolio Page - Index Page</title>
+    <url>/2025/03/03/built-portfolio-page-index/</url>
+    <content><![CDATA[<h2 id="Index">Index</h2>
+<ul>
+<li>
+<a href="/2024/07/20/built-portfolio-page-1/" title="Built Portfolio Page -1（搭建框架）">Built Portfolio Page -1（搭建框架）</a>
+</li>
+<li>
+<a href="/2024/07/21/built-portfolio-page-2/" title="Built Portfolio Page -2（创建Intro组件）">Built Portfolio Page -2（创建Intro组件）</a>
+</li>
+<li>
+<a href="/2024/07/22/built-portfolio-page-3/" title="Built Portfolio Page -3 (Projects Component)">Built Portfolio Page -3 (Projects Component)</a>
+</li>
+<li>
+<a href="/2024/07/22/built-portfolio-page-4/" title="Built Portfolio Page -4 (Scroll effect)">Built Portfolio Page -4 (Scroll effect)</a>
+</li>
+<li>
+<a href="/2024/07/24/built-portfolio-page-5/" title="Built Portfolio Page - 5 (Link scroll)">Built Portfolio Page - 5 (Link scroll)</a>
+</li>
+<li>
+<a href="/2024/07/24/built-portfolio-page-6/" title="Built Portfolio Page - 6 (Navigation bar effect)">Built Portfolio Page - 6 (Navigation bar effect)</a>
+</li>
+<li>
+<a href="/2024/08/07/built-portfolio-page-7/" title="Built Portfolio Page - 7 (Code Cleaning)">Built Portfolio Page - 7 (Code Cleaning)</a>
+</li>
+<li>
+<a href="/2024/08/08/built-portfolio-page-8/" title="Built Portfolio Page - 8 (Skills Component)">Built Portfolio Page - 8 (Skills Component)</a>
+</li>
+<li>
+<a href="/2024/08/09/built-portfolio-page-9/" title="Built Portfolio Page - 9（Experience）">Built Portfolio Page - 9（Experience）</a>
+</li>
+<li>
+<a href="/2024/08/10/built-portfolio-page-10/" title="Built Portfolio Page - 10（send email）">Built Portfolio Page - 10（send email）</a>
+</li>
+<li>
+<a href="/2024/08/11/built-portfolio-page-11/" title="Built Portfolio Page - 11（email with format）">Built Portfolio Page - 11（email with format）</a>
 </li>
 </ul>
 <span id="more"></span>
