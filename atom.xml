@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-04T01:07:24.817Z</updated>
+  <updated>2025-03-04T01:17:56.229Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,71 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API 目录</title>
+    <link href="http://yunminitools.cn/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/"/>
+    <id>http://yunminitools.cn/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/</id>
+    <published>2025-03-04T01:16:29.000Z</published>
+    <updated>2025-03-04T01:17:56.229Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;目录&quot;&gt;目录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(1) 创建项目&amp;#x2F;Eslint设置 - Bearalise&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(1) 创建项目&amp;#x2F;Eslint设置 - Bearalise&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&amp;#x2F;stoker - Bearalise&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&amp;#x2F;stoker - Bearalise&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(3) 日志搭建 - Bearalise&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(3) 日志搭建 - Bearalise&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(4) 启用Zod&amp;#x2F;代码重组&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(4) 启用Zod&amp;#x2F;代码重组&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(5) 文档生成&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(5) 文档生成&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(6) 创建子路径&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(6) 创建子路径&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(7) 读数据库&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(7) 读数据库&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/24/build-a-documented-type-safe-API-from-scratch-8/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(8) 创建数据&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(8) 创建数据&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(9) 建立校验规则&amp;#x2F;按id读取任务&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(9) 建立校验规则&amp;#x2F;按id读取任务&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(10) 按id修改任务&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(10) 按id修改任务&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(11) 按id删除任务&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(11) 按id删除任务&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(12) 单元测试&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(12) 单元测试&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+    <category term="Index-Page" scheme="http://yunminitools.cn/tags/Index-Page/"/>
+    
+  </entry>
   
   <entry>
     <title>从头开始创建一个自动产生文档/类型安全的现代API(19) 添加删除功能/二次确认对话框 (结束）</title>
@@ -716,37 +781,6 @@
 首先， 添加 &lt;code&gt;app/api/[[...route]]/routes/tasks/tasks.index.ts&lt;/code&gt;:&lt;/p&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; createRouter &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;../../lib/create-app&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; * &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; handlers &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;./tasks.handlers&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; * &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; routes &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;./tasks.routes&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; router = &lt;span class=&quot;title function_&quot;&gt;createRouter&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;span class=&quot;title function_&quot;&gt;openapi&lt;/span&gt;(routes.&lt;span class=&quot;property&quot;&gt;list&lt;/span&gt;, handlers.&lt;span class=&quot;property&quot;&gt;list&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; router;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;这个文件作为索引文件，链接了handler和router两个文件，我们来创建它们。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API(5) 文档生成</title>
-    <link href="http://yunminitools.cn/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/"/>
-    <id>http://yunminitools.cn/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/</id>
-    <published>2025-02-22T04:19:54.000Z</published>
-    <updated>2025-03-03T02:41:36.791Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;添加Doc支持&quot;&gt;添加Doc支持&lt;/h2&gt;
-&lt;p&gt;添加 &lt;code&gt;app/api/[[...route]]/lab/configure-openapi.ts&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;AppOpenAPI&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@/utility/types&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; packageJSON &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@/package.json&amp;quot;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &amp;#123; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;json&amp;quot;&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;configureOpenAPI&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;app : AppOpenAPI&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    app.&lt;span class=&quot;title function_&quot;&gt;doc&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;/doc&amp;quot;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;openapi&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;3.0.0&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;info&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;attr&quot;&gt;version&lt;/span&gt;: packageJSON.&lt;span class=&quot;property&quot;&gt;version&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;attr&quot;&gt;title&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;Tasks API&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改 &lt;code&gt;app/api/[[...route]]/route.ts&lt;/code&gt;,添加调用:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; configureOpenAPI &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;./lab/configure-openapi&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; app = &lt;span class=&quot;title function_&quot;&gt;createApp&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;configureOpenAPI&lt;/span&gt;(app);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;访问 网址 localhost:3001/api/doc,显示如下：&lt;br&gt;
-&lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo6.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     

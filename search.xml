@@ -14691,4 +14691,91 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Hono</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从头开始创建一个自动产生文档/类型安全的现代API 目录</title>
+    <url>/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/</url>
+    <content><![CDATA[<h2 id="目录">目录</h2>
+<ul>
+<li>
+<a href="/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(1) 创建项目&#x2F;Eslint设置 - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(1) 创建项目&#x2F;Eslint设置 - Bearalise</a>
+</li>
+<li>
+<a href="/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&#x2F;stoker - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&#x2F;stoker - Bearalise</a>
+</li>
+<li>
+<a href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(3) 日志搭建 - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(3) 日志搭建 - Bearalise</a>
+</li>
+<li>
+<a href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组</a>
+</li>
+<li>
+<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成</a>
+</li>
+<li>
+<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(6) 创建子路径">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(6) 创建子路径</a>
+</li>
+<li>
+<a href="/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(7) 读数据库">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(7) 读数据库</a>
+</li>
+<li>
+<a href="/2025/02/24/build-a-documented-type-safe-API-from-scratch-8/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(8) 创建数据">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(8) 创建数据</a>
+</li>
+<li>
+<a href="/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(9) 建立校验规则&#x2F;按id读取任务">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(9) 建立校验规则&#x2F;按id读取任务</a>
+</li>
+<li>
+<a href="/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(10) 按id修改任务">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(10) 按id修改任务</a>
+</li>
+<li>
+<a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(11) 按id删除任务">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(11) 按id删除任务</a>
+</li>
+<li>
+<a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(12) 单元测试">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(12) 单元测试</a>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>
+<a href="/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(13) 设置测试环境">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(13) 设置测试环境</a>
+</li>
+<li>
+<a href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-14/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(14) 完整测试脚本">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(14) 完整测试脚本</a>
+</li>
+<li>
+<a href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(15) 创建前端页面">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(15) 创建前端页面</a>
+</li>
+<li>
+<a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(16) 添加字段">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(16) 添加字段</a>
+</li>
+<li>
+<a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(17) 添加数据读取功能">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(17) 添加数据读取功能</a>
+</li>
+<li>
+<a href="/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(18) 添加数据更新功能">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(18) 添加数据更新功能</a>
+</li>
+<li>
+<a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-19/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(19) 添加删除功能&#x2F;二次确认对话框 (结束）">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(19) 添加删除功能&#x2F;二次确认对话框 (结束）</a>
+</li>
+</ul>
+<h2 id="Github">Github</h2>
+<p>也可以移步 Github，查看完整代码：<a href="https://github.com/Richardo1o1/opeonapidemo">https://github.com/Richardo1o1/opeonapidemo</a></p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>API</tag>
+        <tag>React</tag>
+        <tag>Hono</tag>
+        <tag>Index-Page</tag>
+      </tags>
+  </entry>
 </search>
