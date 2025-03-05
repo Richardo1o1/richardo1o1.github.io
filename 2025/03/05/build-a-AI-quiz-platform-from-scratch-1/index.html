@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>从头开始创建一个自动产生文档/类型安全的现代API 目录 |  Bearalise&#39;s Blog</title>
+      <title>从零搭建基于 AI 问答平台(1) 搭建框架及数据库 |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-build-a-documented-type-safe-API-from-scratch-index"
+  id="post-build-a-AI-quiz-platform-from-scratch-1"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -89,7 +89,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  从头开始创建一个自动产生文档/类型安全的现代API 目录
+  从零搭建基于 AI 问答平台(1) 搭建框架及数据库
 </h1>
  
 
@@ -97,11 +97,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" class="article-date">
-  <time datetime="2025-03-04T01:16:29.000Z" itemprop="datePublished">2025-03-04</time>
+      <a href="/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/" class="article-date">
+  <time datetime="2025-03-05T01:20:46.000Z" itemprop="datePublished">2025-03-05</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
   </div>
   
 <div class="word_count">
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">680</span>
+            <span class="post-count">532</span>
         </span>
     </span>
 
@@ -133,75 +133,41 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="目录">目录</h2>
-<ul>
-<li>
-<a href="/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(1) 创建项目&#x2F;Eslint设置 - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(1) 创建项目&#x2F;Eslint设置 - Bearalise</a>
-</li>
-<li>
-<a href="/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&#x2F;stoker - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&#x2F;stoker - Bearalise</a>
-</li>
-<li>
-<a href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(3) 日志搭建 - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(3) 日志搭建 - Bearalise</a>
-</li>
-<li>
-<a href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组</a>
-</li>
-<li>
-<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成</a>
-</li>
-<li>
-<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(6) 创建子路径">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(6) 创建子路径</a>
-</li>
-<li>
-<a href="/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(7) 读数据库">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(7) 读数据库</a>
-</li>
-<li>
-<a href="/2025/02/24/build-a-documented-type-safe-API-from-scratch-8/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(8) 创建数据">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(8) 创建数据</a>
-</li>
-<li>
-<a href="/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(9) 建立校验规则&#x2F;按id读取任务">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(9) 建立校验规则&#x2F;按id读取任务</a>
-</li>
-<li>
-<a href="/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(10) 按id修改任务">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(10) 按id修改任务</a>
-</li>
-<li>
-<a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(11) 按id删除任务">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(11) 按id删除任务</a>
-</li>
-<li>
-<a href="/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(12) 单元测试">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(12) 单元测试</a>
-</li>
-</ul>
+  <h2 id="项目介绍">项目介绍</h2>
+<p>本次计划搭建一个基于AI的问答平台，平台可以根据主题，自动生成问题和待选择的回答。项目会用到NextJS，TailwindCSS，shadcn/ui，Prisma，OpenAI，Next Auth 等技术，根据搭建步骤会一一介绍。</p>
+<h2 id="创建NextJs项目">创建NextJs项目</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bunx create-next-app@latest --ts</span><br></pre></td></tr></table></figure>
+<p>通过命令，创建 NextJs 项目 quizdemo</p>
+<h2 id="安装shandcn-ui">安装shandcn/ui</h2>
+<p><a target="_blank" rel="noopener" href="https://ui.shadcn.com">shandcn/ui</a> 是一个强大的ui组件库，可以按需安装组件。<br>
+通过下面的命令，安装shandcn/ui 和 Button 组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bunx --bun shadcn@latest add button</span><br><span class="line">bunx --bun shadcn@latest init</span><br></pre></td></tr></table></figure>
+<p>修改 <code>src/app/page.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/button&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<ul>
-<li>
-<a href="/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(13) 设置测试环境">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(13) 设置测试环境</a>
-</li>
-<li>
-<a href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-14/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(14) 完整测试脚本">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(14) 完整测试脚本</a>
-</li>
-<li>
-<a href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(15) 创建前端页面">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(15) 创建前端页面</a>
-</li>
-<li>
-<a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(16) 添加字段">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(16) 添加字段</a>
-</li>
-<li>
-<a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-17/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(17) 添加数据读取功能">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(17) 添加数据读取功能</a>
-</li>
-<li>
-<a href="/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(18) 添加数据更新功能">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(18) 添加数据更新功能</a>
-</li>
-<li>
-<a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-19/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(19) 添加删除功能&#x2F;二次确认对话框 (结束）">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(19) 添加删除功能&#x2F;二次确认对话框 (结束）</a>
-</li>
-</ul>
-<h2 id="Github">Github</h2>
-<p>也可以移步 Github，查看完整代码：<a target="_blank" rel="noopener" href="https://github.com/Richardo1o1/opeonapidemo">https://github.com/Richardo1o1/opeonapidemo</a></p>
-<hr>
+<p>运行项目： <code>bun run dev</code>:<br>
+<img src="https://image.952005.xyz/2025/03/quizdemo01.jpg" alt=""><br>
+可以看到按钮，安装成功。</p>
+<h2 id="安装prisma">安装prisma</h2>
+<p><a target="_blank" rel="noopener" href="https://www.prisma.io/docs/getting-started/quickstart-prismaPostgres">Prisma</a> 是一个基于Nodejs 和 TypeScript 的 ORM，它可以帮助开发者以更快的开发速度和更少的错误来管理数据库。</p>
+<h3 id="安装：">安装：</h3>
+<p>命令行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add @prisma/client</span><br></pre></td></tr></table></figure>
+<h3 id="初始化">初始化</h3>
+<p>命令行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bunx prisma init</span><br></pre></td></tr></table></figure>
+<h3 id="添加连接代码">添加连接代码</h3>
+<p>添加 <code>src/lib/db.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PrismaClient</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@prisma/client&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;server-only&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="variable language_">global</span> &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line no-var, no-unused-vars</span></span><br><span class="line">  <span class="keyword">var</span> <span class="attr">cachedPrisma</span>: <span class="title class_">PrismaClient</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> <span class="attr">prisma</span>: <span class="title class_">PrismaClient</span>;</span><br><span class="line"><span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&quot;production&quot;</span>) &#123;</span><br><span class="line">  prisma = <span class="keyword">new</span> <span class="title class_">PrismaClient</span>();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="variable language_">global</span>.<span class="property">cachedPrisma</span>) &#123;</span><br><span class="line">    <span class="variable language_">global</span>.<span class="property">cachedPrisma</span> = <span class="keyword">new</span> <span class="title class_">PrismaClient</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  prisma = <span class="variable language_">global</span>.<span class="property">cachedPrisma</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="添加Schema">添加Schema</h3>
+<p>修改 <code>prisma/schema.prisma</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">generator client &#123;</span><br><span class="line">  provider = <span class="string">&quot;prisma-client-js&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">datasource db &#123;</span><br><span class="line">  provider     = <span class="string">&quot;mysql&quot;</span></span><br><span class="line">  url          = <span class="title function_">env</span>(<span class="string">&quot;DATABASE_URL&quot;</span>)</span><br><span class="line">  relationMode = <span class="string">&quot;prisma&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model <span class="title class_">Account</span> &#123;</span><br><span class="line">  id                <span class="title class_">String</span>  <span class="meta">@id</span> <span class="meta">@default</span>(<span class="title function_">cuid</span>())</span><br><span class="line">  userId            <span class="title class_">String</span></span><br><span class="line">  <span class="keyword">type</span>              <span class="title class_">String</span></span><br><span class="line">  provider          <span class="title class_">String</span></span><br><span class="line">  providerAccountId <span class="title class_">String</span></span><br><span class="line">  refresh_token     <span class="title class_">String</span>? <span class="meta">@db</span>.<span class="property">Text</span></span><br><span class="line">  access_token      <span class="title class_">String</span>? <span class="meta">@db</span>.<span class="property">Text</span></span><br><span class="line">  expires_at        <span class="title class_">Int</span>?</span><br><span class="line">  token_type        <span class="title class_">String</span>?</span><br><span class="line">  scope             <span class="title class_">String</span>?</span><br><span class="line">  id_token          <span class="title class_">String</span>? <span class="meta">@db</span>.<span class="property">Text</span></span><br><span class="line">  session_state     <span class="title class_">String</span>?</span><br><span class="line">  user <span class="title class_">User</span> <span class="meta">@relation</span>(<span class="attr">fields</span>: [userId], <span class="attr">references</span>: [id], <span class="attr">onDelete</span>: <span class="title class_">Cascade</span>)</span><br><span class="line">  @<span class="meta">@unique</span>([provider, providerAccountId])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model <span class="title class_">Session</span> &#123;</span><br><span class="line">  id           <span class="title class_">String</span>   <span class="meta">@id</span> <span class="meta">@default</span>(<span class="title function_">cuid</span>())</span><br><span class="line">  sessionToken <span class="title class_">String</span>   <span class="meta">@unique</span></span><br><span class="line">  userId       <span class="title class_">String</span></span><br><span class="line">  expires      <span class="title class_">DateTime</span></span><br><span class="line">  user         <span class="title class_">User</span>     <span class="meta">@relation</span>(<span class="attr">fields</span>: [userId], <span class="attr">references</span>: [id], <span class="attr">onDelete</span>: <span class="title class_">Cascade</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model <span class="title class_">User</span> &#123;</span><br><span class="line">  id            <span class="title class_">String</span>    <span class="meta">@id</span> <span class="meta">@default</span>(<span class="title function_">cuid</span>())</span><br><span class="line">  name          <span class="title class_">String</span>?</span><br><span class="line">  email         <span class="title class_">String</span>?   <span class="meta">@unique</span></span><br><span class="line">  emailVerified <span class="title class_">DateTime</span>?</span><br><span class="line">  image    <span class="title class_">String</span>?</span><br><span class="line">  accounts <span class="title class_">Account</span>[]</span><br><span class="line">  sessions <span class="title class_">Session</span>[]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建数据库表">创建数据库表</h2>
+<p>命令行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bunx prisma db push</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em><br>
+<em>出处：<a href="/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/" title="从零搭建基于 AI 问答平台(1) 搭建框架及数据库">从零搭建基于 AI 问答平台(1) 搭建框架及数据库</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -257,12 +223,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Index-Page/" rel="tag">Index-Page</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prisma/" rel="tag">Prisma</a></li></ul>
 
     </footer>
   </div>
@@ -270,19 +236,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            从零搭建基于 AI 问答平台(1) 搭建框架及数据库
-          
-        </div>
-      </a>
     
-    
-      <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-19/" class="article-nav-link">
+      <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">从头开始创建一个自动产生文档/类型安全的现代API(19) 添加删除功能/二次确认对话框 (结束）</div>
+        <div class="article-nav-title">从头开始创建一个自动产生文档/类型安全的现代API 目录</div>
       </a>
     
   </nav>
