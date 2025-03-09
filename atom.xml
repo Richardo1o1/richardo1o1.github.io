@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-05T01:21:24.698Z</updated>
+  <updated>2025-03-09T07:09:46.535Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI 问答平台(2) 安装 Clerk</title>
+    <link href="http://yunminitools.cn/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/"/>
+    <id>http://yunminitools.cn/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/</id>
+    <published>2025-03-09T07:09:19.000Z</published>
+    <updated>2025-03-09T07:09:46.535Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;注册-Clerk&quot;&gt;注册 Clerk&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://clerk.com/&quot;&gt;Clerk&lt;/a&gt; 是一个以开发者为中心的身份验证和用户管理系统，提供了预构建的React组件和挂钩，用于登录、注册、用户个人资料以及组织管理。 这个模板专为Clerk和Next.js（App Router）设计，让你能够在几分钟内快速启动并运行一个功能齐全的认证流程应用，按下面步骤操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;注册 Clerk 账号&lt;/li&gt;
+&lt;li&gt;点击 Create application 创建一个应用，也就是我们现在开发的这个项目。&lt;/li&gt;
+&lt;li&gt;配置鉴权选项，例如第三方登录提供商。这里需要事先声明的是，第三方登录提供商在开发环境是可以随意增加的，但是在生产环境每一个都需要额外的配置，一般选常用的就可以了。&lt;/li&gt;
+&lt;li&gt;进入 Clerk 控制台 找到 API keys，分别是一个公钥和私钥，将这个配置复制到我们项目中的环境变量里。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;安装-Clerk&quot;&gt;安装 Clerk&lt;/h2&gt;
+&lt;p&gt;命令行：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun add @clerk/nextjs&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改.env, 添加环境变量：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=xxxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;CLERK_SECRET_KEY=sk_test_xxxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Clerk" scheme="http://yunminitools.cn/tags/Clerk/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI 问答平台(1) 搭建框架及数据库</title>
@@ -763,39 +796,6 @@
     
     
     <category term="Drizzle" scheme="http://yunminitools.cn/tags/Drizzle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API(7) 读数据库</title>
-    <link href="http://yunminitools.cn/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/"/>
-    <id>http://yunminitools.cn/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/</id>
-    <published>2025-02-23T04:17:45.000Z</published>
-    <updated>2025-03-03T02:44:47.723Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;之前API的实现只是简单的返回固定值，本章开始实行数据库读写。&lt;/p&gt;
-&lt;h2 id=&quot;安装Drizzle&quot;&gt;安装Drizzle&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://orm.drizzle.team/docs/overview&quot;&gt;Drizzle ORM&lt;/a&gt; 是用于 SQL 数据库的 TypeScript ORM，在设计时考虑到了最大的类型安全性。它带有用于自动生成 SQL 迁移的 drizzle-kit CLI 。Drizzle ORM 是一个库，而不是一个框架，它的主要哲学是 “如果你知道 SQL，你就知道 Drizzle ORM”，因此设计的时候尽可能遵循类似 SQL 的语法，强类型化并在编译时就会失败，而不是在运行时。&lt;br&gt;
-安装 Drizzle, Drizzle 的安装根据支持的数据库，命令略有不同，这里我们采用 SQLite ， 命令如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun add drizzle-orm @libsql/client dotenv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bun add -D drizzle-kit tsx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bun add drizzle-zod&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;注：drizzle-zod 是Zod搭配drizzle的一个包，后面会用到。&lt;/p&gt;
-&lt;h2 id=&quot;定义环境变量&quot;&gt;定义环境变量&lt;/h2&gt;
-&lt;p&gt;修改 &lt;code&gt;utility/env.ts&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; z &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;zod&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; expand &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;dotenv-expand&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; config &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;dotenv&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;expand&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;config&lt;/span&gt;());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt; = z.&lt;span class=&quot;title function_&quot;&gt;object&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;NODE_ENV&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;string&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;development&amp;quot;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;PORT&lt;/span&gt;: z.&lt;span class=&quot;property&quot;&gt;coerce&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;number&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;default&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;9999&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;LOG_LEVEL&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;enum&lt;/span&gt;([&lt;span class=&quot;string&quot;&gt;&amp;quot;fatal&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;error&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;warn&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;info&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;debug&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;trace&amp;quot;&lt;/span&gt;]),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;DATABASE_URL&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;string&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;url&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;DATABASE_AUTH_TOKEN&lt;/span&gt;: z.&lt;span class=&quot;title function_&quot;&gt;string&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;optional&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; env = z.&lt;span class=&quot;property&quot;&gt;infer&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt;&amp;gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// eslint-disable-next-line ts/no-redeclare&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; parsedEnv = &lt;span class=&quot;title class_&quot;&gt;EnvSchema&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;safeParse&lt;/span&gt;(process.&lt;span class=&quot;property&quot;&gt;env&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ( parsedEnv.&lt;span class=&quot;property&quot;&gt;success&lt;/span&gt; === &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;❌ Invalid env:&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;error&lt;/span&gt;(&lt;span class=&quot;title class_&quot;&gt;JSON&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;stringify&lt;/span&gt;(parsedEnv.&lt;span class=&quot;property&quot;&gt;error&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;flatten&lt;/span&gt;().&lt;span class=&quot;property&quot;&gt;fieldErrors&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  process.&lt;span class=&quot;title function_&quot;&gt;exit&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; env = parsedEnv.&lt;span class=&quot;property&quot;&gt;data&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; env;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
     
   </entry>
   

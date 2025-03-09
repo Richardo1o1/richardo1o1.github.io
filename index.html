@@ -109,6 +109,75 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-AI-quiz-platform-from-scratch-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/"
+    >从零搭建基于 AI 问答平台(2) 安装 Clerk</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/" class="article-date">
+  <time datetime="2025-03-09T07:09:19.000Z" itemprop="datePublished">2025-03-09</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="注册-Clerk">注册 Clerk</h2>
+<p><a target="_blank" rel="noopener" href="https://clerk.com/">Clerk</a> 是一个以开发者为中心的身份验证和用户管理系统，提供了预构建的React组件和挂钩，用于登录、注册、用户个人资料以及组织管理。 这个模板专为Clerk和Next.js（App Router）设计，让你能够在几分钟内快速启动并运行一个功能齐全的认证流程应用，按下面步骤操作：</p>
+<ol>
+<li>注册 Clerk 账号</li>
+<li>点击 Create application 创建一个应用，也就是我们现在开发的这个项目。</li>
+<li>配置鉴权选项，例如第三方登录提供商。这里需要事先声明的是，第三方登录提供商在开发环境是可以随意增加的，但是在生产环境每一个都需要额外的配置，一般选常用的就可以了。</li>
+<li>进入 Clerk 控制台 找到 API keys，分别是一个公钥和私钥，将这个配置复制到我们项目中的环境变量里。</li>
+</ol>
+<h2 id="安装-Clerk">安装 Clerk</h2>
+<p>命令行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add @clerk/nextjs</span><br></pre></td></tr></table></figure>
+<p>修改.env, 添加环境变量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=xxxx</span><br><span class="line">CLERK_SECRET_KEY=sk_test_xxxx</span><br><span class="line"></span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Clerk/" rel="tag">Clerk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-AI-quiz-platform-from-scratch-1"
   class="article article-type-post"
   itemscope
@@ -850,79 +919,13 @@ var _hmt = _hmt || [];
 </article>
 
     
-    <article
-  id="post-build-a-documented-type-safe-API-from-scratch-15"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/"
-    >从头开始创建一个自动产生文档/类型安全的现代API(15) 创建前端页面</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/" class="article-date">
-  <time datetime="2025-03-01T09:04:11.000Z" itemprop="datePublished">2025-03-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>现在我们开始创建前端页面。</p>
-<h2 id="利用-v0-快速输出前端页面">利用 v0 快速输出前端页面</h2>
-<p>打开 <a target="_blank" rel="noopener" href="https://v0.dev/">v0</a> 输入以下提示词：</p>
-<blockquote>
-<p>帮忙编写一个网页，风格为现代偏科技，支持显示task list，task有name 和 done 两个属性，用户可以添加/修改/删除 task。<br>
-未完成的任务 最好显示为方框，完成后显示为打勾。<br>
-任务清单支持拖曳 调整 顺序。</p>
-</blockquote>
-<p>通过几轮调整，页面基本符合要求。<br>
-<img src="https://image.952005.xyz/2025/02/apidemo36.jpg" alt=""></p> 
-      <a class="article-more-link" href="/2025/03/01/build-a-documented-type-safe-API-from-scratch-15/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>
