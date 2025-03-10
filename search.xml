@@ -14869,4 +14869,44 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Clerk</tag>
       </tags>
   </entry>
+  <entry>
+    <title>如何配置多个ssh密钥对，解决 github 多用户上传问题</title>
+    <url>/2025/03/10/how-to-config-multiple-ssh-keys-for-github/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>当我需要在同一个客户端push代码到不同的github账号时，碰到了问题，添加私钥时出错：“key is already in use”，这是因为同一个key只能对应一个github账号。下面我们需要进行配置，将key分开。</p>
+<h2 id="生成单独密钥">生成单独密钥</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &#x27;bearalise@gmail.com&#x27; -f ~/.ssh/id_rsa_bearalise_github</span><br></pre></td></tr></table></figure>
+<h2 id="配置不同密钥">配置不同密钥</h2>
+<p>编辑 <code>~/.ssh/config</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 个人的GitHub公钥</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_ed25519</span><br><span class="line"></span><br><span class="line">Host github_b.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_bearalise_github</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="添加key并测试">添加key并测试</h2>
+<p>到 Github 中，添加 ~/.ssh/id_rsa_bearalise_github.pub 内容，并测试一下，执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github_b.com</span><br></pre></td></tr></table></figure>
+<p>如果返回以下提示，则代表成功配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hi bearalise! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<h2 id="重新绑定-remote-仓库">重新绑定 remote 仓库</h2>
+<p>首先解除原有绑定：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure>
+<p>重新添加绑定，注意 host 要改为 github_b.com：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add github git@github_b.com:bearalise/quizdemo.git</span><br></pre></td></tr></table></figure>
+<h2 id="测试">测试</h2>
+<p>可以执行以下语句验证：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push github main</span><br></pre></td></tr></table></figure>
+<p>成功，问题解决。</p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/10/how-to-config-multiple-ssh-keys-for-github/" title="如何配置多个ssh密钥对，解决 github 多用户上传问题">如何配置多个ssh密钥对，解决 github 多用户上传问题</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
 </search>

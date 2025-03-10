@@ -109,6 +109,73 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-documented-type-safe-API-from-scratch-16"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/"
+    >从头开始创建一个自动产生文档/类型安全的现代API(16) 添加字段</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/" class="article-date">
+  <time datetime="2025-03-02T08:14:06.000Z" itemprop="datePublished">2025-03-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>我们发现“顺序”这个字段缺失了，我们添加一下，顺便看一下如何变更数据结构。</p>
+<h2 id="修改数据结构">修改数据结构</h2>
+<p>修改 <code>db/schema.ts</code>:<br>
+<img src="https://image.952005.xyz/2025/02/apidemo38.jpg" alt=""></p>
+<h2 id="重新生成数据库">重新生成数据库</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bun drizzle-kit generate</span><br><span class="line">bun drizzle-kit push</span><br></pre></td></tr></table></figure>
+<h2 id="修改page-tsx">修改page.tsx</h2>
+<p>修改interface：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Task</span> &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">number</span></span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">done</span>: <span class="built_in">boolean</span></span><br><span class="line">  <span class="attr">order</span>: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改 add 逻辑，点击 order：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">&quot;added&quot;</span>: &#123;</span><br><span class="line">     <span class="keyword">return</span> [</span><br><span class="line">       ...tasks,</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="attr">id</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>(),</span><br><span class="line">         <span class="attr">name</span>: action.<span class="property">name</span>,</span><br><span class="line">         <span class="attr">done</span>: <span class="literal">false</span>,</span><br><span class="line">         <span class="attr">order</span>: tasks.<span class="property">length</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">     ]</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2025/03/02/build-a-documented-type-safe-API-from-scratch-16/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-documented-type-safe-API-from-scratch-15"
   class="article article-type-post"
   itemscope
@@ -671,75 +738,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-how-to-set-drizzle-schema-support-create-time-for-SQLite"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/02/24/how-to-set-drizzle-schema-support-create-time-for-SQLite/"
-    >如何设置 Drizzle Schema 让 SQLite 支持自动填入创建时间</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/02/24/how-to-set-drizzle-schema-support-create-time-for-SQLite/" class="article-date">
-  <time datetime="2025-02-24T06:36:39.000Z" itemprop="datePublished">2025-02-24</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>之前用下面的Schema创建了表：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> tasks = <span class="title function_">sqliteTable</span>(<span class="string">&quot;tasks&quot;</span>, &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="title function_">integer</span>(<span class="string">&quot;id&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;number&quot;</span> &#125;)</span><br><span class="line">    .<span class="title function_">primaryKey</span>(&#123; <span class="attr">autoIncrement</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">  <span class="attr">name</span>: <span class="title function_">text</span>(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">    .<span class="title function_">notNull</span>(),</span><br><span class="line">  <span class="attr">done</span>: <span class="title function_">integer</span>(<span class="string">&quot;done&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;boolean&quot;</span> &#125;)</span><br><span class="line">    .<span class="title function_">notNull</span>()</span><br><span class="line">    .<span class="title function_">default</span>(<span class="literal">false</span>),</span><br><span class="line">  <span class="attr">createdAt</span>: <span class="title function_">integer</span>(<span class="string">&quot;created_at&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;timestamp&quot;</span> &#125;)</span><br><span class="line">    .$defaultFn(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Date</span>()),</span><br><span class="line">  <span class="attr">updatedAt</span>: <span class="title function_">integer</span>(<span class="string">&quot;updated_at&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;timestamp&quot;</span> &#125;)</span><br><span class="line">    .$defaultFn(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    .$onUpdate(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Date</span>()),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>发现这个创建时间和更新时间并没有生效，研究了一下，这样写可能有问题。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>查询了一下，修改为下面的语句：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; sql &#125; <span class="keyword">from</span> <span class="string">&quot;drizzle-orm&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; integer, sqliteTable, text &#125; <span class="keyword">from</span> <span class="string">&quot;drizzle-orm/sqlite-core&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createSelectSchema &#125; <span class="keyword">from</span> <span class="string">&quot;drizzle-zod&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> tasks = <span class="title function_">sqliteTable</span>(<span class="string">&quot;tasks&quot;</span>, &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="title function_">integer</span>(<span class="string">&quot;id&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;number&quot;</span> &#125;)</span><br><span class="line">    .<span class="title function_">primaryKey</span>(&#123; <span class="attr">autoIncrement</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">  <span class="attr">name</span>: <span class="title function_">text</span>(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">    .<span class="title function_">notNull</span>(),</span><br><span class="line">  <span class="attr">done</span>: <span class="title function_">integer</span>(<span class="string">&quot;done&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;boolean&quot;</span> &#125;)</span><br><span class="line">    .<span class="title function_">notNull</span>()</span><br><span class="line">    .<span class="title function_">default</span>(<span class="literal">false</span>),</span><br><span class="line">  <span class="attr">createdAt</span>:  <span class="title function_">text</span>(<span class="string">&#x27;created_at&#x27;</span>)</span><br><span class="line">    .<span class="title function_">notNull</span>()</span><br><span class="line">    .<span class="title function_">default</span>(sql<span class="string">`(current_timestamp)`</span>),</span><br><span class="line">  <span class="attr">updatedAt</span>:<span class="title function_">text</span>(<span class="string">&#x27;updated_at&#x27;</span>)</span><br><span class="line">    .<span class="title function_">notNull</span>()</span><br><span class="line">    .<span class="title function_">default</span>(sql<span class="string">`(current_timestamp)`</span>)   </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> selectTasksSchema = <span class="title function_">createSelectSchema</span>(tasks);</span><br></pre></td></tr></table></figure>
-<p>updateAt字段无效，需要更新时主动更新。</p>
-<h2 id="效果">效果</h2>
-<p>修改完后，利用 drizzle-kit 重新生成数据库：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bun drizzle-kit generate</span><br><span class="line">bun drizzle-kit push</span><br></pre></td></tr></table></figure>
-<p>试了一下，插入数据后自动产生了时间：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1|Hello Hone|0|2025-02-24 06:13:34|2025-02-24 06:13:34</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2025/02/24/how-to-set-drizzle-schema-support-create-time-for-SQLite/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Drizzle/" rel="tag">Drizzle</a></li></ul>
 
     </footer>
   </div>
