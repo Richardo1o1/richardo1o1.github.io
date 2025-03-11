@@ -109,6 +109,65 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-AI-quiz-platform-from-scratch-4"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/03/11/build-a-AI-quiz-platform-from-scratch-4/"
+    >从零搭建基于 AI 问答平台(4) Home Page/Dashboard</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/11/build-a-AI-quiz-platform-from-scratch-4/" class="article-date">
+  <time datetime="2025-03-11T00:48:08.000Z" itemprop="datePublished">2025-03-11</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="效果">效果</h2>
+<p><img src="https://image.952005.xyz/2025/03/quizdemo22.jpg" alt=""><br>
+实现步骤如下：</p> 
+      <a class="article-more-link" href="/2025/03/11/build-a-AI-quiz-platform-from-scratch-4/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-AI-quiz-platform-from-scratch-3"
   class="article article-type-post"
   itemscope
@@ -841,66 +900,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Index-Page/" rel="tag">Index-Page</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-build-a-documented-type-safe-API-from-scratch-18"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/"
-    >从头开始创建一个自动产生文档/类型安全的现代API(18) 添加数据更新功能</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/" class="article-date">
-  <time datetime="2025-03-03T01:58:37.000Z" itemprop="datePublished">2025-03-03</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="添加更新数据的Hooks">添加更新数据的Hooks</h2>
-<p>为了能够方便调用 Hooks 修改数据，我对接口做了改造，body 参数加上了id，这样我们就可以在页面初始化时，不用指定 id，等调用时再根据 body 的 id 调用后台。<br>
-添加 <code>hooks/use-update-task.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">InferRequestType</span>,<span class="title class_">InferResponseType</span> &#125; <span class="keyword">from</span> <span class="string">&quot;hono&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useMutation, useQueryClient &#125; <span class="keyword">from</span> <span class="string">&quot;@tanstack/react-query&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; client &#125; <span class="keyword">from</span> <span class="string">&quot;@/lib/hono&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">ResponseType</span> = <span class="title class_">InferResponseType</span>&lt;<span class="keyword">typeof</span> client.<span class="property">tasks</span>[<span class="string">&quot;:id&quot;</span>][<span class="string">&quot;$patch&quot;</span>]&gt;;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">RequestType</span> = <span class="title class_">InferRequestType</span>&lt;<span class="keyword">typeof</span> client.<span class="property">tasks</span>[<span class="string">&quot;:id&quot;</span>][<span class="string">&quot;$patch&quot;</span>]&gt;[<span class="string">&quot;json&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">UpdateTaskPayload</span> &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">number</span>;</span><br><span class="line">  name?: <span class="built_in">string</span>;</span><br><span class="line">  done?: <span class="built_in">boolean</span>;</span><br><span class="line">  order?: <span class="built_in">number</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">useUpdateTask</span> = (<span class="params"> </span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> queryClient = <span class="title function_">useQueryClient</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> mutation = useMutation&lt;</span><br><span class="line">    <span class="title class_">ResponseType</span>,</span><br><span class="line">    <span class="title class_">Error</span>,</span><br><span class="line">    <span class="title class_">RequestType</span></span><br><span class="line">  &gt;(&#123;</span><br><span class="line">    <span class="attr">mutationFn</span>: <span class="keyword">async</span> (json) =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> response = <span class="keyword">await</span> client.<span class="property">tasks</span>[<span class="string">&quot;:id&quot;</span>][<span class="string">&quot;$patch&quot;</span>](&#123;</span><br><span class="line">        json,</span><br><span class="line">        <span class="attr">param</span>: &#123; <span class="attr">id</span>: json.<span class="property">id</span> &#125;,</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span> response.<span class="title function_">json</span>();</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">onSuccess</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      queryClient.<span class="title function_">invalidateQueries</span>(&#123; <span class="attr">queryKey</span>:[<span class="string">&quot;tasks&quot;</span>]&#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">onError</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;task update failed&quot;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> mutation;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2025/03/03/build-a-documented-type-safe-API-from-scratch-18/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
 
     </footer>
   </div>

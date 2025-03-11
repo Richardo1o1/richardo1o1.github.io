@@ -109,6 +109,69 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-documented-type-safe-API-from-scratch-9"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/"
+    >从头开始创建一个自动产生文档/类型安全的现代API(9) 建立校验规则/按id读取任务</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/" class="article-date">
+  <time datetime="2025-02-25T03:41:27.000Z" itemprop="datePublished">2025-02-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>下面我们给 API 参数添加校验功能。</p>
+<h2 id="在Schema中添加规则">在Schema中添加规则</h2>
+<p>修改 <code>db/schema.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> insertTasksSchema = <span class="title function_">createInsertSchema</span>(</span><br><span class="line">  tasks,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">name</span>: z.<span class="title function_">string</span>().<span class="title function_">min</span>(<span class="number">1</span>).<span class="title function_">max</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="attr">done</span>: z.<span class="title function_">boolean</span>(),</span><br><span class="line">  &#125;,</span><br><span class="line">  ).<span class="title function_">omit</span>(&#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">createdAt</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">updatedAt</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>这里我添加了规则，name的长度只能在1到255之间，规避了0长度和过长的name。</p>
+<p>访问 localhost:3000/reference, 可以看到API已更新：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo23.jpg" alt=""></p> 
+      <a class="article-more-link" href="/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-documented-type-safe-API-from-scratch-8"
   class="article article-type-post"
   itemscope
@@ -680,70 +743,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-openapi-introduction"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/02/17/openapi-introduction/"
-    >OpenAPI 规范（OAS）介绍 - Bearalise</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/02/17/openapi-introduction/" class="article-date">
-  <time datetime="2025-02-17T12:42:34.000Z" itemprop="datePublished">2025-02-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>作为一名开发者，都需要编写程序的 API 文档。现代开发框架，都需要API的协作，有时完成一个操作，需要调用多个API才能完成，所以，一个好的 API 文档能够大大提高协作效率，降低沟通成本。为解决API文本规范的问题，我们聊聊如何使用 OpenAPI 构建 HTTP 接口文档。</p>
-<h2 id="OpenAPI-规范（OAS）介绍">OpenAPI 规范（OAS）介绍</h2>
-<p>OpenAPI 是规范化描述 API 领域应用最广泛的行业标准，由 OpenAPI Initiative(OAI) 定义并维护，同时也是 Linux 基金会下的一个开源项目。通常我们所说的 OpenAPI 全称应该是 OpenAPI Specification(OpenAPI 规范，简称 OSA)，它使用规定的格式来描述 HTTP RESTful API 的定义，以此来规范 RESTful 服务开发过程。使用 JSON 或 YAML 来描述一个标准的、与编程语言无关的 HTTP API 接口。OpenAPI 规范最初基于 SmartBear Software 在 2015 年捐赠的 Swagger 规范演变而来，目前最新的版本是 <a target="_blank" rel="noopener" href="https://spec.openapis.org/oas/latest.html">v3.1.1</a>。本文参考了apifox 发布的一个 <a target="_blank" rel="noopener" href="https://openapi.apifox.cn/">中文版</a>。</p>
-<h2 id="OpenAPI-规范基本信息">OpenAPI 规范基本信息</h2>
-<h3 id="文档结构">文档结构</h3>
-<p>一份 OpenAPI 文档可以是单个文件也可以被拆分为多个文件， 连接的部分由用户自行决定。在后一种情形下，必须如 <a target="_blank" rel="noopener" href="http://json-schema.org/">JSON Schema</a> 中定义的那样使用 <code>$ref</code> 字段来相互引用。</p>
-<p>推荐将根 OpenAPI 文档命名为<code>openapi.json</code> 或 <code>openapi.yaml</code>。</p> 
-      <a class="article-more-link" href="/2025/02/17/openapi-introduction/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li></ul>
 
     </footer>
   </div>
