@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-11T00:49:15.860Z</updated>
+  <updated>2025-03-11T05:06:57.214Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI 问答平台(5) 词云</title>
+    <link href="http://yunminitools.cn/2025/03/11/build-a-AI-quiz-platform-from-scratch-5/"/>
+    <id>http://yunminitools.cn/2025/03/11/build-a-AI-quiz-platform-from-scratch-5/</id>
+    <published>2025-03-11T05:06:24.000Z</published>
+    <updated>2025-03-11T05:06:57.214Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo23.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+实现步骤如下：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI 问答平台(4) Home Page/Dashboard</title>
@@ -743,39 +764,6 @@
     <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
     
     <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何修改 git 最近一次 commit 的描述</title>
-    <link href="http://yunminitools.cn/2025/02/25/how-to-change-git-commit-description/"/>
-    <id>http://yunminitools.cn/2025/02/25/how-to-change-git-commit-description/</id>
-    <published>2025-02-25T07:17:03.000Z</published>
-    <updated>2025-02-25T07:21:33.985Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;首先，确保你的工作树是干净的（即，所有更改都已经被提交或暂存）。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;使用以下命令来修改最近一次 commit 的描述：&lt;/p&gt;
- &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git commit --amend&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这将打开默认的文本编辑器，允许你编辑上次提交的 commit 信息。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;修改描述后，保存并关闭编辑器。（我这边默认会打开Nano，按Ctrl+X 退出）新的描述会覆盖原来的描述，但请注意，这相当于创建了一个新的 commit，旧的 commit 会被删除。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如果你已经将代码推送到远程仓库，需要强制推送：&lt;/p&gt;
- &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git push --force&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
     
   </entry>
   
