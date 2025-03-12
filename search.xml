@@ -15040,4 +15040,34 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Form</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从零搭建基于 AI 问答平台(7) 定义Quiz 数据模型</title>
+    <url>/2025/03/12/build-a-AI-quiz-platform-from-scratch-7/</url>
+    <content><![CDATA[<h2 id="添加模型定义">添加模型定义</h2>
+<p>修改 <code>prisma/schema.prisma</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum GameType &#123;</span><br><span class="line">  mcq</span><br><span class="line">  open_ended</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model Game &#123;</span><br><span class="line">  id          String     @id @default(cuid())</span><br><span class="line">  userId      String</span><br><span class="line">  questions   Question[]</span><br><span class="line">  timeStarted DateTime</span><br><span class="line">  topic       String</span><br><span class="line">  timeEnded   DateTime?</span><br><span class="line">  gameType    GameType</span><br><span class="line"></span><br><span class="line">  @@index([userId])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model topic_count &#123;</span><br><span class="line">  id    String @id @default(cuid())</span><br><span class="line">  topic String @unique</span><br><span class="line">  count Int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model Question &#123;</span><br><span class="line">  id                String   @id @default(cuid())</span><br><span class="line">  question          String</span><br><span class="line">  answer            String</span><br><span class="line">  gameId            String</span><br><span class="line">  options           Json? // for mcq questions</span><br><span class="line">  percentageCorrect Float? // for open_ended questions</span><br><span class="line">  isCorrect         Boolean? // for mcq questions</span><br><span class="line">  questionType      GameType</span><br><span class="line">  userAnswer        String?</span><br><span class="line"></span><br><span class="line">  game Game @relation(fields: [gameId], references: [id])</span><br><span class="line"></span><br><span class="line">  @@index([gameId])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bunx prisma db push</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="检查已定义的表">检查已定义的表</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bunx prisma studio</span><br></pre></td></tr></table></figure>
+<p>打开 <code>http://localhost:5555/</code>, 可以看到已定义的表：<br>
+<img src="https://image.952005.xyz/2025/03/quizdemo25.jpg" alt=""></p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> quizCreationSchema = z.<span class="title function_">object</span>(&#123;</span><br><span class="line">  <span class="attr">topic</span>: z</span><br><span class="line">    .<span class="title function_">string</span>()</span><br><span class="line">    .<span class="title function_">min</span>(<span class="number">4</span>, &#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;Topic must be at least 4 characters long&quot;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">max</span>(<span class="number">50</span>, &#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;Topic must be at most 50 characters long&quot;</span>,</span><br><span class="line">    &#125;),</span><br><span class="line">  <span class="attr">type</span>: z.<span class="title function_">enum</span>([<span class="string">&quot;mcq&quot;</span>, <span class="string">&quot;open_ended&quot;</span>]),</span><br><span class="line">  <span class="attr">amount</span>: z.<span class="title function_">number</span>().<span class="title function_">min</span>(<span class="number">1</span>).<span class="title function_">max</span>(<span class="number">10</span>),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> form = useForm&lt;<span class="title class_">Input</span>&gt;(&#123;</span><br><span class="line">        <span class="attr">resolver</span>: <span class="title function_">zodResolver</span>(quizCreationSchema),</span><br><span class="line">        <span class="attr">defaultValues</span>: &#123;</span><br><span class="line">          <span class="attr">topic</span>: topicParam,</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&quot;mcq&quot;</span>,</span><br><span class="line">          <span class="attr">amount</span>: <span class="number">3</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/12/build-a-AI-quiz-platform-from-scratch-7/" title="从零搭建基于 AI 问答平台(7) 定义Quiz 数据模型">从零搭建基于 AI 问答平台(7) 定义Quiz 数据模型</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>从零搭建</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>Prisma</tag>
+      </tags>
+  </entry>
 </search>
