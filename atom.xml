@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-12T05:34:58.378Z</updated>
+  <updated>2025-03-13T01:25:49.457Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI 问答平台(8) 定义 OpenAI 格式接口 （使用Deepseek 接口）</title>
+    <link href="http://yunminitools.cn/2025/03/13/build-a-AI-quiz-platform-from-scratch-8/"/>
+    <id>http://yunminitools.cn/2025/03/13/build-a-AI-quiz-platform-from-scratch-8/</id>
+    <published>2025-03-13T01:21:34.000Z</published>
+    <updated>2025-03-13T01:25:49.457Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo26.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+    <category term="Deepseek" scheme="http://yunminitools.cn/tags/Deepseek/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI 问答平台(7) 定义Quiz 数据模型</title>
@@ -704,37 +729,6 @@
 &lt;h2 id=&quot;修改环境变量读取程序&quot;&gt;修改环境变量读取程序&lt;/h2&gt;
 &lt;p&gt;修改文件 &lt;code&gt;utility/env.ts&lt;/code&gt;:&lt;/p&gt;
 &lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; path &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;node:path&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;expand&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;config&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: path.&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    process.&lt;span class=&quot;title function_&quot;&gt;cwd&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    process.&lt;span class=&quot;property&quot;&gt;env&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;NODE_ENV&lt;/span&gt; === &lt;span class=&quot;string&quot;&gt;&amp;quot;test&amp;quot;&lt;/span&gt; ? &lt;span class=&quot;string&quot;&gt;&amp;quot;.env.test&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;.env&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API(12) 单元测试</title>
-    <link href="http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/"/>
-    <id>http://yunminitools.cn/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/</id>
-    <published>2025-02-27T03:11:08.000Z</published>
-    <updated>2025-03-03T02:45:57.871Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;下面我们给 API 添加单元测试。&lt;/p&gt;
-&lt;h2 id=&quot;安装vitest&quot;&gt;安装vitest&lt;/h2&gt;
-&lt;p&gt;安装：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun add -D vitest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;配置-VITEST&quot;&gt;配置 VITEST&lt;/h2&gt;
-&lt;p&gt;添加文件 &lt;code&gt;vitest.config.ts&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; path &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;node:path&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; defineConfig &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;vitest/config&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;defineConfig&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;resolve&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;alias&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&amp;quot;@&amp;quot;&lt;/span&gt;: path.&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(__dirname, &lt;span class=&quot;string&quot;&gt;&amp;quot;./src&amp;quot;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
