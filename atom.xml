@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-13T01:25:49.457Z</updated>
+  <updated>2025-03-13T06:26:15.977Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI 问答平台(9) 定义 Game 接口</title>
+    <link href="http://yunminitools.cn/2025/03/13/build-a-AI-quiz-platform-from-scratch-9/"/>
+    <id>http://yunminitools.cn/2025/03/13/build-a-AI-quiz-platform-from-scratch-9/</id>
+    <published>2025-03-13T06:25:28.000Z</published>
+    <updated>2025-03-13T06:26:15.977Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;添加-game-api-模块，定义-POST-方法&quot;&gt;添加 game api 模块，定义 POST 方法&lt;/h2&gt;
+&lt;p&gt;添加 &lt;code&gt;src/app/api/game/route.ts&lt;/code&gt;,:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;POST&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;req: Request, res: Response&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; userId &amp;#125; = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;auth&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!userId) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;NextResponse&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;json&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123; &lt;span class=&quot;attr&quot;&gt;error&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;You must be logged in to create a game.&amp;quot;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;attr&quot;&gt;status&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;401&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI 问答平台(8) 定义 OpenAI 格式接口 （使用Deepseek 接口）</title>
@@ -698,37 +719,6 @@
     <summary type="html">&lt;h2 id=&quot;测试脚本脑图&quot;&gt;测试脚本脑图&lt;/h2&gt;
 &lt;p&gt;根据需要测试的功能点，我画了以下脑图：&lt;br&gt;
 &lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo35.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API(13) 设置测试环境</title>
-    <link href="http://yunminitools.cn/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/"/>
-    <id>http://yunminitools.cn/2025/02/28/build-a-documented-type-safe-API-from-scratch-13/</id>
-    <published>2025-02-28T01:27:46.000Z</published>
-    <updated>2025-03-03T02:46:09.375Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;下面我们设置一下单元测试的环境，避免测试影响正常环境的数据。&lt;/p&gt;
-&lt;h2 id=&quot;添加测试环境配置文件&quot;&gt;添加测试环境配置文件&lt;/h2&gt;
-&lt;p&gt;添加文件 &lt;code&gt;.env.test&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;NODE_ENV&lt;/span&gt;=development&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;PORT&lt;/span&gt;=&lt;span class=&quot;number&quot;&gt;3001&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;LOG_LEVEL&lt;/span&gt;=silent&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable constant_&quot;&gt;DATABASE_URL&lt;/span&gt;=&lt;span class=&quot;attr&quot;&gt;file&lt;/span&gt;:./test.&lt;span class=&quot;property&quot;&gt;db&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;修改环境变量读取程序&quot;&gt;修改环境变量读取程序&lt;/h2&gt;
-&lt;p&gt;修改文件 &lt;code&gt;utility/env.ts&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; path &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;node:path&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;expand&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;config&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;: path.&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    process.&lt;span class=&quot;title function_&quot;&gt;cwd&lt;/span&gt;(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    process.&lt;span class=&quot;property&quot;&gt;env&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;NODE_ENV&lt;/span&gt; === &lt;span class=&quot;string&quot;&gt;&amp;quot;test&amp;quot;&lt;/span&gt; ? &lt;span class=&quot;string&quot;&gt;&amp;quot;.env.test&amp;quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;quot;.env&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
