@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-13T06:26:15.977Z</updated>
+  <updated>2025-03-14T01:33:09.986Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI 问答平台(10) 定义 mcq 和 open ended 页面</title>
+    <link href="http://yunminitools.cn/2025/03/14/build-a-AI-quiz-platform-from-scratch-10/"/>
+    <id>http://yunminitools.cn/2025/03/14/build-a-AI-quiz-platform-from-scratch-10/</id>
+    <published>2025-03-14T01:29:49.000Z</published>
+    <updated>2025-03-14T01:33:09.986Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo28.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo27.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI 问答平台(9) 定义 Game 接口</title>
@@ -692,33 +713,6 @@
 &lt;/blockquote&gt;
 &lt;p&gt;通过几轮调整，页面基本符合要求。&lt;br&gt;
 &lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo36.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API(14) 完整测试脚本</title>
-    <link href="http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-14/"/>
-    <id>http://yunminitools.cn/2025/03/01/build-a-documented-type-safe-API-from-scratch-14/</id>
-    <published>2025-03-01T05:12:53.000Z</published>
-    <updated>2025-03-03T02:46:21.783Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;测试脚本脑图&quot;&gt;测试脚本脑图&lt;/h2&gt;
-&lt;p&gt;根据需要测试的功能点，我画了以下脑图：&lt;br&gt;
-&lt;img src=&quot;https://image.952005.xyz/2025/02/apidemo35.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
