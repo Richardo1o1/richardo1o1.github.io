@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-16T03:16:37.813Z</updated>
+  <updated>2025-03-16T07:59:59.940Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI 问答平台(15) 定义 Statistics 页面</title>
+    <link href="http://yunminitools.cn/2025/03/16/build-a-AI-quiz-platform-from-scratch-15/"/>
+    <id>http://yunminitools.cn/2025/03/16/build-a-AI-quiz-platform-from-scratch-15/</id>
+    <published>2025-03-16T07:59:35.000Z</published>
+    <updated>2025-03-16T07:59:59.940Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo35.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI 问答平台(14) 定义 OpenEnded组件</title>
@@ -573,107 +594,6 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;a href=&quot;/2024/08/11/built-portfolio-page-11/&quot; title=&quot;Built Portfolio Page - 11（email with format）&quot;&gt;Built Portfolio Page - 11（email with format）&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Index-Page" scheme="http://yunminitools.cn/tags/Index-Page/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Build a Finance SaaS Platform - Index Page</title>
-    <link href="http://yunminitools.cn/2025/03/03/built-finance-dashboard-page-index/"/>
-    <id>http://yunminitools.cn/2025/03/03/built-finance-dashboard-page-index/</id>
-    <published>2025-03-03T03:31:21.000Z</published>
-    <updated>2025-03-03T03:31:54.598Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Index&quot;&gt;Index&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/08/21/built-finance-dashboard-page-1/&quot; title=&quot;Build a Finance SaaS Platform -1 ( Initial )&quot;&gt;Build a Finance SaaS Platform -1 ( Initial )&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/08/21/built-finance-dashboard-page-2/&quot; title=&quot;Build a Finance SaaS Platform -2 ( Hono )&quot;&gt;Build a Finance SaaS Platform -2 ( Hono )&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/08/23/built-finance-dashboard-page-3/&quot; title=&quot;Build a Finance SaaS Platform -3 (Header)&quot;&gt;Build a Finance SaaS Platform -3 (Header)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/08/27/built-finance-dashboard-page-4/&quot; title=&quot;Build a Finance SaaS Platform -4 (Navigation Bar)&quot;&gt;Build a Finance SaaS Platform -4 (Navigation Bar)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/08/28/built-finance-dashboard-page-5/&quot; title=&quot;Build a Finance SaaS Platform -5 (Database Neon)&quot;&gt;Build a Finance SaaS Platform -5 (Database Neon)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/02/built-finance-dashboard-page-6/&quot; title=&quot;Build a Finance SaaS Platform -6 (Database Connection)&quot;&gt;Build a Finance SaaS Platform -6 (Database Connection)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/04/built-finance-dashboard-page-7/&quot; title=&quot;Build a Finance SaaS Platform -7 （Post Method）&quot;&gt;Build a Finance SaaS Platform -7 （Post Method）&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/05/built-finance-dashboard-page-8/&quot; title=&quot;Build a Finance SaaS Platform -8 （Add User）&quot;&gt;Build a Finance SaaS Platform -8 （Add User）&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/07/built-finance-dashboard-page-9/&quot; title=&quot;Build a Finance SaaS Platform -9 (Accounts Page)&quot;&gt;Build a Finance SaaS Platform -9 (Accounts Page)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/12/built-finance-dashboard-page-10/&quot; title=&quot;Build a Finance SaaS Platform -10 (Data Table Action)&quot;&gt;Build a Finance SaaS Platform -10 (Data Table Action)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/15/built-finance-dashboard-page-11/&quot; title=&quot;Build a Finance SaaS Platform -11 (Delete API)&quot;&gt;Build a Finance SaaS Platform -11 (Delete API)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/25/built-finance-dashboard-page-12/&quot; title=&quot;Build a Finance SaaS Platform -12（Edit Sheet）&quot;&gt;Build a Finance SaaS Platform -12（Edit Sheet）&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/27/built-finance-dashboard-page-13/&quot; title=&quot;Build a Finance SaaS Platform -13 (Category Page)&quot;&gt;Build a Finance SaaS Platform -13 (Category Page)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/28/built-finance-dashboard-page-14/&quot; title=&quot;Build a Finance SaaS Platform -14（Transaction API）&quot;&gt;Build a Finance SaaS Platform -14（Transaction API）&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/09/30/built-finance-dashboard-page-15/&quot; title=&quot;Build a Finance SaaS Platform -15（Transaction Form）&quot;&gt;Build a Finance SaaS Platform -15（Transaction Form）&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/01/built-finance-dashboard-page-16/&quot; title=&quot;Build a Finance SaaS Platform -16 (Change to Local PG database）&quot;&gt;Build a Finance SaaS Platform -16 (Change to Local PG database）&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/02/built-finance-dashboard-page-17/&quot; title=&quot;Build a Finance SaaS Platform -17 (Transaction Page)&quot;&gt;Build a Finance SaaS Platform -17 (Transaction Page)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/03/built-finance-dashboard-page-18/&quot; title=&quot;Build a Finance SaaS Platform -18 (Transaction Sheet)&quot;&gt;Build a Finance SaaS Platform -18 (Transaction Sheet)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/04/built-finance-dashboard-page-19/&quot; title=&quot;Build a Finance SaaS Platform -19 (Import Function)&quot;&gt;Build a Finance SaaS Platform -19 (Import Function)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/05/built-finance-dashboard-page-20/&quot; title=&quot;Build a Finance SaaS Platform -20 (Update Transaction Data)&quot;&gt;Build a Finance SaaS Platform -20 (Update Transaction Data)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/06/built-finance-dashboard-page-21/&quot; title=&quot;Build a Finance SaaS Platform -21 (Summary API)&quot;&gt;Build a Finance SaaS Platform -21 (Summary API)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/07/built-finance-dashboard-page-22/&quot; title=&quot;Build a Finance SaaS Platform -22 (Seed Function)&quot;&gt;Build a Finance SaaS Platform -22 (Seed Function)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/11/built-finance-dashboard-page-23/&quot; title=&quot;Build a Finance SaaS Platform -23 (Summary Page)&quot;&gt;Build a Finance SaaS Platform -23 (Summary Page)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/12/built-finance-dashboard-page-24/&quot; title=&quot;Build a Finance SaaS Platform -24 (Data Charts)&quot;&gt;Build a Finance SaaS Platform -24 (Data Charts)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/14/built-finance-dashboard-page-25/&quot; title=&quot;Build a Finance SaaS Platform -25 (Spending Pie)&quot;&gt;Build a Finance SaaS Platform -25 (Spending Pie)&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2024/10/18/built-finance-dashboard-page-26/&quot; title=&quot;Build a Finance SaaS Platform -26 (Account&amp;#x2F;Date Filter)(End)&quot;&gt;Build a Finance SaaS Platform -26 (Account&amp;#x2F;Date Filter)(End)&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</summary>
     
