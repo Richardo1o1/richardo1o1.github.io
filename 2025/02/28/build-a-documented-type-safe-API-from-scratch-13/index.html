@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">277</span>
+            <span class="post-count">317</span>
         </span>
     </span>
 
@@ -148,6 +148,7 @@ var _hmt = _hmt || [];
 <p>修改 <code>app/api/[[...route]]/routes/tasks/tasks.test.ts</code>:</p>
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (env.<span class="property">NODE_ENV</span> !== <span class="string">&quot;test&quot;</span>) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;NODE_ENV must be &#x27;test&#x27;&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">describe</span>(<span class="string">&quot;Task List&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">beforeAll</span>(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="title function_">execSync</span>(<span class="string">&quot;bun drizzle-kit push&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">afterAll</span>(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    fs.<span class="title function_">rmSync</span>(<span class="string">&quot;test.db&quot;</span>, &#123; <span class="attr">force</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>测试了一下，成功通过测试。</p>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
