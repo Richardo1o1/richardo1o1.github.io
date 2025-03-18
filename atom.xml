@@ -47,6 +47,27 @@
   </entry>
   
   <entry>
+    <title>从零搭建基于 **AI 问答平台(19) 修改 HotTopicsCard 组件**</title>
+    <link href="http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-19/"/>
+    <id>http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-19/</id>
+    <published>2025-03-18T02:51:24.000Z</published>
+    <updated>2025-03-18T02:59:16.795Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo39.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从零搭建基于 AI 问答平台(18) 定义 History 页面</title>
     <link href="http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-18/"/>
     <id>http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-18/</id>
@@ -456,37 +477,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Clerk" scheme="http://yunminitools.cn/tags/Clerk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(1) 搭建框架及数据库</title>
-    <link href="http://yunminitools.cn/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/"/>
-    <id>http://yunminitools.cn/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/</id>
-    <published>2025-03-05T01:20:46.000Z</published>
-    <updated>2025-03-05T01:21:24.698Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;项目介绍&quot;&gt;项目介绍&lt;/h2&gt;
-&lt;p&gt;本次计划搭建一个基于AI的问答平台，平台可以根据主题，自动生成问题和待选择的回答。项目会用到NextJS，TailwindCSS，shadcn/ui，Prisma，OpenAI，Next Auth 等技术，根据搭建步骤会一一介绍。&lt;/p&gt;
-&lt;h2 id=&quot;创建NextJs项目&quot;&gt;创建NextJs项目&lt;/h2&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bunx create-next-app@latest --ts&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;通过命令，创建 NextJs 项目 quizdemo&lt;/p&gt;
-&lt;h2 id=&quot;安装shandcn-ui&quot;&gt;安装shandcn/ui&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://ui.shadcn.com&quot;&gt;shandcn/ui&lt;/a&gt; 是一个强大的ui组件库，可以按需安装组件。&lt;br&gt;
-通过下面的命令，安装shandcn/ui 和 Button 组件：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bunx --bun shadcn@latest add button&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bunx --bun shadcn@latest init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改 &lt;code&gt;src/app/page.tsx&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; &lt;span class=&quot;title class_&quot;&gt;Button&lt;/span&gt; &amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;@/components/ui/button&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;Home&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;language-xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;Button&lt;/span&gt;&amp;gt;&lt;/span&gt;Click me&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;Button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
     
   </entry>
   
