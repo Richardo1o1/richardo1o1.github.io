@@ -15421,4 +15421,29 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Layout</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从零搭建基于 AI 问答平台 - 目录</title>
+    <url>/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/</url>
+    <content><![CDATA[<h2 id="目录">目录</h2>
+<ul>
+<li>
+<a href="/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/" title="从零搭建基于 AI 问答平台(1) 搭建框架及数据库">从零搭建基于 AI 问答平台(1) 搭建框架及数据库</a>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/" title="从零搭建基于 AI 问答平台 - 目录">从零搭建基于 AI 问答平台 - 目录</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>从零搭建</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>Index-Page</tag>
+      </tags>
+  </entry>
 </search>

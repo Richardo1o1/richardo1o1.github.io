@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-18T02:45:58.615Z</updated>
+  <updated>2025-03-18T02:57:27.167Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI 问答平台 - 目录</title>
+    <link href="http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/"/>
+    <id>http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/</id>
+    <published>2025-03-18T02:52:52.000Z</published>
+    <updated>2025-03-18T02:57:27.167Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;目录&quot;&gt;目录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/&quot; title=&quot;从零搭建基于 AI 问答平台(1) 搭建框架及数据库&quot;&gt;从零搭建基于 AI</summary>
+        
+      
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Index-Page" scheme="http://yunminitools.cn/tags/Index-Page/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI 问答平台(18) 定义 History 页面</title>
@@ -457,71 +487,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从头开始创建一个自动产生文档/类型安全的现代API 目录</title>
-    <link href="http://yunminitools.cn/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/"/>
-    <id>http://yunminitools.cn/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/</id>
-    <published>2025-03-04T01:16:29.000Z</published>
-    <updated>2025-03-04T01:17:56.229Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;目录&quot;&gt;目录&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(1) 创建项目&amp;#x2F;Eslint设置 - Bearalise&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(1) 创建项目&amp;#x2F;Eslint设置 - Bearalise&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&amp;#x2F;stoker - Bearalise&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&amp;#x2F;stoker - Bearalise&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(3) 日志搭建 - Bearalise&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(3) 日志搭建 - Bearalise&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(4) 启用Zod&amp;#x2F;代码重组&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(4) 启用Zod&amp;#x2F;代码重组&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(5) 文档生成&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(5) 文档生成&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(6) 创建子路径&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(6) 创建子路径&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(7) 读数据库&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(7) 读数据库&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/24/build-a-documented-type-safe-API-from-scratch-8/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(8) 创建数据&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(8) 创建数据&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/25/build-a-documented-type-safe-API-from-scratch-9/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(9) 建立校验规则&amp;#x2F;按id读取任务&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(9) 建立校验规则&amp;#x2F;按id读取任务&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/26/build-a-documented-type-safe-API-from-scratch-10/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(10) 按id修改任务&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(10) 按id修改任务&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/27/build-a-documented-type-safe-API-from-scratch-11/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(11) 按id删除任务&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(11) 按id删除任务&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/02/27/build-a-documented-type-safe-API-from-scratch-12/&quot; title=&quot;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(12) 单元测试&quot;&gt;从头开始创建一个自动产生文档&amp;#x2F;类型安全的现代API(12) 单元测试&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
-    
-    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
-    
-    <category term="Index-Page" scheme="http://yunminitools.cn/tags/Index-Page/"/>
     
   </entry>
   
