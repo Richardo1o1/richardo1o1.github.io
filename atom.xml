@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-18T02:57:27.167Z</updated>
+  <updated>2025-03-18T06:28:21.764Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,19 +21,39 @@
     <link href="http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/"/>
     <id>http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/</id>
     <published>2025-03-18T02:52:52.000Z</published>
-    <updated>2025-03-18T02:57:27.167Z</updated>
+    <updated>2025-03-18T06:28:21.764Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;目录&quot;&gt;目录&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;a href=&quot;/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/&quot; title=&quot;从零搭建基于 AI 问答平台(1) 搭建框架及数据库&quot;&gt;从零搭建基于 AI</summary>
-        
-      
+&lt;a href=&quot;/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/&quot; title=&quot;从零搭建基于 AI 问答平台(1) 搭建框架及数据库&quot;&gt;从零搭建基于 AI 问答平台(1) 搭建框架及数据库&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/&quot; title=&quot;从零搭建基于 AI 问答平台(2) 安装 Clerk&quot;&gt;从零搭建基于 AI 问答平台(2) 安装 Clerk&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/10/build-a-AI-quiz-platform-from-scratch-3/&quot; title=&quot;从零搭建基于 AI 问答平台(3) 编写Navbar&amp;#x2F;暗黑模式&quot;&gt;从零搭建基于 AI 问答平台(3) 编写Navbar&amp;#x2F;暗黑模式&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/11/build-a-AI-quiz-platform-from-scratch-4/&quot; title=&quot;从零搭建基于 AI 问答平台(4) Home Page&amp;#x2F;Dashboard&quot;&gt;从零搭建基于 AI 问答平台(4) Home Page&amp;#x2F;Dashboard&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/11/build-a-AI-quiz-platform-from-scratch-5/&quot; title=&quot;从零搭建基于 AI 问答平台(5) 词云&quot;&gt;从零搭建基于 AI 问答平台(5) 词云&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/12/build-a-AI-quiz-platform-from-scratch-6/&quot; title=&quot;从零搭建基于 AI 问答平台(6) Quiz Page&amp;#x2F;Form&quot;&gt;从零搭建基于 AI 问答平台(6) Quiz Page&amp;#x2F;Form&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/12/build-a-AI-quiz-platform-from-scratch-7/&quot; title=&quot;从零搭建基于 AI 问答平台(7) 定义Quiz 数据模型&quot;&gt;从零搭建基于 AI 问答平台(7) 定义Quiz 数据模型&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/13/build-a-AI-quiz-platform-from-scratch-8/&quot; title=&quot;从零搭建基于 AI 问答平台(8) 定义 OpenAI 格式接口 （使用Deepseek 接口）&quot;&gt;从零搭建基于 AI 问答平台(8) 定义 OpenAI 格式接口 （使用Deepseek 接口）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/2025/03/13/build-a-AI-quiz-platform-from-scratch-9/&quot; title=&quot;从零搭建基于 AI 问答平台(9) 定义 Game 接口&quot;&gt;从零搭建基于 AI 问答平台(9) 定义 Game 接口&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
