@@ -15596,4 +15596,33 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Prisma</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (2) 引入Clerk</title>
+    <url>/2025/03/19/build-a-AI-github-platform-from-scratch-2/</url>
+    <content><![CDATA[<h2 id="Clerk-注册项目">Clerk 注册项目</h2>
+<p>首先在 Clerk 注册一个新的项目，然后安装依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun add @clerk/nextjs</span><br></pre></td></tr></table></figure>
+<p>设置环境变量：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pxxxxx</span><br><span class="line">CLERK_SECRET_KEY=sk_test_xxxxx</span><br><span class="line"></span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="更新-middleware-ts">更新 middleware.ts</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; clerkMiddleware, createRouteMatcher &#125; <span class="keyword">from</span> <span class="string">&#x27;@clerk/nextjs/server&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isPublicRoute = <span class="title function_">createRouteMatcher</span>([<span class="string">&#x27;/sign-in(.*)&#x27;</span>,<span class="string">&#x27;/sign-up(.*)&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">clerkMiddleware</span>(<span class="keyword">async</span> (auth, request) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="title function_">isPublicRoute</span>(request)) &#123;</span><br><span class="line">    <span class="keyword">await</span> auth.<span class="title function_">protect</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> config = &#123;</span><br><span class="line">  <span class="attr">matcher</span>: [</span><br><span class="line">    <span class="comment">// Skip Next.js internals and all static files, unless found in search params</span></span><br><span class="line">    <span class="string">&#x27;/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)&#x27;</span>,</span><br><span class="line">    <span class="comment">// Always run for API routes</span></span><br><span class="line">    <span class="string">&#x27;/(api|trpc)(.*)&#x27;</span>,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更新-Layout">更新 Layout</h2>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ClerkProvider</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@clerk/nextjs&quot;</span>;</span><br><span class="line">...</span><br><span class="line">&lt;<span class="title class_">ClerkProvider</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">className</span>=<span class="string">&#123;</span>`$&#123;<span class="attr">GeistSans.variable</span>&#125;`&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">TRPCReactProvider</span>&gt;</span>&#123;children&#125;<span class="tag">&lt;/<span class="name">TRPCReactProvider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">ClerkProvider</span>&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/19/build-a-AI-github-platform-from-scratch-1/" title="从零搭建基于 AI GitHub 分析平台 (1) 搭建框架">从零搭建基于 AI GitHub 分析平台 (1) 搭建框架</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>从零搭建</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>Clerk</tag>
+      </tags>
+  </entry>
 </search>
