@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-18T06:28:21.764Z</updated>
+  <updated>2025-03-19T01:24:03.453Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (1) 搭建框架</title>
+    <link href="http://yunminitools.cn/2025/03/19/build-a-AI-github-platform-from-scratch-1/"/>
+    <id>http://yunminitools.cn/2025/03/19/build-a-AI-github-platform-from-scratch-1/</id>
+    <published>2025-03-19T01:23:31.000Z</published>
+    <updated>2025-03-19T01:24:03.453Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;项目介绍&quot;&gt;项目介绍&lt;/h2&gt;
+&lt;p&gt;本次计划搭建一个基于AI的 Github 分析平台，根据搭建步骤会一一介绍。&lt;/p&gt;
+&lt;h2 id=&quot;创建NextJs项目&quot;&gt;创建NextJs项目&lt;/h2&gt;
+&lt;p&gt;本次通过 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI 问答平台 - 目录</title>
@@ -464,39 +494,6 @@
     
     
     <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(2) 安装 Clerk</title>
-    <link href="http://yunminitools.cn/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/"/>
-    <id>http://yunminitools.cn/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/</id>
-    <published>2025-03-09T07:09:19.000Z</published>
-    <updated>2025-03-09T08:00:55.996Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;注册-Clerk&quot;&gt;注册 Clerk&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://clerk.com/&quot;&gt;Clerk&lt;/a&gt; 是一个以开发者为中心的身份验证和用户管理系统，提供了预构建的React组件和挂钩，用于登录、注册、用户个人资料以及组织管理。 这个模板专为Clerk和Next.js（App Router）设计，让你能够在几分钟内快速启动并运行一个功能齐全的认证流程应用，按下面步骤操作：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;注册 Clerk 账号&lt;/li&gt;
-&lt;li&gt;点击 Create application 创建一个应用，也就是我们现在开发的这个项目。&lt;/li&gt;
-&lt;li&gt;配置鉴权选项，例如第三方登录提供商。这里需要事先声明的是，第三方登录提供商在开发环境是可以随意增加的，但是在生产环境每一个都需要额外的配置，一般选常用的就可以了。&lt;/li&gt;
-&lt;li&gt;进入 Clerk 控制台 找到 API keys，分别是一个公钥和私钥，将这个配置复制到我们项目中的环境变量里。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;安装-Clerk&quot;&gt;安装 Clerk&lt;/h2&gt;
-&lt;p&gt;命令行：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun add @clerk/nextjs&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改.env, 添加环境变量：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=xxxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;CLERK_SECRET_KEY=sk_test_xxxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Clerk" scheme="http://yunminitools.cn/tags/Clerk/"/>
     
   </entry>
   
