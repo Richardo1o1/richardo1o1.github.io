@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">900</span>
+            <span class="post-count">928</span>
         </span>
     </span>
 
@@ -155,6 +155,7 @@ var _hmt = _hmt || [];
 <h2 id="部署midlleware">部署midlleware</h2>
 <p>添加 <code>src/middleware.ts</code>:</p>
 <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; clerkMiddleware, createRouteMatcher &#125; <span class="keyword">from</span> <span class="string">&#x27;@clerk/nextjs/server&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isProtectedRoute = <span class="title function_">createRouteMatcher</span>([<span class="string">&#x27;/&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">clerkMiddleware</span>(<span class="keyword">async</span> (auth, req) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">isProtectedRoute</span>(req)) <span class="keyword">await</span> auth.<span class="title function_">protect</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> config = &#123;</span><br><span class="line">  <span class="attr">matcher</span>: [</span><br><span class="line">    <span class="comment">// Skip Next.js internals and all static files, unless found in search params</span></span><br><span class="line">    <span class="string">&#x27;/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)&#x27;</span>,</span><br><span class="line">    <span class="comment">// Always run for API routes</span></span><br><span class="line">    <span class="string">&#x27;/(api|trpc)(.*)&#x27;</span>,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/" title="从零搭建基于 AI 问答平台 - 目录">从零搭建基于 AI 问答平台 - 目录</a></em></p>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
