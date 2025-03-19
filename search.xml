@@ -6899,6 +6899,8 @@ F(router/index.js 配置路由)-->C</pre>
 <p>这个报警是指有console.log语句，后续我们会移除这个语句，当前报警是正常的。</p>
 </li>
 </ul>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
+<hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/02/18/build-a-documented-type-safe-API-from-scratch-1/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(1) 创建项目&#x2F;Eslint设置 - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(1) 创建项目&#x2F;Eslint设置 - Bearalise</a></em><br>
@@ -6946,6 +6948,8 @@ F(router/index.js 配置路由)-->C</pre>
 <p>修改后，访问/error，会返回如下信息：<br>
 <img src="https://image.952005.xyz/2025/02/apidemo3.jpg" alt="apidemo3"></p>
 <p>以上的好处是返回统一都为Json格式，方便调用端处理。</p>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
+<hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&#x2F;stoker - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(2) 安装Zod OpenAPI Hono&#x2F;stoker - Bearalise</a></em><br>
@@ -7006,6 +7010,8 @@ F(router/index.js 配置路由)-->C</pre>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun add dotenv dotenv-expand</span><br></pre></td></tr></table></figure>
 <p>修改<code>middlewares/pino-logger.ts</code>:</p>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; expand &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv-expand&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; config &#125; <span class="keyword">from</span> <span class="string">&#x27;dotenv&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">expand</span>(<span class="title function_">config</span>());</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
+<hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(3) 日志搭建 - Bearalise">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(3) 日志搭建 - Bearalise</a></em><br>
@@ -13698,6 +13704,8 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <p>修改 <code>app/api/[[...route]]/route.ts</code>:</p>
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; handle &#125; <span class="keyword">from</span> <span class="string">&#x27;hono/vercel&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> createApp <span class="keyword">from</span> <span class="string">&quot;./lab/create-app&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> c.<span class="title function_">text</span>(<span class="string">&quot;Hello Hono&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/error&quot;</span>, <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  c.<span class="title function_">status</span>(<span class="number">422</span>);</span><br><span class="line">  <span class="comment">//add a custom error message to logger</span></span><br><span class="line">  c.<span class="property">var</span>.<span class="property">logger</span>.<span class="title function_">info</span>(<span class="string">&quot;Wow! Log here&quot;</span>);</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;This is an error&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">GET</span> = <span class="title function_">handle</span>(app);</span><br></pre></td></tr></table></figure>
 <p>运行程序：<code>bun run dev</code>，测试一下，结果与之前一致。</p>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
+<hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/02/21/build-a-documented-type-safe-API-from-scratch-4/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(4) 启用Zod&#x2F;代码重组</a></em><br>
@@ -13749,6 +13757,8 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ApiReference</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@scalar/nextjs-api-reference&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">  <span class="attr">theme</span>: <span class="string">&quot;kepler&quot;</span>,</span><br><span class="line">  <span class="attr">layout</span>: <span class="string">&quot;classic&quot;</span>,</span><br><span class="line">  <span class="attr">defaultHttpClient</span>: &#123;</span><br><span class="line">    <span class="attr">targetKey</span>: <span class="string">&quot;js&quot;</span>,</span><br><span class="line">    <span class="attr">clientKey</span>: <span class="string">&quot;fetch&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">spec</span>: &#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;/api/doc&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">GET</span> = <span class="title class_">ApiReference</span>(config);</span><br></pre></td></tr></table></figure>
 <p>以下是效果：<br>
 <img src="https://image.952005.xyz/2025/02/apidemo9.jpg" alt=""></p>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
+<hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-5/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(5) 文档生成</a></em><br>
@@ -13790,6 +13800,8 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <p>点击 Send，可以看到执行结果：<br>
 <img src="https://image.952005.xyz/2025/02/apidemo12.jpg" alt=""></p>
 <p>可以看到执行结果就是我们预先定义在Handler代码中的。</p>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
+<hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/02/22/build-a-documented-type-safe-API-from-scratch-6/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(6) 创建子路径">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(6) 创建子路径</a></em><br>
@@ -13852,6 +13864,8 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <img src="https://image.952005.xyz/2025/02/apidemo15.jpg" alt=""></p>
 <p>点击测试，可以看到读取数据库的结果：<br>
 <img src="https://image.952005.xyz/2025/02/apidemo14.jpg" alt=""></p>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
+<hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/02/23/build-a-documented-type-safe-API-from-scratch-7/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API(7) 读数据库">从头开始创建一个自动产生文档&#x2F;类型安全的现代API(7) 读数据库</a></em><br>
@@ -13935,6 +13949,7 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="title class_">HttpStatusCodes</span> <span class="keyword">from</span> <span class="string">&quot;stoker/http-status-codes&quot;</span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> c.<span class="title function_">json</span>(inserted, <span class="title class_">HttpStatusCodes</span>.<span class="property">OK</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>这样，再查看文档，就可以看到返回错误返回值：<br>
 <img src="https://image.952005.xyz/2025/02/apidemo22.jpg" alt=""></p>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
@@ -13981,6 +13996,7 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <img src="https://image.952005.xyz/2025/02/apidemo24.jpg" alt=""></p>
 <p>测试一下，用 1 去访问接口，可以正确的返回值：<br>
 <img src="https://image.952005.xyz/2025/02/apidemo25.jpg" alt=""></p>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/04/build-a-documented-type-safe-API-from-scratch-index/" title="从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录">从头开始创建一个自动产生文档&#x2F;类型安全的现代API 目录</a></em></p>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
