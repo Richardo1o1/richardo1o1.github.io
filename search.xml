@@ -14839,6 +14839,8 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
 <h2 id="创建数据库表">创建数据库表</h2>
 <p>命令行：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bunx prisma db push</span><br></pre></td></tr></table></figure>
+<p><em>如果感兴趣本项目，请访问项目目录： <a href="/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/" title="从零搭建基于 AI 问答平台 - 目录">从零搭建基于 AI 问答平台 - 目录</a></em></p>
+<hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
 <em>出处：<a href="/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/" title="从零搭建基于 AI 问答平台(1) 搭建框架及数据库">从零搭建基于 AI 问答平台(1) 搭建框架及数据库</a></em><br>
