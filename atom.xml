@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-19T01:24:03.453Z</updated>
+  <updated>2025-03-19T01:33:01.641Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,19 +21,17 @@
     <link href="http://yunminitools.cn/2025/03/19/build-a-AI-github-platform-from-scratch-1/"/>
     <id>http://yunminitools.cn/2025/03/19/build-a-AI-github-platform-from-scratch-1/</id>
     <published>2025-03-19T01:23:31.000Z</published>
-    <updated>2025-03-19T01:24:03.453Z</updated>
+    <updated>2025-03-19T01:33:01.641Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;项目介绍&quot;&gt;项目介绍&lt;/h2&gt;
 &lt;p&gt;本次计划搭建一个基于AI的 Github 分析平台，根据搭建步骤会一一介绍。&lt;/p&gt;
 &lt;h2 id=&quot;创建NextJs项目&quot;&gt;创建NextJs项目&lt;/h2&gt;
-&lt;p&gt;本次通过 &lt;a</summary>
-        
-      
+&lt;p&gt;本次通过 &lt;a href=&quot;https://create.t3.gg/en/introduction&quot;&gt;T3&lt;/a&gt; 模版创建项目&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bunx create-t3-app@latest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;通过命令，创建 NextJs 项目 aigithub&lt;br&gt;
+下面是创建项目的选项：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   ___ ___ ___   __ _____ ___   _____ ____    __   ___ ___&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  / __| _ \ __| /  \_   _| __| |_   _|__ /   /  \ | _ \ _ \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; | (__|   / _| / /\ \| | | _|    | |  |_ \  / /\ \|  _/  _/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  \___|_|_\___|_/‾‾\_\_| |___|   |_| |___/ /_/‾‾\_\_| |_|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  What will your project be called?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  aigithub&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  Will you be using TypeScript or JavaScript?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  TypeScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  Will you be using Tailwind CSS for styling?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  Yes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  Would you like to use tRPC?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  Yes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  What authentication provider would you like to use?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  None&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  What database ORM would you like to use?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  Prisma&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  Would you like to use Next.js App Router?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  Yes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  What database provider would you like to use?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  PostgreSQL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  Should we initialize a Git repository and stage the changes?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  Yes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  Should we run &amp;#x27;bun install&amp;#x27; for you?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  Yes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;◇  What import alias would you like to use?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│  @&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
