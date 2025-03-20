@@ -15634,4 +15634,76 @@ Sec-WebSocket-Accept：表示服务器接受了客户端的请求，由Sec-WebSo
         <tag>Clerk</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (3) 同步 Clerk 用户数据</title>
+    <url>/2025/03/20/build-a-AI-github-platform-from-scratch-3/</url>
+    <content><![CDATA[<h2 id="修改数据结构">修改数据结构</h2>
+<p>修改 <code>prisma/schema.prisma</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// This is your Prisma schema file,</span><br><span class="line">// learn more about it in the docs: https://pris.ly/d/prisma-schema</span><br><span class="line"></span><br><span class="line">generator client &#123;</span><br><span class="line">    provider = &quot;prisma-client-js&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">datasource db &#123;</span><br><span class="line">    provider = &quot;postgresql&quot;</span><br><span class="line">    url      = env(&quot;DATABASE_URL&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model User &#123;</span><br><span class="line">    id           String  @id @default(cuid())</span><br><span class="line">    createdAt    DateTime @default(now())</span><br><span class="line">    updatedAt    DateTime @updatedAt</span><br><span class="line"></span><br><span class="line">    firstName    String?</span><br><span class="line">    lastName     String?</span><br><span class="line">    imageUrl     String?</span><br><span class="line"></span><br><span class="line">    emailAddress String  @unique</span><br><span class="line"></span><br><span class="line">    credits      Int @default(150)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行命令，更新数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun prisma db push</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="添加环境变量">添加环境变量</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL=&#x27;/usersync&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="添加-usersync-页面">添加 usersync 页面</h2>
+<p>添加 <code>src/app/usersync/page.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; db &#125; <span class="keyword">from</span> <span class="string">&quot;@/server/db&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; auth, clerkClient &#125; <span class="keyword">from</span> <span class="string">&quot;@clerk/nextjs/server&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; notFound, redirect &#125; <span class="keyword">from</span> <span class="string">&quot;next/navigation&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">UserSync</span> = <span class="keyword">async</span> (<span class="params"></span>)=&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; userId &#125; = <span class="keyword">await</span> <span class="title function_">auth</span>();</span><br><span class="line">  <span class="keyword">if</span> (!userId) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;User not found&#x27;</span>);</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">const</span> client = <span class="keyword">await</span> <span class="title function_">clerkClient</span>();</span><br><span class="line">  <span class="keyword">const</span> user = <span class="keyword">await</span> client.<span class="property">users</span>.<span class="title function_">getUser</span>(userId);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!user.<span class="property">emailAddresses</span>[<span class="number">0</span>]?.<span class="property">emailAddress</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">notFound</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> db.<span class="property">user</span>.<span class="title function_">upsert</span>(&#123;</span><br><span class="line">    <span class="attr">where</span>: &#123; </span><br><span class="line">      <span class="attr">emailAddress</span>: user.<span class="property">emailAddresses</span>[<span class="number">0</span>]?.<span class="property">emailAddress</span> </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">update</span>: &#123; </span><br><span class="line">      <span class="attr">firstName</span>: user.<span class="property">firstName</span>,</span><br><span class="line">      <span class="attr">lastName</span>: user.<span class="property">lastName</span>, </span><br><span class="line">      <span class="attr">imageUrl</span>: user.<span class="property">imageUrl</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">create</span>: &#123; </span><br><span class="line">      <span class="attr">id</span>: userId, </span><br><span class="line">      <span class="attr">emailAddress</span>: user.<span class="property">emailAddresses</span>[<span class="number">0</span>]?.<span class="property">emailAddress</span>, </span><br><span class="line">      <span class="attr">firstName</span>: user.<span class="property">firstName</span>, </span><br><span class="line">      <span class="attr">lastName</span>: user.<span class="property">lastName</span>, </span><br><span class="line">      <span class="attr">imageUrl</span>:user.<span class="property">imageUrl</span> </span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">redirect</span>(<span class="string">&quot;/dashboard&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">UserSync</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="测试">测试</h2>
+<p>测试前，可以看user表里是没有数据的：<br>
+<img src="https://image.952005.xyz/2025/03/aigithub01.jpg" alt=""><br>
+开始登陆：<br>
+<img src="https://image.952005.xyz/2025/03/aigithub02.jpg" alt=""><br>
+登陆完成后，可以看到表记录增加了：<br>
+<img src="https://image.952005.xyz/2025/03/aigithub03.jpg" alt=""></p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/20/build-a-AI-github-platform-from-scratch-3/" title="从零搭建基于 AI GitHub 分析平台 (3) 同步 Clerk 用户数据">从零搭建基于 AI GitHub 分析平台 (3) 同步 Clerk 用户数据</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em>—<br>
+title: 从零搭建基于 AI GitHub 分析平台 (3) 同步 Clerk 用户数据<br>
+date: 2025-03-20 08:46:15<br>
+categories:</p>
+</blockquote>
+<ul>
+<li>从零搭建<br>
+tags:</li>
+<li>NextJS</li>
+<li>Clerk</li>
+</ul>
+<hr>
+<h2 id="修改数据结构-v2">修改数据结构</h2>
+<p>修改 <code>prisma/schema.prisma</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// This is your Prisma schema file,</span><br><span class="line">// learn more about it in the docs: https://pris.ly/d/prisma-schema</span><br><span class="line"></span><br><span class="line">generator client &#123;</span><br><span class="line">    provider = &quot;prisma-client-js&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">datasource db &#123;</span><br><span class="line">    provider = &quot;postgresql&quot;</span><br><span class="line">    url      = env(&quot;DATABASE_URL&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model User &#123;</span><br><span class="line">    id           String  @id @default(cuid())</span><br><span class="line">    createdAt    DateTime @default(now())</span><br><span class="line">    updatedAt    DateTime @updatedAt</span><br><span class="line"></span><br><span class="line">    firstName    String?</span><br><span class="line">    lastName     String?</span><br><span class="line">    imageUrl     String?</span><br><span class="line"></span><br><span class="line">    emailAddress String  @unique</span><br><span class="line"></span><br><span class="line">    credits      Int @default(150)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行命令，更新数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bun prisma db push</span><br></pre></td></tr></table></figure>
+<!--more-->
+<h2 id="添加环境变量-v2">添加环境变量</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL=&#x27;/usersync&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="添加-usersync-页面-v2">添加 usersync 页面</h2>
+<p>添加 <code>src/app/usersync/page.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; db &#125; <span class="keyword">from</span> <span class="string">&quot;@/server/db&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; auth, clerkClient &#125; <span class="keyword">from</span> <span class="string">&quot;@clerk/nextjs/server&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; notFound, redirect &#125; <span class="keyword">from</span> <span class="string">&quot;next/navigation&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">UserSync</span> = <span class="keyword">async</span> (<span class="params"></span>)=&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; userId &#125; = <span class="keyword">await</span> <span class="title function_">auth</span>();</span><br><span class="line">  <span class="keyword">if</span> (!userId) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;User not found&#x27;</span>);</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">const</span> client = <span class="keyword">await</span> <span class="title function_">clerkClient</span>();</span><br><span class="line">  <span class="keyword">const</span> user = <span class="keyword">await</span> client.<span class="property">users</span>.<span class="title function_">getUser</span>(userId);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!user.<span class="property">emailAddresses</span>[<span class="number">0</span>]?.<span class="property">emailAddress</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">notFound</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> db.<span class="property">user</span>.<span class="title function_">upsert</span>(&#123;</span><br><span class="line">    <span class="attr">where</span>: &#123; </span><br><span class="line">      <span class="attr">emailAddress</span>: user.<span class="property">emailAddresses</span>[<span class="number">0</span>]?.<span class="property">emailAddress</span> </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">update</span>: &#123; </span><br><span class="line">      <span class="attr">firstName</span>: user.<span class="property">firstName</span>,</span><br><span class="line">      <span class="attr">lastName</span>: user.<span class="property">lastName</span>, </span><br><span class="line">      <span class="attr">imageUrl</span>: user.<span class="property">imageUrl</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">create</span>: &#123; </span><br><span class="line">      <span class="attr">id</span>: userId, </span><br><span class="line">      <span class="attr">emailAddress</span>: user.<span class="property">emailAddresses</span>[<span class="number">0</span>]?.<span class="property">emailAddress</span>, </span><br><span class="line">      <span class="attr">firstName</span>: user.<span class="property">firstName</span>, </span><br><span class="line">      <span class="attr">lastName</span>: user.<span class="property">lastName</span>, </span><br><span class="line">      <span class="attr">imageUrl</span>:user.<span class="property">imageUrl</span> </span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">redirect</span>(<span class="string">&quot;/dashboard&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">UserSync</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="测试-v2">测试</h2>
+<p>测试前，可以看user表里是没有数据的：<br>
+<img src="https://image.952005.xyz/2025/03/aigithub01.jpg" alt=""><br>
+开始登陆：<br>
+<img src="https://image.952005.xyz/2025/03/aigithub02.jpg" alt=""><br>
+登陆完成后，可以看到表记录增加了：<br>
+<img src="https://image.952005.xyz/2025/03/aigithub03.jpg" alt=""></p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/20/build-a-AI-github-platform-from-scratch-3/" title="从零搭建基于 AI GitHub 分析平台 (3) 同步 Clerk 用户数据">从零搭建基于 AI GitHub 分析平台 (3) 同步 Clerk 用户数据</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>从零搭建</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>Clerk</tag>
+      </tags>
+  </entry>
 </search>
