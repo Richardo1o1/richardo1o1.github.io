@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-21T01:49:48.060Z</updated>
+  <updated>2025-03-21T08:15:45.934Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置</title>
+    <link href="http://yunminitools.cn/2025/03/21/build-a-AI-github-platform-from-scratch-5/"/>
+    <id>http://yunminitools.cn/2025/03/21/build-a-AI-github-platform-from-scratch-5/</id>
+    <published>2025-03-21T08:15:06.000Z</published>
+    <updated>2025-03-21T08:15:45.934Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub07.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
+    
+    <category term="shadcn" scheme="http://yunminitools.cn/tags/shadcn/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台 (4) 搭建Layout</title>
@@ -474,27 +499,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Form" scheme="http://yunminitools.cn/tags/Form/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(5) 词云</title>
-    <link href="http://yunminitools.cn/2025/03/11/build-a-AI-quiz-platform-from-scratch-5/"/>
-    <id>http://yunminitools.cn/2025/03/11/build-a-AI-quiz-platform-from-scratch-5/</id>
-    <published>2025-03-11T05:06:24.000Z</published>
-    <updated>2025-03-19T01:54:00.957Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo23.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
   </entry>
   

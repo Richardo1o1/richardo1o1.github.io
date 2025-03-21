@@ -15742,4 +15742,39 @@ tags:</li>
         <tag>Layout</tag>
       </tags>
   </entry>
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置</title>
+    <url>/2025/03/21/build-a-AI-github-platform-from-scratch-5/</url>
+    <content><![CDATA[<h2 id="效果">效果</h2>
+<p><img src="https://image.952005.xyz/2025/03/aigithub07.gif" alt=""></p>
+<p>实现步骤如下：</p>
+<span id="more"></span>
+<h2 id="设置-SideBar-Trigger">设置 SideBar Trigger</h2>
+<p>修改 <code>src/app/(protected)/layout.tsx</code></p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">SidebarProvider</span>, <span class="title class_">SidebarTrigger</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/sidebar&quot;</span>;</span><br><span class="line">...</span><br><span class="line">&lt;div className=<span class="string">&quot;flex items-center gap-2 border-siderbar-border bg-sidebar border shadow rounded-md p-2 px-4&quot;</span>&gt;</span><br><span class="line">          &#123;<span class="comment">/* &lt;SearchBar /&gt; */</span>&#125;</span><br><span class="line">          &lt;<span class="title class_">SidebarTrigger</span> /&gt;</span><br><span class="line">          <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;ml-auto&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">          <span class="language-xml"><span class="tag">&lt;<span class="name">UserButton</span> /&gt;</span></span></span><br><span class="line">        &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<!--more-->
+<h2 id="设置-SideBar-Header">设置 SideBar Header</h2>
+<p>修改 <code>src/app/(protected)/AppSiderbar.tsx</code>：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line">&lt;<span class="title class_">SidebarHeader</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex items-center gap-2&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">src</span>=<span class="string">&quot;/logo.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;logo&quot;</span> <span class="attr">width</span>=<span class="string">&#123;40&#125;</span> <span class="attr">height</span>=<span class="string">&#123;40&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    &#123; open &amp;&amp;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">&quot;text-xl font-bold text-primary/80 &quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        Aigithub</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    &#125;</span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">SidebarHeader</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="修改主题色">修改主题色</h2>
+<p>到 <a href="https://ui.shadcn.com/themes%EF%BC%8C%E7%82%B9%E5%87%BB">https://ui.shadcn.com/themes，点击</a> Customize 按钮，选择相应的颜色，点击 Copy Code，会出现相应的css代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@layer base &#123;</span><br><span class="line">  :root &#123;</span><br><span class="line">    --background: 0 0% 100%;</span><br><span class="line">    --foreground: 224 71.4% 4.1%;</span><br><span class="line">    --card: 0 0% 100%;</span><br><span class="line">    --card-foreground: 224 71.4% 4.1%;</span><br><span class="line">    --popover: 0 0% 100%;</span><br><span class="line">    --popover-foreground: 224 71.4% 4.1%;</span><br><span class="line">    --primary: 262.1 83.3% 57.8%;</span><br><span class="line">    --primary-foreground: 210 20% 98%;</span><br><span class="line">    --secondary: 220 14.3% 95.9%;</span><br><span class="line">    --secondary-foreground: 220.9 39.3% 11%;</span><br><span class="line">    --muted: 220 14.3% 95.9%;</span><br><span class="line">    --muted-foreground: 220 8.9% 46.1%;</span><br><span class="line">    --accent: 220 14.3% 95.9%;</span><br><span class="line">    --accent-foreground: 220.9 39.3% 11%;</span><br><span class="line">    --destructive: 0 84.2% 60.2%;</span><br><span class="line">    --destructive-foreground: 210 20% 98%;</span><br><span class="line">    --border: 220 13% 91%;</span><br><span class="line">    --input: 220 13% 91%;</span><br><span class="line">    --ring: 262.1 83.3% 57.8%;</span><br><span class="line">    --radius: 0.5rem;</span><br><span class="line">    --chart-1: 12 76% 61%;</span><br><span class="line">    --chart-2: 173 58% 39%;</span><br><span class="line">    --chart-3: 197 37% 24%;</span><br><span class="line">    --chart-4: 43 74% 66%;</span><br><span class="line">    --chart-5: 27 87% 67%;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .dark &#123;</span><br><span class="line">    --background: 224 71.4% 4.1%;</span><br><span class="line">    --foreground: 210 20% 98%;</span><br><span class="line">    --card: 224 71.4% 4.1%;</span><br><span class="line">    --card-foreground: 210 20% 98%;</span><br><span class="line">    --popover: 224 71.4% 4.1%;</span><br><span class="line">    --popover-foreground: 210 20% 98%;</span><br><span class="line">    --primary: 263.4 70% 50.4%;</span><br><span class="line">    --primary-foreground: 210 20% 98%;</span><br><span class="line">    --secondary: 215 27.9% 16.9%;</span><br><span class="line">    --secondary-foreground: 210 20% 98%;</span><br><span class="line">    --muted: 215 27.9% 16.9%;</span><br><span class="line">    --muted-foreground: 217.9 10.6% 64.9%;</span><br><span class="line">    --accent: 215 27.9% 16.9%;</span><br><span class="line">    --accent-foreground: 210 20% 98%;</span><br><span class="line">    --destructive: 0 62.8% 30.6%;</span><br><span class="line">    --destructive-foreground: 210 20% 98%;</span><br><span class="line">    --border: 215 27.9% 16.9%;</span><br><span class="line">    --input: 215 27.9% 16.9%;</span><br><span class="line">    --ring: 263.4 70% 50.4%;</span><br><span class="line">    --chart-1: 220 70% 50%;</span><br><span class="line">    --chart-2: 160 60% 45%;</span><br><span class="line">    --chart-3: 30 80% 55%;</span><br><span class="line">    --chart-4: 280 65% 60%;</span><br><span class="line">    --chart-5: 340 75% 55%;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将相应的css替换 <code>src/styles/globals.css</code>, 修改成功。</p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/21/build-a-AI-github-platform-from-scratch-5/" title="从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置">从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>从零搭建</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+        <tag>Layout</tag>
+        <tag>shadcn</tag>
+      </tags>
+  </entry>
 </search>
