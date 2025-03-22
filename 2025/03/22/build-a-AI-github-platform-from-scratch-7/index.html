@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置 |  Bearalise&#39;s Blog</title>
+      <title>从零搭建基于 AI GitHub 分析平台 (7) Create Project API |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-build-a-AI-github-platform-from-scratch-5"
+  id="post-build-a-AI-github-platform-from-scratch-7"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -89,7 +89,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置
+  从零搭建基于 AI GitHub 分析平台 (7) Create Project API
 </h1>
  
 
@@ -97,8 +97,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2025/03/21/build-a-AI-github-platform-from-scratch-5/" class="article-date">
-  <time datetime="2025-03-21T08:15:06.000Z" itemprop="datePublished">2025-03-21</time>
+      <a href="/2025/03/22/build-a-AI-github-platform-from-scratch-7/" class="article-date">
+  <time datetime="2025-03-22T15:17:17.000Z" itemprop="datePublished">2025-03-22</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">550</span>
+            <span class="post-count">350</span>
         </span>
     </span>
 
@@ -118,7 +118,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -133,25 +133,27 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="效果">效果</h2>
-<p><img src="https://image.952005.xyz/2025/03/aigithub07.gif" alt=""></p>
-<p>实现步骤如下：</p>
+  <h2 id="设置-Authenticated-Route">设置 Authenticated Route</h2>
+<p>修改 <code>src/server/api/trpc.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isAuthenticated = t.<span class="title function_">middleware</span>(<span class="keyword">async</span> (&#123; next, ctx &#125;) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> user = <span class="keyword">await</span> <span class="title function_">auth</span>();</span><br><span class="line">  <span class="keyword">if</span>(!user)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TRPCError</span>(&#123;</span><br><span class="line">      <span class="attr">code</span>: <span class="string">&quot;UNAUTHORIZED&quot;</span>,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;You must be logged in to perform this action&quot;</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">next</span>(&#123; </span><br><span class="line">    ctx : &#123;</span><br><span class="line">      ...ctx,</span><br><span class="line">      user</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> authenticatedProcedure = publicProcedure.<span class="title function_">use</span>(isAuthenticated);</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="设置-SideBar-Trigger">设置 SideBar Trigger</h2>
-<p>修改 <code>src/app/(protected)/layout.tsx</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">SidebarProvider</span>, <span class="title class_">SidebarTrigger</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/sidebar&quot;</span>;</span><br><span class="line">...</span><br><span class="line">&lt;div className=<span class="string">&quot;flex items-center gap-2 border-siderbar-border bg-sidebar border shadow rounded-md p-2 px-4&quot;</span>&gt;</span><br><span class="line">          &#123;<span class="comment">/* &lt;SearchBar /&gt; */</span>&#125;</span><br><span class="line">          &lt;<span class="title class_">SidebarTrigger</span> /&gt;</span><br><span class="line">          <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;ml-auto&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">          <span class="language-xml"><span class="tag">&lt;<span class="name">UserButton</span> /&gt;</span></span></span><br><span class="line">        &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<!--more-->
-<h2 id="设置-SideBar-Header">设置 SideBar Header</h2>
-<p>修改 <code>src/app/(protected)/AppSiderbar.tsx</code>：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">SidebarHeader</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex items-center gap-2&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">src</span>=<span class="string">&quot;/logo.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;logo&quot;</span> <span class="attr">width</span>=<span class="string">&#123;40&#125;</span> <span class="attr">height</span>=<span class="string">&#123;40&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    &#123; open &amp;&amp;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">&quot;text-xl font-bold text-primary/80 &quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        Aigithub</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    &#125;</span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">SidebarHeader</span>&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="修改主题色">修改主题色</h2>
-<p>到 <a target="_blank" rel="noopener" href="https://ui.shadcn.com/themes%EF%BC%8C%E7%82%B9%E5%87%BB">https://ui.shadcn.com/themes，点击</a> Customize 按钮，选择相应的颜色，点击 Copy Code，会出现相应的css代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">@layer base &#123;</span><br><span class="line">  :root &#123;</span><br><span class="line">    --background: 0 0% 100%;</span><br><span class="line">    --foreground: 224 71.4% 4.1%;</span><br><span class="line">    --card: 0 0% 100%;</span><br><span class="line">    --card-foreground: 224 71.4% 4.1%;</span><br><span class="line">    --popover: 0 0% 100%;</span><br><span class="line">    --popover-foreground: 224 71.4% 4.1%;</span><br><span class="line">    --primary: 262.1 83.3% 57.8%;</span><br><span class="line">    --primary-foreground: 210 20% 98%;</span><br><span class="line">    --secondary: 220 14.3% 95.9%;</span><br><span class="line">    --secondary-foreground: 220.9 39.3% 11%;</span><br><span class="line">    --muted: 220 14.3% 95.9%;</span><br><span class="line">    --muted-foreground: 220 8.9% 46.1%;</span><br><span class="line">    --accent: 220 14.3% 95.9%;</span><br><span class="line">    --accent-foreground: 220.9 39.3% 11%;</span><br><span class="line">    --destructive: 0 84.2% 60.2%;</span><br><span class="line">    --destructive-foreground: 210 20% 98%;</span><br><span class="line">    --border: 220 13% 91%;</span><br><span class="line">    --input: 220 13% 91%;</span><br><span class="line">    --ring: 262.1 83.3% 57.8%;</span><br><span class="line">    --radius: 0.5rem;</span><br><span class="line">    --chart-1: 12 76% 61%;</span><br><span class="line">    --chart-2: 173 58% 39%;</span><br><span class="line">    --chart-3: 197 37% 24%;</span><br><span class="line">    --chart-4: 43 74% 66%;</span><br><span class="line">    --chart-5: 27 87% 67%;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .dark &#123;</span><br><span class="line">    --background: 224 71.4% 4.1%;</span><br><span class="line">    --foreground: 210 20% 98%;</span><br><span class="line">    --card: 224 71.4% 4.1%;</span><br><span class="line">    --card-foreground: 210 20% 98%;</span><br><span class="line">    --popover: 224 71.4% 4.1%;</span><br><span class="line">    --popover-foreground: 210 20% 98%;</span><br><span class="line">    --primary: 263.4 70% 50.4%;</span><br><span class="line">    --primary-foreground: 210 20% 98%;</span><br><span class="line">    --secondary: 215 27.9% 16.9%;</span><br><span class="line">    --secondary-foreground: 210 20% 98%;</span><br><span class="line">    --muted: 215 27.9% 16.9%;</span><br><span class="line">    --muted-foreground: 217.9 10.6% 64.9%;</span><br><span class="line">    --accent: 215 27.9% 16.9%;</span><br><span class="line">    --accent-foreground: 210 20% 98%;</span><br><span class="line">    --destructive: 0 62.8% 30.6%;</span><br><span class="line">    --destructive-foreground: 210 20% 98%;</span><br><span class="line">    --border: 215 27.9% 16.9%;</span><br><span class="line">    --input: 215 27.9% 16.9%;</span><br><span class="line">    --ring: 263.4 70% 50.4%;</span><br><span class="line">    --chart-1: 220 70% 50%;</span><br><span class="line">    --chart-2: 160 60% 45%;</span><br><span class="line">    --chart-3: 30 80% 55%;</span><br><span class="line">    --chart-4: 280 65% 60%;</span><br><span class="line">    --chart-5: 340 75% 55%;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>将相应的css替换 <code>src/styles/globals.css</code>, 修改成功。</p>
+<h2 id="设置-Project-API">设置 Project API</h2>
+<p>添加 <code>src/server/api/routers/project.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; z &#125; <span class="keyword">from</span> <span class="string">&quot;zod&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; authenticatedProcedure, createTRPCRouter &#125; <span class="keyword">from</span> <span class="string">&quot;@/server/api/trpc&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> projectRouter = <span class="title function_">createTRPCRouter</span>(&#123;</span><br><span class="line">  <span class="attr">createProject</span>: authenticatedProcedure.<span class="title function_">input</span>(</span><br><span class="line">    z.<span class="title function_">object</span>(&#123;</span><br><span class="line">      <span class="attr">name</span>: z.<span class="title function_">string</span>(),</span><br><span class="line">      <span class="attr">githubURL</span>: z.<span class="title function_">string</span>(),</span><br><span class="line">      <span class="attr">githubToken</span>: z.<span class="title function_">string</span>().<span class="title function_">optional</span>(),</span><br><span class="line">    &#125;)</span><br><span class="line">  ).<span class="title function_">mutation</span>(<span class="keyword">async</span> (&#123; ctx , input &#125;)=&gt;&#123; </span><br><span class="line">    <span class="keyword">const</span> project = <span class="keyword">await</span> ctx.<span class="property">db</span>.<span class="property">project</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">      <span class="attr">data</span>: &#123;</span><br><span class="line">        githubURL : input.<span class="property">githubURL</span>,</span><br><span class="line">        <span class="attr">name</span>: input.<span class="property">name</span>,</span><br><span class="line">        <span class="attr">usersProject</span>: &#123;</span><br><span class="line">          <span class="attr">create</span>: &#123;</span><br><span class="line">            <span class="attr">userId</span>: ctx.<span class="property">user</span>.<span class="property">userId</span> ?? <span class="string">&quot;&quot;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="配置-Route">配置 Route</h2>
+<p>修改<code>src/server/api/root.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; projectRouter &#125; <span class="keyword">from</span> <span class="string">&quot;@/server/api/routers/project&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> appRouter = <span class="title function_">createTRPCRouter</span>(&#123;</span><br><span class="line">  <span class="attr">project</span>: projectRouter,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="页面调用">页面调用</h2>
+<p>修改 <code>src/app/(protected)/create-project/page.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; api &#125; <span class="keyword">from</span> <span class="string">&quot;@/trpc/react&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> createProject= api.<span class="property">project</span>.<span class="property">createProject</span>.<span class="title function_">useMutation</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">onSubmit</span>(<span class="params">data: FormInput</span>) &#123;</span><br><span class="line">    createProject.<span class="title function_">mutate</span>(&#123;</span><br><span class="line">      <span class="attr">name</span>: data.<span class="property">projectName</span>,</span><br><span class="line">      <span class="attr">githubURL</span>: data.<span class="property">repoURL</span>,</span><br><span class="line">      <span class="attr">githubToken</span>: data.<span class="property">githubToken</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      <span class="attr">onSuccess</span>: <span class="function">()=&gt;</span>&#123;</span><br><span class="line">        toast.<span class="title function_">success</span>(<span class="string">&quot;项目创建成功&quot;</span>);</span><br><span class="line">        <span class="title function_">reset</span>();</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">onError</span>: <span class="function">(<span class="params">error</span>)=&gt;</span>&#123;</span><br><span class="line">        toast.<span class="title function_">error</span>(<span class="string">&quot;项目创建失败&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试">测试</h2>
+<p>提交后，数据库有两条记录：<br>
+<img src="https://image.952005.xyz/2025/03/aigithub09.png" alt=""><br>
+<img src="https://image.952005.xyz/2025/03/aigithub10.png" alt=""></p>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/03/21/build-a-AI-github-platform-from-scratch-5/" title="从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置">从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置</a></em><br>
+<em>出处：<a href="/2025/03/22/build-a-AI-github-platform-from-scratch-7/" title="从零搭建基于 AI GitHub 分析平台 (7) Create Project API">从零搭建基于 AI GitHub 分析平台 (7) Create Project API</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -207,7 +209,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/21/build-a-AI-github-platform-from-scratch-5/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/22/build-a-AI-github-platform-from-scratch-7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -220,19 +222,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
+    
       <a href="/2025/03/22/build-a-AI-github-platform-from-scratch-6/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            从零搭建基于 AI GitHub 分析平台 (6) Create Project 页面
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2025/03/21/build-a-AI-github-platform-from-scratch-4/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">从零搭建基于 AI GitHub 分析平台 (4) 搭建Layout</div>
+        <div class="article-nav-title">从零搭建基于 AI GitHub 分析平台 (6) Create Project 页面</div>
       </a>
     
   </nav>

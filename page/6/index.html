@@ -109,6 +109,135 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-documented-type-safe-API-from-scratch-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/"
+    >从头开始创建一个自动产生文档/类型安全的现代API(3) 日志搭建 - Bearalise</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/" class="article-date">
+  <time datetime="2025-02-20T01:14:31.000Z" itemprop="datePublished">2025-02-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="搭建日志平台Pino">搭建日志平台Pino</h2>
+<p><a target="_blank" rel="noopener" href="https://getpino.io/">Pino</a> 是一个非常快速且简洁的 Node.js 日志库，其设计宗旨在于提供最小的开销以及高性能的日志记录功能。下面我们来在项目中搭建它。<br>
+安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add hono-pino pino</span><br></pre></td></tr></table></figure>
+<p>代码实现：<br>
+添加文件：<code>middlewares/pino-logger.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; pinoLogger &#125; <span class="keyword">from</span> <span class="string">&#x27;hono-pino&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">pnLogger</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">pinoLogger</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行程序：<code>bun run dev</code><br>
+访问localhost，返回 “Hello Hono”，同时控制台显示：<br>
+<img src="https://image.952005.xyz/2025/02/apidemo4.jpg" alt="apidemo4"></p> 
+      <a class="article-more-link" href="/2025/02/20/build-a-documented-type-safe-API-from-scratch-3/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-build-a-documented-type-safe-API-from-scratch-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/"
+    >从头开始创建一个自动产生文档/类型安全的现代API(2) 安装Zod OpenAPI Hono/stoker - Bearalise</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/" class="article-date">
+  <time datetime="2025-02-19T06:48:36.000Z" itemprop="datePublished">2025-02-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="搭建API路径并运行">搭建API路径并运行</h2>
+<p>在项目目录下创建文件：<code>app/api/[[...route]]/route.ts</code>:<br>
+<img src="https://image.952005.xyz/2025/02/apidemo1.jpg" alt="apidemo1"></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Hono</span> &#125; <span class="keyword">from</span> <span class="string">&quot;hono&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; handle &#125; <span class="keyword">from</span> <span class="string">&#x27;hono/vercel&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Hono</span>().<span class="title function_">basePath</span>(<span class="string">&#x27;/api&#x27;</span>);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> c.<span class="title function_">text</span>(<span class="string">&quot;Hello Hono&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3001</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Server running on port <span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">GET</span> = <span class="title function_">handle</span>(app);</span><br></pre></td></tr></table></figure>
+<p>运行程序：<code>bun run dev</code><br>
+访问localhost，返回 “Hello Hono”，同时控制台显示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server running on port 3001</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2025/02/19/build-a-documented-type-safe-API-from-scratch-2/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hono/" rel="tag">Hono</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-documented-type-safe-API-from-scratch-1"
   class="article article-type-post"
   itemscope
@@ -652,129 +781,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/" rel="tag">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-change-chrome-language"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/11/05/change-chrome-language/"
-    >Mac OS 下修改 Google Chrome 显示语言的方法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/11/05/change-chrome-language/" class="article-date">
-  <time datetime="2024-11-05T13:57:41.000Z" itemprop="datePublished">2024-11-05</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>由于调试程序需要，希望把Chrome的语言改成英文，发现在Mac下Chrome的语言是跟随系统语言的，通过菜单无法修改。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>英文 -&gt; 简体中文</p>
-<p><code>defaults write com.google.Chrome AppleLanguages '(zh-CN)'</code></p>
-<p>简体中文 -&gt; 英文</p>
-<p><code>defaults write com.google.Chrome AppleLanguages '(en-US)'</code></p>
-<p>英文优先，简体中文第二。反之改一下顺序</p>
-<p><code>defaults write com.google.Chrome AppleLanguages &quot;(en-US,zh-CN)&quot;</code></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-built-finance-dashboard-page-26"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/10/18/built-finance-dashboard-page-26/"
-    >Build a Finance SaaS Platform -26 (Account/Date Filter)(End)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/10/18/built-finance-dashboard-page-26/" class="article-date">
-  <time datetime="2024-10-18T03:43:07.000Z" itemprop="datePublished">2024-10-18</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Install-Package">Install Package</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i query-<span class="built_in">string</span></span><br></pre></td></tr></table></figure>
-<h2 id="Add-Filter">Add Filter</h2>
-<p>Add <code>components/filters.tsx</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AccountFilter</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/account-filter&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DateFilter</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/date-filter&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">Filters</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex flex-col lg:flex-row items-center gap-y-2 lg:gap-y-0 lg:gap-x-2&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AccountFilter</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">DateFilter</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/10/18/built-finance-dashboard-page-26/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
 
     </footer>
   </div>

@@ -109,6 +109,150 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-how-to-Install-photoprism-on-windows"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/08/14/how-to-Install-photoprism-on-windows/"
+    >如何在Windows上安装Photoprism</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/08/14/how-to-Install-photoprism-on-windows/" class="article-date">
+  <time datetime="2024-08-14T06:35:09.000Z" itemprop="datePublished">2024-08-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>开源的软件photoprism, 可以帮助你很好的管理你的相册及视频. 我们在Windows上安装一下这个开源软件。</p>
+<h2 id="参考资料">参考资料</h2>
+<p><a target="_blank" rel="noopener" href="https://docs.photoprism.app/">PhotoPrism - Features</a></p>
+<p>[PhotoPrism - Github]<a target="_blank" rel="noopener" href="https://github.com/photoprism/photoprism">https://github.com/photoprism/photoprism</a></p>
+<h2 id="前提条件">前提条件</h2>
+<ol>
+<li>有充足空间的Windows环境</li>
+<li>安装了Docker Desktop并正常启动</li>
+<li>有一定的Linus操作知识（可选）</li>
+</ol>
+<h2 id="安装photoprism">安装photoprism</h2> 
+      <a class="article-more-link" href="/2024/08/14/how-to-Install-photoprism-on-windows/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" rel="tag">开源工具</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-commit-writting-standard"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/08/12/commit-writting-standard/"
+    >Commit书写规范</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/08/12/commit-writting-standard/" class="article-date">
+  <time datetime="2024-08-12T12:32:37.000Z" itemprop="datePublished">2024-08-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>git提交的commit的书写之前比较随意，看到了一个规范：</p>
+<p><a target="_blank" rel="noopener" href="https://www.conventionalcommits.org/zh-hans/v1.0.0/?mode=light">约定式提交</a></p>
+<p>我顺便总结了一下，自己以后可以选用。</p>
+<h2 id="总体规范">总体规范</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">type</span>&gt;[optional scope]: &lt;description&gt;</span><br><span class="line"></span><br><span class="line">[optional body]</span><br><span class="line"></span><br><span class="line">[optional <span class="title function_">footer</span>(s)]</span><br></pre></td></tr></table></figure>
+<h2 id="详细解释：">详细解释：</h2>
+<h3 id="Type：">Type：</h3>
+<ol>
+<li><strong>fix:</strong> <em>类型</em> 为 <code>fix</code> 的提交表示在代码库中修复了一个bug。</li>
+<li><strong>feat:</strong> <em>类型</em> 为 <code>feat</code> 的提交表示在代码库中新增了一个功能。</li>
+<li>build: 用于修改项目构建系统，例如修改依赖库、外部接口或者升级 Node 版本等；</li>
+<li>chore: 用于对非业务性代码进行修改，例如修改构建流程或者工具配置等；</li>
+<li>ci: 用于修改持续集成流程，例如修改 Travis、Jenkins 等工作流配置；</li>
+<li>docs: 用于修改文档，例如修改 README 文件、API 文档等；</li>
+<li>style: 用于修改代码的样式，例如调整缩进、空格、空行等；</li>
+<li>refactor: 用于重构代码，例如修改代码结构、变量名、函数名等但不修改功能逻辑；</li>
+<li>perf: 用于优化性能，例如提升代码的性能、减少内存占用等；</li>
+<li>test: 用于修改测试用例，例如添加、删除、修改代码的测试用例等。</li>
+</ol> 
+      <a class="article-more-link" href="/2024/08/12/commit-writting-standard/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-built-portfolio-page-11"
   class="article article-type-post"
   itemscope
@@ -596,137 +740,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-how-to-add-initial-data-to-database-via-prisma"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/08/07/how-to-add-initial-data-to-database-via-prisma/"
-    >如何用Prisma为数据库添加初始化数据</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/08/07/how-to-add-initial-data-to-database-via-prisma/" class="article-date">
-  <time datetime="2024-08-07T15:06:49.000Z" itemprop="datePublished">2024-08-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>到目前为止，数据库还是为空的，因此，我们需要创建一个种子脚本，填充一些初始数据进入数据库，有些初始数据是程序必不可少的，比如货币语言信息等，有时候开发需要重置数据库，因此为数据库播种也很有必要。</p>
-<p>首先，创建一个名为<code>prisma/seed.ts</code>。 然后粘贴以下模板代码：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PrismaClient</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@prisma/client&quot;</span>;</span><br><span class="line"><span class="comment">// 初始化 Prisma Client</span></span><br><span class="line"><span class="keyword">const</span> prisma = <span class="keyword">new</span> <span class="title class_">PrismaClient</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//在此编写 Prisma Client 查询</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>()</span><br><span class="line">  .<span class="title function_">catch</span>(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(e);</span><br><span class="line">    process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">finally</span>(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 关闭 Prisma Client</span></span><br><span class="line">    <span class="keyword">await</span> prisma.$disconnect();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>为了能够让 nodejs 运行 typescript，我们需要安装<code>ts-node</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D ts-node </span><br></pre></td></tr></table></figure>
-<p>然后在 <code>tsconfig.json</code> 中指定输出格式为 <code>commonjs</code></p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;ts-node&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;compilerOptions&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;module&quot;</span>: <span class="string">&quot;commonjs&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>接下来，我们在 <code>main</code> 函数中创建一个用户:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> user = <span class="keyword">await</span> prisma.<span class="property">user</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;小马&quot;</span>,</span><br><span class="line">      <span class="attr">avatar</span>:</span><br><span class="line">        <span class="string">&quot;https://p3-passport.byteimg.com/img/user-avatar/585e1491713363bc8f67d06c485e8260~100x100.awebp&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(user)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>执行命令</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx ts-node ./prisma/seed.<span class="property">ts</span></span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prisma/" rel="tag">prisma</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-add-log-to-nextjs-project"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/07/26/add-log-to-nextjs-project/"
-    >为nextjs项目添加日志</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/07/26/add-log-to-nextjs-project/" class="article-date">
-  <time datetime="2024-07-26T09:20:35.000Z" itemprop="datePublished">2024-07-26</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>经常做全栈项目或者做过正式后端项目的开发者都知道，日志记录是一个项目不可或缺的功能。不过，经常看Next.js开源项目的朋友会发现，几乎没什么项目集成了日志模块。</p>
-<p>但是，根据我的经验看，Next.js项目还是比较需要日志模块的，根据实际经验总结出来的原因如下有几个：</p>
-<ul>
-<li>Serverless 平台和自己购买的服务器环境是有区别的，这就带来Next.js项目运行时不同，例如在Serverless 平台里，Next.js使用的是edge运行时，它相比于Node环境来说，缺少了一些API，这会导致偶尔出现本地运行正常，部署到Serverless 平台发现报错了。</li>
-<li>调用了第三方平台的API，当出现连接错误的情况，你去排查是第三方服务不稳定还是你的API额度用完，这都是比较麻烦了，但是如果有日志文件直接查看，定位问题就可以更快速。</li>
-</ul>
-<h2 id="安装必要Package：">安装必要Package：</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install winston winston-daily-rotate-file </span><br></pre></td></tr></table></figure>
-<h2 id="添加通用函数：">添加通用函数：</h2> 
-      <a class="article-more-link" href="/2024/07/26/add-log-to-nextjs-project/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
 
     </footer>
   </div>
