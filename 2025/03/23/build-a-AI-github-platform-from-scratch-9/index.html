@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>从零搭建基于 AI GitHub 分析平台 (8) 创建 Project Hook |  Bearalise&#39;s Blog</title>
+      <title>从零搭建基于 AI GitHub 分析平台 (9) Dashboard 页面 |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-build-a-AI-github-platform-from-scratch-8"
+  id="post-build-a-AI-github-platform-from-scratch-9"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -89,7 +89,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  从零搭建基于 AI GitHub 分析平台 (8) 创建 Project Hook
+  从零搭建基于 AI GitHub 分析平台 (9) Dashboard 页面
 </h1>
  
 
@@ -97,8 +97,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2025/03/23/build-a-AI-github-platform-from-scratch-8/" class="article-date">
-  <time datetime="2025-03-23T03:12:02.000Z" itemprop="datePublished">2025-03-23</time>
+      <a href="/2025/03/23/build-a-AI-github-platform-from-scratch-9/" class="article-date">
+  <time datetime="2025-03-23T12:26:31.000Z" itemprop="datePublished">2025-03-23</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">367</span>
+            <span class="post-count">321</span>
         </span>
     </span>
 
@@ -134,27 +134,16 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="效果">效果</h2>
-<p><img src="https://image.952005.xyz/2025/03/aigithub11.gif" alt=""></p>
+<p><img src="https://image.952005.xyz/2025/03/aigithub12.jpg" alt=""></p>
 <p>实现步骤如下：</p>
 <span id="more"></span>
-<h2 id="设置-Projects-API">设置 Projects API</h2>
-<p>修改 <code>src/server/api/routers/project.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">getProjects</span>: authenticatedProcedure.<span class="title function_">query</span>( <span class="keyword">async</span> ( &#123; ctx &#125;) =&gt;&#123;</span><br><span class="line">  <span class="keyword">const</span> projects = <span class="keyword">await</span> ctx.<span class="property">db</span>.<span class="property">project</span>.<span class="title function_">findMany</span>(&#123;</span><br><span class="line">    <span class="attr">where</span>: &#123;</span><br><span class="line">      <span class="attr">usersProject</span>: &#123;</span><br><span class="line">        <span class="attr">some</span>: &#123;</span><br><span class="line">          <span class="attr">userId</span>: ctx.<span class="property">user</span>.<span class="property">userId</span>!</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">deleteAt</span>: <span class="literal">null</span></span><br><span class="line">  &#125;&#125;);</span><br><span class="line">  <span class="keyword">return</span> projects;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="设置-Projects-Hook">设置 Projects Hook</h2>
-<p>修改 <code>src/hooks/use-project.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>; </span><br><span class="line"><span class="keyword">import</span> &#123; api &#125; <span class="keyword">from</span> <span class="string">&quot;@/trpc/react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useLocalStorage &#125; <span class="keyword">from</span> <span class="string">&quot;usehooks-ts&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">useProject</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; <span class="attr">data</span>: projects &#125; = api.<span class="property">project</span>.<span class="property">getProjects</span>.<span class="title function_">useQuery</span>();</span><br><span class="line">  <span class="keyword">const</span> [ projectId, setProjectId] = <span class="title function_">useLocalStorage</span>(<span class="string">&quot;aigithub-projectId&quot;</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> project = projects?.<span class="title function_">find</span>(<span class="function"><span class="params">project</span> =&gt;</span> project.<span class="property">id</span> === projectId);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    projects,</span><br><span class="line">    project,</span><br><span class="line">    projectId,</span><br><span class="line">    setProjectId</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useProject;</span><br></pre></td></tr></table></figure>
-<h2 id="侧边栏整合-Hook">侧边栏整合 Hook</h2>
-<p>修改 <code>src/app/(protected)/AppSiderbar.tsx</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; projects, projectId, setProjectId&#125; = <span class="title function_">useProject</span>();</span><br><span class="line"></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-xml">      setProjectId(project.id)</span></span><br><span class="line"><span class="language-xml">    &#125;&#125;&gt;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;cn(</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &quot;<span class="attr">rounded-sm</span> <span class="attr">border</span> <span class="attr">size-6</span> <span class="attr">flex</span> <span class="attr">items-center</span> <span class="attr">justify-center</span> <span class="attr">text-sm</span> <span class="attr">bg-white</span> <span class="attr">text-primary</span>&quot;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &#123; &quot;<span class="attr">bg-primary</span> <span class="attr">text-white</span>&quot; <span class="attr">:</span> <span class="attr">project.id</span> === <span class="string">projectId</span> &#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    )&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;project?.name[0]&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;project?.name&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="动态刷新项目列表">动态刷新项目列表</h2>
-<p>添加Hook，<code>src/hooks/use-refresh.ts</code>:</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useQueryClient &#125; <span class="keyword">from</span> <span class="string">&#x27;@tanstack/react-query&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">useRefresh</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> queryClient = <span class="title function_">useQueryClient</span>();</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> queryClient.<span class="title function_">refetchQueries</span>(&#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;active&quot;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useRefresh;</span><br></pre></td></tr></table></figure>
-<p>添加项目时调用：</p>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> refresh = <span class="title function_">useRefresh</span>();</span><br><span class="line"> </span><br><span class="line"><span class="attr">onSuccess</span>: <span class="function">()=&gt;</span>&#123;</span><br><span class="line">   toast.<span class="title function_">success</span>(<span class="string">&quot;项目创建成功&quot;</span>);</span><br><span class="line">   <span class="title function_">refresh</span>();</span><br><span class="line">   <span class="title function_">reset</span>();</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="设置-Dashboard-页面">设置 Dashboard 页面</h2>
+<p>修改 ``:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">DashBoardPage</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; user &#125; = <span class="title function_">useUser</span>();</span><br><span class="line">  <span class="keyword">const</span> &#123; project &#125; = <span class="title function_">useProject</span>();</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex items-center justify-between flex-wrap gap-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;/* github link */&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;w-fit rounded-md bg-primary px-4 py-3&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex items-center&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Github</span> <span class="attr">className</span>=<span class="string">&quot;size-6 text-white&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;ml-2&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">&quot;text-sm font-medium text-white&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                这个项目链接到&#123;&quot; &quot;&#125;</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Link</span> <span class="attr">href</span>=<span class="string">&#123;project?.githubURL</span> ?? &quot;&quot;&#125; <span class="attr">className</span>=<span class="string">&quot;inline-flex items-center text-white/80 hover:underline&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                  &#123;project?.githubURL&#125;</span></span><br><span class="line"><span class="language-xml">                  <span class="tag">&lt;<span class="name">ExternalLink</span> <span class="attr">className</span>=<span class="string">&quot;ml-1 size-4&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;h-4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;flex items-center gap-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          TeamMember</span></span><br><span class="line"><span class="language-xml">          InviteButton</span></span><br><span class="line"><span class="language-xml">          ArchiveButton</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;mt-4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;grid grid-cols-1 gap-4 sm:grid-cols-5&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          AskQuestionCard</span></span><br><span class="line"><span class="language-xml">          MeetingCard</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      &#123;/* commit log */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;mt-8&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      Commit Log</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">DashBoardPage</span>  </span><br></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/03/23/build-a-AI-github-platform-from-scratch-8/" title="从零搭建基于 AI GitHub 分析平台 (8) 创建 Project Hook">从零搭建基于 AI GitHub 分析平台 (8) 创建 Project Hook</a></em><br>
+<em>出处：<a href="/2025/03/23/build-a-AI-github-platform-from-scratch-9/" title="从零搭建基于 AI GitHub 分析平台 (9) Dashboard 页面">从零搭建基于 AI GitHub 分析平台 (9) Dashboard 页面</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -210,12 +199,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/23/build-a-AI-github-platform-from-scratch-8/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/23/build-a-AI-github-platform-from-scratch-9/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hook/" rel="tag">Hook</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Layout/" rel="tag">Layout</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
 
     </footer>
   </div>
@@ -223,19 +212,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2025/03/23/build-a-AI-github-platform-from-scratch-9/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            从零搭建基于 AI GitHub 分析平台 (9) Dashboard 页面
-          
-        </div>
-      </a>
     
-    
-      <a href="/2025/03/22/build-a-AI-github-platform-from-scratch-7/" class="article-nav-link">
+      <a href="/2025/03/23/build-a-AI-github-platform-from-scratch-8/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">从零搭建基于 AI GitHub 分析平台 (7) Create Project API</div>
+        <div class="article-nav-title">从零搭建基于 AI GitHub 分析平台 (8) 创建 Project Hook</div>
       </a>
     
   </nav>
