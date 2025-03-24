@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-24T02:35:29.731Z</updated>
+  <updated>2025-03-24T02:37:33.191Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台  (11) 基于commit diff 生成 commit 的总结</title>
+    <link href="http://yunminitools.cn/2025/03/24/build-a-AI-github-platform-from-scratch-11/"/>
+    <id>http://yunminitools.cn/2025/03/24/build-a-AI-github-platform-from-scratch-11/</id>
+    <published>2025-03-24T02:36:08.000Z</published>
+    <updated>2025-03-24T02:37:33.191Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果：&quot;&gt;效果：&lt;/h2&gt;
+&lt;p&gt;执行语句 &lt;code&gt;bun run src/lib/gpt.ts &lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- Set `randomOption` default value to `1` in the examination page.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Add `zod` schema validation and new hooks for exam records and questions.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Replace `useStartWCDialog` with `useExamDialog` for handling exam dialogs.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Add logic to handle wrong question collections and create new exam records.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Include `questionNum` in the API response for questions of a repository.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Replace `thumbUrl` with `isWrongCollection` in the repositories API response.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Reorganize imports and adjust button layout in the new exam dialog component.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Filter repositories to hide items with `isWrongCollection` set to `1`.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我拿了一个比较复杂的代码提交，总结的比较到位。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台 (10) 获取 github commit</title>
@@ -474,27 +500,6 @@
     
     <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo32.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(11) 定义 mcq 组件</title>
-    <link href="http://yunminitools.cn/2025/03/14/build-a-AI-quiz-platform-from-scratch-11/"/>
-    <id>http://yunminitools.cn/2025/03/14/build-a-AI-quiz-platform-from-scratch-11/</id>
-    <published>2025-03-14T02:12:57.000Z</published>
-    <updated>2025-03-19T02:04:54.045Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo31.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
     
     

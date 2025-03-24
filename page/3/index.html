@@ -109,6 +109,65 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-AI-quiz-platform-from-scratch-11"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/03/14/build-a-AI-quiz-platform-from-scratch-11/"
+    >从零搭建基于 AI 问答平台(11) 定义 mcq 组件</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/14/build-a-AI-quiz-platform-from-scratch-11/" class="article-date">
+  <time datetime="2025-03-14T02:12:57.000Z" itemprop="datePublished">2025-03-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="效果">效果</h2>
+<p><img src="https://image.952005.xyz/2025/03/quizdemo31.gif" alt=""></p>
+<p>实现步骤如下：</p> 
+      <a class="article-more-link" href="/2025/03/14/build-a-AI-quiz-platform-from-scratch-11/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-AI-quiz-platform-from-scratch-10"
   class="article article-type-post"
   itemscope
@@ -646,82 +705,13 @@ var _hmt = _hmt || [];
 </article>
 
     
-    <article
-  id="post-build-a-AI-quiz-platform-from-scratch-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/"
-    >从零搭建基于 AI 问答平台(2) 安装 Clerk</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/" class="article-date">
-  <time datetime="2025-03-09T07:09:19.000Z" itemprop="datePublished">2025-03-09</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="注册-Clerk">注册 Clerk</h2>
-<p><a target="_blank" rel="noopener" href="https://clerk.com/">Clerk</a> 是一个以开发者为中心的身份验证和用户管理系统，提供了预构建的React组件和挂钩，用于登录、注册、用户个人资料以及组织管理。 这个模板专为Clerk和Next.js（App Router）设计，让你能够在几分钟内快速启动并运行一个功能齐全的认证流程应用，按下面步骤操作：</p>
-<ol>
-<li>注册 Clerk 账号</li>
-<li>点击 Create application 创建一个应用，也就是我们现在开发的这个项目。</li>
-<li>配置鉴权选项，例如第三方登录提供商。这里需要事先声明的是，第三方登录提供商在开发环境是可以随意增加的，但是在生产环境每一个都需要额外的配置，一般选常用的就可以了。</li>
-<li>进入 Clerk 控制台 找到 API keys，分别是一个公钥和私钥，将这个配置复制到我们项目中的环境变量里。</li>
-</ol>
-<h2 id="安装-Clerk">安装 Clerk</h2>
-<p>命令行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add @clerk/nextjs</span><br></pre></td></tr></table></figure>
-<p>修改.env, 添加环境变量：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=xxxx</span><br><span class="line">CLERK_SECRET_KEY=sk_test_xxxx</span><br><span class="line"></span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Clerk/" rel="tag">Clerk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
   </nav>
   
 </section>
