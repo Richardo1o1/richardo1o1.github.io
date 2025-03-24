@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-23T12:26:58.538Z</updated>
+  <updated>2025-03-24T02:35:29.731Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (10) 获取 github commit</title>
+    <link href="http://yunminitools.cn/2025/03/24/build-a-AI-github-platform-from-scratch-10/"/>
+    <id>http://yunminitools.cn/2025/03/24/build-a-AI-github-platform-from-scratch-10/</id>
+    <published>2025-03-24T02:34:57.000Z</published>
+    <updated>2025-03-24T02:35:29.731Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;获取-github-Token&quot;&gt;获取 github Token&lt;/h2&gt;
+&lt;p&gt;访问 GitHub，到下面路径获取:&lt;br&gt;
+&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub13.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台 (9) Dashboard 页面</title>
@@ -473,27 +496,6 @@
     <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo31.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(10) 定义 mcq 和 open ended 页面</title>
-    <link href="http://yunminitools.cn/2025/03/14/build-a-AI-quiz-platform-from-scratch-10/"/>
-    <id>http://yunminitools.cn/2025/03/14/build-a-AI-quiz-platform-from-scratch-10/</id>
-    <published>2025-03-14T01:29:49.000Z</published>
-    <updated>2025-03-19T01:55:29.561Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo28.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo27.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
