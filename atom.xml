@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-24T02:37:33.191Z</updated>
+  <updated>2025-03-25T04:47:47.103Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台  (12) 批量生成总结并存储数据库</title>
+    <link href="http://yunminitools.cn/2025/03/25/build-a-AI-github-platform-from-scratch-12/"/>
+    <id>http://yunminitools.cn/2025/03/25/build-a-AI-github-platform-from-scratch-12/</id>
+    <published>2025-03-25T04:46:52.000Z</published>
+    <updated>2025-03-25T04:47:47.103Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;调整数据库，添加相关表&quot;&gt;调整数据库，添加相关表&lt;/h2&gt;
+&lt;p&gt;修改 &lt;code&gt;prisma/schema.prisma&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;model &lt;span class=&quot;title class_&quot;&gt;Project&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  id           &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;         &lt;span class=&quot;meta&quot;&gt;@id&lt;/span&gt; &lt;span class=&quot;meta&quot;&gt;@default&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;cuid&lt;/span&gt;())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  createdAt    &lt;span class=&quot;title class_&quot;&gt;DateTime&lt;/span&gt;       &lt;span class=&quot;meta&quot;&gt;@default&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;now&lt;/span&gt;())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  updatedAt    &lt;span class=&quot;title class_&quot;&gt;DateTime&lt;/span&gt;       &lt;span class=&quot;meta&quot;&gt;@updatedAt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name         &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  githubURL    &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  deleteAt     &lt;span class=&quot;title class_&quot;&gt;DateTime&lt;/span&gt;?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  usersProject &lt;span class=&quot;title class_&quot;&gt;UsersProject&lt;/span&gt;[]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  commits      &lt;span class=&quot;title class_&quot;&gt;Commit&lt;/span&gt;[]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;model &lt;span class=&quot;title class_&quot;&gt;Commit&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  id        &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;   &lt;span class=&quot;meta&quot;&gt;@id&lt;/span&gt; &lt;span class=&quot;meta&quot;&gt;@default&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;cuid&lt;/span&gt;())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  createdAt &lt;span class=&quot;title class_&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;meta&quot;&gt;@default&lt;/span&gt;(&lt;span class=&quot;title function_&quot;&gt;now&lt;/span&gt;())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  updatedAt &lt;span class=&quot;title class_&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;meta&quot;&gt;@updatedAt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  projectId &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  project   &lt;span class=&quot;title class_&quot;&gt;Project&lt;/span&gt;  &lt;span class=&quot;meta&quot;&gt;@relation&lt;/span&gt;(&lt;span class=&quot;attr&quot;&gt;fields&lt;/span&gt;: [projectId], &lt;span class=&quot;attr&quot;&gt;references&lt;/span&gt;: [id])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  commitMessage      &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  commitHash         &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  commitAuthorName   &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  commitAuthorAvatar &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  commitDate         &lt;span class=&quot;title class_&quot;&gt;DateTime&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// ai summary&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  summary             &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台  (11) 基于commit diff 生成 commit 的总结</title>
@@ -487,27 +508,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(12) 完善 mcq 模块</title>
-    <link href="http://yunminitools.cn/2025/03/15/build-a-AI-quiz-platform-from-scratch-12/"/>
-    <id>http://yunminitools.cn/2025/03/15/build-a-AI-quiz-platform-from-scratch-12/</id>
-    <published>2025-03-15T08:33:16.000Z</published>
-    <updated>2025-03-19T02:05:06.397Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo32.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
   </entry>
   
