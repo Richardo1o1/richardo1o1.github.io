@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-25T04:47:47.103Z</updated>
+  <updated>2025-03-26T03:14:13.426Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (13) Commit Log 页面</title>
+    <link href="http://yunminitools.cn/2025/03/26/build-a-AI-github-platform-from-scratch-13/"/>
+    <id>http://yunminitools.cn/2025/03/26/build-a-AI-github-platform-from-scratch-13/</id>
+    <published>2025-03-26T03:13:25.000Z</published>
+    <updated>2025-03-26T03:14:13.426Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub16.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台  (12) 批量生成总结并存储数据库</title>
@@ -475,29 +498,6 @@
     
     <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo34.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(13) 添加检查答案功能</title>
-    <link href="http://yunminitools.cn/2025/03/15/build-a-AI-quiz-platform-from-scratch-13/"/>
-    <id>http://yunminitools.cn/2025/03/15/build-a-AI-quiz-platform-from-scratch-13/</id>
-    <published>2025-03-15T09:31:25.000Z</published>
-    <updated>2025-03-19T02:05:20.353Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo33.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
     
     
