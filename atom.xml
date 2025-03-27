@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-26T03:14:13.426Z</updated>
+  <updated>2025-03-27T01:35:18.534Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PostgreSQL 带向量数据库的安装</title>
+    <link href="http://yunminitools.cn/2025/03/27/postgresql-vector-docker-setup/"/>
+    <id>http://yunminitools.cn/2025/03/27/postgresql-vector-docker-setup/</id>
+    <published>2025-03-27T01:34:20.000Z</published>
+    <updated>2025-03-27T01:35:18.534Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;做 AI 相关项目需要用到向量数据库，本来想直接使用 PostgreSQL ，结果发现默认的安装是没有安装向量数据库的，打算重新安装一个带向量支持的。&lt;/p&gt;
+&lt;p&gt;实现步骤如下：&lt;/p&gt;
+&lt;h2 id=&quot;Create-Volume&quot;&gt;Create Volume&lt;/h2&gt;
+&lt;p&gt;创建一个相关的卷用于保存数据&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker volume create --driver local --opt device=C:\10.VM\data\pg02 --opt type=none --opt o=bind pg02&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;拉取相关-Docker-镜像&quot;&gt;拉取相关 Docker 镜像&lt;/h2&gt;
+&lt;p&gt;下面这个镜像是包含向量数据库的：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker pull ankane/pgvector:latest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;启动-docker&quot;&gt;启动 docker&lt;/h2&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run --name pgvector --privileged -e POSTGRES_PASSWORD=pGp@ssw0rd -p 15678:5432 -v pg02:/var/lib/postgresql/data -d ankane/pgvector:latest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
+    
+    <category term="PostgreSQL" scheme="http://yunminitools.cn/tags/PostgreSQL/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台 (13) Commit Log 页面</title>
@@ -485,29 +516,6 @@
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(14) 定义 OpenEnded组件</title>
-    <link href="http://yunminitools.cn/2025/03/16/build-a-AI-quiz-platform-from-scratch-14/"/>
-    <id>http://yunminitools.cn/2025/03/16/build-a-AI-quiz-platform-from-scratch-14/</id>
-    <published>2025-03-16T03:05:01.000Z</published>
-    <updated>2025-03-19T02:05:36.005Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo34.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
     
   </entry>
   

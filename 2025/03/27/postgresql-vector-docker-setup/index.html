@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives |  Bearalise&#39;s Blog</title>
+      <title>PostgreSQL 带向量数据库的安装 |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -77,246 +77,176 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-postgresql-vector-docker-setup"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  PostgreSQL 带向量数据库的安装
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/27/postgresql-vector-docker-setup/" class="article-date">
+  <time datetime="2025-03-27T01:34:20.000Z" itemprop="datePublished">2025-03-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">276</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/06/05/Django-Class-View-1/" class="archive-article-date">
-  <time datetime="2023-06-05T14:18:55.000Z" itemprop="datePublished">06/05</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/06/05/Django-Class-View-1/"
-    >Django 的类视图</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/06/04/Django-Remote-Server-Access/" class="archive-article-date">
-  <time datetime="2023-06-04T06:03:31.000Z" itemprop="datePublished">06/04</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/06/04/Django-Remote-Server-Access/"
-    >解决Django无法访问远程服务器</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/06/03/SSH-connention-timeout-setting/" class="archive-article-date">
-  <time datetime="2023-06-03T13:03:32.000Z" itemprop="datePublished">06/03</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/06/03/SSH-connention-timeout-setting/"
-    >SSH客户端会话超时的解决方案</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/" class="archive-article-date">
-  <time datetime="2023-04-25T15:22:59.000Z" itemprop="datePublished">04/25</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/25/A-Peer-to-Peer-Electronic-Cash-System-10/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（10）</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/" class="archive-article-date">
-  <time datetime="2023-04-23T15:15:15.000Z" itemprop="datePublished">04/23</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/23/A-Peer-to-Peer-Electronic-Cash-System-9/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（9）</a> 
-</h2>
+  <h2 id="背景">背景</h2>
+<p>做 AI 相关项目需要用到向量数据库，本来想直接使用 PostgreSQL ，结果发现默认的安装是没有安装向量数据库的，打算重新安装一个带向量支持的。</p>
+<p>实现步骤如下：</p>
+<h2 id="Create-Volume">Create Volume</h2>
+<p>创建一个相关的卷用于保存数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --driver local --opt device=C:\10.VM\data\pg02 --opt type=none --opt o=bind pg02</span><br></pre></td></tr></table></figure>
+<h2 id="拉取相关-Docker-镜像">拉取相关 Docker 镜像</h2>
+<p>下面这个镜像是包含向量数据库的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ankane/pgvector:latest</span><br></pre></td></tr></table></figure>
+<h2 id="启动-docker">启动 docker</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgvector --privileged -e POSTGRES_PASSWORD=pGp@ssw0rd -p 15678:5432 -v pg02:/var/lib/postgresql/data -d ankane/pgvector:latest</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="创建数据库和用户">创建数据库和用户</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> vector01 <span class="keyword">with</span> password <span class="string">&#x27;vector1234&#x27;</span>;</span><br><span class="line"><span class="keyword">create</span> database vector01 <span class="keyword">with</span> owner vector01; </span><br></pre></td></tr></table></figure>
+<h2 id="启用Pgvector扩展">启用Pgvector扩展</h2>
+<p>切换到 vector01 数据库，然后执行以下语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> extension vector;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> pg_extension;</span><br></pre></td></tr></table></figure>
+<h2 id="切换数据库连接">切换数据库连接</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATABASE_URL=postgresql://vector01:vector1234@192.xx.xx.xx:15678/vector01</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/27/postgresql-vector-docker-setup/" title="PostgreSQL 带向量数据库的安装">PostgreSQL 带向量数据库的安装</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/20/npm-run-serve-vue/" class="archive-article-date">
-  <time datetime="2023-04-20T15:37:22.000Z" itemprop="datePublished">04/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/20/npm-run-serve-vue/"
-    >Difference between&#34; npm run serve&#34; and &#34;npm run dev&#34; in VUE</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/19/VUE-Exercise-4/" class="archive-article-date">
-  <time datetime="2023-04-19T15:49:43.000Z" itemprop="datePublished">04/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/19/VUE-Exercise-4/"
-    >VUE练习4 - 使用Ant Design</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/" class="archive-article-date">
-  <time datetime="2023-04-18T14:40:00.000Z" itemprop="datePublished">04/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/18/A-Peer-to-Peer-Electronic-Cash-System-8/"
-    >论文学习 - Bitcoin：A Peer-to-Peer Electronic Cash System（8）</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/17/VUE-Exercise-3/" class="archive-article-date">
-  <time datetime="2023-04-17T14:45:32.000Z" itemprop="datePublished">04/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/17/VUE-Exercise-3/"
-    >VUE练习3 - 使用域名</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/04/16/VUE-Exercise-2/" class="archive-article-date">
-  <time datetime="2023-04-16T07:22:34.000Z" itemprop="datePublished">04/16</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/04/16/VUE-Exercise-2/"
-    >VUE练习2 - 使用axios模块</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/page/24/">上一页</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/23/">23</a><a class="page-number" href="/archives/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/archives/page/26/">26</a><a class="page-number" href="/archives/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/34/">34</a><a class="extend next" rel="next" href="/archives/page/26/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/27/postgresql-vector-docker-setup/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/" rel="tag">PostgreSQL</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/03/26/build-a-AI-github-platform-from-scratch-13/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">从零搭建基于 AI GitHub 分析平台 (13) Commit Log 页面</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -453,6 +383,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

@@ -16040,4 +16040,43 @@ tags:</li>
         <tag>Layout</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PostgreSQL 带向量数据库的安装</title>
+    <url>/2025/03/27/postgresql-vector-docker-setup/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>做 AI 相关项目需要用到向量数据库，本来想直接使用 PostgreSQL ，结果发现默认的安装是没有安装向量数据库的，打算重新安装一个带向量支持的。</p>
+<p>实现步骤如下：</p>
+<h2 id="Create-Volume">Create Volume</h2>
+<p>创建一个相关的卷用于保存数据</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker volume create --driver local --opt device=C:\10.VM\data\pg02 --opt type=none --opt o=bind pg02</span><br></pre></td></tr></table></figure>
+<h2 id="拉取相关-Docker-镜像">拉取相关 Docker 镜像</h2>
+<p>下面这个镜像是包含向量数据库的：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull ankane/pgvector:latest</span><br></pre></td></tr></table></figure>
+<h2 id="启动-docker">启动 docker</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run --name pgvector --privileged -e POSTGRES_PASSWORD=pGp@ssw0rd -p 15678:5432 -v pg02:/var/lib/postgresql/data -d ankane/pgvector:latest</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="创建数据库和用户">创建数据库和用户</h2>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> vector01 <span class="keyword">with</span> password <span class="string">&#x27;vector1234&#x27;</span>;</span><br><span class="line"><span class="keyword">create</span> database vector01 <span class="keyword">with</span> owner vector01; </span><br></pre></td></tr></table></figure>
+<h2 id="启用Pgvector扩展">启用Pgvector扩展</h2>
+<p>切换到 vector01 数据库，然后执行以下语句：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> extension vector;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> pg_extension;</span><br></pre></td></tr></table></figure>
+<h2 id="切换数据库连接">切换数据库连接</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DATABASE_URL=postgresql://vector01:vector1234@192.xx.xx.xx:15678/vector01</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/27/postgresql-vector-docker-setup/" title="PostgreSQL 带向量数据库的安装">PostgreSQL 带向量数据库的安装</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>PostgreSQL</tag>
+      </tags>
+  </entry>
 </search>
