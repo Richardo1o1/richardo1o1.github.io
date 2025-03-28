@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-27T01:35:18.534Z</updated>
+  <updated>2025-03-28T05:13:55.964Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块</title>
+    <link href="http://yunminitools.cn/2025/03/28/build-a-AI-github-platform-from-scratch-15/"/>
+    <id>http://yunminitools.cn/2025/03/28/build-a-AI-github-platform-from-scratch-15/</id>
+    <published>2025-03-28T05:13:12.000Z</published>
+    <updated>2025-03-28T05:13:55.964Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub17.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub18.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
+    
+  </entry>
   
   <entry>
     <title>PostgreSQL 带向量数据库的安装</title>
@@ -487,27 +511,6 @@
     
     <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo36.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(15) 定义 Statistics 页面</title>
-    <link href="http://yunminitools.cn/2025/03/16/build-a-AI-quiz-platform-from-scratch-15/"/>
-    <id>http://yunminitools.cn/2025/03/16/build-a-AI-quiz-platform-from-scratch-15/</id>
-    <published>2025-03-16T07:59:35.000Z</published>
-    <updated>2025-03-19T02:05:48.117Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo35.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
     
     

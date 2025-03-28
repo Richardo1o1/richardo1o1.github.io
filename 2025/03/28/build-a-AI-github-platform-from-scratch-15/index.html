@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>PostgreSQL 带向量数据库的安装 |  Bearalise&#39;s Blog</title>
+      <title>从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块 |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-postgresql-vector-docker-setup"
+  id="post-build-a-AI-github-platform-from-scratch-15"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -89,7 +89,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  PostgreSQL 带向量数据库的安装
+  从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块
 </h1>
  
 
@@ -97,11 +97,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2025/03/27/postgresql-vector-docker-setup/" class="article-date">
-  <time datetime="2025-03-27T01:34:20.000Z" itemprop="datePublished">2025-03-27</time>
+      <a href="/2025/03/28/build-a-AI-github-platform-from-scratch-15/" class="article-date">
+  <time datetime="2025-03-28T05:13:12.000Z" itemprop="datePublished">2025-03-28</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
   </div>
   
 <div class="word_count">
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">276</span>
+            <span class="post-count">384</span>
         </span>
     </span>
 
@@ -118,7 +118,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -133,30 +133,20 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="背景">背景</h2>
-<p>做 AI 相关项目需要用到向量数据库，本来想直接使用 PostgreSQL ，结果发现默认的安装是没有安装向量数据库的，打算重新安装一个带向量支持的。</p>
+  <h2 id="效果">效果</h2>
+<p><img src="https://image.952005.xyz/2025/03/aigithub17.jpg" alt=""><br>
+<img src="https://image.952005.xyz/2025/03/aigithub18.jpg" alt=""></p>
 <p>实现步骤如下：</p>
-<h2 id="Create-Volume">Create Volume</h2>
-<p>创建一个相关的卷用于保存数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --driver local --opt device=C:\10.VM\data\pg02 --opt type=none --opt o=bind pg02</span><br></pre></td></tr></table></figure>
-<h2 id="拉取相关-Docker-镜像">拉取相关 Docker 镜像</h2>
-<p>下面这个镜像是包含向量数据库的：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ankane/pgvector:latest</span><br></pre></td></tr></table></figure>
-<h2 id="启动-docker">启动 docker</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgvector --privileged -e POSTGRES_PASSWORD=pGp@ssw0rd -p 15678:5432 -v pg02:/var/lib/postgresql/data -d ankane/pgvector:latest</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="创建数据库和用户">创建数据库和用户</h2>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> vector01 <span class="keyword">with</span> password <span class="string">&#x27;vector1234&#x27;</span>;</span><br><span class="line"><span class="keyword">create</span> database vector01 <span class="keyword">with</span> owner vector01; </span><br></pre></td></tr></table></figure>
-<h2 id="启用Pgvector扩展">启用Pgvector扩展</h2>
-<p>切换到 vector01 数据库，然后执行以下语句：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> extension vector;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> pg_extension;</span><br></pre></td></tr></table></figure>
-<h2 id="切换数据库连接">切换数据库连接</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATABASE_URL=postgresql://vector01:vector1234@192.xx.xx.xx:15678/vector01</span><br></pre></td></tr></table></figure>
+<h2 id="添加-AskQuestionCard-模块">添加 AskQuestionCard 模块</h2>
+<p>修改 <code>src/app/(protected)/dashboard/AskQuestionCard.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> useProject <span class="keyword">from</span> <span class="string">&#x27;@/hooks/use-project&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Card</span>, <span class="title class_">CardContent</span>, <span class="title class_">CardHeader</span>, <span class="title class_">CardTitle</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/ui/card&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Textarea</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/ui/textarea&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/ui/button&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Dialog</span>, <span class="title class_">DialogContent</span>, <span class="title class_">DialogTitle</span>, <span class="title class_">DialogTrigger</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/ui/dialog&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DialogHeader</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/ui/dialog&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Image</span> <span class="keyword">from</span> <span class="string">&#x27;next/image&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AskQuestionCard</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [ question, setQuestion ] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">onSubmit</span> = <span class="keyword">async</span> (<span class="params"> e: React.FormEvent&lt;HTMLFormElement&gt;</span>) =&gt; &#123;</span><br><span class="line">    e.<span class="title function_">preventDefault</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Card</span> <span class="attr">className</span>=<span class="string">&#x27;relative col-span-3&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CardHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">CardTitle</span>&gt;</span>Ask a question<span class="tag">&lt;/<span class="name">CardTitle</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">CardHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">form</span>  <span class="attr">onSubmit</span>=<span class="string">&#123;</span> <span class="attr">onSubmit</span> &#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Textarea</span> <span class="attr">placeholder</span>=<span class="string">&#x27;Which file should I edit to change the home page?&#x27;</span> <span class="attr">value</span>=<span class="string">&#123;question&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;</span> <span class="attr">e</span> =&gt;</span> setQuestion(e.target.value)&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#x27;h-4&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Dialog</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">DialogTrigger</span> <span class="attr">asChild</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">Button</span> <span class="attr">type</span>=<span class="string">&#x27;submit&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                  Ask AiGithub</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">DialogTrigger</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">DialogContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">DialogHeader</span>&gt;</span>`1`</span></span><br><span class="line"><span class="language-xml">                  <span class="tag">&lt;<span class="name">DialogTitle</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">Image</span> <span class="attr">src</span>=<span class="string">&#x27;/logo.png&#x27;</span> <span class="attr">alt</span>=<span class="string">&#x27;aigithub&#x27;</span> <span class="attr">width</span>=<span class="string">&#123;40&#125;</span> <span class="attr">height</span>=<span class="string">&#123;40&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                  <span class="tag">&lt;/<span class="name">DialogTitle</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;/<span class="name">DialogHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;/<span class="name">DialogContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">Dialog</span>&gt;</span> </span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">CardContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">AskQuestionCard</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改-Dashboard-页面">修改 Dashboard 页面</h2>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">AskQuestionCard</span> <span class="keyword">from</span> <span class="string">&quot;./AskQuestionCard&quot;</span>;</span><br><span class="line">...</span><br><span class="line">  &#123;<span class="comment">/* commit log */</span>&#125;</span><br><span class="line">    &lt;div className=<span class="string">&quot;mt-8&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">CommitLog</span> /&gt;</span></span></span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/03/27/postgresql-vector-docker-setup/" title="PostgreSQL 带向量数据库的安装">PostgreSQL 带向量数据库的安装</a></em><br>
+<em>出处：<a href="/2025/03/28/build-a-AI-github-platform-from-scratch-15/" title="从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块">从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -212,12 +202,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/27/postgresql-vector-docker-setup/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/28/build-a-AI-github-platform-from-scratch-15/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/" rel="tag">PostgreSQL</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Layout/" rel="tag">Layout</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
 
     </footer>
   </div>
@@ -225,19 +215,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2025/03/28/build-a-AI-github-platform-from-scratch-15/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块
-          
-        </div>
-      </a>
     
-    
-      <a href="/2025/03/26/build-a-AI-github-platform-from-scratch-13/" class="article-nav-link">
+      <a href="/2025/03/27/postgresql-vector-docker-setup/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">从零搭建基于 AI GitHub 分析平台 (13) Commit Log 页面</div>
+        <div class="article-nav-title">PostgreSQL 带向量数据库的安装</div>
       </a>
     
   </nav>
