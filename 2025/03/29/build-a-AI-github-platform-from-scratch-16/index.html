@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>从零搭建基于 AI GitHub 分析平台 (16) 调用AI显示答案 |  Bearalise&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/web1.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XR2SEK1M9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9XR2SEK1M9');
+</script>
+
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?6df1890c9854cdf70d1c67b43e743c4d";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+        pre.mermaid {
+	  background: #dedede;
+	}	
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Bearalise's Blog" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-build-a-AI-github-platform-from-scratch-16"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  从零搭建基于 AI GitHub 分析平台 (16) 调用AI显示答案
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/29/build-a-AI-github-platform-from-scratch-16/" class="article-date">
+  <time datetime="2025-03-29T09:30:30.000Z" itemprop="datePublished">2025-03-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">6 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="效果">效果</h2>
+<p><img src="https://image.952005.xyz/2025/03/aigithub19.jpg" alt=""><br>
+<img src="https://image.952005.xyz/2025/03/aigithub20.jpg" alt=""></p>
+<p>实现步骤如下：</p>
+<span id="more"></span>
+<h2 id="安装依赖">安装依赖</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bun install @uiw/react-md-editor</span><br><span class="line">bun install react-syntax-highlighter</span><br><span class="line">bun install @types/react-syntax-highlighter</span><br></pre></td></tr></table></figure>
+<h2 id="添加-AskQuestionCard-模块">添加 AskQuestionCard 模块</h2>
+<p>修改 <code>src/app/(protected)/dashboard/AskQuestionCard.tsx</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; askQuestion &#125; <span class="keyword">from</span> <span class="string">&#x27;./actions&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">CodeReference</span> <span class="keyword">from</span> <span class="string">&#x27;./CodeReference&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AskQuestionCard</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123;project&#125; = <span class="title function_">useProject</span>();</span><br><span class="line">  <span class="keyword">const</span> [ question, setQuestion ] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> [ loading , setLoading ] = <span class="title function_">useState</span>(<span class="literal">false</span>);</span><br><span class="line">  <span class="keyword">const</span> [ fileReference, setFileReference ] = useState&lt;&#123; fileName :<span class="built_in">string</span>, <span class="attr">sourceCode</span>: <span class="built_in">string</span>, <span class="attr">summary</span>:<span class="built_in">string</span> &#125;[]&gt;([])</span><br><span class="line">  <span class="keyword">const</span> [answer, setAnswer] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">onSubmit</span> = <span class="keyword">async</span> (<span class="params"> e: React.FormEvent&lt;HTMLFormElement&gt;</span>) =&gt; &#123;</span><br><span class="line">    <span class="title function_">setAnswer</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="title function_">setFileReference</span>([]);</span><br><span class="line">    e.<span class="title function_">preventDefault</span>();</span><br><span class="line">    <span class="keyword">if</span>(!project?.<span class="property">id</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="title function_">setLoading</span>(<span class="literal">true</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> &#123;output , fileReference&#125; = <span class="keyword">await</span> <span class="title function_">askQuestion</span>(question,project.<span class="property">id</span>);</span><br><span class="line">    <span class="title function_">setFileReference</span>(fileReference);</span><br><span class="line">    <span class="title function_">setAnswer</span>(output);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">...</span><br><span class="line">    &lt;/<span class="title class_">DialogTrigger</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">DialogContent</span> <span class="attr">className</span>=<span class="string">&#x27;sm:max-w-[80vw]&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">DialogHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">DialogTitle</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Image</span> <span class="attr">src</span>=<span class="string">&#x27;/logo.png&#x27;</span> <span class="attr">alt</span>=<span class="string">&#x27;aigithub&#x27;</span> <span class="attr">width</span>=<span class="string">&#123;40&#125;</span> <span class="attr">height</span>=<span class="string">&#123;40&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">DialogTitle</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">DialogHeader</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">MDEditor.Markdown</span> <span class="attr">source</span>=<span class="string">&#123;answer&#125;</span> <span class="attr">className</span>=<span class="string">&#x27;max-w-[75vw] !h-full max-h-[40vh] overflow-scroll&#x27;</span> /&gt;</span> </span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">CodeReference</span> <span class="attr">fileReferences</span>=<span class="string">&#123;fileReference&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">DialogContent</span>&gt;</span></span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="添加-askQuestion-函数">添加 askQuestion 函数</h2>
+<p>添加 <code>src/app/(protected)/dashboard/actions.ts</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;use server&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; generateEmbedding &#125; <span class="keyword">from</span> <span class="string">&#x27;@/lib/embedding&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; db &#125; <span class="keyword">from</span> <span class="string">&#x27;@/server/db&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">OpenAI</span> <span class="keyword">from</span> <span class="string">&#x27;openai&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">askQuestion</span>(<span class="params">question: <span class="built_in">string</span>, projectId: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> openai = <span class="keyword">new</span> <span class="title class_">OpenAI</span>(&#123;</span><br><span class="line">    <span class="attr">baseURL</span>: <span class="string">&#x27;https://api.deepseek.com&#x27;</span>,</span><br><span class="line">    <span class="attr">apiKey</span>: process.<span class="property">env</span>.<span class="property">OPENAI_API_KEY</span>,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> queryVector = <span class="keyword">await</span> <span class="title function_">generateEmbedding</span>(question);</span><br><span class="line">    <span class="keyword">const</span> vectorQuery = <span class="title class_">Array</span>.<span class="title function_">from</span>(queryVector);</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> db.<span class="property">$queryRaw</span><span class="string">`</span></span><br><span class="line"><span class="string">      SELECT &quot;fileName&quot;, &quot;sourceCode&quot;, &quot;summary&quot;,</span></span><br><span class="line"><span class="string">      1 - (&quot;summaryEmbedding&quot; &lt;=&gt; <span class="subst">$&#123;vectorQuery&#125;</span>::vector) AS similarity</span></span><br><span class="line"><span class="string">      from &quot;SourceCodeEmbedding&quot;</span></span><br><span class="line"><span class="string">      WHERE 1 - (&quot;summaryEmbedding&quot; &lt;=&gt; <span class="subst">$&#123;vectorQuery&#125;</span>::vector) &gt; .5</span></span><br><span class="line"><span class="string">      AND &quot;projectId&quot; = <span class="subst">$&#123;projectId&#125;</span></span></span><br><span class="line"><span class="string">      ORDER BY similarity DESC</span></span><br><span class="line"><span class="string">      LIMIT 5</span></span><br><span class="line"><span class="string">    `</span> <span class="keyword">as</span> &#123; fileName :<span class="built_in">string</span>, <span class="attr">sourceCode</span>: <span class="built_in">string</span>, <span class="attr">summary</span>:<span class="built_in">string</span> &#125;[];</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">let</span> context = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">const</span> doc <span class="keyword">of</span> result) &#123;</span><br><span class="line">      context += <span class="string">`source: <span class="subst">$&#123;doc.fileName&#125;</span>\ncode content:<span class="subst">$&#123;doc.sourceCode&#125;</span>\n summary of file: <span class="subst">$&#123;doc.summary&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> user_prompt = <span class="string">`</span></span><br><span class="line"><span class="string">    You are a ai code assistant who answers question about the codebase. You target audience is technical inter who want to lear this codebase.</span></span><br><span class="line"><span class="string">      AI assistant is a brand new, powerful, human-like artifical intelligence.</span></span><br><span class="line"><span class="string">    The traits of AI include expert knowledge, helfulness, cleverness and articulateness.</span></span><br><span class="line"><span class="string">    AI is a well-behaved and well-mannered individual.</span></span><br><span class="line"><span class="string">    AI is always friendly, kind, and inspiring, and he is eager to provide vivid and thoughtful responses to the user.</span></span><br><span class="line"><span class="string">    AI has the sum of all knowledge in their brain, and is able to accurately answer nearly and question about any topic in technical area.</span></span><br><span class="line"><span class="string">    If the question is asking about code or special file, AI will provide the detailed answer, giving step by step instruction.</span></span><br><span class="line"><span class="string">    START CONTENT BLOCK</span></span><br><span class="line"><span class="string">    <span class="subst">$&#123;context&#125;</span></span></span><br><span class="line"><span class="string">    END OF CONTEXT BLOCK</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    START QUESTION</span></span><br><span class="line"><span class="string">    <span class="subst">$&#123;question&#125;</span></span></span><br><span class="line"><span class="string">    END QUESTON</span></span><br><span class="line"><span class="string">    AI assistant will take into account any CONTEXT BLOCK that is provided in a conversation.</span></span><br><span class="line"><span class="string">    If the context does not provide the answer to question, the AI assistant will say, &quot;I&#x27;m sorry, but I don&#x27;t know the answer.&quot;</span></span><br><span class="line"><span class="string">    AI assistant will not apologize for previous response, but instead will indicated new information was gainded.</span></span><br><span class="line"><span class="string">    AI assistant will not invent anything that is not drawn directly from the context.</span></span><br><span class="line"><span class="string">    Answer will markdown syntax, with code snippets if need. Be as detailed as possible when answering. make sure there is not ambiguous content.</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> response  = <span class="keyword">await</span> openai.<span class="property">chat</span>.<span class="property">completions</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">    <span class="attr">temperature</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="attr">model</span>: <span class="string">&quot;deepseek-chat&quot;</span>,</span><br><span class="line">    <span class="attr">messages</span>: [</span><br><span class="line">      &#123; <span class="attr">role</span>: <span class="string">&quot;user&quot;</span>, <span class="attr">content</span>: user_prompt &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// let res: string = response.choices[0].message?.content?.replace(/&#x27;/g, &#x27;&quot;&#x27;) ?? &quot;&quot;;</span></span><br><span class="line">  <span class="keyword">let</span> <span class="attr">res</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">if</span> (response &amp;&amp; response.<span class="property">choices</span> &amp;&amp; response.<span class="property">choices</span>[<span class="number">0</span>] &amp;&amp; response.<span class="property">choices</span>[<span class="number">0</span>].<span class="property">message</span>) &#123;</span><br><span class="line">    res= response.<span class="property">choices</span>[<span class="number">0</span>].<span class="property">message</span>.<span class="property">content</span>?.<span class="title function_">replace</span>(<span class="regexp">/&#x27;/g</span>, <span class="string">&#x27;&quot;&#x27;</span>) ?? <span class="string">&quot;&quot;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    res = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Response is undefined or does not contain choices&quot;</span>);</span><br><span class="line">  &#125;   </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">output</span>: res,</span><br><span class="line">    <span class="attr">fileReference</span>: result</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现-CodeReference-模块">实现 CodeReference 模块</h2>
+<p>添加 <code>src/app/(protected)/dashboard/CodeReference.tsx</code></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;use client&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">SyntaxHighlighter</span> <span class="keyword">from</span> <span class="string">&#x27;react-syntax-highlighter&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; lucario &#125; <span class="keyword">from</span> <span class="string">&#x27;react-syntax-highlighter/dist/esm/styles/prism&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Tabs</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/components/ui/tabs&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; cn &#125; <span class="keyword">from</span> <span class="string">&#x27;@/lib/utils&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">TabsContent</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@radix-ui/react-tabs&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Props</span> = &#123;</span><br><span class="line">  <span class="attr">fileReferences</span>: </span><br><span class="line">  &#123;</span><br><span class="line">    fileName :<span class="built_in">string</span>, </span><br><span class="line">    <span class="attr">sourceCode</span>: <span class="built_in">string</span>, </span><br><span class="line">    <span class="attr">summary</span>:<span class="built_in">string</span></span><br><span class="line">  &#125;[]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">CodeReference</span> = (<span class="params"> &#123; fileReferences&#125; : Props </span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [tab, setTab] = <span class="title function_">useState</span>(fileReferences[<span class="number">0</span>]?.<span class="property">fileName</span>);</span><br><span class="line">  <span class="keyword">if</span> (fileReferences.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#x27;max-w-[75vw]&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Tabs</span> <span class="attr">value</span>=<span class="string">&#123;tab&#125;</span> <span class="attr">onValueChange</span>=<span class="string">&#123;setTab&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#x27;overflow-scroll flex gap-2 bg-gray-200 p-1 rounded-md&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123; fileReferences.map( file =&gt;(</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>setTab(file.fileName)&#125; key= &#123;file.fileName &#125; className=&#123;cn(</span></span><br><span class="line"><span class="language-xml">            &#x27;px-3 py-1.5 text-sm font-medium rounded-md transition-colors whitespace-nowrap text-muted-foreground hover:bg-muted&#x27;,</span></span><br><span class="line"><span class="language-xml">            &#123; &#x27;bg-primary text-primary-foreground&#x27; : tab === file.fileName &#125;</span></span><br><span class="line"><span class="language-xml">          )&#125;&gt;</span></span><br><span class="line"><span class="language-xml">           &#123; file.fileName&#125; </span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        ))&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;fileReferences.map(file =&gt;(</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">TabsContent</span> <span class="attr">key</span>=<span class="string">&#123;file.fileName&#125;</span> <span class="attr">value</span>=<span class="string">&#123;</span> <span class="attr">file.fileName</span>&#125; <span class="attr">className</span>=<span class="string">&#x27;max-h-[40vh] overflow-scroll max-w-7xl rounded&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">SyntaxHighlighter</span> <span class="attr">language</span>=<span class="string">&#x27;typescript&#x27;</span> <span class="attr">style</span>=<span class="string">&#123;lucario&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              &#123;file.sourceCode&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">SyntaxHighlighter</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">TabsContent</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        ))&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Tabs</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">CodeReference</span></span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/29/build-a-AI-github-platform-from-scratch-16/" title="从零搭建基于 AI GitHub 分析平台 (16) 调用AI显示答案">从零搭建基于 AI GitHub 分析平台 (16) 调用AI显示答案</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/03/29/build-a-AI-github-platform-from-scratch-16/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Layout/" rel="tag">Layout</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/03/28/build-a-AI-github-platform-from-scratch-15/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2023-2025
+        <i class="ri-heart-fill heart_icon"></i> Bearalise
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">沪ICP备15046216号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/desktopicon.png" alt="Bearalise&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "base" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
