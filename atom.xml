@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-29T09:31:40.102Z</updated>
+  <updated>2025-03-29T13:09:19.513Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何刷新 VS Code 中 Prisma 更新的表和字段</title>
+    <link href="http://yunminitools.cn/2025/03/29/how-to-refresh-prisma-updated-table-fields/"/>
+    <id>http://yunminitools.cn/2025/03/29/how-to-refresh-prisma-updated-table-fields/</id>
+    <published>2025-03-29T13:08:48.000Z</published>
+    <updated>2025-03-29T13:09:19.513Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;当我更新 Prisma Schema 的时候，有时会出现即使通过 &lt;code&gt;prisma db push&lt;/code&gt; 或 &lt;code&gt;prisma generate&lt;/code&gt; 更新了数据库，也显示成功，但在 VS Code 中依然无法通过代码自动完成看到更新的字段，比较困扰，有时重新打开 VS Code 会好，有时不会&lt;/p&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;原因主要是 VS Code 的缓存没有及时更新，查询后发现一个立即更新缓存的方法，就是在 VS Code 中，找到 &lt;code&gt;node_modules/.prisma/client/index.d.ts&lt;/code&gt; ，并打开，这时 VS Code 就会自动更新缓存。我测试了一下有效，大家可以试试。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
+    
+    <category term="Tips" scheme="http://yunminitools.cn/tags/Tips/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台 (16) 调用AI显示答案</title>
@@ -501,27 +525,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(17) 定义 Loading 页面</title>
-    <link href="http://yunminitools.cn/2025/03/17/build-a-AI-quiz-platform-from-scratch-17/"/>
-    <id>http://yunminitools.cn/2025/03/17/build-a-AI-quiz-platform-from-scratch-17/</id>
-    <published>2025-03-17T04:45:54.000Z</published>
-    <updated>2025-03-19T02:06:12.129Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo37.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
   </entry>
   

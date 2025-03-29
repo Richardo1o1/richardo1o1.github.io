@@ -16143,4 +16143,28 @@ tags:</li>
         <tag>AIGC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>如何刷新 VS Code 中 Prisma 更新的表和字段</title>
+    <url>/2025/03/29/how-to-refresh-prisma-updated-table-fields/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>当我更新 Prisma Schema 的时候，有时会出现即使通过 <code>prisma db push</code> 或 <code>prisma generate</code> 更新了数据库，也显示成功，但在 VS Code 中依然无法通过代码自动完成看到更新的字段，比较困扰，有时重新打开 VS Code 会好，有时不会</p>
+<h2 id="解决方案">解决方案</h2>
+<p>原因主要是 VS Code 的缓存没有及时更新，查询后发现一个立即更新缓存的方法，就是在 VS Code 中，找到 <code>node_modules/.prisma/client/index.d.ts</code> ，并打开，这时 VS Code 就会自动更新缓存。我测试了一下有效，大家可以试试。</p>
+<span id="more"></span>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/03/29/how-to-refresh-prisma-updated-table-fields/" title="如何刷新 VS Code 中 Prisma 更新的表和字段">如何刷新 VS Code 中 Prisma 更新的表和字段</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Prisma</tag>
+        <tag>Tips</tag>
+      </tags>
+  </entry>
 </search>
