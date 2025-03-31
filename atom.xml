@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-30T03:39:43.024Z</updated>
+  <updated>2025-03-31T07:26:10.053Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零搭建基于 AI GitHub 分析平台 (18) 显示已保存答案</title>
+    <link href="http://yunminitools.cn/2025/03/31/build-a-AI-github-platform-from-scratch-18/"/>
+    <id>http://yunminitools.cn/2025/03/31/build-a-AI-github-platform-from-scratch-18/</id>
+    <published>2025-03-31T07:25:37.000Z</published>
+    <updated>2025-03-31T07:26:10.053Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub21.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub22.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台 (17) 保存答案</title>
@@ -510,27 +534,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Index-Page" scheme="http://yunminitools.cn/tags/Index-Page/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台(19) 修改 HotTopicsCard 组件</title>
-    <link href="http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-19/"/>
-    <id>http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-19/</id>
-    <published>2025-03-18T02:51:24.000Z</published>
-    <updated>2025-03-19T02:06:33.417Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/quizdemo39.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
   </entry>
   
