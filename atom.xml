@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-03-31T07:26:10.053Z</updated>
+  <updated>2025-04-01T15:12:34.453Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何通过API抽取数据并存入数据库</title>
+    <link href="http://yunminitools.cn/2025/04/01/how-to-call-api-and-save-data-to-db/"/>
+    <id>http://yunminitools.cn/2025/04/01/how-to-call-api-and-save-data-to-db/</id>
+    <published>2025-04-01T15:11:56.000Z</published>
+    <updated>2025-04-01T15:12:34.453Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;通过-axios-调用API&quot;&gt;通过 axios 调用API&lt;/h2&gt;
+&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; abcApi = env.&lt;span class=&quot;property&quot;&gt;CONTEST_API_URL&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; abcApiToken = env.&lt;span class=&quot;property&quot;&gt;CONTEST_API_TOKEN&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;`&lt;span class=&quot;subst&quot;&gt;$&amp;#123;abcApi&amp;#125;&lt;/span&gt;  start`&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; data &amp;#125; = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; axios.&lt;span class=&quot;title function_&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;`&lt;span class=&quot;subst&quot;&gt;$&amp;#123;abcApi&amp;#125;&lt;/span&gt;/`&lt;/span&gt; , &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;headers&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title class_&quot;&gt;Accept&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;application/json&amp;#x27;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title class_&quot;&gt;Authorization&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;`ApiKey &lt;span class=&quot;subst&quot;&gt;$&amp;#123;abcApiToken&amp;#125;&lt;/span&gt;`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;params&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;resource_id&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;93&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;limit&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;700&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;order_by&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;-end&amp;#x27;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; data.&lt;span class=&quot;property&quot;&gt;objects&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;ContestAPIType&lt;/span&gt;[];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其中 ContestAPIType 可以根据返回值定义。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
+    
+    <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建基于 AI GitHub 分析平台 (18) 显示已保存答案</title>
@@ -484,56 +507,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI 问答平台 - 目录</title>
-    <link href="http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/"/>
-    <id>http://yunminitools.cn/2025/03/18/build-a-AI-quiz-platform-from-scratch-index/</id>
-    <published>2025-03-18T02:52:52.000Z</published>
-    <updated>2025-03-19T01:26:09.785Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;目录&quot;&gt;目录&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/05/build-a-AI-quiz-platform-from-scratch-1/&quot; title=&quot;从零搭建基于 AI 问答平台(1) 搭建框架及数据库&quot;&gt;从零搭建基于 AI 问答平台(1) 搭建框架及数据库&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/09/build-a-AI-quiz-platform-from-scratch-2/&quot; title=&quot;从零搭建基于 AI 问答平台(2) 安装 Clerk&quot;&gt;从零搭建基于 AI 问答平台(2) 安装 Clerk&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/10/build-a-AI-quiz-platform-from-scratch-3/&quot; title=&quot;从零搭建基于 AI 问答平台(3) 编写Navbar&amp;#x2F;暗黑模式&quot;&gt;从零搭建基于 AI 问答平台(3) 编写Navbar&amp;#x2F;暗黑模式&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/11/build-a-AI-quiz-platform-from-scratch-4/&quot; title=&quot;从零搭建基于 AI 问答平台(4) Home Page&amp;#x2F;Dashboard&quot;&gt;从零搭建基于 AI 问答平台(4) Home Page&amp;#x2F;Dashboard&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/11/build-a-AI-quiz-platform-from-scratch-5/&quot; title=&quot;从零搭建基于 AI 问答平台(5) 词云&quot;&gt;从零搭建基于 AI 问答平台(5) 词云&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/12/build-a-AI-quiz-platform-from-scratch-6/&quot; title=&quot;从零搭建基于 AI 问答平台(6) Quiz Page&amp;#x2F;Form&quot;&gt;从零搭建基于 AI 问答平台(6) Quiz Page&amp;#x2F;Form&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/12/build-a-AI-quiz-platform-from-scratch-7/&quot; title=&quot;从零搭建基于 AI 问答平台(7) 定义Quiz 数据模型&quot;&gt;从零搭建基于 AI 问答平台(7) 定义Quiz 数据模型&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/13/build-a-AI-quiz-platform-from-scratch-8/&quot; title=&quot;从零搭建基于 AI 问答平台(8) 定义 OpenAI 格式接口 （使用Deepseek 接口）&quot;&gt;从零搭建基于 AI 问答平台(8) 定义 OpenAI 格式接口 （使用Deepseek 接口）&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href=&quot;/2025/03/13/build-a-AI-quiz-platform-from-scratch-9/&quot; title=&quot;从零搭建基于 AI 问答平台(9) 定义 Game 接口&quot;&gt;从零搭建基于 AI 问答平台(9) 定义 Game 接口&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Index-Page" scheme="http://yunminitools.cn/tags/Index-Page/"/>
     
   </entry>
   
