@@ -109,6 +109,70 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-AI-github-platform-from-scratch-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/03/19/build-a-AI-github-platform-from-scratch-1/"
+    >从零搭建基于 AI GitHub 分析平台 (1) 搭建框架</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/19/build-a-AI-github-platform-from-scratch-1/" class="article-date">
+  <time datetime="2025-03-19T01:23:31.000Z" itemprop="datePublished">2025-03-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="项目介绍">项目介绍</h2>
+<p>本次计划搭建一个基于AI的 Github 分析平台，根据搭建步骤会一一介绍。</p>
+<h2 id="创建NextJs项目">创建NextJs项目</h2>
+<p>本次通过 <a target="_blank" rel="noopener" href="https://create.t3.gg/en/introduction">T3</a> 模版创建项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bunx create-t3-app@latest</span><br></pre></td></tr></table></figure>
+<p>通过命令，创建 NextJs 项目 aigithub<br>
+下面是创建项目的选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">   ___ ___ ___   __ _____ ___   _____ ____    __   ___ ___</span><br><span class="line">  / __| _ \ __| /  \_   _| __| |_   _|__ /   /  \ | _ \ _ \</span><br><span class="line"> | (__|   / _| / /\ \| | | _|    | |  |_ \  / /\ \|  _/  _/</span><br><span class="line">  \___|_|_\___|_/‾‾\_\_| |___|   |_| |___/ /_/‾‾\_\_| |_|</span><br><span class="line">│</span><br><span class="line">◇  What will your project be called?</span><br><span class="line">│  aigithub</span><br><span class="line">│</span><br><span class="line">◇  Will you be using TypeScript or JavaScript?</span><br><span class="line">│  TypeScript</span><br><span class="line">│</span><br><span class="line">◇  Will you be using Tailwind CSS for styling?</span><br><span class="line">│  Yes</span><br><span class="line">│</span><br><span class="line">◇  Would you like to use tRPC?</span><br><span class="line">│  Yes</span><br><span class="line">│</span><br><span class="line">◇  What authentication provider would you like to use?</span><br><span class="line">│  None</span><br><span class="line">│</span><br><span class="line">◇  What database ORM would you like to use?</span><br><span class="line">│  Prisma</span><br><span class="line">│</span><br><span class="line">◇  Would you like to use Next.js App Router?</span><br><span class="line">│  Yes</span><br><span class="line">│</span><br><span class="line">◇  What database provider would you like to use?</span><br><span class="line">│  PostgreSQL</span><br><span class="line">│</span><br><span class="line">◇  Should we initialize a Git repository and stage the changes?</span><br><span class="line">│  Yes</span><br><span class="line">│</span><br><span class="line">◇  Should we run &#x27;bun install&#x27; for you?</span><br><span class="line">│  Yes</span><br><span class="line">│</span><br><span class="line">◇  What import alias would you like to use?</span><br><span class="line">│  @</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2025/03/19/build-a-AI-github-platform-from-scratch-1/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prisma/" rel="tag">Prisma</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-AI-quiz-platform-from-scratch-index"
   class="article article-type-post"
   itemscope
@@ -666,72 +730,13 @@ var _hmt = _hmt || [];
 </article>
 
     
-    <article
-  id="post-build-a-AI-quiz-platform-from-scratch-11"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/03/14/build-a-AI-quiz-platform-from-scratch-11/"
-    >从零搭建基于 AI 问答平台(11) 定义 mcq 组件</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/03/14/build-a-AI-quiz-platform-from-scratch-11/" class="article-date">
-  <time datetime="2025-03-14T02:12:57.000Z" itemprop="datePublished">2025-03-14</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="效果">效果</h2>
-<p><img src="https://image.952005.xyz/2025/03/quizdemo31.gif" alt=""></p>
-<p>实现步骤如下：</p> 
-      <a class="article-more-link" href="/2025/03/14/build-a-AI-quiz-platform-from-scratch-11/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
   </nav>
   
 </section>

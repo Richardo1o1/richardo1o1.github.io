@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives |  Bearalise&#39;s Blog</title>
+      <title>如何设计幂等API |  Bearalise&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/web1.ico" />
@@ -77,246 +77,199 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-how-to-design-idempotent-API"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  如何设计幂等API
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/04/04/how-to-design-idempotent-API/" class="article-date">
+  <time datetime="2025-04-04T09:05:11.000Z" itemprop="datePublished">2025-04-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2024" class="archive-year">2024</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">917</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/15/about-comments-and-tdd/" class="archive-article-date">
-  <time datetime="2024-04-15T12:18:07.000Z" itemprop="datePublished">04/15</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/15/about-comments-and-tdd/"
-    >About Comments and TDD</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/14/human-nature-of-sins-in-product-design-area/" class="archive-article-date">
-  <time datetime="2024-04-14T02:54:07.000Z" itemprop="datePublished">04/14</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/14/human-nature-of-sins-in-product-design-area/"
-    >产品笔记：好产品与“人性原罪需求”理论</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/13/python-virtualenv-memo/" class="archive-article-date">
-  <time datetime="2024-04-13T09:54:07.000Z" itemprop="datePublished">04/13</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/13/python-virtualenv-memo/"
-    >Python管理虚拟环境安装 virtualenv</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/13/output-notion-to-MD-file-command/" class="archive-article-date">
-  <time datetime="2024-04-13T09:00:46.000Z" itemprop="datePublished">04/13</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/13/output-notion-to-MD-file-command/"
-    >命令行导出Notion文章MD文件</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/11/differentiation-of-principal-principle/" class="archive-article-date">
-  <time datetime="2024-04-11T12:54:07.000Z" itemprop="datePublished">04/11</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/11/differentiation-of-principal-principle/"
-    >英语单词辨析 - Principal or principle</a> 
-</h2>
+  <h2 id="幂等的概念">幂等的概念</h2>
+<p>幂等（idempotency）是一个设计稳定和健壮API的关键属性，特别是在分布式系统环境中，这些环境中，由于网络问题或者客户端重试等原因，相同的请求被发送多次是很常见的。一个幂等的API对于相同的请求，始终产生相同的结果，无论这个API被调用多少次。</p>
+<h2 id="如何设计幂等API">如何设计幂等API</h2>
+<p>下面是设计幂等API的步骤：</p>
+<h3 id="1-使用唯一的请求ID">1.使用唯一的请求ID</h3>
+<p>这个ID要满足：</p>
+<ul>
+<li>客户端提供：通常和推荐的做法是，对于客户端的请求，生成一个唯一ID（比如UUID），作为请求的一部分，放到Header或者其他地方。</li>
+<li>服务端跟踪：服务器应该储存每一个唯一请求ID的状态和请求的结果。</li>
+<li>请求顺序：当服务器收到请求后, 如果存在一个唯一请求ID相同的前请求：
+<ul>
+<li>如果前请求已经成功执行完毕，服务器返回前请求的结果，不用重新执行请求；</li>
+<li>如果前请求已经失败，服务器返回前请求的错误结果并执行潜在的重试操作；</li>
+<li>如果前请求正在执行中，服务器可以等待前请求执行结束，然后根据执行结果返回结果。<br>
+如果可以满足上述要求，我们可以定义它为<strong>幂等码</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-跟踪操作状态">2.跟踪操作状态</h3>
+<span id="more"></span>
+<ul>
+<li>数据库或缓存：服务器需要一个机制去跟踪相应幂等码请求产生的结果，这个结果可能是数据库表的变化，或者分布式缓存的变化；</li>
+<li>状态码：需要存储每一个原始请求对应的 HTTP 状态码和返回值</li>
+</ul>
+<h3 id="3-处理不同的-HTTP-方法">3.处理不同的 HTTP 方法</h3>
+<ul>
+<li><strong>GET</strong>：GET 请求天然就是幂等的，读取数据不应该有任何副作用；</li>
+<li><strong>PUT</strong>：PUT 请求也是是幂等的，因为 PUT 是针对特定数据做特点的修改；</li>
+<li><strong>DELETE</strong>：DELETE 请求通常也被认为是幂等的，调用多次 DELETE 方法删除特定资源，虽然可能会碰到资源不存在的错误，但执行结果依然可以被认为是成功的（因为结果是相同的，没有多删除资源）。</li>
+<li><strong>POST</strong>：POST 通常都不是幂等的，因为它经常被用来创建新的资源。为了保证 POST 方法的幂等性，你需要实施幂等码机制。</li>
+</ul>
+<h3 id="4-设计幂等操作原则">4.设计幂等操作原则</h3>
+<ul>
+<li>聚集最终状态：设计的操作应该聚集在如何得到最终状态，而不是考虑如何从当前状态通过一些操作变到最终状态。举例来说，使用“设置计数器值到 X”，而不是“当前计数器值加 1”。（因为当前值可能已经不可靠了）</li>
+<li>避免多次调用的副作用：确保重复调用不会导致无意的累计副作用。</li>
+</ul>
+<h3 id="5-返回合适的-HTTP-状态码">5.返回合适的 HTTP 状态码</h3>
+<ul>
+<li>200 OK: 成功执行幂等操作.</li>
+<li>201 Created: 成功执行创建操作（使用<strong>幂等码</strong>）.</li>
+<li>204 No Content: 成功执行 DELET 或 PUT 操作，不返回 Body.</li>
+<li>409 Conflict: 可以被用来表示当前请求和前一个有相同幂等码的请求有冲突 (尽管这应该在执行的时候被小心处理，但小概率情况下还是发生了).</li>
+</ul>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/04/04/how-to-design-idempotent-API/" title="如何设计幂等API">如何设计幂等API</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/11/troubleshooting-fail2ban-log-error/" class="archive-article-date">
-  <time datetime="2024-04-11T12:51:59.000Z" itemprop="datePublished">04/11</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/11/troubleshooting-fail2ban-log-error/"
-    >Fail2Ban 排查错误</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/10/differentiation-of-as-because-since/" class="archive-article-date">
-  <time datetime="2024-04-10T15:39:48.000Z" itemprop="datePublished">04/10</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/10/differentiation-of-as-because-since/"
-    >英语单词辨析 - As, because or since</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/10/differentiation-of-above-and-over/" class="archive-article-date">
-  <time datetime="2024-04-10T15:31:59.000Z" itemprop="datePublished">04/10</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/10/differentiation-of-above-and-over/"
-    >英语单词辨析 - &#34;above&#34; and &#34;over&#34;</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/" class="archive-article-date">
-  <time datetime="2024-04-10T15:26:20.000Z" itemprop="datePublished">04/10</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/10/Fail2Ban-Network-Intrusion-Detection-and-Prevention/"
-    >Fail2Ban - 网络入侵防御软件</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/04/09/online-programming-website/" class="archive-article-date">
-  <time datetime="2024-04-09T10:02:29.000Z" itemprop="datePublished">04/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/04/09/online-programming-website/"
-    >在线编程网站收集</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/page/18/">上一页</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/17/">17</a><a class="page-number" href="/archives/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/archives/page/20/">20</a><a class="page-number" href="/archives/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/35/">35</a><a class="extend next" rel="next" href="/archives/page/20/">下一页</a>
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/04/04/how-to-design-idempotent-API/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/04/01/how-to-call-api-and-save-data-to-db/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">如何通过API抽取数据并存入数据库</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -453,6 +406,22 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
