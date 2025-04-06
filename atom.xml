@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-04-04T09:06:23.681Z</updated>
+  <updated>2025-04-06T14:56:22.086Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React中如何拆分大组件</title>
+    <link href="http://yunminitools.cn/2025/04/06/how-to-break-down-a-big-component/"/>
+    <id>http://yunminitools.cn/2025/04/06/how-to-break-down-a-big-component/</id>
+    <published>2025-04-06T14:55:34.000Z</published>
+    <updated>2025-04-06T14:56:22.086Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;项目中我发现一个 table 组件代码特别多，修改起来比较麻烦，想按模块化的思想进行拆分。&lt;/p&gt;
+&lt;h2 id=&quot;重构的核心思想：&quot;&gt;重构的核心思想：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;分离职责 (Isolate Responsibilities): 每个组件应该只负责单一且明确定义的功能或目的。&lt;/li&gt;
+&lt;li&gt;数据流 (Data Flow): 将必要的数据和回调函数通过 props 向下传递。当状态与多个组件相关时，通常应将其存放在这些组件最近的共同父（祖先）组件中。&lt;/li&gt;
+&lt;li&gt;组件粒度 (Component Granularity): 为界面中不同的独立部分创建组件，例如搜索栏、表格的每一行、以及单个的单元格（特别是那些逻辑复杂的单元格）。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="React" scheme="http://yunminitools.cn/tags/React/"/>
+    
+  </entry>
   
   <entry>
     <title>如何设计幂等API</title>
@@ -482,31 +508,6 @@
 &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// This is your Prisma schema file,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// learn more about it in the docs: https://pris.ly/d/prisma-schema&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;generator client &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    provider = &amp;quot;prisma-client-js&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;datasource db &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    provider = &amp;quot;postgresql&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    url      = env(&amp;quot;DATABASE_URL&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;model User &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    id           String  @id @default(cuid())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    createdAt    DateTime @default(now())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    updatedAt    DateTime @updatedAt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    firstName    String?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    lastName     String?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    imageUrl     String?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    emailAddress String  @unique&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    credits      Int @default(150)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;运行命令，更新数据库：&lt;/p&gt;
 &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun prisma db push&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Clerk" scheme="http://yunminitools.cn/tags/Clerk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (2) 引入Clerk</title>
-    <link href="http://yunminitools.cn/2025/03/19/build-a-AI-github-platform-from-scratch-2/"/>
-    <id>http://yunminitools.cn/2025/03/19/build-a-AI-github-platform-from-scratch-2/</id>
-    <published>2025-03-19T01:56:54.000Z</published>
-    <updated>2025-03-19T01:57:53.049Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Clerk-注册项目&quot;&gt;Clerk 注册项目&lt;/h2&gt;
-&lt;p&gt;首先在 Clerk 注册一个新的项目，然后安装依赖：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun add @clerk/nextjs&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;设置环境变量：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pxxxxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;CLERK_SECRET_KEY=sk_test_xxxxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

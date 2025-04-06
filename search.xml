@@ -16318,4 +16318,77 @@ tags:</li>
         <tag>API</tag>
       </tags>
   </entry>
+  <entry>
+    <title>React中如何拆分大组件</title>
+    <url>/2025/04/06/how-to-break-down-a-big-component/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>项目中我发现一个 table 组件代码特别多，修改起来比较麻烦，想按模块化的思想进行拆分。</p>
+<h2 id="重构的核心思想：">重构的核心思想：</h2>
+<ol>
+<li>分离职责 (Isolate Responsibilities): 每个组件应该只负责单一且明确定义的功能或目的。</li>
+<li>数据流 (Data Flow): 将必要的数据和回调函数通过 props 向下传递。当状态与多个组件相关时，通常应将其存放在这些组件最近的共同父（祖先）组件中。</li>
+<li>组件粒度 (Component Granularity): 为界面中不同的独立部分创建组件，例如搜索栏、表格的每一行、以及单个的单元格（特别是那些逻辑复杂的单元格）。</li>
+</ol>
+<span id="more"></span>
+<h2 id="重构实例">重构实例</h2>
+<p>我有一个 ContestTable 组件，原来这个组件里的内容特别多，既要处理数据加载，也要处理界面渲染和一些显示逻辑定义。现在按上述思想，拆分成了 7 个组件。</p>
+<h3 id="1-ContestTable-父组件-容器">1.ContestTable (父组件/容器):</h3>
+<ul>
+<li>管理整体状态（searchTerm，highlightedCells，WACells，URLCells，对话框状态）。</li>
+<li>处理数据获取/变更（tRPC钩子）。</li>
+<li>执行数据转换（生成/过滤行）。</li>
+<li>定义回调函数（handleCellDoubleClick，handleCellAction，handleConfirm，handleCancel）。</li>
+<li>渲染主要布局、搜索栏、表格结构、行数和对话框。</li>
+<li>将相关数据和回调函数传递给子组件。</li>
+</ul>
+<h3 id="2-ContestSearchBar-（搜索条）">2.ContestSearchBar （搜索条）</h3>
+<ul>
+<li>接收 searchTerm 和一个 onChange 处理函数。</li>
+<li>渲染搜索输入框。</li>
+</ul>
+<h3 id="3-ContestTableContent（表内容）">3.ContestTableContent（表内容）</h3>
+<ul>
+<li>接收过滤后的行数据、列标题、状态集合（highlightedCells 等）、passedProblems 和事件处理函数（handleCellDoubleClick，handleCellAction）。</li>
+<li>渲染表格（Table）、表头（TableHeader）和表体（TableBody）。</li>
+<li>遍历行数据并渲染表格行（ContestTableRow）。</li>
+</ul>
+<h3 id="4-ContestTableRow（表格行）">4.ContestTableRow（表格行）</h3>
+<ul>
+<li>接收单个行对象、状态集合、passedProblems 和事件处理函数。</li>
+<li>渲染一个表格行（TableRow）元素。</li>
+<li>遍历行中的单元格，如果是第一个单元格则渲染竞赛信息单元格（ContestInfoCell），否则渲染问题信息单元格（ProblemCell）。</li>
+</ul>
+<h3 id="5-ContestInfoCell（竞赛信息单元格）">5.ContestInfoCell（竞赛信息单元格）</h3>
+<ul>
+<li>接收 contestName 和 contestLink。</li>
+<li>渲染带有比赛链接的粘性首个表格单元格。</li>
+</ul>
+<h3 id="6-ProblemCell（问题信息单元格）">6.ProblemCell（问题信息单元格）</h3>
+<ul>
+<li>接收单元格特定数据（cellContent，problemLink）、行上下文（contestName）、状态标志（isHighlighted，isWA，isCommitURL）、commitURL 和事件处理函数（onDoubleClick，onAction）。</li>
+<li>渲染一个标准的表格单元格，并根据状态应用样式。</li>
+<li>渲染问题链接和提交链接（如果适用）。</li>
+<li>包含问题操作菜单（ProblemActionMenu）。</li>
+</ul>
+<h3 id="7-ProblemActionMenu（问题操作菜单）">7.ProblemActionMenu（问题操作菜单）</h3>
+<ul>
+<li>接收单元格标识符（例如，“ABC100 A”）和 onAction 处理函数。</li>
+<li>渲染包含所有操作（通过、错误答案、记录提交、清除）的下拉菜单（DropdownMenu）。</li>
+<li>当点击菜单项时，使用单元格标识符和所选的操作字符串调用 onAction。</li>
+</ul>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/04/06/how-to-break-down-a-big-component/" title="React中如何拆分大组件">React中如何拆分大组件</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
 </search>
