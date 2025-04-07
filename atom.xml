@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-04-06T14:56:22.086Z</updated>
+  <updated>2025-04-07T02:25:59.593Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在 Next.js 应用中集成 Clerk Webhook 来同步用户信息</title>
+    <link href="http://yunminitools.cn/2025/04/07/how-to-integreate-clerk-user-info-via-webhook/"/>
+    <id>http://yunminitools.cn/2025/04/07/how-to-integreate-clerk-user-info-via-webhook/</id>
+    <published>2025-04-07T02:25:16.000Z</published>
+    <updated>2025-04-07T02:25:59.593Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;我们将使用 Clerk 提供的官方 @clerk/nextjs 库和 svix 库（Clerk 底层使用 svix 处理 webhooks）来验证传入的 webhook 请求。&lt;/p&gt;
+&lt;h2 id=&quot;核心思路&quot;&gt;核心思路&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;在 Clerk Dashboard 配置一个 Webhook Endpoint，指向你 Next.js 应用的一个特定 API 路由。&lt;/li&gt;
+&lt;li&gt;创建这个 Next.js API 路由。&lt;/li&gt;
+&lt;li&gt;在该 API 路由中：
+&lt;ul&gt;
+&lt;li&gt;验证请求是否确实来自 Clerk（使用 Signing Secret）。&lt;/li&gt;
+&lt;li&gt;解析 webhook 事件的类型和数据。&lt;/li&gt;
+&lt;li&gt;根据事件类型（如 user.created, user.updated, user.deleted）执行相应的数据库操作或其他同步逻辑。&lt;/li&gt;
+&lt;li&gt;向 Clerk 返回成功的响应，告知已收到并处理事件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Clerk" scheme="http://yunminitools.cn/tags/Clerk/"/>
+    
+  </entry>
   
   <entry>
     <title>React中如何拆分大组件</title>
@@ -492,31 +526,6 @@
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (3) 同步 Clerk 用户数据</title>
-    <link href="http://yunminitools.cn/2025/03/20/build-a-AI-github-platform-from-scratch-3/"/>
-    <id>http://yunminitools.cn/2025/03/20/build-a-AI-github-platform-from-scratch-3/</id>
-    <published>2025-03-20T00:46:15.000Z</published>
-    <updated>2025-03-20T00:47:05.791Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;修改数据结构&quot;&gt;修改数据结构&lt;/h2&gt;
-&lt;p&gt;修改 &lt;code&gt;prisma/schema.prisma&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// This is your Prisma schema file,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// learn more about it in the docs: https://pris.ly/d/prisma-schema&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;generator client &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    provider = &amp;quot;prisma-client-js&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;datasource db &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    provider = &amp;quot;postgresql&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    url      = env(&amp;quot;DATABASE_URL&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;model User &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    id           String  @id @default(cuid())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    createdAt    DateTime @default(now())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    updatedAt    DateTime @updatedAt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    firstName    String?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    lastName     String?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    imageUrl     String?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    emailAddress String  @unique&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    credits      Int @default(150)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;运行命令，更新数据库：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bun prisma db push&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Clerk" scheme="http://yunminitools.cn/tags/Clerk/"/>
     
   </entry>
   
