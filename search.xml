@@ -16518,4 +16518,30 @@ tags:</li>
         <tag>Clerk</tag>
       </tags>
   </entry>
+  <entry>
+    <title>可供练习的公开数据集</title>
+    <url>/2025/04/14/open-datasets-for-practice/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>最近想研究一下数据可视化在 AI 领域的应用，需要有一些数据进行练习，如果自己造的话，没有实际场景。搜索了一下，网上其实有现成的公开数据集，还挺方便，推荐一下，大家如果有需要，也可以去下载使用。</p>
+<h2 id="Maven">Maven</h2>
+<p><a href="https://mavenanalytics.io/data-playground">Maven</a> 这个网址会列出公开的数据集，大家可以按自己的需求，下载相关数据。我下载的是 CRM Sales Opportunities ：<br>
+<img src="https://image.952005.xyz/2025/04/dataset01.jpg" alt=""></p>
+<span id="more"></span>
+<h2 id="Github">Github</h2>
+<p>Github 上也有一个项目 <a href="https://github.com/awesomedata/awesome-public-datasets">awesome-public-datasets</a> 收集了公开数据集，在这里记录一下。</p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/04/14/open-datasets-for-practice/" title="可供练习的公开数据集">可供练习的公开数据集</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>DataSet</tag>
+      </tags>
+  </entry>
 </search>
