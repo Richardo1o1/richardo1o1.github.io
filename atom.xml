@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-04-14T06:09:12.541Z</updated>
+  <updated>2025-04-15T01:55:22.374Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用 MinIO 自建对象存储服务</title>
+    <link href="http://yunminitools.cn/2025/04/15/use-minio-to-build-own-oss-service/"/>
+    <id>http://yunminitools.cn/2025/04/15/use-minio-to-build-own-oss-service/</id>
+    <published>2025-04-15T01:54:47.000Z</published>
+    <updated>2025-04-15T01:55:22.374Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;对象存储服务&quot;&gt;对象存储服务&lt;/h2&gt;
+&lt;p&gt;对象存储服务适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器/虚拟机镜像等，比较著名的服务有 AWS 的 S3 服务。&lt;br&gt;
+MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有19K+Star。它采用了Apache License v2.0开源协议，本文将通过 Docker 搭建 MinIO 来自建一个对象存储服务。&lt;/p&gt;
+&lt;h2 id=&quot;安装&quot;&gt;安装&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;下载MinIO的Docker镜像：&lt;/p&gt;
+  &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker pull minio/minio&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建数据卷&lt;/p&gt;
+  &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker volume create --driver local --opt device=C:\10.VM\minio\data --opt type=none --opt o=bind miniodata&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;docker volume create --driver local --opt device=C:\10.VM\minio\config --opt type=none --opt o=bind minioconfig&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动 docker&lt;/p&gt;
+  &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run -p 9090:9000 -p 9100:9001 --name minio -v miniodata:/data -v minioconfig:/root/.minio -d minio/minio server /data --console-address &amp;quot;:9001&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="OSS" scheme="http://yunminitools.cn/tags/OSS/"/>
+    
+  </entry>
   
   <entry>
     <title>可供练习的公开数据集</title>
@@ -489,31 +525,6 @@
     
     <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub08.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
-    
-    <category term="shadcn" scheme="http://yunminitools.cn/tags/shadcn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (5) SideBar 设置</title>
-    <link href="http://yunminitools.cn/2025/03/21/build-a-AI-github-platform-from-scratch-5/"/>
-    <id>http://yunminitools.cn/2025/03/21/build-a-AI-github-platform-from-scratch-5/</id>
-    <published>2025-03-21T08:15:06.000Z</published>
-    <updated>2025-03-21T08:15:45.934Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub07.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
     
     

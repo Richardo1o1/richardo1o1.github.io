@@ -16544,4 +16544,51 @@ tags:</li>
         <tag>DataSet</tag>
       </tags>
   </entry>
+  <entry>
+    <title>用 MinIO 自建对象存储服务</title>
+    <url>/2025/04/15/use-minio-to-build-own-oss-service/</url>
+    <content><![CDATA[<h2 id="对象存储服务">对象存储服务</h2>
+<p>对象存储服务适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器/虚拟机镜像等，比较著名的服务有 AWS 的 S3 服务。<br>
+MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有19K+Star。它采用了Apache License v2.0开源协议，本文将通过 Docker 搭建 MinIO 来自建一个对象存储服务。</p>
+<h2 id="安装">安装</h2>
+<ul>
+<li>
+<p>下载MinIO的Docker镜像：</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull minio/minio</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建数据卷</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker volume create --driver local --opt device=C:\10.VM\minio\data --opt type=none --opt o=bind miniodata</span><br><span class="line">docker volume create --driver local --opt device=C:\10.VM\minio\config --opt type=none --opt o=bind minioconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启动 docker</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -p 9090:9000 -p 9100:9001 --name minio -v miniodata:/data -v minioconfig:/root/.minio -d minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<span id="more"></span>
+<h2 id="访问">访问</h2>
+<p>运行成功后，访问 <a href="http://localhost:9100">http://localhost:9100</a> 来登录并使用MinIO，默认 Access Key 和 Secret 都是 minioadmin。<br>
+<img src="https://image.952005.xyz/2025/04/oss01.jpg" alt=""></p>
+<p>在存储文件之前，我们需要新建一个存储桶：<br>
+<img src="https://image.952005.xyz/2025/04/oss02.jpg" alt=""></p>
+<p>存储桶创建完成后，通过上传按钮可以上传文件，这里我们上传一张图片：<br>
+<img src="https://image.952005.xyz/2025/04/oss03.jpg" alt=""></p>
+<p>要想获取一个永久的访问路径，需要修改存储桶的访问策略，我们可以点击存储桶右上角的编辑策略按钮来修改访问策略，改为 public<br>
+<img src="https://image.952005.xyz/2025/04/oss04.jpg" alt=""></p>
+<p>这样，就可以用 <a href="http://localhost:9100/">http://localhost:9100/</a><bucket>/<filename> 访问文件了。</p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/04/15/use-minio-to-build-own-oss-service/" title="用 MinIO 自建对象存储服务">用 MinIO 自建对象存储服务</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常练习</category>
+      </categories>
+      <tags>
+        <tag>OSS</tag>
+      </tags>
+  </entry>
 </search>
