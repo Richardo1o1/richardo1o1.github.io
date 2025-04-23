@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>产品需求文档 (PRD) - 英语单词记忆应用 |  Bearalise&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/web1.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XR2SEK1M9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9XR2SEK1M9');
+</script>
+
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?6df1890c9854cdf70d1c67b43e743c4d";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+        pre.mermaid {
+	  background: #dedede;
+	}	
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Bearalise's Blog" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-prd-english-word-memorization-app"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  产品需求文档 (PRD) - 英语单词记忆应用
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/04/23/prd-english-word-memorization-app/" class="article-date">
+  <time datetime="2025-04-23T06:02:05.000Z" itemprop="datePublished">2025-04-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">14 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-引言-Introduction">1. 引言 (Introduction)</h2>
+<h3 id="1-1-文档目的">1.1 文档目的</h3>
+<p>本文档旨在详细定义“英语单词记忆应用”的功能需求、非功能需求及相关规则，作为产品设计、开发、测试和后续迭代的主要依据，确保各方对产品有统一的理解和预期。</p>
+<h3 id="1-2-项目概述">1.2 项目概述</h3>
+<p>本项目旨在开发一款移动应用程序，帮助用户高效、便捷地学习和复习英语单词。应用将提供多种学习模式（如闪卡、拼写），支持标准化词库（如考研词汇）和用户自定义词库（含生词本功能），并通过用户账户系统实现学习进度和数据的跨设备同步。此外，应用还将提供学习统计功能，帮助用户跟踪进展、保持动力。</p>
+<h3 id="1-3-目标用户">1.3 目标用户</h3>
+<p>需要系统性背诵特定词库的学生（如备考四六级、考研、雅思、托福等）。<br>
+希望通过积累生词、自定义词汇列表来提升英语能力的普通学习者。<br>
+需要在碎片化时间进行单词学习和复习的用户。<br>
+希望通过量化数据跟踪自己学习进展的用户。</p>
+<h3 id="1-4-产品目标">1.4 产品目标</h3>
+<p>核心目标: 提供高效、灵活的英语单词学习与复习工具。<br>
+用户价值: 帮助用户有效记忆单词，提升词汇量，达成学习目标。<br>
+产品体验: 提供简洁、流畅、易用的用户界面和交互体验。<br>
+数据驱动: 实现用户学习数据的安全存储、跨设备同步及可视化统计分析。</p>
+<span id="more"></span>
+<h2 id="2-功能需求-Functional-Requirements">2. 功能需求 (Functional Requirements)</h2>
+<h3 id="2-1-用户账户系统-User-Account-System">2.1 用户账户系统 (User Account System)</h3>
+<ul>
+<li>2.1.1 需求描述: 提供用户注册、登录、登出、密码管理（找回/修改）等基本账户功能。用户账户用于唯一标识用户，存储其个人设置、学习进度、自定义词库、生词本、统计数据等，并实现跨设备的数据同步。</li>
+<li>2.1.2 概述: 用户账户系统是实现个性化体验和数据持久化的基础架构。通过账户登录，用户的学习进度、自定义内容以及个人设置可以安全地存储在云端，并在用户的不同设备间无缝同步。</li>
+<li>2.1.3 相关页面设计:
+<ul>
+<li>启动/引导页面 (登录/注册/游客模式入口)</li>
+<li>注册页面 (手机/邮箱, 验证码, 密码, 协议)</li>
+<li>登录页面 (手机/邮箱, 密码, 忘记密码, 第三方登录入口)</li>
+<li>密码找回/重置流程页面 (验证身份 -&gt; 设置新密码)</li>
+<li>个人资料/设置页面 (头像, 昵称, 绑定信息, 修改密码, 退出登录)</li>
+</ul>
+</li>
+<li>2.1.4 用户旅程: (参考之前章节的详细描述：新用户注册、老用户登录、忘记密码、退出登录、游客模式转正)</li>
+<li>2.1.5 用户故事:
+<ul>
+<li>As a 新用户, I want to 能够快速、安全地注册一个账户…</li>
+<li>As a 用户, I want to 能够使用我的账户在不同的设备上登录，并且数据能够自动同步…</li>
+<li>As a 用户, I want to 在忘记密码时，能够方便地找回或重置密码…</li>
+<li>As a 注重隐私的用户, I want to 知道我的账户信息和学习数据是安全存储的…</li>
+<li>As a 用户, I want to 能够方便地退出我的账户…</li>
+<li>As a 潜在用户, I want to (可选) 能够先以游客身份体验一下核心功能…</li>
+</ul>
+</li>
+<li>2.1.6 实现逻辑: (参考之前章节的详细描述：身份认证、会话管理(JWT)、数据同步、数据存储、安全性(加密/HTTPS/防刷)、游客模式实现)</li>
+<li>2.12.7 功能细节描述: (参考之前章节的详细描述：密码策略、用户协议与隐私政策(需符合新加坡PDPA)、错误提示、第三方登录体验、多设备登录策略、账户安全、数据清除)</li>
+</ul>
+<h3 id="2-2-词库管理-Word-Bank-Management">2.2 词库管理 (Word Bank Management)</h3>
+<ul>
+<li>2.2.1 需求描述: 允许用户选择系统内置的标准化词库（如考研词汇）进行学习，同时也支持用户创建、管理自己的个性化词库（包括作为“生词本”使用），并能从外部导入单词到自定义词库中。用户可以自由选择任意一个词库进行学习或复习。</li>
+<li>2.2.2 概述: 词库是应用的基础。本功能提供灵活的词库来源管理，满足标准化考试和个性化学习需求。将“生词本”融入自定义词库体系，方便统一管理。</li>
+<li>2.2.3 相关页面设计:<br>
+词库中心页面 (当前学习指示, 内置词库区, 我的词库区, 新建词库按钮)<br>
+自定义词库管理页面 (编辑名称, 单词列表搜索/管理, 导入/添加/清空/删除操作)<br>
+导入单词流程页面/弹窗 (文件/粘贴导入选择, 格式说明/模板, 解析预览, 确认导入)</li>
+<li>2.2.4 用户旅程: (参考之前章节的详细描述：添加到生词本、创建并导入自定义词库、切换学习词库、管理生词本)</li>
+<li>2.2.5 用户故事:<br>
+As a 备考学生, I want to 直接选择系统提供的内置词库…<br>
+As a 学习者, I want to 在学习中能一键将生词添加到我的“生词本”…<br>
+As a 用户, I want to 能够创建自己的单词列表（自定义词库）…<br>
+As a 用户, I want to 能够方便地从外部文件导入大量单词…<br>
+As a 用户, I want to 能够管理我的自定义词库…<br>
+As a 用户, I want to 能够轻松地在不同的词库间切换…</li>
+<li>2.2.6 实现逻辑: (参考之前章节的详细描述：统一词库数据模型、词库选择状态管理、自定义词库CRUD、单词导入(解析/匹配/存储/错误处理)、“添加到生词本”快捷操作、数据同步)</li>
+<li>2.2.7 功能细节描述: (参考之前章节的详细描述：界面清晰度、导入引导与反馈、删除保护(二次确认)、性能考虑、生词本特殊标识、数据一致性)</li>
+</ul>
+<h3 id="2-3-单词学习-闪卡模式-Word-Learning-Flashcard-Mode">2.3 单词学习 - 闪卡模式 (Word Learning - Flashcard Mode)</h3>
+<ul>
+<li>2.3.1 需求描述: 提供闪卡形式的单词学习方式，正面显示单词，反面显示单词的详细信息（如音标、释义、例句、美式/英式发音按钮等）。用户通过翻看卡片、听发音和标记熟悉程度来学习新单词。</li>
+<li>2.3.2 概述: 作为核心学习方式之一，旨在通过重复视觉刺激和关键信息展示，帮助用户高效地初步认识和记忆新单词。支持用户选择的词库。</li>
+<li>2.3.3 相关页面设计:<br>
+闪卡学习页面 (卡片正/反面设计, 发音按钮, 释义, 例句与用法展示, 熟悉度标记按钮, 添加到生词本按钮, 导航按钮/手势, 进度显示)<br>
+(关联)学习设置页面 (设置每次学习量等)</li>
+<li>2.3.4 用户旅程: (参考之前章节的详细描述：选择模式 -&gt; 查看单词 -&gt; 翻卡看详情 -&gt; 听发音 -&gt; 标记熟悉度 -&gt; (可选)加入生词本 -&gt; 切换单词 -&gt; 完成单元)</li>
+<li>2.3.5 用户故事:<br>
+As a 考研学生, I want to 使用闪卡模式快速浏览新单词列表…<br>
+As a 英语学习者, I want to 在闪卡上看到单词的详细信息（音标、释义、例句）…<br>
+As a 用户, I want to 能够方便地标记我对单词的熟悉程度…<br>
+As a 用户, I want to 在闪卡学习时能方便地听到单词的美式和英式发音…<br>
+As a 用户, I want to 在闪卡模式下能将生词一键加入生词本…</li>
+<li>2.3.6 实现逻辑: (参考之前章节的详细描述：单词加载、闪卡展示逻辑、发音播放(调用TTS或语音库)、熟悉度标记记录、生词本操作接口调用、进度同步)</li>
+<li>2.3.7 功能细节描述: (参考之前章节的详细描述：卡片翻转动画、发音质量与加载、熟悉度按钮反馈、例句展示策略、导航方式、边界处理(空词库/首尾词/网络断开)、个性化设置)</li>
+</ul>
+<h3 id="2-4-单词学习-拼写模式-Word-Learning-Spelling-Mode">2.4 单词学习 - 拼写模式 (Word Learning - Spelling Mode)</h3>
+<ul>
+<li>2.4.1 需求描述: 提供单词拼写练习功能。系统给出单词的发音或中文释义（或其他提示信息），要求用户在输入框中正确拼写出对应的英文单词，强化形态记忆。</li>
+<li>2.4.2 概述: 通过主动回忆和输出来检验和巩固用户对单词形态的记忆。通常在用户对单词有初步认识后进行。</li>
+<li>2.4.3 相关页面设计:<br>
+拼写练习页面 (提示信息区(释义/发音按钮/音标/例句填空), 美式/英式发音按钮, 输入区域(输入框/内嵌键盘), 提交/确认按钮, 反馈区域(对/错/正确答案), (可选)提示按钮, 进度显示, 添加到生词本按钮)</li>
+<li>2.4.4 用户旅程: (参考之前章节的详细描述：选择模式 -&gt; 获取提示(听音/看义) -&gt; 输入拼写 -&gt; 提交答案 -&gt; 获取反馈(正确/错误/重输) -&gt; (可选)使用提示 -&gt; (可选)加入生词本 -&gt; 完成单元)</li>
+<li>2.4.5 用户故事:<br>
+As a 学习者, I want to 通过听发音或看释义来练习单词拼写…<br>
+As a 用户, I want to 在拼写错误时能立即看到正确答案并得到反馈…<br>
+As a 用户, I want to 在实在想不起单词时能获得一些提示…<br>
+As a 用户, I want to 能够重复听到单词的发音…<br>
+As a 用户, I want to 能将经常拼错的单词方便地加入生词本…</li>
+<li>2.4.6 实现逻辑: (参考之前章节的详细描述：单词选取、信息展示、用户输入捕获、答案判断、提示机制实现、发音播放调用、进度与状态更新同步、生词本操作、键盘优化)</li>
+<li>2.4.7 功能细节描述: (参考之前章节的详细描述：输入体验、反馈及时性、错误反馈设计、提示机制设计、模式切换、个性化设置(练习模式/提示/重输)、统计关联、边界条件、容错性)</li>
+</ul>
+<h3 id="2-5-学习进度跟踪与统计-Learning-Progress-Tracking-Statistics">2.5 学习进度跟踪与统计 (Learning Progress Tracking &amp; Statistics)</h3>
+<ul>
+<li>2.5.1 需求描述: 记录、分析并可视化展示用户的学习行为和成果。包括当前词库进度、每日/周/月学习量、掌握情况分布、复习情况、学习活跃度等。</li>
+<li>2.5.2 概述: 提供清晰的反馈回路，量化学习投入和进步，帮助用户了解状况、调整策略并保持动力。</li>
+<li>2.5.3 相关页面设计:<br>
+学习统计/报告页面 (核心指标卡片区(今日/累计), 当前词库进度(进度条/掌握度细分), 学习日历/活跃度图, 学习趋势图表(学习量/掌握度变化), 分词库统计列表)<br>
+(可选) 特定词库学习报告页面 (更详细数据, 难点列表)<br>
+(可选) 成就/勋章系统页面</li>
+<li>2.5.4 用户旅程: (参考之前章节的详细描述：查看每日进度、检查整体进度、回顾与调整、获得成就感)</li>
+<li>2.5.5 用户故事:<br>
+As a 学习者, I want to 能够方便地看到我今天学了多少…<br>
+As a 长期用户, I want to 看到我累计学习的总词汇量及掌握程度…<br>
+As a 用户, I want to 通过日历或图表看到我的学习活跃度…<br>
+As a 针对特定词库学习的用户, I want to 看到我在这个词库上的详细进度…<br>
+As a 用户, I want to 通过一些成就或勋章来获得激励…</li>
+<li>2.5.6 实现逻辑: (参考之前章节的详细描述：数据埋点与记录、数据处理与聚合(ETL)、掌握度评估模型、API接口设计、数据存储(日志/统计结果/状态)、图表生成(前端)、成就系统引擎)</li>
+<li>2.5.7 功能细节描述: (参考之前章节的详细描述：数据准确性、可视化清晰度、性能(加载速度/缓存)、时间区间选择、&quot;掌握&quot;的定义说明、数据更新频率、空状态处理、无障碍性、隐私)</li>
+</ul>
+<h2 id="3-非功能需求-Non-Functional-Requirements">3. 非功能需求 (Non-Functional Requirements)</h2>
+<h3 id="3-1-性能-Performance">3.1 性能 (Performance):</h3>
+<p>应用启动时间应尽可能短。<br>
+页面切换、卡片翻转、列表滚动等交互应流畅，无明显卡顿。<br>
+单词数据、发音等资源加载速度快，必要时使用预加载或缓存。<br>
+批量导入、统计数据计算等后台任务应高效执行，避免阻塞用户界面。</p>
+<h3 id="3-2-安全性-Security">3.2 安全性 (Security):</h3>
+<p>用户密码必须使用强哈希算法加盐存储。<br>
+所有客户端与服务器之间的通信必须使用HTTPS加密。<br>
+用户账户系统需具备防暴力破解、防恶意注册（如验证码）等机制。<br>
+会话管理（Token）需安全可靠，防止劫持和伪造。<br>
+严格遵守数据隐私法规，保护用户个人信息和学习数据。</p>
+<h3 id="3-3-可用性-Usability">3.3 可用性 (Usability):</h3>
+<p>界面设计简洁直观，导航清晰，用户易于理解和操作。<br>
+交互反馈及时明确（如按钮点击效果、加载状态、操作结果提示）。<br>
+错误提示信息友好、具体，能引导用户解决问题。<br>
+提供必要的帮助文档或引导提示。</p>
+<h3 id="3-4-可靠性-Reliability">3.4 可靠性 (Reliability):</h3>
+<p>应用运行稳定，减少崩溃或无响应的情况。<br>
+数据同步机制可靠，确保用户在不同设备间的数据一致性。<br>
+能妥善处理网络异常、服务器错误等情况，尽可能保证用户操作的连续性或给出明确提示。<br>
+数据存储安全可靠，防止数据丢失。</p>
+<h2 id="4-待定项与未来规划-Open-Issues-Future-Considerations">4. 待定项与未来规划 (Open Issues &amp; Future Considerations)</h2>
+<h3 id="4-1-艾宾浩斯遗忘曲线-SRS">4.1 艾宾浩斯遗忘曲线/SRS:</h3>
+<p>当前PRD未详细定义具体的复习算法，未来需引入基于遗忘曲线的智能复习调度系统（Spaced Repetition System）。</p>
+<h3 id="4-2-更多学习-复习模式">4.2 更多学习/复习模式:</h3>
+<p>可考虑增加选择题、连线题、听写、看例句选词等多种模式。</p>
+<h3 id="4-3-离线模式">4.3 离线模式:</h3>
+<p>支持在无网络环境下进行学习和复习，并在联网后同步数据。</p>
+<h3 id="4-4-游戏化">4.4 游戏化:</h3>
+<p>引入更多游戏化元素，如积分、等级、排行榜、打卡挑战等，增强趣味性和用户粘性。</p>
+<h3 id="4-5-社交功能">4.5 社交功能:</h3>
+<p>增加好友系统、学习小组、PK挑战等社交互动功能。</p>
+<h3 id="4-6-词库内容丰富度">4.6 词库内容丰富度:</h3>
+<p>持续扩充内置词库种类和质量，优化单词释义、例句、助记等内容。</p>
+<h3 id="4-7-个性化推荐">4.7 个性化推荐:</h3>
+<p>基于用户学习数据，智能推荐合适的词库或学习内容。</p>
+<h3 id="4-8-付费模式">4.8 付费模式:</h3>
+<p>考虑引入增值服务，如高级词库、去广告、高级统计功能等。</p>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/04/23/prd-english-word-memorization-app/" title="产品需求文档 (PRD) - 英语单词记忆应用">产品需求文档 (PRD) - 英语单词记忆应用</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        Share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yunminitools.cn/2025/04/23/prd-english-word-memorization-app/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/04/15/use-minio-to-build-own-oss-service/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">用 MinIO 自建对象存储服务</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2023-2025
+        <i class="ri-heart-fill heart_icon"></i> Bearalise
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">沪ICP备15046216号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/desktopicon.png" alt="Bearalise&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "base" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
