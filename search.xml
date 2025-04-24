@@ -16762,4 +16762,29 @@ As a 用户, I want to 通过一些成就或勋章来获得激励…</li>
         <tag>产品管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Tailwind CSS 主题定制应用</title>
+    <url>/2025/04/24/powerful-visual-theme-editor-for-tailwind-css/</url>
+    <content><![CDATA[<h2 id="介绍">介绍</h2>
+<p><a href="https://tweakcn.com/">tweakcn</a> 是一个专门为 Shancn/ui 组件和 Tailwind CSS 设计的主题编辑器，可以帮助开发者快速定制 UI 组件，解决了使用 Shancn 组件，网站样式千篇一律的问题。</p>
+<p>它提供了300种主题预设，并支持高级自定义，满足个性化需求。</p>
+<h2 id="功能">功能</h2>
+<p>如下图，可以定制颜色、字体、间距、阴影等很多属性。</p>
+<p><img src="https://image.952005.xyz/2025/04/tweakcn01.jpg" alt=""></p>
+<span id="more"></span>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/04/24/powerful-visual-theme-editor-for-tailwind-css/" title="Tailwind CSS 主题定制应用">Tailwind CSS 主题定制应用</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>有趣资源</category>
+      </categories>
+      <tags>
+        <tag>Tailwind</tag>
+      </tags>
+  </entry>
 </search>

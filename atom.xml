@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-04-23T06:02:54.849Z</updated>
+  <updated>2025-04-24T14:50:38.413Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tailwind CSS 主题定制应用</title>
+    <link href="http://yunminitools.cn/2025/04/24/powerful-visual-theme-editor-for-tailwind-css/"/>
+    <id>http://yunminitools.cn/2025/04/24/powerful-visual-theme-editor-for-tailwind-css/</id>
+    <published>2025-04-24T14:50:10.000Z</published>
+    <updated>2025-04-24T14:50:38.413Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://tweakcn.com/&quot;&gt;tweakcn&lt;/a&gt; 是一个专门为 Shancn/ui 组件和 Tailwind CSS 设计的主题编辑器，可以帮助开发者快速定制 UI 组件，解决了使用 Shancn 组件，网站样式千篇一律的问题。&lt;/p&gt;
+&lt;p&gt;它提供了300种主题预设，并支持高级自定义，满足个性化需求。&lt;/p&gt;
+&lt;h2 id=&quot;功能&quot;&gt;功能&lt;/h2&gt;
+&lt;p&gt;如下图，可以定制颜色、字体、间距、阴影等很多属性。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/04/tweakcn01.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="有趣资源" scheme="http://yunminitools.cn/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="Tailwind" scheme="http://yunminitools.cn/tags/Tailwind/"/>
+    
+  </entry>
   
   <entry>
     <title>产品需求文档 (PRD) - 英语单词记忆应用</title>
@@ -520,31 +544,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Hook" scheme="http://yunminitools.cn/tags/Hook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (7) Create Project API</title>
-    <link href="http://yunminitools.cn/2025/03/22/build-a-AI-github-platform-from-scratch-7/"/>
-    <id>http://yunminitools.cn/2025/03/22/build-a-AI-github-platform-from-scratch-7/</id>
-    <published>2025-03-22T15:17:17.000Z</published>
-    <updated>2025-03-22T15:17:54.993Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;设置-Authenticated-Route&quot;&gt;设置 Authenticated Route&lt;/h2&gt;
-&lt;p&gt;修改 &lt;code&gt;src/server/api/trpc.ts&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight tsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; isAuthenticated = t.&lt;span class=&quot;title function_&quot;&gt;middleware&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;async&lt;/span&gt; (&amp;#123; next, ctx &amp;#125;) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; user = &lt;span class=&quot;keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;auth&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!user)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;TRPCError&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;code&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;UNAUTHORIZED&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;message&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;quot;You must be logged in to perform this action&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;next&lt;/span&gt;(&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ctx : &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ...ctx,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      user&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; authenticatedProcedure = publicProcedure.&lt;span class=&quot;title function_&quot;&gt;use&lt;/span&gt;(isAuthenticated);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
-    
-    <category term="shadcn" scheme="http://yunminitools.cn/tags/shadcn/"/>
     
   </entry>
   
