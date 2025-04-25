@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-04-24T14:50:38.413Z</updated>
+  <updated>2025-04-25T07:56:03.887Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NextJS三种页面数据传输方式 - 1</title>
+    <link href="http://yunminitools.cn/2025/04/25/data-transfer-between-pages-in-nextjs-1/"/>
+    <id>http://yunminitools.cn/2025/04/25/data-transfer-between-pages-in-nextjs-1/</id>
+    <published>2025-04-25T07:55:33.000Z</published>
+    <updated>2025-04-25T07:56:03.887Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;在编写 NextJS 应用时，经常会出现需要在不同页面跳转，但希望能传输一定的数据，保持页面连续。在 Next.js App Router 中，有几种主要的方式可以在网页之间传输多个数据。选择哪种方式取决于你要传输的数据类型、大小以及是否需要在服务器端或客户端获取数据。&lt;/p&gt;
+&lt;p&gt;以下是几种常用的方法，我会详细解释并提供代码示例：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;URL 查询参数 (URL Query Parameters)&lt;/li&gt;
+&lt;li&gt;动态路由参数 (Dynamic Route Parameters)&lt;/li&gt;
+&lt;li&gt;客户端本地存储 (LocalStorage / SessionStorage)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;1-URL-查询参数-URL-Query-Parameters&quot;&gt;1.URL 查询参数 (URL Query Parameters)&lt;/h2&gt;
+&lt;p&gt;这是在页面之间传递少量、非敏感数据的最常见和灵活的方式。数据以键值对的形式附加在 URL 的问号后面 (?key1=value1&amp;amp;key2=value2)。&lt;/p&gt;
+&lt;p&gt;优点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现简单，易于理解。&lt;/li&gt;
+&lt;li&gt;可以在服务器端和客户端获取数据。&lt;/li&gt;
+&lt;li&gt;用户可以直接修改 URL 参数，方便分享或书签。&lt;/li&gt;
+&lt;li&gt;可以传递多个不同的数据字段。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URL 长度有限制，不适合传递大量数据。&lt;/li&gt;
+&lt;li&gt;数据暴露在 URL 中，不适合传递敏感信息。&lt;/li&gt;
+&lt;li&gt;只能传递字符串类型的数据（数字、布尔值等需要转换）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;适用场景:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;搜索结果过滤 (/products?category=electronics&amp;amp;sort=price)&lt;/li&gt;
+&lt;li&gt;分页 (/articles?page=2&amp;amp;limit=10)&lt;/li&gt;
+&lt;li&gt;传递简单的用户偏好或状态 (/settings?theme=dark)&lt;/li&gt;
+&lt;li&gt;在不同页面间传递 ID 或标识符&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>Tailwind CSS 主题定制应用</title>
@@ -521,29 +569,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (8) 创建 Project Hook</title>
-    <link href="http://yunminitools.cn/2025/03/23/build-a-AI-github-platform-from-scratch-8/"/>
-    <id>http://yunminitools.cn/2025/03/23/build-a-AI-github-platform-from-scratch-8/</id>
-    <published>2025-03-23T03:12:02.000Z</published>
-    <updated>2025-03-23T03:12:33.897Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub11.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Hook" scheme="http://yunminitools.cn/tags/Hook/"/>
     
   </entry>
   
