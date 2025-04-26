@@ -16846,4 +16846,62 @@ Server Components 可以通过接收 searchParams prop 来获取查询参数。<
         <tag>NextJS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>NextJS三种页面数据传输方式 - 2</title>
+    <url>/2025/04/26/data-transfer-between-pages-in-nextjs-2/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在编写 NextJS 应用时，经常会出现需要在不同页面跳转，但希望能传输一定的数据，保持页面连续。在 Next.js App Router 中，有几种主要的方式可以在网页之间传输多个数据。选择哪种方式取决于你要传输的数据类型、大小以及是否需要在服务器端或客户端获取数据。</p>
+<p>以下是几种常用的方法，我会详细解释并提供代码示例：</p>
+<ol>
+<li>URL 查询参数 (URL Query Parameters)</li>
+<li>动态路由参数 (Dynamic Route Parameters)</li>
+<li>客户端本地存储 (LocalStorage / SessionStorage)</li>
+</ol>
+<h2 id="2-动态路由参数-Dynamic-Route-Parameters">2.动态路由参数 (Dynamic Route Parameters)</h2>
+<p>动态路由允许你在 URL 路径中嵌入可变的数据段，用于表示特定资源。例如，/users/[id] 路由可以捕获 /users/1 或 /users/abc 中的 id 部分作为参数。你可以创建多层级的动态路由来传递多个参数 (/products/[category]/[item])。</p>
+<p>优点:</p>
+<ul>
+<li>URL 结构更清晰，语义化更好，通常用于表示资源的层级关系。</li>
+<li>参数直接成为路由的一部分。</li>
+<li>可以在服务器端和客户端获取参数。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>参数数量和结构需要在文件系统中预先定义好。</li>
+<li>不适合传递可选的、数量不固定的数据。</li>
+</ul>
+<p>适用场景:</p>
+<ul>
+<li>显示特定用户信息 (/users/123)</li>
+<li>显示特定产品详情 (/products/electronics/iphone-13)</li>
+<li>博客文章详情 (/blog/my-first-post)</li>
+</ul>
+<span id="more"></span>
+<h3 id="如何实现">如何实现</h3>
+<p><strong>定义动态路由:</strong><br>
+在 app 目录下，创建带有方括号 [] 的文件夹或文件来定义动态路由。</p>
+<p><strong>发送数据 (通过链接或导航跳转):</strong><br>
+构建符合动态路由结构的 URL。</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在源页面</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Link</span> <span class="keyword">from</span> <span class="string">&#x27;next/link&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useRouter &#125; <span class="keyword">from</span> <span class="string">&#x27;next/navigation&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ProductList</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> router = <span class="title function_">useRouter</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> category = <span class="string">&#x27;electronics&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> item = <span class="string">&#x27;laptop-dell&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 方法 1: 使用 next/link</span></span><br><span class="line">  <span class="keyword">const</span> productUrl = <span class="string">`/products/<span class="subst">$&#123;category&#125;</span>/<span class="subst">$&#123;item&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleViewItem</span> = (<span class="params">cat, itemName</span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 方法 2: 使用 router.push</span></span><br><span class="line">    router.<span class="title function_">push</span>(<span class="string">`/products/<span class="subst">$&#123;cat&#125;</span>/<span class="subst">$&#123;itemName&#125;</span>`</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Products<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;/* 方法 1 示例 */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">href</span>=<span class="string">&#123;productUrl&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        View &#123;item&#125; in &#123;category&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      &#123;/* 方法 2 示例 */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> handleViewItem(&#x27;books&#x27;, &#x27;the-hobbit&#x27;)&#125;&gt;</span></span><br><span class="line"><span class="language-xml">        View The Hobbit in Books</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">ProductList</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>接收数据 (在目标页面):</strong><br>
+在动态路由的 page.js 文件中，页面组件会接收一个 params prop，其中包含路由参数。</p>
+<p>** Server Component: **</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app/products/[category]/[item]/page.js (Server Component)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">ProductPageProps</span> &#123;</span><br><span class="line">  <span class="attr">params</span>: <span class="title class_">Promise</span>&lt;&#123;</span><br><span class="line">    <span class="attr">category</span>: <span class="built_in">string</span>; <span class="comment">// 对应 [category]</span></span><br><span class="line">    <span class="attr">item</span>: <span class="built_in">string</span>;     <span class="comment">// 对应 [item]</span></span><br><span class="line">  &#125;&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="keyword">async</span> <span class="title class_">ProductPage</span>(&#123; params &#125;: <span class="title class_">ProductPageProps</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; category, item &#125; = <span class="keyword">await</span> params; <span class="comment">// 解构获取参数</span></span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Received params:&#x27;</span>, params);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Category: &#123;category&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Item: &#123;item&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;/* 在 Server Component 中可以根据 category 和 item 获取产品详情 */&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">ProductPage</span>;</span><br></pre></td></tr></table></figure>
+<p>** Client Component: **</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app/products/[category]/[item]/page.js (Client Component)</span></span><br><span class="line"><span class="string">&#x27;use client&#x27;</span>; <span class="comment">// 标记为 Client Component</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; use &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">ProductPageProps</span> &#123;</span><br><span class="line">  <span class="attr">params</span>: <span class="title class_">Promise</span>&lt;&#123;</span><br><span class="line">    <span class="attr">category</span>: <span class="built_in">string</span>; <span class="comment">// 对应 [category]</span></span><br><span class="line">    <span class="attr">item</span>: <span class="built_in">string</span>;     <span class="comment">// 对应 [item]</span></span><br><span class="line">  &#125;&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ProductPage</span>(<span class="params">&#123; params &#125;: ProductPageProps</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> parameters = <span class="title function_">use</span>(params);</span><br><span class="line">  <span class="keyword">const</span> &#123; category, item &#125; = parameters; <span class="comment">// 解构获取参数</span></span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Received params:&#x27;</span>, parameters);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Category: &#123;category&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Item: &#123;item&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">ProductPage</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2025/04/26/data-transfer-between-pages-in-nextjs-2/" title="NextJS三种页面数据传输方式 - 2">NextJS三种页面数据传输方式 - 2</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>NextJS</tag>
+      </tags>
+  </entry>
 </search>

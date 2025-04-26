@@ -109,6 +109,89 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-data-transfer-between-pages-in-nextjs-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/04/26/data-transfer-between-pages-in-nextjs-2/"
+    >NextJS三种页面数据传输方式 - 2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/04/26/data-transfer-between-pages-in-nextjs-2/" class="article-date">
+  <time datetime="2025-04-26T07:31:43.000Z" itemprop="datePublished">2025-04-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>在编写 NextJS 应用时，经常会出现需要在不同页面跳转，但希望能传输一定的数据，保持页面连续。在 Next.js App Router 中，有几种主要的方式可以在网页之间传输多个数据。选择哪种方式取决于你要传输的数据类型、大小以及是否需要在服务器端或客户端获取数据。</p>
+<p>以下是几种常用的方法，我会详细解释并提供代码示例：</p>
+<ol>
+<li>URL 查询参数 (URL Query Parameters)</li>
+<li>动态路由参数 (Dynamic Route Parameters)</li>
+<li>客户端本地存储 (LocalStorage / SessionStorage)</li>
+</ol>
+<h2 id="2-动态路由参数-Dynamic-Route-Parameters">2.动态路由参数 (Dynamic Route Parameters)</h2>
+<p>动态路由允许你在 URL 路径中嵌入可变的数据段，用于表示特定资源。例如，/users/[id] 路由可以捕获 /users/1 或 /users/abc 中的 id 部分作为参数。你可以创建多层级的动态路由来传递多个参数 (/products/[category]/[item])。</p>
+<p>优点:</p>
+<ul>
+<li>URL 结构更清晰，语义化更好，通常用于表示资源的层级关系。</li>
+<li>参数直接成为路由的一部分。</li>
+<li>可以在服务器端和客户端获取参数。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>参数数量和结构需要在文件系统中预先定义好。</li>
+<li>不适合传递可选的、数量不固定的数据。</li>
+</ul>
+<p>适用场景:</p>
+<ul>
+<li>显示特定用户信息 (/users/123)</li>
+<li>显示特定产品详情 (/products/electronics/iphone-13)</li>
+<li>博客文章详情 (/blog/my-first-post)</li>
+</ul> 
+      <a class="article-more-link" href="/2025/04/26/data-transfer-between-pages-in-nextjs-2/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-data-transfer-between-pages-in-nextjs-1"
   class="article article-type-post"
   itemscope
@@ -720,66 +803,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prisma/" rel="tag">Prisma</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-build-a-AI-github-platform-from-scratch-18"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/03/31/build-a-AI-github-platform-from-scratch-18/"
-    >从零搭建基于 AI GitHub 分析平台 (18) 显示已保存答案</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/03/31/build-a-AI-github-platform-from-scratch-18/" class="article-date">
-  <time datetime="2025-03-31T07:25:37.000Z" itemprop="datePublished">2025-03-31</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="效果">效果</h2>
-<p><img src="https://image.952005.xyz/2025/03/aigithub21.jpg" alt=""></p>
-<p><img src="https://image.952005.xyz/2025/03/aigithub22.jpg" alt=""></p>
-<p>实现步骤如下：</p> 
-      <a class="article-more-link" href="/2025/03/31/build-a-AI-github-platform-from-scratch-18/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Layout/" rel="tag">Layout</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
 
     </footer>
   </div>
