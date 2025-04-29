@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-04-26T08:00:27.205Z</updated>
+  <updated>2025-04-29T01:35:00.403Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NextJS三种页面数据传输方式 - 3</title>
+    <link href="http://yunminitools.cn/2025/04/29/data-transfer-between-pages-in-nextjs-3/"/>
+    <id>http://yunminitools.cn/2025/04/29/data-transfer-between-pages-in-nextjs-3/</id>
+    <published>2025-04-29T01:34:34.000Z</published>
+    <updated>2025-04-29T01:35:00.403Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;在编写 NextJS 应用时，经常会出现需要在不同页面跳转，但希望能传输一定的数据，保持页面连续。在 Next.js App Router 中，有几种主要的方式可以在网页之间传输多个数据。选择哪种方式取决于你要传输的数据类型、大小以及是否需要在服务器端或客户端获取数据。&lt;/p&gt;
+&lt;p&gt;以下是几种常用的方法，我会详细解释并提供代码示例：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;URL 查询参数 (URL Query Parameters)&lt;/li&gt;
+&lt;li&gt;动态路由参数 (Dynamic Route Parameters)&lt;/li&gt;
+&lt;li&gt;客户端本地存储 (LocalStorage / SessionStorage)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;3-客户端本地存储-LocalStorage-SessionStorage&quot;&gt;3.客户端本地存储 (LocalStorage / SessionStorage)&lt;/h2&gt;
+&lt;p&gt;LocalStorage 和 SessionStorage 是浏览器提供的 Web Storage API，允许你在用户的浏览器中存储键值对数据。LocalStorage 会一直保留数据直到被清除，而 SessionStorage 只在当前会话期间有效（浏览器关闭即丢失）。这种方法适用于需要在页面刷新或导航后仍然保留的数据，但仅限于客户端。&lt;/p&gt;
+&lt;p&gt;优点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以存储更多数据，不像 URL 参数有长度限制。&lt;/li&gt;
+&lt;li&gt;数据不会暴露在 URL 中。&lt;/li&gt;
+&lt;li&gt;数据在页面刷新后仍然存在 (LocalStorage)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只能在客户端使用，无法在 Server Component 中直接访问存储的数据来渲染初始页面。&lt;/li&gt;
+&lt;li&gt;不适合存储敏感信息。&lt;/li&gt;
+&lt;li&gt;用户可以清空存储。&lt;/li&gt;
+&lt;li&gt;存储容量有限制（通常 5-10MB）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;适用场景:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;记住用户在上次访问时的选择或状态 (例如，购物车内容 - 更复杂的应用通常用后端或更高级的状态管理)。&lt;/li&gt;
+&lt;li&gt;在多个步骤的表单中暂存数据。&lt;/li&gt;
+&lt;li&gt;存储用户的 UI 偏好设置。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>NextJS三种页面数据传输方式 - 2</title>
@@ -566,29 +613,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (10) 获取 github commit</title>
-    <link href="http://yunminitools.cn/2025/03/24/build-a-AI-github-platform-from-scratch-10/"/>
-    <id>http://yunminitools.cn/2025/03/24/build-a-AI-github-platform-from-scratch-10/</id>
-    <published>2025-03-24T02:34:57.000Z</published>
-    <updated>2025-03-24T02:35:29.731Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;获取-github-Token&quot;&gt;获取 github Token&lt;/h2&gt;
-&lt;p&gt;访问 GitHub，到下面路径获取:&lt;br&gt;
-&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub13.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
     

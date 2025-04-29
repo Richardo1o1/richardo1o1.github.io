@@ -109,6 +109,91 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-data-transfer-between-pages-in-nextjs-3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/04/29/data-transfer-between-pages-in-nextjs-3/"
+    >NextJS三种页面数据传输方式 - 3</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/04/29/data-transfer-between-pages-in-nextjs-3/" class="article-date">
+  <time datetime="2025-04-29T01:34:34.000Z" itemprop="datePublished">2025-04-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>在编写 NextJS 应用时，经常会出现需要在不同页面跳转，但希望能传输一定的数据，保持页面连续。在 Next.js App Router 中，有几种主要的方式可以在网页之间传输多个数据。选择哪种方式取决于你要传输的数据类型、大小以及是否需要在服务器端或客户端获取数据。</p>
+<p>以下是几种常用的方法，我会详细解释并提供代码示例：</p>
+<ol>
+<li>URL 查询参数 (URL Query Parameters)</li>
+<li>动态路由参数 (Dynamic Route Parameters)</li>
+<li>客户端本地存储 (LocalStorage / SessionStorage)</li>
+</ol>
+<h2 id="3-客户端本地存储-LocalStorage-SessionStorage">3.客户端本地存储 (LocalStorage / SessionStorage)</h2>
+<p>LocalStorage 和 SessionStorage 是浏览器提供的 Web Storage API，允许你在用户的浏览器中存储键值对数据。LocalStorage 会一直保留数据直到被清除，而 SessionStorage 只在当前会话期间有效（浏览器关闭即丢失）。这种方法适用于需要在页面刷新或导航后仍然保留的数据，但仅限于客户端。</p>
+<p>优点:</p>
+<ul>
+<li>可以存储更多数据，不像 URL 参数有长度限制。</li>
+<li>数据不会暴露在 URL 中。</li>
+<li>数据在页面刷新后仍然存在 (LocalStorage)。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>只能在客户端使用，无法在 Server Component 中直接访问存储的数据来渲染初始页面。</li>
+<li>不适合存储敏感信息。</li>
+<li>用户可以清空存储。</li>
+<li>存储容量有限制（通常 5-10MB）。</li>
+</ul>
+<p>适用场景:</p>
+<ul>
+<li>记住用户在上次访问时的选择或状态 (例如，购物车内容 - 更复杂的应用通常用后端或更高级的状态管理)。</li>
+<li>在多个步骤的表单中暂存数据。</li>
+<li>存储用户的 UI 偏好设置。</li>
+</ul> 
+      <a class="article-more-link" href="/2025/04/29/data-transfer-between-pages-in-nextjs-3/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-data-transfer-between-pages-in-nextjs-2"
   class="article article-type-post"
   itemscope
@@ -744,65 +829,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-how-to-call-api-and-save-data-to-db"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/04/01/how-to-call-api-and-save-data-to-db/"
-    >如何通过API抽取数据并存入数据库</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/04/01/how-to-call-api-and-save-data-to-db/" class="article-date">
-  <time datetime="2025-04-01T15:11:56.000Z" itemprop="datePublished">2025-04-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="通过-axios-调用API">通过 axios 调用API</h2>
-<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> abcApi = env.<span class="property">CONTEST_API_URL</span>;</span><br><span class="line"><span class="keyword">const</span> abcApiToken = env.<span class="property">CONTEST_API_TOKEN</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;abcApi&#125;</span>  start`</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; data &#125; = <span class="keyword">await</span> axios.<span class="title function_">get</span>(<span class="string">`<span class="subst">$&#123;abcApi&#125;</span>/`</span> , &#123;</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="title class_">Accept</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">    <span class="title class_">Authorization</span>: <span class="string">`ApiKey <span class="subst">$&#123;abcApiToken&#125;</span>`</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">params</span>: &#123;</span><br><span class="line">    <span class="attr">resource_id</span>: <span class="number">93</span>,</span><br><span class="line">    <span class="attr">limit</span>: <span class="number">700</span>,</span><br><span class="line">    <span class="attr">order_by</span>: <span class="string">&#x27;-end&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">return</span> data.<span class="property">objects</span> <span class="keyword">as</span> <span class="title class_">ContestAPIType</span>[];</span><br></pre></td></tr></table></figure>
-<p>其中 ContestAPIType 可以根据返回值定义。</p> 
-      <a class="article-more-link" href="/2025/04/01/how-to-call-api-and-save-data-to-db/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prisma/" rel="tag">Prisma</a></li></ul>
 
     </footer>
   </div>
