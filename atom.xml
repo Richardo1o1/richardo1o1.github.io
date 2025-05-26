@@ -414,9 +414,9 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
     
     
-    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
-    
     <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
+    
+    <category term="API" scheme="http://yunminitools.cn/tags/API/"/>
     
   </entry>
   
