@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-04-29T01:35:00.403Z</updated>
+  <updated>2025-05-26T08:16:16.067Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Good Writing and Right Ideas (audio discussion)</title>
+    <link href="http://yunminitools.cn/2025/05/26/good-writing-and-right-ideas/"/>
+    <id>http://yunminitools.cn/2025/05/26/good-writing-and-right-ideas/</id>
+    <published>2025-05-26T08:14:24.000Z</published>
+    <updated>2025-05-26T08:16:16.067Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Two-Sense-of-Good&quot;&gt;Two Sense of Good&lt;/h2&gt;
+&lt;p&gt;we’re tackling a really um unexpected idea from Paul Graham.&lt;br&gt;
+The notion that writing which actually sounds good is somehow more likely to be right.&lt;br&gt;
+Right. That definitely raises an eyebrow, doesn’t it? It sounds, you know, a bit strange at first.&lt;br&gt;
+It does. Like how can the flow of a sentence, the rhythm affect whether the idea itself is, you know, solid?&lt;br&gt;
+Like they’re two completely separate things.&lt;br&gt;
+Exactly. Like saying, I don’t know, a shiny car must have a good engine. Yeah, but that’s what we’re going to dig into today. We’re looking at Grahams as a good writing to see if there’s uh something more to this&lt;br&gt;
+and figure out what practical insights you, the listener, can maybe take away for your own work, your own writing.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="English_Article" scheme="http://yunminitools.cn/tags/English-Article/"/>
+    
+    <category term="paul_graham" scheme="http://yunminitools.cn/tags/paul-graham/"/>
+    
+  </entry>
   
   <entry>
     <title>NextJS三种页面数据传输方式 - 3</title>
@@ -589,32 +617,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     
     
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台  (11) 基于commit diff 生成 commit 的总结</title>
-    <link href="http://yunminitools.cn/2025/03/24/build-a-AI-github-platform-from-scratch-11/"/>
-    <id>http://yunminitools.cn/2025/03/24/build-a-AI-github-platform-from-scratch-11/</id>
-    <published>2025-03-24T02:36:08.000Z</published>
-    <updated>2025-03-24T02:37:33.191Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果：&quot;&gt;效果：&lt;/h2&gt;
-&lt;p&gt;执行语句 &lt;code&gt;bun run src/lib/gpt.ts &lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- Set `randomOption` default value to `1` in the examination page.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Add `zod` schema validation and new hooks for exam records and questions.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Replace `useStartWCDialog` with `useExamDialog` for handling exam dialogs.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Add logic to handle wrong question collections and create new exam records.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Include `questionNum` in the API response for questions of a repository.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Replace `thumbUrl` with `isWrongCollection` in the repositories API response.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Reorganize imports and adjust button layout in the new exam dialog component.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- Filter repositories to hide items with `isWrongCollection` set to `1`.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;我拿了一个比较复杂的代码提交，总结的比较到位。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-    <category term="Github" scheme="http://yunminitools.cn/tags/Github/"/>
     
   </entry>
   
