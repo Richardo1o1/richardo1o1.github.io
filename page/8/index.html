@@ -109,6 +109,75 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-how-to-set-drizzle-schema-support-create-time-for-SQLite"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/02/24/how-to-set-drizzle-schema-support-create-time-for-SQLite/"
+    >如何设置 Drizzle Schema 让 SQLite 支持自动填入创建时间</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/02/24/how-to-set-drizzle-schema-support-create-time-for-SQLite/" class="article-date">
+  <time datetime="2025-02-24T06:36:39.000Z" itemprop="datePublished">2025-02-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>之前用下面的Schema创建了表：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> tasks = <span class="title function_">sqliteTable</span>(<span class="string">&quot;tasks&quot;</span>, &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="title function_">integer</span>(<span class="string">&quot;id&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;number&quot;</span> &#125;)</span><br><span class="line">    .<span class="title function_">primaryKey</span>(&#123; <span class="attr">autoIncrement</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">  <span class="attr">name</span>: <span class="title function_">text</span>(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">    .<span class="title function_">notNull</span>(),</span><br><span class="line">  <span class="attr">done</span>: <span class="title function_">integer</span>(<span class="string">&quot;done&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;boolean&quot;</span> &#125;)</span><br><span class="line">    .<span class="title function_">notNull</span>()</span><br><span class="line">    .<span class="title function_">default</span>(<span class="literal">false</span>),</span><br><span class="line">  <span class="attr">createdAt</span>: <span class="title function_">integer</span>(<span class="string">&quot;created_at&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;timestamp&quot;</span> &#125;)</span><br><span class="line">    .$defaultFn(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Date</span>()),</span><br><span class="line">  <span class="attr">updatedAt</span>: <span class="title function_">integer</span>(<span class="string">&quot;updated_at&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;timestamp&quot;</span> &#125;)</span><br><span class="line">    .$defaultFn(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    .$onUpdate(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="title class_">Date</span>()),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>发现这个创建时间和更新时间并没有生效，研究了一下，这样写可能有问题。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>查询了一下，修改为下面的语句：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; sql &#125; <span class="keyword">from</span> <span class="string">&quot;drizzle-orm&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; integer, sqliteTable, text &#125; <span class="keyword">from</span> <span class="string">&quot;drizzle-orm/sqlite-core&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createSelectSchema &#125; <span class="keyword">from</span> <span class="string">&quot;drizzle-zod&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> tasks = <span class="title function_">sqliteTable</span>(<span class="string">&quot;tasks&quot;</span>, &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="title function_">integer</span>(<span class="string">&quot;id&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;number&quot;</span> &#125;)</span><br><span class="line">    .<span class="title function_">primaryKey</span>(&#123; <span class="attr">autoIncrement</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">  <span class="attr">name</span>: <span class="title function_">text</span>(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">    .<span class="title function_">notNull</span>(),</span><br><span class="line">  <span class="attr">done</span>: <span class="title function_">integer</span>(<span class="string">&quot;done&quot;</span>, &#123; <span class="attr">mode</span>: <span class="string">&quot;boolean&quot;</span> &#125;)</span><br><span class="line">    .<span class="title function_">notNull</span>()</span><br><span class="line">    .<span class="title function_">default</span>(<span class="literal">false</span>),</span><br><span class="line">  <span class="attr">createdAt</span>:  <span class="title function_">text</span>(<span class="string">&#x27;created_at&#x27;</span>)</span><br><span class="line">    .<span class="title function_">notNull</span>()</span><br><span class="line">    .<span class="title function_">default</span>(sql<span class="string">`(current_timestamp)`</span>),</span><br><span class="line">  <span class="attr">updatedAt</span>:<span class="title function_">text</span>(<span class="string">&#x27;updated_at&#x27;</span>)</span><br><span class="line">    .<span class="title function_">notNull</span>()</span><br><span class="line">    .<span class="title function_">default</span>(sql<span class="string">`(current_timestamp)`</span>)   </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> selectTasksSchema = <span class="title function_">createSelectSchema</span>(tasks);</span><br></pre></td></tr></table></figure>
+<p>updateAt字段无效，需要更新时主动更新。</p>
+<h2 id="效果">效果</h2>
+<p>修改完后，利用 drizzle-kit 重新生成数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bun drizzle-kit generate</span><br><span class="line">bun drizzle-kit push</span><br></pre></td></tr></table></figure>
+<p>试了一下，插入数据后自动产生了时间：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1|Hello Hone|0|2025-02-24 06:13:34|2025-02-24 06:13:34</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2025/02/24/how-to-set-drizzle-schema-support-create-time-for-SQLite/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Drizzle/" rel="tag">Drizzle</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-documented-type-safe-API-from-scratch-7"
   class="article article-type-post"
   itemscope
@@ -683,80 +752,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-how-to-sync-pg-database"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/12/10/how-to-sync-pg-database/"
-    >如何用pgloader同步数据库 - Bearalise</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/12/10/how-to-sync-pg-database/" class="article-date">
-  <time datetime="2024-12-10T14:52:41.000Z" itemprop="datePublished">2024-12-10</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>之前开发时就发现，mysql和pg数据库 没有合适的数据库同步工具，只能用dump将数据库dump下来，再重新upload到新的库</p>
-<h2 id="解决方案">解决方案</h2>
-<p>最近发现一个比较好的工具：<a target="_blank" rel="noopener" href="https://pgloader.readthedocs.io/en/latest/intro.html">Pgloader</a> ，下面是具体步骤：</p>
-<ol>
-<li>
-<p>安装： <code>sudo apt-get install pgloader</code></p>
-</li>
-<li>
-<p>编辑同步配置 <code>pg.load</code></p>
- <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">load database</span><br><span class="line"> <span class="keyword">from</span> <span class="attr">pgsql</span>:<span class="comment">//localhost/pgloader</span></span><br><span class="line"> into <span class="attr">pgsql</span>:<span class="comment">//localhost/copy;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>运行</p>
- <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pgloader pg.<span class="property">load</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>运行成功，目前看起来还是十分简单好用的。</p> 
-      <a class="article-more-link" href="/2024/12/10/how-to-sync-pg-database/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>

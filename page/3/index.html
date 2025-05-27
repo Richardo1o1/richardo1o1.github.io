@@ -109,6 +109,65 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-build-a-AI-github-platform-from-scratch-12"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/03/25/build-a-AI-github-platform-from-scratch-12/"
+    >从零搭建基于 AI GitHub 分析平台  (12) 批量生成总结并存储数据库</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/03/25/build-a-AI-github-platform-from-scratch-12/" class="article-date">
+  <time datetime="2025-03-25T04:46:52.000Z" itemprop="datePublished">2025-03-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="调整数据库，添加相关表">调整数据库，添加相关表</h2>
+<p>修改 <code>prisma/schema.prisma</code>:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">model <span class="title class_">Project</span> &#123;</span><br><span class="line">  id           <span class="title class_">String</span>         <span class="meta">@id</span> <span class="meta">@default</span>(<span class="title function_">cuid</span>())</span><br><span class="line">  createdAt    <span class="title class_">DateTime</span>       <span class="meta">@default</span>(<span class="title function_">now</span>())</span><br><span class="line">  updatedAt    <span class="title class_">DateTime</span>       <span class="meta">@updatedAt</span></span><br><span class="line">  name         <span class="title class_">String</span></span><br><span class="line">  githubURL    <span class="title class_">String</span></span><br><span class="line">  deleteAt     <span class="title class_">DateTime</span>?</span><br><span class="line">  usersProject <span class="title class_">UsersProject</span>[]</span><br><span class="line">  commits      <span class="title class_">Commit</span>[]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model <span class="title class_">Commit</span> &#123;</span><br><span class="line">  id        <span class="title class_">String</span>   <span class="meta">@id</span> <span class="meta">@default</span>(<span class="title function_">cuid</span>())</span><br><span class="line">  createdAt <span class="title class_">DateTime</span> <span class="meta">@default</span>(<span class="title function_">now</span>())</span><br><span class="line">  updatedAt <span class="title class_">DateTime</span> <span class="meta">@updatedAt</span></span><br><span class="line"></span><br><span class="line">  projectId <span class="title class_">String</span></span><br><span class="line">  project   <span class="title class_">Project</span>  <span class="meta">@relation</span>(<span class="attr">fields</span>: [projectId], <span class="attr">references</span>: [id])</span><br><span class="line"></span><br><span class="line">  commitMessage      <span class="title class_">String</span></span><br><span class="line">  commitHash         <span class="title class_">String</span></span><br><span class="line">  commitAuthorName   <span class="title class_">String</span></span><br><span class="line">  commitAuthorAvatar <span class="title class_">String</span></span><br><span class="line">  commitDate         <span class="title class_">DateTime</span></span><br><span class="line">  <span class="comment">// ai summary</span></span><br><span class="line">  summary             <span class="title class_">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2025/03/25/build-a-AI-github-platform-from-scratch-12/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-build-a-AI-github-platform-from-scratch-11"
   class="article article-type-post"
   itemscope
@@ -619,67 +678,6 @@ var _hmt = _hmt || [];
 <p>运行命令，更新数据库：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun prisma db push</span><br></pre></td></tr></table></figure> 
       <a class="article-more-link" href="/2025/03/20/build-a-AI-github-platform-from-scratch-3/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Clerk/" rel="tag">Clerk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-build-a-AI-github-platform-from-scratch-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/03/19/build-a-AI-github-platform-from-scratch-2/"
-    >从零搭建基于 AI GitHub 分析平台 (2) 引入Clerk</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/03/19/build-a-AI-github-platform-from-scratch-2/" class="article-date">
-  <time datetime="2025-03-19T01:56:54.000Z" itemprop="datePublished">2025-03-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Clerk-注册项目">Clerk 注册项目</h2>
-<p>首先在 Clerk 注册一个新的项目，然后安装依赖：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bun add @clerk/nextjs</span><br></pre></td></tr></table></figure>
-<p>设置环境变量：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pxxxxx</span><br><span class="line">CLERK_SECRET_KEY=sk_test_xxxxx</span><br><span class="line"></span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/</span><br><span class="line">NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2025/03/19/build-a-AI-github-platform-from-scratch-2/"
         >More...</a
       >
        
