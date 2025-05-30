@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-05-29T06:23:48.073Z</updated>
+  <updated>2025-05-30T03:07:35.837Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Realtime value check in Form</title>
+    <link href="http://yunminitools.cn/2025/05/30/realtime-value-check-in-form/"/>
+    <id>http://yunminitools.cn/2025/05/30/realtime-value-check-in-form/</id>
+    <published>2025-05-30T03:06:37.000Z</published>
+    <updated>2025-05-30T03:07:35.837Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Requirement&quot;&gt;Requirement&lt;/h2&gt;
+&lt;p&gt;when user input the front, on background, we need to check this word whether in database. If exists, show warning message under the front.&lt;/p&gt;
+&lt;h3 id=&quot;Overview-of-the-Solution&quot;&gt;Overview of the Solution&lt;/h3&gt;
+&lt;p&gt;We’ll modify the &lt;code&gt;CardForm&lt;/code&gt; component to perform an asynchronous check whenever the user types in the “front” input. To avoid sending a request to your database on every single keystroke, we will “debounce” the input. This means we’ll wait for the user to stop typing for a brief moment before sending the validation request.&lt;/p&gt;
+&lt;p&gt;The validation logic itself will be passed to the form as a new prop, &lt;code&gt;onCheckFront&lt;/code&gt;. This keeps the &lt;code&gt;CardForm&lt;/code&gt; component reusable and separates the form’s UI from the specific database logic.&lt;/p&gt;
+&lt;p&gt;If the check finds that the word already exists, we will use &lt;code&gt;react-hook-form&lt;/code&gt;’s built-in &lt;code&gt;setError&lt;/code&gt; function to display a warning message right under the input field.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="Hono" scheme="http://yunminitools.cn/tags/Hono/"/>
+    
+  </entry>
   
   <entry>
     <title>How to Do Great Work (audio discussion)</title>
@@ -616,29 +642,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
     
     <category term="PostgreSQL" scheme="http://yunminitools.cn/tags/PostgreSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (13) Commit Log 页面</title>
-    <link href="http://yunminitools.cn/2025/03/26/build-a-AI-github-platform-from-scratch-13/"/>
-    <id>http://yunminitools.cn/2025/03/26/build-a-AI-github-platform-from-scratch-13/</id>
-    <published>2025-03-26T03:13:25.000Z</published>
-    <updated>2025-03-26T03:14:13.426Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub16.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
     
   </entry>
   

@@ -109,6 +109,76 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-how-to-integreate-clerk-user-info-via-webhook"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/04/07/how-to-integreate-clerk-user-info-via-webhook/"
+    >如何在 Next.js 应用中集成 Clerk Webhook 来同步用户信息</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/04/07/how-to-integreate-clerk-user-info-via-webhook/" class="article-date">
+  <time datetime="2025-04-07T02:25:16.000Z" itemprop="datePublished">2025-04-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>我们将使用 Clerk 提供的官方 @clerk/nextjs 库和 svix 库（Clerk 底层使用 svix 处理 webhooks）来验证传入的 webhook 请求。</p>
+<h2 id="核心思路">核心思路</h2>
+<ol>
+<li>在 Clerk Dashboard 配置一个 Webhook Endpoint，指向你 Next.js 应用的一个特定 API 路由。</li>
+<li>创建这个 Next.js API 路由。</li>
+<li>在该 API 路由中：
+<ul>
+<li>验证请求是否确实来自 Clerk（使用 Signing Secret）。</li>
+<li>解析 webhook 事件的类型和数据。</li>
+<li>根据事件类型（如 user.created, user.updated, user.deleted）执行相应的数据库操作或其他同步逻辑。</li>
+<li>向 Clerk 返回成功的响应，告知已收到并处理事件。</li>
+</ul>
+</li>
+</ol> 
+      <a class="article-more-link" href="/2025/04/07/how-to-integreate-clerk-user-info-via-webhook/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Clerk/" rel="tag">Clerk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-how-to-break-down-a-big-component"
   class="article article-type-post"
   itemscope
@@ -669,65 +739,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/" rel="tag">PostgreSQL</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-build-a-AI-github-platform-from-scratch-13"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/03/26/build-a-AI-github-platform-from-scratch-13/"
-    >从零搭建基于 AI GitHub 分析平台 (13) Commit Log 页面</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/03/26/build-a-AI-github-platform-from-scratch-13/" class="article-date">
-  <time datetime="2025-03-26T03:13:25.000Z" itemprop="datePublished">2025-03-26</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="效果">效果</h2>
-<p><img src="https://image.952005.xyz/2025/03/aigithub16.jpg" alt=""></p>
-<p>实现步骤如下：</p> 
-      <a class="article-more-link" href="/2025/03/26/build-a-AI-github-platform-from-scratch-13/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Layout/" rel="tag">Layout</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
 
     </footer>
   </div>
