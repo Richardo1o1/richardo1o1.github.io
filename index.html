@@ -109,6 +109,68 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-nextjs-clerk-weixin-miniprogram-mix-auth"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/06/01/nextjs-clerk-weixin-miniprogram-mix-auth/"
+    >Next.js + Clerk + 微信小程序双重认证实现步骤</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/06/01/nextjs-clerk-weixin-miniprogram-mix-auth/" class="article-date">
+  <time datetime="2025-06-01T06:04:55.000Z" itemprop="datePublished">2025-06-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="系统架构概览">系统架构概览</h2>
+<p>需要实现一个双端的应用，其中Web端用Clerk，需要实现微信小程序的调用，打算用下面的架构。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Web端 (Clerk) ←→ 统一后端API ←→ 微信小程序 (自建认证)</span><br><span class="line">                     ↓</span><br><span class="line">                用户映射数据库</span><br></pre></td></tr></table></figure>
+<h2 id="1-数据库设计">1. 数据库设计</h2>
+<h3 id="用户映射表-user-mapping">用户映射表 (user_mapping)</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> user_mapping (</span><br><span class="line">  id SERIAL <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">  clerk_user_id <span class="type">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">UNIQUE</span>,</span><br><span class="line">  wechat_openid <span class="type">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">UNIQUE</span>,</span><br><span class="line">  wechat_unionid <span class="type">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  unified_user_id <span class="type">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">UNIQUE</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  email <span class="type">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  nickname <span class="type">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  avatar_url TEXT,</span><br><span class="line">  created_at <span class="type">TIMESTAMP</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">  updated_at <span class="type">TIMESTAMP</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 为常用查询创建索引</span></span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_clerk_user_id <span class="keyword">ON</span> user_mapping(clerk_user_id);</span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_wechat_openid <span class="keyword">ON</span> user_mapping(wechat_openid);</span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_unified_user_id <span class="keyword">ON</span> user_mapping(unified_user_id);</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2025/06/01/nextjs-clerk-weixin-miniprogram-mix-auth/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">微信小程序</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-realtime-value-check-in-form"
   class="article article-type-post"
   itemscope
@@ -764,67 +826,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OSS/" rel="tag">OSS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-open-datasets-for-practice"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/04/14/open-datasets-for-practice/"
-    >可供练习的公开数据集</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/04/14/open-datasets-for-practice/" class="article-date">
-  <time datetime="2025-04-14T06:08:11.000Z" itemprop="datePublished">2025-04-14</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="背景">背景</h2>
-<p>最近想研究一下数据可视化在 AI 领域的应用，需要有一些数据进行练习，如果自己造的话，没有实际场景。搜索了一下，网上其实有现成的公开数据集，还挺方便，推荐一下，大家如果有需要，也可以去下载使用。</p>
-<h2 id="Maven">Maven</h2>
-<p><a target="_blank" rel="noopener" href="https://mavenanalytics.io/data-playground">Maven</a> 这个网址会列出公开的数据集，大家可以按自己的需求，下载相关数据。我下载的是 CRM Sales Opportunities ：<br>
-<img src="https://image.952005.xyz/2025/04/dataset01.jpg" alt=""></p> 
-      <a class="article-more-link" href="/2025/04/14/open-datasets-for-practice/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataSet/" rel="tag">DataSet</a></li></ul>
 
     </footer>
   </div>

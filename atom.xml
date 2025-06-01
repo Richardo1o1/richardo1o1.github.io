@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-05-30T05:04:20.290Z</updated>
+  <updated>2025-06-01T06:06:21.621Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Next.js + Clerk + 微信小程序双重认证实现步骤</title>
+    <link href="http://yunminitools.cn/2025/06/01/nextjs-clerk-weixin-miniprogram-mix-auth/"/>
+    <id>http://yunminitools.cn/2025/06/01/nextjs-clerk-weixin-miniprogram-mix-auth/</id>
+    <published>2025-06-01T06:04:55.000Z</published>
+    <updated>2025-06-01T06:06:21.621Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;系统架构概览&quot;&gt;系统架构概览&lt;/h2&gt;
+&lt;p&gt;需要实现一个双端的应用，其中Web端用Clerk，需要实现微信小程序的调用，打算用下面的架构。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Web端 (Clerk) ←→ 统一后端API ←→ 微信小程序 (自建认证)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     ↓&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                用户映射数据库&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;1-数据库设计&quot;&gt;1. 数据库设计&lt;/h2&gt;
+&lt;h3 id=&quot;用户映射表-user-mapping&quot;&gt;用户映射表 (user_mapping)&lt;/h3&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; user_mapping (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  id SERIAL &lt;span class=&quot;keyword&quot;&gt;PRIMARY&lt;/span&gt; KEY,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  clerk_user_id &lt;span class=&quot;type&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;UNIQUE&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  wechat_openid &lt;span class=&quot;type&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;UNIQUE&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  wechat_unionid &lt;span class=&quot;type&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  unified_user_id &lt;span class=&quot;type&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;UNIQUE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  email &lt;span class=&quot;type&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  nickname &lt;span class=&quot;type&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  avatar_url TEXT,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  created_at &lt;span class=&quot;type&quot;&gt;TIMESTAMP&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CURRENT_TIMESTAMP&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  updated_at &lt;span class=&quot;type&quot;&gt;TIMESTAMP&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CURRENT_TIMESTAMP&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;-- 为常用查询创建索引&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; INDEX idx_clerk_user_id &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; user_mapping(clerk_user_id);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; INDEX idx_wechat_openid &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; user_mapping(wechat_openid);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; INDEX idx_unified_user_id &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; user_mapping(unified_user_id);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
+    
+    <category term="微信小程序" scheme="http://yunminitools.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Realtime value check in Form</title>
@@ -611,37 +637,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PostgreSQL 带向量数据库的安装</title>
-    <link href="http://yunminitools.cn/2025/03/27/postgresql-vector-docker-setup/"/>
-    <id>http://yunminitools.cn/2025/03/27/postgresql-vector-docker-setup/</id>
-    <published>2025-03-27T01:34:20.000Z</published>
-    <updated>2025-03-27T01:35:18.534Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;做 AI 相关项目需要用到向量数据库，本来想直接使用 PostgreSQL ，结果发现默认的安装是没有安装向量数据库的，打算重新安装一个带向量支持的。&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;
-&lt;h2 id=&quot;Create-Volume&quot;&gt;Create Volume&lt;/h2&gt;
-&lt;p&gt;创建一个相关的卷用于保存数据&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker volume create --driver local --opt device=C:\10.VM\data\pg02 --opt type=none --opt o=bind pg02&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;拉取相关-Docker-镜像&quot;&gt;拉取相关 Docker 镜像&lt;/h2&gt;
-&lt;p&gt;下面这个镜像是包含向量数据库的：&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker pull ankane/pgvector:latest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;启动-docker&quot;&gt;启动 docker&lt;/h2&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run --name pgvector --privileged -e POSTGRES_PASSWORD=pGp@ssw0rd -p 15678:5432 -v pg02:/var/lib/postgresql/data -d ankane/pgvector:latest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Docker" scheme="http://yunminitools.cn/tags/Docker/"/>
-    
-    <category term="PostgreSQL" scheme="http://yunminitools.cn/tags/PostgreSQL/"/>
     
   </entry>
   
