@@ -6620,7 +6620,7 @@ F(router/index.js 配置路由)-->C</pre>
       </tags>
   </entry>
   <entry>
-    <title>Hexo Admin - 一个新的写Hexo Blog 的选择 （Vibe Coding）</title>
+    <title>Hexo Admin - 写Hexo Blog 的新选择 （Vibe Coding）</title>
     <url>/2026/07/25/Vibe-Coding-Hexo-Admin/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
 <p>我很喜欢 Hexo 的简洁和网页样式，一直用来更新文章，但其实大家都知道，更新 Hexo 的文章官方没有很优雅的方式，需要人工编辑 markdown 文件 后，手工执行部署命令，虽然也不麻烦，但多了个步骤就多了摩擦，有时本来想写一些东西，由于不方便，就过去了，后来也就没有心情写了。</p>
