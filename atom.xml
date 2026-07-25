@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2025-06-01T06:06:21.621Z</updated>
+  <updated>2026-07-25T12:46:58.794Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo Admin - 一个新的写Hexo Blog 的选择 （Vibe Coding）</title>
+    <link href="http://yunminitools.cn/2026/07/25/Vibe-Coding-Hexo-Admin/"/>
+    <id>http://yunminitools.cn/2026/07/25/Vibe-Coding-Hexo-Admin/</id>
+    <published>2026-07-25T12:28:21.000Z</published>
+    <updated>2026-07-25T12:46:58.794Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;我很喜欢 Hexo 的简洁和网页样式，一直用来更新文章，但其实大家都知道，更新 Hexo 的文章官方没有很优雅的方式，需要人工编辑 markdown 文件 后，手工执行部署命令，虽然也不麻烦，但多了个步骤就多了摩擦，有时本来想写一些东西，由于不方便，就过去了，后来也就没有心情写了。&lt;/p&gt;
+&lt;h2 id=&quot;寻找方案&quot;&gt;寻找方案&lt;/h2&gt;
+&lt;p&gt;其实解决方案是现成的，只要提供类似 Wordpress 后台编辑功能，让用户可以保存，修改，并发布文章即可。但由于官方没有提供，我看了一下，第三方也没有特别好的方案，就觉得比较遗憾。自己编一个，好像工程量又太大了。&lt;/p&gt;
+&lt;h2 id=&quot;我的方案&quot;&gt;我的方案&lt;/h2&gt;
+&lt;p&gt;想不到AI来了，这个问题就迎刃而解了。我让 Kimi K3 编写后台，几轮下来，就编了一个基本满足我的需求的方案，可以看一下，就是这个界面：&lt;br&gt;
+&lt;img src=&quot;https://cdn.yunminitools.cn/blog/20260725-hexo-admin.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;左边是md文件，中间是编辑界面，右边是预览界面。文件写完，保存，发布。完美解决了我的问题。&lt;/p&gt;
+&lt;h2 id=&quot;项目地址&quot;&gt;项目地址&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="日常练习" scheme="http://yunminitools.cn/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
+    
+    
+    <category term="Vibe-Coding" scheme="http://yunminitools.cn/tags/Vibe-Coding/"/>
+    
+  </entry>
   
   <entry>
     <title>Next.js + Clerk + 微信小程序双重认证实现步骤</title>
@@ -613,30 +640,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块</title>
-    <link href="http://yunminitools.cn/2025/03/28/build-a-AI-github-platform-from-scratch-15/"/>
-    <id>http://yunminitools.cn/2025/03/28/build-a-AI-github-platform-from-scratch-15/</id>
-    <published>2025-03-28T05:13:12.000Z</published>
-    <updated>2025-03-28T05:13:55.964Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub17.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub18.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
     
   </entry>
   

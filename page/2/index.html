@@ -109,6 +109,80 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-use-minio-to-build-own-oss-service"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/04/15/use-minio-to-build-own-oss-service/"
+    >用 MinIO 自建对象存储服务</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/04/15/use-minio-to-build-own-oss-service/" class="article-date">
+  <time datetime="2025-04-15T01:54:47.000Z" itemprop="datePublished">2025-04-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="对象存储服务">对象存储服务</h2>
+<p>对象存储服务适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器/虚拟机镜像等，比较著名的服务有 AWS 的 S3 服务。<br>
+MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有19K+Star。它采用了Apache License v2.0开源协议，本文将通过 Docker 搭建 MinIO 来自建一个对象存储服务。</p>
+<h2 id="安装">安装</h2>
+<ul>
+<li>
+<p>下载MinIO的Docker镜像：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull minio/minio</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建数据卷</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --driver local --opt device=C:\10.VM\minio\data --opt type=none --opt o=bind miniodata</span><br><span class="line">docker volume create --driver local --opt device=C:\10.VM\minio\config --opt type=none --opt o=bind minioconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启动 docker</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9090:9000 -p 9100:9001 --name minio -v miniodata:/data -v minioconfig:/root/.minio -d minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul> 
+      <a class="article-more-link" href="/2025/04/15/use-minio-to-build-own-oss-service/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OSS/" rel="tag">OSS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-open-datasets-for-practice"
   class="article article-type-post"
   itemscope
@@ -673,66 +747,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-build-a-AI-github-platform-from-scratch-15"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/03/28/build-a-AI-github-platform-from-scratch-15/"
-    >从零搭建基于 AI GitHub 分析平台 (15) AskQuestionCard 模块</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/03/28/build-a-AI-github-platform-from-scratch-15/" class="article-date">
-  <time datetime="2025-03-28T05:13:12.000Z" itemprop="datePublished">2025-03-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/">从零搭建</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="效果">效果</h2>
-<p><img src="https://image.952005.xyz/2025/03/aigithub17.jpg" alt=""><br>
-<img src="https://image.952005.xyz/2025/03/aigithub18.jpg" alt=""></p>
-<p>实现步骤如下：</p> 
-      <a class="article-more-link" href="/2025/03/28/build-a-AI-github-platform-from-scratch-15/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Layout/" rel="tag">Layout</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
 
     </footer>
   </div>

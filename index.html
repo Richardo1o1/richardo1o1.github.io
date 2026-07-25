@@ -109,6 +109,71 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Vibe-Coding-Hexo-Admin"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2026/07/25/Vibe-Coding-Hexo-Admin/"
+    >Hexo Admin - 一个新的写Hexo Blog 的选择 （Vibe Coding）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2026/07/25/Vibe-Coding-Hexo-Admin/" class="article-date">
+  <time datetime="2026-07-25T12:28:21.000Z" itemprop="datePublished">2026-07-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>我很喜欢 Hexo 的简洁和网页样式，一直用来更新文章，但其实大家都知道，更新 Hexo 的文章官方没有很优雅的方式，需要人工编辑 markdown 文件 后，手工执行部署命令，虽然也不麻烦，但多了个步骤就多了摩擦，有时本来想写一些东西，由于不方便，就过去了，后来也就没有心情写了。</p>
+<h2 id="寻找方案">寻找方案</h2>
+<p>其实解决方案是现成的，只要提供类似 Wordpress 后台编辑功能，让用户可以保存，修改，并发布文章即可。但由于官方没有提供，我看了一下，第三方也没有特别好的方案，就觉得比较遗憾。自己编一个，好像工程量又太大了。</p>
+<h2 id="我的方案">我的方案</h2>
+<p>想不到AI来了，这个问题就迎刃而解了。我让 Kimi K3 编写后台，几轮下来，就编了一个基本满足我的需求的方案，可以看一下，就是这个界面：<br>
+<img src="https://cdn.yunminitools.cn/blog/20260725-hexo-admin.PNG" alt=""></p>
+<p>左边是md文件，中间是编辑界面，右边是预览界面。文件写完，保存，发布。完美解决了我的问题。</p>
+<h2 id="项目地址">项目地址</h2> 
+      <a class="article-more-link" href="/2026/07/25/Vibe-Coding-Hexo-Admin/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vibe-Coding/" rel="tag">Vibe-Coding</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-nextjs-clerk-weixin-miniprogram-mix-auth"
   class="article article-type-post"
   itemscope
@@ -752,80 +817,6 @@ and figure out what practical insights you, the listener, can maybe take away fo
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-use-minio-to-build-own-oss-service"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/04/15/use-minio-to-build-own-oss-service/"
-    >用 MinIO 自建对象存储服务</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/04/15/use-minio-to-build-own-oss-service/" class="article-date">
-  <time datetime="2025-04-15T01:54:47.000Z" itemprop="datePublished">2025-04-15</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="对象存储服务">对象存储服务</h2>
-<p>对象存储服务适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器/虚拟机镜像等，比较著名的服务有 AWS 的 S3 服务。<br>
-MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有19K+Star。它采用了Apache License v2.0开源协议，本文将通过 Docker 搭建 MinIO 来自建一个对象存储服务。</p>
-<h2 id="安装">安装</h2>
-<ul>
-<li>
-<p>下载MinIO的Docker镜像：</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull minio/minio</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>创建数据卷</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --driver local --opt device=C:\10.VM\minio\data --opt type=none --opt o=bind miniodata</span><br><span class="line">docker volume create --driver local --opt device=C:\10.VM\minio\config --opt type=none --opt o=bind minioconfig</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>启动 docker</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9090:9000 -p 9100:9001 --name minio -v miniodata:/data -v minioconfig:/root/.minio -d minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul> 
-      <a class="article-more-link" href="/2025/04/15/use-minio-to-build-own-oss-service/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OSS/" rel="tag">OSS</a></li></ul>
 
     </footer>
   </div>
