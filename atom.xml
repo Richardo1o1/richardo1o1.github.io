@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2026-07-25T13:05:30.494Z</updated>
+  <updated>2026-07-27T12:59:45.858Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Claude Code删掉了80%系统提示词</title>
+    <link href="http://yunminitools.cn/2026/07/27/reduce-claude-code-prompt/"/>
+    <id>http://yunminitools.cn/2026/07/27/reduce-claude-code-prompt/</id>
+    <published>2026-07-27T12:48:28.000Z</published>
+    <updated>2026-07-27T12:59:45.858Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;“我们删除了 80% 的 Claude Code 系统提示，这是我们从编写系统提示词、Skill 和 &lt;a href=&quot;http://Claude.MD&quot;&gt;Claude.MD&lt;/a&gt; 中学到的。”&lt;br&gt;
+随着模型变强，很多提示词不需要了&lt;/p&gt;
+&lt;h1&gt;变化&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;昔：给 Claude 定规则 → 今：让 Claude 自行判断&lt;/li&gt;
+&lt;li&gt;昔：给 Claude 举例子 → 今：设计好接口&lt;/li&gt;
+&lt;li&gt;昔：一股脑全写在前面 → 今：渐进式披露&lt;/li&gt;
+&lt;li&gt;昔：反复强调 → 今：简洁的工具描述&lt;/li&gt;
+&lt;li&gt;昔：把记忆写进 &lt;a href=&quot;http://CLAUDE.md&quot;&gt;CLAUDE.md&lt;/a&gt; → 今：自动记忆&lt;/li&gt;
+&lt;li&gt;昔：简单的规格文档 → 今：丰富的参考材料&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;组装上下文&quot;&gt;组装上下文&lt;/h2&gt;
+&lt;p&gt;顺序如下图：&lt;br&gt;
+&lt;img src=&quot;https://cdn.yunminitools.cn/blog/20260727-claude.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;可以尝试 在 &lt;a href=&quot;http://Claude.MD&quot;&gt;Claude.MD&lt;/a&gt; 里减少内容，将相关内容放到skill 或 Reference 中去。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Vibe-Coding" scheme="http://yunminitools.cn/tags/Vibe-Coding/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo Admin - 写Hexo Blog 的新选择 （Vibe Coding）</title>
@@ -616,30 +650,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
     
     <category term="Tips" scheme="http://yunminitools.cn/tags/Tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (16) 调用AI显示答案</title>
-    <link href="http://yunminitools.cn/2025/03/29/build-a-AI-github-platform-from-scratch-16/"/>
-    <id>http://yunminitools.cn/2025/03/29/build-a-AI-github-platform-from-scratch-16/</id>
-    <published>2025-03-29T09:30:30.000Z</published>
-    <updated>2025-03-29T09:31:40.102Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;效果&quot;&gt;效果&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub19.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-&lt;img src=&quot;https://image.952005.xyz/2025/03/aigithub20.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;实现步骤如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
     
   </entry>
   

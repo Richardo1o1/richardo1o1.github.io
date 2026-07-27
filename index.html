@@ -109,6 +109,78 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-reduce-claude-code-prompt"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2026/07/27/reduce-claude-code-prompt/"
+    >Claude Code删掉了80%系统提示词</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2026/07/27/reduce-claude-code-prompt/" class="article-date">
+  <time datetime="2026-07-27T12:48:28.000Z" itemprop="datePublished">2026-07-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>“我们删除了 80% 的 Claude Code 系统提示，这是我们从编写系统提示词、Skill 和 <a target="_blank" rel="noopener" href="http://Claude.MD">Claude.MD</a> 中学到的。”<br>
+随着模型变强，很多提示词不需要了</p>
+<h1>变化</h1>
+<ol>
+<li>昔：给 Claude 定规则 → 今：让 Claude 自行判断</li>
+<li>昔：给 Claude 举例子 → 今：设计好接口</li>
+<li>昔：一股脑全写在前面 → 今：渐进式披露</li>
+<li>昔：反复强调 → 今：简洁的工具描述</li>
+<li>昔：把记忆写进 <a target="_blank" rel="noopener" href="http://CLAUDE.md">CLAUDE.md</a> → 今：自动记忆</li>
+<li>昔：简单的规格文档 → 今：丰富的参考材料</li>
+</ol>
+<h2 id="组装上下文">组装上下文</h2>
+<p>顺序如下图：<br>
+<img src="https://cdn.yunminitools.cn/blog/20260727-claude.jpg" alt=""></p>
+<p>可以尝试 在 <a target="_blank" rel="noopener" href="http://Claude.MD">Claude.MD</a> 里减少内容，将相关内容放到skill 或 Reference 中去。</p> 
+      <a class="article-more-link" href="/2026/07/27/reduce-claude-code-prompt/"
+        >More...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vibe-Coding/" rel="tag">Vibe-Coding</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Vibe-Coding-Hexo-Admin"
   class="article article-type-post"
   itemscope
@@ -746,77 +818,6 @@ and figure out what practical insights you, the listener, can maybe take away fo
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tailwind/" rel="tag">Tailwind</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-prd-english-word-memorization-app"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/04/23/prd-english-word-memorization-app/"
-    >产品需求文档 (PRD) - 英语单词记忆应用</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/04/23/prd-english-word-memorization-app/" class="article-date">
-  <time datetime="2025-04-23T06:02:05.000Z" itemprop="datePublished">2025-04-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/">日常练习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-引言-Introduction">1. 引言 (Introduction)</h2>
-<h3 id="1-1-文档目的">1.1 文档目的</h3>
-<p>本文档旨在详细定义“英语单词记忆应用”的功能需求、非功能需求及相关规则，作为产品设计、开发、测试和后续迭代的主要依据，确保各方对产品有统一的理解和预期。</p>
-<h3 id="1-2-项目概述">1.2 项目概述</h3>
-<p>本项目旨在开发一款移动应用程序，帮助用户高效、便捷地学习和复习英语单词。应用将提供多种学习模式（如闪卡、拼写），支持标准化词库（如考研词汇）和用户自定义词库（含生词本功能），并通过用户账户系统实现学习进度和数据的跨设备同步。此外，应用还将提供学习统计功能，帮助用户跟踪进展、保持动力。</p>
-<h3 id="1-3-目标用户">1.3 目标用户</h3>
-<p>需要系统性背诵特定词库的学生（如备考四六级、考研、雅思、托福等）。<br>
-希望通过积累生词、自定义词汇列表来提升英语能力的普通学习者。<br>
-需要在碎片化时间进行单词学习和复习的用户。<br>
-希望通过量化数据跟踪自己学习进展的用户。</p>
-<h3 id="1-4-产品目标">1.4 产品目标</h3>
-<p>核心目标: 提供高效、灵活的英语单词学习与复习工具。<br>
-用户价值: 帮助用户有效记忆单词，提升词汇量，达成学习目标。<br>
-产品体验: 提供简洁、流畅、易用的用户界面和交互体验。<br>
-数据驱动: 实现用户学习数据的安全存储、跨设备同步及可视化统计分析。</p> 
-      <a class="article-more-link" href="/2025/04/23/prd-english-word-memorization-app/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%AE%A1%E7%90%86/" rel="tag">产品管理</a></li></ul>
 
     </footer>
   </div>
