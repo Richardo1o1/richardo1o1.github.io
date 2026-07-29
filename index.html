@@ -109,6 +109,98 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-ai-slang-map"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2026/07/29/ai-slang-map/"
+    >AI黑话地图</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2026/07/29/ai-slang-map/" class="article-date">
+  <time datetime="2026-07-29T06:52:05.000Z" itemprop="datePublished">2026-07-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/">当日所学</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景">背景</h2>
+<p>本文构建了AI术语的三层认知框架（思维层→工具层→应用层），系统解析了token、context、幻觉等底层概念，RAG、Agent、Skill、MCP等工具层能力，以及Gemini、NotebookLM等应用层实践，并强调：理解AI“文字接龙”本质是解构黑话的关键，幻觉不可根治需人机协同校验，掌握分层归类法可从容应对持续涌现的新术语。</p>
+<h3 id="主要议题与讨论">主要议题与讨论</h3>
+<p><strong>主题一：AI术语的三层结构化认知框架</strong></p>
+<ul>
+<li>
+<p><strong>思维层（最底层抽屉）</strong>：定义AI“如何想”，核心是大语言模型作为概率驱动的“文字接龙高手”——基于前序文本预测下一token；token是AI处理的最小语义单元（中文中“珠穆朗玛峰”“我吃饭”均可为1 token）；context是AI的有限记忆窗口，决定其理解深度与会话长度；幻觉源于接龙过程中的连续微偏移+上下文压缩丢失，本质是概率模型固有缺陷，无法根治，必须依赖人工复核关键数据与来源。</p>
+</li>
+<li>
+<p><strong>工具层（中间抽屉）</strong>：定义AI“能帮你做什么”，聚焦能力模块化封装。Prompt是人机交互的“任务说明书”，非魔法咒语，需精准、结构化；RAG（检索增强生成）使AI具备“开卷考试”能力，通过外挂知识库实现可溯源、高精度响应；Agent是工作流自动化载体，能自主规划、调用工具（如Office/白板）、串联input-output模块，实现“长出手脚”式执行；Skill是结构化方法论沉淀（常为Markdown文档），赋予通用大模型特定岗位能力（如“培训专员”），支持跨平台复用；MCP（Model Context Protocol）是Anthropic提出的通用协议，旨在打通不同大模型与应用软件间的调用桥梁，实现跨生态智能操作。</p>
+</li>
+<li>
+<p><strong>应用层（最顺手抽屉）</strong>：定义“你具体打开哪个产品用”，即终端工具。高频使用Gemini（含NotebookLM）、Google Slides AI、Gemini for Workspace（用于数据分析洞察）、AI视频工具等；所有应用均依赖底层模型+工具层能力组合，不同产品集成RAG/Agent/Skill的程度各异，用户感知的是开箱即用的功能（如一键生成PPT、万行数据洞察）。</p>
+</li>
+</ul>
+<p><strong>主题二：落地应用的关键原则与典型场景</strong></p>
+<ul>
+<li>
+<p><strong>PPT生成场景</strong>：可行但需前置结构化输入——明确背景、目标受众、大纲逻辑、品牌规范（配色/字体）、参考素材；单句指令（如“生成一套片子”）必然失败，本质是AI辅助“内容生产流水线”而非全自动创作。</p>
+</li>
+<li>
+<p><strong>数据分析场景</strong>：Gemini for Workspace可高效处理谷歌表格中上万行数据，自动提炼Data Insight（趋势、异常、关联性），显著提升分析效率，但需人工验证结论合理性。</p>
+</li>
+<li>
+<p><strong>日常协作场景</strong>：基于NotebookLM定制SOP查询、合同审查等RAG应用；团队普遍通过Skill封装常用模板（如会议纪要格式、周报框架），通过Agent固化审批流、报告生成等高频工作流。</p>
+</li>
+</ul>
+<p><strong>主题三：应对术语爆炸的理性策略</strong></p>
+<ul>
+<li>
+<p>新词（如Loop Engineering）本质是旧范式在新场景的再包装，90%以上仍归属三层框架内：若涉及自主问题解决框架→归入工具层；若指向具体产品功能→归入应用层；若解释模型机制→归入思维层。</p>
+</li>
+<li>
+<p>“黑话地图”的核心价值是提供归类锚点：听到新词时先问“它在解决哪一层的问题？”，再结合“文字接龙”底层逻辑判断其技术实质，避免陷入名词焦虑。</p>
+</li>
+<li>
+<p>学习优先级应按工作刚需倒排：应用层工具（Gemini/NotebookLM）→ 工具层核心能力（Prompt/RAG/Agent）→ 思维层基础原理（token/context/幻觉机制），而非追逐所有新词。</p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-reduce-claude-code-prompt"
   class="article article-type-post"
   itemscope
@@ -756,68 +848,6 @@ and figure out what practical insights you, the listener, can maybe take away fo
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextJS/" rel="tag">NextJS</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-powerful-visual-theme-editor-for-tailwind-css"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2025/04/24/powerful-visual-theme-editor-for-tailwind-css/"
-    >Tailwind CSS 主题定制应用</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2025/04/24/powerful-visual-theme-editor-for-tailwind-css/" class="article-date">
-  <time datetime="2025-04-24T14:50:10.000Z" itemprop="datePublished">2025-04-24</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9C%89%E8%B6%A3%E8%B5%84%E6%BA%90/">有趣资源</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="介绍">介绍</h2>
-<p><a target="_blank" rel="noopener" href="https://tweakcn.com/">tweakcn</a> 是一个专门为 Shancn/ui 组件和 Tailwind CSS 设计的主题编辑器，可以帮助开发者快速定制 UI 组件，解决了使用 Shancn 组件，网站样式千篇一律的问题。</p>
-<p>它提供了300种主题预设，并支持高级自定义，满足个性化需求。</p>
-<h2 id="功能">功能</h2>
-<p>如下图，可以定制颜色、字体、间距、阴影等很多属性。</p>
-<p><img src="https://image.952005.xyz/2025/04/tweakcn01.jpg" alt=""></p> 
-      <a class="article-more-link" href="/2025/04/24/powerful-visual-theme-editor-for-tailwind-css/"
-        >More...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tailwind/" rel="tag">Tailwind</a></li></ul>
 
     </footer>
   </div>

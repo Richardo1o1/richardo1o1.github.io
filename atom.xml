@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2026-07-27T12:59:45.858Z</updated>
+  <updated>2026-07-29T06:55:09.763Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI黑话地图</title>
+    <link href="http://yunminitools.cn/2026/07/29/ai-slang-map/"/>
+    <id>http://yunminitools.cn/2026/07/29/ai-slang-map/</id>
+    <published>2026-07-29T06:52:05.000Z</published>
+    <updated>2026-07-29T06:55:09.763Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="AIGC" scheme="http://yunminitools.cn/tags/AIGC/"/>
+    
+  </entry>
   
   <entry>
     <title>Claude Code删掉了80%系统提示词</title>
@@ -626,30 +651,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何刷新 VS Code 中 Prisma 更新的表和字段</title>
-    <link href="http://yunminitools.cn/2025/03/29/how-to-refresh-prisma-updated-table-fields/"/>
-    <id>http://yunminitools.cn/2025/03/29/how-to-refresh-prisma-updated-table-fields/</id>
-    <published>2025-03-29T13:08:48.000Z</published>
-    <updated>2025-03-29T13:09:19.513Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
-&lt;p&gt;当我更新 Prisma Schema 的时候，有时会出现即使通过 &lt;code&gt;prisma db push&lt;/code&gt; 或 &lt;code&gt;prisma generate&lt;/code&gt; 更新了数据库，也显示成功，但在 VS Code 中依然无法通过代码自动完成看到更新的字段，比较困扰，有时重新打开 VS Code 会好，有时不会&lt;/p&gt;
-&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
-&lt;p&gt;原因主要是 VS Code 的缓存没有及时更新，查询后发现一个立即更新缓存的方法，就是在 VS Code 中，找到 &lt;code&gt;node_modules/.prisma/client/index.d.ts&lt;/code&gt; ，并打开，这时 VS Code 就会自动更新缓存。我测试了一下有效，大家可以试试。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
-    
-    
-    <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
-    
-    <category term="Tips" scheme="http://yunminitools.cn/tags/Tips/"/>
     
   </entry>
   
