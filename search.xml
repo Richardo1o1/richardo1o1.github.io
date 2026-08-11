@@ -17583,4 +17583,22 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
         <tag>AIGC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Window SSH 免密登陆 Linux</title>
+    <url>/2026/08/11/Window-SSH-copy-id/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>一般 我们会用 ssh-copy-id 来复制key，实现免密登陆，但在Window环境下，没有这个命令，也不方便安装 <strong>Git for Windows</strong>，那如何实现这个功能呢？</p>
+<h2 id="替代方案">替代方案</h2>
+<p>Windows 11 的 PowerShell 默认支持 ssh，你可以直接运行以下组合命令，效果与 ssh-copy-id 完全相同。<br>
+打开 PowerShell，复制并运行以下命令（请将其中的 user@remote_host 替换为你的服务器用户名和 IP）：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub | ssh user@remote_host <span class="string">&quot;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys &amp;&amp; chmod 700 ~/.ssh &amp;&amp; chmod 600 ~/.ssh/authorized_keys&quot;</span></span><br></pre></td></tr></table></figure>
+<p><em>注：如果你生成的密钥不是 id_ed25519.pub，请将其替换为你的公钥文件名（如 id_rsa.pub）。</em></p>
+]]></content>
+      <categories>
+        <category>当日所学</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>

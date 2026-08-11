@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2026-07-29T06:55:09.763Z</updated>
+  <updated>2026-08-11T02:45:54.610Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Window SSH 免密登陆 Linux</title>
+    <link href="http://yunminitools.cn/2026/08/11/Window-SSH-copy-id/"/>
+    <id>http://yunminitools.cn/2026/08/11/Window-SSH-copy-id/</id>
+    <published>2026-08-11T02:34:55.000Z</published>
+    <updated>2026-08-11T02:45:54.610Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;一般 我们会用 ssh-copy-id 来复制key，实现免密登陆，但在Window环境下，没有这个命令，也不方便安装 &lt;strong&gt;Git for Windows&lt;/strong&gt;，那如何实现这个功能呢？&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="当日所学" scheme="http://yunminitools.cn/categories/%E5%BD%93%E6%97%A5%E6%89%80%E5%AD%A6/"/>
+    
+    
+    <category term="Linux" scheme="http://yunminitools.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>AI黑话地图</title>
@@ -622,35 +649,6 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
     <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
     
     <category term="Layout" scheme="http://yunminitools.cn/tags/Layout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零搭建基于 AI GitHub 分析平台 (17) 保存答案</title>
-    <link href="http://yunminitools.cn/2025/03/30/build-a-AI-github-platform-from-scratch-17/"/>
-    <id>http://yunminitools.cn/2025/03/30/build-a-AI-github-platform-from-scratch-17/</id>
-    <published>2025-03-30T03:39:04.000Z</published>
-    <updated>2025-03-30T03:39:43.024Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;添加-saveAnswer-函数&quot;&gt;添加 saveAnswer 函数&lt;/h2&gt;
-&lt;p&gt;修改 &lt;code&gt;src/server/api/routers/project.ts&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight</summary>
-        
-      
-    
-    
-    
-    <category term="从零搭建" scheme="http://yunminitools.cn/categories/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="NextJS" scheme="http://yunminitools.cn/tags/NextJS/"/>
-    
-    <category term="Prisma" scheme="http://yunminitools.cn/tags/Prisma/"/>
     
   </entry>
   
