@@ -6636,7 +6636,7 @@ F(router/index.js 配置路由)-->C</pre>
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/03/29/how-to-refresh-prisma-updated-table-fields/" title="如何刷新 VS Code 中 Prisma 更新的表和字段">如何刷新 VS Code 中 Prisma 更新的表和字段</a></em><br>
+<em>出处：<a href="/2026/07/25/Vibe-Coding-Hexo-Admin/" title="Hexo Admin - 写Hexo Blog 的新选择 （Vibe Coding）">Hexo Admin - 写Hexo Blog 的新选择 （Vibe Coding）</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -17521,7 +17521,7 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
 <hr>
 <blockquote>
 <p><em>作者：Bearalise</em><br>
-<em>出处：<a href="/2025/03/29/how-to-refresh-prisma-updated-table-fields/" title="如何刷新 VS Code 中 Prisma 更新的表和字段">如何刷新 VS Code 中 Prisma 更新的表和字段</a></em><br>
+<em>出处：<a href="/2026/07/27/reduce-claude-code-prompt/" title="Claude Code删掉了80%系统提示词">Claude Code删掉了80%系统提示词</a></em><br>
 <em>版权：本文版权归作者所有</em><br>
 <em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
 </blockquote>
@@ -17575,6 +17575,14 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
 <p>学习优先级应按工作刚需倒排：应用层工具（Gemini/NotebookLM）→ 工具层核心能力（Prompt/RAG/Agent）→ 思维层基础原理（token/context/幻觉机制），而非追逐所有新词。</p>
 </li>
 </ul>
+<span id="more"></span>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2026/07/29/ai-slang-map/" title="AI黑话地图">AI黑话地图</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>当日所学</category>
@@ -17593,6 +17601,14 @@ MinIO 是一款基于Go语言的高性能对象存储服务，在Github上已有
 打开 PowerShell，复制并运行以下命令（请将其中的 user@remote_host 替换为你的服务器用户名和 IP）：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub | ssh user@remote_host <span class="string">&quot;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys &amp;&amp; chmod 700 ~/.ssh &amp;&amp; chmod 600 ~/.ssh/authorized_keys&quot;</span></span><br></pre></td></tr></table></figure>
 <p><em>注：如果你生成的密钥不是 id_ed25519.pub，请将其替换为你的公钥文件名（如 id_rsa.pub）。</em></p>
+<span id="more"></span>
+<hr>
+<blockquote>
+<p><em>作者：Bearalise</em><br>
+<em>出处：<a href="/2026/08/11/Window-SSH-copy-id/" title="Window SSH 免密登陆 Linux">Window SSH 免密登陆 Linux</a></em><br>
+<em>版权：本文版权归作者所有</em><br>
+<em>转载：欢迎转载，但未经作者同意，必须保留此段声明，必须在文章中给出原文链接。</em></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>当日所学</category>

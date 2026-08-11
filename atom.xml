@@ -6,7 +6,7 @@
   <link href="http://yunminitools.cn/atom.xml" rel="self"/>
   
   <link href="http://yunminitools.cn/"/>
-  <updated>2026-08-11T02:45:54.610Z</updated>
+  <updated>2026-08-11T13:01:41.283Z</updated>
   <id>http://yunminitools.cn/</id>
   
   <author>
@@ -21,18 +21,16 @@
     <link href="http://yunminitools.cn/2026/08/11/Window-SSH-copy-id/"/>
     <id>http://yunminitools.cn/2026/08/11/Window-SSH-copy-id/</id>
     <published>2026-08-11T02:34:55.000Z</published>
-    <updated>2026-08-11T02:45:54.610Z</updated>
+    <updated>2026-08-11T13:01:41.283Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
 &lt;p&gt;一般 我们会用 ssh-copy-id 来复制key，实现免密登陆，但在Window环境下，没有这个命令，也不方便安装 &lt;strong&gt;Git for Windows&lt;/strong&gt;，那如何实现这个功能呢？&lt;/p&gt;
-&lt;h2</summary>
-        
-      
+&lt;h2 id=&quot;替代方案&quot;&gt;替代方案&lt;/h2&gt;
+&lt;p&gt;Windows 11 的 PowerShell 默认支持 ssh，你可以直接运行以下组合命令，效果与 ssh-copy-id 完全相同。&lt;br&gt;
+打开 PowerShell，复制并运行以下命令（请将其中的 user@remote_host 替换为你的服务器用户名和 IP）：&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cat&lt;/span&gt; ~/.ssh/id_ed25519.pub | ssh user@remote_host &lt;span class=&quot;string&quot;&gt;&amp;quot;mkdir -p ~/.ssh &amp;amp;&amp;amp; cat &amp;gt;&amp;gt; ~/.ssh/authorized_keys &amp;amp;&amp;amp; chmod 700 ~/.ssh &amp;amp;&amp;amp; chmod 600 ~/.ssh/authorized_keys&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;em&gt;注：如果你生成的密钥不是 id_ed25519.pub，请将其替换为你的公钥文件名（如 id_rsa.pub）。&lt;/em&gt;&lt;/p&gt;</summary>
     
     
     
@@ -48,16 +46,48 @@
     <link href="http://yunminitools.cn/2026/07/29/ai-slang-map/"/>
     <id>http://yunminitools.cn/2026/07/29/ai-slang-map/</id>
     <published>2026-07-29T06:52:05.000Z</published>
-    <updated>2026-07-29T06:55:09.763Z</updated>
+    <updated>2026-08-11T13:01:13.131Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
+&lt;p&gt;本文构建了AI术语的三层认知框架（思维层→工具层→应用层），系统解析了token、context、幻觉等底层概念，RAG、Agent、Skill、MCP等工具层能力，以及Gemini、NotebookLM等应用层实践，并强调：理解AI“文字接龙”本质是解构黑话的关键，幻觉不可根治需人机协同校验，掌握分层归类法可从容应对持续涌现的新术语。&lt;/p&gt;
+&lt;h3 id=&quot;主要议题与讨论&quot;&gt;主要议题与讨论&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;主题一：AI术语的三层结构化认知框架&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;思维层（最底层抽屉）&lt;/strong&gt;：定义AI“如何想”，核心是大语言模型作为概率驱动的“文字接龙高手”——基于前序文本预测下一token；token是AI处理的最小语义单元（中文中“珠穆朗玛峰”“我吃饭”均可为1 token）；context是AI的有限记忆窗口，决定其理解深度与会话长度；幻觉源于接龙过程中的连续微偏移+上下文压缩丢失，本质是概率模型固有缺陷，无法根治，必须依赖人工复核关键数据与来源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;工具层（中间抽屉）&lt;/strong&gt;：定义AI“能帮你做什么”，聚焦能力模块化封装。Prompt是人机交互的“任务说明书”，非魔法咒语，需精准、结构化；RAG（检索增强生成）使AI具备“开卷考试”能力，通过外挂知识库实现可溯源、高精度响应；Agent是工作流自动化载体，能自主规划、调用工具（如Office/白板）、串联input-output模块，实现“长出手脚”式执行；Skill是结构化方法论沉淀（常为Markdown文档），赋予通用大模型特定岗位能力（如“培训专员”），支持跨平台复用；MCP（Model Context Protocol）是Anthropic提出的通用协议，旨在打通不同大模型与应用软件间的调用桥梁，实现跨生态智能操作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;应用层（最顺手抽屉）&lt;/strong&gt;：定义“你具体打开哪个产品用”，即终端工具。高频使用Gemini（含NotebookLM）、Google Slides AI、Gemini for Workspace（用于数据分析洞察）、AI视频工具等；所有应用均依赖底层模型+工具层能力组合，不同产品集成RAG/Agent/Skill的程度各异，用户感知的是开箱即用的功能（如一键生成PPT、万行数据洞察）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;主题二：落地应用的关键原则与典型场景&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PPT生成场景&lt;/strong&gt;：可行但需前置结构化输入——明确背景、目标受众、大纲逻辑、品牌规范（配色/字体）、参考素材；单句指令（如“生成一套片子”）必然失败，本质是AI辅助“内容生产流水线”而非全自动创作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;数据分析场景&lt;/strong&gt;：Gemini for Workspace可高效处理谷歌表格中上万行数据，自动提炼Data Insight（趋势、异常、关联性），显著提升分析效率，但需人工验证结论合理性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;日常协作场景&lt;/strong&gt;：基于NotebookLM定制SOP查询、合同审查等RAG应用；团队普遍通过Skill封装常用模板（如会议纪要格式、周报框架），通过Agent固化审批流、报告生成等高频工作流。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;主题三：应对术语爆炸的理性策略&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;新词（如Loop Engineering）本质是旧范式在新场景的再包装，90%以上仍归属三层框架内：若涉及自主问题解决框架→归入工具层；若指向具体产品功能→归入应用层；若解释模型机制→归入思维层。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;“黑话地图”的核心价值是提供归类锚点：听到新词时先问“它在解决哪一层的问题？”，再结合“文字接龙”底层逻辑判断其技术实质，避免陷入名词焦虑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;学习优先级应按工作刚需倒排：应用层工具（Gemini/NotebookLM）→ 工具层核心能力（Prompt/RAG/Agent）→ 思维层基础原理（token/context/幻觉机制），而非追逐所有新词。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -73,7 +103,7 @@
     <link href="http://yunminitools.cn/2026/07/27/reduce-claude-code-prompt/"/>
     <id>http://yunminitools.cn/2026/07/27/reduce-claude-code-prompt/</id>
     <published>2026-07-27T12:48:28.000Z</published>
-    <updated>2026-07-27T12:59:45.858Z</updated>
+    <updated>2026-08-11T12:54:52.795Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
@@ -107,7 +137,7 @@
     <link href="http://yunminitools.cn/2026/07/25/Vibe-Coding-Hexo-Admin/"/>
     <id>http://yunminitools.cn/2026/07/25/Vibe-Coding-Hexo-Admin/</id>
     <published>2026-07-25T12:28:21.000Z</published>
-    <updated>2026-07-25T13:05:30.494Z</updated>
+    <updated>2026-08-11T12:54:38.787Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;/h2&gt;
